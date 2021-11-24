@@ -1,0 +1,474 @@
+{
+  "ID": "9e8b289f-95ac-48bc-bfe9-56b2b033dbee",
+  "Version": "2.3.4",
+  "Name": "GUIShareFace",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 119,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "GUIShareFace/bgShare.png",
+              "Plist": ""
+            },
+            "Scale9OriginX": 178,
+            "Scale9OriginY": 123,
+            "Scale9Width": 131,
+            "Scale9Height": 80,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 405.36,
+              "Y": 272.304
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5067,
+              "Y": 0.5673
+            },
+            "PreSize": {
+              "X": 0.6087,
+              "Y": 0.6792
+            },
+            "HorizontalEdge": "BothEdge",
+            "VerticalEdge": "BothEdge",
+            "LeftMargin": 161.86,
+            "RightMargin": 151.14,
+            "TopMargin": 44.696,
+            "BottomMargin": 109.304,
+            "Tag": 120,
+            "Children": [
+              {
+                "ClipAble": false,
+                "BackColorAlpha": 102,
+                "SingleColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "FirstColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "EndColor": {},
+                "ColorVector": {
+                  "ScaleY": 1.0
+                },
+                "Scale9Width": 1,
+                "Scale9Height": 1,
+                "TouchEnable": true,
+                "AnchorPoint": {},
+                "Position": {
+                  "X": 17.5028,
+                  "Y": 27.2179
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0359,
+                  "Y": 0.0835
+                },
+                "PreSize": {
+                  "X": 0.924,
+                  "Y": 0.8282
+                },
+                "LeftMargin": 17.5028,
+                "RightMargin": 19.4972,
+                "TopMargin": 28.7821,
+                "BottomMargin": 27.2179,
+                "Tag": 137,
+                "ActionTag": -1491506277,
+                "Size": {
+                  "X": 450.0,
+                  "Y": 270.0
+                },
+                "Name": "panelImage",
+                "ctype": "PanelObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "GUIShareFace/bgTip.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 243.5,
+                  "Y": 2.9285
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.009
+                },
+                "PreSize": {
+                  "X": 1.0595,
+                  "Y": 0.1043
+                },
+                "LeftMargin": -14.5,
+                "RightMargin": -14.5,
+                "TopMargin": 306.0715,
+                "BottomMargin": -14.0715,
+                "Tag": 110,
+                "ActionTag": -1281016235,
+                "Size": {
+                  "X": 516.0,
+                  "Y": 34.0
+                },
+                "Name": "bgTip_3",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "GUIShareFace/iconShare.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 29.7111,
+                  "Y": 265.5432
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.061,
+                  "Y": 0.8145
+                },
+                "PreSize": {
+                  "X": 0.4538,
+                  "Y": 0.4939
+                },
+                "LeftMargin": -80.7889,
+                "RightMargin": 346.7889,
+                "TopMargin": -20.0432,
+                "BottomMargin": 185.0432,
+                "Tag": 109,
+                "ActionTag": -1127306295,
+                "Size": {
+                  "X": 221.0,
+                  "Y": 161.0
+                },
+                "Name": "iconShare_2",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "GUIShareFace/btnShareNow.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 121,
+                "Scale9Height": 30,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 243.5,
+                  "Y": -47.6528
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": -0.1462
+                },
+                "PreSize": {
+                  "X": 0.3101,
+                  "Y": 0.1595
+                },
+                "LeftMargin": 168.0,
+                "RightMargin": 168.0,
+                "TopMargin": 347.6528,
+                "BottomMargin": -73.6528,
+                "Tag": 122,
+                "ActionTag": -384877785,
+                "Size": {
+                  "X": 151.0,
+                  "Y": 52.0
+                },
+                "Name": "btnShare",
+                "ctype": "ButtonObjectData"
+              },
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Default",
+                  "Path": "Default/Button_Disable.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "Normal",
+                  "Path": "Common/btnClose.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "Common/btnClose.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 16,
+                "Scale9Height": 25,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 505.4221,
+                  "Y": 288.4404
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 1.0378,
+                  "Y": 0.8848
+                },
+                "PreSize": {
+                  "X": 0.0945,
+                  "Y": 0.1442
+                },
+                "LeftMargin": 482.4221,
+                "RightMargin": -41.4221,
+                "TopMargin": 14.0596,
+                "BottomMargin": 264.9404,
+                "Tag": 49,
+                "ActionTag": -1267553022,
+                "Size": {
+                  "X": 46.0,
+                  "Y": 47.0
+                },
+                "Name": "btnClose",
+                "ctype": "ButtonObjectData"
+              },
+              {
+                "FontSize": 16,
+                "LabelText": "Điều kiện: Nhận duy nhất 1 lần trong ngày",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahoma.ttf",
+                  "Plist": ""
+                },
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 243.5,
+                  "Y": 3.8619
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "R": 221,
+                  "G": 176,
+                  "B": 243
+                },
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.0118
+                },
+                "PreSize": {
+                  "X": 0.6612,
+                  "Y": 0.0675
+                },
+                "LeftMargin": 82.5,
+                "RightMargin": 82.5,
+                "TopMargin": 311.1381,
+                "BottomMargin": -7.1381,
+                "Tag": 136,
+                "ActionTag": 1008166759,
+                "Size": {
+                  "X": 322.0,
+                  "Y": 22.0
+                },
+                "Name": "lbPackage_0",
+                "ctype": "TextObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "GUIShareFace/titleShare.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 319.3947,
+                  "Y": 337.0356
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.6558,
+                  "Y": 1.0339
+                },
+                "PreSize": {
+                  "X": 0.5606,
+                  "Y": 0.1871
+                },
+                "LeftMargin": 182.8947,
+                "RightMargin": 31.1053,
+                "TopMargin": -41.5356,
+                "BottomMargin": 306.5356,
+                "Tag": 108,
+                "ActionTag": 609882077,
+                "Size": {
+                  "X": 273.0,
+                  "Y": 61.0
+                },
+                "Name": "titleShare_1",
+                "ctype": "SpriteObjectData"
+              }
+            ],
+            "ActionTag": 805278040,
+            "Size": {
+              "X": 487.0,
+              "Y": 326.0
+            },
+            "Name": "bg",
+            "ctype": "ImageViewObjectData"
+          }
+        ],
+        "Size": {
+          "X": 800.0,
+          "Y": 480.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "Common/btnClose.png",
+        "Default/Button_Disable.png",
+        "Font/tahoma.ttf",
+        "GUIShareFace/bgShare.png",
+        "GUIShareFace/bgTip.png",
+        "GUIShareFace/btnShareNow.png",
+        "GUIShareFace/iconShare.png",
+        "GUIShareFace/titleShare.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

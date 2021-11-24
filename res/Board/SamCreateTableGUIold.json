@@ -1,0 +1,1706 @@
+{
+  "ID": "bad0a6e7-795b-435c-8df6-e424e0079f10",
+  "Version": "2.3.4",
+  "Name": "SamCreateTableGUIold",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 108,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Default",
+              "Path": "Default/ImageFile.png",
+              "Plist": ""
+            },
+            "Scale9OriginX": -132,
+            "Scale9OriginY": -84,
+            "Scale9Width": 310,
+            "Scale9Height": 214,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 401.04,
+              "Y": 239.136
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5013,
+              "Y": 0.4982
+            },
+            "PreSize": {
+              "X": 0.675,
+              "Y": 0.8229
+            },
+            "HorizontalEdge": "BothEdge",
+            "VerticalEdge": "BothEdge",
+            "LeftMargin": 131.04,
+            "RightMargin": 128.96,
+            "TopMargin": 43.364,
+            "BottomMargin": 41.636,
+            "UserData": "scale",
+            "Tag": 109,
+            "Children": [
+              {
+                "FontSize": 18,
+                "LabelText": "Tên bàn :",
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 75.5062,
+                  "Y": 293.8179
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "R": 132,
+                  "G": 140,
+                  "B": 220
+                },
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.1398,
+                  "Y": 0.7438
+                },
+                "PreSize": {
+                  "X": 0.1426,
+                  "Y": 0.0532
+                },
+                "LeftMargin": 37.0062,
+                "RightMargin": 425.9938,
+                "TopMargin": 90.6821,
+                "BottomMargin": 283.3179,
+                "Tag": 288,
+                "ActionTag": -299092433,
+                "Size": {
+                  "X": 77.0,
+                  "Y": 21.0
+                },
+                "Name": "Text_10",
+                "ctype": "TextObjectData"
+              },
+              {
+                "FontSize": 18,
+                "LabelText": "Mức cược :",
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 88.5039,
+                  "Y": 193.695
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "R": 132,
+                  "G": 140,
+                  "B": 220
+                },
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.1639,
+                  "Y": 0.4904
+                },
+                "PreSize": {
+                  "X": 0.1722,
+                  "Y": 0.0532
+                },
+                "LeftMargin": 42.0039,
+                "RightMargin": 404.9961,
+                "TopMargin": 190.805,
+                "BottomMargin": 183.195,
+                "Tag": 290,
+                "ActionTag": -1780136323,
+                "Size": {
+                  "X": 93.0,
+                  "Y": 21.0
+                },
+                "Name": "Text_10_1",
+                "ctype": "TextObjectData"
+              },
+              {
+                "FontSize": 18,
+                "LabelText": "Số người :",
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 84.5038,
+                  "Y": 139.6119
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "R": 132,
+                  "G": 140,
+                  "B": 220
+                },
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.1565,
+                  "Y": 0.3534
+                },
+                "PreSize": {
+                  "X": 0.1574,
+                  "Y": 0.0532
+                },
+                "LeftMargin": 42.0038,
+                "RightMargin": 412.9962,
+                "TopMargin": 244.8881,
+                "BottomMargin": 129.1119,
+                "Tag": 291,
+                "ActionTag": -1641270798,
+                "Size": {
+                  "X": 85.0,
+                  "Y": 21.0
+                },
+                "Name": "Text_10_2",
+                "ctype": "TextObjectData"
+              },
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Default",
+                  "Path": "Default/Button_Disable.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "Normal",
+                  "Path": "CreateTableGUI/ui-tao-ban_0014_button-back-copy-7.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "CreateTableGUI/ui-tao-ban_0014_button-back-copy-7.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 16,
+                "Scale9Height": 25,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 514.1138,
+                  "Y": 368.4152
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.9521,
+                  "Y": 0.9327
+                },
+                "PreSize": {
+                  "X": 0.0852,
+                  "Y": 0.119
+                },
+                "LeftMargin": 491.1138,
+                "RightMargin": 2.8862,
+                "TopMargin": 3.0848,
+                "BottomMargin": 344.9152,
+                "Tag": 110,
+                "ActionTag": -1934875678,
+                "Size": {
+                  "X": 46.0,
+                  "Y": 47.0
+                },
+                "Name": "btnQuit",
+                "ctype": "ButtonObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "CreateTableGUI/ui-tao-ban_0001_Ta-o-Ba-n.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 42,
+                "Scale9OriginY": 15,
+                "Scale9Width": 45,
+                "Scale9Height": 16,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 273.0003,
+                  "Y": 362.0008
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.5056,
+                  "Y": 0.9165
+                },
+                "PreSize": {
+                  "X": 0.2389,
+                  "Y": 0.1165
+                },
+                "LeftMargin": 208.5003,
+                "RightMargin": 202.4997,
+                "TopMargin": 9.9992,
+                "BottomMargin": 339.0008,
+                "Tag": 111,
+                "ActionTag": 879373322,
+                "Size": {
+                  "X": 129.0,
+                  "Y": 46.0
+                },
+                "Name": "title",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "CreateTableGUI/ui-tao-ban_0013_Shape-32.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 95,
+                "Scale9OriginY": 9,
+                "Scale9Width": 147,
+                "Scale9Height": 22,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 324.7126,
+                  "Y": 296.471
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.6013,
+                  "Y": 0.7506
+                },
+                "PreSize": {
+                  "X": 0.6241,
+                  "Y": 0.1013
+                },
+                "LeftMargin": 156.2126,
+                "RightMargin": 46.7874,
+                "TopMargin": 78.529,
+                "BottomMargin": 276.471,
+                "Tag": 119,
+                "ActionTag": 1754186064,
+                "Size": {
+                  "X": 337.0,
+                  "Y": 40.0
+                },
+                "Name": "Image_3_0",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "CreateTableGUI/star.png",
+                  "Plist": ""
+                },
+                "Scale9Width": 28,
+                "Scale9Height": 27,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 283.0,
+                  "Y": 97.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.5241,
+                  "Y": 0.2456
+                },
+                "PreSize": {
+                  "X": 0.0519,
+                  "Y": 0.0684
+                },
+                "LeftMargin": 269.0,
+                "RightMargin": 243.0,
+                "TopMargin": 284.5,
+                "BottomMargin": 83.5,
+                "Tag": 120,
+                "ActionTag": 416966101,
+                "Size": {
+                  "X": 28.0,
+                  "Y": 27.0
+                },
+                "VisibleForFrame": false,
+                "Name": "Image_5",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Default",
+                  "Path": "Default/Button_Disable.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "Normal",
+                  "Path": "CreateTableGUI/ui-tao-ban_0002_Group-1.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "CreateTableGUI/ui-tao-ban_0002_Group-1.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 118,
+                "Scale9Height": 32,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 293.4654,
+                  "Y": 35.4699
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.5435,
+                  "Y": 0.0898
+                },
+                "PreSize": {
+                  "X": 0.2741,
+                  "Y": 0.1367
+                },
+                "LeftMargin": 219.4654,
+                "RightMargin": 172.5346,
+                "TopMargin": 332.5301,
+                "BottomMargin": 8.4699,
+                "Tag": 121,
+                "ActionTag": -1404863961,
+                "Size": {
+                  "X": 148.0,
+                  "Y": 54.0
+                },
+                "Name": "btnOk",
+                "ctype": "ButtonObjectData"
+              },
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Default",
+                  "Path": "Default/Button_Disable.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "Normal",
+                  "Path": "CreateTableGUI/ui-tao-ban_0006_Shape-36-copy-11.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "CreateTableGUI/ui-tao-ban_0006_Shape-36-copy-11.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 119,
+                "Scale9Height": 18,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 229.4998,
+                  "Y": 141.368
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.425,
+                  "Y": 0.3579
+                },
+                "PreSize": {
+                  "X": 0.2759,
+                  "Y": 0.1013
+                },
+                "LeftMargin": 154.9998,
+                "RightMargin": 236.0002,
+                "TopMargin": 233.632,
+                "BottomMargin": 121.368,
+                "Tag": 124,
+                "Children": [
+                  {
+                    "IsCustomSize": true,
+                    "FontSize": 18,
+                    "LabelText": "4 người",
+                    "HorizontalAlignmentType": "HT_Center",
+                    "VerticalAlignmentType": "VT_Center",
+                    "OutlineColor": {
+                      "G": 0,
+                      "B": 0
+                    },
+                    "ShadowColor": {
+                      "R": 110,
+                      "G": 110,
+                      "B": 110
+                    },
+                    "ShadowOffsetX": 2.0,
+                    "ShadowOffsetY": -2.0,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 62.43,
+                      "Y": 19.9043
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {
+                      "R": 240,
+                      "G": 240,
+                      "B": 240
+                    },
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.419,
+                      "Y": 0.4976
+                    },
+                    "PreSize": {
+                      "X": 0.8054,
+                      "Y": 0.575
+                    },
+                    "LeftMargin": 2.43,
+                    "RightMargin": 26.57,
+                    "TopMargin": 8.5957,
+                    "BottomMargin": 8.4043,
+                    "Tag": 293,
+                    "ActionTag": -2042925696,
+                    "Size": {
+                      "X": 120.0,
+                      "Y": 23.0
+                    },
+                    "Name": "lb",
+                    "ctype": "TextObjectData"
+                  },
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "CreateTableGUI/ui-tao-ban_0005_Shape-238-copy-5.png",
+                      "Plist": ""
+                    },
+                    "Scale9OriginX": 6,
+                    "Scale9OriginY": 4,
+                    "Scale9Width": 9,
+                    "Scale9Height": 6,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 131.0,
+                      "Y": 18.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.8792,
+                      "Y": 0.45
+                    },
+                    "PreSize": {
+                      "X": 0.1409,
+                      "Y": 0.35
+                    },
+                    "LeftMargin": 120.5,
+                    "RightMargin": 7.5,
+                    "TopMargin": 15.0,
+                    "BottomMargin": 11.0,
+                    "Tag": 126,
+                    "ActionTag": 1411029258,
+                    "Size": {
+                      "X": 21.0,
+                      "Y": 14.0
+                    },
+                    "Name": "Image_6",
+                    "ctype": "ImageViewObjectData"
+                  }
+                ],
+                "ActionTag": 398765751,
+                "Size": {
+                  "X": 149.0,
+                  "Y": 40.0
+                },
+                "Name": "btnSoNguoi",
+                "ctype": "ButtonObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "CreateTableGUI/ui-tao-ban_0010_Shape-57.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 110,
+                "Scale9OriginY": 13,
+                "Scale9Width": 115,
+                "Scale9Height": 15,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 324.898,
+                  "Y": 205.5069
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.6017,
+                  "Y": 0.5203
+                },
+                "PreSize": {
+                  "X": 0.6204,
+                  "Y": 0.1038
+                },
+                "LeftMargin": 157.398,
+                "RightMargin": 47.602,
+                "TopMargin": 168.9931,
+                "BottomMargin": 185.0069,
+                "Tag": 127,
+                "ActionTag": 878034953,
+                "Size": {
+                  "X": 335.0,
+                  "Y": 41.0
+                },
+                "Name": "Image_7",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "CreateTableGUI/ui-tao-ban_0009_Shape-59-copy-3.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 3,
+                "Scale9OriginY": 3,
+                "Scale9Width": 6,
+                "Scale9Height": 5,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 200.1609,
+                  "Y": 203.5754
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.3707,
+                  "Y": 0.5154
+                },
+                "PreSize": {
+                  "X": 0.0222,
+                  "Y": 0.0278
+                },
+                "LeftMargin": 194.1609,
+                "RightMargin": 333.8391,
+                "TopMargin": 185.9246,
+                "BottomMargin": 198.0754,
+                "Tag": 97,
+                "ActionTag": -2101451445,
+                "Size": {
+                  "X": 12.0,
+                  "Y": 11.0
+                },
+                "Name": "dot1",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "CreateTableGUI/ui-tao-ban_0009_Shape-59-copy-3.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 3,
+                "Scale9OriginY": 3,
+                "Scale9Width": 6,
+                "Scale9Height": 5,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 452.1681,
+                  "Y": 203.5754
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.8373,
+                  "Y": 0.5154
+                },
+                "PreSize": {
+                  "X": 0.0222,
+                  "Y": 0.0278
+                },
+                "LeftMargin": 446.1681,
+                "RightMargin": 81.8319,
+                "TopMargin": 185.9246,
+                "BottomMargin": 198.0754,
+                "Tag": 98,
+                "ActionTag": -1603181346,
+                "Size": {
+                  "X": 12.0,
+                  "Y": 11.0
+                },
+                "Name": "dot2",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "CreateTableGUI/ui-tao-ban_0011_Shape-56-copy-5.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 31,
+                "Scale9OriginY": 15,
+                "Scale9Width": 34,
+                "Scale9Height": 16,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 346.8742,
+                  "Y": 194.9135
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.6424,
+                  "Y": 0.4935
+                },
+                "PreSize": {
+                  "X": 0.1778,
+                  "Y": 0.1165
+                },
+                "LeftMargin": 298.8742,
+                "RightMargin": 145.1258,
+                "TopMargin": 177.0865,
+                "BottomMargin": 171.9135,
+                "Tag": 128,
+                "Children": [
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "CreateTableGUI/t_0001_Layer-3-copy.png",
+                      "Plist": ""
+                    },
+                    "Scale9OriginX": 7,
+                    "Scale9OriginY": 7,
+                    "Scale9Width": 14,
+                    "Scale9Height": 15,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 48.4137,
+                      "Y": 67.0148
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.5043,
+                      "Y": 1.4568
+                    },
+                    "PreSize": {
+                      "X": 0.0,
+                      "Y": 0.0
+                    },
+                    "LeftMargin": 48.4137,
+                    "RightMargin": 47.5863,
+                    "TopMargin": -21.0148,
+                    "BottomMargin": 67.0148,
+                    "Tag": 129,
+                    "Children": [
+                      {
+                        "FileData": {
+                          "Type": "Normal",
+                          "Path": "CreateTableGUI/t_0000_Layer-2.png",
+                          "Plist": ""
+                        },
+                        "Scale9OriginX": 5,
+                        "Scale9OriginY": 2,
+                        "Scale9Width": 7,
+                        "Scale9Height": 5,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 29.8,
+                          "Y": -4.0
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.0,
+                          "Y": 0.0
+                        },
+                        "PreSize": {
+                          "X": 0.0,
+                          "Y": 0.0
+                        },
+                        "LeftMargin": 21.3,
+                        "RightMargin": -38.3,
+                        "TopMargin": -0.5,
+                        "BottomMargin": -8.5,
+                        "Tag": 130,
+                        "ActionTag": 169971285,
+                        "Size": {
+                          "X": 17.0,
+                          "Y": 9.0
+                        },
+                        "VisibleForFrame": false,
+                        "Name": "arrow",
+                        "ctype": "ImageViewObjectData"
+                      },
+                      {
+                        "IsCustomSize": true,
+                        "FontSize": 18,
+                        "LabelText": "5.000.000.000",
+                        "HorizontalAlignmentType": "HT_Center",
+                        "OutlineColor": {
+                          "G": 0,
+                          "B": 0
+                        },
+                        "ShadowColor": {
+                          "R": 110,
+                          "G": 110,
+                          "B": 110
+                        },
+                        "ShadowOffsetX": 2.0,
+                        "ShadowOffsetY": -2.0,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 0.0003,
+                          "Y": -10.0224
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {
+                          "G": 186,
+                          "B": 0
+                        },
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.0,
+                          "Y": 0.0
+                        },
+                        "PreSize": {
+                          "X": 0.0,
+                          "Y": 0.0
+                        },
+                        "LeftMargin": -74.9997,
+                        "RightMargin": -75.0003,
+                        "TopMargin": -1.4776,
+                        "BottomMargin": -21.5224,
+                        "Tag": 294,
+                        "ActionTag": 120657208,
+                        "Size": {
+                          "X": 150.0,
+                          "Y": 23.0
+                        },
+                        "Name": "gold",
+                        "ctype": "TextObjectData"
+                      }
+                    ],
+                    "ActionTag": -1341934781,
+                    "Size": {
+                      "X": 0.0,
+                      "Y": 0.0
+                    },
+                    "Name": "bet",
+                    "ctype": "ImageViewObjectData"
+                  }
+                ],
+                "ActionTag": 1846081292,
+                "Size": {
+                  "X": 96.0,
+                  "Y": 46.0
+                },
+                "Name": "select",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahoma.ttf",
+                  "Plist": ""
+                },
+                "FontSize": 20,
+                "IsCustomSize": true,
+                "LabelText": "",
+                "PlaceHolderText": "Tên bàn chơi",
+                "MaxLengthText": 10,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 320.6067,
+                  "Y": 295.5682
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "R": 203,
+                  "G": 204,
+                  "B": 206
+                },
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.5937,
+                  "Y": 0.7483
+                },
+                "PreSize": {
+                  "X": 0.5926,
+                  "Y": 0.0608
+                },
+                "LeftMargin": 160.6067,
+                "RightMargin": 59.3933,
+                "TopMargin": 87.4318,
+                "BottomMargin": 283.5682,
+                "Tag": 132,
+                "ActionTag": -236349556,
+                "Size": {
+                  "X": 320.0,
+                  "Y": 24.0
+                },
+                "Name": "tfTenban",
+                "ctype": "TextFieldObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "CreateTableGUI/t1_0001_Shape-32-copy-2.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 166,
+                "Scale9OriginY": 20,
+                "Scale9Width": 157,
+                "Scale9Height": 40,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 271.0137,
+                  "Y": 73.972
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.5019,
+                  "Y": 0.1873
+                },
+                "PreSize": {
+                  "X": 0.9056,
+                  "Y": 0.2025
+                },
+                "LeftMargin": 26.5137,
+                "RightMargin": 24.4863,
+                "TopMargin": 281.028,
+                "BottomMargin": 33.972,
+                "Tag": 232,
+                "Children": [
+                  {
+                    "FontSize": 14,
+                    "ButtonText": "",
+                    "TextColor": {
+                      "R": 65,
+                      "G": 65,
+                      "B": 70
+                    },
+                    "DisabledFileData": {
+                      "Type": "Default",
+                      "Path": "Default/Button_Disable.png",
+                      "Plist": ""
+                    },
+                    "PressedFileData": {
+                      "Type": "Normal",
+                      "Path": "CreateTableGUI/ui-tao-ban_0006_Shape-36-copy-11.png",
+                      "Plist": ""
+                    },
+                    "NormalFileData": {
+                      "Type": "Normal",
+                      "Path": "CreateTableGUI/ui-tao-ban_0006_Shape-36-copy-11.png",
+                      "Plist": ""
+                    },
+                    "Scale9Enable": true,
+                    "Scale9OriginX": 15,
+                    "Scale9OriginY": 11,
+                    "Scale9Width": 119,
+                    "Scale9Height": 18,
+                    "OutlineColor": {
+                      "G": 0,
+                      "B": 0
+                    },
+                    "ShadowColor": {
+                      "R": 110,
+                      "G": 110,
+                      "B": 110
+                    },
+                    "ShadowOffsetX": 2.0,
+                    "ShadowOffsetY": -2.0,
+                    "TouchEnable": true,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 90.0841,
+                      "Y": 42.893
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.1842,
+                      "Y": 0.5362
+                    },
+                    "PreSize": {
+                      "X": 0.3047,
+                      "Y": 0.5
+                    },
+                    "LeftMargin": 15.5841,
+                    "RightMargin": 324.4159,
+                    "TopMargin": 17.107,
+                    "BottomMargin": 22.893,
+                    "Tag": 234,
+                    "Children": [
+                      {
+                        "IsCustomSize": true,
+                        "FontSize": 18,
+                        "LabelText": "2 người",
+                        "FontResource": {
+                          "Type": "Normal",
+                          "Path": "Font/tahoma.ttf",
+                          "Plist": ""
+                        },
+                        "HorizontalAlignmentType": "HT_Center",
+                        "VerticalAlignmentType": "VT_Center",
+                        "OutlineColor": {
+                          "G": 0,
+                          "B": 0
+                        },
+                        "ShadowColor": {
+                          "R": 110,
+                          "G": 110,
+                          "B": 110
+                        },
+                        "ShadowOffsetX": 2.0,
+                        "ShadowOffsetY": -2.0,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 77.0,
+                          "Y": 19.5
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {
+                          "R": 240,
+                          "G": 240,
+                          "B": 240
+                        },
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.5168,
+                          "Y": 0.4875
+                        },
+                        "PreSize": {
+                          "X": 0.8054,
+                          "Y": 0.575
+                        },
+                        "LeftMargin": 17.0,
+                        "RightMargin": 12.0,
+                        "TopMargin": 9.0,
+                        "BottomMargin": 8.0,
+                        "Tag": 296,
+                        "ActionTag": -1283849840,
+                        "Size": {
+                          "X": 120.0,
+                          "Y": 23.0
+                        },
+                        "Name": "lb_0",
+                        "ctype": "TextObjectData"
+                      }
+                    ],
+                    "ActionTag": -1607334871,
+                    "Size": {
+                      "X": 149.0,
+                      "Y": 40.0
+                    },
+                    "Name": "btn2",
+                    "ctype": "ButtonObjectData"
+                  },
+                  {
+                    "FontSize": 14,
+                    "ButtonText": "",
+                    "TextColor": {
+                      "R": 65,
+                      "G": 65,
+                      "B": 70
+                    },
+                    "DisabledFileData": {
+                      "Type": "Default",
+                      "Path": "Default/Button_Disable.png",
+                      "Plist": ""
+                    },
+                    "PressedFileData": {
+                      "Type": "Normal",
+                      "Path": "CreateTableGUI/ui-tao-ban_0006_Shape-36-copy-11.png",
+                      "Plist": ""
+                    },
+                    "NormalFileData": {
+                      "Type": "Normal",
+                      "Path": "CreateTableGUI/ui-tao-ban_0006_Shape-36-copy-11.png",
+                      "Plist": ""
+                    },
+                    "Scale9Enable": true,
+                    "Scale9OriginX": 15,
+                    "Scale9OriginY": 11,
+                    "Scale9Width": 119,
+                    "Scale9Height": 18,
+                    "OutlineColor": {
+                      "G": 0,
+                      "B": 0
+                    },
+                    "ShadowColor": {
+                      "R": 110,
+                      "G": 110,
+                      "B": 110
+                    },
+                    "ShadowOffsetX": 2.0,
+                    "ShadowOffsetY": -2.0,
+                    "TouchEnable": true,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 244.961,
+                      "Y": 42.893
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.5009,
+                      "Y": 0.5362
+                    },
+                    "PreSize": {
+                      "X": 0.3047,
+                      "Y": 0.5
+                    },
+                    "LeftMargin": 170.461,
+                    "RightMargin": 169.539,
+                    "TopMargin": 17.107,
+                    "BottomMargin": 22.893,
+                    "Tag": 237,
+                    "Children": [
+                      {
+                        "IsCustomSize": true,
+                        "FontSize": 18,
+                        "LabelText": "3 người",
+                        "FontResource": {
+                          "Type": "Normal",
+                          "Path": "Font/tahoma.ttf",
+                          "Plist": ""
+                        },
+                        "HorizontalAlignmentType": "HT_Center",
+                        "VerticalAlignmentType": "VT_Center",
+                        "OutlineColor": {
+                          "G": 0,
+                          "B": 0
+                        },
+                        "ShadowColor": {
+                          "R": 110,
+                          "G": 110,
+                          "B": 110
+                        },
+                        "ShadowOffsetX": 2.0,
+                        "ShadowOffsetY": -2.0,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 74.3357,
+                          "Y": 20.4997
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {
+                          "R": 240,
+                          "G": 240,
+                          "B": 240
+                        },
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.4989,
+                          "Y": 0.5125
+                        },
+                        "PreSize": {
+                          "X": 0.8054,
+                          "Y": 0.575
+                        },
+                        "LeftMargin": 14.3357,
+                        "RightMargin": 14.6643,
+                        "TopMargin": 8.0003,
+                        "BottomMargin": 8.9997,
+                        "Tag": 297,
+                        "ActionTag": 1818067475,
+                        "Size": {
+                          "X": 120.0,
+                          "Y": 23.0
+                        },
+                        "Name": "lb_0_0",
+                        "ctype": "TextObjectData"
+                      }
+                    ],
+                    "ActionTag": -1796429583,
+                    "Size": {
+                      "X": 149.0,
+                      "Y": 40.0
+                    },
+                    "Name": "btn3",
+                    "ctype": "ButtonObjectData"
+                  },
+                  {
+                    "FontSize": 14,
+                    "ButtonText": "",
+                    "TextColor": {
+                      "R": 65,
+                      "G": 65,
+                      "B": 70
+                    },
+                    "DisabledFileData": {
+                      "Type": "Default",
+                      "Path": "Default/Button_Disable.png",
+                      "Plist": ""
+                    },
+                    "PressedFileData": {
+                      "Type": "Normal",
+                      "Path": "CreateTableGUI/ui-tao-ban_0006_Shape-36-copy-11.png",
+                      "Plist": ""
+                    },
+                    "NormalFileData": {
+                      "Type": "Normal",
+                      "Path": "CreateTableGUI/ui-tao-ban_0006_Shape-36-copy-11.png",
+                      "Plist": ""
+                    },
+                    "Scale9Enable": true,
+                    "Scale9OriginX": 15,
+                    "Scale9OriginY": 11,
+                    "Scale9Width": 119,
+                    "Scale9Height": 18,
+                    "OutlineColor": {
+                      "G": 0,
+                      "B": 0
+                    },
+                    "ShadowColor": {
+                      "R": 110,
+                      "G": 110,
+                      "B": 110
+                    },
+                    "ShadowOffsetX": 2.0,
+                    "ShadowOffsetY": -2.0,
+                    "TouchEnable": true,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 398.8346,
+                      "Y": 42.893
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.8156,
+                      "Y": 0.5362
+                    },
+                    "PreSize": {
+                      "X": 0.3047,
+                      "Y": 0.5
+                    },
+                    "LeftMargin": 324.3346,
+                    "RightMargin": 15.6654,
+                    "TopMargin": 17.107,
+                    "BottomMargin": 22.893,
+                    "Tag": 239,
+                    "Children": [
+                      {
+                        "IsCustomSize": true,
+                        "FontSize": 18,
+                        "LabelText": "4 người",
+                        "FontResource": {
+                          "Type": "Normal",
+                          "Path": "Font/tahoma.ttf",
+                          "Plist": ""
+                        },
+                        "HorizontalAlignmentType": "HT_Center",
+                        "VerticalAlignmentType": "VT_Center",
+                        "OutlineColor": {
+                          "G": 0,
+                          "B": 0
+                        },
+                        "ShadowColor": {
+                          "R": 110,
+                          "G": 110,
+                          "B": 110
+                        },
+                        "ShadowOffsetX": 2.0,
+                        "ShadowOffsetY": -2.0,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 77.0,
+                          "Y": 19.5
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {
+                          "R": 240,
+                          "G": 240,
+                          "B": 240
+                        },
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.5168,
+                          "Y": 0.4875
+                        },
+                        "PreSize": {
+                          "X": 0.8054,
+                          "Y": 0.575
+                        },
+                        "LeftMargin": 17.0,
+                        "RightMargin": 12.0,
+                        "TopMargin": 9.0,
+                        "BottomMargin": 8.0,
+                        "Tag": 298,
+                        "ActionTag": 1419732379,
+                        "Size": {
+                          "X": 120.0,
+                          "Y": 23.0
+                        },
+                        "Name": "lb_0_0",
+                        "ctype": "TextObjectData"
+                      }
+                    ],
+                    "ActionTag": -304598105,
+                    "Size": {
+                      "X": 149.0,
+                      "Y": 40.0
+                    },
+                    "Name": "btn4",
+                    "ctype": "ButtonObjectData"
+                  }
+                ],
+                "ActionTag": 1990466324,
+                "Size": {
+                  "X": 489.0,
+                  "Y": 80.0
+                },
+                "Name": "bgPerson",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "CreateTableGUI/ui-tao-ban_0008_Shape-32-copy-8.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 59,
+                "Scale9OriginY": 13,
+                "Scale9Width": 61,
+                "Scale9Height": 14,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 400.1262,
+                  "Y": 141.3394
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.741,
+                  "Y": 0.3578
+                },
+                "PreSize": {
+                  "X": 0.3315,
+                  "Y": 0.1013
+                },
+                "LeftMargin": 310.6262,
+                "RightMargin": 50.3738,
+                "TopMargin": 233.6606,
+                "BottomMargin": 121.3394,
+                "Tag": 426,
+                "Children": [
+                  {
+                    "FontResource": {
+                      "Type": "Normal",
+                      "Path": "Font/tahoma.ttf",
+                      "Plist": ""
+                    },
+                    "FontSize": 17,
+                    "IsCustomSize": true,
+                    "LabelText": "",
+                    "PlaceHolderText": "Mật khẩu",
+                    "MaxLengthText": 10,
+                    "PasswordEnable": true,
+                    "TouchEnable": true,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 70.8257,
+                      "Y": 17.8097
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {
+                      "R": 203,
+                      "G": 204,
+                      "B": 206
+                    },
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.3957,
+                      "Y": 0.4452
+                    },
+                    "PreSize": {
+                      "X": 0.6872,
+                      "Y": 0.575
+                    },
+                    "LeftMargin": 9.3257,
+                    "RightMargin": 46.6743,
+                    "TopMargin": 10.6903,
+                    "BottomMargin": 6.3097,
+                    "Tag": 427,
+                    "ActionTag": 495967395,
+                    "Size": {
+                      "X": 123.0,
+                      "Y": 23.0
+                    },
+                    "Name": "pass",
+                    "ctype": "TextFieldObjectData"
+                  },
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "CreateTableGUI/ui-tao-ban_0007_Shape-232.png",
+                      "Plist": ""
+                    },
+                    "Scale9OriginX": 7,
+                    "Scale9OriginY": 8,
+                    "Scale9Width": 8,
+                    "Scale9Height": 9,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 159.9423,
+                      "Y": 20.8096
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.8935,
+                      "Y": 0.5202
+                    },
+                    "PreSize": {
+                      "X": 0.1229,
+                      "Y": 0.625
+                    },
+                    "LeftMargin": 148.9423,
+                    "RightMargin": 8.0577,
+                    "TopMargin": 6.6904,
+                    "BottomMargin": 8.3096,
+                    "Tag": 428,
+                    "ActionTag": -1534102947,
+                    "Size": {
+                      "X": 22.0,
+                      "Y": 25.0
+                    },
+                    "Name": "lock",
+                    "ctype": "ImageViewObjectData"
+                  }
+                ],
+                "ActionTag": 850493560,
+                "Size": {
+                  "X": 179.0,
+                  "Y": 40.0
+                },
+                "Name": "bgPass",
+                "ctype": "ImageViewObjectData"
+              }
+            ],
+            "ActionTag": -691541395,
+            "Size": {
+              "X": 540.0,
+              "Y": 395.0
+            },
+            "Name": "bg",
+            "ctype": "ImageViewObjectData"
+          }
+        ],
+        "Size": {
+          "X": 1200.0,
+          "Y": 720.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "CreateTableGUI/star.png",
+        "CreateTableGUI/t_0000_Layer-2.png",
+        "CreateTableGUI/t_0001_Layer-3-copy.png",
+        "CreateTableGUI/t1_0001_Shape-32-copy-2.png",
+        "CreateTableGUI/ui-tao-ban_0001_Ta-o-Ba-n.png",
+        "CreateTableGUI/ui-tao-ban_0002_Group-1.png",
+        "CreateTableGUI/ui-tao-ban_0005_Shape-238-copy-5.png",
+        "CreateTableGUI/ui-tao-ban_0006_Shape-36-copy-11.png",
+        "CreateTableGUI/ui-tao-ban_0007_Shape-232.png",
+        "CreateTableGUI/ui-tao-ban_0008_Shape-32-copy-8.png",
+        "CreateTableGUI/ui-tao-ban_0009_Shape-59-copy-3.png",
+        "CreateTableGUI/ui-tao-ban_0010_Shape-57.png",
+        "CreateTableGUI/ui-tao-ban_0011_Shape-56-copy-5.png",
+        "CreateTableGUI/ui-tao-ban_0013_Shape-32.png",
+        "CreateTableGUI/ui-tao-ban_0014_button-back-copy-7.png",
+        "Default/Button_Disable.png",
+        "Default/ImageFile.png",
+        "Font/tahoma.ttf"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

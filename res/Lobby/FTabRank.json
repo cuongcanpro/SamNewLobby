@@ -1,0 +1,420 @@
+{
+  "ID": "2ee80fa8-d315-4c15-8228-25f610a9fbfb",
+  "Version": "2.3.4",
+  "Name": "FTabRank",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 67,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "GUIMinigame/BXH_Black.png",
+              "Plist": ""
+            },
+            "Scale9OriginX": 264,
+            "Scale9OriginY": 13,
+            "Scale9Width": 272,
+            "Scale9Height": 18,
+            "StretchWidthEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 1.0
+            },
+            "Position": {
+              "X": 400.0,
+              "Y": 400.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.8333
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 0.0917
+            },
+            "HorizontalEdge": "BothEdge",
+            "VerticalEdge": "TopEdge",
+            "TopMargin": 80.0,
+            "BottomMargin": 356.0,
+            "UserData": "scaleY",
+            "Tag": 93,
+            "ActionTag": 34695519,
+            "Size": {
+              "X": 800.0,
+              "Y": 44.0
+            },
+            "Name": "pTab",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FontSize": 14,
+            "ButtonText": "",
+            "TextColor": {
+              "R": 65,
+              "G": 65,
+              "B": 70
+            },
+            "DisabledFileData": {
+              "Type": "Default",
+              "Path": "Default/Button_Disable.png",
+              "Plist": ""
+            },
+            "PressedFileData": {
+              "Type": "Normal",
+              "Path": "GUIMinigame/tabDeSelect.png",
+              "Plist": ""
+            },
+            "NormalFileData": {
+              "Type": "Normal",
+              "Path": "GUIMinigame/tabDeSelect.png",
+              "Plist": ""
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 370,
+            "Scale9Height": 21,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 1.0
+            },
+            "Position": {
+              "X": 601.3199,
+              "Y": 398.9999
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7516,
+              "Y": 0.8312
+            },
+            "PreSize": {
+              "X": 0.5,
+              "Y": 0.0896
+            },
+            "LeftMargin": 401.3199,
+            "RightMargin": -1.3199,
+            "TopMargin": 81.0001,
+            "BottomMargin": 355.9999,
+            "Tag": 92,
+            "ActionTag": -1608262183,
+            "Size": {
+              "X": 400.0,
+              "Y": 43.0
+            },
+            "Name": "tabXuixeo",
+            "ctype": "ButtonObjectData"
+          },
+          {
+            "FontSize": 14,
+            "ButtonText": "",
+            "TextColor": {
+              "R": 65,
+              "G": 65,
+              "B": 70
+            },
+            "DisabledFileData": {
+              "Type": "Default",
+              "Path": "Default/Button_Disable.png",
+              "Plist": ""
+            },
+            "PressedFileData": {
+              "Type": "Normal",
+              "Path": "GUIMinigame/tabSelect.png",
+              "Plist": ""
+            },
+            "NormalFileData": {
+              "Type": "Normal",
+              "Path": "GUIMinigame/tabSelect.png",
+              "Plist": ""
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 370,
+            "Scale9Height": 21,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 1.0
+            },
+            "Position": {
+              "X": 201.3154,
+              "Y": 398.9999
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2516,
+              "Y": 0.8312
+            },
+            "PreSize": {
+              "X": 0.5,
+              "Y": 0.0896
+            },
+            "LeftMargin": 1.3154,
+            "RightMargin": 398.6846,
+            "TopMargin": 81.0001,
+            "BottomMargin": 355.9999,
+            "Tag": 91,
+            "ActionTag": 1902375102,
+            "Size": {
+              "X": 400.0,
+              "Y": 43.0
+            },
+            "Name": "tabCaothu",
+            "ctype": "ButtonObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "GUIMinigame/tabCaoThuNormal.png",
+              "Plist": ""
+            },
+            "Scale9OriginX": 41,
+            "Scale9OriginY": 7,
+            "Scale9Width": 44,
+            "Scale9Height": 10,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 198.0,
+              "Y": 376.5
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2475,
+              "Y": 0.7844
+            },
+            "PreSize": {
+              "X": 0.1575,
+              "Y": 0.05
+            },
+            "LeftMargin": 135.0,
+            "RightMargin": 539.0,
+            "TopMargin": 91.5,
+            "BottomMargin": 364.5,
+            "UserData": "scale",
+            "Tag": 97,
+            "ActionTag": -1932409533,
+            "Size": {
+              "X": 126.0,
+              "Y": 24.0
+            },
+            "Name": "tabCaothu0",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "GUIMinigame/tabCaoThuSelect.png",
+              "Plist": ""
+            },
+            "Scale9OriginX": 41,
+            "Scale9OriginY": 7,
+            "Scale9Width": 44,
+            "Scale9Height": 10,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 198.0,
+              "Y": 376.5
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2475,
+              "Y": 0.7844
+            },
+            "PreSize": {
+              "X": 0.1575,
+              "Y": 0.05
+            },
+            "LeftMargin": 135.0,
+            "RightMargin": 539.0,
+            "TopMargin": 91.5,
+            "BottomMargin": 364.5,
+            "UserData": "scale",
+            "Tag": 98,
+            "ActionTag": -1931840690,
+            "Size": {
+              "X": 126.0,
+              "Y": 24.0
+            },
+            "Name": "tabCaothu1",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "GUIMinigame/tabXuiXeoNormal.png",
+              "Plist": ""
+            },
+            "Scale9OriginX": 41,
+            "Scale9OriginY": 7,
+            "Scale9Width": 38,
+            "Scale9Height": 10,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 619.5,
+              "Y": 377.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7744,
+              "Y": 0.7854
+            },
+            "PreSize": {
+              "X": 0.15,
+              "Y": 0.05
+            },
+            "LeftMargin": 559.5,
+            "RightMargin": 120.5,
+            "TopMargin": 91.0,
+            "BottomMargin": 365.0,
+            "UserData": "scale",
+            "Tag": 99,
+            "ActionTag": -1473743110,
+            "Size": {
+              "X": 120.0,
+              "Y": 24.0
+            },
+            "Name": "tabXuixeo0",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "GUIMinigame/tabXuiXeoSelect.png",
+              "Plist": ""
+            },
+            "Scale9OriginX": 41,
+            "Scale9OriginY": 7,
+            "Scale9Width": 38,
+            "Scale9Height": 10,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 619.5,
+              "Y": 377.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7744,
+              "Y": 0.7854
+            },
+            "PreSize": {
+              "X": 0.15,
+              "Y": 0.05
+            },
+            "LeftMargin": 559.5,
+            "RightMargin": 120.5,
+            "TopMargin": 91.0,
+            "BottomMargin": 365.0,
+            "UserData": "scale",
+            "Tag": 100,
+            "ActionTag": -1451191881,
+            "Size": {
+              "X": 120.0,
+              "Y": 24.0
+            },
+            "Name": "tabXuixeo1",
+            "ctype": "ImageViewObjectData"
+          }
+        ],
+        "Size": {
+          "X": 800.0,
+          "Y": 480.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "Default/Button_Disable.png",
+        "GUIMinigame/BXH_Black.png",
+        "GUIMinigame/tabCaoThuNormal.png",
+        "GUIMinigame/tabCaoThuSelect.png",
+        "GUIMinigame/tabDeSelect.png",
+        "GUIMinigame/tabSelect.png",
+        "GUIMinigame/tabXuiXeoNormal.png",
+        "GUIMinigame/tabXuiXeoSelect.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}

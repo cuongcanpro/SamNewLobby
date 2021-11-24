@@ -1,0 +1,292 @@
+{
+  "ID": "dec6a7b8-bb93-46bb-9c12-ff3bc5584483",
+  "Version": "2.3.4",
+  "Name": "PopupEventFanpage",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "PopupEventFanpage/bg.png",
+              "Plist": ""
+            },
+            "Scale9OriginX": 264,
+            "Scale9OriginY": 158,
+            "Scale9Width": 272,
+            "Scale9Height": 134,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 400.0,
+              "Y": 240.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PositionPercentYEnabled": true,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.5
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 0.9375
+            },
+            "TopMargin": 15.0,
+            "BottomMargin": 15.0,
+            "UserData": "scale",
+            "Tag": 2,
+            "Children": [
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Normal",
+                  "Path": "PopupEventFanpage/btnClose.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "Normal",
+                  "Path": "PopupEventFanpage/btnClose.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "PopupEventFanpage/btnClose.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 14,
+                "Scale9OriginY": 11,
+                "Scale9Width": 1,
+                "Scale9Height": 7,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 581.2648,
+                  "Y": 375.4323
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.7266,
+                  "Y": 0.8343
+                },
+                "PreSize": {
+                  "X": 0.0362,
+                  "Y": 0.0644
+                },
+                "LeftMargin": 566.7648,
+                "RightMargin": 204.2352,
+                "TopMargin": 60.0677,
+                "BottomMargin": 360.9323,
+                "Tag": 3,
+                "ActionTag": 1689036536,
+                "Size": {
+                  "X": 29.0,
+                  "Y": 29.0
+                },
+                "Name": "btnClose",
+                "ctype": "ButtonObjectData"
+              },
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Default",
+                  "Path": "Default/Button_Disable.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "Normal",
+                  "Path": "PopupEventFanpage/btnEnterFanpage.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "PopupEventFanpage/btnEnterFanpage.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 181,
+                "Scale9Height": 44,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 337.6586,
+                  "Y": 171.9811
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.4221,
+                  "Y": 0.3822
+                },
+                "PreSize": {
+                  "X": 0.2637,
+                  "Y": 0.1467
+                },
+                "LeftMargin": 232.1586,
+                "RightMargin": 356.8414,
+                "TopMargin": 245.0189,
+                "BottomMargin": 138.9811,
+                "Tag": 4,
+                "ActionTag": 1520160087,
+                "Size": {
+                  "X": 211.0,
+                  "Y": 66.0
+                },
+                "Name": "btnEnterFanpage",
+                "ctype": "ButtonObjectData"
+              },
+              {
+                "IsCustomSize": true,
+                "FontSize": 16,
+                "LabelText": "Thời gian: 21/11 - 01/12/2019",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahomabd.ttf",
+                  "Plist": ""
+                },
+                "HorizontalAlignmentType": "HT_Center",
+                "VerticalAlignmentType": "VT_Center",
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 391.0002,
+                  "Y": 25.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "RotationSkewX": 5.0001,
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.4888,
+                  "Y": 0.0556
+                },
+                "PreSize": {
+                  "X": 0.375,
+                  "Y": 0.0556
+                },
+                "LeftMargin": 241.0002,
+                "RightMargin": 258.9998,
+                "TopMargin": 412.5,
+                "BottomMargin": 12.5,
+                "Tag": 5,
+                "ActionTag": 820699026,
+                "Size": {
+                  "X": 300.0,
+                  "Y": 25.0
+                },
+                "VisibleForFrame": false,
+                "Name": "txtTimeEvent",
+                "ctype": "TextObjectData"
+              }
+            ],
+            "ActionTag": 458324815,
+            "Size": {
+              "X": 800.0,
+              "Y": 450.0
+            },
+            "Name": "bg",
+            "ctype": "ImageViewObjectData"
+          }
+        ],
+        "Size": {
+          "X": 800.0,
+          "Y": 480.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "Default/Button_Disable.png",
+        "Font/tahomabd.ttf",
+        "PopupEventFanpage/bg.png",
+        "PopupEventFanpage/btnClose.png",
+        "PopupEventFanpage/btnEnterFanpage.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}

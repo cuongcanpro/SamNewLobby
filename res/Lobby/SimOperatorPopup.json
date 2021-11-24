@@ -1,0 +1,633 @@
+{
+  "ID": "e4ce0695-e5fc-4ca5-82ab-eb00fdcc10cb",
+  "Version": "2.3.4",
+  "Name": "SimOperatorPopup",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 127,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ShopIAP/bgGUIMaintain.png",
+              "Plist": ""
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 15,
+            "Scale9Width": 508,
+            "Scale9Height": 238,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 400.0,
+              "Y": 249.984
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.5208
+            },
+            "PreSize": {
+              "X": 0.6725,
+              "Y": 0.5583
+            },
+            "HorizontalEdge": "BothEdge",
+            "VerticalEdge": "BothEdge",
+            "LeftMargin": 131.0,
+            "RightMargin": 131.0,
+            "TopMargin": 96.016,
+            "BottomMargin": 115.984,
+            "UserData": "scale",
+            "Tag": 128,
+            "Children": [
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "ShopIAP/titleNetwork.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 72,
+                "Scale9OriginY": 13,
+                "Scale9Width": 75,
+                "Scale9Height": 14,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 264.0,
+                  "Y": 226.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.4907,
+                  "Y": 0.8433
+                },
+                "PreSize": {
+                  "X": 0.4071,
+                  "Y": 0.1493
+                },
+                "LeftMargin": 154.5,
+                "RightMargin": 164.5,
+                "TopMargin": 22.0,
+                "BottomMargin": 206.0,
+                "Tag": 99,
+                "ActionTag": -1877579130,
+                "Size": {
+                  "X": 219.0,
+                  "Y": 40.0
+                },
+                "Name": "Image_2",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Default",
+                  "Path": "Default/Button_Disable.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "Normal",
+                  "Path": "Common/btnClose.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "Common/btnClose.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 16,
+                "Scale9Height": 25,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 510.0,
+                  "Y": 242.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.948,
+                  "Y": 0.903
+                },
+                "PreSize": {
+                  "X": 0.0855,
+                  "Y": 0.1754
+                },
+                "LeftMargin": 487.0,
+                "RightMargin": 5.0,
+                "TopMargin": 2.5,
+                "BottomMargin": 218.5,
+                "Tag": 100,
+                "ActionTag": 1441979338,
+                "Size": {
+                  "X": 46.0,
+                  "Y": 47.0
+                },
+                "Name": "btnClose",
+                "ctype": "ButtonObjectData"
+              },
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Default",
+                  "Path": "Default/Button_Disable.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "Normal",
+                  "Path": "ShopIAP/card_viettel.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "ShopIAP/card_viettel.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 78,
+                "Scale9Height": 47,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 104.86,
+                  "Y": 107.0124
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.1949,
+                  "Y": 0.3993
+                },
+                "PreSize": {
+                  "X": 0.2007,
+                  "Y": 0.2575
+                },
+                "LeftMargin": 50.86,
+                "RightMargin": 379.14,
+                "TopMargin": 126.4876,
+                "BottomMargin": 72.5124,
+                "Tag": 129,
+                "ActionTag": -1977491027,
+                "Size": {
+                  "X": 108.0,
+                  "Y": 69.0
+                },
+                "Name": "viettel",
+                "ctype": "ButtonObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "ShopIAP/iconMaintainSmall.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 18,
+                "Scale9OriginY": 17,
+                "Scale9Width": 21,
+                "Scale9Height": 18,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 102.0,
+                  "Y": 81.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.1896,
+                  "Y": 0.3022
+                },
+                "PreSize": {
+                  "X": 0.1059,
+                  "Y": 0.194
+                },
+                "LeftMargin": 73.5,
+                "RightMargin": 407.5,
+                "TopMargin": 161.0,
+                "BottomMargin": 55.0,
+                "Tag": 98,
+                "ActionTag": -671422129,
+                "Size": {
+                  "X": 57.0,
+                  "Y": 52.0
+                },
+                "Name": "iconMaintainViettel",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Default",
+                  "Path": "Default/Button_Disable.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "Normal",
+                  "Path": "ShopIAP/card_mobifone.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "ShopIAP/card_mobifone.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 78,
+                "Scale9Height": 47,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 269.0,
+                  "Y": 107.0124
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.3993
+                },
+                "PreSize": {
+                  "X": 0.2007,
+                  "Y": 0.2575
+                },
+                "LeftMargin": 215.0,
+                "RightMargin": 215.0,
+                "TopMargin": 126.4876,
+                "BottomMargin": 72.5124,
+                "Tag": 130,
+                "ActionTag": -1927723850,
+                "Size": {
+                  "X": 108.0,
+                  "Y": 69.0
+                },
+                "Name": "mobifone",
+                "ctype": "ButtonObjectData"
+              },
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Default",
+                  "Path": "Default/Button_Disable.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "Normal",
+                  "Path": "ShopIAP/card_vinaphone.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "ShopIAP/card_vinaphone.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 78,
+                "Scale9Height": 47,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 436.9973,
+                  "Y": 107.0124
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.8123,
+                  "Y": 0.3993
+                },
+                "PreSize": {
+                  "X": 0.2007,
+                  "Y": 0.2575
+                },
+                "LeftMargin": 382.9973,
+                "RightMargin": 47.0027,
+                "TopMargin": 126.4876,
+                "BottomMargin": 72.5124,
+                "Tag": 131,
+                "ActionTag": 34032329,
+                "Size": {
+                  "X": 108.0,
+                  "Y": 69.0
+                },
+                "Name": "vinaphone",
+                "ctype": "ButtonObjectData"
+              },
+              {
+                "FontSize": 18,
+                "LabelText": "Vui lòng chọn nhà mạng bạn muốn nạp:",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahoma.ttf",
+                  "Plist": ""
+                },
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 268.0,
+                  "Y": 198.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "R": 202,
+                  "G": 172,
+                  "B": 206
+                },
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.4981,
+                  "Y": 0.7388
+                },
+                "PreSize": {
+                  "X": 0.6394,
+                  "Y": 0.0933
+                },
+                "LeftMargin": 96.0,
+                "RightMargin": 98.0,
+                "TopMargin": 57.5,
+                "BottomMargin": 185.5,
+                "Tag": 101,
+                "ActionTag": 1197422948,
+                "Size": {
+                  "X": 344.0,
+                  "Y": 25.0
+                },
+                "Name": "Text_1",
+                "ctype": "TextObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "ShopIAP/iconMaintainSmall.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 18,
+                "Scale9OriginY": 17,
+                "Scale9Width": 21,
+                "Scale9Height": 18,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 267.0,
+                  "Y": 81.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.4963,
+                  "Y": 0.3022
+                },
+                "PreSize": {
+                  "X": 0.1059,
+                  "Y": 0.194
+                },
+                "LeftMargin": 238.5,
+                "RightMargin": 242.5,
+                "TopMargin": 161.0,
+                "BottomMargin": 55.0,
+                "Tag": 102,
+                "ActionTag": -667052204,
+                "Size": {
+                  "X": 57.0,
+                  "Y": 52.0
+                },
+                "Name": "iconMaintainMobi",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "ShopIAP/iconMaintainSmall.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 18,
+                "Scale9OriginY": 17,
+                "Scale9Width": 21,
+                "Scale9Height": 18,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 436.0,
+                  "Y": 83.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.8104,
+                  "Y": 0.3097
+                },
+                "PreSize": {
+                  "X": 0.1059,
+                  "Y": 0.194
+                },
+                "LeftMargin": 407.5,
+                "RightMargin": 73.5,
+                "TopMargin": 159.0,
+                "BottomMargin": 57.0,
+                "Tag": 103,
+                "ActionTag": -269978229,
+                "Size": {
+                  "X": 57.0,
+                  "Y": 52.0
+                },
+                "Name": "iconMaintainVina",
+                "ctype": "ImageViewObjectData"
+              }
+            ],
+            "ActionTag": -36226420,
+            "Size": {
+              "X": 538.0,
+              "Y": 268.0
+            },
+            "Name": "bg",
+            "ctype": "ImageViewObjectData"
+          }
+        ],
+        "Size": {
+          "X": 800.0,
+          "Y": 480.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "Common/btnClose.png",
+        "Default/Button_Disable.png",
+        "Font/tahoma.ttf",
+        "ShopIAP/bgGUIMaintain.png",
+        "ShopIAP/card_mobifone.png",
+        "ShopIAP/card_viettel.png",
+        "ShopIAP/card_vinaphone.png",
+        "ShopIAP/iconMaintainSmall.png",
+        "ShopIAP/titleNetwork.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

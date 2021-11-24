@@ -1,0 +1,324 @@
+{
+  "ID": "43d766a3-9588-4513-b6f7-b88c2e167343",
+  "Version": "2.3.4",
+  "Name": "TangVangPopup",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 38,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ShopIAP/bgFirstBonus.png",
+              "Plist": ""
+            },
+            "Scale9OriginX": 178,
+            "Scale9OriginY": 130,
+            "Scale9Width": 287,
+            "Scale9Height": 129,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 362.8,
+              "Y": 277.632
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4535,
+              "Y": 0.5784
+            },
+            "PreSize": {
+              "X": 0.8037,
+              "Y": 0.8104
+            },
+            "HorizontalEdge": "BothEdge",
+            "VerticalEdge": "BothEdge",
+            "LeftMargin": 41.3,
+            "RightMargin": 115.7,
+            "TopMargin": 7.868,
+            "BottomMargin": 83.132,
+            "UserData": "scale",
+            "Tag": 39,
+            "Children": [
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Default",
+                  "Path": "Default/Button_Disable.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "Normal",
+                  "Path": "ShopIAP/btnEnterShop.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "ShopIAP/btnEnterShop.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 135,
+                "Scale9Height": 36,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 492.9619,
+                  "Y": 76.0123
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.7667,
+                  "Y": 0.1954
+                },
+                "PreSize": {
+                  "X": 0.2566,
+                  "Y": 0.1491
+                },
+                "LeftMargin": 410.4619,
+                "RightMargin": 67.5381,
+                "TopMargin": 283.9877,
+                "BottomMargin": 47.0123,
+                "Tag": 44,
+                "ActionTag": 1856652539,
+                "Size": {
+                  "X": 165.0,
+                  "Y": 58.0
+                },
+                "Name": "btnOK",
+                "ctype": "ButtonObjectData"
+              },
+              {
+                "AnchorPoint": {},
+                "Position": {
+                  "X": 199.0253,
+                  "Y": 331.4782
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": true,
+                "PrePosition": {
+                  "X": 0.3095,
+                  "Y": 0.8521
+                },
+                "PreSize": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "LeftMargin": 199.0253,
+                "RightMargin": 443.9747,
+                "TopMargin": 57.5218,
+                "BottomMargin": 331.4782,
+                "Tag": 54,
+                "ActionTag": 690426521,
+                "Size": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "Name": "bonus",
+                "ctype": "SingleNodeObjectData"
+              },
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Default",
+                  "Path": "Default/Button_Disable.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "Normal",
+                  "Path": "ShopIAP/btnCloseFirst.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "ShopIAP/btnCloseFirst.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 10,
+                "Scale9Height": 20,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 613.6411,
+                  "Y": 273.4172
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.9543,
+                  "Y": 0.7029
+                },
+                "PreSize": {
+                  "X": 0.0622,
+                  "Y": 0.108
+                },
+                "LeftMargin": 593.6411,
+                "RightMargin": 9.3589,
+                "TopMargin": 94.5828,
+                "BottomMargin": 252.4172,
+                "Tag": 120,
+                "ActionTag": -1091061348,
+                "Size": {
+                  "X": 40.0,
+                  "Y": 42.0
+                },
+                "Name": "btnClose",
+                "ctype": "ButtonObjectData"
+              },
+              {
+                "FontSize": 60,
+                "LabelText": "200%",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahomabd.ttf",
+                  "Plist": ""
+                },
+                "HorizontalAlignmentType": "HT_Center",
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 482.0974,
+                  "Y": 191.1072
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.7498,
+                  "Y": 0.4913
+                },
+                "PreSize": {
+                  "X": 0.2457,
+                  "Y": 0.2108
+                },
+                "LeftMargin": 403.0974,
+                "RightMargin": 81.9026,
+                "TopMargin": 156.8928,
+                "BottomMargin": 150.1072,
+                "Tag": 457,
+                "ActionTag": -836990607,
+                "Size": {
+                  "X": 158.0,
+                  "Y": 82.0
+                },
+                "Name": "labelBonus",
+                "ctype": "TextObjectData"
+              }
+            ],
+            "ActionTag": -1583171187,
+            "Size": {
+              "X": 643.0,
+              "Y": 389.0
+            },
+            "Name": "bg",
+            "ctype": "ImageViewObjectData"
+          }
+        ],
+        "Size": {
+          "X": 800.0,
+          "Y": 480.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "Default/Button_Disable.png",
+        "Font/tahomabd.ttf",
+        "ShopIAP/bgFirstBonus.png",
+        "ShopIAP/btnCloseFirst.png",
+        "ShopIAP/btnEnterShop.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

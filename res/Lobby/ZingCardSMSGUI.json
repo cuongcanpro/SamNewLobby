@@ -1,0 +1,400 @@
+{
+  "ID": "85f4a584-7aeb-476f-88e9-d58fea12d249",
+  "Version": "2.3.4",
+  "Name": "ZingCardSMSGUI",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 779,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ShopIAP/bg_popup_zingcard_viettel.png",
+              "Plist": ""
+            },
+            "Scale9OriginX": 178,
+            "Scale9OriginY": 123,
+            "Scale9Width": 184,
+            "Scale9Height": 129,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 400.0,
+              "Y": 240.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.5
+            },
+            "PreSize": {
+              "X": 0.675,
+              "Y": 0.7813
+            },
+            "HorizontalEdge": "BothEdge",
+            "VerticalEdge": "BothEdge",
+            "LeftMargin": 130.0,
+            "RightMargin": 130.0,
+            "TopMargin": 52.5,
+            "BottomMargin": 52.5,
+            "UserData": "scale",
+            "Tag": 780,
+            "Children": [
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Normal",
+                  "Path": "Common/btnClose.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "Normal",
+                  "Path": "Common/btnClose.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "Common/btnClose.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 16,
+                "Scale9Height": 25,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 506.0,
+                  "Y": 348.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.937,
+                  "Y": 0.928
+                },
+                "PreSize": {
+                  "X": 0.0852,
+                  "Y": 0.1253
+                },
+                "LeftMargin": 483.0,
+                "RightMargin": 11.0,
+                "TopMargin": 3.5,
+                "BottomMargin": 324.5,
+                "Tag": 781,
+                "ActionTag": -753188388,
+                "Size": {
+                  "X": 46.0,
+                  "Y": 47.0
+                },
+                "Name": "close",
+                "ctype": "ButtonObjectData"
+              },
+              {
+                "IsCustomSize": true,
+                "FontSize": 13,
+                "LabelText": "Tin nhắn chứa thông tin thẻ ZingCard sẽ gửi về điện thoại của quý khách sau khi giao dịch thành công. \nÁp dụng với : Thuê bao di động Viettel trả trước đang hoạt động 2 chiều cùng thời gian kích hoạt trên 30 ngày. \nGiá SMS đã bao gồm 15% phí dịch vụ của nhà mạng.",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahoma.ttf",
+                  "Plist": ""
+                },
+                "VerticalAlignmentType": "VT_Center",
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 35.0,
+                  "Y": 54.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0648,
+                  "Y": 0.144
+                },
+                "PreSize": {
+                  "X": 0.913,
+                  "Y": 0.296
+                },
+                "LeftMargin": 35.0,
+                "RightMargin": 12.0,
+                "TopMargin": 265.5,
+                "BottomMargin": -1.5,
+                "Tag": 782,
+                "ActionTag": -686876243,
+                "Size": {
+                  "X": 493.0,
+                  "Y": 111.0
+                },
+                "Name": "content",
+                "ctype": "TextObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "ShopIAP/icon_arrow_next.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 1,
+                "Scale9OriginY": 3,
+                "Scale9Width": 4,
+                "Scale9Height": 4,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 25.2835,
+                  "Y": 88.9599
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0468,
+                  "Y": 0.2372
+                },
+                "PreSize": {
+                  "X": 0.0111,
+                  "Y": 0.0267
+                },
+                "LeftMargin": 22.2835,
+                "RightMargin": 511.7165,
+                "TopMargin": 281.0401,
+                "BottomMargin": 83.9599,
+                "Tag": 783,
+                "ActionTag": 1881902232,
+                "Size": {
+                  "X": 6.0,
+                  "Y": 10.0
+                },
+                "Name": "Image_2",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "ShopIAP/icon_arrow_next.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 1,
+                "Scale9OriginY": 3,
+                "Scale9Width": 4,
+                "Scale9Height": 4,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 25.2835,
+                  "Y": 53.9606
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0468,
+                  "Y": 0.1439
+                },
+                "PreSize": {
+                  "X": 0.0111,
+                  "Y": 0.0267
+                },
+                "LeftMargin": 22.2835,
+                "RightMargin": 511.7165,
+                "TopMargin": 316.0394,
+                "BottomMargin": 48.9606,
+                "Tag": 784,
+                "ActionTag": 112870022,
+                "Size": {
+                  "X": 6.0,
+                  "Y": 10.0
+                },
+                "Name": "Image_2_0",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "ShopIAP/icon_arrow_next.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 1,
+                "Scale9OriginY": 3,
+                "Scale9Width": 4,
+                "Scale9Height": 4,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 25.2835,
+                  "Y": 17.9603
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0468,
+                  "Y": 0.0479
+                },
+                "PreSize": {
+                  "X": 0.0111,
+                  "Y": 0.0267
+                },
+                "LeftMargin": 22.2835,
+                "RightMargin": 511.7165,
+                "TopMargin": 352.0397,
+                "BottomMargin": 12.9603,
+                "Tag": 785,
+                "ActionTag": 1927157639,
+                "Size": {
+                  "X": 6.0,
+                  "Y": 10.0
+                },
+                "Name": "Image_2_0_0",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "ClipAble": false,
+                "BackColorAlpha": 102,
+                "SingleColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "FirstColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "EndColor": {},
+                "ColorVector": {
+                  "ScaleY": 1.0
+                },
+                "Scale9Width": 1,
+                "Scale9Height": 1,
+                "TouchEnable": true,
+                "AnchorPoint": {},
+                "Position": {
+                  "X": 18.8718,
+                  "Y": 105.37
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0349,
+                  "Y": 0.281
+                },
+                "PreSize": {
+                  "X": 0.9352,
+                  "Y": 0.5627
+                },
+                "LeftMargin": 18.8718,
+                "RightMargin": 16.1282,
+                "TopMargin": 58.63,
+                "BottomMargin": 105.37,
+                "Tag": 786,
+                "ActionTag": 95737723,
+                "Size": {
+                  "X": 505.0,
+                  "Y": 211.0
+                },
+                "Name": "list",
+                "ctype": "PanelObjectData"
+              }
+            ],
+            "ActionTag": 95440199,
+            "Size": {
+              "X": 540.0,
+              "Y": 375.0
+            },
+            "Name": "bg",
+            "ctype": "ImageViewObjectData"
+          }
+        ],
+        "Size": {
+          "X": 800.0,
+          "Y": 480.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "Common/btnClose.png",
+        "Font/tahoma.ttf",
+        "ShopIAP/bg_popup_zingcard_viettel.png",
+        "ShopIAP/icon_arrow_next.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

@@ -1,0 +1,456 @@
+{
+  "ID": "fb29942f-e241-4b33-a043-80fef21e0a9d",
+  "Version": "2.3.4",
+  "Name": "WebviewUI",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Webview/bg_info.png",
+              "Plist": ""
+            },
+            "Scale9OriginX": 260,
+            "Scale9OriginY": 15,
+            "Scale9Width": 280,
+            "Scale9Height": 17,
+            "StretchWidthEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 1.0
+            },
+            "Position": {
+              "X": 400.0,
+              "Y": 480.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 1.0
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 0.0979
+            },
+            "HorizontalEdge": "BothEdge",
+            "VerticalEdge": "TopEdge",
+            "BottomMargin": 433.0,
+            "UserData": "scale",
+            "Tag": 2,
+            "ActionTag": -1110316362,
+            "Size": {
+              "X": 800.0,
+              "Y": 47.0
+            },
+            "Name": "bar",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FontSize": 14,
+            "ButtonText": "",
+            "TextColor": {
+              "R": 65,
+              "G": 65,
+              "B": 70
+            },
+            "DisabledFileData": {
+              "Type": "Normal",
+              "Path": "Webview/btn_quit.png",
+              "Plist": ""
+            },
+            "PressedFileData": {
+              "Type": "Normal",
+              "Path": "Webview/btn_quit.png",
+              "Plist": ""
+            },
+            "NormalFileData": {
+              "Type": "Normal",
+              "Path": "Webview/btn_quit.png",
+              "Plist": ""
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 15,
+            "Scale9Height": 25,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 25.4398,
+              "Y": 456.8631
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0318,
+              "Y": 0.9518
+            },
+            "PreSize": {
+              "X": 0.0562,
+              "Y": 0.0979
+            },
+            "HorizontalEdge": "LeftEdge",
+            "VerticalEdge": "TopEdge",
+            "LeftMargin": 2.9398,
+            "RightMargin": 752.0602,
+            "TopMargin": -0.3631,
+            "BottomMargin": 433.3631,
+            "UserData": "scale",
+            "Tag": 3,
+            "ActionTag": 459488580,
+            "Size": {
+              "X": 45.0,
+              "Y": 47.0
+            },
+            "Name": "close",
+            "ctype": "ButtonObjectData"
+          },
+          {
+            "FontSize": 14,
+            "ButtonText": "",
+            "TextColor": {
+              "R": 65,
+              "G": 65,
+              "B": 70
+            },
+            "DisabledFileData": {
+              "Type": "Normal",
+              "Path": "Webview/icon_refresh.png",
+              "Plist": ""
+            },
+            "PressedFileData": {
+              "Type": "Normal",
+              "Path": "Webview/icon_refresh.png",
+              "Plist": ""
+            },
+            "NormalFileData": {
+              "Type": "Normal",
+              "Path": "Webview/icon_refresh.png",
+              "Plist": ""
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 15,
+            "Scale9Height": 23,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5879,
+              "ScaleY": 0.565
+            },
+            "Position": {
+              "X": 778.7985,
+              "Y": 459.1273
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9735,
+              "Y": 0.9565
+            },
+            "PreSize": {
+              "X": 0.0562,
+              "Y": 0.0938
+            },
+            "HorizontalEdge": "RightEdge",
+            "VerticalEdge": "TopEdge",
+            "LeftMargin": 752.3444,
+            "RightMargin": 2.6556,
+            "TopMargin": 1.2959,
+            "BottomMargin": 433.7041,
+            "UserData": "scale",
+            "Tag": 4,
+            "ActionTag": -1677124874,
+            "Size": {
+              "X": 45.0,
+              "Y": 45.0
+            },
+            "Name": "reload",
+            "ctype": "ButtonObjectData"
+          },
+          {
+            "IsCustomSize": true,
+            "FontSize": 18,
+            "LabelText": "Text \nLabel",
+            "FontResource": {
+              "Type": "Normal",
+              "Path": "Font/tahoma.ttf",
+              "Plist": ""
+            },
+            "HorizontalAlignmentType": "HT_Center",
+            "VerticalAlignmentType": "VT_Center",
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 396.4,
+              "Y": 456.5
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4955,
+              "Y": 0.951
+            },
+            "PreSize": {
+              "X": 0.8438,
+              "Y": 0.0938
+            },
+            "HorizontalEdge": "BothEdge",
+            "VerticalEdge": "TopEdge",
+            "LeftMargin": 58.9,
+            "RightMargin": 66.1,
+            "TopMargin": 1.0,
+            "BottomMargin": 434.0,
+            "UserData": "scale",
+            "Tag": 5,
+            "ActionTag": 1131072524,
+            "Size": {
+              "X": 675.0,
+              "Y": 45.0
+            },
+            "Name": "title",
+            "ctype": "TextObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {},
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5
+            },
+            "Position": {
+              "X": 400.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 0.9021
+            },
+            "HorizontalEdge": "BothEdge",
+            "VerticalEdge": "BottomEdge",
+            "TopMargin": 47.0,
+            "Tag": 6,
+            "Children": [
+              {
+                "IsCustomSize": true,
+                "FontSize": 18,
+                "LabelText": "Text \nLabel",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahoma.ttf",
+                  "Plist": ""
+                },
+                "HorizontalAlignmentType": "HT_Center",
+                "VerticalAlignmentType": "VT_Center",
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 400.0,
+                  "Y": 324.3754
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "R": 0,
+                  "G": 0,
+                  "B": 0
+                },
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.7491
+                },
+                "PreSize": {
+                  "X": 0.9375,
+                  "Y": 0.1617
+                },
+                "LeftMargin": 25.0,
+                "RightMargin": 25.0,
+                "TopMargin": 73.6246,
+                "BottomMargin": 289.3754,
+                "Tag": 7,
+                "ActionTag": 364079169,
+                "Size": {
+                  "X": 750.0,
+                  "Y": 70.0
+                },
+                "Name": "url",
+                "ctype": "TextObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "Webview/loading.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 49,
+                "Scale9OriginY": 49,
+                "Scale9Width": 15,
+                "Scale9Height": 15,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 400.0,
+                  "Y": 188.1806
+                },
+                "Scale": {
+                  "ScaleX": 0.75,
+                  "ScaleY": 0.75
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.4346
+                },
+                "PreSize": {
+                  "X": 0.1412,
+                  "Y": 0.261
+                },
+                "LeftMargin": 343.5,
+                "RightMargin": 343.5,
+                "TopMargin": 188.3194,
+                "BottomMargin": 131.6806,
+                "Tag": 8,
+                "ActionTag": -1879027112,
+                "Size": {
+                  "X": 113.0,
+                  "Y": 113.0
+                },
+                "Name": "loading",
+                "ctype": "ImageViewObjectData"
+              }
+            ],
+            "ActionTag": 1550618971,
+            "Size": {
+              "X": 800.0,
+              "Y": 433.0
+            },
+            "Name": "web",
+            "ctype": "PanelObjectData"
+          }
+        ],
+        "Size": {
+          "X": 800.0,
+          "Y": 480.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "Font/tahoma.ttf",
+        "Webview/bg_info.png",
+        "Webview/btn_quit.png",
+        "Webview/icon_refresh.png",
+        "Webview/loading.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

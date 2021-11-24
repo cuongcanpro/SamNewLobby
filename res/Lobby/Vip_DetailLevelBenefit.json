@@ -1,0 +1,273 @@
+{
+  "ID": "55eb85d4-8d49-4984-8a12-f160e243711c",
+  "Version": "2.3.4",
+  "Name": "Vip_DetailLevelBenefit",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 185,
+        "Children": [
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 0,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 173,
+              "G": 216,
+              "B": 230
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0001
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "HorizontalEdge": "LeftEdge",
+            "VerticalEdge": "BottomEdge",
+            "TopMargin": -0.0001,
+            "BottomMargin": 0.0001,
+            "Tag": 215,
+            "Children": [
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "GUIVipNew/bg/bgNextLevelBenefit.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 63,
+                "Scale9OriginY": 81,
+                "Scale9Width": 66,
+                "Scale9Height": 84,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 96.0,
+                  "Y": 123.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.393
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 0.7859
+                },
+                "VerticalEdge": "BottomEdge",
+                "TopMargin": 67.0,
+                "Tag": 217,
+                "ActionTag": 405549783,
+                "Size": {
+                  "X": 192.0,
+                  "Y": 246.0
+                },
+                "VisibleForFrame": false,
+                "Name": "bgBenefit",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "ClipAble": false,
+                "BackColorAlpha": 0,
+                "ComboBoxIndex": 1,
+                "SingleColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "FirstColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "EndColor": {},
+                "ColorVector": {
+                  "ScaleY": 1.0
+                },
+                "Scale9Width": 1,
+                "Scale9Height": 1,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5
+                },
+                "Position": {
+                  "X": 96.0,
+                  "Y": 0.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.0
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 0.7796
+                },
+                "TopMargin": 69.0,
+                "Tag": 552,
+                "ActionTag": -304642504,
+                "Size": {
+                  "X": 192.0,
+                  "Y": 244.0
+                },
+                "Name": "pBenefitDetail",
+                "ctype": "PanelObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "GUIVipNew/iconVipNormal/iconVipNormal1.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 9,
+                "Scale9OriginY": 11,
+                "Scale9Width": 33,
+                "Scale9Height": 39,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 96.0,
+                  "Y": 278.7635
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.8906
+                },
+                "PreSize": {
+                  "X": 0.2604,
+                  "Y": 0.1853
+                },
+                "VerticalEdge": "BottomEdge",
+                "LeftMargin": 71.0,
+                "RightMargin": 71.0,
+                "TopMargin": 5.2365,
+                "BottomMargin": 249.7635,
+                "Tag": 218,
+                "ActionTag": -132694151,
+                "Size": {
+                  "X": 50.0,
+                  "Y": 58.0
+                },
+                "Name": "iconVip",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "Vip_BenefitCell.json",
+                  "Plist": ""
+                },
+                "StretchWidthEnable": false,
+                "StretchHeightEnable": false,
+                "InnerActionSpeed": 1.0,
+                "AnchorPoint": {},
+                "Position": {
+                  "X": 0.9282,
+                  "Y": -0.0001
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": true,
+                "PrePosition": {
+                  "X": 0.0048,
+                  "Y": 0.0
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 0.1789
+                },
+                "LeftMargin": 0.9282,
+                "RightMargin": -0.9282,
+                "TopMargin": 257.0001,
+                "BottomMargin": -0.0001,
+                "Tag": 316,
+                "ActionTag": -1426743165,
+                "Size": {
+                  "X": 192.0,
+                  "Y": 56.0
+                },
+                "VisibleForFrame": false,
+                "Name": "cellTemp",
+                "ctype": "ProjectNodeObjectData"
+              }
+            ],
+            "ActionTag": -1153590193,
+            "Size": {
+              "X": 192.0,
+              "Y": 313.0
+            },
+            "Name": "pDetailLevelBenefit",
+            "ctype": "PanelObjectData"
+          }
+        ],
+        "Size": {
+          "X": 192.0,
+          "Y": 313.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "GUIVipNew/bg/bgNextLevelBenefit.png",
+        "GUIVipNew/iconVipNormal/iconVipNormal1.png",
+        "Vip_BenefitCell.json"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}

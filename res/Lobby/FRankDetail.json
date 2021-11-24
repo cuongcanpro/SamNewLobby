@@ -1,0 +1,1014 @@
+{
+  "ID": "d3656484-fc0e-4be8-804c-ad55febe6675",
+  "Version": "2.3.4",
+  "Name": "FRankDetail",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 67,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "GUIMinigame/Tab_Thongtinnguoichoi.png",
+              "Plist": ""
+            },
+            "Scale9Width": 800,
+            "Scale9Height": 44,
+            "StretchWidthEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 400.0001,
+              "Y": 359.0869
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.7481
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 0.0917
+            },
+            "HorizontalEdge": "BothEdge",
+            "VerticalEdge": "TopEdge",
+            "LeftMargin": 0.0001,
+            "RightMargin": -0.0001,
+            "TopMargin": 98.9131,
+            "BottomMargin": 337.0869,
+            "UserData": "scaleY",
+            "Tag": 481,
+            "ActionTag": -1331227953,
+            "Size": {
+              "X": 800.0,
+              "Y": 44.0
+            },
+            "Name": "bgInfo",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "GUIMinigame/Blackslide.png",
+              "Plist": ""
+            },
+            "Scale9Width": 800,
+            "Scale9Height": 42,
+            "StretchWidthEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 400.0001,
+              "Y": 319.0009
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.6646
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 0.0875
+            },
+            "HorizontalEdge": "BothEdge",
+            "VerticalEdge": "TopEdge",
+            "LeftMargin": 0.0001,
+            "RightMargin": -0.0001,
+            "TopMargin": 139.9991,
+            "BottomMargin": 298.0009,
+            "UserData": "scaleY",
+            "Tag": 496,
+            "ActionTag": -1032404596,
+            "Size": {
+              "X": 800.0,
+              "Y": 42.0
+            },
+            "Name": "bgTab",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "GUIMinigame/ThanhchiaBXH.png",
+              "Plist": ""
+            },
+            "Scale9Width": 2,
+            "Scale9Height": 38,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 116.0,
+              "Y": 320.0013
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.145,
+              "Y": 0.6667
+            },
+            "PreSize": {
+              "X": 0.0025,
+              "Y": 0.0792
+            },
+            "HorizontalEdge": "BothEdge",
+            "VerticalEdge": "TopEdge",
+            "LeftMargin": 115.0,
+            "RightMargin": 683.0,
+            "TopMargin": 140.9987,
+            "BottomMargin": 301.0013,
+            "UserData": "scale",
+            "Tag": 503,
+            "ActionTag": -479445220,
+            "Size": {
+              "X": 2.0,
+              "Y": 38.0
+            },
+            "Name": "sp1",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "GUIMinigame/ThanhchiaBXH.png",
+              "Plist": ""
+            },
+            "Scale9Width": 2,
+            "Scale9Height": 38,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 412.0,
+              "Y": 320.0013
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.515,
+              "Y": 0.6667
+            },
+            "PreSize": {
+              "X": 0.0025,
+              "Y": 0.0792
+            },
+            "HorizontalEdge": "BothEdge",
+            "VerticalEdge": "TopEdge",
+            "LeftMargin": 411.0,
+            "RightMargin": 387.0,
+            "TopMargin": 140.9987,
+            "BottomMargin": 301.0013,
+            "UserData": "scale",
+            "Tag": 504,
+            "ActionTag": -1142139263,
+            "Size": {
+              "X": 2.0,
+              "Y": 38.0
+            },
+            "Name": "sp2",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "GUIMinigame/ThanhchiaBXH.png",
+              "Plist": ""
+            },
+            "Scale9Width": 2,
+            "Scale9Height": 38,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 507.04,
+              "Y": 320.0013
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6338,
+              "Y": 0.6667
+            },
+            "PreSize": {
+              "X": 0.0025,
+              "Y": 0.0792
+            },
+            "HorizontalEdge": "BothEdge",
+            "VerticalEdge": "TopEdge",
+            "LeftMargin": 506.04,
+            "RightMargin": 291.96,
+            "TopMargin": 140.9987,
+            "BottomMargin": 301.0013,
+            "UserData": "scale",
+            "Tag": 505,
+            "ActionTag": -7558121,
+            "Size": {
+              "X": 2.0,
+              "Y": 38.0
+            },
+            "Name": "sp3",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "GUIMinigame/ThanhchiaBXH.png",
+              "Plist": ""
+            },
+            "Scale9Width": 2,
+            "Scale9Height": 38,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 606.0,
+              "Y": 320.0013
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7575,
+              "Y": 0.6667
+            },
+            "PreSize": {
+              "X": 0.0025,
+              "Y": 0.0792
+            },
+            "HorizontalEdge": "BothEdge",
+            "VerticalEdge": "TopEdge",
+            "LeftMargin": 605.0,
+            "RightMargin": 193.0,
+            "TopMargin": 140.9987,
+            "BottomMargin": 301.0013,
+            "UserData": "scale",
+            "Tag": 506,
+            "ActionTag": 1996733384,
+            "Size": {
+              "X": 2.0,
+              "Y": 38.0
+            },
+            "Name": "sp4",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "GUIMinigame/ThanhchiaBXH.png",
+              "Plist": ""
+            },
+            "Scale9Width": 2,
+            "Scale9Height": 38,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 718.0,
+              "Y": 320.0013
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8975,
+              "Y": 0.6667
+            },
+            "PreSize": {
+              "X": 0.0025,
+              "Y": 0.0792
+            },
+            "HorizontalEdge": "BothEdge",
+            "VerticalEdge": "TopEdge",
+            "LeftMargin": 717.0,
+            "RightMargin": 81.0,
+            "TopMargin": 140.9987,
+            "BottomMargin": 301.0013,
+            "UserData": "scale",
+            "Tag": 507,
+            "ActionTag": 1246887116,
+            "Size": {
+              "X": 2.0,
+              "Y": 38.0
+            },
+            "Name": "sp0",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "GUIMinigame/iconfo.png",
+              "Plist": ""
+            },
+            "Scale9OriginX": 8,
+            "Scale9OriginY": 8,
+            "Scale9Width": 10,
+            "Scale9Height": 10,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 21.5441,
+              "Y": 360.2361
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0269,
+              "Y": 0.7505
+            },
+            "PreSize": {
+              "X": 0.0325,
+              "Y": 0.0542
+            },
+            "HorizontalEdge": "LeftEdge",
+            "VerticalEdge": "TopEdge",
+            "LeftMargin": 8.5441,
+            "RightMargin": 765.4559,
+            "TopMargin": 106.7639,
+            "BottomMargin": 347.2361,
+            "UserData": "scale",
+            "Tag": 509,
+            "ActionTag": -436454299,
+            "Size": {
+              "X": 26.0,
+              "Y": 26.0
+            },
+            "Name": "icon",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FontSize": 14,
+            "ButtonText": "",
+            "TextColor": {
+              "R": 65,
+              "G": 65,
+              "B": 70
+            },
+            "DisabledFileData": {
+              "Type": "Default",
+              "Path": "Default/Button_Disable.png",
+              "Plist": ""
+            },
+            "PressedFileData": {
+              "Type": "Normal",
+              "Path": "GUIMinigame/btnExit.png",
+              "Plist": ""
+            },
+            "NormalFileData": {
+              "Type": "Normal",
+              "Path": "GUIMinigame/btnExit.png",
+              "Plist": ""
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 18,
+            "Scale9Height": 24,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 766.2872,
+              "Y": 358.2247
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9579,
+              "Y": 0.7463
+            },
+            "PreSize": {
+              "X": 0.06,
+              "Y": 0.0958
+            },
+            "HorizontalEdge": "RightEdge",
+            "VerticalEdge": "TopEdge",
+            "LeftMargin": 742.2872,
+            "RightMargin": 9.7128,
+            "TopMargin": 98.7753,
+            "BottomMargin": 335.2247,
+            "UserData": "scale",
+            "Tag": 508,
+            "ActionTag": -1337417182,
+            "Size": {
+              "X": 48.0,
+              "Y": 46.0
+            },
+            "Name": "btnClose",
+            "ctype": "ButtonObjectData"
+          },
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 102,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -0.0001,
+              "Y": 59.9997
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.125
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 0.5021
+            },
+            "LeftMargin": -0.0001,
+            "RightMargin": 0.0001,
+            "TopMargin": 179.0003,
+            "BottomMargin": 59.9997,
+            "Tag": 90,
+            "Children": [
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "GUIMinigame/TabLichsu1.png",
+                  "Plist": ""
+                },
+                "Scale9Width": 800,
+                "Scale9Height": 69,
+                "StretchWidthEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 399.7601,
+                  "Y": 186.7299
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.4997,
+                  "Y": 0.7748
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 0.2863
+                },
+                "HorizontalEdge": "BothEdge",
+                "LeftMargin": -0.2399,
+                "RightMargin": 0.2399,
+                "TopMargin": 19.7701,
+                "BottomMargin": 152.2299,
+                "Tag": 728,
+                "ActionTag": 456042344,
+                "Size": {
+                  "X": 800.0,
+                  "Y": 69.0
+                },
+                "Name": "cell",
+                "ctype": "ImageViewObjectData"
+              }
+            ],
+            "ActionTag": 1809823802,
+            "Size": {
+              "X": 800.0,
+              "Y": 241.0
+            },
+            "Name": "pList",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FontSize": 17,
+            "LabelText": "Thời gian ",
+            "FontResource": {
+              "Type": "Normal",
+              "Path": "Font/tahoma.ttf",
+              "Plist": ""
+            },
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 58.0,
+              "Y": 321.3845
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 203,
+              "G": 204,
+              "B": 206
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0725,
+              "Y": 0.6696
+            },
+            "PreSize": {
+              "X": 0.0875,
+              "Y": 0.0437
+            },
+            "HorizontalEdge": "BothEdge",
+            "VerticalEdge": "TopEdge",
+            "LeftMargin": 23.0,
+            "RightMargin": 707.0,
+            "TopMargin": 148.1155,
+            "BottomMargin": 310.8845,
+            "UserData": "scale",
+            "Tag": 879,
+            "ActionTag": -259302864,
+            "Size": {
+              "X": 70.0,
+              "Y": 21.0
+            },
+            "Name": "lb0",
+            "ctype": "TextObjectData"
+          },
+          {
+            "FontSize": 17,
+            "LabelText": "Thông tin  ",
+            "FontResource": {
+              "Type": "Normal",
+              "Path": "Font/tahoma.ttf",
+              "Plist": ""
+            },
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 274.96,
+              "Y": 321.3845
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 203,
+              "G": 204,
+              "B": 206
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3437,
+              "Y": 0.6696
+            },
+            "PreSize": {
+              "X": 0.0938,
+              "Y": 0.0437
+            },
+            "HorizontalEdge": "BothEdge",
+            "VerticalEdge": "TopEdge",
+            "LeftMargin": 237.46,
+            "RightMargin": 487.54,
+            "TopMargin": 148.1155,
+            "BottomMargin": 310.8845,
+            "UserData": "scale",
+            "Tag": 880,
+            "ActionTag": 1835628697,
+            "Size": {
+              "X": 75.0,
+              "Y": 21.0
+            },
+            "Name": "lb1",
+            "ctype": "TextObjectData"
+          },
+          {
+            "FontSize": 17,
+            "LabelText": "Tỉ lệ Ăn ",
+            "FontResource": {
+              "Type": "Normal",
+              "Path": "Font/tahoma.ttf",
+              "Plist": ""
+            },
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 458.96,
+              "Y": 321.3845
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 203,
+              "G": 204,
+              "B": 206
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5737,
+              "Y": 0.6696
+            },
+            "PreSize": {
+              "X": 0.0737,
+              "Y": 0.0437
+            },
+            "HorizontalEdge": "BothEdge",
+            "VerticalEdge": "TopEdge",
+            "LeftMargin": 429.46,
+            "RightMargin": 311.54,
+            "TopMargin": 148.1155,
+            "BottomMargin": 310.8845,
+            "UserData": "scale",
+            "Tag": 881,
+            "ActionTag": -89433804,
+            "Size": {
+              "X": 59.0,
+              "Y": 21.0
+            },
+            "Name": "lb2",
+            "ctype": "TextObjectData"
+          },
+          {
+            "FontSize": 17,
+            "LabelText": "Gold đặt ",
+            "FontResource": {
+              "Type": "Normal",
+              "Path": "Font/tahoma.ttf",
+              "Plist": ""
+            },
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 554.96,
+              "Y": 321.3845
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 203,
+              "G": 204,
+              "B": 206
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6937,
+              "Y": 0.6696
+            },
+            "PreSize": {
+              "X": 0.0825,
+              "Y": 0.0437
+            },
+            "HorizontalEdge": "BothEdge",
+            "VerticalEdge": "TopEdge",
+            "LeftMargin": 521.96,
+            "RightMargin": 212.04,
+            "TopMargin": 148.1155,
+            "BottomMargin": 310.8845,
+            "UserData": "scale",
+            "Tag": 882,
+            "ActionTag": 982513563,
+            "Size": {
+              "X": 66.0,
+              "Y": 21.0
+            },
+            "Name": "lb3",
+            "ctype": "TextObjectData"
+          },
+          {
+            "FontSize": 17,
+            "LabelText": "Thắng/Thua ",
+            "FontResource": {
+              "Type": "Normal",
+              "Path": "Font/tahoma.ttf",
+              "Plist": ""
+            },
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 662.96,
+              "Y": 321.3845
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 203,
+              "G": 204,
+              "B": 206
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8287,
+              "Y": 0.6696
+            },
+            "PreSize": {
+              "X": 0.115,
+              "Y": 0.0437
+            },
+            "HorizontalEdge": "BothEdge",
+            "VerticalEdge": "TopEdge",
+            "LeftMargin": 616.96,
+            "RightMargin": 91.04,
+            "TopMargin": 148.1155,
+            "BottomMargin": 310.8845,
+            "UserData": "scale",
+            "Tag": 883,
+            "ActionTag": -1709905036,
+            "Size": {
+              "X": 92.0,
+              "Y": 21.0
+            },
+            "Name": "lb4",
+            "ctype": "TextObjectData"
+          },
+          {
+            "FontSize": 17,
+            "LabelText": "Kết quả ",
+            "FontResource": {
+              "Type": "Normal",
+              "Path": "Font/tahoma.ttf",
+              "Plist": ""
+            },
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "AnchorPoint": {
+              "ScaleX": 0.4324,
+              "ScaleY": 0.6291
+            },
+            "Position": {
+              "X": 754.96,
+              "Y": 323.9666
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 203,
+              "G": 204,
+              "B": 206
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9437,
+              "Y": 0.6749
+            },
+            "PreSize": {
+              "X": 0.0737,
+              "Y": 0.0437
+            },
+            "HorizontalEdge": "BothEdge",
+            "VerticalEdge": "TopEdge",
+            "LeftMargin": 729.4484,
+            "RightMargin": 11.5516,
+            "TopMargin": 148.2445,
+            "BottomMargin": 310.7555,
+            "UserData": "scale",
+            "Tag": 884,
+            "ActionTag": -490616923,
+            "Size": {
+              "X": 59.0,
+              "Y": 21.0
+            },
+            "Name": "lb5",
+            "ctype": "TextObjectData"
+          },
+          {
+            "IsCustomSize": true,
+            "FontSize": 17,
+            "LabelText": "Thông tin người chơi : d2hung                                            ",
+            "FontResource": {
+              "Type": "Normal",
+              "Path": "Font/tahoma.ttf",
+              "Plist": ""
+            },
+            "VerticalAlignmentType": "VT_Center",
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "AnchorPoint": {
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 35.5454,
+              "Y": 358.4629
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 203,
+              "G": 204,
+              "B": 206
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0444,
+              "Y": 0.7468
+            },
+            "PreSize": {
+              "X": 0.875,
+              "Y": 0.0479
+            },
+            "HorizontalEdge": "LeftEdge",
+            "VerticalEdge": "TopEdge",
+            "LeftMargin": 35.5454,
+            "RightMargin": 64.4546,
+            "TopMargin": 110.0371,
+            "BottomMargin": 346.9629,
+            "UserData": "scale",
+            "Tag": 885,
+            "ActionTag": -1830106953,
+            "Size": {
+              "X": 700.0,
+              "Y": 23.0
+            },
+            "Name": "lbUserInfo",
+            "ctype": "TextObjectData"
+          }
+        ],
+        "Size": {
+          "X": 800.0,
+          "Y": 480.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "Default/Button_Disable.png",
+        "Font/tahoma.ttf",
+        "GUIMinigame/Blackslide.png",
+        "GUIMinigame/btnExit.png",
+        "GUIMinigame/iconfo.png",
+        "GUIMinigame/Tab_Thongtinnguoichoi.png",
+        "GUIMinigame/TabLichsu1.png",
+        "GUIMinigame/ThanhchiaBXH.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}

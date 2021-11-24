@@ -1,0 +1,518 @@
+{
+  "ID": "0bbbe845-9da2-42a5-a359-3c9189397407",
+  "Version": "2.3.4",
+  "Name": "VipHelpGUI",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 873,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Common/CommonBg.jpg",
+              "Plist": ""
+            },
+            "Scale9OriginX": 264,
+            "Scale9OriginY": 158,
+            "Scale9Width": 272,
+            "Scale9Height": 164,
+            "StretchWidthEnable": true,
+            "StretchHeightEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 400.0,
+              "Y": 240.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.5
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "HorizontalEdge": "BothEdge",
+            "VerticalEdge": "BothEdge",
+            "Tag": 446,
+            "ActionTag": -1965149657,
+            "Size": {
+              "X": 800.0,
+              "Y": 480.0
+            },
+            "Name": "bg",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Common/bgSubTop.png",
+              "Plist": ""
+            },
+            "Scale9Width": 800,
+            "Scale9Height": 60,
+            "StretchWidthEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 1.0
+            },
+            "Position": {
+              "X": 400.0,
+              "Y": 480.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 1.0
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 0.125
+            },
+            "HorizontalEdge": "BothEdge",
+            "VerticalEdge": "TopEdge",
+            "BottomMargin": 420.0,
+            "UserData": "scaleY",
+            "Tag": 443,
+            "ActionTag": 681989975,
+            "Size": {
+              "X": 800.0,
+              "Y": 60.0
+            },
+            "Name": "bgTop",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Common/bgSubTransperance.png",
+              "Plist": ""
+            },
+            "Scale9Width": 800,
+            "Scale9Height": 363,
+            "StretchWidthEnable": true,
+            "StretchHeightEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 400.0,
+              "Y": 240.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.5
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 0.7563
+            },
+            "HorizontalEdge": "BothEdge",
+            "VerticalEdge": "BothEdge",
+            "TopMargin": 58.5,
+            "BottomMargin": 58.5,
+            "Tag": 444,
+            "ActionTag": -2106673626,
+            "Size": {
+              "X": 800.0,
+              "Y": 363.0
+            },
+            "Name": "bgSub",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Common/bgSubBot.png",
+              "Plist": ""
+            },
+            "Scale9Width": 800,
+            "Scale9Height": 62,
+            "StretchWidthEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5
+            },
+            "Position": {
+              "X": 400.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 0.1292
+            },
+            "HorizontalEdge": "BothEdge",
+            "VerticalEdge": "BottomEdge",
+            "TopMargin": 418.0,
+            "UserData": "scaleY",
+            "Tag": 445,
+            "ActionTag": 517541946,
+            "Size": {
+              "X": 800.0,
+              "Y": 62.0
+            },
+            "Name": "bgBot",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "GUIVip/hd.png",
+              "Plist": ""
+            },
+            "Scale9OriginX": 74,
+            "Scale9OriginY": 18,
+            "Scale9Width": 24,
+            "Scale9Height": 18,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 400.0,
+              "Y": 448.0001
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.9333
+            },
+            "PreSize": {
+              "X": 0.215,
+              "Y": 0.1125
+            },
+            "HorizontalEdge": "BothEdge",
+            "VerticalEdge": "TopEdge",
+            "LeftMargin": 314.0,
+            "RightMargin": 314.0,
+            "TopMargin": 4.9999,
+            "BottomMargin": 421.0001,
+            "UserData": "scale",
+            "Tag": 441,
+            "ActionTag": 1363365102,
+            "Size": {
+              "X": 172.0,
+              "Y": 54.0
+            },
+            "Name": "title",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FontSize": 14,
+            "ButtonText": "",
+            "TextColor": {
+              "R": 65,
+              "G": 65,
+              "B": 70
+            },
+            "DisabledFileData": {
+              "Type": "Default",
+              "Path": "Default/Button_Disable.png",
+              "Plist": ""
+            },
+            "PressedFileData": {
+              "Type": "Normal",
+              "Path": "GUIVip/btnShop.png",
+              "Plist": ""
+            },
+            "NormalFileData": {
+              "Type": "Normal",
+              "Path": "GUIVip/btnShop.png",
+              "Plist": ""
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 16,
+            "Scale9Height": 25,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 769.974,
+              "Y": 451.3672
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9625,
+              "Y": 0.9403
+            },
+            "PreSize": {
+              "X": 0.0575,
+              "Y": 0.0979
+            },
+            "HorizontalEdge": "RightEdge",
+            "VerticalEdge": "TopEdge",
+            "LeftMargin": 746.974,
+            "RightMargin": 7.026,
+            "TopMargin": 5.1328,
+            "BottomMargin": 427.8672,
+            "UserData": "scale",
+            "Tag": 932,
+            "ActionTag": -1556814451,
+            "Size": {
+              "X": 46.0,
+              "Y": 47.0
+            },
+            "Name": "btnShop",
+            "ctype": "ButtonObjectData"
+          },
+          {
+            "FontSize": 14,
+            "ButtonText": "",
+            "TextColor": {
+              "R": 65,
+              "G": 65,
+              "B": 70
+            },
+            "DisabledFileData": {
+              "Type": "Default",
+              "Path": "Default/Button_Disable.png",
+              "Plist": ""
+            },
+            "PressedFileData": {
+              "Type": "Normal",
+              "Path": "Common/btnBack.png",
+              "Plist": ""
+            },
+            "NormalFileData": {
+              "Type": "Normal",
+              "Path": "Common/btnBack.png",
+              "Plist": ""
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 16,
+            "Scale9Height": 25,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 30.0,
+              "Y": 451.0003
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0375,
+              "Y": 0.9396
+            },
+            "PreSize": {
+              "X": 0.0575,
+              "Y": 0.0979
+            },
+            "HorizontalEdge": "LeftEdge",
+            "VerticalEdge": "TopEdge",
+            "LeftMargin": 7.0,
+            "RightMargin": 747.0,
+            "TopMargin": 5.4997,
+            "BottomMargin": 427.5003,
+            "UserData": "scale",
+            "Tag": 930,
+            "ActionTag": 707756960,
+            "Size": {
+              "X": 46.0,
+              "Y": 47.0
+            },
+            "Name": "btnClose",
+            "ctype": "ButtonObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "GUIVip/content.png",
+              "Plist": ""
+            },
+            "Scale9OriginX": 231,
+            "Scale9OriginY": 100,
+            "Scale9Width": 252,
+            "Scale9Height": 104,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 405.76,
+              "Y": 235.248
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5072,
+              "Y": 0.4901
+            },
+            "PreSize": {
+              "X": 0.8925,
+              "Y": 0.6333
+            },
+            "HorizontalEdge": "BothEdge",
+            "VerticalEdge": "BothEdge",
+            "LeftMargin": 48.76,
+            "RightMargin": 37.24,
+            "TopMargin": 92.752,
+            "BottomMargin": 83.248,
+            "UserData": "scale",
+            "Tag": 933,
+            "Children": [
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "Common/iconStar.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 106.1527,
+                  "Y": 149.4952
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.1487,
+                  "Y": 0.4918
+                },
+                "PreSize": {
+                  "X": 0.0294,
+                  "Y": 0.0658
+                },
+                "LeftMargin": 95.6527,
+                "RightMargin": 597.3473,
+                "TopMargin": 144.5048,
+                "BottomMargin": 139.4952,
+                "Tag": 372,
+                "ActionTag": 2146332192,
+                "Size": {
+                  "X": 21.0,
+                  "Y": 20.0
+                },
+                "VisibleForFrame": false,
+                "Name": "iconStarBig_1",
+                "ctype": "SpriteObjectData"
+              }
+            ],
+            "ActionTag": 1904268534,
+            "Size": {
+              "X": 714.0,
+              "Y": 304.0
+            },
+            "Name": "content",
+            "ctype": "ImageViewObjectData"
+          }
+        ],
+        "Size": {
+          "X": 800.0,
+          "Y": 480.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "Common/bgSubBot.png",
+        "Common/bgSubTop.png",
+        "Common/bgSubTransperance.png",
+        "Common/btnBack.png",
+        "Common/CommonBg.jpg",
+        "Common/iconStar.png",
+        "Default/Button_Disable.png",
+        "GUIVip/btnShop.png",
+        "GUIVip/content.png",
+        "GUIVip/hd.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

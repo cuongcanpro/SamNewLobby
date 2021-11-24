@@ -1,0 +1,2292 @@
+{
+  "ID": "fb7981d1-12f0-40e5-bb68-faa732a89f08",
+  "Version": "2.3.4",
+  "Name": "GameGUIPlayer",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 268,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Demos/player.png",
+              "Plist": ""
+            },
+            "Scale9OriginX": 77,
+            "Scale9OriginY": 66,
+            "Scale9Width": 82,
+            "Scale9Height": 70,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 66.5,
+              "Y": 87.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5542,
+              "Y": 0.6591
+            },
+            "PreSize": {
+              "X": 1.9667,
+              "Y": 1.5303
+            },
+            "LeftMargin": -51.5,
+            "RightMargin": -64.5,
+            "TopMargin": -56.0,
+            "BottomMargin": -14.0,
+            "Tag": 1391,
+            "Children": [
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "Demos/11.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 299.8011,
+                  "Y": 90.4847
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 1.2703,
+                  "Y": 0.4479
+                },
+                "PreSize": {
+                  "X": 2.5381,
+                  "Y": 0.8515
+                },
+                "LeftMargin": 0.3011,
+                "RightMargin": -363.3011,
+                "TopMargin": 25.5153,
+                "BottomMargin": 4.4847,
+                "Tag": 1443,
+                "ActionTag": -420568515,
+                "Size": {
+                  "X": 599.0,
+                  "Y": 172.0
+                },
+                "Name": "Sprite_1",
+                "ctype": "SpriteObjectData"
+              }
+            ],
+            "ActionTag": 1651866306,
+            "Size": {
+              "X": 236.0,
+              "Y": 202.0
+            },
+            "Name": "demo",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 102,
+            "FileData": {
+              "Type": "Normal",
+              "Path": "GameGUI/bgPlayer.png",
+              "Plist": ""
+            },
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9OriginX": 39,
+            "Scale9OriginY": 43,
+            "Scale9Width": 42,
+            "Scale9Height": 46,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "Tag": 115,
+            "ActionTag": 626711936,
+            "Size": {
+              "X": 120.0,
+              "Y": 132.0
+            },
+            "Name": "bg",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FontSize": 17,
+            "LabelText": "+20.000.000 exp",
+            "FontResource": {
+              "Type": "Normal",
+              "Path": "Font/robotoBold.ttf",
+              "Plist": ""
+            },
+            "OutlineColor": {
+              "R": 124,
+              "G": 32,
+              "B": 36
+            },
+            "OutlineEnabled": true,
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "AnchorPoint": {
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 146.5176,
+              "Y": 135.1939
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 51,
+              "G": 213,
+              "B": 161
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.221,
+              "Y": 1.0242
+            },
+            "PreSize": {
+              "X": 1.125,
+              "Y": 0.1667
+            },
+            "LeftMargin": 146.5176,
+            "RightMargin": -161.5176,
+            "TopMargin": -14.1939,
+            "BottomMargin": 124.1939,
+            "Tag": 395,
+            "ActionTag": -866190873,
+            "Size": {
+              "X": 135.0,
+              "Y": 22.0
+            },
+            "Name": "lbExp",
+            "ctype": "TextObjectData"
+          },
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 102,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 60.0,
+              "Y": 66.0
+            },
+            "Scale": {
+              "ScaleX": -1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PositionPercentYEnabled": true,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.5
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 60.0,
+            "RightMargin": 60.0,
+            "TopMargin": 66.0,
+            "BottomMargin": 66.0,
+            "Tag": 393,
+            "Children": [
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "GameGUI/result/resultBg_lose.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 120,
+                "Scale9OriginY": 12,
+                "Scale9Width": 291,
+                "Scale9Height": 59,
+                "AnchorPoint": {
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": -61.8313,
+                  "Y": -31.3516
+                },
+                "Scale": {
+                  "ScaleX": -1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "PreSize": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "LeftMargin": -61.8313,
+                "RightMargin": -361.1687,
+                "TopMargin": -13.1484,
+                "BottomMargin": -75.8516,
+                "Tag": 1445,
+                "Children": [
+                  {
+                    "ClipAble": false,
+                    "BackColorAlpha": 102,
+                    "ComboBoxIndex": 1,
+                    "SingleColor": {
+                      "R": 150,
+                      "G": 200
+                    },
+                    "FirstColor": {
+                      "R": 150,
+                      "G": 200
+                    },
+                    "EndColor": {},
+                    "ColorVector": {
+                      "ScaleY": 1.0
+                    },
+                    "Scale9Width": 1,
+                    "Scale9Height": 1,
+                    "TouchEnable": true,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 262.4807,
+                      "Y": 48.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.6205,
+                      "Y": 0.5393
+                    },
+                    "PreSize": {
+                      "X": 0.5887,
+                      "Y": 0.0
+                    },
+                    "LeftMargin": 137.9807,
+                    "RightMargin": 36.0193,
+                    "TopMargin": 41.0,
+                    "BottomMargin": 48.0,
+                    "Tag": 1447,
+                    "Children": [
+                      {
+                        "FileData": {
+                          "Type": "Normal",
+                          "Path": "GameGUI/cardSprite/cardSmall.png",
+                          "Plist": ""
+                        },
+                        "Scale9OriginX": 19,
+                        "Scale9OriginY": 24,
+                        "Scale9Width": 20,
+                        "Scale9Height": 26,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 0.0,
+                          "Y": 0.0
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PositionPercentXEnabled": true,
+                        "PrePosition": {
+                          "X": 0.0,
+                          "Y": 0.0
+                        },
+                        "PreSize": {
+                          "X": 0.2329,
+                          "Y": 0.0
+                        },
+                        "LeftMargin": -29.0,
+                        "RightMargin": 220.0,
+                        "TopMargin": -37.0,
+                        "BottomMargin": -37.0,
+                        "Tag": 1452,
+                        "ActionTag": 1519792733,
+                        "Size": {
+                          "X": 58.0,
+                          "Y": 74.0
+                        },
+                        "Name": "card_0",
+                        "ctype": "ImageViewObjectData"
+                      },
+                      {
+                        "FileData": {
+                          "Type": "Normal",
+                          "Path": "GameGUI/cardSprite/cardSmall.png",
+                          "Plist": ""
+                        },
+                        "Scale9OriginX": 19,
+                        "Scale9OriginY": 24,
+                        "Scale9Width": 20,
+                        "Scale9Height": 26,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 27.6639,
+                          "Y": 0.0
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PositionPercentXEnabled": true,
+                        "PrePosition": {
+                          "X": 0.1111,
+                          "Y": 0.0
+                        },
+                        "PreSize": {
+                          "X": 0.2329,
+                          "Y": 0.0
+                        },
+                        "LeftMargin": -1.3361,
+                        "RightMargin": 192.3361,
+                        "TopMargin": -37.0,
+                        "BottomMargin": -37.0,
+                        "Tag": 1453,
+                        "ActionTag": -1511964469,
+                        "Size": {
+                          "X": 58.0,
+                          "Y": 74.0
+                        },
+                        "Name": "card_1",
+                        "ctype": "ImageViewObjectData"
+                      },
+                      {
+                        "FileData": {
+                          "Type": "Normal",
+                          "Path": "GameGUI/cardSprite/cardSmall.png",
+                          "Plist": ""
+                        },
+                        "Scale9OriginX": 19,
+                        "Scale9OriginY": 24,
+                        "Scale9Width": 20,
+                        "Scale9Height": 26,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 55.3278,
+                          "Y": 0.0
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PositionPercentXEnabled": true,
+                        "PrePosition": {
+                          "X": 0.2222,
+                          "Y": 0.0
+                        },
+                        "PreSize": {
+                          "X": 0.2329,
+                          "Y": 0.0
+                        },
+                        "LeftMargin": 26.3278,
+                        "RightMargin": 164.6722,
+                        "TopMargin": -37.0,
+                        "BottomMargin": -37.0,
+                        "Tag": 1454,
+                        "ActionTag": 1003805944,
+                        "Size": {
+                          "X": 58.0,
+                          "Y": 74.0
+                        },
+                        "Name": "card_2",
+                        "ctype": "ImageViewObjectData"
+                      },
+                      {
+                        "FileData": {
+                          "Type": "Normal",
+                          "Path": "GameGUI/cardSprite/cardSmall.png",
+                          "Plist": ""
+                        },
+                        "Scale9OriginX": 19,
+                        "Scale9OriginY": 24,
+                        "Scale9Width": 20,
+                        "Scale9Height": 26,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 82.9917,
+                          "Y": 0.0
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PositionPercentXEnabled": true,
+                        "PrePosition": {
+                          "X": 0.3333,
+                          "Y": 0.0
+                        },
+                        "PreSize": {
+                          "X": 0.2329,
+                          "Y": 0.0
+                        },
+                        "LeftMargin": 53.9917,
+                        "RightMargin": 137.0083,
+                        "TopMargin": -37.0,
+                        "BottomMargin": -37.0,
+                        "Tag": 1455,
+                        "ActionTag": -1130957337,
+                        "Size": {
+                          "X": 58.0,
+                          "Y": 74.0
+                        },
+                        "Name": "card_3",
+                        "ctype": "ImageViewObjectData"
+                      },
+                      {
+                        "FileData": {
+                          "Type": "Normal",
+                          "Path": "GameGUI/cardSprite/cardSmall.png",
+                          "Plist": ""
+                        },
+                        "Scale9OriginX": 19,
+                        "Scale9OriginY": 24,
+                        "Scale9Width": 20,
+                        "Scale9Height": 26,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 110.6556,
+                          "Y": 0.0
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PositionPercentXEnabled": true,
+                        "PrePosition": {
+                          "X": 0.4444,
+                          "Y": 0.0
+                        },
+                        "PreSize": {
+                          "X": 0.2329,
+                          "Y": 0.0
+                        },
+                        "LeftMargin": 81.6556,
+                        "RightMargin": 109.3444,
+                        "TopMargin": -37.0,
+                        "BottomMargin": -37.0,
+                        "Tag": 1456,
+                        "ActionTag": -204359267,
+                        "Size": {
+                          "X": 58.0,
+                          "Y": 74.0
+                        },
+                        "Name": "card_4",
+                        "ctype": "ImageViewObjectData"
+                      },
+                      {
+                        "FileData": {
+                          "Type": "Normal",
+                          "Path": "GameGUI/cardSprite/cardSmall.png",
+                          "Plist": ""
+                        },
+                        "Scale9OriginX": 19,
+                        "Scale9OriginY": 24,
+                        "Scale9Width": 20,
+                        "Scale9Height": 26,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 138.3195,
+                          "Y": 0.0
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PositionPercentXEnabled": true,
+                        "PrePosition": {
+                          "X": 0.5555,
+                          "Y": 0.0
+                        },
+                        "PreSize": {
+                          "X": 0.2329,
+                          "Y": 0.0
+                        },
+                        "LeftMargin": 109.3195,
+                        "RightMargin": 81.6805,
+                        "TopMargin": -37.0,
+                        "BottomMargin": -37.0,
+                        "Tag": 1457,
+                        "ActionTag": -408979431,
+                        "Size": {
+                          "X": 58.0,
+                          "Y": 74.0
+                        },
+                        "Name": "card_5",
+                        "ctype": "ImageViewObjectData"
+                      },
+                      {
+                        "FileData": {
+                          "Type": "Normal",
+                          "Path": "GameGUI/cardSprite/cardSmall.png",
+                          "Plist": ""
+                        },
+                        "Scale9OriginX": 19,
+                        "Scale9OriginY": 24,
+                        "Scale9Width": 20,
+                        "Scale9Height": 26,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 165.9834,
+                          "Y": 0.0
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PositionPercentXEnabled": true,
+                        "PrePosition": {
+                          "X": 0.6666,
+                          "Y": 0.0
+                        },
+                        "PreSize": {
+                          "X": 0.2329,
+                          "Y": 0.0
+                        },
+                        "LeftMargin": 136.9834,
+                        "RightMargin": 54.0166,
+                        "TopMargin": -37.0,
+                        "BottomMargin": -37.0,
+                        "Tag": 1458,
+                        "ActionTag": 1773055155,
+                        "Size": {
+                          "X": 58.0,
+                          "Y": 74.0
+                        },
+                        "Name": "card_6",
+                        "ctype": "ImageViewObjectData"
+                      },
+                      {
+                        "FileData": {
+                          "Type": "Normal",
+                          "Path": "GameGUI/cardSprite/cardSmall.png",
+                          "Plist": ""
+                        },
+                        "Scale9OriginX": 19,
+                        "Scale9OriginY": 24,
+                        "Scale9Width": 20,
+                        "Scale9Height": 26,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 193.6473,
+                          "Y": 0.0
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PositionPercentXEnabled": true,
+                        "PrePosition": {
+                          "X": 0.7777,
+                          "Y": 0.0
+                        },
+                        "PreSize": {
+                          "X": 0.2329,
+                          "Y": 0.0
+                        },
+                        "LeftMargin": 164.6473,
+                        "RightMargin": 26.3527,
+                        "TopMargin": -37.0,
+                        "BottomMargin": -37.0,
+                        "Tag": 1459,
+                        "ActionTag": -1990116829,
+                        "Size": {
+                          "X": 58.0,
+                          "Y": 74.0
+                        },
+                        "Name": "card_7",
+                        "ctype": "ImageViewObjectData"
+                      },
+                      {
+                        "FileData": {
+                          "Type": "Normal",
+                          "Path": "GameGUI/cardSprite/cardSmall.png",
+                          "Plist": ""
+                        },
+                        "Scale9OriginX": 19,
+                        "Scale9OriginY": 24,
+                        "Scale9Width": 20,
+                        "Scale9Height": 26,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 221.3112,
+                          "Y": 0.0
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PositionPercentXEnabled": true,
+                        "PrePosition": {
+                          "X": 0.8888,
+                          "Y": 0.0
+                        },
+                        "PreSize": {
+                          "X": 0.2329,
+                          "Y": 0.0
+                        },
+                        "LeftMargin": 192.3112,
+                        "RightMargin": -1.3112,
+                        "TopMargin": -37.0,
+                        "BottomMargin": -37.0,
+                        "Tag": 1460,
+                        "ActionTag": 1923094332,
+                        "Size": {
+                          "X": 58.0,
+                          "Y": 74.0
+                        },
+                        "Name": "card_8",
+                        "ctype": "ImageViewObjectData"
+                      },
+                      {
+                        "FileData": {
+                          "Type": "Normal",
+                          "Path": "GameGUI/cardSprite/cardSmall.png",
+                          "Plist": ""
+                        },
+                        "Scale9OriginX": 19,
+                        "Scale9OriginY": 24,
+                        "Scale9Width": 20,
+                        "Scale9Height": 26,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 249.0,
+                          "Y": 0.0
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PositionPercentXEnabled": true,
+                        "PrePosition": {
+                          "X": 1.0,
+                          "Y": 0.0
+                        },
+                        "PreSize": {
+                          "X": 0.2329,
+                          "Y": 0.0
+                        },
+                        "LeftMargin": 220.0,
+                        "RightMargin": -29.0,
+                        "TopMargin": -37.0,
+                        "BottomMargin": -37.0,
+                        "Tag": 1461,
+                        "ActionTag": 1282614873,
+                        "Size": {
+                          "X": 58.0,
+                          "Y": 74.0
+                        },
+                        "Name": "card_9",
+                        "ctype": "ImageViewObjectData"
+                      }
+                    ],
+                    "ActionTag": -566203315,
+                    "Size": {
+                      "X": 249.0,
+                      "Y": 0.0
+                    },
+                    "Name": "cards",
+                    "ctype": "PanelObjectData"
+                  },
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "GameGUI/result/resultLabel_lose.png",
+                      "Plist": ""
+                    },
+                    "Scale9OriginX": 30,
+                    "Scale9OriginY": 8,
+                    "Scale9Width": 31,
+                    "Scale9Height": 10,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 57.4683,
+                      "Y": 48.5681
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.1359,
+                      "Y": 0.5457
+                    },
+                    "PreSize": {
+                      "X": 0.2151,
+                      "Y": 0.2921
+                    },
+                    "LeftMargin": 11.9683,
+                    "RightMargin": 320.0317,
+                    "TopMargin": 27.4319,
+                    "BottomMargin": 35.5681,
+                    "Tag": 1446,
+                    "ActionTag": 1825929560,
+                    "Size": {
+                      "X": 91.0,
+                      "Y": 26.0
+                    },
+                    "Name": "label",
+                    "ctype": "ImageViewObjectData"
+                  },
+                  {
+                    "LabelText": "-1.000",
+                    "LabelBMFontFile_CNB": {
+                      "Type": "Normal",
+                      "Path": "Font/silver.fnt",
+                      "Plist": ""
+                    },
+                    "AnchorPoint": {
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 9.3297,
+                      "Y": 116.5
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.0221,
+                      "Y": 1.309
+                    },
+                    "PreSize": {
+                      "X": 0.253,
+                      "Y": 0.4494
+                    },
+                    "LeftMargin": 9.3297,
+                    "RightMargin": 306.6703,
+                    "TopMargin": -47.5,
+                    "BottomMargin": 96.5,
+                    "Tag": 1983,
+                    "ActionTag": -2071671690,
+                    "Size": {
+                      "X": 107.0,
+                      "Y": 40.0
+                    },
+                    "Name": "lbGold",
+                    "ctype": "TextBMFontObjectData"
+                  },
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "GameGUI/result/resultStamp.png",
+                      "Plist": ""
+                    },
+                    "Scale9Enable": true,
+                    "Scale9OriginX": 42,
+                    "Scale9OriginY": 10,
+                    "Scale9Width": 46,
+                    "Scale9Height": 12,
+                    "AnchorPoint": {},
+                    "Position": {
+                      "X": 107.8064,
+                      "Y": 10.5
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.2549,
+                      "Y": 0.118
+                    },
+                    "PreSize": {
+                      "X": 0.3428,
+                      "Y": 0.3596
+                    },
+                    "LeftMargin": 107.8064,
+                    "RightMargin": 170.1936,
+                    "TopMargin": 46.5,
+                    "BottomMargin": 10.5,
+                    "Tag": 1448,
+                    "Children": [
+                      {
+                        "IsCustomSize": true,
+                        "FontSize": 18,
+                        "LabelText": "Treo",
+                        "FontResource": {
+                          "Type": "Normal",
+                          "Path": "Font/robotoBold.ttf",
+                          "Plist": ""
+                        },
+                        "HorizontalAlignmentType": "HT_Center",
+                        "VerticalAlignmentType": "VT_Center",
+                        "OutlineColor": {
+                          "R": 66,
+                          "G": 39,
+                          "B": 95
+                        },
+                        "OutlineEnabled": true,
+                        "ShadowColor": {
+                          "R": 110,
+                          "G": 110,
+                          "B": 110
+                        },
+                        "ShadowOffsetX": 2.0,
+                        "ShadowOffsetY": -2.0,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 59.0,
+                          "Y": 13.0
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.4069,
+                          "Y": 0.4063
+                        },
+                        "PreSize": {
+                          "X": 0.8138,
+                          "Y": 0.875
+                        },
+                        "RightMargin": 27.0,
+                        "TopMargin": 5.0,
+                        "BottomMargin": -1.0,
+                        "Tag": 1449,
+                        "ActionTag": 142551139,
+                        "Size": {
+                          "X": 118.0,
+                          "Y": 28.0
+                        },
+                        "Name": "label",
+                        "ctype": "TextObjectData"
+                      }
+                    ],
+                    "ActionTag": -975521792,
+                    "Size": {
+                      "X": 145.0,
+                      "Y": 32.0
+                    },
+                    "Name": "stamp",
+                    "ctype": "ImageViewObjectData"
+                  }
+                ],
+                "ActionTag": 797737329,
+                "Size": {
+                  "X": 423.0,
+                  "Y": 89.0
+                },
+                "Name": "bgLose",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "ClipAble": false,
+                "BackColorAlpha": 102,
+                "SingleColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "FirstColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "EndColor": {},
+                "ColorVector": {
+                  "ScaleY": 1.0
+                },
+                "Scale9Width": 1,
+                "Scale9Height": 1,
+                "TouchEnable": true,
+                "AnchorPoint": {},
+                "Position": {
+                  "X": -61.83,
+                  "Y": -75.85
+                },
+                "Scale": {
+                  "ScaleX": -1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "PreSize": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "LeftMargin": -61.83,
+                "RightMargin": 61.83,
+                "TopMargin": 75.85,
+                "BottomMargin": -75.85,
+                "Tag": 2705,
+                "Children": [
+                  {
+                    "LabelText": "+1.000",
+                    "LabelBMFontFile_CNB": {
+                      "Type": "Normal",
+                      "Path": "Font/gold.fnt",
+                      "Plist": ""
+                    },
+                    "AnchorPoint": {
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 9.33,
+                      "Y": 116.5
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.0,
+                      "Y": 0.0
+                    },
+                    "PreSize": {
+                      "X": 0.0,
+                      "Y": 0.0
+                    },
+                    "LeftMargin": 9.33,
+                    "RightMargin": -122.33,
+                    "TopMargin": -136.5,
+                    "BottomMargin": 96.5,
+                    "Tag": 2707,
+                    "ActionTag": 432056254,
+                    "Size": {
+                      "X": 113.0,
+                      "Y": 40.0
+                    },
+                    "Name": "lbGold",
+                    "ctype": "TextBMFontObjectData"
+                  },
+                  {
+                    "ClipAble": false,
+                    "BackColorAlpha": 102,
+                    "SingleColor": {
+                      "R": 150,
+                      "G": 200
+                    },
+                    "FirstColor": {
+                      "R": 150,
+                      "G": 200
+                    },
+                    "EndColor": {},
+                    "ColorVector": {
+                      "ScaleY": 1.0
+                    },
+                    "Scale9Width": 1,
+                    "Scale9Height": 1,
+                    "TouchEnable": true,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 71.11,
+                      "Y": 47.9
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.0,
+                      "Y": 0.0
+                    },
+                    "PreSize": {
+                      "X": 0.0,
+                      "Y": 0.0
+                    },
+                    "LeftMargin": -0.39,
+                    "RightMargin": -142.61,
+                    "TopMargin": -112.9,
+                    "BottomMargin": -17.1,
+                    "Tag": 55,
+                    "ActionTag": 717489519,
+                    "Size": {
+                      "X": 143.0,
+                      "Y": 130.0
+                    },
+                    "Name": "label",
+                    "ctype": "PanelObjectData"
+                  }
+                ],
+                "ActionTag": 1984263133,
+                "Size": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "Name": "bgWin",
+                "ctype": "PanelObjectData"
+              }
+            ],
+            "ActionTag": -1039173824,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "result",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FontSize": 14,
+            "ButtonText": "",
+            "TextColor": {
+              "R": 65,
+              "G": 65,
+              "B": 70
+            },
+            "DisabledFileData": {
+              "Type": "Normal",
+              "Path": "GameGUI/bgAvatar.png",
+              "Plist": ""
+            },
+            "PressedFileData": {
+              "Type": "Normal",
+              "Path": "GameGUI/bgAvatar.png",
+              "Plist": ""
+            },
+            "NormalFileData": {
+              "Type": "Normal",
+              "Path": "GameGUI/bgAvatar.png",
+              "Plist": ""
+            },
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 50,
+            "Scale9Height": 58,
+            "OutlineSize": 0,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 0.0,
+            "ShadowOffsetY": 0.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 60.0,
+              "Y": 112.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.8485
+            },
+            "PreSize": {
+              "X": 0.7083,
+              "Y": 0.6439
+            },
+            "LeftMargin": 17.5,
+            "RightMargin": 17.5,
+            "TopMargin": -22.5,
+            "BottomMargin": 69.5,
+            "Tag": 273,
+            "ActionTag": 530884057,
+            "Size": {
+              "X": 85.0,
+              "Y": 85.0
+            },
+            "Name": "btn",
+            "ctype": "ButtonObjectData"
+          },
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 102,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 60.0,
+              "Y": 112.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.8485
+            },
+            "PreSize": {
+              "X": 0.7333,
+              "Y": 0.6667
+            },
+            "LeftMargin": 16.0,
+            "RightMargin": 16.0,
+            "TopMargin": -24.0,
+            "BottomMargin": 68.0,
+            "Tag": 714,
+            "Children": [
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "GameGUI/watching.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 44.0,
+                  "Y": 44.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "Tag": 284,
+                "ActionTag": 1888408343,
+                "Size": {
+                  "X": 88.0,
+                  "Y": 88.0
+                },
+                "Name": "view",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "GameGUI/_0001_Shape-266-copy-4.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 44.0,
+                  "Y": 44.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "Tag": 279,
+                "ActionTag": -380254805,
+                "Size": {
+                  "X": 88.0,
+                  "Y": 88.0
+                },
+                "Name": "orgFrame",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "GameGUI/frameBase.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 770,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 44.0,
+                  "Y": 44.0
+                },
+                "Scale": {
+                  "ScaleX": 0.6143,
+                  "ScaleY": 0.6143
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 2.0455,
+                  "Y": 2.0455
+                },
+                "LeftMargin": -46.0,
+                "RightMargin": -46.0,
+                "TopMargin": -46.0,
+                "BottomMargin": -46.0,
+                "Tag": 902,
+                "ActionTag": 1611659719,
+                "Size": {
+                  "X": 180.0,
+                  "Y": 180.0
+                },
+                "Name": "frame",
+                "ctype": "SpriteObjectData"
+              }
+            ],
+            "ActionTag": -1868420787,
+            "Size": {
+              "X": 88.0,
+              "Y": 88.0
+            },
+            "Name": "mask",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Default",
+              "Path": "Default/ImageFile.png",
+              "Plist": ""
+            },
+            "Scale9Width": 46,
+            "Scale9Height": 46,
+            "AnchorPoint": {
+              "ScaleX": 1.0,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 0.0,
+              "Y": 33.5
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.2538
+            },
+            "PreSize": {
+              "X": 0.2083,
+              "Y": 0.1818
+            },
+            "LeftMargin": -25.0,
+            "RightMargin": 120.0,
+            "TopMargin": 86.5,
+            "BottomMargin": 21.5,
+            "Tag": 281,
+            "ActionTag": -250973352,
+            "Size": {
+              "X": 25.0,
+              "Y": 24.0
+            },
+            "VisibleForFrame": false,
+            "Name": "vip",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "GameGUI/lbBaoOne.png",
+              "Plist": ""
+            },
+            "Scale9OriginX": 19,
+            "Scale9OriginY": 5,
+            "Scale9Width": 3,
+            "Scale9Height": 11,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 205.0,
+              "Y": 85.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.7083,
+              "Y": 0.6439
+            },
+            "PreSize": {
+              "X": 0.3417,
+              "Y": 0.1591
+            },
+            "LeftMargin": 184.5,
+            "RightMargin": -105.5,
+            "TopMargin": 36.5,
+            "BottomMargin": 74.5,
+            "Tag": 54,
+            "ActionTag": -32236605,
+            "Size": {
+              "X": 41.0,
+              "Y": 21.0
+            },
+            "Name": "baoOne",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "GameGUI/cardBackSmall.png",
+              "Plist": ""
+            },
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 21,
+            "Scale9Width": 18,
+            "Scale9Height": 23,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 152.011,
+              "Y": 98.7916
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.2668,
+              "Y": 0.7484
+            },
+            "PreSize": {
+              "X": 0.4,
+              "Y": 0.4924
+            },
+            "LeftMargin": 128.011,
+            "RightMargin": -56.011,
+            "TopMargin": 0.7084,
+            "BottomMargin": 66.2916,
+            "Tag": 274,
+            "Children": [
+              {
+                "FontSize": 28,
+                "LabelText": "10",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahomabd.ttf",
+                  "Plist": ""
+                },
+                "HorizontalAlignmentType": "HT_Center",
+                "VerticalAlignmentType": "VT_Center",
+                "OutlineSize": 2,
+                "OutlineColor": {
+                  "R": 94,
+                  "G": 94,
+                  "B": 94
+                },
+                "OutlineEnabled": true,
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 0.0,
+                "ShadowOffsetY": 0.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 24.0,
+                  "Y": 35.75
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.55
+                },
+                "PreSize": {
+                  "X": 0.75,
+                  "Y": 0.6462
+                },
+                "LeftMargin": 6.0,
+                "RightMargin": 6.0,
+                "TopMargin": 8.25,
+                "BottomMargin": 14.75,
+                "Tag": 276,
+                "ActionTag": 1092889115,
+                "Size": {
+                  "X": 36.0,
+                  "Y": 42.0
+                },
+                "Name": "num",
+                "ctype": "TextObjectData"
+              }
+            ],
+            "ActionTag": 1691895277,
+            "Size": {
+              "X": 48.0,
+              "Y": 65.0
+            },
+            "Name": "card",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 102,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 151.0,
+              "Y": 28.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.2583,
+              "Y": 0.2121
+            },
+            "PreSize": {
+              "X": 0.5,
+              "Y": 0.5
+            },
+            "LeftMargin": 121.0,
+            "RightMargin": -61.0,
+            "TopMargin": 71.0,
+            "BottomMargin": -5.0,
+            "Tag": 622,
+            "Children": [
+              {
+                "FontSize": 27,
+                "LabelText": "25",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/robotoBold.ttf",
+                  "Plist": ""
+                },
+                "HorizontalAlignmentType": "HT_Center",
+                "VerticalAlignmentType": "VT_Center",
+                "OutlineSize": 2,
+                "OutlineColor": {
+                  "R": 16,
+                  "G": 77,
+                  "B": 132
+                },
+                "OutlineEnabled": true,
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 30.0,
+                  "Y": 34.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "B": 200
+                },
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.5152
+                },
+                "PreSize": {
+                  "X": 0.5833,
+                  "Y": 0.5455
+                },
+                "LeftMargin": 12.5,
+                "RightMargin": 12.5,
+                "TopMargin": 14.0,
+                "BottomMargin": 16.0,
+                "Tag": 50,
+                "ActionTag": 999224405,
+                "Size": {
+                  "X": 35.0,
+                  "Y": 36.0
+                },
+                "Name": "label",
+                "ctype": "TextObjectData"
+              }
+            ],
+            "ActionTag": -1172445352,
+            "Size": {
+              "X": 60.0,
+              "Y": 66.0
+            },
+            "Name": "timer",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 102,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 151.0,
+              "Y": 35.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.2583,
+              "Y": 0.2652
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 151.0,
+            "RightMargin": -31.0,
+            "TopMargin": 97.0,
+            "BottomMargin": 35.0,
+            "Tag": 1589,
+            "Children": [
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "GameGUI/passClear.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 17,
+                "Scale9OriginY": 17,
+                "Scale9Width": 18,
+                "Scale9Height": 18,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "Scale": {
+                  "ScaleX": 1.323,
+                  "ScaleY": 1.323
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "PreSize": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "LeftMargin": -26.0,
+                "RightMargin": -26.0,
+                "TopMargin": -26.0,
+                "BottomMargin": -26.0,
+                "Tag": 1590,
+                "ActionTag": 94476148,
+                "Size": {
+                  "X": 52.0,
+                  "Y": 52.0
+                },
+                "Name": "passClear",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "GameGUI/pass.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 17,
+                "Scale9OriginY": 17,
+                "Scale9Width": 46,
+                "Scale9Height": 47,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 0.0,
+                  "Y": -5.0
+                },
+                "Scale": {
+                  "ScaleX": 0.7646,
+                  "ScaleY": 0.7646
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "PreSize": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "LeftMargin": -40.0,
+                "RightMargin": -40.0,
+                "TopMargin": -35.5,
+                "BottomMargin": -45.5,
+                "Tag": 1591,
+                "ActionTag": 2038520163,
+                "Size": {
+                  "X": 80.0,
+                  "Y": 81.0
+                },
+                "Name": "pass",
+                "ctype": "ImageViewObjectData"
+              }
+            ],
+            "ActionTag": 2069723189,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "passPanel",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 102,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 151.0,
+              "Y": 35.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.2583,
+              "Y": 0.2652
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 151.0,
+            "RightMargin": -31.0,
+            "TopMargin": 97.0,
+            "BottomMargin": 35.0,
+            "Tag": 647,
+            "Children": [
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "GameGUI/baoCanelClear.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 17,
+                "Scale9OriginY": 17,
+                "Scale9Width": 18,
+                "Scale9Height": 18,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "Scale": {
+                  "ScaleX": 1.323,
+                  "ScaleY": 1.323
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "PreSize": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "LeftMargin": -26.0,
+                "RightMargin": -26.0,
+                "TopMargin": -26.0,
+                "BottomMargin": -26.0,
+                "Tag": 648,
+                "ActionTag": -1302441745,
+                "Size": {
+                  "X": 52.0,
+                  "Y": 52.0
+                },
+                "Name": "baoCancelClear",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "GameGUI/baoCancel.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 17,
+                "Scale9OriginY": 17,
+                "Scale9Width": 46,
+                "Scale9Height": 47,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 0.0,
+                  "Y": -5.0
+                },
+                "Scale": {
+                  "ScaleX": 0.7646,
+                  "ScaleY": 0.7646
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "PreSize": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "LeftMargin": -40.0,
+                "RightMargin": -40.0,
+                "TopMargin": -35.5,
+                "BottomMargin": -45.5,
+                "Tag": 649,
+                "ActionTag": 504153505,
+                "Size": {
+                  "X": 80.0,
+                  "Y": 81.0
+                },
+                "Name": "baoCancel",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "GameGUI/bao.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 17,
+                "Scale9OriginY": 17,
+                "Scale9Width": 46,
+                "Scale9Height": 47,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 0.0,
+                  "Y": -5.0
+                },
+                "Scale": {
+                  "ScaleX": 0.7646,
+                  "ScaleY": 0.7646
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "PreSize": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "LeftMargin": -40.0,
+                "RightMargin": -40.0,
+                "TopMargin": -35.5,
+                "BottomMargin": -45.5,
+                "Tag": 650,
+                "ActionTag": -336552918,
+                "Size": {
+                  "X": 80.0,
+                  "Y": 81.0
+                },
+                "Name": "bao",
+                "ctype": "ImageViewObjectData"
+              }
+            ],
+            "ActionTag": -1522229940,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "baoPanel",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FontSize": 19,
+            "LabelText": "9.9T$9.9T$",
+            "FontResource": {
+              "Type": "Normal",
+              "Path": "Font/robotoBold.ttf",
+              "Plist": ""
+            },
+            "HorizontalAlignmentType": "HT_Center",
+            "VerticalAlignmentType": "VT_Center",
+            "OutlineSize": 0,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 0.0,
+            "ShadowOffsetY": 0.0,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 60.0,
+              "Y": 21.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 235,
+              "G": 194,
+              "B": 144
+            },
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.1591
+            },
+            "PreSize": {
+              "X": 0.875,
+              "Y": 0.1667
+            },
+            "LeftMargin": 7.5,
+            "RightMargin": 7.5,
+            "TopMargin": 100.0,
+            "BottomMargin": 10.0,
+            "Tag": 277,
+            "ActionTag": -1818744771,
+            "Size": {
+              "X": 105.0,
+              "Y": 22.0
+            },
+            "Name": "gold",
+            "ctype": "TextObjectData"
+          },
+          {
+            "FontSize": 17,
+            "LabelText": "Bacon Rhanh...",
+            "FontResource": {
+              "Type": "Normal",
+              "Path": "Font/robotoBold.ttf",
+              "Plist": ""
+            },
+            "HorizontalAlignmentType": "HT_Center",
+            "VerticalAlignmentType": "VT_Center",
+            "OutlineSize": 0,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 0.0,
+            "ShadowOffsetY": 0.0,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 60.0,
+              "Y": 46.5
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 226,
+              "G": 155,
+              "B": 156
+            },
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.3523
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 0.1515
+            },
+            "TopMargin": 75.5,
+            "BottomMargin": 36.5,
+            "Tag": 278,
+            "ActionTag": -1675093384,
+            "Size": {
+              "X": 120.0,
+              "Y": 20.0
+            },
+            "Name": "name",
+            "ctype": "TextObjectData"
+          },
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 102,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 120.136,
+              "Y": 36.0211
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.0011,
+              "Y": 0.2729
+            },
+            "PreSize": {
+              "X": 0.1667,
+              "Y": 0.1515
+            },
+            "LeftMargin": 120.136,
+            "RightMargin": -20.136,
+            "TopMargin": 75.9789,
+            "BottomMargin": 36.0211,
+            "Tag": 285,
+            "ActionTag": -1285427926,
+            "Size": {
+              "X": 20.0,
+              "Y": 20.0
+            },
+            "Name": "pEmo",
+            "ctype": "PanelObjectData"
+          }
+        ],
+        "Size": {
+          "X": 120.0,
+          "Y": 132.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "Default/ImageFile.png",
+        "Demos/11.png",
+        "Demos/player.png",
+        "Font/gold.fnt",
+        "Font/gold.png",
+        "Font/robotoBold.ttf",
+        "Font/silver.fnt",
+        "Font/silver.png",
+        "Font/tahomabd.ttf",
+        "GameGUI/_0001_Shape-266-copy-4.png",
+        "GameGUI/bao.png",
+        "GameGUI/baoCancel.png",
+        "GameGUI/baoCanelClear.png",
+        "GameGUI/bgAvatar.png",
+        "GameGUI/bgPlayer.png",
+        "GameGUI/cardBackSmall.png",
+        "GameGUI/cardSprite/cardSmall.png",
+        "GameGUI/frameBase.png",
+        "GameGUI/lbBaoOne.png",
+        "GameGUI/pass.png",
+        "GameGUI/passClear.png",
+        "GameGUI/result/resultBg_lose.png",
+        "GameGUI/result/resultLabel_lose.png",
+        "GameGUI/result/resultStamp.png",
+        "GameGUI/watching.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}

@@ -1,0 +1,236 @@
+{
+  "ID": "53ceb06f-e12c-4b5b-afc3-787fab5a10c4",
+  "Version": "2.3.4",
+  "Name": "Vip_BenefitCell",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 561,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "GUIVipNew/typeDate.png",
+              "Plist": ""
+            },
+            "Scale9OriginX": 11,
+            "Scale9OriginY": 11,
+            "Scale9Width": 14,
+            "Scale9Height": 14,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 29.4895,
+              "Y": 29.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentYEnabled": true,
+            "PrePosition": {
+              "X": 0.1536,
+              "Y": 0.5
+            },
+            "PreSize": {
+              "X": 0.1875,
+              "Y": 0.6207
+            },
+            "LeftMargin": 11.4895,
+            "RightMargin": 144.5105,
+            "TopMargin": 11.0,
+            "BottomMargin": 11.0,
+            "Tag": 562,
+            "ActionTag": -631260768,
+            "Size": {
+              "X": 36.0,
+              "Y": 36.0
+            },
+            "Name": "iconBenefit",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "GUIVipNew/iconLock.png",
+              "Plist": ""
+            },
+            "Scale9OriginX": 4,
+            "Scale9OriginY": 4,
+            "Scale9Width": 7,
+            "Scale9Height": 7,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 15.8083,
+              "Y": 35.4735
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0823,
+              "Y": 0.6116
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.2586
+            },
+            "LeftMargin": 8.3083,
+            "RightMargin": 168.6917,
+            "TopMargin": 15.0265,
+            "BottomMargin": 27.9735,
+            "Tag": 565,
+            "ActionTag": -1316994715,
+            "Size": {
+              "X": 15.0,
+              "Y": 15.0
+            },
+            "Name": "iconLockBenefit",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "IsCustomSize": true,
+            "FontSize": 22,
+            "LabelText": "Text Label",
+            "FontResource": {
+              "Type": "Normal",
+              "Path": "Font/tahomabd.ttf",
+              "Plist": ""
+            },
+            "VerticalAlignmentType": "VT_Center",
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "AnchorPoint": {
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 59.0977,
+              "Y": 40.3028
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3078,
+              "Y": 0.6949
+            },
+            "PreSize": {
+              "X": 0.6823,
+              "Y": 0.5345
+            },
+            "LeftMargin": 59.0977,
+            "RightMargin": 1.9023,
+            "TopMargin": 2.1972,
+            "BottomMargin": 24.8028,
+            "Tag": 563,
+            "ActionTag": -194091183,
+            "Size": {
+              "X": 131.0,
+              "Y": 31.0
+            },
+            "Name": "value",
+            "ctype": "TextObjectData"
+          },
+          {
+            "IsCustomSize": true,
+            "FontSize": 14,
+            "LabelText": "Text Label",
+            "FontResource": {
+              "Type": "Normal",
+              "Path": "Font/tahoma.ttf",
+              "Plist": ""
+            },
+            "VerticalAlignmentType": "VT_Center",
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "AnchorPoint": {
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 59.0977,
+              "Y": 18.6814
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3078,
+              "Y": 0.3221
+            },
+            "PreSize": {
+              "X": 0.6823,
+              "Y": 0.5345
+            },
+            "LeftMargin": 59.0977,
+            "RightMargin": 1.9023,
+            "TopMargin": 23.8186,
+            "BottomMargin": 3.1814,
+            "Tag": 564,
+            "ActionTag": -400909104,
+            "Size": {
+              "X": 131.0,
+              "Y": 31.0
+            },
+            "Name": "detail",
+            "ctype": "TextObjectData"
+          }
+        ],
+        "Size": {
+          "X": 192.0,
+          "Y": 58.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "Font/tahoma.ttf",
+        "Font/tahomabd.ttf",
+        "GUIVipNew/iconLock.png",
+        "GUIVipNew/typeDate.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}

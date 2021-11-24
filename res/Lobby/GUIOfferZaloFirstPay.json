@@ -1,0 +1,1880 @@
+{
+  "ID": "5c0c582a-3e47-4270-b2b7-aaf349dfde1d",
+  "Version": "2.3.4",
+  "Name": "GUIOfferZaloFirstPay",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 686,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Offer/bgZaloFirstPay.png",
+              "Plist": ""
+            },
+            "Scale9OriginX": 178,
+            "Scale9OriginY": 123,
+            "Scale9Width": 439,
+            "Scale9Height": 231,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 393.68,
+              "Y": 241.824
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4921,
+              "Y": 0.5038
+            },
+            "PreSize": {
+              "X": 0.9937,
+              "Y": 0.9937
+            },
+            "HorizontalEdge": "BothEdge",
+            "VerticalEdge": "BothEdge",
+            "LeftMargin": -3.82,
+            "RightMargin": 8.82,
+            "TopMargin": -0.324,
+            "BottomMargin": 3.324,
+            "Tag": 687,
+            "Children": [
+              {
+                "ClipAble": false,
+                "BackColorAlpha": 197,
+                "SingleColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "FirstColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "EndColor": {},
+                "ColorVector": {
+                  "ScaleY": 1.0
+                },
+                "Scale9Width": 1,
+                "Scale9Height": 1,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 386.81,
+                  "Y": 250.3309
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.4866,
+                  "Y": 0.5248
+                },
+                "PreSize": {
+                  "X": 0.5283,
+                  "Y": 0.5031
+                },
+                "LeftMargin": 176.81,
+                "RightMargin": 198.19,
+                "TopMargin": 106.6691,
+                "BottomMargin": 130.3309,
+                "Tag": 697,
+                "Children": [
+                  {
+                    "ClipAble": false,
+                    "BackColorAlpha": 102,
+                    "SingleColor": {
+                      "R": 150,
+                      "G": 200
+                    },
+                    "FirstColor": {
+                      "R": 150,
+                      "G": 200
+                    },
+                    "EndColor": {},
+                    "ColorVector": {
+                      "ScaleY": 1.0
+                    },
+                    "Scale9Width": 1,
+                    "Scale9Height": 1,
+                    "TouchEnable": true,
+                    "AnchorPoint": {},
+                    "Position": {
+                      "X": -37.0,
+                      "Y": -2.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": -0.0881,
+                      "Y": -0.0083
+                    },
+                    "PreSize": {
+                      "X": 1.3095,
+                      "Y": 1.0417
+                    },
+                    "LeftMargin": -37.0,
+                    "RightMargin": -93.0,
+                    "TopMargin": -8.0,
+                    "BottomMargin": -2.0,
+                    "Tag": 172,
+                    "Children": [
+                      {
+                        "FileData": {
+                          "Type": "Normal",
+                          "Path": "Offer/bonusZaloGStar.png",
+                          "Plist": ""
+                        },
+                        "Scale9OriginX": 75,
+                        "Scale9OriginY": 80,
+                        "Scale9Width": 50,
+                        "Scale9Height": 78,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5
+                        },
+                        "Position": {
+                          "X": 134.9237,
+                          "Y": -16.0622
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "RotationSkewX": -16.5636,
+                        "RotationSkewY": -16.5627,
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.2453,
+                          "Y": -0.0642
+                        },
+                        "PreSize": {
+                          "X": 0.3636,
+                          "Y": 0.952
+                        },
+                        "LeftMargin": 34.9237,
+                        "RightMargin": 315.0763,
+                        "TopMargin": 28.0622,
+                        "BottomMargin": -16.0622,
+                        "Tag": 16,
+                        "Children": [
+                          {
+                            "FontSize": 25,
+                            "LabelText": "10000000000",
+                            "FontResource": {
+                              "Type": "Normal",
+                              "Path": "Font/tahomabd.ttf",
+                              "Plist": ""
+                            },
+                            "HorizontalAlignmentType": "HT_Center",
+                            "VerticalAlignmentType": "VT_Center",
+                            "OutlineColor": {
+                              "G": 0,
+                              "B": 0
+                            },
+                            "ShadowColor": {
+                              "R": 110,
+                              "G": 110,
+                              "B": 110
+                            },
+                            "ShadowOffsetX": 2.0,
+                            "ShadowOffsetY": -2.0,
+                            "AnchorPoint": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
+                            },
+                            "Position": {
+                              "X": 92.796,
+                              "Y": 217.8124
+                            },
+                            "Scale": {
+                              "ScaleX": 1.0,
+                              "ScaleY": 1.0
+                            },
+                            "CColor": {
+                              "R": 113,
+                              "G": 123,
+                              "B": 140
+                            },
+                            "IconVisible": false,
+                            "PrePosition": {
+                              "X": 0.464,
+                              "Y": 0.9152
+                            },
+                            "PreSize": {
+                              "X": 0.785,
+                              "Y": 0.1429
+                            },
+                            "LeftMargin": 14.296,
+                            "RightMargin": 28.704,
+                            "TopMargin": 3.1876,
+                            "BottomMargin": 200.8124,
+                            "Tag": 43,
+                            "ActionTag": 138103504,
+                            "Size": {
+                              "X": 157.0,
+                              "Y": 34.0
+                            },
+                            "Name": "lbNum",
+                            "ctype": "TextObjectData"
+                          }
+                        ],
+                        "ActionTag": -771702848,
+                        "Size": {
+                          "X": 200.0,
+                          "Y": 238.0
+                        },
+                        "Name": "bonusGStar",
+                        "ctype": "ImageViewObjectData"
+                      },
+                      {
+                        "FileData": {
+                          "Type": "Normal",
+                          "Path": "Offer/bonusZaloTime.png",
+                          "Plist": ""
+                        },
+                        "Scale9OriginX": 75,
+                        "Scale9OriginY": 80,
+                        "Scale9Width": 43,
+                        "Scale9Height": 77,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 445.0001,
+                          "Y": 85.0
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "RotationSkewX": 17.0705,
+                        "RotationSkewY": 17.0724,
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.8091,
+                          "Y": 0.34
+                        },
+                        "PreSize": {
+                          "X": 0.3509,
+                          "Y": 0.948
+                        },
+                        "LeftMargin": 348.5001,
+                        "RightMargin": 8.4999,
+                        "TopMargin": 46.5,
+                        "BottomMargin": -33.5,
+                        "Tag": 15,
+                        "Children": [
+                          {
+                            "FontSize": 25,
+                            "LabelText": "10000000000",
+                            "FontResource": {
+                              "Type": "Normal",
+                              "Path": "Font/tahomabd.ttf",
+                              "Plist": ""
+                            },
+                            "HorizontalAlignmentType": "HT_Center",
+                            "VerticalAlignmentType": "VT_Center",
+                            "OutlineColor": {
+                              "G": 0,
+                              "B": 0
+                            },
+                            "ShadowColor": {
+                              "R": 110,
+                              "G": 110,
+                              "B": 110
+                            },
+                            "ShadowOffsetX": 2.0,
+                            "ShadowOffsetY": -2.0,
+                            "AnchorPoint": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
+                            },
+                            "Position": {
+                              "X": 98.5303,
+                              "Y": 216.376
+                            },
+                            "Scale": {
+                              "ScaleX": 1.0,
+                              "ScaleY": 1.0
+                            },
+                            "CColor": {
+                              "R": 113,
+                              "G": 123,
+                              "B": 140
+                            },
+                            "IconVisible": false,
+                            "PrePosition": {
+                              "X": 0.5105,
+                              "Y": 0.913
+                            },
+                            "PreSize": {
+                              "X": 0.8135,
+                              "Y": 0.1435
+                            },
+                            "LeftMargin": 20.0303,
+                            "RightMargin": 15.9697,
+                            "TopMargin": 3.624,
+                            "BottomMargin": 199.376,
+                            "Tag": 44,
+                            "ActionTag": 57842644,
+                            "Size": {
+                              "X": 157.0,
+                              "Y": 34.0
+                            },
+                            "Name": "lbNum",
+                            "ctype": "TextObjectData"
+                          }
+                        ],
+                        "ActionTag": 1056891846,
+                        "Size": {
+                          "X": 193.0,
+                          "Y": 237.0
+                        },
+                        "Name": "bonusTime",
+                        "ctype": "ImageViewObjectData"
+                      },
+                      {
+                        "FileData": {
+                          "Type": "Normal",
+                          "Path": "Offer/bonusZaloGold.png",
+                          "Plist": ""
+                        },
+                        "Scale9OriginX": 75,
+                        "Scale9OriginY": 80,
+                        "Scale9Width": 79,
+                        "Scale9Height": 83,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5
+                        },
+                        "Position": {
+                          "X": 255.0,
+                          "Y": -2.5
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.4636,
+                          "Y": -0.01
+                        },
+                        "PreSize": {
+                          "X": 0.4164,
+                          "Y": 0.972
+                        },
+                        "LeftMargin": 140.5,
+                        "RightMargin": 180.5,
+                        "TopMargin": 9.5,
+                        "BottomMargin": -2.5,
+                        "Tag": 17,
+                        "Children": [
+                          {
+                            "FontSize": 25,
+                            "LabelText": "10000000000",
+                            "FontResource": {
+                              "Type": "Normal",
+                              "Path": "Font/tahomabd.ttf",
+                              "Plist": ""
+                            },
+                            "HorizontalAlignmentType": "HT_Center",
+                            "VerticalAlignmentType": "VT_Center",
+                            "OutlineColor": {
+                              "G": 0,
+                              "B": 0
+                            },
+                            "ShadowColor": {
+                              "R": 110,
+                              "G": 110,
+                              "B": 110
+                            },
+                            "ShadowOffsetX": 2.0,
+                            "ShadowOffsetY": -2.0,
+                            "AnchorPoint": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
+                            },
+                            "Position": {
+                              "X": 129.8222,
+                              "Y": 217.4973
+                            },
+                            "Scale": {
+                              "ScaleX": 1.0,
+                              "ScaleY": 1.0
+                            },
+                            "RotationSkewX": 2.7454,
+                            "RotationSkewY": 2.7454,
+                            "CColor": {
+                              "R": 113,
+                              "G": 123,
+                              "B": 140
+                            },
+                            "IconVisible": false,
+                            "PrePosition": {
+                              "X": 0.5669,
+                              "Y": 0.8951
+                            },
+                            "PreSize": {
+                              "X": 0.6856,
+                              "Y": 0.1399
+                            },
+                            "LeftMargin": 51.3222,
+                            "RightMargin": 20.6778,
+                            "TopMargin": 8.5027,
+                            "BottomMargin": 200.4973,
+                            "Tag": 45,
+                            "ActionTag": 610481303,
+                            "Size": {
+                              "X": 157.0,
+                              "Y": 34.0
+                            },
+                            "Name": "lbNum",
+                            "ctype": "TextObjectData"
+                          }
+                        ],
+                        "ActionTag": 1451339646,
+                        "Size": {
+                          "X": 229.0,
+                          "Y": 243.0
+                        },
+                        "Name": "bonusGold",
+                        "ctype": "ImageViewObjectData"
+                      }
+                    ],
+                    "ActionTag": 514771763,
+                    "Size": {
+                      "X": 550.0,
+                      "Y": 250.0
+                    },
+                    "Name": "group3",
+                    "ctype": "PanelObjectData"
+                  },
+                  {
+                    "ClipAble": false,
+                    "BackColorAlpha": 102,
+                    "SingleColor": {
+                      "R": 150,
+                      "G": 200
+                    },
+                    "FirstColor": {
+                      "R": 150,
+                      "G": 200
+                    },
+                    "EndColor": {},
+                    "ColorVector": {
+                      "ScaleY": 1.0
+                    },
+                    "Scale9Width": 1,
+                    "Scale9Height": 1,
+                    "TouchEnable": true,
+                    "AnchorPoint": {},
+                    "Position": {
+                      "X": -27.0,
+                      "Y": -12.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": -0.0643,
+                      "Y": -0.05
+                    },
+                    "PreSize": {
+                      "X": 1.3095,
+                      "Y": 1.0417
+                    },
+                    "LeftMargin": -27.0,
+                    "RightMargin": -103.0,
+                    "TopMargin": 2.0,
+                    "BottomMargin": -12.0,
+                    "Tag": 173,
+                    "Children": [
+                      {
+                        "FileData": {
+                          "Type": "Normal",
+                          "Path": "Offer/bonusZaloGStar.png",
+                          "Plist": ""
+                        },
+                        "Scale9OriginX": 75,
+                        "Scale9OriginY": 80,
+                        "Scale9Width": 50,
+                        "Scale9Height": 78,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5
+                        },
+                        "Position": {
+                          "X": 83.9232,
+                          "Y": 24.9379
+                        },
+                        "Scale": {
+                          "ScaleX": 0.8,
+                          "ScaleY": 0.8
+                        },
+                        "RotationSkewX": -16.5632,
+                        "RotationSkewY": -16.5632,
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.1526,
+                          "Y": 0.0998
+                        },
+                        "PreSize": {
+                          "X": 0.3636,
+                          "Y": 0.952
+                        },
+                        "LeftMargin": -16.0768,
+                        "RightMargin": 366.0768,
+                        "TopMargin": -12.9379,
+                        "BottomMargin": 24.9379,
+                        "Tag": 174,
+                        "Children": [
+                          {
+                            "FontSize": 24,
+                            "LabelText": "10000000000",
+                            "FontResource": {
+                              "Type": "Normal",
+                              "Path": "Font/tahomabd.ttf",
+                              "Plist": ""
+                            },
+                            "HorizontalAlignmentType": "HT_Center",
+                            "VerticalAlignmentType": "VT_Center",
+                            "OutlineColor": {
+                              "G": 0,
+                              "B": 0
+                            },
+                            "ShadowColor": {
+                              "R": 110,
+                              "G": 110,
+                              "B": 110
+                            },
+                            "ShadowOffsetX": 2.0,
+                            "ShadowOffsetY": -2.0,
+                            "AnchorPoint": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
+                            },
+                            "Position": {
+                              "X": 92.796,
+                              "Y": 217.8124
+                            },
+                            "Scale": {
+                              "ScaleX": 1.0,
+                              "ScaleY": 1.0
+                            },
+                            "CColor": {
+                              "R": 113,
+                              "G": 123,
+                              "B": 140
+                            },
+                            "IconVisible": false,
+                            "PrePosition": {
+                              "X": 0.464,
+                              "Y": 0.9152
+                            },
+                            "PreSize": {
+                              "X": 0.785,
+                              "Y": 0.1387
+                            },
+                            "LeftMargin": 14.296,
+                            "RightMargin": 28.704,
+                            "TopMargin": 3.6876,
+                            "BottomMargin": 201.3124,
+                            "Tag": 175,
+                            "ActionTag": 918231783,
+                            "Size": {
+                              "X": 157.0,
+                              "Y": 33.0
+                            },
+                            "Name": "lbNum",
+                            "ctype": "TextObjectData"
+                          }
+                        ],
+                        "ActionTag": -1485737347,
+                        "Size": {
+                          "X": 200.0,
+                          "Y": 238.0
+                        },
+                        "Name": "bonusGStar",
+                        "ctype": "ImageViewObjectData"
+                      },
+                      {
+                        "FileData": {
+                          "Type": "Normal",
+                          "Path": "Offer/bonusZaloTime.png",
+                          "Plist": ""
+                        },
+                        "Scale9OriginX": 75,
+                        "Scale9OriginY": 80,
+                        "Scale9Width": 43,
+                        "Scale9Height": 77,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 308.9978,
+                          "Y": 128.0015
+                        },
+                        "Scale": {
+                          "ScaleX": 0.8,
+                          "ScaleY": 0.8
+                        },
+                        "RotationSkewX": 11.6286,
+                        "RotationSkewY": 11.6321,
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.5618,
+                          "Y": 0.512
+                        },
+                        "PreSize": {
+                          "X": 0.3509,
+                          "Y": 0.948
+                        },
+                        "LeftMargin": 212.4978,
+                        "RightMargin": 144.5022,
+                        "TopMargin": 3.4985,
+                        "BottomMargin": 9.5015,
+                        "Tag": 176,
+                        "Children": [
+                          {
+                            "FontSize": 24,
+                            "LabelText": "10000000000",
+                            "FontResource": {
+                              "Type": "Normal",
+                              "Path": "Font/tahomabd.ttf",
+                              "Plist": ""
+                            },
+                            "HorizontalAlignmentType": "HT_Center",
+                            "VerticalAlignmentType": "VT_Center",
+                            "OutlineColor": {
+                              "G": 0,
+                              "B": 0
+                            },
+                            "ShadowColor": {
+                              "R": 110,
+                              "G": 110,
+                              "B": 110
+                            },
+                            "ShadowOffsetX": 2.0,
+                            "ShadowOffsetY": -2.0,
+                            "AnchorPoint": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
+                            },
+                            "Position": {
+                              "X": 98.5303,
+                              "Y": 216.376
+                            },
+                            "Scale": {
+                              "ScaleX": 1.0,
+                              "ScaleY": 1.0
+                            },
+                            "CColor": {
+                              "R": 113,
+                              "G": 123,
+                              "B": 140
+                            },
+                            "IconVisible": false,
+                            "PrePosition": {
+                              "X": 0.5105,
+                              "Y": 0.913
+                            },
+                            "PreSize": {
+                              "X": 0.8135,
+                              "Y": 0.1392
+                            },
+                            "LeftMargin": 20.0303,
+                            "RightMargin": 15.9697,
+                            "TopMargin": 4.124,
+                            "BottomMargin": 199.876,
+                            "Tag": 177,
+                            "ActionTag": 1094583691,
+                            "Size": {
+                              "X": 157.0,
+                              "Y": 33.0
+                            },
+                            "Name": "lbNum",
+                            "ctype": "TextObjectData"
+                          }
+                        ],
+                        "ActionTag": -2117250818,
+                        "Size": {
+                          "X": 193.0,
+                          "Y": 237.0
+                        },
+                        "Name": "bonusTime",
+                        "ctype": "ImageViewObjectData"
+                      },
+                      {
+                        "FileData": {
+                          "Type": "Normal",
+                          "Path": "Offer/bonusZaloGold.png",
+                          "Plist": ""
+                        },
+                        "Scale9OriginX": 75,
+                        "Scale9OriginY": 80,
+                        "Scale9Width": 79,
+                        "Scale9Height": 83,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5
+                        },
+                        "Position": {
+                          "X": 174.9984,
+                          "Y": 20.4999
+                        },
+                        "Scale": {
+                          "ScaleX": 0.8,
+                          "ScaleY": 0.8
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.3182,
+                          "Y": 0.082
+                        },
+                        "PreSize": {
+                          "X": 0.4164,
+                          "Y": 0.972
+                        },
+                        "LeftMargin": 60.4984,
+                        "RightMargin": 260.5016,
+                        "TopMargin": -13.4999,
+                        "BottomMargin": 20.4999,
+                        "Tag": 178,
+                        "Children": [
+                          {
+                            "FontSize": 24,
+                            "LabelText": "10000000000",
+                            "FontResource": {
+                              "Type": "Normal",
+                              "Path": "Font/tahomabd.ttf",
+                              "Plist": ""
+                            },
+                            "HorizontalAlignmentType": "HT_Center",
+                            "VerticalAlignmentType": "VT_Center",
+                            "OutlineColor": {
+                              "G": 0,
+                              "B": 0
+                            },
+                            "ShadowColor": {
+                              "R": 110,
+                              "G": 110,
+                              "B": 110
+                            },
+                            "ShadowOffsetX": 2.0,
+                            "ShadowOffsetY": -2.0,
+                            "AnchorPoint": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
+                            },
+                            "Position": {
+                              "X": 129.8222,
+                              "Y": 217.4973
+                            },
+                            "Scale": {
+                              "ScaleX": 1.0,
+                              "ScaleY": 1.0
+                            },
+                            "RotationSkewX": 2.7454,
+                            "RotationSkewY": 2.7454,
+                            "CColor": {
+                              "R": 113,
+                              "G": 123,
+                              "B": 140
+                            },
+                            "IconVisible": false,
+                            "PrePosition": {
+                              "X": 0.5669,
+                              "Y": 0.8951
+                            },
+                            "PreSize": {
+                              "X": 0.6856,
+                              "Y": 0.1358
+                            },
+                            "LeftMargin": 51.3222,
+                            "RightMargin": 20.6778,
+                            "TopMargin": 9.0027,
+                            "BottomMargin": 200.9973,
+                            "Tag": 179,
+                            "ActionTag": -1024557261,
+                            "Size": {
+                              "X": 157.0,
+                              "Y": 33.0
+                            },
+                            "Name": "lbNum",
+                            "ctype": "TextObjectData"
+                          }
+                        ],
+                        "ActionTag": 918011614,
+                        "Size": {
+                          "X": 229.0,
+                          "Y": 243.0
+                        },
+                        "Name": "bonusGold",
+                        "ctype": "ImageViewObjectData"
+                      },
+                      {
+                        "FileData": {
+                          "Type": "Normal",
+                          "Path": "Offer/bgEmpty.png",
+                          "Plist": ""
+                        },
+                        "Scale9OriginX": 75,
+                        "Scale9OriginY": 80,
+                        "Scale9Width": 43,
+                        "Scale9Height": 77,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5
+                        },
+                        "Position": {
+                          "X": 419.9985,
+                          "Y": 9.4997
+                        },
+                        "Scale": {
+                          "ScaleX": 0.8,
+                          "ScaleY": 0.8
+                        },
+                        "RotationSkewX": 19.5173,
+                        "RotationSkewY": 19.5176,
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.7636,
+                          "Y": 0.038
+                        },
+                        "PreSize": {
+                          "X": 0.3509,
+                          "Y": 0.948
+                        },
+                        "LeftMargin": 323.4985,
+                        "RightMargin": 33.5015,
+                        "TopMargin": 3.5003,
+                        "BottomMargin": 9.4997,
+                        "Tag": 180,
+                        "Children": [
+                          {
+                            "FontSize": 24,
+                            "LabelText": "100000000000000",
+                            "FontResource": {
+                              "Type": "Normal",
+                              "Path": "Font/tahomabd.ttf",
+                              "Plist": ""
+                            },
+                            "HorizontalAlignmentType": "HT_Center",
+                            "VerticalAlignmentType": "VT_Center",
+                            "OutlineColor": {
+                              "G": 0,
+                              "B": 0
+                            },
+                            "ShadowColor": {
+                              "R": 110,
+                              "G": 110,
+                              "B": 110
+                            },
+                            "ShadowOffsetX": 2.0,
+                            "ShadowOffsetY": -2.0,
+                            "AnchorPoint": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
+                            },
+                            "Position": {
+                              "X": 96.9,
+                              "Y": 214.1664
+                            },
+                            "Scale": {
+                              "ScaleX": 1.0,
+                              "ScaleY": 1.0
+                            },
+                            "RotationSkewX": 2.7454,
+                            "RotationSkewY": 2.7454,
+                            "CColor": {
+                              "R": 113,
+                              "G": 123,
+                              "B": 140
+                            },
+                            "IconVisible": false,
+                            "PrePosition": {
+                              "X": 0.5021,
+                              "Y": 0.9037
+                            },
+                            "PreSize": {
+                              "X": 1.1036,
+                              "Y": 0.1392
+                            },
+                            "LeftMargin": -9.6,
+                            "RightMargin": -10.4,
+                            "TopMargin": 6.3336,
+                            "BottomMargin": 197.6664,
+                            "Tag": 181,
+                            "ActionTag": 1147936994,
+                            "Size": {
+                              "X": 213.0,
+                              "Y": 33.0
+                            },
+                            "Name": "lbNum",
+                            "ctype": "TextObjectData"
+                          },
+                          {
+                            "FileData": {
+                              "Type": "Default",
+                              "Path": "Default/ImageFile.png",
+                              "Plist": ""
+                            },
+                            "Scale9Width": 46,
+                            "Scale9Height": 46,
+                            "AnchorPoint": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
+                            },
+                            "Position": {
+                              "X": 92.0571,
+                              "Y": 114.9042
+                            },
+                            "Scale": {
+                              "ScaleX": 1.0,
+                              "ScaleY": 1.0
+                            },
+                            "CColor": {},
+                            "IconVisible": false,
+                            "PrePosition": {
+                              "X": 0.477,
+                              "Y": 0.4848
+                            },
+                            "PreSize": {
+                              "X": 0.2383,
+                              "Y": 0.1941
+                            },
+                            "LeftMargin": 69.0571,
+                            "RightMargin": 77.9429,
+                            "TopMargin": 99.0958,
+                            "BottomMargin": 91.9042,
+                            "Tag": 182,
+                            "ActionTag": 504160831,
+                            "Size": {
+                              "X": 46.0,
+                              "Y": 46.0
+                            },
+                            "Name": "imgBonus",
+                            "ctype": "ImageViewObjectData"
+                          }
+                        ],
+                        "ActionTag": -906705672,
+                        "Size": {
+                          "X": 193.0,
+                          "Y": 237.0
+                        },
+                        "Name": "bonusEmpty",
+                        "ctype": "ImageViewObjectData"
+                      }
+                    ],
+                    "ActionTag": 615794935,
+                    "Size": {
+                      "X": 550.0,
+                      "Y": 250.0
+                    },
+                    "Name": "group4",
+                    "ctype": "PanelObjectData"
+                  },
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "Offer/layerCover.png",
+                      "Plist": ""
+                    },
+                    "Scale9OriginX": 183,
+                    "Scale9OriginY": 57,
+                    "Scale9Width": 189,
+                    "Scale9Height": 60,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 229.0,
+                      "Y": 6.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.5452,
+                      "Y": 0.025
+                    },
+                    "PreSize": {
+                      "X": 1.3214,
+                      "Y": 0.725
+                    },
+                    "LeftMargin": -48.5,
+                    "RightMargin": -86.5,
+                    "TopMargin": 147.0,
+                    "BottomMargin": -81.0,
+                    "Tag": 18,
+                    "ActionTag": -1261505353,
+                    "Size": {
+                      "X": 555.0,
+                      "Y": 174.0
+                    },
+                    "Name": "cover",
+                    "ctype": "ImageViewObjectData"
+                  },
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "Offer/iconFox.png",
+                      "Plist": ""
+                    },
+                    "Scale9OriginX": 57,
+                    "Scale9OriginY": 66,
+                    "Scale9Width": 61,
+                    "Scale9Height": 69,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 542.5676,
+                      "Y": 25.258
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 1.2918,
+                      "Y": 0.1052
+                    },
+                    "PreSize": {
+                      "X": 0.4167,
+                      "Y": 0.8375
+                    },
+                    "LeftMargin": 455.0676,
+                    "RightMargin": -210.0676,
+                    "TopMargin": 114.242,
+                    "BottomMargin": -75.242,
+                    "Tag": 21,
+                    "ActionTag": 1365546353,
+                    "Size": {
+                      "X": 175.0,
+                      "Y": 201.0
+                    },
+                    "Name": "Image_6",
+                    "ctype": "ImageViewObjectData"
+                  },
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "Offer/decoFirstPay.png",
+                      "Plist": ""
+                    },
+                    "Scale9OriginX": 59,
+                    "Scale9OriginY": 49,
+                    "Scale9Width": 61,
+                    "Scale9Height": 51,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": -54.7779,
+                      "Y": 41.8909
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": -0.1304,
+                      "Y": 0.1745
+                    },
+                    "PreSize": {
+                      "X": 0.4262,
+                      "Y": 0.6208
+                    },
+                    "LeftMargin": -144.2779,
+                    "RightMargin": 385.2779,
+                    "TopMargin": 123.6091,
+                    "BottomMargin": -32.6091,
+                    "Tag": 49,
+                    "ActionTag": 2086680038,
+                    "Size": {
+                      "X": 179.0,
+                      "Y": 149.0
+                    },
+                    "Name": "Image_10",
+                    "ctype": "ImageViewObjectData"
+                  }
+                ],
+                "ActionTag": -1504120310,
+                "Size": {
+                  "X": 420.0,
+                  "Y": 240.0
+                },
+                "Name": "pItem",
+                "ctype": "PanelObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "Offer/titleFirstPay.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 99,
+                "Scale9OriginY": 15,
+                "Scale9Width": 103,
+                "Scale9Height": 17,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 414.0,
+                  "Y": 434.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.5208,
+                  "Y": 0.9099
+                },
+                "PreSize": {
+                  "X": 0.3786,
+                  "Y": 0.0985
+                },
+                "LeftMargin": 263.5,
+                "RightMargin": 230.5,
+                "TopMargin": 19.5,
+                "BottomMargin": 410.5,
+                "Tag": 183,
+                "ActionTag": 1762647314,
+                "Size": {
+                  "X": 301.0,
+                  "Y": 47.0
+                },
+                "Name": "Image_14",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "ClipAble": false,
+                "BackColorAlpha": 0,
+                "ComboBoxIndex": 1,
+                "SingleColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "FirstColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "EndColor": {},
+                "ColorVector": {
+                  "ScaleY": 1.0
+                },
+                "Scale9Width": 1,
+                "Scale9Height": 1,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5
+                },
+                "Position": {
+                  "X": 621.9835,
+                  "Y": 133.0161
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.7824,
+                  "Y": 0.2789
+                },
+                "PreSize": {
+                  "X": 0.3145,
+                  "Y": 0.6289
+                },
+                "HorizontalEdge": "RightEdge",
+                "VerticalEdge": "TopEdge",
+                "LeftMargin": 496.9835,
+                "RightMargin": 48.0165,
+                "TopMargin": 43.9839,
+                "BottomMargin": 133.0161,
+                "Tag": 197,
+                "ActionTag": -1508358991,
+                "Size": {
+                  "X": 250.0,
+                  "Y": 300.0
+                },
+                "Name": "pEff",
+                "ctype": "PanelObjectData"
+              },
+              {
+                "IsCustomSize": true,
+                "FontSize": 17,
+                "LabelText": "Ưu đãi dành cho user thanh toán lần đầu qua dasd\nZaloPay djfkdjfdkjfdkf",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahomabd.ttf",
+                  "Plist": ""
+                },
+                "HorizontalAlignmentType": "HT_Center",
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 404.0,
+                  "Y": 389.9287
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.5082,
+                  "Y": 0.8175
+                },
+                "PreSize": {
+                  "X": 0.6918,
+                  "Y": 0.0964
+                },
+                "LeftMargin": 129.0,
+                "RightMargin": 116.0,
+                "TopMargin": 64.0713,
+                "BottomMargin": 366.9287,
+                "Tag": 695,
+                "ActionTag": 1866710444,
+                "Size": {
+                  "X": 550.0,
+                  "Y": 46.0
+                },
+                "Name": "lbPromo",
+                "ctype": "TextObjectData"
+              },
+              {
+                "ClipAble": false,
+                "BackColorAlpha": 0,
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "Offer/btnOffer.png",
+                  "Plist": ""
+                },
+                "ComboBoxIndex": 1,
+                "SingleColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "FirstColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "EndColor": {},
+                "ColorVector": {
+                  "ScaleY": 1.0
+                },
+                "Scale9OriginX": 72,
+                "Scale9OriginY": 22,
+                "Scale9Width": 76,
+                "Scale9Height": 25,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 405.0,
+                  "Y": 93.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.5094,
+                  "Y": 0.195
+                },
+                "PreSize": {
+                  "X": 0.2767,
+                  "Y": 0.1447
+                },
+                "LeftMargin": 295.0,
+                "RightMargin": 280.0,
+                "TopMargin": 349.5,
+                "BottomMargin": 58.5,
+                "Tag": 776,
+                "Children": [
+                  {
+                    "ClipAble": false,
+                    "BackColorAlpha": 0,
+                    "ComboBoxIndex": 1,
+                    "SingleColor": {
+                      "R": 150,
+                      "G": 200
+                    },
+                    "FirstColor": {
+                      "R": 150,
+                      "G": 200
+                    },
+                    "EndColor": {},
+                    "ColorVector": {
+                      "ScaleY": 1.0
+                    },
+                    "Scale9Width": 1,
+                    "Scale9Height": 1,
+                    "TouchEnable": true,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 110.0,
+                      "Y": 34.5
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PositionPercentXEnabled": true,
+                    "PositionPercentYEnabled": true,
+                    "PrePosition": {
+                      "X": 0.5,
+                      "Y": 0.5
+                    },
+                    "PreSize": {
+                      "X": 1.0,
+                      "Y": 1.0
+                    },
+                    "Tag": 777,
+                    "ActionTag": 1486096815,
+                    "Size": {
+                      "X": 220.0,
+                      "Y": 69.0
+                    },
+                    "Name": "eff",
+                    "ctype": "PanelObjectData"
+                  },
+                  {
+                    "FontSize": 14,
+                    "LabelText": "Giá cũ: 5.000.000 vnđ",
+                    "FontResource": {
+                      "Type": "Normal",
+                      "Path": "Font/tahoma.ttf",
+                      "Plist": ""
+                    },
+                    "HorizontalAlignmentType": "HT_Center",
+                    "OutlineColor": {
+                      "G": 0,
+                      "B": 0
+                    },
+                    "ShadowColor": {
+                      "R": 110,
+                      "G": 110,
+                      "B": 110
+                    },
+                    "ShadowOffsetX": 2.0,
+                    "ShadowOffsetY": -2.0,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 110.0,
+                      "Y": 53.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {
+                      "R": 215,
+                      "G": 138,
+                      "B": 42
+                    },
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.5,
+                      "Y": 0.7681
+                    },
+                    "PreSize": {
+                      "X": 0.6636,
+                      "Y": 0.2754
+                    },
+                    "LeftMargin": 37.0,
+                    "RightMargin": 37.0,
+                    "TopMargin": 6.5,
+                    "BottomMargin": 43.5,
+                    "Tag": 692,
+                    "ActionTag": 1010104676,
+                    "Size": {
+                      "X": 146.0,
+                      "Y": 19.0
+                    },
+                    "Name": "lbOldPrice",
+                    "ctype": "TextObjectData"
+                  },
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "ShopIAP/line.png",
+                      "Plist": ""
+                    },
+                    "Scale9OriginX": 16,
+                    "Scale9Width": 18,
+                    "Scale9Height": 2,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 140.0,
+                      "Y": 53.0
+                    },
+                    "Scale": {
+                      "ScaleX": 2.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {
+                      "R": 215,
+                      "G": 138,
+                      "B": 42
+                    },
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.6364,
+                      "Y": 0.7681
+                    },
+                    "PreSize": {
+                      "X": 0.2273,
+                      "Y": 0.029
+                    },
+                    "LeftMargin": 115.0,
+                    "RightMargin": 55.0,
+                    "TopMargin": 15.0,
+                    "BottomMargin": 52.0,
+                    "Tag": 694,
+                    "ActionTag": -770900149,
+                    "Size": {
+                      "X": 50.0,
+                      "Y": 2.0
+                    },
+                    "Name": "line",
+                    "ctype": "ImageViewObjectData"
+                  },
+                  {
+                    "FontSize": 28,
+                    "LabelText": "5.000 vnđ",
+                    "FontResource": {
+                      "Type": "Normal",
+                      "Path": "Font/tahomabd.ttf",
+                      "Plist": ""
+                    },
+                    "HorizontalAlignmentType": "HT_Center",
+                    "OutlineColor": {
+                      "G": 205,
+                      "B": 77
+                    },
+                    "OutlineEnabled": true,
+                    "ShadowColor": {
+                      "R": 110,
+                      "G": 110,
+                      "B": 110
+                    },
+                    "ShadowOffsetX": 2.0,
+                    "ShadowOffsetY": -2.0,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 110.0,
+                      "Y": 27.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PositionPercentXEnabled": true,
+                    "PrePosition": {
+                      "X": 0.5,
+                      "Y": 0.3913
+                    },
+                    "PreSize": {
+                      "X": 0.6136,
+                      "Y": 0.5797
+                    },
+                    "LeftMargin": 42.5,
+                    "RightMargin": 42.5,
+                    "TopMargin": 22.0,
+                    "BottomMargin": 7.0,
+                    "Tag": 693,
+                    "ActionTag": -302972418,
+                    "Size": {
+                      "X": 135.0,
+                      "Y": 40.0
+                    },
+                    "Name": "lbNewPrice",
+                    "ctype": "TextObjectData"
+                  },
+                  {
+                    "FontSize": 14,
+                    "ButtonText": "",
+                    "TextColor": {
+                      "R": 65,
+                      "G": 65,
+                      "B": 70
+                    },
+                    "DisabledFileData": {
+                      "Type": "Default",
+                      "Path": "Default/Button_Disable.png",
+                      "Plist": ""
+                    },
+                    "PressedFileData": {
+                      "Type": "Normal",
+                      "Path": "Offer/btnOffer.png",
+                      "Plist": ""
+                    },
+                    "NormalFileData": {
+                      "Type": "Normal",
+                      "Path": "Offer/btnOffer.png",
+                      "Plist": ""
+                    },
+                    "Scale9Enable": true,
+                    "Scale9OriginX": 15,
+                    "Scale9OriginY": 11,
+                    "Scale9Width": 190,
+                    "Scale9Height": 47,
+                    "OutlineColor": {
+                      "G": 0,
+                      "B": 0
+                    },
+                    "ShadowColor": {
+                      "R": 110,
+                      "G": 110,
+                      "B": 110
+                    },
+                    "ShadowOffsetX": 2.0,
+                    "ShadowOffsetY": -2.0,
+                    "TouchEnable": true,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 110.0,
+                      "Y": 34.5
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PositionPercentXEnabled": true,
+                    "PositionPercentYEnabled": true,
+                    "PrePosition": {
+                      "X": 0.5,
+                      "Y": 0.5
+                    },
+                    "PreSize": {
+                      "X": 1.0,
+                      "Y": 1.0
+                    },
+                    "Tag": 688,
+                    "ActionTag": 1485967954,
+                    "Size": {
+                      "X": 220.0,
+                      "Y": 69.0
+                    },
+                    "Alpha": 0,
+                    "Name": "btn",
+                    "ctype": "ButtonObjectData"
+                  },
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "Offer/iconZaloPay.png",
+                      "Plist": ""
+                    },
+                    "Scale9OriginX": 25,
+                    "Scale9OriginY": 13,
+                    "Scale9Width": 28,
+                    "Scale9Height": 15,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 45.4564,
+                      "Y": 65.833
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.2066,
+                      "Y": 0.9541
+                    },
+                    "PreSize": {
+                      "X": 0.3545,
+                      "Y": 0.5942
+                    },
+                    "LeftMargin": 6.4564,
+                    "RightMargin": 135.5436,
+                    "TopMargin": -17.333,
+                    "BottomMargin": 45.333,
+                    "Tag": 20,
+                    "ActionTag": 1366969739,
+                    "Size": {
+                      "X": 78.0,
+                      "Y": 41.0
+                    },
+                    "Name": "iconPayment",
+                    "ctype": "ImageViewObjectData"
+                  }
+                ],
+                "ActionTag": -151282492,
+                "Size": {
+                  "X": 220.0,
+                  "Y": 69.0
+                },
+                "Name": "btnBuy",
+                "ctype": "PanelObjectData"
+              },
+              {
+                "FontSize": 15,
+                "LabelText": "Thời gian ưu đãi còn lại: 10:10:10",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahoma.ttf",
+                  "Plist": ""
+                },
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 290.5,
+                  "Y": 53.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "R": 209,
+                  "G": 165,
+                  "B": 116
+                },
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.3654,
+                  "Y": 0.1111
+                },
+                "PreSize": {
+                  "X": 0.2943,
+                  "Y": 0.0419
+                },
+                "LeftMargin": 290.5,
+                "RightMargin": 270.5,
+                "TopMargin": 414.0,
+                "BottomMargin": 43.0,
+                "Tag": 689,
+                "ActionTag": -78379107,
+                "Size": {
+                  "X": 234.0,
+                  "Y": 20.0
+                },
+                "Name": "lbTime",
+                "ctype": "TextObjectData"
+              },
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Default",
+                  "Path": "Default/Button_Disable.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "Normal",
+                  "Path": "Offer/btnCloseZalo.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "Offer/btnCloseZalo.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 7,
+                "Scale9Height": 15,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 682.8661,
+                  "Y": 337.1796
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.859,
+                  "Y": 0.7069
+                },
+                "PreSize": {
+                  "X": 0.0465,
+                  "Y": 0.0776
+                },
+                "LeftMargin": 664.3661,
+                "RightMargin": 93.6339,
+                "TopMargin": 121.3204,
+                "BottomMargin": 318.6796,
+                "Tag": 690,
+                "ActionTag": -645594434,
+                "Size": {
+                  "X": 37.0,
+                  "Y": 37.0
+                },
+                "Name": "btnClose",
+                "ctype": "ButtonObjectData"
+              }
+            ],
+            "ActionTag": -301452414,
+            "Size": {
+              "X": 795.0,
+              "Y": 477.0
+            },
+            "Name": "bg",
+            "ctype": "ImageViewObjectData"
+          }
+        ],
+        "Size": {
+          "X": 800.0,
+          "Y": 480.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "Default/Button_Disable.png",
+        "Default/ImageFile.png",
+        "Font/tahoma.ttf",
+        "Font/tahomabd.ttf",
+        "Offer/bgEmpty.png",
+        "Offer/bgZaloFirstPay.png",
+        "Offer/bonusZaloGold.png",
+        "Offer/bonusZaloGStar.png",
+        "Offer/bonusZaloTime.png",
+        "Offer/btnCloseZalo.png",
+        "Offer/btnOffer.png",
+        "Offer/decoFirstPay.png",
+        "Offer/iconFox.png",
+        "Offer/iconZaloPay.png",
+        "Offer/layerCover.png",
+        "Offer/titleFirstPay.png",
+        "ShopIAP/line.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

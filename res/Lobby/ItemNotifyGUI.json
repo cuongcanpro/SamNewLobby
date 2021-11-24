@@ -1,0 +1,384 @@
+{
+  "ID": "67fa8b4e-d64c-4a2a-a7d9-251ab974e5bb",
+  "Version": "2.3.4",
+  "Name": "ItemNotifyGUI",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 1130,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Dialog/table.png",
+              "Plist": ""
+            },
+            "Scale9OriginX": 150,
+            "Scale9OriginY": 90,
+            "Scale9Width": 155,
+            "Scale9Height": 94,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 400.0,
+              "Y": 240.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PositionPercentYEnabled": true,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.5
+            },
+            "PreSize": {
+              "X": 0.5688,
+              "Y": 0.5708
+            },
+            "LeftMargin": 172.5,
+            "RightMargin": 172.5,
+            "TopMargin": 103.0,
+            "BottomMargin": 103.0,
+            "Tag": 1132,
+            "Children": [
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "Dialog/dialogTitle.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 50,
+                "Scale9OriginY": 14,
+                "Scale9Width": 53,
+                "Scale9Height": 15,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 227.5,
+                  "Y": 247.5
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.9033
+                },
+                "PreSize": {
+                  "X": 0.3363,
+                  "Y": 0.1569
+                },
+                "VerticalEdge": "TopEdge",
+                "LeftMargin": 151.0,
+                "RightMargin": 151.0,
+                "TopMargin": 5.0,
+                "BottomMargin": 226.0,
+                "Tag": 1136,
+                "ActionTag": 2069838024,
+                "Size": {
+                  "X": 153.0,
+                  "Y": 43.0
+                },
+                "Name": "title",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "Common/btnConfirm.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 118,
+                "Scale9Height": 32,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 310.0,
+                  "Y": 27.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.6813,
+                  "Y": 0.0985
+                },
+                "PreSize": {
+                  "X": 0.3253,
+                  "Y": 0.1971
+                },
+                "VerticalEdge": "BottomEdge",
+                "LeftMargin": 236.0,
+                "RightMargin": 71.0,
+                "TopMargin": 220.0,
+                "Tag": 1137,
+                "ActionTag": -1752518080,
+                "Size": {
+                  "X": 148.0,
+                  "Y": 54.0
+                },
+                "Name": "btnOK",
+                "ctype": "ButtonObjectData"
+              },
+              {
+                "FontSize": 16,
+                "LabelText": "Chuc mung ban da dat level 5!\nTinh nang tuong tac trong ban choi da duoc mo khoa!\nXin gui ban mot mon qua dung thu",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahoma.ttf",
+                  "Plist": ""
+                },
+                "HorizontalAlignmentType": "HT_Center",
+                "VerticalAlignmentType": "VT_Center",
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 227.5,
+                  "Y": 199.9997
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "R": 213,
+                  "G": 193,
+                  "B": 231
+                },
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.7299
+                },
+                "PreSize": {
+                  "X": 0.9033,
+                  "Y": 0.2409
+                },
+                "LeftMargin": 22.0,
+                "RightMargin": 22.0,
+                "TopMargin": 41.0003,
+                "BottomMargin": 166.9997,
+                "Tag": 1139,
+                "ActionTag": -722559407,
+                "Size": {
+                  "X": 411.0,
+                  "Y": 66.0
+                },
+                "Name": "text",
+                "ctype": "TextObjectData"
+              },
+              {
+                "ItemMargin": 10,
+                "ScrollDirectionType": 0,
+                "ClipAble": true,
+                "BackColorAlpha": 102,
+                "SingleColor": {
+                  "R": 150,
+                  "G": 150
+                },
+                "FirstColor": {
+                  "R": 150,
+                  "G": 150
+                },
+                "EndColor": {},
+                "ColorVector": {
+                  "ScaleY": 1.0
+                },
+                "Scale9Width": 1,
+                "Scale9Height": 1,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 227.5,
+                  "Y": 111.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.4051
+                },
+                "PreSize": {
+                  "X": 0.7692,
+                  "Y": 0.4015
+                },
+                "LeftMargin": 52.5,
+                "RightMargin": 52.5,
+                "TopMargin": 108.0,
+                "BottomMargin": 56.0,
+                "Tag": 1140,
+                "ActionTag": 247760022,
+                "Size": {
+                  "X": 350.0,
+                  "Y": 110.0
+                },
+                "Name": "listView",
+                "ctype": "ListViewObjectData"
+              },
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Default",
+                  "Path": "Default/Button_Disable.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "Common/btnUse.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 118,
+                "Scale9Height": 32,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 145.0,
+                  "Y": 27.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.3187,
+                  "Y": 0.0985
+                },
+                "PreSize": {
+                  "X": 0.3253,
+                  "Y": 0.1971
+                },
+                "LeftMargin": 71.0,
+                "RightMargin": 236.0,
+                "TopMargin": 220.0,
+                "Tag": 426,
+                "ActionTag": 341687250,
+                "Size": {
+                  "X": 148.0,
+                  "Y": 54.0
+                },
+                "Name": "btnUse",
+                "ctype": "ButtonObjectData"
+              }
+            ],
+            "ActionTag": 1382229075,
+            "Size": {
+              "X": 455.0,
+              "Y": 274.0
+            },
+            "Name": "bg",
+            "ctype": "ImageViewObjectData"
+          }
+        ],
+        "Size": {
+          "X": 800.0,
+          "Y": 480.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "Common/btnConfirm.png",
+        "Common/btnUse.png",
+        "Default/Button_Disable.png",
+        "Dialog/dialogTitle.png",
+        "Dialog/table.png",
+        "Font/tahoma.ttf"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

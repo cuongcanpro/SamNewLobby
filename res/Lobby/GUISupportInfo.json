@@ -1,0 +1,1258 @@
+{
+  "ID": "36b01dc4-6648-4d7c-987b-7bddff95038d",
+  "Version": "2.3.4",
+  "Name": "GUISupportInfo",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 30,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Offer/bgSupport2.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 400.0,
+              "Y": 240.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PositionPercentYEnabled": true,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.5
+            },
+            "PreSize": {
+              "X": 0.6775,
+              "Y": 0.7375
+            },
+            "LeftMargin": 129.0,
+            "RightMargin": 129.0,
+            "TopMargin": 63.0,
+            "BottomMargin": 63.0,
+            "Tag": 48,
+            "Children": [
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "Offer/titleSupport.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 271.0,
+                  "Y": 350.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.9887
+                },
+                "PreSize": {
+                  "X": 0.6144,
+                  "Y": 0.1667
+                },
+                "LeftMargin": 104.5,
+                "RightMargin": 104.5,
+                "TopMargin": -25.5,
+                "BottomMargin": 320.5,
+                "Tag": 49,
+                "ActionTag": 1682872680,
+                "Size": {
+                  "X": 333.0,
+                  "Y": 59.0
+                },
+                "Name": "title",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "Offer/bar.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 271.0,
+                  "Y": 255.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.7203
+                },
+                "PreSize": {
+                  "X": 0.5572,
+                  "Y": 0.0198
+                },
+                "LeftMargin": 120.0,
+                "RightMargin": 120.0,
+                "TopMargin": 95.5,
+                "BottomMargin": 251.5,
+                "Tag": 50,
+                "ActionTag": 1126894880,
+                "Size": {
+                  "X": 302.0,
+                  "Y": 7.0
+                },
+                "Name": "bar",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FontSize": 16,
+                "LabelText": "Gói hỗ trợ khi bạn hết Gold, 1 lần/ngày",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahoma.ttf",
+                  "Plist": ""
+                },
+                "HorizontalAlignmentType": "HT_Center",
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 271.0,
+                  "Y": 275.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "RotationSkewX": 10.0,
+                "CColor": {
+                  "R": 248,
+                  "G": 243,
+                  "B": 165
+                },
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.7768
+                },
+                "PreSize": {
+                  "X": 0.5461,
+                  "Y": 0.0621
+                },
+                "LeftMargin": 123.0,
+                "RightMargin": 123.0,
+                "TopMargin": 68.0,
+                "BottomMargin": 264.0,
+                "Tag": 51,
+                "ActionTag": 1824850354,
+                "Size": {
+                  "X": 296.0,
+                  "Y": 22.0
+                },
+                "Name": "text",
+                "ctype": "TextObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "Offer/light.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5202,
+                  "ScaleY": 0.4638
+                },
+                "Position": {
+                  "X": 159.0,
+                  "Y": 159.0
+                },
+                "Scale": {
+                  "ScaleX": 0.8,
+                  "ScaleY": 0.8
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.2934,
+                  "Y": 0.4492
+                },
+                "PreSize": {
+                  "X": 0.7362,
+                  "Y": 1.1017
+                },
+                "LeftMargin": -48.5598,
+                "RightMargin": 191.5598,
+                "TopMargin": -14.118,
+                "BottomMargin": -21.882,
+                "Tag": 547,
+                "ActionTag": 723463464,
+                "Size": {
+                  "X": 399.0,
+                  "Y": 390.0
+                },
+                "Alpha": 178,
+                "Name": "light3",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "Offer/light.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5202,
+                  "ScaleY": 0.4638
+                },
+                "Position": {
+                  "X": 159.0,
+                  "Y": 139.0
+                },
+                "Scale": {
+                  "ScaleX": 0.8,
+                  "ScaleY": 0.8
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.2934,
+                  "Y": 0.3927
+                },
+                "PreSize": {
+                  "X": 0.7362,
+                  "Y": 1.1017
+                },
+                "LeftMargin": -48.5598,
+                "RightMargin": 191.5598,
+                "TopMargin": 5.882,
+                "BottomMargin": -41.882,
+                "Tag": 548,
+                "ActionTag": 1625690978,
+                "Size": {
+                  "X": 399.0,
+                  "Y": 390.0
+                },
+                "Alpha": 178,
+                "Name": "light2",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "Offer/shine.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5202,
+                  "ScaleY": 0.4638
+                },
+                "Position": {
+                  "X": 159.0003,
+                  "Y": 159.0
+                },
+                "Scale": {
+                  "ScaleX": 0.8,
+                  "ScaleY": 0.8
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.2934,
+                  "Y": 0.4492
+                },
+                "PreSize": {
+                  "X": 1.1956,
+                  "Y": 1.7571
+                },
+                "LeftMargin": -178.0893,
+                "RightMargin": 72.0893,
+                "TopMargin": -138.5164,
+                "BottomMargin": -129.4836,
+                "Tag": 53,
+                "ActionTag": -1180690678,
+                "Size": {
+                  "X": 648.0,
+                  "Y": 622.0
+                },
+                "Alpha": 178,
+                "Name": "light1",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "ClipAble": false,
+                "BackColorAlpha": 102,
+                "SingleColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "FirstColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "EndColor": {},
+                "ColorVector": {
+                  "ScaleY": 1.0
+                },
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 159.0,
+                  "Y": 159.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.2934,
+                  "Y": 0.4492
+                },
+                "PreSize": {
+                  "X": 0.369,
+                  "Y": 0.565
+                },
+                "LeftMargin": 59.0,
+                "RightMargin": 283.0,
+                "TopMargin": 95.0,
+                "BottomMargin": 59.0,
+                "Tag": 549,
+                "ActionTag": 684053043,
+                "Size": {
+                  "X": 200.0,
+                  "Y": 200.0
+                },
+                "Name": "pStar",
+                "ctype": "PanelObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "Offer/chest.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 158.9999,
+                  "Y": 159.0002
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.2934,
+                  "Y": 0.4492
+                },
+                "PreSize": {
+                  "X": 0.3727,
+                  "Y": 0.4435
+                },
+                "LeftMargin": 57.9999,
+                "RightMargin": 282.0001,
+                "TopMargin": 116.4998,
+                "BottomMargin": 80.5002,
+                "Tag": 52,
+                "ActionTag": -334333749,
+                "Size": {
+                  "X": 202.0,
+                  "Y": 157.0
+                },
+                "Name": "chest",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "ClipAble": false,
+                "BackColorAlpha": 102,
+                "SingleColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "FirstColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "EndColor": {},
+                "ColorVector": {
+                  "ScaleY": 1.0
+                },
+                "Scale9Width": 1,
+                "Scale9Height": 1,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 169.0,
+                  "Y": 149.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.3118,
+                  "Y": 0.4209
+                },
+                "PreSize": {
+                  "X": 0.738,
+                  "Y": 1.1864
+                },
+                "LeftMargin": -31.0,
+                "RightMargin": 173.0,
+                "TopMargin": -5.0,
+                "BottomMargin": -61.0,
+                "Tag": 550,
+                "ActionTag": -1539278814,
+                "Size": {
+                  "X": 400.0,
+                  "Y": 420.0
+                },
+                "Name": "pEff",
+                "ctype": "PanelObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "Offer/dot.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 282.9998,
+                  "Y": 195.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.5221,
+                  "Y": 0.5508
+                },
+                "PreSize": {
+                  "X": 0.0148,
+                  "Y": 0.0226
+                },
+                "LeftMargin": 278.9998,
+                "RightMargin": 255.0002,
+                "TopMargin": 155.0,
+                "BottomMargin": 191.0,
+                "Tag": 54,
+                "ActionTag": -2140216902,
+                "Size": {
+                  "X": 8.0,
+                  "Y": 8.0
+                },
+                "Name": "dot0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "Offer/dot.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 282.9998,
+                  "Y": 159.9999
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.5221,
+                  "Y": 0.452
+                },
+                "PreSize": {
+                  "X": 0.0148,
+                  "Y": 0.0226
+                },
+                "LeftMargin": 278.9998,
+                "RightMargin": 255.0002,
+                "TopMargin": 190.0001,
+                "BottomMargin": 155.9999,
+                "Tag": 55,
+                "ActionTag": 822504753,
+                "Size": {
+                  "X": 8.0,
+                  "Y": 8.0
+                },
+                "Name": "dot1",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "Offer/dot.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 282.9998,
+                  "Y": 125.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.5221,
+                  "Y": 0.3531
+                },
+                "PreSize": {
+                  "X": 0.0148,
+                  "Y": 0.0226
+                },
+                "LeftMargin": 278.9998,
+                "RightMargin": 255.0002,
+                "TopMargin": 225.0,
+                "BottomMargin": 121.0,
+                "Tag": 56,
+                "ActionTag": -914206174,
+                "Size": {
+                  "X": 8.0,
+                  "Y": 8.0
+                },
+                "Name": "dot2",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FontSize": 18,
+                "LabelText": "VIP",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahomabd.ttf",
+                  "Plist": ""
+                },
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 287.9998,
+                  "Y": 195.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "R": 247,
+                  "G": 117
+                },
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.5314,
+                  "Y": 0.5508
+                },
+                "PreSize": {
+                  "X": 0.0609,
+                  "Y": 0.0706
+                },
+                "LeftMargin": 287.9998,
+                "RightMargin": 221.0002,
+                "TopMargin": 146.5,
+                "BottomMargin": 182.5,
+                "Tag": 58,
+                "ActionTag": -333808151,
+                "Size": {
+                  "X": 33.0,
+                  "Y": 25.0
+                },
+                "Name": "lbBonusVip",
+                "ctype": "TextObjectData"
+              },
+              {
+                "FontSize": 18,
+                "LabelText": "Bonus Lv 999",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahomabd.ttf",
+                  "Plist": ""
+                },
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 287.9998,
+                  "Y": 159.9998
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "R": 247,
+                  "G": 117
+                },
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.5314,
+                  "Y": 0.452
+                },
+                "PreSize": {
+                  "X": 0.2196,
+                  "Y": 0.0706
+                },
+                "LeftMargin": 287.9998,
+                "RightMargin": 135.0002,
+                "TopMargin": 181.5002,
+                "BottomMargin": 147.4998,
+                "Tag": 59,
+                "ActionTag": 1823455920,
+                "Size": {
+                  "X": 119.0,
+                  "Y": 25.0
+                },
+                "Name": "lbBonusLevel",
+                "ctype": "TextObjectData"
+              },
+              {
+                "FontSize": 18,
+                "LabelText": "Bonus event",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahomabd.ttf",
+                  "Plist": ""
+                },
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 287.9998,
+                  "Y": 125.0001
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "R": 247,
+                  "G": 117
+                },
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.5314,
+                  "Y": 0.3531
+                },
+                "PreSize": {
+                  "X": 0.214,
+                  "Y": 0.0706
+                },
+                "LeftMargin": 287.9998,
+                "RightMargin": 138.0002,
+                "TopMargin": 216.4999,
+                "BottomMargin": 112.5001,
+                "Tag": 60,
+                "ActionTag": 1556330382,
+                "Size": {
+                  "X": 116.0,
+                  "Y": 25.0
+                },
+                "Name": "lbBonusEvent",
+                "ctype": "TextObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "Offer/iconVip10.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5
+                },
+                "Position": {
+                  "X": 345.0,
+                  "Y": 185.9999
+                },
+                "Scale": {
+                  "ScaleX": 0.9,
+                  "ScaleY": 0.9
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.6365,
+                  "Y": 0.5254
+                },
+                "PreSize": {
+                  "X": 0.1015,
+                  "Y": 0.1215
+                },
+                "LeftMargin": 317.5,
+                "RightMargin": 169.5,
+                "TopMargin": 125.0001,
+                "BottomMargin": 185.9999,
+                "Tag": 61,
+                "ActionTag": -1093832516,
+                "Size": {
+                  "X": 55.0,
+                  "Y": 43.0
+                },
+                "Name": "imgVip",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FontSize": 22,
+                "LabelText": "+100%",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahomabd.ttf",
+                  "Plist": ""
+                },
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 414.9993,
+                  "Y": 162.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "R": 99,
+                  "G": 252,
+                  "B": 57
+                },
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.7657,
+                  "Y": 0.4576
+                },
+                "PreSize": {
+                  "X": 0.1384,
+                  "Y": 0.0847
+                },
+                "LeftMargin": 414.9993,
+                "RightMargin": 52.0007,
+                "TopMargin": 177.0,
+                "BottomMargin": 147.0,
+                "Tag": 62,
+                "ActionTag": 1569638561,
+                "Size": {
+                  "X": 75.0,
+                  "Y": 30.0
+                },
+                "Name": "valueBonusLevel",
+                "ctype": "TextObjectData"
+              },
+              {
+                "FontSize": 22,
+                "LabelText": "+100%",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahomabd.ttf",
+                  "Plist": ""
+                },
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 414.9993,
+                  "Y": 127.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "R": 99,
+                  "G": 252,
+                  "B": 57
+                },
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.7657,
+                  "Y": 0.3588
+                },
+                "PreSize": {
+                  "X": 0.1384,
+                  "Y": 0.0847
+                },
+                "LeftMargin": 414.9993,
+                "RightMargin": 52.0007,
+                "TopMargin": 212.0,
+                "BottomMargin": 112.0,
+                "Tag": 64,
+                "ActionTag": -1061979297,
+                "Size": {
+                  "X": 75.0,
+                  "Y": 30.0
+                },
+                "Name": "valueBonusEvent",
+                "ctype": "TextObjectData"
+              },
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "Offer/bntClose3.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 12,
+                "Scale9Height": 20,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 516.0,
+                  "Y": 300.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.952,
+                  "Y": 0.8475
+                },
+                "PreSize": {
+                  "X": 0.0775,
+                  "Y": 0.1186
+                },
+                "LeftMargin": 495.0,
+                "RightMargin": 5.0,
+                "TopMargin": 33.0,
+                "BottomMargin": 279.0,
+                "Tag": 65,
+                "ActionTag": -151631662,
+                "Size": {
+                  "X": 42.0,
+                  "Y": 42.0
+                },
+                "Name": "btnX",
+                "ctype": "ButtonObjectData"
+              },
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "Offer/btnNhanNgay.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 138,
+                "Scale9Height": 37,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 271.0,
+                  "Y": 0.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.0
+                },
+                "PreSize": {
+                  "X": 0.31,
+                  "Y": 0.1667
+                },
+                "LeftMargin": 187.0,
+                "RightMargin": 187.0,
+                "TopMargin": 324.5,
+                "BottomMargin": -29.5,
+                "Tag": 66,
+                "ActionTag": 56306884,
+                "Size": {
+                  "X": 168.0,
+                  "Y": 59.0
+                },
+                "Name": "btnReceive",
+                "ctype": "ButtonObjectData"
+              },
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "Offer/bntDong.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 138,
+                "Scale9Height": 37,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 271.0,
+                  "Y": 0.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.0
+                },
+                "PreSize": {
+                  "X": 0.31,
+                  "Y": 0.1667
+                },
+                "LeftMargin": 187.0,
+                "RightMargin": 187.0,
+                "TopMargin": 324.5,
+                "BottomMargin": -29.5,
+                "Tag": 67,
+                "ActionTag": -1312282597,
+                "Size": {
+                  "X": 168.0,
+                  "Y": 59.0
+                },
+                "Name": "btnClose",
+                "ctype": "ButtonObjectData"
+              },
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "Offer/btnDaNhan.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 138,
+                "Scale9Height": 37,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 271.0,
+                  "Y": 0.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.0
+                },
+                "PreSize": {
+                  "X": 0.31,
+                  "Y": 0.1667
+                },
+                "LeftMargin": 187.0,
+                "RightMargin": 187.0,
+                "TopMargin": 324.5,
+                "BottomMargin": -29.5,
+                "Tag": 68,
+                "ActionTag": -2095397179,
+                "Size": {
+                  "X": 168.0,
+                  "Y": 59.0
+                },
+                "Name": "btnReceived",
+                "ctype": "ButtonObjectData"
+              }
+            ],
+            "ActionTag": 1199692252,
+            "Size": {
+              "X": 542.0,
+              "Y": 354.0
+            },
+            "Name": "bg",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 800.0,
+          "Y": 480.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "Font/tahoma.ttf",
+        "Font/tahomabd.ttf",
+        "Offer/bar.png",
+        "Offer/bgSupport2.png",
+        "Offer/bntClose3.png",
+        "Offer/bntDong.png",
+        "Offer/btnDaNhan.png",
+        "Offer/btnNhanNgay.png",
+        "Offer/chest.png",
+        "Offer/dot.png",
+        "Offer/iconVip10.png",
+        "Offer/light.png",
+        "Offer/shine.png",
+        "Offer/titleSupport.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

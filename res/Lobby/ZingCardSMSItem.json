@@ -1,0 +1,667 @@
+{
+  "ID": "94ade41d-28f6-445c-a90d-c0516ddf29b1",
+  "Version": "2.3.4",
+  "Name": "ZingCardSMSItem",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 788,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ShopIAP/bgItemZingCardViettel.png",
+              "Plist": ""
+            },
+            "Scale9OriginX": 118,
+            "Scale9OriginY": 22,
+            "Scale9Width": 122,
+            "Scale9Height": 23,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 181.7784,
+              "Y": 35.5
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentYEnabled": true,
+            "PrePosition": {
+              "X": 0.36,
+              "Y": 0.5
+            },
+            "PreSize": {
+              "X": 0.7089,
+              "Y": 0.9437
+            },
+            "LeftMargin": 2.7784,
+            "RightMargin": 144.2216,
+            "TopMargin": 2.0,
+            "BottomMargin": 2.0,
+            "Tag": 789,
+            "Children": [
+              {
+                "FontSize": 15,
+                "LabelText": "Mệnh giá",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahoma.ttf",
+                  "Plist": ""
+                },
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 123.6905,
+                  "Y": 50.3425
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "G": 198,
+                  "B": 9
+                },
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.3455,
+                  "Y": 0.7514
+                },
+                "PreSize": {
+                  "X": 0.1872,
+                  "Y": 0.2985
+                },
+                "LeftMargin": 90.1905,
+                "RightMargin": 200.8095,
+                "TopMargin": 6.6575,
+                "BottomMargin": 40.3425,
+                "Tag": 792,
+                "ActionTag": 2121129388,
+                "Size": {
+                  "X": 67.0,
+                  "Y": 20.0
+                },
+                "Name": "Text_1",
+                "ctype": "TextObjectData"
+              },
+              {
+                "FontSize": 13,
+                "LabelText": "Cú pháp :",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahoma.ttf",
+                  "Plist": ""
+                },
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 119.6906,
+                  "Y": 17.6411
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "R": 170,
+                  "G": 164,
+                  "B": 189
+                },
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.3343,
+                  "Y": 0.2633
+                },
+                "PreSize": {
+                  "X": 0.1648,
+                  "Y": 0.2687
+                },
+                "LeftMargin": 90.1906,
+                "RightMargin": 208.8094,
+                "TopMargin": 40.3589,
+                "BottomMargin": 8.6411,
+                "Tag": 793,
+                "ActionTag": -586210797,
+                "Size": {
+                  "X": 59.0,
+                  "Y": 18.0
+                },
+                "Name": "Text_1_0",
+                "ctype": "TextObjectData"
+              },
+              {
+                "FontSize": 13,
+                "LabelText": "gửi",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahoma.ttf",
+                  "Plist": ""
+                },
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 280.7026,
+                  "Y": 17.6411
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "R": 170,
+                  "G": 164,
+                  "B": 189
+                },
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.7841,
+                  "Y": 0.2633
+                },
+                "PreSize": {
+                  "X": 0.0642,
+                  "Y": 0.2687
+                },
+                "LeftMargin": 269.2026,
+                "RightMargin": 65.7974,
+                "TopMargin": 40.3589,
+                "BottomMargin": 8.6411,
+                "Tag": 795,
+                "ActionTag": 2032782362,
+                "Size": {
+                  "X": 23.0,
+                  "Y": 18.0
+                },
+                "Name": "Text_1_0_0",
+                "ctype": "TextObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "ShopIAP/zingcard_0.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 31,
+                "Scale9OriginY": 23,
+                "Scale9Width": 34,
+                "Scale9Height": 25,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 45.4691,
+                  "Y": 32.9449
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.127,
+                  "Y": 0.4917
+                },
+                "PreSize": {
+                  "X": 0.2682,
+                  "Y": 1.0597
+                },
+                "LeftMargin": -2.5309,
+                "RightMargin": 264.5309,
+                "TopMargin": -1.4449,
+                "BottomMargin": -2.5551,
+                "Tag": 801,
+                "ActionTag": -1344739310,
+                "Size": {
+                  "X": 96.0,
+                  "Y": 71.0
+                },
+                "Name": "item",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FontSize": 20,
+                "LabelText": "999.999.999",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahomabd.ttf",
+                  "Plist": ""
+                },
+                "VerticalAlignmentType": "VT_Center",
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 223.0656,
+                  "Y": 50.3424
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "G": 198,
+                  "B": 9
+                },
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.6231,
+                  "Y": 0.7514
+                },
+                "PreSize": {
+                  "X": 0.3184,
+                  "Y": 0.403
+                },
+                "LeftMargin": 166.0656,
+                "RightMargin": 77.9344,
+                "TopMargin": 3.1576,
+                "BottomMargin": 36.8424,
+                "Tag": 794,
+                "ActionTag": 207764002,
+                "Size": {
+                  "X": 114.0,
+                  "Y": 27.0
+                },
+                "Name": "value",
+                "ctype": "TextObjectData"
+              },
+              {
+                "IsCustomSize": true,
+                "FontSize": 15,
+                "LabelText": "ZING 100000",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahomabd.ttf",
+                  "Plist": ""
+                },
+                "HorizontalAlignmentType": "HT_Center",
+                "VerticalAlignmentType": "VT_Center",
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 209.5104,
+                  "Y": 17.6411
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.5852,
+                  "Y": 0.2633
+                },
+                "PreSize": {
+                  "X": 0.4078,
+                  "Y": 0.3433
+                },
+                "LeftMargin": 136.5104,
+                "RightMargin": 75.4896,
+                "TopMargin": 37.8589,
+                "BottomMargin": 6.1411,
+                "Tag": 796,
+                "ActionTag": 1635114620,
+                "Size": {
+                  "X": 146.0,
+                  "Y": 23.0
+                },
+                "Name": "syntax",
+                "ctype": "TextObjectData"
+              },
+              {
+                "IsCustomSize": true,
+                "FontSize": 15,
+                "LabelText": "99999",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahomabd.ttf",
+                  "Plist": ""
+                },
+                "VerticalAlignmentType": "VT_Center",
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 295.8886,
+                  "Y": 17.6411
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.8265,
+                  "Y": 0.2633
+                },
+                "PreSize": {
+                  "X": 0.1397,
+                  "Y": 0.3433
+                },
+                "LeftMargin": 295.8886,
+                "RightMargin": 12.1114,
+                "TopMargin": 37.8589,
+                "BottomMargin": 6.1411,
+                "Tag": 797,
+                "ActionTag": 1235474272,
+                "Size": {
+                  "X": 50.0,
+                  "Y": 23.0
+                },
+                "Name": "phone",
+                "ctype": "TextObjectData"
+              },
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Normal",
+                  "Path": "ShopIAP/btn_sms_zingcard_viettel.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "Normal",
+                  "Path": "ShopIAP/btn_sms_zingcard_viettel.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "ShopIAP/btn_sms_zingcard_viettel.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 103,
+                "Scale9Height": 30,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 429.809,
+                  "Y": 33.5
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 1.2006,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 0.3715,
+                  "Y": 0.7761
+                },
+                "LeftMargin": 363.309,
+                "RightMargin": -138.309,
+                "TopMargin": 7.5,
+                "BottomMargin": 7.5,
+                "Tag": 798,
+                "ActionTag": 210728710,
+                "Size": {
+                  "X": 133.0,
+                  "Y": 52.0
+                },
+                "Name": "btn",
+                "ctype": "ButtonObjectData"
+              },
+              {
+                "FontSize": 20,
+                "LabelText": "999.999",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahomabd.ttf",
+                  "Plist": ""
+                },
+                "VerticalAlignmentType": "VT_Center",
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 418.4304,
+                  "Y": 35.5366
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "R": 52,
+                  "G": 104,
+                  "B": 2
+                },
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 1.1688,
+                  "Y": 0.5304
+                },
+                "PreSize": {
+                  "X": 0.2095,
+                  "Y": 0.403
+                },
+                "LeftMargin": 380.9304,
+                "RightMargin": -97.9304,
+                "TopMargin": 17.9634,
+                "BottomMargin": 22.0366,
+                "Tag": 799,
+                "ActionTag": -1573770066,
+                "Size": {
+                  "X": 75.0,
+                  "Y": 27.0
+                },
+                "Name": "cost",
+                "ctype": "TextObjectData"
+              },
+              {
+                "IsCustomSize": true,
+                "FontSize": 13,
+                "LabelText": "vnd",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahomabd.ttf",
+                  "Plist": ""
+                },
+                "HorizontalAlignmentType": "HT_Center",
+                "VerticalAlignmentType": "VT_Center",
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 473.0729,
+                  "Y": 42.9309
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "R": 52,
+                  "G": 104,
+                  "B": 2
+                },
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 1.3214,
+                  "Y": 0.6408
+                },
+                "PreSize": {
+                  "X": 0.0978,
+                  "Y": 0.2687
+                },
+                "LeftMargin": 455.5729,
+                "RightMargin": -132.5729,
+                "TopMargin": 15.0691,
+                "BottomMargin": 33.9309,
+                "Tag": 800,
+                "ActionTag": -1048654828,
+                "Size": {
+                  "X": 35.0,
+                  "Y": 18.0
+                },
+                "Name": "currency",
+                "ctype": "TextObjectData"
+              }
+            ],
+            "ActionTag": -644981111,
+            "Size": {
+              "X": 358.0,
+              "Y": 67.0
+            },
+            "Name": "bg",
+            "ctype": "ImageViewObjectData"
+          }
+        ],
+        "Size": {
+          "X": 505.0,
+          "Y": 71.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "Font/tahoma.ttf",
+        "Font/tahomabd.ttf",
+        "ShopIAP/bgItemZingCardViettel.png",
+        "ShopIAP/btn_sms_zingcard_viettel.png",
+        "ShopIAP/zingcard_0.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}

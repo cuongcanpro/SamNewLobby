@@ -1,0 +1,55 @@
+<dragonBones name="Notify" frameRate="30" version="2.3">
+ <armature name="Notify">
+  <bone name="Layer_1">
+   <transform x="-23" y="23" skX="0" skY="0" scX="1" scY="1"/>
+  </bone>
+  <skin name="default">
+   <slot name="Layer_1" parent="Layer_1" z="0">
+    <display name="navigator" type="image">
+     <transform x="23" y="-23" skX="0" skY="0" scX="1" scY="1" pX="16" pY="15.5"/>
+    </display>
+   </slot>
+  </skin>
+  <animation name="1" fadeInTime="0.3" duration="60" scale="1" loop="1" autoTween="1" tweenEasing="NaN">
+   <timeline name="Layer_1" scale="1" offset="0">
+    <frame z="0" tweenEasing="0" duration="3">
+     <transform x="-23" y="23" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
+    </frame>
+    <frame z="0" tweenEasing="0" duration="3">
+     <transform x="-23.05" y="22.95" skX="-15" skY="-15" scX="0.95" scY="1" pX="0" pY="0.15"/>
+    </frame>
+    <frame z="0" tweenEasing="0" duration="3">
+     <transform x="-23.15" y="23.05" skX="4.03" skY="4.03" scX="1" scY="0.97" pX="-0.05" pY="-0.05"/>
+    </frame>
+    <frame z="0" tweenEasing="0" duration="2">
+     <transform x="-23.15" y="23.1" skX="-4.51" skY="-4.51" scX="0.96" scY="1" pX="0.05" pY="0.1"/>
+    </frame>
+    <frame z="0" tweenEasing="0" duration="1">
+     <transform x="-23.05" y="23.1" skX="1.78" skY="1.78" scX="1" scY="0.97" pX="-0.1" pY="-0.15"/>
+    </frame>
+    <frame z="0" duration="48">
+     <transform x="-23" y="23" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
+    </frame>
+   </timeline>
+  </animation>
+ </armature>
+ <armature name="Lobby">
+  <bone name="Layer_1">
+   <transform x="-1.05" y="-1.45" skX="0" skY="0" scX="1" scY="1"/>
+  </bone>
+  <skin name="default">
+   <slot name="Layer_1" parent="Layer_1" z="0">
+    <display name="icon_navigator" type="armature">
+     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1"/>
+    </display>
+   </slot>
+  </skin>
+  <animation name="run" fadeInTime="0.3" duration="1" scale="1" loop="1" autoTween="1" tweenEasing="NaN">
+   <timeline name="Layer_1" scale="1" offset="0">
+    <frame z="0" duration="1">
+     <transform x="-1.05" y="-1.45" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
+    </frame>
+   </timeline>
+  </animation>
+ </armature>
+</dragonBones>

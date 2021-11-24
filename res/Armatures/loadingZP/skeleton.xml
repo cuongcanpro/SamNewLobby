@@ -1,0 +1,43 @@
+<dragonBones name="loadingZP" frameRate="24" version="2.3">
+ <armature name="loadingZP">
+  <bone name="Layer 1">
+   <transform x="-0.25" y="-0.5" skX="0" skY="0" scX="1" scY="1"/>
+  </bone>
+  <bone name="Layer 2">
+   <transform x="0" y="1" skX="0" skY="0" scX="1.255066" scY="1.255066"/>
+  </bone>
+  <skin name="default">
+   <slot name="Layer 1" parent="Layer 1" z="0">
+    <display name="shader" type="image">
+     <transform x="-8.75" y="-11.35" skX="0" skY="0" scX="1" scY="1" pX="3.05" pY="3.9"/>
+    </display>
+   </slot>
+   <slot name="Layer 2" parent="Layer 2" z="1">
+    <display name="Symbol 1" type="image">
+     <transform x="-17.25" y="-17.25" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
+    </display>
+   </slot>
+  </skin>
+  <animation name="loading" fadeInTime="0.3" duration="36" scale="1" loop="1" autoTween="1" tweenEasing="NaN">
+   <timeline name="Layer 1" scale="1" offset="0">
+    <frame z="0" tweenEasing="0" duration="20">
+     <transform x="-0.25" y="-0.5" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
+    </frame>
+    <frame z="0" tweenEasing="0" duration="15">
+     <transform x="-0.25" y="-0.5" skX="0" skY="0" scX="0.057144" scY="1" pX="0" pY="0"/>
+    </frame>
+    <frame z="0" duration="1">
+     <transform x="-0.25" y="-0.5" skX="0" skY="0" scX="0.914291" scY="1" pX="0" pY="0"/>
+    </frame>
+   </timeline>
+   <timeline name="Layer 2" scale="1" offset="0">
+    <frame z="1" tweenEasing="0" duration="35">
+     <transform x="0" y="1" skX="0" skY="0" scX="1.255066" scY="1.255066" pX="0" pY="0"/>
+    </frame>
+    <frame z="1" duration="1">
+     <transform x="0" y="1" skX="83.2" skY="83.2" scX="1.255081" scY="1.255081" pX="0" pY="-0.05"/>
+    </frame>
+   </timeline>
+  </animation>
+ </armature>
+</dragonBones>

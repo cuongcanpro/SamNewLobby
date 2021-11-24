@@ -1,0 +1,591 @@
+{
+  "ID": "b53a543c-e70e-4544-b020-2e89f0dfa745",
+  "Version": "2.3.4",
+  "Name": "Vip_IntroGUI",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 866,
+        "Children": [
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 200,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 0,
+              "G": 0,
+              "B": 0
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0,
+              "Y": -0.912
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PositionPercentYEnabled": true,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": -0.0019
+            },
+            "PercentWidthEnable": true,
+            "PercentHeightEnable": true,
+            "PercentWidthEnabled": true,
+            "PercentHeightEnabled": true,
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "TopMargin": 0.912,
+            "BottomMargin": -0.912,
+            "Tag": 437,
+            "ActionTag": -2055059579,
+            "Size": {
+              "X": 800.0,
+              "Y": 480.0
+            },
+            "Name": "fog",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "GUIVipNew/bg/bgIntro.png",
+              "Plist": ""
+            },
+            "Scale9OriginX": 256,
+            "Scale9OriginY": 156,
+            "Scale9Width": 266,
+            "Scale9Height": 162,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 400.0,
+              "Y": 240.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PositionPercentYEnabled": true,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.5
+            },
+            "PreSize": {
+              "X": 0.9725,
+              "Y": 0.9875
+            },
+            "LeftMargin": 11.0,
+            "RightMargin": 11.0,
+            "TopMargin": 3.0,
+            "BottomMargin": 3.0,
+            "UserData": "scale",
+            "Tag": 867,
+            "Children": [
+              {
+                "ClipAble": false,
+                "BackColorAlpha": 0,
+                "ComboBoxIndex": 1,
+                "SingleColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "FirstColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "EndColor": {},
+                "ColorVector": {
+                  "ScaleY": 1.0
+                },
+                "Scale9Width": 1,
+                "Scale9Height": 1,
+                "TouchEnable": true,
+                "AnchorPoint": {},
+                "Position": {
+                  "X": 534.9977,
+                  "Y": 392.999
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.6877,
+                  "Y": 0.8291
+                },
+                "PreSize": {
+                  "X": 0.2571,
+                  "Y": 0.4219
+                },
+                "LeftMargin": 534.9977,
+                "RightMargin": 43.0023,
+                "TopMargin": -118.999,
+                "BottomMargin": 392.999,
+                "Tag": 511,
+                "ActionTag": -1378994543,
+                "Size": {
+                  "X": 200.0,
+                  "Y": 200.0
+                },
+                "Name": "pEffect",
+                "ctype": "PanelObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "GUIVipNew/intro/introImg0.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 35,
+                "Scale9OriginY": 4,
+                "Scale9Width": 38,
+                "Scale9Height": 7,
+                "AnchorPoint": {
+                  "ScaleX": 0.5
+                },
+                "Position": {
+                  "X": 131.8881,
+                  "Y": 304.6119
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.1695,
+                  "Y": 0.6426
+                },
+                "PreSize": {
+                  "X": 0.1388,
+                  "Y": 0.0316
+                },
+                "LeftMargin": 77.8881,
+                "RightMargin": 592.1119,
+                "TopMargin": 154.3881,
+                "BottomMargin": 304.6119,
+                "Tag": 878,
+                "ActionTag": 980687678,
+                "Size": {
+                  "X": 108.0,
+                  "Y": 15.0
+                },
+                "Name": "intro0",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "GUIVipNew/intro/introImg1.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 85,
+                "Scale9OriginY": 20,
+                "Scale9Width": 75,
+                "Scale9Height": 27,
+                "AnchorPoint": {
+                  "ScaleX": 0.5
+                },
+                "Position": {
+                  "X": 172.112,
+                  "Y": 218.597
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.2212,
+                  "Y": 0.4612
+                },
+                "PreSize": {
+                  "X": 0.3149,
+                  "Y": 0.1414
+                },
+                "LeftMargin": 49.612,
+                "RightMargin": 483.388,
+                "TopMargin": 188.403,
+                "BottomMargin": 218.597,
+                "Tag": 879,
+                "ActionTag": 1591239655,
+                "Size": {
+                  "X": 245.0,
+                  "Y": 67.0
+                },
+                "Name": "intro1",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "GUIVipNew/intro/introImg2.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 35,
+                "Scale9OriginY": 4,
+                "Scale9Width": 39,
+                "Scale9Height": 8,
+                "AnchorPoint": {
+                  "ScaleX": 0.5
+                },
+                "Position": {
+                  "X": 165.2834,
+                  "Y": 171.0699
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.2124,
+                  "Y": 0.3609
+                },
+                "PreSize": {
+                  "X": 0.1401,
+                  "Y": 0.0338
+                },
+                "LeftMargin": 110.7834,
+                "RightMargin": 558.2166,
+                "TopMargin": 286.9301,
+                "BottomMargin": 171.0699,
+                "Tag": 880,
+                "ActionTag": -1554311939,
+                "Size": {
+                  "X": 109.0,
+                  "Y": 16.0
+                },
+                "Name": "intro2",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "GUIVipNew/intro/introImg3.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 85,
+                "Scale9OriginY": 20,
+                "Scale9Width": 83,
+                "Scale9Height": 48,
+                "AnchorPoint": {
+                  "ScaleX": 0.5
+                },
+                "Position": {
+                  "X": 206.6938,
+                  "Y": 75.7412
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.2657,
+                  "Y": 0.1598
+                },
+                "PreSize": {
+                  "X": 0.3252,
+                  "Y": 0.1857
+                },
+                "LeftMargin": 80.1938,
+                "RightMargin": 444.8062,
+                "TopMargin": 310.2588,
+                "BottomMargin": 75.7412,
+                "Tag": 881,
+                "ActionTag": 883590583,
+                "Size": {
+                  "X": 253.0,
+                  "Y": 88.0
+                },
+                "Name": "intro3",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "GUIVipNew/intro/introImg4.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 35,
+                "Scale9OriginY": 4,
+                "Scale9Width": 31,
+                "Scale9Height": 6,
+                "AnchorPoint": {
+                  "ScaleX": 0.5
+                },
+                "Position": {
+                  "X": 677.8508,
+                  "Y": 203.6616
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.8713,
+                  "Y": 0.4297
+                },
+                "PreSize": {
+                  "X": 0.1298,
+                  "Y": 0.0295
+                },
+                "LeftMargin": 627.3508,
+                "RightMargin": 49.6492,
+                "TopMargin": 256.3384,
+                "BottomMargin": 203.6616,
+                "Tag": 882,
+                "ActionTag": -345860316,
+                "Size": {
+                  "X": 101.0,
+                  "Y": 14.0
+                },
+                "Name": "intro4",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "GUIVipNew/intro/introImg5.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 85,
+                "Scale9OriginY": 20,
+                "Scale9Width": 41,
+                "Scale9Height": 15,
+                "AnchorPoint": {
+                  "ScaleX": 0.5
+                },
+                "Position": {
+                  "X": 632.0751,
+                  "Y": 131.8331
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.8124,
+                  "Y": 0.2781
+                },
+                "PreSize": {
+                  "X": 0.2712,
+                  "Y": 0.116
+                },
+                "LeftMargin": 526.5751,
+                "RightMargin": 40.4249,
+                "TopMargin": 287.1669,
+                "BottomMargin": 131.8331,
+                "Tag": 883,
+                "ActionTag": -1075693948,
+                "Size": {
+                  "X": 211.0,
+                  "Y": 55.0
+                },
+                "Name": "intro5",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "GUIVipNew/btnEnterVipIntro.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 121,
+                "Scale9Height": 30,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 615.2119,
+                  "Y": 100.5135
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.7908,
+                  "Y": 0.2121
+                },
+                "PreSize": {
+                  "X": 0.1941,
+                  "Y": 0.1097
+                },
+                "LeftMargin": 539.7119,
+                "RightMargin": 87.2881,
+                "TopMargin": 347.4865,
+                "BottomMargin": 74.5135,
+                "Tag": 884,
+                "ActionTag": 307579321,
+                "Size": {
+                  "X": 151.0,
+                  "Y": 52.0
+                },
+                "Name": "btnEnterVip",
+                "ctype": "ButtonObjectData"
+              },
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "Common/btnClose.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 16,
+                "Scale9Height": 25,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 719.7136,
+                  "Y": 330.143
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.9251,
+                  "Y": 0.6965
+                },
+                "PreSize": {
+                  "X": 0.0591,
+                  "Y": 0.0992
+                },
+                "LeftMargin": 696.7136,
+                "RightMargin": 35.2864,
+                "TopMargin": 120.357,
+                "BottomMargin": 306.643,
+                "Tag": 237,
+                "ActionTag": 2008192092,
+                "Size": {
+                  "X": 46.0,
+                  "Y": 47.0
+                },
+                "Name": "btnClose",
+                "ctype": "ButtonObjectData"
+              }
+            ],
+            "ActionTag": 425441857,
+            "Size": {
+              "X": 778.0,
+              "Y": 474.0
+            },
+            "Name": "bg",
+            "ctype": "ImageViewObjectData"
+          }
+        ],
+        "Size": {
+          "X": 800.0,
+          "Y": 480.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "Common/btnClose.png",
+        "GUIVipNew/bg/bgIntro.png",
+        "GUIVipNew/btnEnterVipIntro.png",
+        "GUIVipNew/intro/introImg0.png",
+        "GUIVipNew/intro/introImg1.png",
+        "GUIVipNew/intro/introImg2.png",
+        "GUIVipNew/intro/introImg3.png",
+        "GUIVipNew/intro/introImg4.png",
+        "GUIVipNew/intro/introImg5.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}

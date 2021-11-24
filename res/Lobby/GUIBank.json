@@ -1,0 +1,267 @@
+{
+  "ID": "d2941e93-c5cd-45da-b694-7e91fe7a848e",
+  "Version": "2.3.4",
+  "Name": "GUIBank",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 119,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ShopIAP/bgGUIBank.png",
+              "Plist": ""
+            },
+            "Scale9OriginX": 178,
+            "Scale9OriginY": 123,
+            "Scale9Width": 174,
+            "Scale9Height": 184,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 400.0,
+              "Y": 240.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.5
+            },
+            "PreSize": {
+              "X": 0.6625,
+              "Y": 0.8958
+            },
+            "HorizontalEdge": "BothEdge",
+            "VerticalEdge": "BothEdge",
+            "LeftMargin": 135.0,
+            "RightMargin": 135.0,
+            "TopMargin": 25.0,
+            "BottomMargin": 25.0,
+            "Tag": 120,
+            "Children": [
+              {
+                "FontSize": 18,
+                "LabelText": "Vui lòng chọn ngân hàng của bạn:",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahoma.ttf",
+                  "Plist": ""
+                },
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 268.6792,
+                  "Y": 378.1456
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "R": 236,
+                  "G": 195,
+                  "B": 244
+                },
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.5069,
+                  "Y": 0.8794
+                },
+                "PreSize": {
+                  "X": 0.5509,
+                  "Y": 0.0581
+                },
+                "LeftMargin": 122.6792,
+                "RightMargin": 115.3208,
+                "TopMargin": 39.3544,
+                "BottomMargin": 365.6456,
+                "Tag": 121,
+                "ActionTag": -728571672,
+                "Size": {
+                  "X": 292.0,
+                  "Y": 25.0
+                },
+                "Name": "Text_1",
+                "ctype": "TextObjectData"
+              },
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Default",
+                  "Path": "Default/Button_Disable.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "Normal",
+                  "Path": "Common/btnClose.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "Common/btnClose.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 16,
+                "Scale9Height": 25,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 504.2598,
+                  "Y": 402.6373
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.9514,
+                  "Y": 0.9364
+                },
+                "PreSize": {
+                  "X": 0.0868,
+                  "Y": 0.1093
+                },
+                "LeftMargin": 481.2598,
+                "RightMargin": 2.7402,
+                "TopMargin": 3.8627,
+                "BottomMargin": 379.1373,
+                "Tag": 122,
+                "ActionTag": -384877785,
+                "Size": {
+                  "X": 46.0,
+                  "Y": 47.0
+                },
+                "Name": "btnClose",
+                "ctype": "ButtonObjectData"
+              },
+              {
+                "ClipAble": false,
+                "BackColorAlpha": 52,
+                "SingleColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "FirstColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "EndColor": {},
+                "ColorVector": {
+                  "ScaleY": 1.0
+                },
+                "Scale9Width": 1,
+                "Scale9Height": 1,
+                "TouchEnable": true,
+                "AnchorPoint": {},
+                "Position": {
+                  "X": 16.7058,
+                  "Y": 22.6465
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0315,
+                  "Y": 0.0527
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 0.7442
+                },
+                "LeftMargin": 16.7058,
+                "RightMargin": -16.7058,
+                "TopMargin": 87.3535,
+                "BottomMargin": 22.6465,
+                "Tag": 123,
+                "ActionTag": 1770315018,
+                "Size": {
+                  "X": 530.0,
+                  "Y": 320.0
+                },
+                "Name": "panelCenter",
+                "ctype": "PanelObjectData"
+              }
+            ],
+            "ActionTag": 805278040,
+            "Size": {
+              "X": 530.0,
+              "Y": 430.0
+            },
+            "Name": "bg",
+            "ctype": "ImageViewObjectData"
+          }
+        ],
+        "Size": {
+          "X": 800.0,
+          "Y": 480.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "Common/btnClose.png",
+        "Default/Button_Disable.png",
+        "Font/tahoma.ttf",
+        "ShopIAP/bgGUIBank.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

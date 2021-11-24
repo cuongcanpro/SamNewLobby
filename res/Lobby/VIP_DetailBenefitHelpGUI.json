@@ -1,0 +1,783 @@
+{
+  "ID": "e374770e-e46b-416c-84d7-dfa173bc5f2e",
+  "Version": "2.3.4",
+  "Name": "VIP_DetailBenefitHelpGUI",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 632,
+        "Children": [
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 0,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PercentWidthEnable": true,
+            "PercentHeightEnable": true,
+            "PercentWidthEnabled": true,
+            "PercentHeightEnabled": true,
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "Tag": 635,
+            "Children": [
+              {
+                "IsCustomSize": true,
+                "FontSize": 14,
+                "LabelText": "FREE",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahoma.ttf",
+                  "Plist": ""
+                },
+                "HorizontalAlignmentType": "HT_Center",
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 29.775,
+                  "Y": 371.9186
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "B": 240
+                },
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.9298
+                },
+                "PreSize": {
+                  "X": 0.9404,
+                  "Y": 0.055
+                },
+                "LeftMargin": 1.775,
+                "RightMargin": 1.775,
+                "TopMargin": 17.0814,
+                "BottomMargin": 360.9186,
+                "Tag": 636,
+                "ActionTag": -2012902795,
+                "Size": {
+                  "X": 56.0,
+                  "Y": 22.0
+                },
+                "Name": "txtVipName",
+                "ctype": "TextObjectData"
+              },
+              {
+                "FontSize": 16,
+                "LabelText": "-",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahoma.ttf",
+                  "Plist": ""
+                },
+                "HorizontalAlignmentType": "HT_Center",
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 29.775,
+                  "Y": 335.0882
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "R": 164,
+                  "G": 224,
+                  "B": 241
+                },
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.8377
+                },
+                "PreSize": {
+                  "X": 0.1343,
+                  "Y": 0.055
+                },
+                "LeftMargin": 25.775,
+                "RightMargin": 25.775,
+                "TopMargin": 53.9118,
+                "BottomMargin": 324.0882,
+                "Tag": 637,
+                "ActionTag": -183507142,
+                "Size": {
+                  "X": 8.0,
+                  "Y": 22.0
+                },
+                "Name": "txtType0",
+                "ctype": "TextObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "GUIVipNew/iconVipNormal/iconVipNormal1.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 16,
+                "Scale9OriginY": 20,
+                "Scale9Width": 19,
+                "Scale9Height": 21,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 31.758,
+                  "Y": 334.6553
+                },
+                "Scale": {
+                  "ScaleX": 0.7,
+                  "ScaleY": 0.7
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PrePosition": {
+                  "X": 0.5333,
+                  "Y": 0.8366
+                },
+                "PreSize": {
+                  "X": 0.8564,
+                  "Y": 0.1525
+                },
+                "LeftMargin": 6.258,
+                "RightMargin": 2.292,
+                "TopMargin": 34.8447,
+                "BottomMargin": 304.1553,
+                "Tag": 647,
+                "ActionTag": -109130809,
+                "Size": {
+                  "X": 51.0,
+                  "Y": 61.0
+                },
+                "Name": "imgVip",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "IsCustomSize": true,
+                "FontSize": 14,
+                "LabelText": "2M",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahoma.ttf",
+                  "Plist": ""
+                },
+                "HorizontalAlignmentType": "HT_Center",
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 29.775,
+                  "Y": 292.763
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "B": 240
+                },
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.7319
+                },
+                "PreSize": {
+                  "X": 0.9404,
+                  "Y": 0.055
+                },
+                "LeftMargin": 1.775,
+                "RightMargin": 1.775,
+                "TopMargin": 96.237,
+                "BottomMargin": 281.763,
+                "Tag": 638,
+                "ActionTag": -1317668902,
+                "Size": {
+                  "X": 56.0,
+                  "Y": 22.0
+                },
+                "Name": "txtType1",
+                "ctype": "TextObjectData"
+              },
+              {
+                "IsCustomSize": true,
+                "FontSize": 14,
+                "LabelText": "2M",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahoma.ttf",
+                  "Plist": ""
+                },
+                "HorizontalAlignmentType": "HT_Center",
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 29.775,
+                  "Y": 254.2414
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "B": 240
+                },
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.6356
+                },
+                "PreSize": {
+                  "X": 0.9404,
+                  "Y": 0.055
+                },
+                "LeftMargin": 1.775,
+                "RightMargin": 1.775,
+                "TopMargin": 134.7585,
+                "BottomMargin": 243.2414,
+                "Tag": 639,
+                "ActionTag": -442376932,
+                "Size": {
+                  "X": 56.0,
+                  "Y": 22.0
+                },
+                "Name": "txtType2",
+                "ctype": "TextObjectData"
+              },
+              {
+                "IsCustomSize": true,
+                "FontSize": 14,
+                "LabelText": "2M",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahoma.ttf",
+                  "Plist": ""
+                },
+                "HorizontalAlignmentType": "HT_Center",
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 29.775,
+                  "Y": 215.7198
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "B": 240
+                },
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.5393
+                },
+                "PreSize": {
+                  "X": 0.9404,
+                  "Y": 0.055
+                },
+                "LeftMargin": 1.775,
+                "RightMargin": 1.775,
+                "TopMargin": 173.2802,
+                "BottomMargin": 204.7198,
+                "Tag": 640,
+                "ActionTag": -665864617,
+                "Size": {
+                  "X": 56.0,
+                  "Y": 22.0
+                },
+                "Name": "txtType3",
+                "ctype": "TextObjectData"
+              },
+              {
+                "IsCustomSize": true,
+                "FontSize": 14,
+                "LabelText": "2M",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahoma.ttf",
+                  "Plist": ""
+                },
+                "HorizontalAlignmentType": "HT_Center",
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 29.775,
+                  "Y": 177.1983
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "B": 240
+                },
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.443
+                },
+                "PreSize": {
+                  "X": 0.9404,
+                  "Y": 0.055
+                },
+                "LeftMargin": 1.775,
+                "RightMargin": 1.775,
+                "TopMargin": 211.8017,
+                "BottomMargin": 166.1983,
+                "Tag": 641,
+                "ActionTag": 2040808461,
+                "Size": {
+                  "X": 56.0,
+                  "Y": 22.0
+                },
+                "Name": "txtType4",
+                "ctype": "TextObjectData"
+              },
+              {
+                "IsCustomSize": true,
+                "FontSize": 14,
+                "LabelText": "2M",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahoma.ttf",
+                  "Plist": ""
+                },
+                "HorizontalAlignmentType": "HT_Center",
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 29.775,
+                  "Y": 138.6767
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "B": 240
+                },
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.3467
+                },
+                "PreSize": {
+                  "X": 0.9404,
+                  "Y": 0.055
+                },
+                "LeftMargin": 1.775,
+                "RightMargin": 1.775,
+                "TopMargin": 250.3233,
+                "BottomMargin": 127.6767,
+                "Tag": 642,
+                "ActionTag": -1676669197,
+                "Size": {
+                  "X": 56.0,
+                  "Y": 22.0
+                },
+                "Name": "txtType5",
+                "ctype": "TextObjectData"
+              },
+              {
+                "IsCustomSize": true,
+                "FontSize": 14,
+                "LabelText": "2M",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahoma.ttf",
+                  "Plist": ""
+                },
+                "HorizontalAlignmentType": "HT_Center",
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 29.775,
+                  "Y": 100.1551
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "B": 240
+                },
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.2504
+                },
+                "PreSize": {
+                  "X": 0.9404,
+                  "Y": 0.055
+                },
+                "LeftMargin": 1.775,
+                "RightMargin": 1.775,
+                "TopMargin": 288.8449,
+                "BottomMargin": 89.1551,
+                "Tag": 643,
+                "ActionTag": 2138418686,
+                "Size": {
+                  "X": 56.0,
+                  "Y": 22.0
+                },
+                "Name": "txtType6",
+                "ctype": "TextObjectData"
+              },
+              {
+                "IsCustomSize": true,
+                "FontSize": 14,
+                "LabelText": "2M",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahoma.ttf",
+                  "Plist": ""
+                },
+                "HorizontalAlignmentType": "HT_Center",
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 29.775,
+                  "Y": 61.6336
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "B": 240
+                },
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.1541
+                },
+                "PreSize": {
+                  "X": 0.9404,
+                  "Y": 0.055
+                },
+                "LeftMargin": 1.775,
+                "RightMargin": 1.775,
+                "TopMargin": 327.3665,
+                "BottomMargin": 50.6336,
+                "Tag": 644,
+                "ActionTag": -860771566,
+                "Size": {
+                  "X": 56.0,
+                  "Y": 22.0
+                },
+                "Name": "txtType7",
+                "ctype": "TextObjectData"
+              },
+              {
+                "IsCustomSize": true,
+                "FontSize": 14,
+                "LabelText": "2M",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahoma.ttf",
+                  "Plist": ""
+                },
+                "HorizontalAlignmentType": "HT_Center",
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 29.7776,
+                  "Y": 23.112
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "B": 240
+                },
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.0578
+                },
+                "PreSize": {
+                  "X": 0.9404,
+                  "Y": 0.055
+                },
+                "LeftMargin": 1.7776,
+                "RightMargin": 1.7724,
+                "TopMargin": 365.888,
+                "BottomMargin": 12.112,
+                "Tag": 645,
+                "ActionTag": -1769902375,
+                "Size": {
+                  "X": 56.0,
+                  "Y": 22.0
+                },
+                "Name": "txtType9",
+                "ctype": "TextObjectData"
+              },
+              {
+                "IsCustomSize": true,
+                "FontSize": 14,
+                "LabelText": "2M",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahoma.ttf",
+                  "Plist": ""
+                },
+                "HorizontalAlignmentType": "HT_Center",
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 29.775,
+                  "Y": 21.2331
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "B": 240
+                },
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.0531
+                },
+                "PreSize": {
+                  "X": 0.9404,
+                  "Y": 0.055
+                },
+                "LeftMargin": 1.775,
+                "RightMargin": 1.775,
+                "TopMargin": 367.7669,
+                "BottomMargin": 10.2331,
+                "Tag": 646,
+                "ActionTag": -1682028035,
+                "Size": {
+                  "X": 56.0,
+                  "Y": 22.0
+                },
+                "VisibleForFrame": false,
+                "Name": "txtType8",
+                "ctype": "TextObjectData"
+              }
+            ],
+            "ActionTag": 732041220,
+            "Size": {
+              "X": 59.55,
+              "Y": 400.0
+            },
+            "Name": "bg",
+            "ctype": "PanelObjectData"
+          }
+        ],
+        "Size": {
+          "X": 59.55,
+          "Y": 400.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "Font/tahoma.ttf",
+        "GUIVipNew/iconVipNormal/iconVipNormal1.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}

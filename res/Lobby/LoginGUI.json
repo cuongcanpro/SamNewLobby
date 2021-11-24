@@ -1,0 +1,1460 @@
+{
+  "ID": "b273be08-f0f9-4dcb-8b7e-66903b157fc5",
+  "Version": "2.3.4",
+  "Name": "LoginGUI",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 29,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Common/bgLoading.jpg",
+              "Plist": ""
+            },
+            "Scale9OriginX": 264,
+            "Scale9OriginY": 158,
+            "Scale9Width": 272,
+            "Scale9Height": 164,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 400.0,
+              "Y": 240.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.5
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "Tag": 30,
+            "ActionTag": -783082220,
+            "Size": {
+              "X": 800.0,
+              "Y": 480.0
+            },
+            "Name": "bg",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "LoginGUI/sub.png",
+              "Plist": ""
+            },
+            "Scale9OriginX": 264,
+            "Scale9OriginY": 107,
+            "Scale9Width": 272,
+            "Scale9Height": 113,
+            "StretchWidthEnable": true,
+            "StretchHeightEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 400.0,
+              "Y": 239.988
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.5
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 0.6812
+            },
+            "HorizontalEdge": "BothEdge",
+            "TopMargin": 76.524,
+            "BottomMargin": 76.5,
+            "Tag": 48,
+            "ActionTag": 946774621,
+            "Size": {
+              "X": 800.0,
+              "Y": 326.976
+            },
+            "Name": "sub",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "LoginGUI/lbLogin.png",
+              "Plist": ""
+            },
+            "Scale9OriginX": 54,
+            "Scale9OriginY": 12,
+            "Scale9Width": 56,
+            "Scale9Height": 14,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 400.0,
+              "Y": 437.8108
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.9121
+            },
+            "PreSize": {
+              "X": 0.205,
+              "Y": 0.0792
+            },
+            "HorizontalEdge": "BothEdge",
+            "VerticalEdge": "TopEdge",
+            "LeftMargin": 318.0,
+            "RightMargin": 318.0,
+            "TopMargin": 23.1892,
+            "BottomMargin": 418.8108,
+            "UserData": "scale",
+            "Tag": 71,
+            "ActionTag": 1304625804,
+            "Size": {
+              "X": 164.0,
+              "Y": 38.0
+            },
+            "Name": "title",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FontSize": 14,
+            "ButtonText": "",
+            "TextColor": {
+              "R": 65,
+              "G": 65,
+              "B": 70
+            },
+            "DisabledFileData": {
+              "Type": "Default",
+              "Path": "Default/Button_Disable.png",
+              "Plist": ""
+            },
+            "PressedFileData": {
+              "Type": "Normal",
+              "Path": "LoginGUI/btn_exit.png",
+              "Plist": ""
+            },
+            "NormalFileData": {
+              "Type": "Normal",
+              "Path": "LoginGUI/btn_exit.png",
+              "Plist": ""
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 22,
+            "Scale9Height": 32,
+            "OutlineSize": 0,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 0.0,
+            "ShadowOffsetY": 0.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.507,
+              "ScaleY": 0.5954
+            },
+            "Position": {
+              "X": 768.1324,
+              "Y": 448.9621
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9602,
+              "Y": 0.9353
+            },
+            "PreSize": {
+              "X": 0.065,
+              "Y": 0.1125
+            },
+            "HorizontalEdge": "RightEdge",
+            "VerticalEdge": "TopEdge",
+            "LeftMargin": 741.7684,
+            "RightMargin": 6.2316,
+            "TopMargin": 9.1895,
+            "BottomMargin": 416.8105,
+            "UserData": "scale",
+            "Tag": 69,
+            "ActionTag": 475573574,
+            "Size": {
+              "X": 52.0,
+              "Y": 54.0
+            },
+            "Name": "btnQuit",
+            "ctype": "ButtonObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "LoginGUI/icon.png",
+              "Plist": ""
+            },
+            "Scale9OriginX": 68,
+            "Scale9OriginY": 74,
+            "Scale9Width": 73,
+            "Scale9Height": 77,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 397.04,
+              "Y": 250.992
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4963,
+              "Y": 0.5229
+            },
+            "PreSize": {
+              "X": 0.2612,
+              "Y": 0.4688
+            },
+            "LeftMargin": 292.54,
+            "RightMargin": 298.46,
+            "TopMargin": 116.508,
+            "BottomMargin": 138.492,
+            "UserData": "scale",
+            "Tag": 22,
+            "ActionTag": 433304675,
+            "Size": {
+              "X": 209.0,
+              "Y": 225.0
+            },
+            "Name": "icon",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "LoginGUI/bar.png",
+              "Plist": ""
+            },
+            "Scale9OriginX": 118,
+            "Scale9OriginY": 12,
+            "Scale9Width": 122,
+            "Scale9Height": 14,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 400.0,
+              "Y": 74.1116
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.1544
+            },
+            "PreSize": {
+              "X": 0.4475,
+              "Y": 0.0792
+            },
+            "HorizontalEdge": "BothEdge",
+            "VerticalEdge": "BottomEdge",
+            "LeftMargin": 221.0,
+            "RightMargin": 221.0,
+            "TopMargin": 386.8884,
+            "BottomMargin": 55.1116,
+            "UserData": "scale",
+            "Tag": 35,
+            "Children": [
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "LoginGUI/dot.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 2,
+                "Scale9OriginY": 2,
+                "Scale9Width": 3,
+                "Scale9Height": 3,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 17.5286,
+                  "Y": 19.2119
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.049,
+                  "Y": 0.5056
+                },
+                "PreSize": {
+                  "X": 0.0196,
+                  "Y": 0.1842
+                },
+                "LeftMargin": 14.0286,
+                "RightMargin": 336.9714,
+                "TopMargin": 15.2881,
+                "BottomMargin": 15.7119,
+                "Tag": 36,
+                "ActionTag": -1898489372,
+                "Size": {
+                  "X": 7.0,
+                  "Y": 7.0
+                },
+                "Name": "dot",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "LoginGUI/light.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 2,
+                "Scale9OriginY": 2,
+                "Scale9Width": 36,
+                "Scale9Height": 35,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 41.6306,
+                  "Y": 18.613
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.1163,
+                  "Y": 0.4898
+                },
+                "PreSize": {
+                  "X": 0.1117,
+                  "Y": 1.0263
+                },
+                "LeftMargin": 21.6306,
+                "RightMargin": 296.3694,
+                "TopMargin": -0.113,
+                "BottomMargin": -0.887,
+                "Tag": 37,
+                "ActionTag": 577361557,
+                "Size": {
+                  "X": 40.0,
+                  "Y": 39.0
+                },
+                "Name": "light",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "IsCustomSize": true,
+                "FontSize": 17,
+                "LabelText": "Loading...",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahoma.ttf",
+                  "Plist": ""
+                },
+                "HorizontalAlignmentType": "HT_Center",
+                "VerticalAlignmentType": "VT_Center",
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 177.5403,
+                  "Y": 44.2903
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "R": 203,
+                  "G": 204,
+                  "B": 206
+                },
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.4959,
+                  "Y": 1.1655
+                },
+                "PreSize": {
+                  "X": 2.2346,
+                  "Y": 0.7895
+                },
+                "LeftMargin": -222.4597,
+                "RightMargin": -219.5403,
+                "TopMargin": -21.2903,
+                "BottomMargin": 29.2903,
+                "Tag": 38,
+                "ActionTag": 404203439,
+                "Size": {
+                  "X": 800.0,
+                  "Y": 30.0
+                },
+                "Name": "lb",
+                "ctype": "TextObjectData"
+              }
+            ],
+            "ActionTag": -1185980681,
+            "Size": {
+              "X": 358.0,
+              "Y": 38.0
+            },
+            "Name": "pLoading",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 102,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 400.0,
+              "Y": 240.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.5
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 0.5833
+            },
+            "HorizontalEdge": "BothEdge",
+            "VerticalEdge": "BothEdge",
+            "TopMargin": 100.0,
+            "BottomMargin": 100.0,
+            "UserData": "scale",
+            "Tag": 40,
+            "Children": [
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Default",
+                  "Path": "Default/Button_Disable.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "Normal",
+                  "Path": "LoginGUI/btnLogin.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "LoginGUI/btnLogin.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 277,
+                "Scale9Height": 54,
+                "OutlineSize": 0,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 0.0,
+                "ShadowOffsetY": 0.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 470.8392,
+                  "Y": 108.8634
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.5885,
+                  "Y": 0.3888
+                },
+                "PreSize": {
+                  "X": 0.3837,
+                  "Y": 0.2714
+                },
+                "HorizontalEdge": "RightEdge",
+                "VerticalEdge": "TopEdge",
+                "LeftMargin": 317.3392,
+                "RightMargin": 175.6608,
+                "TopMargin": 133.1366,
+                "BottomMargin": 70.8634,
+                "Tag": 41,
+                "ActionTag": -669017425,
+                "Size": {
+                  "X": 307.0,
+                  "Y": 76.0
+                },
+                "Name": "btnLogin",
+                "ctype": "ButtonObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "LoginGUI/textbox.png",
+                  "Plist": ""
+                },
+                "Scale9Width": 306,
+                "Scale9Height": 50,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 473.3365,
+                  "Y": 249.58
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.5917,
+                  "Y": 0.8914
+                },
+                "PreSize": {
+                  "X": 0.3825,
+                  "Y": 0.1786
+                },
+                "HorizontalEdge": "RightEdge",
+                "VerticalEdge": "TopEdge",
+                "LeftMargin": 320.3365,
+                "RightMargin": 173.6635,
+                "TopMargin": 5.42,
+                "BottomMargin": 224.58,
+                "Tag": 42,
+                "ActionTag": 2006448796,
+                "Size": {
+                  "X": 306.0,
+                  "Y": 50.0
+                },
+                "Name": "box",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "LoginGUI/textbox.png",
+                  "Plist": ""
+                },
+                "Scale9Width": 306,
+                "Scale9Height": 50,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 473.3352,
+                  "Y": 187.5767
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.5917,
+                  "Y": 0.6699
+                },
+                "PreSize": {
+                  "X": 0.3825,
+                  "Y": 0.1786
+                },
+                "HorizontalEdge": "RightEdge",
+                "VerticalEdge": "TopEdge",
+                "LeftMargin": 320.3352,
+                "RightMargin": 173.6648,
+                "TopMargin": 67.4233,
+                "BottomMargin": 162.5767,
+                "Tag": 43,
+                "ActionTag": -1227741974,
+                "Size": {
+                  "X": 306.0,
+                  "Y": 50.0
+                },
+                "Name": "box",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahoma.ttf",
+                  "Plist": ""
+                },
+                "FontSize": 17,
+                "IsCustomSize": true,
+                "LabelText": "",
+                "PlaceHolderText": "Mật khẩu",
+                "MaxLengthText": 10,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 472.3552,
+                  "Y": 188.5005
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "R": 203,
+                  "G": 204,
+                  "B": 206
+                },
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.5904,
+                  "Y": 0.6732
+                },
+                "PreSize": {
+                  "X": 0.3562,
+                  "Y": 0.0893
+                },
+                "HorizontalEdge": "RightEdge",
+                "VerticalEdge": "TopEdge",
+                "LeftMargin": 329.8552,
+                "RightMargin": 185.1448,
+                "TopMargin": 78.9995,
+                "BottomMargin": 176.0005,
+                "Tag": 44,
+                "ActionTag": 45560456,
+                "Size": {
+                  "X": 285.0,
+                  "Y": 25.0
+                },
+                "Name": "tfPass",
+                "ctype": "TextFieldObjectData"
+              },
+              {
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahoma.ttf",
+                  "Plist": ""
+                },
+                "FontSize": 17,
+                "IsCustomSize": true,
+                "LabelText": "",
+                "PlaceHolderText": "Tên đăng nhập",
+                "MaxLengthText": 10,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 472.0751,
+                  "Y": 251.7871
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "R": 203,
+                  "G": 204,
+                  "B": 206
+                },
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.5901,
+                  "Y": 0.8992
+                },
+                "PreSize": {
+                  "X": 0.3562,
+                  "Y": 0.0893
+                },
+                "HorizontalEdge": "RightEdge",
+                "VerticalEdge": "TopEdge",
+                "LeftMargin": 329.5751,
+                "RightMargin": 185.4249,
+                "TopMargin": 15.7129,
+                "BottomMargin": 239.2871,
+                "Tag": 45,
+                "ActionTag": -527293855,
+                "Size": {
+                  "X": 285.0,
+                  "Y": 25.0
+                },
+                "Name": "tfAcount",
+                "ctype": "TextFieldObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "LoginGUI/notHaveAccount.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 409.6431,
+                  "Y": 8.7698
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.5121,
+                  "Y": 0.0313
+                },
+                "PreSize": {
+                  "X": 0.2275,
+                  "Y": 0.0679
+                },
+                "LeftMargin": 318.6431,
+                "RightMargin": 299.3569,
+                "TopMargin": 261.7302,
+                "BottomMargin": -0.7302,
+                "Tag": 49,
+                "ActionTag": 1374055770,
+                "Size": {
+                  "X": 182.0,
+                  "Y": 19.0
+                },
+                "Name": "notHaveAccount_1",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "LoginGUI/tdn.png",
+                  "Plist": ""
+                },
+                "Scale9Width": 193,
+                "Scale9Height": 32,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 217.9143,
+                  "Y": 245.002
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.2724,
+                  "Y": 0.875
+                },
+                "PreSize": {
+                  "X": 0.2412,
+                  "Y": 0.1143
+                },
+                "HorizontalEdge": "RightEdge",
+                "VerticalEdge": "TopEdge",
+                "LeftMargin": 121.4143,
+                "RightMargin": 485.5857,
+                "TopMargin": 18.998,
+                "BottomMargin": 229.002,
+                "Tag": 46,
+                "ActionTag": -937646717,
+                "Size": {
+                  "X": 193.0,
+                  "Y": 32.0
+                },
+                "Name": "tdn",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "LoginGUI/mk.png",
+                  "Plist": ""
+                },
+                "Scale9Width": 138,
+                "Scale9Height": 33,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 248.3385,
+                  "Y": 185.5767
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.3104,
+                  "Y": 0.6628
+                },
+                "PreSize": {
+                  "X": 0.1725,
+                  "Y": 0.1179
+                },
+                "HorizontalEdge": "RightEdge",
+                "VerticalEdge": "TopEdge",
+                "LeftMargin": 179.3385,
+                "RightMargin": 482.6615,
+                "TopMargin": 77.9233,
+                "BottomMargin": 169.0767,
+                "Tag": 47,
+                "ActionTag": 277109247,
+                "Size": {
+                  "X": 138.0,
+                  "Y": 33.0
+                },
+                "Name": "mk",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Default",
+                  "Path": "Default/Button_Disable.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "Normal",
+                  "Path": "LoginGUI/btnRegisterSmall.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "LoginGUI/btnRegisterSmall.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 84,
+                "Scale9Height": 26,
+                "OutlineSize": 0,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 0.0,
+                "ShadowOffsetY": 0.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 565.9691,
+                  "Y": 7.9587
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.7075,
+                  "Y": 0.0284
+                },
+                "PreSize": {
+                  "X": 0.1425,
+                  "Y": 0.1714
+                },
+                "HorizontalEdge": "RightEdge",
+                "VerticalEdge": "TopEdge",
+                "LeftMargin": 508.9691,
+                "RightMargin": 177.0309,
+                "TopMargin": 248.0413,
+                "BottomMargin": -16.0413,
+                "Tag": 51,
+                "ActionTag": 2039331865,
+                "Size": {
+                  "X": 114.0,
+                  "Y": 48.0
+                },
+                "Name": "btnRegister",
+                "ctype": "ButtonObjectData"
+              }
+            ],
+            "ActionTag": 614146783,
+            "Size": {
+              "X": 800.0,
+              "Y": 280.0
+            },
+            "Name": "pLogin",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 102,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5
+            },
+            "Position": {
+              "X": 400.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 0.1563
+            },
+            "HorizontalEdge": "BothEdge",
+            "VerticalEdge": "BottomEdge",
+            "TopMargin": 405.0,
+            "UserData": "scale",
+            "Tag": 70,
+            "Children": [
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "LoginGUI/otherLogin.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 220.2648,
+                  "Y": 35.9883
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.2753,
+                  "Y": 0.4798
+                },
+                "PreSize": {
+                  "X": 0.225,
+                  "Y": 0.2933
+                },
+                "LeftMargin": 130.2648,
+                "RightMargin": 489.7352,
+                "TopMargin": 28.0117,
+                "BottomMargin": 24.9883,
+                "Tag": 50,
+                "ActionTag": -1109266769,
+                "Size": {
+                  "X": 180.0,
+                  "Y": 22.0
+                },
+                "Name": "otherLogin_2",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Default",
+                  "Path": "Default/Button_Disable.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "Normal",
+                  "Path": "LoginGUI/Zalo.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "LoginGUI/Zalo.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 36,
+                "Scale9Height": 42,
+                "OutlineSize": 0,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 0.0,
+                "ShadowOffsetY": 0.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 355.6258,
+                  "Y": 31.6229
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.4445,
+                  "Y": 0.4216
+                },
+                "PreSize": {
+                  "X": 0.0825,
+                  "Y": 0.8533
+                },
+                "LeftMargin": 322.6258,
+                "RightMargin": 411.3742,
+                "TopMargin": 11.3771,
+                "BottomMargin": -0.3771,
+                "Tag": 44,
+                "ActionTag": 1349837798,
+                "Size": {
+                  "X": 66.0,
+                  "Y": 64.0
+                },
+                "Name": "btnZalo",
+                "ctype": "ButtonObjectData"
+              },
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Default",
+                  "Path": "Default/Button_Disable.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "Normal",
+                  "Path": "LoginGUI/FB.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "LoginGUI/FB.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 36,
+                "Scale9Height": 43,
+                "OutlineSize": 0,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 0.0,
+                "ShadowOffsetY": 0.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 434.0856,
+                  "Y": 31.6226
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.5426,
+                  "Y": 0.4216
+                },
+                "PreSize": {
+                  "X": 0.0825,
+                  "Y": 0.8667
+                },
+                "LeftMargin": 401.0856,
+                "RightMargin": 332.9144,
+                "TopMargin": 10.8774,
+                "BottomMargin": -0.8774,
+                "Tag": 45,
+                "ActionTag": -1604057571,
+                "Size": {
+                  "X": 66.0,
+                  "Y": 65.0
+                },
+                "Name": "btnFacebook",
+                "ctype": "ButtonObjectData"
+              },
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Default",
+                  "Path": "Default/Button_Disable.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "Normal",
+                  "Path": "LoginGUI/GG.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "LoginGUI/GG.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 36,
+                "Scale9Height": 43,
+                "OutlineSize": 0,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 0.0,
+                "ShadowOffsetY": 0.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 512.5468,
+                  "Y": 31.6226
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.6407,
+                  "Y": 0.4216
+                },
+                "PreSize": {
+                  "X": 0.0825,
+                  "Y": 0.8667
+                },
+                "LeftMargin": 479.5468,
+                "RightMargin": 254.4532,
+                "TopMargin": 10.8774,
+                "BottomMargin": -0.8774,
+                "Tag": 47,
+                "ActionTag": 1326698236,
+                "Size": {
+                  "X": 66.0,
+                  "Y": 65.0
+                },
+                "Name": "btnGoogle",
+                "ctype": "ButtonObjectData"
+              },
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Default",
+                  "Path": "Default/Button_Disable.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "Normal",
+                  "Path": "LoginGUI/ZM.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "LoginGUI/ZM.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 39,
+                "Scale9Height": 46,
+                "OutlineSize": 0,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 0.0,
+                "ShadowOffsetY": 0.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 591.0081,
+                  "Y": 31.6231
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.7388,
+                  "Y": 0.4216
+                },
+                "PreSize": {
+                  "X": 0.0862,
+                  "Y": 0.9067
+                },
+                "LeftMargin": 556.5081,
+                "RightMargin": 174.4919,
+                "TopMargin": 9.3769,
+                "BottomMargin": -2.3769,
+                "Tag": 48,
+                "ActionTag": 1409550405,
+                "Size": {
+                  "X": 69.0,
+                  "Y": 68.0
+                },
+                "Name": "btnZingme",
+                "ctype": "ButtonObjectData"
+              }
+            ],
+            "ActionTag": 580055590,
+            "Size": {
+              "X": 800.0,
+              "Y": 75.0
+            },
+            "Name": "pAccount",
+            "ctype": "PanelObjectData"
+          }
+        ],
+        "Size": {
+          "X": 800.0,
+          "Y": 480.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "Common/bgLoading.jpg",
+        "Default/Button_Disable.png",
+        "Font/tahoma.ttf",
+        "LoginGUI/bar.png",
+        "LoginGUI/btn_exit.png",
+        "LoginGUI/btnLogin.png",
+        "LoginGUI/btnRegisterSmall.png",
+        "LoginGUI/dot.png",
+        "LoginGUI/FB.png",
+        "LoginGUI/GG.png",
+        "LoginGUI/icon.png",
+        "LoginGUI/lbLogin.png",
+        "LoginGUI/light.png",
+        "LoginGUI/mk.png",
+        "LoginGUI/notHaveAccount.png",
+        "LoginGUI/otherLogin.png",
+        "LoginGUI/sub.png",
+        "LoginGUI/tdn.png",
+        "LoginGUI/textbox.png",
+        "LoginGUI/Zalo.png",
+        "LoginGUI/ZM.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

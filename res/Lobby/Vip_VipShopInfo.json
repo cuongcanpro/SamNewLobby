@@ -1,0 +1,562 @@
+{
+  "ID": "59c82cc3-4529-4fe1-a4f8-034383bdd7db",
+  "Version": "2.3.4",
+  "Name": "Vip_VipShopInfo",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 175,
+        "Children": [
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 0,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 1.0
+            },
+            "Position": {
+              "X": 525.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.9429,
+              "Y": 1.0
+            },
+            "HorizontalEdge": "RightEdge",
+            "VerticalEdge": "BottomEdge",
+            "LeftMargin": 30.0,
+            "UserData": "scale",
+            "Tag": 176,
+            "Children": [
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "GUIVipNew/btnEnterVip.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 121,
+                "Scale9Height": 30,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 425.0,
+                  "Y": 29.0
+                },
+                "Scale": {
+                  "ScaleX": 0.9,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.8586,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 0.3051,
+                  "Y": 0.8966
+                },
+                "HorizontalEdge": "RightEdge",
+                "VerticalEdge": "BottomEdge",
+                "LeftMargin": 349.5,
+                "RightMargin": -5.5,
+                "TopMargin": 3.0,
+                "BottomMargin": 3.0,
+                "Tag": 177,
+                "ActionTag": 911633722,
+                "Size": {
+                  "X": 151.0,
+                  "Y": 52.0
+                },
+                "Name": "btnEnterVip",
+                "ctype": "ButtonObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "GUIVipNew/bg/bgProcessVipShop.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 105,
+                "Scale9OriginY": 8,
+                "Scale9Width": 110,
+                "Scale9Height": 11,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 191.9997,
+                  "Y": 20.0002
+                },
+                "Scale": {
+                  "ScaleX": 0.84,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.3879,
+                  "Y": 0.3448
+                },
+                "PreSize": {
+                  "X": 0.5455,
+                  "Y": 0.4655
+                },
+                "LeftMargin": 56.9997,
+                "RightMargin": 168.0003,
+                "TopMargin": 24.4998,
+                "BottomMargin": 6.5002,
+                "Tag": 178,
+                "Children": [
+                  {
+                    "ProgressInfo": 54,
+                    "ImageFileData": {
+                      "Type": "Normal",
+                      "Path": "GUIVipNew/processVpoint.png",
+                      "Plist": ""
+                    },
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 135.0,
+                      "Y": 13.5
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PositionPercentXEnabled": true,
+                    "PositionPercentYEnabled": true,
+                    "PrePosition": {
+                      "X": 0.5,
+                      "Y": 0.5
+                    },
+                    "PreSize": {
+                      "X": 0.9741,
+                      "Y": 0.7778
+                    },
+                    "LeftMargin": 3.5,
+                    "RightMargin": 3.5,
+                    "TopMargin": 3.0,
+                    "BottomMargin": 3.0,
+                    "Tag": 179,
+                    "Children": [
+                      {
+                        "FileData": {
+                          "Type": "Normal",
+                          "Path": "GUIVipNew/iconVpoint.png",
+                          "Plist": ""
+                        },
+                        "Scale9OriginX": 8,
+                        "Scale9OriginY": 7,
+                        "Scale9Width": 9,
+                        "Scale9Height": 9,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 250.0,
+                          "Y": 10.5
+                        },
+                        "Scale": {
+                          "ScaleX": 0.9,
+                          "ScaleY": 0.9
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PositionPercentYEnabled": true,
+                        "PrePosition": {
+                          "X": 0.9506,
+                          "Y": 0.5
+                        },
+                        "PreSize": {
+                          "X": 0.0951,
+                          "Y": 1.0952
+                        },
+                        "HorizontalEdge": "RightEdge",
+                        "LeftMargin": 237.5,
+                        "RightMargin": 0.5,
+                        "TopMargin": -1.0,
+                        "BottomMargin": -1.0,
+                        "Tag": 180,
+                        "ActionTag": 703731235,
+                        "Size": {
+                          "X": 25.0,
+                          "Y": 23.0
+                        },
+                        "Name": "imgVpoint",
+                        "ctype": "ImageViewObjectData"
+                      },
+                      {
+                        "IsCustomSize": true,
+                        "FontSize": 15,
+                        "LabelText": "500 / 1000",
+                        "FontResource": {
+                          "Type": "Normal",
+                          "Path": "Font/tahoma.ttf",
+                          "Plist": ""
+                        },
+                        "HorizontalAlignmentType": "HT_Center",
+                        "OutlineColor": {
+                          "R": 187,
+                          "G": 99,
+                          "B": 187
+                        },
+                        "OutlineEnabled": true,
+                        "ShadowColor": {
+                          "R": 172,
+                          "G": 77,
+                          "B": 172
+                        },
+                        "ShadowOffsetX": 0.0,
+                        "ShadowOffsetY": -2.0,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 131.5,
+                          "Y": 10.5
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 0.93
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PositionPercentXEnabled": true,
+                        "PositionPercentYEnabled": true,
+                        "PrePosition": {
+                          "X": 0.5,
+                          "Y": 0.5
+                        },
+                        "PreSize": {
+                          "X": 0.9506,
+                          "Y": 1.0476
+                        },
+                        "LeftMargin": 6.5,
+                        "RightMargin": 6.5,
+                        "TopMargin": -0.5,
+                        "BottomMargin": -0.5,
+                        "Tag": 181,
+                        "ActionTag": 1006454213,
+                        "Size": {
+                          "X": 250.0,
+                          "Y": 22.0
+                        },
+                        "Name": "txtProgress",
+                        "ctype": "TextObjectData"
+                      }
+                    ],
+                    "ActionTag": -2012387136,
+                    "Size": {
+                      "X": 263.0,
+                      "Y": 21.0
+                    },
+                    "Name": "progressVip",
+                    "ctype": "LoadingBarObjectData"
+                  }
+                ],
+                "ActionTag": -2015968409,
+                "Size": {
+                  "X": 270.0,
+                  "Y": 27.0
+                },
+                "Name": "bgProgress",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "GUIVipNew/iconVip/iconVip2.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 9,
+                "Scale9OriginY": 12,
+                "Scale9Width": 13,
+                "Scale9Height": 13,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 330.9996,
+                  "Y": 25.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.6687,
+                  "Y": 0.431
+                },
+                "PreSize": {
+                  "X": 0.0626,
+                  "Y": 0.6379
+                },
+                "LeftMargin": 315.4996,
+                "RightMargin": 148.5004,
+                "TopMargin": 14.5,
+                "BottomMargin": 6.5,
+                "Tag": 182,
+                "ActionTag": 417296225,
+                "Size": {
+                  "X": 31.0,
+                  "Y": 37.0
+                },
+                "Name": "iconNextVip",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "GUIVipNew/iconVip/iconVip1.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 9,
+                "Scale9OriginY": 11,
+                "Scale9Width": 13,
+                "Scale9Height": 15,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 54.9996,
+                  "Y": 25.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.1111,
+                  "Y": 0.431
+                },
+                "PreSize": {
+                  "X": 0.0626,
+                  "Y": 0.6379
+                },
+                "LeftMargin": 39.4996,
+                "RightMargin": 424.5004,
+                "TopMargin": 14.5,
+                "BottomMargin": 6.5,
+                "Tag": 183,
+                "ActionTag": -1856002928,
+                "Size": {
+                  "X": 31.0,
+                  "Y": 37.0
+                },
+                "Name": "iconCurVip",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "IsCustomSize": true,
+                "FontSize": 14,
+                "LabelText": "Vip 10 còn:",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahoma.ttf",
+                  "Plist": ""
+                },
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 86.9989,
+                  "Y": 44.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.1758,
+                  "Y": 0.7586
+                },
+                "PreSize": {
+                  "X": 0.1778,
+                  "Y": 0.3448
+                },
+                "LeftMargin": 86.9989,
+                "RightMargin": 320.0011,
+                "TopMargin": 4.0,
+                "BottomMargin": 34.0,
+                "Tag": 184,
+                "ActionTag": -1319960800,
+                "Size": {
+                  "X": 88.0,
+                  "Y": 20.0
+                },
+                "Name": "txtVip1",
+                "ctype": "TextObjectData"
+              },
+              {
+                "IsCustomSize": true,
+                "FontSize": 14,
+                "LabelText": "10",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahomabd.ttf",
+                  "Plist": ""
+                },
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 163.9986,
+                  "Y": 44.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "G": 216,
+                  "B": 99
+                },
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.3313,
+                  "Y": 0.7586
+                },
+                "PreSize": {
+                  "X": 0.3051,
+                  "Y": 0.3448
+                },
+                "LeftMargin": 163.9986,
+                "RightMargin": 180.0014,
+                "TopMargin": 4.0,
+                "BottomMargin": 34.0,
+                "Tag": 185,
+                "ActionTag": -189633162,
+                "Size": {
+                  "X": 151.0,
+                  "Y": 20.0
+                },
+                "Name": "txtRemainTime",
+                "ctype": "TextObjectData"
+              }
+            ],
+            "ActionTag": -2028041594,
+            "Size": {
+              "X": 495.0,
+              "Y": 58.0
+            },
+            "Name": "pVip",
+            "ctype": "PanelObjectData"
+          }
+        ],
+        "Size": {
+          "X": 525.0,
+          "Y": 58.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "Font/tahoma.ttf",
+        "Font/tahomabd.ttf",
+        "GUIVipNew/bg/bgProcessVipShop.png",
+        "GUIVipNew/btnEnterVip.png",
+        "GUIVipNew/iconVip/iconVip1.png",
+        "GUIVipNew/iconVip/iconVip2.png",
+        "GUIVipNew/iconVpoint.png",
+        "GUIVipNew/processVpoint.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}

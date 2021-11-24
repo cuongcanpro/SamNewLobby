@@ -1,0 +1,347 @@
+<dragonBones name="EventButton" frameRate="24" version="2.3">
+ <armature name="EventButton">
+  <bone name="Group 2 copy">
+   <transform x="-10.5" y="0" skX="0" skY="0" scX="1" scY="1"/>
+  </bone>
+  <bone name="Shape 1 copy">
+   <transform x="34.9" y="-6.25" skX="0" skY="0" scX="0.73" scY="0.57"/>
+  </bone>
+  <bone name="Shape 1">
+   <transform x="46" y="-15.5" skX="0" skY="0" scX="0.02" scY="0.02"/>
+  </bone>
+  <bone name="Shape 1 copy 3">
+   <transform x="-86" y="43.5" skX="0" skY="0" scX="0.02" scY="0.02"/>
+  </bone>
+  <bone name="Shape 1 copy 4">
+   <transform x="87" y="30.5" skX="0" skY="0" scX="0.02" scY="0.02"/>
+  </bone>
+  <bone name="Shape 1 copy_0">
+   <transform x="-20.5" y="-34.5" skX="0" skY="0" scX="0.02" scY="0.01"/>
+  </bone>
+  <skin name="default">
+   <slot name="Group 2 copy" parent="Group 2 copy" z="0">
+    <display name="Icon_event1/Group 2 copy/Group 2 copy" type="armature">
+     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1"/>
+    </display>
+   </slot>
+   <slot name="Shape 1 copy" parent="Shape 1 copy" z="1">
+    <display name="Icon_event1/Shape 1 copy" type="image">
+     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="15.5" pY="20.5"/>
+    </display>
+   </slot>
+   <slot name="Shape 1" parent="Shape 1" z="2">
+    <display name="Icon_event1/Shape 1" type="image">
+     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="12" pY="15.5"/>
+    </display>
+   </slot>
+   <slot name="Shape 1 copy 3" parent="Shape 1 copy 3" z="3">
+    <display name="Icon_event1/Shape 1 copy 3" type="image">
+     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="11" pY="13.5"/>
+    </display>
+   </slot>
+   <slot name="Shape 1 copy 4" parent="Shape 1 copy 4" z="4">
+    <display name="Icon_event1/Shape 1 copy 4" type="image">
+     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="11" pY="13.5"/>
+    </display>
+   </slot>
+   <slot name="Shape 1 copy_0" parent="Shape 1 copy_0" z="5">
+    <display name="Icon_event1/Shape 1 copy" type="image">
+     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="15.5" pY="20.5"/>
+    </display>
+   </slot>
+  </skin>
+  <animation name="1" fadeInTime="0" duration="52" scale="1" loop="0" autoTween="1" tweenEasing="NaN">
+   <timeline name="Group 2 copy" scale="1" offset="0">
+    <frame z="0" duration="52">
+     <transform x="-10.5" y="0" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
+    </frame>
+   </timeline>
+   <timeline name="Shape 1 copy" scale="1" offset="0">
+    <frame z="1" tweenEasing="0" duration="13">
+     <transform x="34.9" y="-6.25" skX="0" skY="0" scX="0.73" scY="0.57" pX="0" pY="0"/>
+    </frame>
+    <frame z="1" duration="1">
+     <transform x="34.9" y="-6.25" skX="0" skY="0" scX="0.01" scY="0.01" pX="0" pY="0"/>
+    </frame>
+    <frame duration="27" displayIndex="-1"/>
+    <frame z="1" tweenEasing="0" duration="10">
+     <transform x="34.9" y="-6.25" skX="0" skY="0" scX="0.01" scY="0.01" pX="0" pY="0"/>
+    </frame>
+    <frame z="1" tweenEasing="0" duration="1">
+     <transform x="34.9" y="-6.25" skX="0" skY="0" scX="0.73" scY="0.57" pX="0" pY="0"/>
+    </frame>
+   </timeline>
+   <timeline name="Shape 1" scale="1" offset="0">
+    <frame z="2" tweenEasing="0" duration="12">
+     <transform x="46" y="-15.5" skX="0" skY="0" scX="0.02" scY="0.02" pX="0" pY="0"/>
+    </frame>
+    <frame z="2" tweenEasing="0" duration="14">
+     <transform x="46" y="-15.5" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
+    </frame>
+    <frame z="2" duration="1">
+     <transform x="46" y="-15.5" skX="0" skY="0" scX="0.02" scY="0.02" pX="0" pY="0"/>
+    </frame>
+    <frame duration="25" displayIndex="-1"/>
+   </timeline>
+   <timeline name="Shape 1 copy 3" scale="1" offset="0">
+    <frame duration="10" displayIndex="-1"/>
+    <frame z="3" tweenEasing="0" duration="13">
+     <transform x="-86" y="43.5" skX="0" skY="0" scX="0.02" scY="0.02" pX="0" pY="0"/>
+    </frame>
+    <frame z="3" tweenEasing="0" duration="12">
+     <transform x="-86" y="43.5" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
+    </frame>
+    <frame z="3" duration="1">
+     <transform x="-86" y="43.5" skX="0" skY="0" scX="0.02" scY="0.02" pX="0" pY="0"/>
+    </frame>
+    <frame duration="16" displayIndex="-1"/>
+   </timeline>
+   <timeline name="Shape 1 copy 4" scale="1" offset="0">
+    <frame duration="23" displayIndex="-1"/>
+    <frame z="4" tweenEasing="0" duration="11">
+     <transform x="87" y="30.5" skX="0" skY="0" scX="0.02" scY="0.02" pX="0" pY="0"/>
+    </frame>
+    <frame z="4" tweenEasing="0" duration="10">
+     <transform x="87" y="30.5" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
+    </frame>
+    <frame z="4" duration="1">
+     <transform x="87" y="30.5" skX="0" skY="0" scX="0.02" scY="0.02" pX="0" pY="0"/>
+    </frame>
+    <frame duration="7" displayIndex="-1"/>
+   </timeline>
+   <timeline name="Shape 1 copy_0" scale="1" offset="0">
+    <frame duration="4" displayIndex="-1"/>
+    <frame z="5" tweenEasing="0" duration="10">
+     <transform x="-20.5" y="-34.5" skX="0" skY="0" scX="0.02" scY="0.01" pX="0" pY="0"/>
+    </frame>
+    <frame z="5" tweenEasing="0" duration="13">
+     <transform x="-20.5" y="-34.5" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
+    </frame>
+    <frame z="5" duration="1">
+     <transform x="-20.5" y="-34.5" skX="0" skY="0" scX="0.02" scY="0.01" pX="0" pY="0"/>
+    </frame>
+    <frame duration="24" displayIndex="-1"/>
+   </timeline>
+  </animation>
+ </armature>
+ <armature name="Icon_event1/Group 2 copy/Group 2 copy">
+  <bone name="Group 1">
+   <transform x="61" y="-24" skX="0" skY="0" scX="1" scY="1"/>
+  </bone>
+  <bone name="Shape 1 copy">
+   <transform x="10.5" y="12.5" skX="0" skY="0" scX="1" scY="1"/>
+  </bone>
+  <bone name="Layer 3 copy">
+   <transform x="-46.5" y="52.5" skX="0" skY="0" scX="1" scY="1"/>
+  </bone>
+  <bone name="Layer 5 copy 2">
+   <transform x="-32.5" y="53.5" skX="0" skY="0" scX="1" scY="1"/>
+  </bone>
+  <skin name="default">
+   <slot name="Group 1" parent="Group 1" z="0">
+    <display name="Icon_event1/Group 2 copy/Group 1" type="image">
+     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="26.5" pY="46"/>
+    </display>
+   </slot>
+   <slot name="Shape 1 copy" parent="Shape 1 copy" z="1">
+    <display name="Icon_event1/Group 2 copy/Shape 1 copy" type="armature">
+     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1"/>
+    </display>
+   </slot>
+   <slot name="Layer 3 copy" parent="Layer 3 copy" z="2">
+    <display name="Icon_event1/Group 2 copy/Layer 3 copy" type="image">
+     <transform x="11.5" y="-32.5" skX="0" skY="0" scX="1" scY="1" pX="52.5" pY="44"/>
+    </display>
+   </slot>
+   <slot name="Layer 5 copy 2" parent="Layer 5 copy 2" z="3">
+    <display name="Icon_event1/Group 2 copy/Layer 5 copy 2" type="image">
+     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="24" pY="16.5"/>
+    </display>
+   </slot>
+  </skin>
+  <animation name="unnamed" fadeInTime="0" duration="30" scale="1" loop="0" autoTween="1" tweenEasing="NaN">
+   <timeline name="Group 1" scale="1" offset="0">
+    <frame z="0" duration="29">
+     <transform x="61" y="-24" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
+    </frame>
+    <frame z="0" duration="1">
+     <transform x="61" y="-24" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
+    </frame>
+   </timeline>
+   <timeline name="Shape 1 copy" scale="1" offset="0">
+    <frame z="1" tweenEasing="0" duration="13">
+     <transform x="10.5" y="12.5" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
+    </frame>
+    <frame z="1" tweenEasing="0" duration="16">
+     <transform x="10.5" y="12.5" skX="0" skY="0" scX="1.05" scY="1.05" pX="0" pY="0"/>
+    </frame>
+    <frame z="1" duration="1">
+     <transform x="10.5" y="12.5" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
+    </frame>
+   </timeline>
+   <timeline name="Layer 3 copy" scale="1" offset="0">
+    <frame z="2" tweenEasing="0" duration="13">
+     <transform x="-46.5" y="52.5" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
+    </frame>
+    <frame z="2" tweenEasing="0" duration="16">
+     <transform x="-46.5" y="47.5" skX="-3.72" skY="-3.72" scX="1" scY="1" pX="0" pY="-0.05"/>
+    </frame>
+    <frame z="2" duration="1">
+     <transform x="-46.5" y="52.5" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
+    </frame>
+   </timeline>
+   <timeline name="Layer 5 copy 2" scale="1" offset="0">
+    <frame z="3" tweenEasing="0" duration="13">
+     <transform x="-32.5" y="53.5" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
+    </frame>
+    <frame z="3" tweenEasing="0" duration="16">
+     <transform x="-32.5" y="48.5" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
+    </frame>
+    <frame z="3" duration="1">
+     <transform x="-32.5" y="53.5" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
+    </frame>
+   </timeline>
+  </animation>
+ </armature>
+ <armature name="Icon_event1/Group 2 copy/Shape 1 copy">
+  <bone name="Layer 1">
+   <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1"/>
+  </bone>
+  <bone name="Layer 2">
+   <transform x="-1" y="-2" skX="0" skY="0" scX="1" scY="1"/>
+  </bone>
+  <skin name="default">
+   <slot name="Layer 1" parent="Layer 1" z="0">
+    <display name="Icon_event1/Group 2 copy/Assets/Shape 1 copy" type="image">
+     <transform x="-75" y="-40.5" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
+    </display>
+   </slot>
+   <slot name="Layer 2" parent="Layer 2" z="1" blendMode="add">
+    <display name="Symbol 1" type="image">
+     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="65" pY="30"/>
+    </display>
+    <display name="Symbol 2" type="image">
+     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="65" pY="30"/>
+    </display>
+    <display name="Symbol 3" type="image">
+     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="65" pY="30"/>
+    </display>
+    <display name="Symbol 4" type="image">
+     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="65" pY="30"/>
+    </display>
+    <display name="Symbol 5" type="image">
+     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="65" pY="30"/>
+    </display>
+    <display name="Symbol 6" type="image">
+     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="65" pY="30"/>
+    </display>
+    <display name="Symbol 7" type="image">
+     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="65" pY="30"/>
+    </display>
+    <display name="Symbol 8" type="image">
+     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="65" pY="30"/>
+    </display>
+    <display name="Symbol 9" type="image">
+     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="65" pY="30"/>
+    </display>
+    <display name="Symbol 10" type="image">
+     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="65" pY="30"/>
+    </display>
+    <display name="Symbol 11" type="image">
+     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="65" pY="30"/>
+    </display>
+    <display name="Symbol 12" type="image">
+     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="65" pY="30"/>
+    </display>
+    <display name="Symbol 13" type="image">
+     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="65" pY="30"/>
+    </display>
+    <display name="Symbol 14" type="image">
+     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="65" pY="30"/>
+    </display>
+    <display name="Symbol 15" type="image">
+     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="65" pY="30"/>
+    </display>
+    <display name="Symbol 16" type="image">
+     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="65" pY="30"/>
+    </display>
+    <display name="Symbol 17" type="image">
+     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="65" pY="30"/>
+    </display>
+    <display name="Symbol 18" type="image">
+     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="65" pY="30"/>
+    </display>
+    <display name="Symbol 19" type="image">
+     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="65" pY="30"/>
+    </display>
+   </slot>
+  </skin>
+  <animation name="unnamed" fadeInTime="0" duration="60" scale="1" loop="0" autoTween="1" tweenEasing="NaN">
+   <timeline name="Layer 1" scale="1" offset="0">
+    <frame z="0" duration="60">
+     <transform x="0" y="0" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
+    </frame>
+   </timeline>
+   <timeline name="Layer 2" scale="1" offset="0">
+    <frame z="1" duration="1">
+     <transform x="-1" y="-2" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
+    </frame>
+    <frame z="1" displayIndex="1" duration="1">
+     <transform x="-1" y="-2" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
+    </frame>
+    <frame z="1" displayIndex="2" duration="1">
+     <transform x="-1" y="-2" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
+    </frame>
+    <frame z="1" displayIndex="3" duration="1">
+     <transform x="-1" y="-2" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
+    </frame>
+    <frame z="1" displayIndex="4" duration="1">
+     <transform x="-1" y="-2" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
+    </frame>
+    <frame z="1" displayIndex="5" duration="1">
+     <transform x="-1" y="-2" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
+    </frame>
+    <frame z="1" displayIndex="6" duration="1">
+     <transform x="-1" y="-2" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
+    </frame>
+    <frame z="1" displayIndex="7" duration="1">
+     <transform x="-1" y="-2" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
+    </frame>
+    <frame z="1" displayIndex="8" duration="1">
+     <transform x="-1" y="-2" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
+    </frame>
+    <frame z="1" displayIndex="9" duration="1">
+     <transform x="-1" y="-2" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
+    </frame>
+    <frame z="1" displayIndex="10" duration="1">
+     <transform x="-1" y="-2" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
+    </frame>
+    <frame z="1" displayIndex="11" duration="1">
+     <transform x="-1" y="-2" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
+    </frame>
+    <frame z="1" displayIndex="12" duration="1">
+     <transform x="-1" y="-2" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
+    </frame>
+    <frame z="1" displayIndex="13" duration="1">
+     <transform x="-1" y="-2" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
+    </frame>
+    <frame z="1" displayIndex="14" duration="1">
+     <transform x="-1" y="-2" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
+    </frame>
+    <frame z="1" displayIndex="15" duration="1">
+     <transform x="-1" y="-2" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
+    </frame>
+    <frame z="1" displayIndex="16" duration="1">
+     <transform x="-1" y="-2" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
+    </frame>
+    <frame z="1" displayIndex="17" duration="1">
+     <transform x="-1" y="-2" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
+    </frame>
+    <frame z="1" displayIndex="18" duration="1">
+     <transform x="-1" y="-2" skX="0" skY="0" scX="1" scY="1" pX="0" pY="0"/>
+    </frame>
+    <frame duration="41" displayIndex="-1"/>
+   </timeline>
+  </animation>
+ </armature>
+</dragonBones>

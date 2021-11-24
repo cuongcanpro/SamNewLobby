@@ -1,0 +1,416 @@
+{
+  "ID": "bb38c9a8-dbec-415e-aa88-b6852cd65eef",
+  "Version": "2.3.4",
+  "Name": "SupportBeanGUI",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Common/bgSub.png",
+              "Plist": ""
+            },
+            "Scale9Width": 540,
+            "Scale9Height": 395,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 405.04,
+              "Y": 261.984
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5063,
+              "Y": 0.5458
+            },
+            "PreSize": {
+              "X": 0.675,
+              "Y": 0.8292
+            },
+            "HorizontalEdge": "BothEdge",
+            "VerticalEdge": "BothEdge",
+            "LeftMargin": 135.04,
+            "RightMargin": 124.96,
+            "TopMargin": 19.016,
+            "BottomMargin": 62.984,
+            "UserData": "scale",
+            "Tag": 2,
+            "Children": [
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "Common/titleGiftSupport.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 80,
+                "Scale9OriginY": 17,
+                "Scale9Width": 64,
+                "Scale9Height": 18,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 274.0,
+                  "Y": 358.75
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.5074,
+                  "Y": 0.9014
+                },
+                "PreSize": {
+                  "X": 0.4148,
+                  "Y": 0.1307
+                },
+                "LeftMargin": 162.0,
+                "RightMargin": 154.0,
+                "TopMargin": 13.25,
+                "BottomMargin": 332.75,
+                "Tag": 27,
+                "ActionTag": 5539560,
+                "Size": {
+                  "X": 224.0,
+                  "Y": 52.0
+                },
+                "Name": "title0",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "Common/titleGiftStartup.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 106,
+                "Scale9OriginY": 16,
+                "Scale9Width": 88,
+                "Scale9Height": 11,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 274.0,
+                  "Y": 358.75
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.5074,
+                  "Y": 0.9014
+                },
+                "PreSize": {
+                  "X": 0.5556,
+                  "Y": 0.108
+                },
+                "LeftMargin": 124.0,
+                "RightMargin": 116.0,
+                "TopMargin": 17.75,
+                "BottomMargin": 337.25,
+                "Tag": 28,
+                "ActionTag": -381498291,
+                "Size": {
+                  "X": 300.0,
+                  "Y": 43.0
+                },
+                "Name": "title1",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "ShopIAP/coin3.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 35,
+                "Scale9OriginY": 29,
+                "Scale9Width": 38,
+                "Scale9Height": 30,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 268.974,
+                  "Y": 199.9425
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PrePosition": {
+                  "X": 0.4981,
+                  "Y": 0.5024
+                },
+                "PreSize": {
+                  "X": 0.2,
+                  "Y": 0.2211
+                },
+                "VerticalEdge": "BottomEdge",
+                "LeftMargin": 214.974,
+                "RightMargin": 217.026,
+                "TopMargin": 154.0575,
+                "BottomMargin": 155.9425,
+                "Tag": 5,
+                "ActionTag": 107804835,
+                "Size": {
+                  "X": 108.0,
+                  "Y": 88.0
+                },
+                "Name": "imgGold",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Default",
+                  "Path": "Default/Button_Disable.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "Normal",
+                  "Path": "Common/buttonOK.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "Common/buttonOK.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 118,
+                "Scale9Height": 32,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 271.566,
+                  "Y": 38.3844
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.5029,
+                  "Y": 0.0964
+                },
+                "PreSize": {
+                  "X": 0.2741,
+                  "Y": 0.1357
+                },
+                "HorizontalEdge": "BothEdge",
+                "VerticalEdge": "BottomEdge",
+                "LeftMargin": 197.566,
+                "RightMargin": 194.434,
+                "TopMargin": 332.6156,
+                "BottomMargin": 11.3844,
+                "Tag": 7,
+                "ActionTag": -1662633735,
+                "Size": {
+                  "X": 148.0,
+                  "Y": 54.0
+                },
+                "Name": "btnOK",
+                "ctype": "ButtonObjectData"
+              },
+              {
+                "ClipAble": false,
+                "BackColorAlpha": 102,
+                "SingleColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "FirstColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "EndColor": {},
+                "ColorVector": {
+                  "ScaleY": 1.0
+                },
+                "Scale9Width": 1,
+                "Scale9Height": 1,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 270.0,
+                  "Y": 268.8878
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.6756
+                },
+                "PreSize": {
+                  "X": 0.3704,
+                  "Y": 0.1256
+                },
+                "VerticalEdge": "TopEdge",
+                "LeftMargin": 170.0,
+                "RightMargin": 170.0,
+                "TopMargin": 104.1122,
+                "BottomMargin": 243.8878,
+                "Tag": 9,
+                "ActionTag": 338987393,
+                "Size": {
+                  "X": 200.0,
+                  "Y": 50.0
+                },
+                "VisibleForFrame": false,
+                "Name": "imgMoney",
+                "ctype": "PanelObjectData"
+              },
+              {
+                "IsCustomSize": true,
+                "FontSize": 17,
+                "LabelText": "Text Label",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahoma.ttf",
+                  "Plist": ""
+                },
+                "HorizontalAlignmentType": "HT_Center",
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 270.0,
+                  "Y": 136.0543
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "R": 132,
+                  "G": 140,
+                  "B": 220
+                },
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.3418
+                },
+                "PreSize": {
+                  "X": 0.9204,
+                  "Y": 0.0578
+                },
+                "LeftMargin": 21.5,
+                "RightMargin": 21.5,
+                "TopMargin": 250.4457,
+                "BottomMargin": 124.5543,
+                "Tag": 30,
+                "ActionTag": -1426218964,
+                "Size": {
+                  "X": 497.0,
+                  "Y": 23.0
+                },
+                "Name": "lbNotice",
+                "ctype": "TextObjectData"
+              }
+            ],
+            "ActionTag": -2111772047,
+            "Size": {
+              "X": 540.0,
+              "Y": 398.0
+            },
+            "Name": "bg",
+            "ctype": "ImageViewObjectData"
+          }
+        ],
+        "Size": {
+          "X": 800.0,
+          "Y": 480.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "Common/bgSub.png",
+        "Common/buttonOK.png",
+        "Common/titleGiftStartup.png",
+        "Common/titleGiftSupport.png",
+        "Default/Button_Disable.png",
+        "Font/tahoma.ttf",
+        "ShopIAP/coin3.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}
