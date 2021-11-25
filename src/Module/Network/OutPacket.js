@@ -275,8 +275,9 @@ CmdSendLogin = CmdSendCommon.extend({
 
         var session = CookieUtility.getCookie(CookieUtility.KEY_SESSION_KEY);
         if (session !== "") {
-            sessionkey = GameData.getInstance().sessionkey;
+            sessionkey = gameMgr.getSessionKey();
         }
+        cc.log("SESSION KEY " + sessionkey);
         if (cc.sys.isNative || Config.ENABLE_DEV) {
             this.putString(sessionkey);
         } else {

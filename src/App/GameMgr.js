@@ -68,11 +68,16 @@ var GameMgr = cc.Class.extend({
     },
 
     // new framework
+    /**
+     * Truoc khi co ban x64 chay voi Base Portal thi co ban Game rieng khong co cac ham Native cua Base moi
+     * appVersion duoc lay trong cache luu trong C++, o cac ban game moi khong co phan C++ cua Zingplay thi appVersion = 999 -> la ban moi
+     * @returns {boolean}
+     */
     checkOldNativeVersion: function () {
         if (cc.sys.os == cc.sys.OS_WINDOWS) return true;
         if (cc.sys.os == cc.sys.OS_IOS) return true;
-        cc.log("#checkOldNativeVersion " + gamedata.appVersion + " vs " + Config.OLD_VERSION + " -> " + (gamedata.appVersion <= Config.OLD_VERSION));
-        return gamedata.appVersion <= Config.OLD_VERSION;
+        cc.log("#checkOldNativeVersion " + gameMgr.appVersion + " vs " + Config.OLD_VERSION + " -> " + (gameMgr.appVersion <= Config.OLD_VERSION));
+        return gameMgr.appVersion <= Config.OLD_VERSION;
     },
 
     initForWeb: function () {
@@ -93,9 +98,9 @@ var GameMgr = cc.Class.extend({
     initEmulatorDectector: function () {
         this.emulatorDetector =  new EmulatorDetector(function (detect, data) {
             if (detect)
-                gamedata.dataEmulator = JSON.stringify(data);
+                this.dataEmulator = JSON.stringify(data);
             else
-                gamedata.dataEmulator = "";
+                this.dataEmulator = "";
         }.bind(this));
     },
 
@@ -192,7 +197,7 @@ var GameMgr = cc.Class.extend({
                 data += "game=" + LocalizedString.config("GAME_ANDROID");
         }
 
-        data += ("&device=" + NativeBridge.getDeviceID() + "&version=" + gamedata.appVersion);
+        data += ("&device=" + NativeBridge.getDeviceID() + "&version=" + this.appVersion);
         data += ("&referer=" + NativeBridge.getRefer());
 
         engine.HandlerManager.getInstance().forceRemoveHandler("check_version");
@@ -223,91 +228,91 @@ var GameMgr = cc.Class.extend({
     readGameService: function (obj) {
         // parse services
         if (obj["ipapp"] && obj["portapp"]) {
-            GameData.getInstance().ipapp = "" + obj["ipapp"];
-            GameData.getInstance().portapp = "" + obj["portapp"];
+            this.ipapp = "" + obj["ipapp"];
+            this.portapp = "" + obj["portapp"];
 
-            cc.sys.localStorage.setItem("ipapp", GameData.getInstance().ipapp);
-            cc.sys.localStorage.setItem("portapp", GameData.getInstance().portapp);
+            cc.sys.localStorage.setItem("ipapp", this.ipapp);
+            cc.sys.localStorage.setItem("portapp", this.portapp);
         }
 
         //if ((obj["enablepayment"] != null)) {
         //    cc.sys.localStorage.setItem("enablepayment", obj["enablepayment"]);
-        //    gamedata.enablepayment = obj["enablepayment"];
+        //    this.enablepayment = obj["enablepayment"];
         //}
 
         if ((obj["enablefacebook"] != null)) {
-            GameData.getInstance().enablefacebook = false;
+            this.enablefacebook = false;
             cc.sys.localStorage.setItem("enablefacebook", obj["enablefacebook"]);
         }
 
         if (obj["disableLoginSocial"] != null) {
-            gamedata.disablesocial = obj["disableLoginSocial"];
+            this.disablesocial = obj["disableLoginSocial"];
             cc.sys.localStorage.setItem("disableLoginSocial", obj["disableLoginSocial"]);
         }
 
         if (obj["source"] != null) {
-            gamedata.source = obj["source"];
+            this.source = obj["source"];
             cc.sys.localStorage.setItem("source", obj["source"]);
         } else {
-            gamedata.source = "";
+            this.source = "";
         }
 
         if (obj["enableAdultIcon"] != null) {
-            gamedata.enableAdult = (obj["enableAdultIcon"] == 1);
+            this.enableAdult = (obj["enableAdultIcon"] == 1);
         } else {
-            gamedata.enableAdult = true;
+            this.enableAdult = true;
         }
 
         if (obj["update_link"] != null) {
-            gamedata.storeUrl = obj["update_link"];
+            this.storeUrl = obj["update_link"];
             cc.sys.localStorage.setItem("update_link", obj["update_link"]);
         }
 
         if (obj["defautlogin"] != null) {
-            gamedata.defaultlogin = obj["defautlogin"];
+            this.defaultlogin = obj["defautlogin"];
             cc.sys.localStorage.setItem("defaultlogin", obj["defautlogin"]);
         }
 
         if (obj["isAppSupport"] != null) {
-            gamedata.isAppSupport = (obj["isAppSupport"] == 1);
+            this.isAppSupport = (obj["isAppSupport"] == 1);
             cc.sys.localStorage.setItem("isAppSupport", obj["isAppSupport"]);
         }
 
         if ((obj["support"] != null) && (obj["forum"] != null)) {
-            gamedata.support = obj["support"];
-            gamedata.forum = obj["forum"];
+            this.support = obj["support"];
+            this.forum = obj["forum"];
 
-            if (gamedata.isAppSupport)
-                gamedata.supporturl = "http://hotro.zing.vn";
+            if (this.isAppSupport)
+                this.supporturl = "http://hotro.zing.vn";
             else
-                gamedata.supporturl = gamedata.support;
+                this.supporturl = this.support;
 
-            gamedata.supportphone = "";
+            this.supportphone = "";
 
             cc.sys.localStorage.setItem("support", obj["support"]);
             cc.sys.localStorage.setItem("forum", obj["forum"]);
 
-            cc.sys.localStorage.setItem("supporturl", gamedata.supporturl);
-            cc.sys.localStorage.setItem("supportphone", gamedata.supportphone);
+            cc.sys.localStorage.setItem("supporturl", this.supporturl);
+            cc.sys.localStorage.setItem("supportphone", this.supportphone);
         }
 
         if (obj["urlnews"] != null) {
-            gamedata.urlnews = obj["urlnews"];
+            this.urlnews = obj["urlnews"];
             cc.sys.localStorage.setItem("urlnews", obj["urlnews"]);
         }
         if (obj["old_version"] != null) {
-            gamedata.old_version_link = obj["old_version"];
+            this.old_version_link = obj["old_version"];
             cc.sys.localStorage.setItem("old_version", obj["old_version"]);
         }
 
         if (obj["regZing"] != null) {
-            gamedata.regZing = obj["regZing"];
+            this.regZing = obj["regZing"];
         } else {
-            gamedata.regZing = "0";
+            this.regZing = "0";
         }
 
         if (obj["ssl"] != null) {
-            gamedata.domainLoginWss = obj["ssl"];
+            this.domainLoginWss = obj["ssl"];
             cc.sys.localStorage.setItem("ssl", obj["ssl"]);
         }
 
@@ -384,11 +389,11 @@ var GameMgr = cc.Class.extend({
         PingPongHandler.getInstance().updatePing(dt);
         TimeoutConnectHandler.getInstance().updateCountDown(dt);
 
-        // if (gamedata.countZaloPay >= 0) {
-        //     gamedata.countZaloPay = gamedata.countZaloPay + dt;
-        //     if (gamedata.countZaloPay > 10) {
+        // if (this.countZaloPay >= 0) {
+        //     this.countZaloPay = this.countZaloPay + dt;
+        //     if (this.countZaloPay > 10) {
         //         // show thong bao cai zalo
-        //         gamedata.countZaloPay = -1;
+        //         this.countZaloPay = -1;
         //         var str = LocalizedString.to("ZALOPAY_ERROR_INSTALL");
         //         Toast.makeToast(Toast.SHORT, str);
         //     }
@@ -398,6 +403,44 @@ var GameMgr = cc.Class.extend({
             downloadEventManager.updateDownload();
         } catch (e) {
 
+        }
+    },
+
+    // READ INSTALL CONFIG
+    detectVersionUpdate: function () {
+        var checkUpdate = cc.sys.localStorage.getItem("game_update_iap");
+        cc.log("GameMgr::detectUpdate " + checkUpdate);
+        if (checkUpdate && checkUpdate == "1") {
+            return true;
+        } else {
+            var versionCode = NativeBridge.getVersionCode();
+            cc.log("GameMgr::detectVersion " + versionCode);
+            if (versionCode < 0)
+                return true;
+        }
+        return false;
+    },
+
+    getInstallDate: function () {
+        var strInstallDate = cc.sys.localStorage.getItem("game_install_date");
+        cc.log("GameMgr::InstallDate: ", strInstallDate);
+        if (strInstallDate) {
+            return strInstallDate;
+        } else {
+            var today = new Date();
+            var dd = today.getDate();
+            var mm = today.getMonth() + 1; //January is 0!
+            var yyyy = today.getFullYear();
+            if (dd < 10) {
+                dd = '0' + dd;
+            }
+            if (mm < 10) {
+                mm = '0' + mm;
+            }
+            var strDate = dd + '-' + mm + '-' + yyyy;
+            cc.sys.localStorage.setItem("game_install_date", strDate);
+            cc.log("GameMgr::InstallDate: new Install", strDate);
+            return strDate;
         }
     },
 });

@@ -60,7 +60,6 @@ var SceneMgr = cc.Class.extend({
 
         var loading = new Loading(text, fog);
         this.layerGUI.addChild(loading);
-
         loading.setLocalZOrder(LOADING_TAG);
         loading.setTag(LOADING_TAG);
         return loading;

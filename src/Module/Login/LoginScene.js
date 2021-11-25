@@ -37,8 +37,7 @@ var LoginScene = BaseLayer.extend({
 
     onEnterFinish : function () {
         if(this.idFuncWait) clearTimeout(this.idFuncWait);
-        gamedata.inLobby = false;
-        if(gamedata.hasLoadedInfor)
+        if(gameMgr.hasLoadedInfor)
             if (!Config.WITHOUT_LOGIN || cc.sys.isNative) {
                 this.showLogin();
             } else {
@@ -46,7 +45,6 @@ var LoginScene = BaseLayer.extend({
             }
         else
             this.showLoadingInformation();
-        this.reloadButtonSocial();
     },
     
     autoLogin : function () {
@@ -59,29 +57,18 @@ var LoginScene = BaseLayer.extend({
         }
 
         var autologin = cc.sys.localStorage.getItem(LoginScene.AUTO_LOGIN_KEY);
-
         if ((autologin == "") || (autologin === undefined) || autologin == null) {
             autologin = cc.sys.localStorage.getItem("defaultlogin");
         }
 
         cc.log("_______AUTO___LOGIN____" + autologin);
 
-        if(Config.WITHOUT_LOGIN && !cc.sys.isNative)
-        {
-
+        if(Config.WITHOUT_LOGIN && !cc.sys.isNative) {
             this.login_tfName.setString("");
             this.login_tfPassword.setString("");
             try {
-                if(session_key && (session_key !== ""))
-                {
-                    gamedata.sessionkey = decodeURIComponent(session_key);
-                    //gamedata.sessionkey = "aWQ9NTUzNzI1OTExJnVzZXJuYW1lPWN1b25nbGVhaDMwMzMmc29jaWFsPXppbmdtZSZzb2NpYWxuYW1lPWN1b25nbGVhaDMwMzMmYXZhdGFyPWh0dHAlM0ElMkYlMkZ6aW5ncGxheS5zdGF0aWMuZzYuemluZy52biUyRmltYWdlcyUyRnpwcCUyRnpwZGVmYXVsdC5wbmcmdGltZT0xNTUxNjcwMTQzJm90aGVyPWRlZmF1bHQlM0ElM0F6aW5nbWUlN0N1bmtub3duJTdDdW5rbm93biU3Q2dnJTNBJTNBNTUzNzI1OTExJTNBJTNBMTA3JnRva2VuS2V5PTMwYTViYTBhMzBhZTJjZTcwOWQ5MzhmODhjY2ViMjFk";
-                    //gamedata.sessionkey = "lfdj";
-                    if (gamedata.sessionkey.substr(0,3) === "+++"){
-                        gamedata.sessionkey = gamedata.sessionkey.substring(3,session_key.length);
-                    }
-
-                    //Toast.makeToast(3,gamedata.sessionkey);
+                if(session_key && (session_key !== "")) {
+                    loginMgr.setSessionKey(session_key);
                 }
             } catch (e) {
                 cc.error("khong lay duoc session");
@@ -93,16 +80,14 @@ var LoginScene = BaseLayer.extend({
             var sessionKey = CookieUtility.getCookie(CookieUtility.KEY_SESSION_KEY);
             if (sessionKey !== ""){
                 cc.log("sessionKey: " + sessionKey);
-                gamedata.sessionkey = sessionKey;
+                loginMgr.setSessionKey(sessionKey);
             } else {
                 // sceneMgr.showOKDialog(localized("_LOGIN_ERROR_"));
             }
 
-            if (!gamedata.sessionkey || gamedata.sessionkey === ""){
+            if (!loginMgr.getSessionKey() || loginMgr.getSessionKey() === ""){
                 sceneMgr.showOKDialog(localized("_LOGIN_ERROR_"));
             }
-
-            cc.log("SessionKey: "+gamedata.sessionkey);
             GameClient.getInstance().connect();
             this.loading = sceneMgr.addLoading(LocalizedString.to("_SINGING_"), true, this);
             this.loading.setTag(LOADING_TAG);
@@ -115,12 +100,6 @@ var LoginScene = BaseLayer.extend({
         else if (autologin == SocialManager.FACEBOOK) {
             this.onButtonRelease(null, LoginScene.BTN_FB);
         }
-        else if (autologin == SocialManager.ZALO) {
-//            this.onButtonRelease(null, LoginScene.BTN_ZALO);
-            cc.log("AUTO LOGIN ZALO 1 ******************** ");
-            this.idWaitLogin = LoginScene.BTN_ZALO;
-            this.autoLoginZalo();
-        }
         else if (autologin == SocialManager.ZINGME) {
             this.idWaitLogin = LoginScene.BTN_LOGIN_ZME;
             this.autologinZingme();
@@ -131,12 +110,10 @@ var LoginScene = BaseLayer.extend({
         this.showLoadingInformation(true);
 
         this.tfLoading.setString(LocalizedString.to("PORTAL_LOADING"));
-
         socialMgr._currentSocial = SocialManager.ZINGME;
 
-        GameData.getInstance().sessionkey = gamedata.getSessionKeyPortal();
-        GameData.getInstance().openID = "";
-
+        loginMgr.setSessionKey(PortalUtil.getSessionKeyPortal());
+        loginMgr.setOpenId("");
         GameClient.getInstance().connect();
     },
 
@@ -157,7 +134,6 @@ var LoginScene = BaseLayer.extend({
         this.text1 = this.getControl("TextNote1");
         this.text2 = this.getControl("TextNote2");
         this.btnClose = this.customButton("btnQuit", LoginScene.BTN_QUIT);
-        return;
         // logo game
         this.icon = this.getControl("icon");
         this.icon.setVisible(false);
@@ -239,37 +215,6 @@ var LoginScene = BaseLayer.extend({
         }
     },
 
-    reloadButtonSocial: function () {
-        switch (gamedata.disablesocial) {
-            case 1:
-            case "1":
-            {
-                this.bFB.setVisible(false);
-                this.bGG.setVisible(false);
-                this.bZL.setVisible(false);
-                break;
-            }
-            case 2:
-            case "2":
-            {
-                this.bFB.setVisible(false);
-                break;
-            }
-            case 0:
-            case "0":
-            {
-                this.bGG.setVisible(false);
-                break;
-            }
-            case 3:
-            case "3":
-            {
-                this.bZL.setVisible(false);
-                break;
-            }
-        }
-    },
-
     loadUserDefault  : function () {
         if (cc.sys.localStorage.getItem(LoginScene.USERNAME_KEY) != null) {
             this.login_name = "" + cc.sys.localStorage.getItem(LoginScene.USERNAME_KEY);
@@ -309,28 +254,9 @@ var LoginScene = BaseLayer.extend({
                 setTimeout(this.loginFacebook.bind(this),LoginScene.TIME_DELAY_LOGIN);
                 break;
             }
-            case LoginScene.BTN_ZALO:
-            {
-                //if(this.idWaitLogin != -1) break;
-                //this.idWaitLogin = id;
-
-                //setTimeout(this.loginZalo.bind(this),LoginScene.TIME_DELAY_LOGIN);
-                this.idWaitLogin = LoginScene.BTN_ZALO;
-                this.autoLoginZalo();
-                break;
-            }
             case LoginScene.BTN_ZM:
             {
                 if (Config.ENABLE_CHEAT) {
-                    // if (cc.sys.os != cc.sys.OS_ANDROID && cc.sys.os != cc.sys.IOS) {
-                    //     // zingme aWQ9NTIyMjIxMDkwJnVzZXJuYW1lPWN1b25nbGVhaDExMDEmc29jaWFsPXppbmdtZSZzb2NpYWxuYW1lPWN1b25nbGVhaDExMDEmYXZhdGFyPWh0dHAlM0ElMkYlMkZ6aW5ncGxheS5zdGF0aWMuZzYuemluZy52biUyRmltYWdlcyUyRnpwcCUyRnpwZGVmYXVsdC5wbmcmdGltZT0xNTMxODk4NjUzJm90aGVyPWRlZmF1bHQlM0ElM0F6aW5nbWUlN0N1bmtub3duJTdDdW5rbm93biUzQSUzQTUyMjIyMTA5MCUzQSUzQTEwMCZ0b2tlbktleT1lM2FmYzE5ZjA4OGVhNGRmZDUxM2EyZDBhMTgyMjRhNw==
-                    //     GameData.getInstance().sessionkey = "aWQ9Mzk2NjU4NzM4JnVzZXJuYW1lPXNvbWkwNSZzb2NpYWw9emluZ21lJnNvY2lhbG5hbWU9JUM0JTkwJUMzJUI0bmcrUFAmYXZhdGFyPWh0dHAlM0ElMkYlMkZ6aW5ncGxheS5zdGF0aWMuZzYuemluZy52biUyRmltYWdlcyUyRnpwcCUyRnpwZGVmYXVsdC5wbmcmdGltZT0xNDcyNjEzOTUzJm90aGVyPWRlZmF1bHQlM0ElM0F6aW5nbWUlN0N1bmtub3duJTdDdW5rbm93biUzQSUzQTM5NjY1ODczOCZ0b2tlbktleT1iN2RlMWEyMWIzOWU3YjRjNWRiZDAyYzk4MjNhY2IxOQ==";
-                    //     //  GameData.getInstance().sessionkey = "aWQ9Mzc0NDUxNzMmdXNlcm5hbWU9c2ltbzMyJnNvY2lhbD16aW5nbWUmc29jaWFsbmFtZT1zaW1vMzImYXZhdGFyPWh0dHAlM0ElMkYlMkZ6aW5ncGxheS5zdGF0aWMuZzYuemluZy52biUyRmltYWdlcyUyRnpwcCUyRnpwZGVmYXVsdC5wbmcmdGltZT0xNTI2NTQzMTYwJm90aGVyPWRpc190aWVubGVuJTNBJTNBZGVmYXVsdCUzQSUzQTM3NDQ1MTczJTNBJTNBOTk5JnRva2VuS2V5PTM3NTQ0ODM4NzdmNTNiMGMyZjBiNDFjNWQ1YTNiNDk4";
-                    //     GameClient.getInstance().connect();
-                    // }
-                    // else {
-                    //
-                    // }
                     sceneMgr.openGUI(TestAccountGUI.className);
                 }
                 else {
@@ -346,7 +272,7 @@ var LoginScene = BaseLayer.extend({
             }
             case LoginScene.BTN_REGISTER:
             {
-                if (!gamedata.regZing || gamedata.regZing == 0 || gamedata.regZing == "0") {
+                if (!gameMgr.regZing || gameMgr.regZing == 0 || gameMgr.regZing == "0") {
                     var gui = sceneMgr.openGUI(AccountInputUI.className,LoginScene.GUI_ZINGME,LoginScene.GUI_ZINGME);
                     gui.setParent(this);
                     gui.setTypeGui(AccountInputUI.REGISTER);
@@ -371,20 +297,6 @@ var LoginScene = BaseLayer.extend({
             }
         }
     },
-    
-    loginZalo : function () {
-        return;
-        if(!this.checkInScene()) return;
-
-        this.delayWaitLogin();
-
-        if(!this.checkNetwork()) return;
-
-        cc.sys.localStorage.setItem(LoginScene.AUTO_LOGIN_KEY, SocialManager.ZALO);
-
-        SocialManager.getInstance().set(this, this.onResponseAccessToken.bind(this));
-        SocialManager.getInstance().loginZalo();
-    },
 
     loginGoogle : function ()  {
         if(!this.checkInScene()) return;
@@ -399,7 +311,7 @@ var LoginScene = BaseLayer.extend({
         SocialManager.getInstance().set(this, this.onResponseSessionKey.bind(this));
 
         if(!SocialManager.getInstance().getSessionCacheWithId(SocialManager.GOOGLE_CACHE)) {
-            if(gamedata.checkOldNativeVersion()) {
+            if(gameMgr.checkOldNativeVersion()) {
                 SocialManager.getInstance().set(this, this.onResponseAccessToken.bind(this));
                 SocialManager.getInstance().loginGoogle();
             }
@@ -438,7 +350,7 @@ var LoginScene = BaseLayer.extend({
         if(!SocialManager.getInstance().getSessionCacheWithId(SocialManager.FACEBOOK_CACHE)) {
             cc.log("LOGIN FACE BOOK 1: New Login without cache");
 
-            if (gamedata.checkOldNativeVersion()) {
+            if (gameMgr.checkOldNativeVersion()) {
                 SocialManager.getInstance().set(this, this.onResponseAccessToken.bind(this));
                 SocialManager.getInstance().loginFacebook();
             }
@@ -469,9 +381,8 @@ var LoginScene = BaseLayer.extend({
         {
             var sFake = parseInt(this.login_tfName.getString());
             if(!sFake) sFake = "1";
-            gamedata.sessionkey = sFake;
+            gameMgr.setSessionKey(sFake);
             GameClient.getInstance().connect();
-            // NewRankData.connectToServerRank();
             return;
         }
 
@@ -483,7 +394,6 @@ var LoginScene = BaseLayer.extend({
 
         cc.sys.localStorage.setItem(LoginScene.TMP_US_KEY, uname);
         cc.sys.localStorage.setItem(LoginScene.TMP_PWD_KEY, pass);
-
         this.autologinZingme(uname,pass);
     },
     
@@ -520,11 +430,11 @@ var LoginScene = BaseLayer.extend({
         if(this.effectLogo) this.effectLogo.setVisible(true);
 
         if(isLoaded === undefined || isLoaded == null || !isLoaded)
-            setTimeout(gamedata.loadGameInformation.bind(gamedata),0.1);
+            setTimeout(gameMgr.loadGameInformation.bind(gameMgr),0.1);
     },
 
     showLogin : function () {
-        if(gamedata.isPortal()) // Portal -> auto login with portal session
+        if(PortalUtil.isPortal()) // Portal -> auto login with portal session
         {
             this.autoLoginPortal();
             return;
@@ -543,29 +453,6 @@ var LoginScene = BaseLayer.extend({
 
         this.loadUserDefault();
         this.autoLogin();
-        this.reloadButtonSocial();
-    },
-
-    autoLoginZalo: function() {
-        return;
-        this.delayWaitLogin();
-
-        if(!this.checkNetwork()) return;
-        SocialManager.getInstance()._currentSocial = SocialManager.ZALO;
-        SocialManager.getInstance().set(this, this.onResponseSessionKey.bind(this));
-        cc.log("AUTO LOGIN ZALO 2 ******************** ");
-        if (!SocialManager.getInstance().getSessionCacheWithId(SocialManager.ZALO_CACHE))
-        {
-            this.loading = sceneMgr.addLoading(LocalizedString.to("_SINGING_"), true, this);
-            SocialManager.getInstance().getSessionKeyZaloViaDevice();
-//                cc.log("Can't Login Zalo with Cache");
-  //              Toast.makeToast(1.0, localized("MAINTAIN_SERVICE"));
-        }
-        else {
-            this.loading = sceneMgr.addLoading(LocalizedString.to("_SINGING_"), true, this);
-            cc.sys.localStorage.setItem(LoginScene.AUTO_LOGIN_KEY, SocialManager.ZALO);
-        }
-
     },
 
     autologinZingme : function (uname,pwd) {
@@ -600,7 +487,6 @@ var LoginScene = BaseLayer.extend({
                 SocialManager.getInstance().set(this, this.onResponseAccessToken.bind(this));
                 SocialManager.getInstance().loginZingme(name, pass);
             }
-
             cc.log("LOGIN ZINGME 2 ");
             this.loading = sceneMgr.addLoading(LocalizedString.to("_SINGING_"), true, this);
             cc.sys.localStorage.setItem(LoginScene.AUTO_LOGIN_KEY, SocialManager.ZINGME);
@@ -609,35 +495,25 @@ var LoginScene = BaseLayer.extend({
 
     onResponseAccessToken: function (social, jdata) {
         if(!sceneMgr.checkMainLayer(LoginScene)) return;
-
         cc.log("ResponseToken : " + social + "/" + jdata);
-
         var obj = StringUtility.parseJSON(jdata);
-
         var error = parseInt(obj["error"]);
 
         if (error != 0) {
             switch (social) {
                 case SocialManager.GOOGLE:
                 case SocialManager.FACEBOOK:
-                case SocialManager.ZALO:
                     Toast.makeToast(Toast.LONG, LocalizedString.to("_LOGIN_ERROR_"));
-
                     socialMgr.logout();
-
                     sceneMgr.clearLoading();
                     return;
             }
         }
 
         if (error == 0) {
-            GameData.getInstance().socialLogined = social;
-
             switch (social) {
                 case SocialManager.ZINGME:
                 {
-                    GameData.getInstance().access_token = obj["sessionKey"];
-
                     var tmpUS = cc.sys.localStorage.getItem(LoginScene.TMP_US_KEY);
                     var tmpPWD = cc.sys.localStorage.getItem(LoginScene.TMP_PWD_KEY);
 
@@ -652,16 +528,12 @@ var LoginScene = BaseLayer.extend({
                 }
                 case SocialManager.GOOGLE:
                 case SocialManager.FACEBOOK:
-                case SocialManager.ZALO:
                 {
-                    GameData.getInstance().access_token = obj["access_token"];
-
                     this.loading = sceneMgr.addLoading(LocalizedString.to("_SINGING_"), true);
                     this.loading.setTag(LOADING_TAG);
                     break;
                 }
             }
-
             SocialManager.getInstance().set(this, this.onResponseSessionKey);
         }
         else{
@@ -718,21 +590,16 @@ var LoginScene = BaseLayer.extend({
         cc.log("ResponseSession: " + social + "/" + jdata);
 
         var obj = {};
-        try
-        {
+        try {
             obj = JSON.parse(jdata);
         }
-        catch(e)
-        {
+        catch(e) {
             obj["error"] = 1;
         }
 
-        if (obj["error"] == 0)
-        {
-            GameData.getInstance().socialLogined = social;
-            GameData.getInstance().sessionkey = obj["sessionKey"];
-            GameData.getInstance().openID = obj["openId"];
-
+        if (obj["error"] == 0) {
+            loginMgr.setSessionKey(obj["sessionKey"]);
+            loginMgr.setOpenId(obj["openId"]);
             GameClient.getInstance().connect();
         }
         else {
@@ -744,7 +611,6 @@ var LoginScene = BaseLayer.extend({
             {
                 cc.log(e);
             }
-
             sceneMgr.showOKDialog(LocalizedString.to("_LOGIN_ERROR_"));
         }
     },

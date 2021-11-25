@@ -1,7 +1,8 @@
 /**
  * Created by Hunter on 5/25/2016.
  */
-var Config = {};
+var Config = function () {
+};
 Config.ZALO_SECRET = "ldiEluvVsK3DDEtGE7BB";
 Config.ZALO_APPID = "3554569838779270945";
 

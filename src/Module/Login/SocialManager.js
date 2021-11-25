@@ -30,7 +30,9 @@ var SocialManager = cc.Class.extend({
         var data = "username=" + username.toLowerCase();
         data += "&password=" + md5(password);
         data += "&gameid=" + LocalizedString.config("GAME");
+        cc.log("DATA********** " + LocalizedString.config("GAME") + " " +  username.toLowerCase() + " " + md5(password) + " " + Config.SECRETKEY);
         var mac = md5(LocalizedString.config("GAME") + username.toLowerCase() + md5(password) + Config.SECRETKEY);
+        //mac = "b05f3360643b619e980b8b4078f7867e";
         data += "&mac=" + mac;
         data += "&v=" + 2;
         cc.log("#Login::" + Constant.ZINGME_SERVICE_URL + data);
@@ -63,14 +65,14 @@ var SocialManager = cc.Class.extend({
     },
 
     logout: function () {
-        if (gamedata.isPortal()) return;
+        if (PortalUtil.isPortal()) return;
 
         if (cc.sys.os == cc.sys.OS_IOS) {
             jsb.reflection.callStaticMethod("FacebookUtils", "logout");
             jsb.reflection.callStaticMethod("ZaloUtils", "logout");
         }
         else if (cc.sys.os == cc.sys.OS_ANDROID) {
-            if (gamedata.checkOldNativeVersion()) {
+            if (gameMgr.checkOldNativeVersion()) {
                 jsb.reflection.callStaticMethod("gsn/zingplay/utils/social/FacebookUtils", "logout", "()V");
                 jsb.reflection.callStaticMethod("gsn/zingplay/utils/social/ZaloUtils", "unauthenticate", "()V");
             }
@@ -115,7 +117,7 @@ var SocialManager = cc.Class.extend({
         engine.HandlerManager.getInstance().addHandler("getSessionKey", this.onTimeOutSessionKey.bind(this));
         engine.HandlerManager.getInstance().getHandler("getSessionKey").setTimeOut(10, true);
 
-        var data = "service_name=getSessionKey&clientInfo=" + _social + gamedata.source + "&gameId=" + LocalizedString.config("GAME") + "&social=" + _social + "&accessToken=" + accesstoken;
+        var data = "service_name=getSessionKey&clientInfo=" + _social + gameMgr.source + "&gameId=" + LocalizedString.config("GAME") + "&social=" + _social + "&accessToken=" + accesstoken;
         cc.log("###Done " + strLog + "/" + data);
         this.xhr = LoginHelper.getRequest(Constant.PORTAL_SERVICE_URL, data, 10000, this.onTimeOutSessionKey.bind(this), this.onResponseSessionkey.bind(this), this.errorHttp.bind(this));
 
@@ -129,7 +131,7 @@ var SocialManager = cc.Class.extend({
         engine.HandlerManager.getInstance().addHandler("getSessionKey", this.onTimeOutSessionKey.bind(this));
         engine.HandlerManager.getInstance().getHandler("getSessionKey").setTimeOut(10, true);
 
-        var data = "service_name=getSessionKey&clientInfo=" + _social + gamedata.source + "&gameId=" + LocalizedString.config("GAME") + "&social=" + _social + "&accessToken=" + accesstoken;
+        var data = "service_name=getSessionKey&clientInfo=" + _social + gameMgr.source + "&gameId=" + LocalizedString.config("GAME") + "&social=" + _social + "&accessToken=" + accesstoken;
         this.xhr = LoginHelper.getRequest(Constant.PORTAL_SERVICE_URL, data, 10000, this.onTimeOutSessionKey.bind(this), this.onResponseSessionkey.bind(this), this.errorHttp.bind(this));
         cc.log("###Done " + strLog + "/" + data);
     },
@@ -152,7 +154,7 @@ var SocialManager = cc.Class.extend({
         if (cc.sys.os == cc.sys.OS_IOS) {
             jsb.reflection.callStaticMethod("GoogleUtils", "login");
         }
-        else if (cc.sys.os === cc.sys.OS_ANDROID && gamedata.checkOldNativeVersion()) {
+        else if (cc.sys.os === cc.sys.OS_ANDROID && gameMgr.checkOldNativeVersion()) {
             jsb.reflection.callStaticMethod("gsn/zingplay/utils/social/GoogleUtils", "getAccessToken", "()V");
         }
     },
@@ -177,7 +179,7 @@ var SocialManager = cc.Class.extend({
         if (cc.sys.os == cc.sys.OS_IOS) {
             jsb.reflection.callStaticMethod("FacebookUtils", "login");
         }
-        else if (cc.sys.os === cc.sys.OS_ANDROID && gamedata.checkOldNativeVersion()) {
+        else if (cc.sys.os === cc.sys.OS_ANDROID && gameMgr.checkOldNativeVersion()) {
             jsb.reflection.callStaticMethod("gsn/zingplay/utils/social/FacebookUtils", "getAccessToken", "()V");
         }
     },
@@ -199,7 +201,7 @@ var SocialManager = cc.Class.extend({
         if (cc.sys.os == cc.sys.OS_IOS) {
             jsb.reflection.callStaticMethod("ZaloUtils", "login");
         }
-        else if (cc.sys.os === cc.sys.OS_ANDROID && gamedata.checkOldNativeVersion()) {
+        else if (cc.sys.os === cc.sys.OS_ANDROID && gameMgr.checkOldNativeVersion()) {
             jsb.reflection.callStaticMethod("gsn/zingplay/utils/social/ZaloUtils", "authenticate", "()V");
         }
     },
@@ -399,330 +401,6 @@ var SocialManager = cc.Class.extend({
         engine.HandlerManager.getInstance().forceRemoveHandler("getSessionKey");
     },
 
-    getFriends: function (social) {
-        this._currentSocial = social;
-
-        var keyTime = SocialManager.GET_FRIENDS_TIME_KEY + "_" + gamedata.userData.uID + "_" + this._currentSocial;
-
-        var time = cc.sys.localStorage.getItem(keyTime);
-        var isCache = true;
-        if (time === undefined || time == null || time <= 0) {
-            isCache = false;
-        }
-        else {
-            time = parseInt(time);
-            var timeCur = new Date().getTime();
-            if (timeCur - time > SocialManager.GET_FRIENDS_TIME_CACHE) {
-                isCache = false;
-                cc.sys.localStorage.setItem(keyTime, 0);
-            }
-        }
-
-        if (isCache) {
-            cc.log("_________CACHE___________");
-
-            setTimeout(this.onCallBackGetFriends.bind(this), 100, "", true);
-        }
-        else {
-            cc.log("_________GETFRIENDS___________");
-
-            engine.HandlerManager.getInstance().addHandler("getFriends", this.onCallBackGetFriends.bind(this));
-            engine.HandlerManager.getInstance().getHandler("getFriends").setTimeOut(SocialManager.GET_FRIENDS_TIMEOUT, true);
-
-            if (cc.sys.os == cc.sys.OS_IOS) {
-                if (social == SocialManager.ZALO)
-                    jsb.reflection.callStaticMethod("ZaloUtils", "getFriends");
-                else if (social == SocialManager.FACEBOOK)
-                    jsb.reflection.callStaticMethod("FacebookUtils", "getAppUsers");
-            }
-            else if (cc.sys.os == cc.sys.OS_ANDROID) {
-                if (social === SocialManager.ZALO && gamedata.checkOldNativeVersion())
-                    jsb.reflection.callStaticMethod("gsn/zingplay/utils/social/ZaloUtils", "getFriends", "()V");
-                else if (social === SocialManager.FACEBOOK && gamedata.checkOldNativeVersion())
-                    jsb.reflection.callStaticMethod("gsn/zingplay/utils/social/FacebookUtils", "getAppUsers", "()V");
-            }
-        }
-    },
-
-    onCallBackGetFriends: function (data, cache) {
-        var obj = {};
-
-        var keyData = SocialManager.GET_FRIENDS_DATA_KEY + "_" + gamedata.userData.uID + "_" + this._currentSocial;
-        var keyTime = SocialManager.GET_FRIENDS_TIME_KEY + "_" + gamedata.userData.uID + "_" + this._currentSocial;
-        var isCache = false;
-
-        if (cache === undefined || cache == null) {
-            cache = false;
-        }
-        if(cache && data == "")
-        {
-            data = cc.sys.localStorage.getItem(keyData);
-        }
-
-        try {
-            obj = JSON.parse(data);
-        }
-        catch (e) {
-            data = cc.sys.localStorage.getItem(keyData);
-            if (data === undefined || data == null || data == "") {
-                obj.error = 1;
-            }
-            else {
-                obj = StringUtility.parseJSON(data);
-                isCache = true;
-            }
-        }
-
-        if(obj == null || obj === undefined) {
-            obj = {};
-            obj.error = 1;
-        }
-
-        cc.log("SocialManager:getFriends " + isCache + "/" + cache +  "/" + data);
-
-        if (obj.error == 0 && !isCache) {
-            cc.sys.localStorage.setItem(keyData, data);
-            if (!cache) {
-                cc.sys.localStorage.setItem(keyTime, new Date().getTime());
-            }
-        }
-
-        if (this._selector && this._target)
-            this._selector.call(this._target, this._currentSocial, obj);
-    },
-
-    getInvitableFriends: function (social) {
-        this.callbackInvitableFriends = function (jdata) {
-            cc.log("###SocialManager::ResponseInvitableFriends " + jdata);
-
-            if (this._selector && this._target)
-                this._selector.call(this._target, this._currentSocial, jdata);
-        };
-        engine.HandlerManager.getInstance().addHandler("getInvitableFriends", this.callbackInvitableFriends.bind(this));
-
-        if (cc.sys.os == cc.sys.OS_IOS) {
-            if (social == SocialManager.ZALO)
-                jsb.reflection.callStaticMethod("ZaloUtils", "getInvitableFriends");
-            else if (social == SocialManager.FACEBOOK)
-                jsb.reflection.callStaticMethod("FacebookUtils", "getInvitableFriends");
-        }
-        else if (cc.sys.os == cc.sys.OS_ANDROID) {
-            if (social === SocialManager.ZALO && gamedata.checkOldNativeVersion())
-                jsb.reflection.callStaticMethod("gsn/zingplay/utils/social/ZaloUtils", "getFriends", "()V");
-            else if (social === SocialManager.FACEBOOK && gamedata.checkOldNativeVersion())
-                jsb.reflection.callStaticMethod("gsn/zingplay/utils/social/FacebookUtils", "getInvitableFriends", "()V");
-        }
-    },
-
-    sendInvite: function (social, listFriendID, target, selector) {
-        switch (social) {
-            case SocialManager.FACEBOOK:
-            {
-
-                var url = "";
-                for (var i = 0; i < listFriendID.length; i++) {
-                    var id = "'";
-                    id += listFriendID[i];
-                    id += "'";
-
-                    if (i == listFriendID.length - 1) {
-                        url += id;
-                    }
-                    else {
-                        url += id;
-                        url += ",";
-                    }
-                }
-
-                var key = "MOICHOI_ZALO_@num";
-                key = StringUtility.replaceAll(key, "@num", "" + Math.floor(Math.random() * 10 + 1));
-                var invite = localized(key);
-                engine.HandlerManager.getInstance().addHandler("request", selector);
-                if (cc.sys.os == cc.sys.OS_ANDROID) {
-                    jsb.reflection.callStaticMethod("gsn/zingplay/utils/social/FacebookUtils", "sendInvite", "(Ljava/lang/String;Ljava/lang/String;)V", url, invite);
-                }
-                else if (cc.sys.os == cc.sys.OS_IOS) {
-                    jsb.reflection.callStaticMethod("FacebookUtils", "sendInvite:tinnhan:", url, invite);
-                }
-                break;
-            }
-            case SocialManager.ZALO:
-            {
-                var url = "";
-                for (var i = 0; i < listFriendID.length; i++) {
-                    if (i == listFriendID.length - 1) {
-                        url += listFriendID[i];
-                    }
-                    else {
-                        url += listFriendID[i];
-                        url += ";";
-                    }
-                }
-
-                var key = "MOICHOI_ZALO_@num";
-                key = StringUtility.replaceAll(key, "@num", "" + Math.floor(Math.random() * 10 + 1));
-                var invite = localized(key);
-                var function_call = function (ret, path) {
-                    if (ret == 0) {
-                        var data = jsb.fileUtils.getStringFromFile(path);
-                        try {
-                            var dom = JSON.parse(data);
-                        }
-                        catch(e) {
-                            dom = {};
-                        }
-                        if (dom["access_token"]) {
-                            this.zaloOauthCODE = dom["access_token"];
-                            var urlinvite = "http://openapi.zaloapp.com/message?";
-                            urlinvite += "act=invite&appid=" + Config.ZALO_APPID + "&accessTok=" + this.zaloOauthCODE + "&fromuid=" + gamedata.userData.openID + "&touid=" + url + "&message=" + invite + "&isnotify=true&version=2";
-                            var file = jsb.fileUtils.getWritablePath() + "invite_zalo";
-                            urlinvite = encodeURI(urlinvite);
-                            engine.AsyncDownloader.create(urlinvite, file, function (ret, path) {
-                                cc.log("###SocialManager::sendInviteZalo " + jsb.fileUtils.getStringFromFile(path));
-                            }).startDownload();
-                        }
-                    }
-                };
-                this.getOauthCodeZALO(function_call.bind(this));
-            }
-        }
-    },
-
-    sendMessage: function (social, listFriendID, target, selector) {
-        switch (social) {
-            case SocialManager.FACEBOOK:
-            {
-                var url = "";
-                for (var i = 0; i < listFriendID.length; i++) {
-                    var id = "'";
-                    id += listFriendID[i];
-                    id += "'";
-
-                    if (i == listFriendID.length - 1) {
-                        url += id;
-                    }
-                    else {
-                        url += id;
-                        url += ",";
-                    }
-                }
-
-                var key = "MOICHOI_ZALO_@num";
-                key = StringUtility.replaceAll(key, "@num", "" + Math.floor(Math.random() * 10 + 1));
-                var invite = localized(key);
-                engine.HandlerManager.getInstance().addHandler("request", selector);
-                if (cc.sys.os == cc.sys.OS_IOS) {
-                    jsb.reflection.callStaticMethod("FacebookUtils", "sendMessage:tinnhan:", url, invite);
-                }
-                else if (cc.sys.os === cc.sys.OS_ANDROID && gamedata.checkOldNativeVersion()) {
-                    jsb.reflection.callStaticMethod("gsn/zingplay/utils/social/FacebookUtils", "sendMessage", "(Ljava/lang/String;Ljava/lang/String;)V", url, invite);
-                }
-                break;
-            }
-            case SocialManager.ZALO:
-            {
-                var url = "";
-                for (var i = 0; i < listFriendID.length; i++) {
-                    if (i == listFriendID.length - 1) {
-                        url += listFriendID[i];
-                    }
-                    else {
-                        url += listFriendID[i];
-                        url += ";";
-                    }
-                }
-
-                var key = "MOICHOI_ZALO_@num";
-                key = StringUtility.replaceAll(key, "@num", "" + Math.floor(Math.random() * 10 + 1));
-                var invite = localized(key);
-                var function_call = function (ret, path) {
-                    if (ret == 0) {
-                        var data = jsb.fileUtils.getStringFromFile(path);
-                        var dom = StringUtility.parseJSON(data);
-                        cc.log("_____  " + data);
-                        if (dom["access_token"]) {
-                            this.zaloOauthCODE = dom["access_token"];
-                            var urlinvite = "http://openapi.zaloapp.com/message?";
-                            urlinvite += "act=image&appid=" + Config.ZALO_APPID + "&accessTok=" + this.zaloOauthCODE + "&fromuid=" + gamedata.userData.openID + "&touid=" + url + "&message=" + invite + "&isnotify=true&version=2";
-                            var file = jsb.fileUtils.getWritablePath() + "invite_zalo";
-                            urlinvite = encodeURI(urlinvite);
-                            engine.AsyncDownloader.create(urlinvite, file, function (ret, path) {
-                                cc.log("###SocialManager::InviteZalo " + ret + "---" + path + "---" + jsb.fileUtils.getStringFromFile(path));
-                            }).startDownload();
-                        }
-                    }
-                };
-                this.getOauthCodeZALO(function_call.bind(this));
-                break;
-            }
-        }
-    },
-
-    getSessionKeyZaloViaDevice: function () {
-        // NativeBridge.getDeviceModel(), NativeBridge.getOsVersion(), platform, NativeBridge.getDeviceID(), gamedata.detectVersionUpdate(),
-        var deviceId = NativeBridge.getDeviceID();
-        var deviceModel = NativeBridge.getDeviceModel();
-        var appName = LocalizedString.config("GAME");
-        if (Config.ENABLE_CHEAT) {
-            //deviceId = "94B984E6-BBE0-495A-B2A5-1A1FBAAA309F";
-            //deviceId = "d555962e92861717";
-            //deviceModel = "SM-T531";
-            //appName = "tienlen";
-            //Constant.MAP_ZALO_URL_IOS = Constant.MAP_ZALO_URL;
-        }
-        if (cc.sys.os == cc.sys.OS_IOS) {
-            deviceModel = "";
-        }
-        var accountType = "zalo";
-        var timestamp = new Date().getTime();
-        var extra = "";
-
-
-        var keyhash = "IAP;Mhls&N3)hfl$73";
-        var sign = md5(accountType + appName + deviceId + deviceModel + extra + timestamp + keyhash);
-
-        engine.HandlerManager.getInstance().addHandler("getSessionKeyZalo", this.onTimeOutSessionKey.bind(this));
-        engine.HandlerManager.getInstance().getHandler("getSessionKeyZalo").setTimeOut(10, true);
-
-        var data = "deviceid=" + deviceId + "&appname=" + appName + "&accounttype=" + accountType + "&timestamp=" + timestamp + "&devicemodel=" + deviceModel + "&sign=" + sign + "&extra=" + extra;
-        if (cc.sys.os == cc.sys.OS_ANDROID) {
-            this.xhr = LoginHelper.getRequest(Constant.MAP_ZALO_URL, data, 10000, this.onTimeOutSessionKey.bind(this), this.onResponseSessionkeyZalo.bind(this), this.errorHttp.bind(this));
-            cc.log("###GET SESION ZALO DEVICE " + Constant.MAP_ZALO_URL + "?" + data);
-        }
-        else {
-            this.xhr = LoginHelper.getRequest(Constant.MAP_ZALO_URL_IOS, data, 10000, this.onTimeOutSessionKey.bind(this), this.onResponseSessionkeyZalo.bind(this), this.errorHttp.bind(this));
-            cc.log("###GET SESION ZALO DEVICE " + Constant.MAP_ZALO_URL_IOS + "?" + data);
-        }
-    },
-
-    onResponseSessionkeyZalo: function () {
-        var data = StringUtility.parseJSON(this.xhr.responseText);
-        cc.log("###SocialManager::onResponseSessionKeyZalo " + JSON.stringify(data));
-        var dataObject = {};
-        if (data["status"] == 1) {
-            dataObject["error"] = 0;
-            var arrayObject = data["info"];
-            dataObject["sessionKey"] = arrayObject[0]["sessionKey"];
-            dataObject["openId"] = arrayObject[0]["openid"];
-        }
-        else {
-            dataObject["error"] = 1;
-        }
-        if (this._selector && this._target) {
-            this._selector.call(this._target, this._currentSocial, JSON.stringify(dataObject));
-        }
-        engine.HandlerManager.getInstance().forceRemoveHandler("getSessionKeyZalo");
-    },
-
-    getOauthCodeZALO: function (callback) {
-        var url = "http://oauth.zaloapp.com/v2/access_token?";
-        url += "app_id=" + Config.ZALO_APPID + "&app_secret=" + Config.ZALO_SECRET + "&code=" + gamedata.access_token;
-        cc.log("###SocialManager::getOauthCodeZALO " + url);
-        var file = jsb.fileUtils.getWritablePath() + "token";
-        var downloader = engine.AsyncDownloader.create(url, file, callback);
-        downloader.startDownload();
-    },
-
     shareImage: function (social) {
         this.shot = sceneMgr.takeScreenShot();
         this.social = social;
@@ -744,47 +422,6 @@ var SocialManager = cc.Class.extend({
                 return;
             this.screenShot = this.shot;
             switch (this.social) {
-                case SocialManager.ZALO:
-                {
-                    this.getOauthCodeZALO(function (ret, path) {
-                        if (ret == 0) {
-
-                            var data = jsb.fileUtils.getStringFromFile(path);
-                            var dom = JSON.parse(data);
-                            cc.log("dis :" + data);
-                            if (dom["access_token"]) {
-                                cc.log(dom["access_token"]);
-                                this.token = dom["access_token"];
-                                var multi = engine.HttpMultipart.create("http://openapi.zaloapp.com/upload", function (data) {
-                                    cc.log("dis :" + data);
-                                    var obj =StringUtility.parseJSON(data);
-                                    if (obj["result"] && (obj["result"] != "")) {
-                                        var key = "MOICHOI_ZALO_@num";
-                                        key = StringUtility.replaceAll(key, "@num", "" + Math.floor(Math.random() * 10 + 1));
-                                        var invite = localized(key);
-                                        var url = "http://openapi.zaloapp.com/social?act=pushfeed&appid=" + Config.ZALO_APPID + "&accessTok=" + this.token + "&fromuid=" + gamedata.userData.openID + "&touid=" + gamedata.userData.openID +
-                                            "&message=" + invite + "&image=" + obj["result"] + "&version=2";
-                                        var file = jsb.fileUtils.getWritablePath() + "push_zalo";
-                                        var urlpush = encodeURI(url);
-                                        engine.AsyncDownloader.create(urlpush, file, function (ret, path) {
-                                            cc.log("push zalo : " + jsb.fileUtils.getStringFromFile(path));
-                                        }).startDownload();
-
-                                    }
-                                }.bind(this));
-                                multi.addFormPart("act", "image");
-                                multi.addFormPart("appid", Config.ZALO_APPID);
-                                multi.addFormPart("accessTok", dom["access_token"]);
-                                multi.addImage("upload", "ic_launcher.png", this.screenShot);
-                                multi.executeAsyncTask();
-                            }
-                        }
-                    }.bind(this));
-
-                    if (this._selector && this._target)
-                        this._selector.call(this._target, this._currentSocial, "{\"error\":0}");
-                    break;
-                }
                 default:
                 {
                     engine.HandlerManager.getInstance().addHandler("share_fb", function (jdata) {
@@ -792,7 +429,7 @@ var SocialManager = cc.Class.extend({
                         if (this._selector && this._target)
                             this._selector.call(this._target, this._currentSocial, jdata);
                     }.bind(this));
-                    if (cc.sys.os === cc.sys.OS_ANDROID && gamedata.checkOldNativeVersion())
+                    if (cc.sys.os === cc.sys.OS_ANDROID && gameMgr.checkOldNativeVersion())
                         jsb.reflection.callStaticMethod("gsn/zingplay/utils/social/FacebookUtils", "openDialogSharePhoto", "(Ljava/lang/String;)V", this.shot);
                     else if (cc.sys.os === cc.sys.OS_IOS) {
                         try {

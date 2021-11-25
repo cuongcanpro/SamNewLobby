@@ -634,7 +634,7 @@ var BaseLayer  = cc.Layer.extend({
         if(this.buttonIgnoreAllSound) return;
 
         //cc.log("--haha");
-        if (gamedata.sound) {
+        if (settingMgr.sound) {
             cc.audioEngine.playEffect(lobby_sounds.click, false);
         }
     }

@@ -33,7 +33,7 @@ PortalUtil.endGame =  function () {
 
 PortalUtil.getSessionKeyPortal = function () {
     if (!cc.sys.isNative) {
-        return GameData.getInstance().sessionkey;
+        return loginMgr.getSessionKey();
     }
 
     try {
