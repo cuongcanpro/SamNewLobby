@@ -111,8 +111,6 @@ var LobbyScene = BaseLayer.extend({
             this.getControl("sp3", pBot).setVisible(false);
         }
 
-        // this.btnCamera.setVisible(false);
-        this.updateMoreButtonTopRight();
         this.onUpdateGUI();
         this.loadAnimation();
         if (Config.ENABLE_NEW_RANK)
@@ -165,7 +163,7 @@ var LobbyScene = BaseLayer.extend({
         DailyPurchaseManager.getInstance().checkNotifyGift();
 
         // EventMgr PORTAL
-        gamedata.checkEventPortal();
+        PortalUtil.checkEventPortal();
 
         //init lucky bonus
         if (this.btnCamera.isVisible())
@@ -191,7 +189,7 @@ var LobbyScene = BaseLayer.extend({
         bg.setVisible(true);
 
         this.adult = this.getControl("adult");
-        this.adult.setVisible(gamedata.enableAdult);
+        this.adult.setVisible(gameMgr.enableAdult);
 
         this.panelSnow = this.getControl("panelSnow", bg);
         var emitter1 = new cc.ParticleSystem("res/Particles/snow.plist");
@@ -657,62 +655,6 @@ var LobbyScene = BaseLayer.extend({
         setTimeout(this.doFinishEffect.bind(this), 1000);
     },
 
-    updateMoreButtonTopRight: function () {
-        return;
-        if (!Config.ENABLE_TUTORIAL) {
-            this.btnDailyMission.setVisible(false);
-            this.btnHelp.setVisible(false);
-            var pRightButton = this.getControl("pRightTop");
-            var posX = this.getControl("btnSetting", pRightButton).x;
-            if (this.btnCamera.isVisible()) {
-                posX = posX - this.btnCamera.getContentSize().width;
-                this.btnCamera.setPositionX(posX);
-                this.notifyCapture.pos.x = posX - this.notifyCapture.getContentSize().width / 2 - this.btnCamera.getContentSize().width / 2;
-                if (Config.ENABLE_DECORATE_ITEM) {
-                    posX = posX - this.btnWorldCup.getContentSize().width * 0.5 - this.btnCamera.getContentSize().width * 0.5;
-                    this.btnWorldCup.setPositionX(posX);
-                }
-            } else {
-                if (Config.ENABLE_DECORATE_ITEM) {
-                    posX = posX - this.btnWorldCup.getContentSize().width * 0.5 - this.btnCamera.getContentSize().width * 0.5;
-                    this.btnWorldCup.setPositionX(posX);
-                }
-            }
-            posX = posX - this.btnHotNews.getContentSize().width * 1.05;
-            this.btnHotNews.setPositionX(posX);
-        } else {
-            var pRightTop = this.getControl("pRightTop");
-            var btnHelp = this.getControl("btnHelp", pRightTop);
-            var posX = this.btnHelp.x;
-            this.btnDailyMission.setVisible(gamedata.enableDailyMission);
-            if (this.btnDailyMission.isVisible()) {
-                posX = posX - this.btnDailyMission.getContentSize().width;
-                this.btnDailyMission.setPositionX(posX);
-                if (CheckLogic.checkNoticeDailyMission()) {
-                    this.imgNotice.setVisible(true);
-                } else {
-                    this.imgNotice.setVisible(false);
-                }
-            }
-            if (this.btnCamera.isVisible()) {
-                posX = posX - this.btnCamera.getContentSize().width;
-                this.btnCamera.setPositionX(posX);
-                this.notifyCapture.pos.x = posX - this.notifyCapture.getContentSize().width / 2 - this.btnCamera.getContentSize().width / 2;
-                if (Config.ENABLE_DECORATE_ITEM) {
-                    posX = posX - this.btnWorldCup.getContentSize().width * 0.5 - this.btnCamera.getContentSize().width * 0.5;
-                    this.btnWorldCup.setPositionX(posX);
-                }
-            } else {
-                if (Config.ENABLE_DECORATE_ITEM) {
-                    posX = posX - this.btnWorldCup.getContentSize().width * 0.5 - this.btnCamera.getContentSize().width * 0.5;
-                    this.btnWorldCup.setPositionX(posX);
-                }
-            }
-            posX = posX - this.btnHotNews.getContentSize().width * 1.05;
-            this.btnHotNews.setPositionX(posX);
-        }
-    },
-
     loadAnimation: function () {
         this.notifyCapture.setVisible(false);
 
@@ -868,14 +810,13 @@ var LobbyScene = BaseLayer.extend({
         this.notifyCapture.setVisible(false);
 
         if (visible) {
-            this.updateMoreButtonTopRight();
             var today = new Date();
             var sDay = today.toISOString().substring(0, 10);
             var cCaptureDay = cc.sys.localStorage.getItem("capture_success_day");
             if (cCaptureDay === undefined || cCaptureDay == null) cCaptureDay = "";
 
             if (sDay != cCaptureDay) {
-                this.notifyCapture.setVisible(!gamedata.isPortal() && cc.sys.isNative && !gamedata.checkDisableSocialViral());
+                this.notifyCapture.setVisible(!PortalUtil.isPortal() && cc.sys.isNative && !userMgr.checkDisableSocialViral());
 
                 this.notifyCapture.img1.setPositionY(this.notifyCapture.img1.pos.y + 100);
                 this.notifyCapture.img2.setPositionY(this.notifyCapture.img2.pos.y + 100);
@@ -1049,7 +990,7 @@ var LobbyScene = BaseLayer.extend({
 
         effectMgr.flyCoinEffect(sceneMgr.layerGUI, goldChange, 500000, pStart, pEnd);
         if (this._uiBean)
-            effectMgr.runLabelPoint(this._uiBean, (gamedata.userData.bean - goldChange), gamedata.userData.bean, 1.5, null, true);
+            effectMgr.runLabelPoint(this._uiBean, (userMgr.getGold() - goldChange), userMgr.getGold(), 1.5, null, true);
     },
 
     effectDiamond: function(diamondChange, pStart){
@@ -1058,7 +999,7 @@ var LobbyScene = BaseLayer.extend({
 
         effectMgr.flyItemEffect(sceneMgr.layerGUI, "Lobby/LobbyGUI/iconDiamond.png", diamondChange, pStart, pEnd, 0, true, false);
         if (this._uiDiamond)
-            effectMgr.runLabelPoint(this._uiDiamond, (gamedata.userData.diamond - diamondChange), gamedata.userData.diamond, 1.5);
+            effectMgr.runLabelPoint(this._uiDiamond, (userMgr.getDiamond() - diamondChange), userMgr.getDiamond(), 1.5);
     },
 
     getGoldIconPosition: function(){
@@ -1095,56 +1036,37 @@ var LobbyScene = BaseLayer.extend({
                 sceneMgr.openScene(ChooseRoomScene.className);
                 break;
             }
-            case LobbyScene.BTN_OLDVERSION: {
-                NativeBridge.openURLNative(gamedata.old_version_link);
-                break;
-            }
             case LobbyScene.BTN_AVATAR: {
-                sceneMgr.openGUI(CheckLogic.getUserInfoClassName(), LobbyScene.GUI_USER_INFO, LobbyScene.GUI_USER_INFO).setInfo(gamedata.userData);
+                sceneMgr.openGUI(CheckLogic.getUserInfoClassName(), LobbyScene.GUI_USER_INFO, LobbyScene.GUI_USER_INFO).setInfo(userMgr.getUserInfo());
                 break;
             }
             case LobbyScene.BTN_CHOINGAY: {
-                if (CheckLogic.checkQuickPlay()) {
+                if (channelMgr.checkQuickPlay()) {
                     var pk = new CmdSendQuickPlay();
                     GameClient.getInstance().sendPacket(pk);
                     pk.clean();
 
                     sceneMgr.addLoading(LocalizedString.to("WAITING")).timeout(15);
                 } else {
-                    if (Math.floor(gamedata.timeSupport) > 0) {
-                        var pk = new CmdSendGetSupportBean();
-                        GameClient.getInstance().sendPacket(pk);
-                        gamedata.showSupportTime = true;
-                        pk.clean();
+                    if (paymentMgr.checkEnablePayment()) {
+                        var msg = LocalizedString.to("QUESTION_CHANGE_GOLD");
+                        sceneMgr.showChangeGoldDialog(msg, this, function (buttonId) {
+                            if (buttonId == Dialog.BTN_OK) {
+                                paymentMgr.openShop();
+                            }
+                        });
                     } else {
-                        if (gamedata.checkEnablePayment()) {
-                            var msg = LocalizedString.to("QUESTION_CHANGE_GOLD");
-                            sceneMgr.showChangeGoldDialog(msg, this, function (buttonId) {
-                                if (buttonId == Dialog.BTN_OK) {
-                                    gamedata.openShop();
-                                }
-                            });
-                        } else {
-                            sceneMgr.showOKDialog(LocalizedString.to("NOT_ENOUGH_GOLD"));
-                        }
+                        sceneMgr.showOKDialog(LocalizedString.to("NOT_ENOUGH_GOLD"));
                     }
                 }
                 break;
             }
             case LobbyScene.BTN_THONGBAO: {
-                NativeBridge.openWebView(gamedata.urlnews);
+                NativeBridge.openWebView(gameMgr.urlnews);
                 break;
             }
             case LobbyScene.BTN_FORUM: {
-                NativeBridge.openWebView(gamedata.forum);
-                break;
-            }
-            case LobbyScene.BTN_HOTRO: {
-                if (gamedata.isAppSupport) {
-                    NativeBridge.openHotro(gamedata.support, gamedata.userData.zName);
-                } else {
-                    NativeBridge.openWebView(gamedata.support);
-                }
+                NativeBridge.openWebView(gameMgr.forum);
                 break;
             }
             case LobbyScene.BTN_SETTING: {
@@ -1156,11 +1078,11 @@ var LobbyScene = BaseLayer.extend({
                 break;
             }
             case LobbyScene.BTN_DOIVANG: {
-                gamedata.openShop();
+                paymentMgr.openShop();
                 break;
             }
             case LobbyScene.BTN_NAPG: {
-                gamedata.openNapG();
+                paymentMgr.openNapG();
                 break;
             }
             case LobbyScene.BTN_CAMERA: {
@@ -1198,7 +1120,7 @@ var LobbyScene = BaseLayer.extend({
                 return;
             }
             case LobbyScene.BTN_SUPPORT: {
-                sceneMgr.openGUI(GUISupportInfo.className, GUISupportInfo.tag, GUISupportInfo.tag, false).showGUI(0, gamedata.numSupport);
+                sceneMgr.openGUI(GUISupportInfo.className, GUISupportInfo.tag, GUISupportInfo.tag, false).showGUI(0, supportMgr.numSupport);
                 break;
             }
             case LobbyScene.BTN_EVENT_IN_GAME: {
@@ -1233,7 +1155,7 @@ var LobbyScene = BaseLayer.extend({
     },
 
     sharePhoto: function (isShareImage, image) {
-        if (!gamedata.checkOldNativeVersion()) {
+        if (!gameMgr.checkOldNativeVersion()) {
             var imgPath = sceneMgr.takeScreenShot(isShareImage, image);
             setTimeout(function () {
                 fr.facebook.shareScreenShoot(imgPath, function (result) {

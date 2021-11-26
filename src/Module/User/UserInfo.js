@@ -33,6 +33,10 @@ var UserInfo = cc.Class.extend({
         this.coin = coin;
     },
 
+    setDiamond: function (diamond) {
+        this.diamond = diamond;
+    },
+
     setLevel: function (level) {
         this.level = level;
     },
@@ -72,6 +76,10 @@ var UserInfo = cc.Class.extend({
 
     getCoin: function () {
         return this.coin;
+    },
+
+    getDiamond: function () {
+        return this.diamond;
     },
 
     getLevel: function () {
@@ -115,9 +123,9 @@ var UserInfo = cc.Class.extend({
         cc.log("+++setUserInfo " + strInfo.length + " : " + strInfo);
         // check payments
         if (!Config.ENABLE_SERVICE_ENABLE_PAYMENT) {
-            this.loadPayment(info.payments);
+            paymentMgr.loadPayment(info.payments);
         }
-        this.parseShopConfig();
+        paymentMgr.loadConfig();
 
         // check holding
         this.isHolding = info.isHolding;
@@ -144,3 +152,68 @@ var UserInfo = cc.Class.extend({
         //     this.bonusIAPTemp = info.bonusIAPTemp;
     }
 })
+
+var Payment = function () {
+};
+
+Payment.IDX_IAP_G = 0;
+Payment.IDX_IAP_GOLD = 1;
+Payment.IDX_SHOP_G = 2;
+Payment.IDX_ZALO_G = 3;
+
+Payment.GOLD_IAP = 0;
+Payment.GOLD_ATM = 2;
+Payment.GOLD_ZALO = 4;
+Payment.GOLD_ZING = 6;
+Payment.GOLD_G = 10;
+Payment.GOLD_SMS = 8;
+
+Payment.G_IAP = 1;
+Payment.G_ATM = 3;
+Payment.G_ZALO = 5;
+Payment.G_ZING = 7;
+Payment.G_CARD = 9;
+
+Payment.GOLD_SMS_VIETTEL = 11;
+Payment.GOLD_SMS_MOBI = 12;
+Payment.GOLD_SMS_VINA = 13;
+
+Payment.TICKET_G = 30;
+Payment.TICKET_SMS = 28;
+Payment.TICKET_ZING = 26;
+Payment.TICKET_IAP = 20;
+Payment.TICKET_ATM = 22;
+Payment.TICKET_ZALO = 24;
+
+Payment.SMS_VIETTEL = 0;
+Payment.SMS_VINA = 1;
+Payment.SMS_MOBI = 2;
+
+Payment.CARD_VIETTEL = 0;
+Payment.CARD_VINA = 1;
+Payment.CARD_MOBI = 2;
+Payment.CARD_VINAMOBILE = 3;
+
+Payment.BONUS_NONE = 0;
+Payment.BONUS_FIRST = 1;
+Payment.BONUS_VIP = 2;
+Payment.BONUS_SYSTEM = 3;
+
+Payment.CHEAT_PAYMENT_NORMAL = 0;
+Payment.CHEAT_PAYMENT_EVENT = 1;
+Payment.CHEAT_PAYMENT_OFFER = 2;
+
+Payment.IS_OFFER = 1;
+Payment.NO_OFFER = 0;
+Payment.BUY_TICKET = 3;
+
+Payment.BUY_TICKET_FROM = 20;
+
+Payment.BUY_SMS_INDEX = 1;
+Payment.BUY_IAP_INDEX = 2;
+Payment.BUY_ZING_INDEX = 4;
+Payment.BUY_ATM_INDEX = 5;
+Payment.BUY_ZALO_INDEX = 6;
+Payment.BUY_SMS_VIETTEL_INDEX = 7;
+Payment.BUY_SMS_MOBI_INDEX = 8;
+Payment.BUY_SMS_VINA_INDEX = 9;

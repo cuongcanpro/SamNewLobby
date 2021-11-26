@@ -146,11 +146,10 @@ var ChannelMgr = BaseMgr.extend({
         return false;
     },
 
-    loadConfig: function (obj) {
+    setConfig: function (obj, chanKenh) {
         this.betTime = 3;
         this.chanelConfig = [];
         var maxChanel = obj["maxChannel"];
-        var chanKenh = obj["chankenh"];
         for (var i = 0; i < maxChanel; i++) {
             var chanelObj = obj["" + i];
 
@@ -171,6 +170,27 @@ var ChannelMgr = BaseMgr.extend({
         }
     },
 
+    getCurrentChanel: function () {
+        var i;
+        if (userMgr.getGold() == 0)
+            return -1;
+
+        for (i = 0; i < this.chanelConfig.length; i++) {
+            if (this.chanelConfig[i].maxGold >= userMgr.getGold()) {
+                if (this.chanelConfig[i].bet[0] * this.betTime <= userMgr.getGold())
+                    return i;
+                else
+                    return i - 1;
+            } else {
+                if (this.chanelConfig[i].maxGold == -1) {
+                    return i;
+                }
+            }
+        }
+
+        return i;
+    },
+
     autoSelectChannel: function () {
         var cId = this.getCurrentChanel() + 0;
         if (cId < 0) cId = 0;
@@ -178,6 +198,16 @@ var ChannelMgr = BaseMgr.extend({
         pk.putData(cId);
         this.sendPacket(pk);
         pk.clean();
+    },
+
+    checkQuickPlay: function () {
+        if (userMgr.getGold() > this.getMinBet() * this.betTime)
+            return true;
+        return false;
+    },
+
+    getMinGoldSupport: function () {
+        return this.chanelConfig[0].minGold;
     },
 
     getMinBet: function () {

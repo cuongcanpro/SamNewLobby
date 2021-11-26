@@ -17,29 +17,14 @@ var NewVipManager = cc.Class.extend({
         // this.saveDailyBonusGold(200000);
     },
 
-    loadConfig: function (config) {
+    setConfig: function (config) {
         var vObj = config["VIP"];
-        var spObj = config["beanSuports"];
         var size = vObj["num"];
-        for (var i = 0; i < size; i++) {
-            var vipData = {};
-            vipData.bonus = vObj["" + i]["bonusMobile"];
-            vipData.time = vObj["" + i]["time"];
-            vipData.price = vObj["" + i]["price"];
-            vipData.rate = vObj["" + i]["rate"];
-
-            vipData.support = spObj["" + i];
-
-            this.vipConfig.push(vipData);
-        }
-
-        if (Config.ENABLE_NEW_VIP) {
-            this.setBenefitConfig(config["VIPBenefit"]);
-            this.setOldVipConfig(config["OldVIP"]);
-            this.setRatioGstarToVpoint(config["VIP"]["convertGstar"]);
-            this.setNumberVip(size);
-            this.setBeanNeedSupportConfig(config["BeanNeedSupport"]);
-        }
+        this.setBenefitConfig(config["VIPBenefit"]);
+        this.setOldVipConfig(config["OldVIP"]);
+        this.setRatioGstarToVpoint(config["VIP"]["convertGstar"]);
+        this.setNumberVip(size);
+        this.setBeanNeedSupportConfig(config["BeanNeedSupport"]);
     },
 
     resetData: function(){
@@ -676,6 +661,8 @@ NewVipManager.getInstance = function () {
 
     return NewVipManager.instance;
 };
+
+var vipMgr = NewVipManager.getInstance();
 
 //----------------------------------------------------------------------------------------------------------------------
 

@@ -4,6 +4,7 @@ var PaymentMgr = BaseMgr.extend({
         this.payments = [];
         this.arrayShopGConfig = [];
         this.arrayShopGoldConfig = [];
+        this.buyGoldCount = 0;
     },
 
     onReceived: function (cmd, pk) {
@@ -370,7 +371,10 @@ var PaymentMgr = BaseMgr.extend({
                     this.arrayShopGConfig.push(config);
             }
         }
+        this.setInfoBonusG(configG);
+    },
 
+    setInfoBonusG: function (configG) {
         var bonusStartDate = configG["bonusStartDate"];
         var bonusEndDate = configG["bonusEndDate"];
         if (bonusEndDate == "" || !bonusEndDate)
@@ -383,10 +387,6 @@ var PaymentMgr = BaseMgr.extend({
                 this.bonusEndDateG = this.bonusEndDateG + "-" + array1[2 - i];
         }
 
-        this.setInfoBonusG(configG);
-    },
-
-    setInfoBonusG: function () {
         newDate = array1[1] + "/" + array1[2] + "/" + array1[0];
         var timestamp = new Date(newDate).getTime() - 1;
         cc.log("*************** TIME STAMP " + timestamp);

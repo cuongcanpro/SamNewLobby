@@ -130,7 +130,7 @@ var GameClientListener = cc.Class.extend({
 
         for (var i = 0; i < gameMgr.arrayMgr.length; i++) {
             var mgr = gameMgr.arrayMgr[i];
-            if (mgr.onReceived(cmd, packet))
+            if (mgr.onReceived(cmd, pk))
                 return;
         }
 

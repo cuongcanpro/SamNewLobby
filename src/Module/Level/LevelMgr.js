@@ -7,13 +7,13 @@ var LevelMgr = BaseMgr.extend({
     onReceived: function (cmd, pk) {
         switch (cmd) {
             case CMD.CMD_LEVEL_CONFIG: {
-                var cmd = new CmdReceivedLevelConfig(p);
+                var cmd = new CmdReceivedLevelConfig(pk);
                 cmd.clean();
                 this.loadConfig(cmd);
                 return true;
             }
             case CMD.CMD_LEVEL_UP: {
-                var cmd = new CmdReceivedLevelUp(p);
+                var cmd = new CmdReceivedLevelUp(pk);
                 cc.log("level up: ", JSON.stringify(cmd));
 
                 var gui = sceneMgr.getMainLayer();

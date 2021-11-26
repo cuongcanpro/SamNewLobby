@@ -5,21 +5,20 @@ var UserMgr = BaseMgr.extend({
     },
 
     onReceived: function (cmd, pk) {
-        cc.log(this.tag + cmd);
         switch (cmd) {
             case CMD.CMD_GET_USER_INFO: {
                 sceneMgr.clearLoading();
 
                 // READ DATA
-                var info = new CmdReceivedUserInfo(p);
+                var info = new CmdReceivedUserInfo(pk);
                 this.userInfo.setUserInfo(info);
 
                 // LOAD SCENE GAME
                 if (!info.isHolding) {
                     channelMgr.autoSelectChannel();
                     offerManager.resetData();
-                    userMgr.setRefundInfo(info);
-                    userMgr.sendGetSupport();
+                    paymentMgr.setRefundInfo(info);
+                    supportMgr.sendGetSupport();
                     lobbyMgr.openLobbyScene();
                     football.getMyHistory();
                     football.resetData();
@@ -33,7 +32,7 @@ var UserMgr = BaseMgr.extend({
                     GameClient.getInstance().sendPacket(cmdEvent);
 
                     fr.crashLytics.setUserIdentifier(info.uId);
-                    fr.crashLytics.setString(info.uId, "+++" + GameData.getInstance().sessionkey);
+                    fr.crashLytics.setString(info.uId, "+++" + gameMgr.getSessionKey());
                 }
                 Event.instance().onGetUserInfoSuccess();
                 loginMgr.loginGameSuccess();
@@ -49,7 +48,7 @@ var UserMgr = BaseMgr.extend({
                 break;
             }
             case CMD.CMD_UPDATE_MONEY: {
-                var update = new CmdReceivedUpdateBean(p);
+                var update = new CmdReceivedUpdateBean(pk);
                 CheckLogic.onUpdateMoney(update);
                 this.updateMoney(update);
                 paymentMgr.onUpdateMoney();
@@ -58,80 +57,12 @@ var UserMgr = BaseMgr.extend({
                 break;
             }
             case CMD.CMD_GET_CONFIG: {
-                var cmd = new CmdReceivedConfig(p);
+                var cmd = new CmdReceivedConfig(pk);
                 cmd.clean();
-                gamedata.setGameConfig(cmd.jsonConfig);
-                break;
+                gameConfig.loadServerConfig(cmd.jsonConfig);
+                return true;
             }
         }
-    },
-
-    loadCacheConfig: function () {
-        this.clear();
-        var version = -1;
-        var json = "";
-        var obj = {};
-
-        var version = parseInt(cc.sys.localStorage.getItem(GameConfig.KEY_SAVE_CONFIG_VERSION));
-        if (isNaN(version)) {
-            version = -1;
-        }
-
-        if (version >= 0) {
-            var json = cc.sys.localStorage.getItem(GameConfig.KEY_SAVE_CONFIG_JSON);
-            if (json) {
-                cc.log("+++GameConfig Cache : " + json);
-
-                try {
-                    obj = JSON.parse(json);
-                } catch (e) {
-                    version = -1;
-                }
-            } else {
-                version = -1;
-            }
-        }
-
-        if (version >= 0) {
-            try {
-                this.config = obj;
-                this.configVersion = version;
-
-                this.parseConfig();
-            } catch (e) {
-                this.config = {};
-                this.configVersion = -1;
-            }
-        }
-    },
-
-    loadServerConfig: function (json) {
-        this.clear();
-
-        cc.log("+++GameConfig : " + json.length + " -> " + json);
-
-        try {
-            this.config = JSON.parse(json);
-            this.configVersion = this.config.configVersion;
-            this.parseConfig();
-            this.saveConfig();
-        } catch (e) {
-            cc.error("###GameData::server config error " + e);
-        }
-    },
-
-    saveConfig: function () {
-        if (this.config && this.configVersion >= 0) {
-            cc.sys.localStorage.setItem(GameConfig.KEY_SAVE_CONFIG_JSON, JSON.stringify(this.config));
-            cc.sys.localStorage.setItem(GameConfig.KEY_SAVE_CONFIG_VERSION, this.configVersion);
-        }
-    },
-
-    parseConfig: function () {
-        channelMgr.loadConfig(this.config);
-        football.loadConfig(this.config);
-        NewVipManager.getInstance().loadConfig(this.config);
-        supportMgr.loadConfig(this.config);
     },
 
     updateMoney: function (update) {

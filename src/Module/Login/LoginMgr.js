@@ -84,10 +84,12 @@ var LoginMgr = BaseMgr.extend({
     },
 
     onReceived: function (cmd, pk) {
-        cc.log(this.tag + cmd);
+        var packet = new engine.InPacket();
+        packet.init(pk);
         switch (cmd) {
             case CMD.CMD_LOGIN: {
-                if (pk.getError() == 0) {
+                cc.log(this.tag + cmd);
+                if (packet.getError() == 0) {
                     GameClient.getInstance().startPingPong();
                     GameClient.getInstance().connectState = ConnectState.CONNECTED;
 
@@ -95,7 +97,7 @@ var LoginMgr = BaseMgr.extend({
                     request.putData(NativeBridge.getDeviceModel(), NativeBridge.getOsVersion(),
                         NativeBridge.getPlatform(), NativeBridge.getDeviceID(), gameMgr.appVersion, "aa", "aa",
                         Constant.APP_FOOTBALL, gameMgr.detectVersionUpdate(), gameMgr.getInstallDate(),
-                        gameMgr.gameConfig.configVersion, !GameClient.isWaitingReconnect);
+                        gameConfig.configVersion, !GameClient.isWaitingReconnect);
                     this.sendPacket(request);
                     request.clean();
 
@@ -103,7 +105,7 @@ var LoginMgr = BaseMgr.extend({
                     broadcastMgr.onStart();
                     this.resetData();
 
-                } else if (pk.getError() == -44) {
+                } else if (packet.getError() == -44) {
                     cc.log("_____________________LOGIN FAIL____________________");
                     sceneMgr.clearLoading();
                     socialMgr.clearSession();
@@ -114,7 +116,7 @@ var LoginMgr = BaseMgr.extend({
                     sceneMgr.clearLoading();
                 } else {
                     cc.log("_______________________________________LOGIN FAIL___________________________________");
-                    var log = " Login Fail: " + pk.getError() + " " + GameData.getInstance().sessionkey;
+                    var log = " Login Fail: " + pk.getError() + " " + gameMgr.getSessionKey();
                     sceneMgr.clearLoading();
                     socialMgr.clearSession();
                     sceneMgr.showOkCancelDialog(LocalizedString.to("LOGIN_FAILED") + " " + pk.getError(), null, function (btnID) {
@@ -131,7 +133,7 @@ var LoginMgr = BaseMgr.extend({
                     sceneMgr.clearLoading();
                     throw new Error(log);
                 }
-                break;
+                return true;
             }
             case CMD.CMD_LOGIN_FAIL: {
                 cc.log("_______________________________RETRY RECONNECT OTHER SERVER________________________________");
@@ -151,7 +153,7 @@ var LoginMgr = BaseMgr.extend({
                 }, 1000);
 
                 NewRankData.disconnectServer();
-                break;
+                return true;
             }
         }
     },

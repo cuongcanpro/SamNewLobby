@@ -8,6 +8,7 @@ var LobbyMgr = BaseMgr.extend({
     },
 
     openLobbyScene: function () {
+        cc.log("OPEN LOBBY SCENE");
         var lobby = sceneMgr.openScene(LobbyScene.className);
     }
 })

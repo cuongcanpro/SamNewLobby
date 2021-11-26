@@ -1,19 +1,20 @@
 var SupportMgr = BaseMgr.extend({
     ctor: function () {
         this._super();
+        this.giftIndex = -1;
     },
 
     onReceived: function (cmd, pk) {
         switch (cmd) {
             case CMD.GET_DAILY_GIFT: {
-                var cDG = new CmdReceiveDailyGift(p);
-                gamedata.giftIndex = cDG.index;
+                var cDG = new CmdReceiveDailyGift(pk);
+                this.giftIndex = cDG.index;
                 this.showSupportStartup();
                 cDG.clean();
                 break;
             }
             case CMD.SUPPORT_BEAN: {
-                var csb = new CmdReceiveSupportBean(p);
+                var csb = new CmdReceiveSupportBean(pk);
                 csb.clean();
                 this.onSupportBean(csb);
                 break;
@@ -22,7 +23,7 @@ var SupportMgr = BaseMgr.extend({
         return false;
     },
 
-    loadConfig: function (config) {
+    setConfig: function (config) {
         var special = config["support"]["special"];
         var specialSupport = {};
         specialSupport["bonusGold"] = special["specialSupportGold"];
@@ -79,8 +80,7 @@ var SupportMgr = BaseMgr.extend({
     checkSupportBean: function () {
         cc.log("CHECK SUPPORTY BEAN ");
         var ret = false;
-
-        if (gamedata.userData.bean < ChanelConfig.instance().chanelConfig[0].minGold) {
+        if (userMgr.getGold() < channelMgr.getMinGoldSupport()) {
             this.sendGetSupport();
             ret = true;
         } else {
@@ -90,28 +90,28 @@ var SupportMgr = BaseMgr.extend({
     },
 
     onSupportBean: function (csb) {
-        gamedata.numSupport = csb.numSupport;
-        gamedata.timeSupport = csb.delay;
-        gamedata.isWaitingSpecialSupport = csb.isWaitingSpecialSupport;
-        gamedata.specialSupportRemainStart = csb.remainStart;
-        gamedata.specialSupportRemainEnd = csb.remainEnd;
-        cc.log("onSupportBean buyGoldCount = " + gamedata.gameConfig.buyGoldCount, csb.numSupport);
-        if (gamedata.userData.bean < ChanelConfig.instance().chanelConfig[0].minGold) {
+        this.numSupport = csb.numSupport;
+        this.timeSupport = csb.delay;
+        this.isWaitingSpecialSupport = csb.isWaitingSpecialSupport;
+        this.specialSupportRemainStart = csb.remainStart;
+        this.specialSupportRemainEnd = csb.remainEnd;
+     //   cc.log("onSupportBean buyGoldCount = " + this.gameConfig.buyGoldCount, csb.numSupport);
+        if (userMgr.getGold() < channelMgr.getMinGoldSupport()) {
             if ((csb.numSupport <= 0)) // het tien ma chua nap
             {
                 if (offerManager.haveOffer()) {
                     offerManager.showOfferGUI();
                 } else {
-                    if ((gamedata.gameConfig.buyGoldCount === 0))
-                        gamedata.showTangVangPopup();
+                    if ((paymentMgr.buyGoldCount === 0))
+                        paymentMgr.showTangVangPopup();
                     else
-                        gamedata.showTangVangPopup2();
+                        paymentMgr.showTangVangPopup2();
                 }
             }
         }
 
         cc.director.getScheduler().unschedule("SpecialSupportUpdate", this);
-        if (gamedata.isWaitingSpecialSupport){
+        if (this.isWaitingSpecialSupport){
             cc.director.getScheduler().schedule(function(){
                 this.specialSupportRemainStart -= 1000;
                 this.specialSupportRemainEnd -= 1000;
@@ -120,17 +120,9 @@ var SupportMgr = BaseMgr.extend({
 
         if (csb.getError() > 0) {
             if (csb.nBean > 0) {
-                gamedata.showSupportBean(csb.nBean, csb.isSpecial);
-            }
-        } else {
-            if (csb.delay > 0) {
-                if (gamedata.showSupportTime) {
-                    var spTime = sceneMgr.openGUI(SupportTimeGUI.className, Dialog.SUPPORT, Dialog.SUPPORT, false);
-                    if (spTime) spTime.showSupport(csb.delay);
-                }
+                this.showSupportBean(csb.nBean, csb.isSpecial);
             }
         }
-        gamedata.showSupportTime = false;
     },
 
     checkInSpecialTimeSupport: function() {

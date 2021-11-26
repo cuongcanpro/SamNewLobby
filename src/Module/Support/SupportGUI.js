@@ -374,24 +374,20 @@ var SupportBeanGUI = BaseLayer.extend({
         }
 
         this._lbNotice.setVisible(false);
-        this._moneyGroup.setNumber(gamedata.gameConfig.dailyGift);
+        this._moneyGroup.setNumber(supportMgr.dailyGift);
 
         this._imgGold.setPositionY(this._imgGold.getPositionY() - this._lbNotice.getContentSize().height);
         this._moneyGroup.setPositionY(this._moneyGroup.getPositionY() - this._lbNotice.getContentSize().height);
     },
 
     onButtonRelease : function (button, id) {
-        if(id == 1)
-        {
-            if(this._type == SupportBeanGUI.START_UP)
-            {
-                if(gamedata.giftIndex >= 0)
-                {
+        if(id == 1) {
+            if(this._type == SupportBeanGUI.START_UP) {
+                if(supportMgr.giftIndex >= 0) {
                     var sendGetDailyGift = new CmdSendGetDailyGift();
-                    sendGetDailyGift.putData(gamedata.giftIndex);
+                    sendGetDailyGift.putData(supportMgr.giftIndex);
                     GameClient.getInstance().sendPacket(sendGetDailyGift);
-
-                    gamedata.giftIndex = -1;
+                    supportMgr.giftIndex = -1;
                 }
             }
         }
@@ -399,73 +395,4 @@ var SupportBeanGUI = BaseLayer.extend({
         this.onClose();
     }
 });
-
 SupportBeanGUI.className= "SupportBeanGUI";
-
-var SupportTimeGUI = Dialog.extend({
-
-    ctor : function () {
-        this.currentTime = 0;
-
-        this._super();
-        this.scheduleUpdate();
-    },
-
-    showSupport : function (time) {
-        this.currentTime = time;
-
-        this.setChangeGold("", this, function (btnID) {
-            if (btnID == Dialog.BTN_OK) {
-                gamedata.openShop(sceneMgr.getRunningScene().getMainLayer()._id);
-            }
-        });
-
-        this.updateTimeSupport();
-    },
-
-    updateTimeSupport : function () {
-        var minute = parseInt(this.currentTime / 60);
-        var second = parseInt(this.currentTime % 60);
-
-        var sMinute;
-        var sSecond;
-        if(minute < 10)
-        {
-            sMinute = "0" + minute;
-        }
-        else
-        {
-            sMinute = minute;
-        }
-
-        if(second < 10)
-        {
-            sSecond = "0" +  second;
-        }
-        else
-        {
-            sSecond = second;
-        }
-        var timeString = LocalizedString.to("SUPPORT_TIME");
-        timeString = StringUtility.replaceAll(timeString, "%minute", sMinute);
-        timeString = StringUtility.replaceAll(timeString, "%second", sSecond);
-
-        this._lb_message.setString(timeString);
-    },
-
-    update : function (delta) {
-        this.currentTime -= delta;
-        if(this.currentTime <= 0)
-        {
-            gamedata.checkSupportBean();
-        }
-        else
-        {
-            this.updateTimeSupport();
-        }
-    }
-});
-
-SupportTimeGUI.className= "SupportTimeGUI";
-SupportBeanGUI.BEAN         = 0;
-SupportBeanGUI.START_UP     = 1;

@@ -8,7 +8,7 @@ var BaseMgr = cc.Class.extend({
     },
 
     sendPacket: function (cmd) {
-        GameClient.getInstance().send(cmd);
+        GameClient.getInstance().sendPacket(cmd);
     },
 
     resetData: function () {

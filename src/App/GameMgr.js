@@ -110,6 +110,8 @@ var GameMgr = cc.Class.extend({
     loadGameInformation: function () {
         if (this.hasLoadedInfor) return;
         this.hasLoadedInfor = true;
+        // load cache config
+        gameConfig.loadCacheConfig();
         this.loadUserDefault();
         this.loadSetting();
         this.loadGameService();
