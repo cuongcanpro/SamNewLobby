@@ -130,25 +130,29 @@ var LuckyBonusManager = cc.Class.extend({
         this.gToGoldFactor = null;
 
         var config = JSON.parse(pk.config);
-        var goldList = config.goldList;
-        var itemList = config.itemList;
-        var allowG = config.allowG;
-        var streakBonus = config.streakBonus;
-        var vipBonus = config.vipBonus;
-        this.gToGoldFactor = config.gToGoldFactor;
+        var goldList = config["goldList"];
+        var itemList = config["itemList"];
+        var allowG = config["allowG"];
+        var streakBonus = config["streakBonus"];
+        var vipBonus = config["vipBonus"];
+        this.gToGoldFactor = config["gToGoldFactor"];
 
         for (var i = goldList.length - 1; i >= 0; i--){
             this.rollResultConfig.push(goldList[i]);
         }
+
         for (var i = 0; i < itemList.length; i++){
             this.itemList.push(itemList[i]);
         }
+
         for (var i = 0; i < allowG.length; i++){
             this.allowG.push(allowG[i]);
         }
+
         for (var i = 0; i < streakBonus.length; i++){
             this.streakBonus.push(streakBonus[i]);
         }
+
         for (var i = 0; i < vipBonus.length; i++){
             this.vipBonus.push(vipBonus[i]);
         }
@@ -222,11 +226,16 @@ var LuckyBonusManager = cc.Class.extend({
     },
 
     checkShowNotify: function(btn){
+        var luckyBonusMgr = LuckyBonusManager.getInstance();
         this.sendGetUserInfo(0);
         btn.runAction(cc.sequence(
             cc.delayTime(1),
             cc.callFunc(function(){
-                if (LuckyBonusManager.getInstance().userNumberOfFreeSpin != null && LuckyBonusManager.getInstance().userNumberOfFreeSpin > 0 && !LuckyBonusManager.getInstance().userClickedLuckyBonusIcon){
+                if (
+                    luckyBonusMgr.userNumberOfFreeSpin != null &&
+                    luckyBonusMgr.userNumberOfFreeSpin > 0 &&
+                    !luckyBonusMgr.userClickedLuckyBonusIcon
+                ){
                     btn.showNotify(true);
                 }
                 else btn.showNotify(false);
@@ -244,7 +253,7 @@ LuckyBonusManager.getInstance = function() {
 };
 
 //CMD
-//SEND
+//SEND PACKET
 LuckyBonusManager.CMD_GET_USER_LUCKY_BONUS_INFO = 23002;
 LuckyBonusManager.CMD_ROLL_LUCKY_BONUS = 23003;
 LuckyBonusManager.CMD_LOG_TOOLTIP_EFFECT = 23004;
@@ -252,7 +261,7 @@ LuckyBonusManager.CMD_CHECK_ROLL_RATIO = 23010;
 LuckyBonusManager.CMD_CHEAT_USER_LUCKY_BONUS_DATA = 23011;
 LuckyBonusManager.CMD_CHEAT_ROLL_RESULT = 23012;
 
-//RECEIVE
+//RECEIVE PACKET
 LuckyBonusManager.CMD_LUCKY_BONUS_CONFIG = 23001;
 LuckyBonusManager.CMD_USER_LUCKY_BONUS_INFO = 23002;
 LuckyBonusManager.CMD_LUCKY_BONUS_RESULT = 23003;

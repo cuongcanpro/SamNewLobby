@@ -36,6 +36,17 @@ CmdReceivedUseGiftCode = CmdReceivedCommon.extend({
     }
 });
 
+CmdReceiveGiftCode = CmdReceivedCommon.extend({
+    ctor: function (pkg) {
+        this._super(pkg);
+        this.readData();
+    },
+    readData: function () {
+        this.res = this.getInt();
+        this.money = this.getDouble();
+    }
+});
+
 //----------------------------------------------------------------------------------------------------------------------
 
 CmdSendGetCodeNew = CmdSendCommon.extend({

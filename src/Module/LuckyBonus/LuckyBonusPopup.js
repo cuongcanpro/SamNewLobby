@@ -96,7 +96,8 @@ var PrizeDetailTableViewCell = cc.TableViewCell.extend({
         this.prizeG.removeAllChildren();
         var rowConfig = LuckyBonusManager.getInstance().rollResultConfig[idx];
 
-        var value = new cc.LabelBMFont(this.formatTotalGoldValue(rowConfig.gold * 20 * LuckyBonusManager.getInstance().gToGoldFactor), "res/Lobby/GUILuckyBonus/popup/LBPopUpFont.fnt");
+        var labelValue = this.formatTotalGoldValue(rowConfig.gold * 20 * LuckyBonusManager.getInstance().gToGoldFactor);
+        var value = new cc.LabelBMFont(labelValue, "res/Lobby/GUILuckyBonus/popup/LBPopUpFont.fnt");
         value.setName("value");
         value.setScale(PrizeDetailPopup.PRIZE_VALUE_SCALE, PrizeDetailPopup.PRIZE_VALUE_SCALE);
         value.setAnchorPoint(PrizeDetailPopup.PRIZE_G_VALUE_ANCHOR);
@@ -132,7 +133,7 @@ var PrizeDetailTableViewCell = cc.TableViewCell.extend({
             }
 
             //remaining item can be anything
-            if (rowConfig.startThirdItem === 0 && rowConfig.endThirdItem === 9){
+            if (rowConfig["startThirdItem"] === 0 && rowConfig["endThirdItem"] === 9){
                 for (var i = 2; i < 3; i++){
                     var token = new ccui.ImageView("res/Lobby/GUILuckyBonus/token/0.png");
                     token.setName("token_" + (i + 1).toString());
@@ -146,7 +147,7 @@ var PrizeDetailTableViewCell = cc.TableViewCell.extend({
             //remaining item in range
             else {
                 var tokenIndex = 3;
-                for (var i = rowConfig.startThirdItem; i <= rowConfig.endThirdItem; i++){
+                for (var i = rowConfig["startThirdItem"]; i <= rowConfig["endThirdItem"]; i++){
                     var miniTokenPathIndex = (i + 1).toString();
 
                     var token = new ccui.ImageView("res/Lobby/GUILuckyBonus/token/" + miniTokenPathIndex + ".png");

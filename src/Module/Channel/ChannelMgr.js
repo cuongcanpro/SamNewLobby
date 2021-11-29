@@ -194,8 +194,39 @@ var ChannelMgr = BaseMgr.extend({
     autoSelectChannel: function () {
         var cId = this.getCurrentChanel() + 0;
         if (cId < 0) cId = 0;
+        this.sendSelectChannel(cId);
+    },
+
+    sendSelectChannel: function (idChannel) {
         var pk = new CmdSendSelectChanel();
-        pk.putData(cId);
+        pk.putData(idChannel);
+        this.sendPacket(pk);
+        pk.clean();
+    },
+
+    sendRefreshTable: function () {
+        var pk = new CmdSendRefreshTable();
+        this.sendPacket(pk);
+        pk.clean();
+    },
+
+    sendQuickPlay: function () {
+        var pk = new CmdSendQuickPlay();
+        this.sendPacket(pk);
+        pk.clean();
+    },
+
+    sendQuickPlayChannel: function () {
+        var pk = new CmdSendQuickPlayChannel();
+        this.sendPacket(pk);
+        pk.clean();
+    },
+
+    sendQuickPlayCustom: function (roomInfo) {
+        var pk = new CmdSendQuickPlayCustom();
+        cc.log("save channel: " + this.saveChannel);
+        var channel = (this.saveChannel) ? this.saveChannel : this.selectedChanel;
+        pk.putData(channel, roomInfo.bet);
         this.sendPacket(pk);
         pk.clean();
     },
@@ -204,6 +235,39 @@ var ChannelMgr = BaseMgr.extend({
         if (userMgr.getGold() > this.getMinBet() * this.betTime)
             return true;
         return false;
+    },
+
+    checkCreateRoomMinGold: function () {
+        var minGold = this.chanelConfig[this.selectedChanel].minGold;
+        return (minGold > userMgr.getGold());
+    },
+
+    checkCreateRoomMaxGold: function () {
+        var maxGold = this.chanelConfig[this.selectedChanel].maxGold;
+        return (maxGold < userMgr.getGold());
+    },
+
+    checkNotifyNotEnoughGold: function (roomInfo) {
+        if (roomInfo.type == 1) {
+            if (this.getBetAdvance(roomInfo.bet) * this.betTime > userMgr.getGold()) {
+                SceneMgr.getInstance().showOKDialog(LocalizedString.to("PLAY_NOT_ENOUGHT_GOLD_ROOM"));
+                return true;
+            }
+        } else {
+            if (this.getBet(roomInfo.bet) * this.betTime > userMgr.getGold()) {
+                SceneMgr.getInstance().showOKDialog(LocalizedString.to("PLAY_NOT_ENOUGHT_GOLD_ROOM"));
+                return true;
+            }
+        }
+        return false;
+    },
+
+    getMinGoldCreateRoom: function () {
+        return this.chanelConfig[this.selectedChanel].minGold;
+    },
+
+    getMaxGoldCreateRoom: function () {
+        return this.getMaxGoldCanPlayInChannel();
     },
 
     getMinGoldSupport: function () {
@@ -307,7 +371,16 @@ var ChannelMgr = BaseMgr.extend({
         return 0;
     },
 
-
+    onEnterChannel: function () {
+        if (this.selectedChanel == -1) {
+            this.autoSelectChannel();
+        }
+        else {
+            var pk = new CmdSendRefreshTable();
+            GameClient.getInstance().sendPacket(pk);
+            pk.clean();
+        }
+    },
 })
 
 ChannelMgr.instance = null;

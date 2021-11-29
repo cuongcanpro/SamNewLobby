@@ -713,11 +713,6 @@ var LobbyScene = BaseLayer.extend({
 
         CheckLogic.checkCaptureInBoard();
         CheckLogic.checkShowTutorial();
-        if (Config.ENABLE_IAP_REFUND) {
-            iapHandler.showDailyGold();
-        }
-        this.count = 17;
-
         PersonalInfoGUI.checkOpenGuiFirstTime();
     },
 
@@ -896,11 +891,8 @@ var LobbyScene = BaseLayer.extend({
                 break;
             }
             case LobbyScene.BTN_CHOINGAY: {
-                if (CheckLogic.checkQuickPlay()) {
-                    var pk = new CmdSendQuickPlay();
-                    GameClient.getInstance().sendPacket(pk);
-                    pk.clean();
-
+                if (channelMgr.checkQuickPlay()) {
+                    channelMgr.sendQuickPlay();
                     sceneMgr.addLoading(LocalizedString.to("WAITING")).timeout(15);
                 } else {
                     if (paymentMgr.checkEnablePayment()) {
@@ -999,55 +991,6 @@ var LobbyScene = BaseLayer.extend({
                 break;
         }
 
-    },
-
-    sharePhoto: function (isShareImage, image) {
-        if (!gameMgr.checkOldNativeVersion()) {
-            var imgPath = sceneMgr.takeScreenShot(isShareImage, image);
-            setTimeout(function () {
-                fr.facebook.shareScreenShoot(imgPath, function (result) {
-                    var message = "";
-                    if (result == -1) {
-                        message = localized("INSTALL_FACEBOOK");
-                    } else if (result == 1) {
-                        message = localized("NOT_SHARE");
-                    } else if (result == 0) {
-                        message = localized("FACEBOOK_DELAY");
-
-                        var pk = new CmdSendTangGold();
-                        GameClient.getInstance().sendPacket(pk);
-                        pk.clean();
-                    } else {
-                        message = localized("FACEBOOK_ERROR");
-                    }
-                    Toast.makeToast(Toast.SHORT, message);
-                });
-            }, 500);
-        } else {
-            this.captureSuccess = function (social, jdata) {
-                var message = "";
-                var dom = StringUtility.parseJSON(jdata);
-                if (dom["error"] == -1) {
-                    message = localized("INSTALL_FACEBOOK");
-                } else if (dom["error"] == 1) {
-                    message = localized("NOT_SHARE");
-                } else if (dom["error"] == 0) {
-                    message = localized("FACEBOOK_DELAY");
-
-                    var pk = new CmdSendTangGold();
-                    GameClient.getInstance().sendPacket(pk);
-                    pk.clean();
-                } else {
-                    message = localized("FACEBOOK_ERROR");
-                }
-                Toast.makeToast(Toast.SHORT, message);
-
-
-            }.bind(this);
-
-            socialMgr.set(this, this.captureSuccess);
-            socialMgr.shareImage2(isShareImage, image);
-        }
     },
 
     showGiftCode: function () {

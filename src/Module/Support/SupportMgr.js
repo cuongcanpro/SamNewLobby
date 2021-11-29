@@ -155,6 +155,65 @@ var SupportMgr = BaseMgr.extend({
         }
         else return null;
     },
+
+    checkCapture: function () {
+        if (this.sharedPhoto) {
+            this.sharedPhoto = false;
+
+            var pk = new CmdSendTangGold();
+            GameClient.getInstance().sendPacket(pk);
+            pk.clean();
+        }
+    },
+
+    sharePhoto: function (isShareImage, image) {
+        if (!gameMgr.checkOldNativeVersion()) {
+            var imgPath = sceneMgr.takeScreenShot(isShareImage, image);
+            setTimeout(function () {
+                fr.facebook.shareScreenShoot(imgPath, function (result) {
+                    var message = "";
+                    if (result == -1) {
+                        message = localized("INSTALL_FACEBOOK");
+                    } else if (result == 1) {
+                        message = localized("NOT_SHARE");
+                    } else if (result == 0) {
+                        message = localized("FACEBOOK_DELAY");
+
+                        var pk = new CmdSendTangGold();
+                        GameClient.getInstance().sendPacket(pk);
+                        pk.clean();
+                    } else {
+                        message = localized("FACEBOOK_ERROR");
+                    }
+                    Toast.makeToast(Toast.SHORT, message);
+                });
+            }, 500);
+        } else {
+            this.captureSuccess = function (social, jdata) {
+                var message = "";
+                var dom = StringUtility.parseJSON(jdata);
+                if (dom["error"] == -1) {
+                    message = localized("INSTALL_FACEBOOK");
+                } else if (dom["error"] == 1) {
+                    message = localized("NOT_SHARE");
+                } else if (dom["error"] == 0) {
+                    message = localized("FACEBOOK_DELAY");
+
+                    var pk = new CmdSendTangGold();
+                    GameClient.getInstance().sendPacket(pk);
+                    pk.clean();
+                } else {
+                    message = localized("FACEBOOK_ERROR");
+                }
+                Toast.makeToast(Toast.SHORT, message);
+
+
+            }.bind(this);
+
+            socialMgr.set(this, this.captureSuccess);
+            socialMgr.shareImage2(isShareImage, image);
+        }
+    },
 })
 
 SupportMgr.instance = null;

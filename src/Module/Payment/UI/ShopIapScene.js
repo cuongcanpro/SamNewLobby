@@ -153,32 +153,25 @@ var ShopIapScene = BaseLayer.extend({
     onEnterFinish: function () {
         cc.log(" ******* ON ENTER FINISH SHOP IAP SCENE ******* ");
         this.onUpdateGUI();
-        cc.log("Payment: " + gamedata.payments.join());
-        this.getControl("btnHelp").setVisible(!gamedata.checkInReview());
+        this.getControl("btnHelp").setVisible(!paymentMgr.checkInReview());
 
         // request shop event
         var cmdEvent = new CmdSendRequestEventShop();
         GameClient.getInstance().sendPacket(cmdEvent);
 
         var cmdConfig = new CmdSendGetConfigShop();
-        cmdConfig.putData(CmdSendGetConfigShop.GOLD, gamedata.gameConfig.versionShopGold);
+        cmdConfig.putData(CmdSendGetConfigShop.GOLD, paymentMgr.versionShopGold);
         GameClient.getInstance().sendPacket(cmdConfig);
-        event.requestShopEventConfig();
+        eventMgr.requestShopEventConfig();
         this.effectVipInfo();
         this.scheduleUpdate();
 
         this.reLayoutTab();
-        cc.log("RELOAT LAYOUT TAB *******  1 ");
         this.tabGold.onEnterFinish();
-        cc.log("RELOAT LAYOUT TAB *******  2 ");
         this.tabG.onEnterFinish();
-        cc.log("RELOAT LAYOUT TAB *******  3 ");
         this.tabTicket.onEnterFinish();
-        cc.log("RELOAT LAYOUT TAB *******  4 ");
         this.tabItem.onEnterFinish();
-        cc.log("RELOAT LAYOUT TAB *******  5 ");
         this.updateEventInfo();
-        cc.log("RELOAT LAYOUT TAB *******  ");
     },
 
     onExit: function () {

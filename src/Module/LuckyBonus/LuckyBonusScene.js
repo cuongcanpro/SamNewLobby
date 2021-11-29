@@ -158,14 +158,18 @@ var LuckyBonusScene = BaseLayer.extend({
     },
 
     loadLever: function(){
+        ///for user with updated apk
         if (typeof sp !== 'undefined'){
             var leverPos = this.getControl("lever", this.slotMachine);
-            this.lever = new sp.SkeletonAnimation("res/Lobby/GUILuckyBonus/effect/lever.json", "res/Lobby/GUILuckyBonus/effect/lever.atlas");
+            var leverJson = "res/Lobby/GUILuckyBonus/effect/lever.json";
+            var leverAtlas = "res/Lobby/GUILuckyBonus/effect/lever.atlas";
+            this.lever = new sp.SkeletonAnimation(leverJson, leverAtlas);
             this.lever.setPosition(0, 0);
             this.lever.setScale(0.6);
 
             leverPos.addChild(this.lever);
         }
+        ///for user with outdated apk
         else {
             var leverPos = this.getControl("lever", this.slotMachine);
             this.leverSprite = cc.Sprite("res/Lobby/GUILuckyBonus/effect/1.png");
@@ -177,7 +181,8 @@ var LuckyBonusScene = BaseLayer.extend({
                 var arr = [];
                 var aniFrame;
                 for (var i = 1; i <= LuckyBonusScene.NUMBER_OF_LEVER_FRAME; i++) {
-                    aniFrame = new cc.AnimationFrame(cc.SpriteFrame("res/Lobby/GUILuckyBonus/effect/" + i.toString() + ".png", cc.rect(0, 0, 161, 252)), time);
+                    var leverSprite = "res/Lobby/GUILuckyBonus/effect/" + i.toString() + ".png";
+                    aniFrame = new cc.AnimationFrame(cc.SpriteFrame(leverSprite, cc.rect(0, 0, 161, 252)), time);
                     arr.push(aniFrame);
                 }
                 animation = new cc.Animation(arr, time);
@@ -197,11 +202,13 @@ var LuckyBonusScene = BaseLayer.extend({
 
         this.updateBetG();
         if (LuckyBonusManager.getInstance().userNumberOfFreeSpin > 0){
-            this.spinBtn.loadTextures("res/Lobby/GUILuckyBonus/12.png", "res/Lobby/GUILuckyBonus/12.png", "res/Lobby/GUILuckyBonus/12.png");
+            var spinBtnImage = "res/Lobby/GUILuckyBonus/12.png";
+            this.spinBtn.loadTextures(spinBtnImage, spinBtnImage, spinBtnImage);
             this.getControl("betG", this.slotMachine).setVisible(false);
         }
         else {
-            this.spinBtn.loadTextures("res/Lobby/GUILuckyBonus/13.png", "res/Lobby/GUILuckyBonus/13.png", "res/Lobby/GUILuckyBonus/13.png");
+            var spinBtnImage = "res/Lobby/GUILuckyBonus/13.png";
+            this.spinBtn.loadTextures(spinBtnImage, spinBtnImage, spinBtnImage);
             this.getControl("betG", this.slotMachine).setVisible(true);
         }
     },
@@ -238,13 +245,18 @@ var LuckyBonusScene = BaseLayer.extend({
         this.pCheckRollRatio.itemCheck = this.getControl("itemCheck", this.pCheckRollRatio);
     },
 
+    ///draw streaks that user currently not have
     drawStreak: function(currentStreak){
         var bonusColumn = this.getControl("bonus", this.slotMachine);
 
+        ///bg image for streak
         var bonus = new ccui.ImageView("res/Lobby/GUILuckyBonus/9.png");
+        var bonusPosX = LuckyBonusScene.BONUS_X;
+        var bonusPosY = LuckyBonusScene.BONUS_BASE_Y + currentStreak * LuckyBonusScene.BONUS_Y_INCREMENT;
         bonus.setName("bonus_" + (currentStreak + 1).toString());
-        bonus.setPosition(cc.p(LuckyBonusScene.BONUS_X, LuckyBonusScene.BONUS_BASE_Y + currentStreak * LuckyBonusScene.BONUS_Y_INCREMENT));
+        bonus.setPosition(cc.p(bonusPosX, bonusPosY));
 
+        ///streak value
         var value = new ccui.Text();
         var valuePosIndex = currentStreak === 0 ? 0 : 1;
         value.setName("value");
@@ -256,6 +268,7 @@ var LuckyBonusScene = BaseLayer.extend({
         value.setPosition(cc.p(LuckyBonusScene.BONUS_VALUE_X[valuePosIndex], LuckyBonusScene.BONUS_VALUE_Y));
         bonus.addChild(value);
 
+        ///percentage icon of the value
         var percentIcon = new ccui.Text();
         percentIcon.setName("percentIcon");
         percentIcon.setString("%");
@@ -266,6 +279,7 @@ var LuckyBonusScene = BaseLayer.extend({
         percentIcon.setPosition(cc.p(LuckyBonusScene.BONUS_ICON_X[valuePosIndex], LuckyBonusScene.BONUS_ICON_Y));
         bonus.addChild(percentIcon);
 
+        ///day corresponding to streak
         var day = new ccui.Text();
         day.setName("day");
         day.setString((currentStreak + 1).toString());
@@ -280,13 +294,18 @@ var LuckyBonusScene = BaseLayer.extend({
         this.streakList.push(bonus);
     },
 
+    ///draw streak that user currently have
     drawCurrentStreak: function(currentStreak){
         var bonusColumn = this.getControl("bonus", this.slotMachine);
 
+        ///bg image for streak
         var bonus = new ccui.ImageView("res/Lobby/GUILuckyBonus/10.png");
+        var bonusPosX = LuckyBonusScene.BONUS_X;
+        var bonusPosY = LuckyBonusScene.BONUS_BASE_Y + currentStreak * LuckyBonusScene.BONUS_Y_INCREMENT;
         bonus.setName("bonus_" + (currentStreak + 1).toString());
-        bonus.setPosition(cc.p(LuckyBonusScene.BONUS_X, LuckyBonusScene.BONUS_BASE_Y + currentStreak * LuckyBonusScene.BONUS_Y_INCREMENT));
+        bonus.setPosition(cc.p(bonusPosX, bonusPosY));
 
+        ///streak value
         var value = new ccui.Text();
         var valuePosIndex = currentStreak === 0 ? 0 : 1;
         value.setName("value");
@@ -298,6 +317,7 @@ var LuckyBonusScene = BaseLayer.extend({
         value.setPosition(cc.p(LuckyBonusScene.STREAK_BONUS_VALUE_X[valuePosIndex], LuckyBonusScene.STREAK_BONUS_VALUE_Y));
         bonus.addChild(value);
 
+        ///percentage icon of the value
         var percentIcon = new ccui.Text();
         percentIcon.setName("percentIcon");
         percentIcon.setString("%");
@@ -308,6 +328,7 @@ var LuckyBonusScene = BaseLayer.extend({
         percentIcon.setPosition(cc.p(LuckyBonusScene.STREAK_BONUS_ICON_X[valuePosIndex], LuckyBonusScene.STREAK_BONUS_ICON_Y));
         bonus.addChild(percentIcon);
 
+        ///day corresponding to streak
         var day = new ccui.Text();
         day.setName("day");
         day.setString((currentStreak + 1).toString());
@@ -318,9 +339,12 @@ var LuckyBonusScene = BaseLayer.extend({
         day.setPosition(cc.p(LuckyBonusScene.STREAK_BONUS_DAY_X, LuckyBonusScene.STREAK_BONUS_DAY_Y));
         bonus.addChild(day);
 
+        ///tool tip image
         var image = new ccui.ImageView("res/Lobby/GUILuckyBonus/ngay_" + (currentStreak + 1).toString() + ".png");
+        var imagePosX = LuckyBonusScene.STREAK_BONUS_IMAGE_X;
+        var imagePosY = LuckyBonusScene.STREAK_BONUS_IMAGE_BASE_Y + currentStreak * LuckyBonusScene.STREAK_BONUS_IMAGE_Y_INCREMENT;
         image.setName("bonusIcon");
-        image.setPosition(cc.p(LuckyBonusScene.STREAK_BONUS_IMAGE_X, LuckyBonusScene.STREAK_BONUS_IMAGE_BASE_Y + currentStreak * LuckyBonusScene.STREAK_BONUS_IMAGE_Y_INCREMENT));
+        image.setPosition(cc.p(imagePosX, imagePosY));
 
         bonusColumn.addChild(bonus);
         bonusColumn.addChild(image);
@@ -328,7 +352,8 @@ var LuckyBonusScene = BaseLayer.extend({
         this.bonusImage = image;
     },
 
-    //upon entering scene
+    ///animate components of GUI upon entering scene
+    ///start
     animateGUI: function(){
         this.animateStreakColumn();
         this.animateUserInfo();
@@ -375,7 +400,9 @@ var LuckyBonusScene = BaseLayer.extend({
             streakNodeArray[streak - 1].runAction(action);
             if (bonusIcon){
                 bonusIcon.setVisible(true);
-                var action = cc.MoveBy(0.5, 0, LuckyBonusScene.STREAK_BONUS_IMAGE_Y_INCREMENT * (LuckyBonusManager.getInstance().userCurrentStreak) + 100);
+                var luckyBonusMgr = LuckyBonusManager.getInstance();
+                var moveByOffsetY = LuckyBonusScene.STREAK_BONUS_IMAGE_Y_INCREMENT * (luckyBonusMgr.userCurrentStreak) + 100;
+                var action = cc.MoveBy(0.5, 0, moveByOffsetY);
                 action.easing(cc.easeBackOut());
                 bonusIcon.runAction(action);
             }
@@ -431,7 +458,9 @@ var LuckyBonusScene = BaseLayer.extend({
         setTimeout(function() {
             var vipInfo = this.getControl("vip", this.slotMachine);
             var vipIcon = this.getControl("icon", vipInfo);
-            vipIcon.setScale(LuckyBonusScene.VIP_ICON_SCALE[LuckyBonusManager.getInstance().userVipLevel], LuckyBonusScene.VIP_ICON_SCALE[LuckyBonusManager.getInstance().userVipLevel]);
+            var vipIconScaleX = LuckyBonusScene.VIP_ICON_SCALE[LuckyBonusManager.getInstance().userVipLevel];
+            var vipIconScaleY = LuckyBonusScene.VIP_ICON_SCALE[LuckyBonusManager.getInstance().userVipLevel];
+            vipIcon.setScale(vipIconScaleX, vipIconScaleY);
             var effect = db.DBCCFactory.getInstance().buildArmatureNode("HighlightBig");
 
             if (effect) {
@@ -496,13 +525,16 @@ var LuckyBonusScene = BaseLayer.extend({
             this.toolTipShowedTime = 0;
         }
     },
+    ///end
 
-    //spin logic
+    ///spin logic
     spinWheels: function(resultList){
         ///run lever animation
+        ///for user with updated apk
         if (this.lever !== null){
             this.lever.setAnimation(0, "animation", false);
         }
+        ///for usre with outdated apk
         else{
             this.runLeverSpriteFrameAnimation();
         }
@@ -515,68 +547,88 @@ var LuckyBonusScene = BaseLayer.extend({
             this.areThreeSlotsSame = false;
         }
 
-        var firstTwoReelSameResult = false;
-        var intenseLastRound = false;
+        var isFirstTwoReelSameResult = false;
+        var isIntenseLastRound = false;
         if (resultList[0] === resultList[1]){
-            firstTwoReelSameResult = true;
+            isFirstTwoReelSameResult = true;
         }
-        var slowDownDuration = Reel.SLOT_SLOW_DOWN_DEFAULT_DURATION;
-        var minSlowDownTravelDistance = Reel.REEL_MIN_SLOW_DOWN_TRAVEL_DISTANCE;
+        var slotSlowDownDuration = Reel.SLOT_SLOW_DOWN_DEFAULT_DURATION;
+        var slotMinSlowDownTravelDistance = Reel.REEL_MIN_SLOW_DOWN_TRAVEL_DISTANCE;
 
         for (var i = 0; i < this.reelList.length; i++){
-            var initAcceleration = -Math.floor(Math.random() * 2001 + 1500);
-            if (i === 2 && firstTwoReelSameResult){
-                intenseLastRound = true;
+            var minInitialAcceleration = 2000;
+            var initialAccelerationOffsetThreshold = 1500;
+            var initialAcceleration = -Math.floor(Math.random() * (minInitialAcceleration + 1) + initialAccelerationOffsetThreshold);
+            if (i === 2 && isFirstTwoReelSameResult){
+                isIntenseLastRound = true;
             }
-            this.reelList[i].init(initAcceleration, slowDownDuration, minSlowDownTravelDistance, resultList[i], intenseLastRound);
-            slowDownDuration += Reel.SLOT_SLOW_DOWN_DURATION_INCREMENT;
-            if (i === 1 && firstTwoReelSameResult){
-                slowDownDuration += 2;
+            this.reelList[i].init(
+                initialAcceleration,
+                slotSlowDownDuration,
+                slotMinSlowDownTravelDistance,
+                resultList[i],
+                isIntenseLastRound
+            );
+            slotSlowDownDuration += Reel.SLOT_SLOW_DOWN_DURATION_INCREMENT;
+            if (i === 1 && isFirstTwoReelSameResult){
+                slotSlowDownDuration += 2;
             }
-            minSlowDownTravelDistance += Reel.REEL_SLOW_DOWN_TRAVEL_DISTANCE_INCREMENT;
+            slotMinSlowDownTravelDistance += Reel.REEL_SLOW_DOWN_TRAVEL_DISTANCE_INCREMENT;
         }
 
+        ///spin sound effect
+        var firstWheelRollingSoundEffectDelay = 500;
+        var secondWheelRollingSoundEffectDelay = 3000;
         setTimeout(function() {
             luckyBonusSound.playWheelRolling();
             setTimeout(function() {
                 luckyBonusSound.playWheelRolling();
-            }, 3000);
-        }, 500);
+            }, secondWheelRollingSoundEffectDelay);
+        }, firstWheelRollingSoundEffectDelay);
 
-        if (intenseLastRound){
+        ///spin result sound effect
+        var intenseLastRoundStopSoundDelay = 7000;
+        var normalStopSoundDelay = 5000;
+        if (isIntenseLastRound){
             setTimeout(function() {
                 audioEngine.stopAllEffects();
                 stopWheelAudioId = luckyBonusSound.playWheelRollingStop();
-            }, 7000);
+            }, intenseLastRoundStopSoundDelay);
         }
         else {
             setTimeout(function() {
                 audioEngine.stopAllEffects();
                 stopWheelAudioId = luckyBonusSound.playWheelRollingStop();
-            }, 5000);
+            }, normalStopSoundDelay);
         }
         this.schedule(this.spin);
     },
 
+    ///display the spin effect
     spin: function(dt){
         for (var i = 0; i < this.reelList.length; i++){
             this.reelList[i].update(dt);
         }
         if (this.checkSpinFinished()){
+            var showBaseGoldSoundFxDelay = 2500;
+            var showTotalGoldSoundFxDelay = 4500;
+
             this.unschedule(this.spin);
             this.runFinishRollAnimation();
             setTimeout(function() {
                 luckyBonusSound.playScoreCount();
                 this.schedule(this.showTotalGold, 0.02);
-            }.bind(this), 2500);
+            }.bind(this), showBaseGoldSoundFxDelay);
             setTimeout(function() {
                 luckyBonusSound.playScoreCount();
-            }, 4500);
+            }, showTotalGoldSoundFxDelay);
         }
     },
 
-    //slot glowing effect
+    ///show slot glowing effect
     runFinishRollAnimation: function(){
+        var slotGlowingFxDelay = 1000;
+
         setTimeout(function() {
             for (var i = 0; i < LuckyBonusScene.NUMBER_OF_REELS; i++){
                 var currentReelWidget = this.getControl("reel_" + i.toString(), this.slotMachine);
@@ -605,13 +657,15 @@ var LuckyBonusScene = BaseLayer.extend({
             else {
                 luckyBonusSound.playEnd();
             }
-        }.bind(this), 1000);
+        }.bind(this), slotGlowingFxDelay);
     },
 
+    ///bonus value flying toward total gold showed
     runFlyingBonusTextAnimation: function(){
         var bonusText = this.getControl("bonusText", this.slotMachine);
         var bonusValue = this.getControl("value", bonusText);
         var totalGold = this.getControl("totalGold", this.slotMachine);
+        var removeBonusTextValueDelay = 1000;
 
         var flyBonusValue = new ccui.Text();
         flyBonusValue.setName("flyBonusValue");
@@ -626,13 +680,15 @@ var LuckyBonusScene = BaseLayer.extend({
         flyBonusValue.runAction(action);
         setTimeout(function() {
             bonusValue.removeAllChildren();
-        }, 1000);
+        }, removeBonusTextValueDelay);
     },
 
     removeGlowAnimation: function(reel, anim){
+        var removeGlowAnimationDelay = 3000;
+
         setTimeout(function() {
             reel.removeChild(anim);
-        }, 3000);
+        }, removeGlowAnimationDelay);
     },
 
     checkSpinFinished: function(){
@@ -644,9 +700,10 @@ var LuckyBonusScene = BaseLayer.extend({
         return true;
     },
 
-    //update info
+    ///update user lucky bonus info showed in GUI
+    ///start
     updateStreak: function(newStreak){
-        //update streak when reload scene, switch user, cheat, etc.
+        ///update streak when reload scene, switch user, cheat, etc.
         if (!this.updateStreakAfterFreeSpin){
             if (this.currentStreak === newStreak){
                 this.updateBonus();
@@ -655,7 +712,7 @@ var LuckyBonusScene = BaseLayer.extend({
             }
             else {
                 var lastStreak = this.getControl("bonus_" + (this.currentStreak + 1).toString(), this.slotMachine);
-                //streak = 1 has a different posX of value
+                ///streak = 1 has a different posX of value
                 var valueStreakIndex = this.currentStreak === 0 ? 0 : 1;
                 lastStreak.loadTexture("res/Lobby/GUILuckyBonus/9.png");
                 this.getControl("value", lastStreak).setPositionX(LuckyBonusScene.BONUS_VALUE_X[valueStreakIndex]);
@@ -674,7 +731,8 @@ var LuckyBonusScene = BaseLayer.extend({
                 this.getControl("day", currentStreak).setPositionX(LuckyBonusScene.STREAK_BONUS_DAY_X);
 
                 var bonusImageTexture = "res/Lobby/GUILuckyBonus/ngay_" + (newStreak + 1).toString() + ".png";
-                this.bonusImage.setPositionY(LuckyBonusScene.STREAK_BONUS_IMAGE_BASE_Y + newStreak * LuckyBonusScene.STREAK_BONUS_IMAGE_Y_INCREMENT);
+                var bonusImagePosY = LuckyBonusScene.STREAK_BONUS_IMAGE_BASE_Y + newStreak * LuckyBonusScene.STREAK_BONUS_IMAGE_Y_INCREMENT;
+                this.bonusImage.setPositionY(bonusImagePosY);
                 this.bonusImage.loadTexture(bonusImageTexture);
             }
             this.updateBonus();
@@ -682,14 +740,14 @@ var LuckyBonusScene = BaseLayer.extend({
 
             this.currentStreak = newStreak;
         }
-        //update streak after first free spin
+        ///update streak after first free spin
         else {
             this.updateStreakAfterFreeSpin = false;
             var lastStreak = this.getControl("bonus_" + (this.currentStreak + 1).toString(), this.slotMachine);
             var actionFadeOut = cc.FadeOut(0.5);
             lastStreak.runAction(actionFadeOut);
             setTimeout(function() {
-                //streak = 1 has a different posX of value
+                ///streak = 1 has a different posX of value
                 var valueStreakIndex = this.currentStreak === 0 ? 0 : 1;
                 lastStreak.loadTexture("res/Lobby/GUILuckyBonus/9.png");
                 this.getControl("value", lastStreak).setPositionX(LuckyBonusScene.BONUS_VALUE_X[valueStreakIndex]);
@@ -711,16 +769,21 @@ var LuckyBonusScene = BaseLayer.extend({
                     this.getControl("percentIcon", currentStreak).setPositionX(LuckyBonusScene.STREAK_BONUS_ICON_X[valueStreakIndex]);
                     this.getControl("percentIcon", lastStreak).setColor(LuckyBonusScene.BONUS_ICON_COLOR);
                     this.getControl("day", currentStreak).setPositionX(LuckyBonusScene.STREAK_BONUS_DAY_X);
+
                     var actionFadeIn = cc.FadeIn(0.5);
                     currentStreak.runAction(actionFadeIn);
 
-                    var actionMoveBy = cc.MoveBy(0.5, 0, LuckyBonusScene.STREAK_BONUS_IMAGE_BASE_Y + newStreak * LuckyBonusScene.STREAK_BONUS_IMAGE_Y_INCREMENT - this.bonusImage.getPositionY());
+                    var bonusImageNewPosY = LuckyBonusScene.STREAK_BONUS_IMAGE_BASE_Y + newStreak * LuckyBonusScene.STREAK_BONUS_IMAGE_Y_INCREMENT;
+                    var bonusImageOldPosY = this.bonusImage.getPositionY();
+                    var moveByOffsetY = bonusImageNewPosY - bonusImageOldPosY;
+                    var actionMoveBy = cc.MoveBy(0.5, 0, moveByOffsetY);
                     actionMoveBy.easing(cc.easeBackInOut());
                     this.bonusImage.runAction(actionMoveBy);
 
                     setTimeout(function() {
                         var bonusImageTexture = "res/Lobby/GUILuckyBonus/ngay_" + (newStreak + 1).toString() + ".png";
-                        this.bonusImage.setPositionY(LuckyBonusScene.STREAK_BONUS_IMAGE_BASE_Y + newStreak * LuckyBonusScene.STREAK_BONUS_IMAGE_Y_INCREMENT);
+                        var bonusImagePosY = LuckyBonusScene.STREAK_BONUS_IMAGE_BASE_Y + newStreak * LuckyBonusScene.STREAK_BONUS_IMAGE_Y_INCREMENT;
+                        this.bonusImage.setPositionY(bonusImagePosY);
                         this.bonusImage.loadTexture(bonusImageTexture);
                     }.bind(this), 500);
 
@@ -735,12 +798,18 @@ var LuckyBonusScene = BaseLayer.extend({
 
     updateBonus: function(){
         var bonusValue = this.getControl("bonusText", this.slotMachine);
+        var luckyBonusMgr = LuckyBonusManager.getInstance();
 
+        ///user still vip
         if (NewVipManager.getInstance().getRemainTime() > 0){
-            this.getControl("value", bonusValue).setString("+" + (LuckyBonusManager.getInstance().streakBonus[LuckyBonusManager.getInstance().userCurrentStreak] + LuckyBonusManager.getInstance().vipBonus[LuckyBonusManager.getInstance().userVipLevel]).toString() + "%");
+            var totalBonus = luckyBonusMgr.streakBonus[luckyBonusMgr.userCurrentStreak] + luckyBonusMgr.vipBonus[luckyBonusMgr.userVipLevel];
+            var bonusString = "+" + totalBonus.toString() + "%";
+            this.getControl("value", bonusValue).setString(bonusString);
         }
+        ///user no longer vip
         else{
-            this.getControl("value", bonusValue).setString("+" + LuckyBonusManager.getInstance().streakBonus[LuckyBonusManager.getInstance().userCurrentStreak].toString() + "%");
+            var bonusString = "+" + luckyBonusMgr.streakBonus[luckyBonusMgr.userCurrentStreak].toString() + "%";
+            this.getControl("value", bonusValue).setString(bonusString);
         }
     },
 
@@ -769,7 +838,7 @@ var LuckyBonusScene = BaseLayer.extend({
     runUpdateUserGoldAnimation: function(){
         var userGold = this.getControl("userGold", this.pBotLeft);
 
-        //update in 50 loops, 0.02s/1 loop
+        ///update in 50 loops, 0.02s/1 loop
         this.userCurrentGold += this.totalGold / 50;
         this.getControl("value", userGold).setString(this.formatGoldValue(this.userCurrentGold));
 
@@ -786,9 +855,10 @@ var LuckyBonusScene = BaseLayer.extend({
 
     updateVipInfo: function(){
         var userVipInfo = this.getControl("vip", this.slotMachine);
+        var luckyBonusMgr = LuckyBonusManager.getInstance();
         this.updateVipIcon();
-        this.getControl("level", userVipInfo).setString("VIP" + LuckyBonusManager.getInstance().userVipLevel);
-        this.getControl("bonus", userVipInfo).setString("+" + LuckyBonusManager.getInstance().vipBonus[LuckyBonusManager.getInstance().userVipLevel] + "%");
+        this.getControl("level", userVipInfo).setString("VIP" + luckyBonusMgr.userVipLevel);
+        this.getControl("bonus", userVipInfo).setString("+" + luckyBonusMgr.vipBonus[luckyBonusMgr.userVipLevel] + "%");
 
         this.updateBonus();
         this.updateWinUpTo();
@@ -797,29 +867,36 @@ var LuckyBonusScene = BaseLayer.extend({
     updateVipIcon: function(){
         var userVipInfo = this.getControl("vip", this.slotMachine);
         var oldVipIcon = this.getControl("icon", userVipInfo);
+        var luckyBonusMgr = LuckyBonusManager.getInstance();
 
         userVipInfo.removeChild(oldVipIcon);
 
+        ///user is not vip
         if (LuckyBonusManager.getInstance().userVipLevel === 0){
             var vipIcon = new ccui.ImageView("res/Lobby/GUIVipNew/imgVipFree.png");
         }
+        ///o.w
         else {
-            var vipIcon = new ccui.ImageView("res/Lobby/GUIVipNew/iconVipNormal/iconVipNormal" + LuckyBonusManager.getInstance().userVipLevel + ".png");
+            var vipIcon = new ccui.ImageView("res/Lobby/GUIVipNew/iconVipNormal/iconVipNormal" + luckyBonusMgr.userVipLevel + ".png");
         }
 
+        var vipIconScaleX = LuckyBonusScene.VIP_ICON_SCALE[luckyBonusMgr.userVipLevel];
+        var vipIconScaleY = LuckyBonusScene.VIP_ICON_SCALE[luckyBonusMgr.userVipLevel];
         vipIcon.setName("icon");
         vipIcon.setPosition(LuckyBonusScene.VIP_ICON_POSITION);
-        vipIcon.setScale(LuckyBonusScene.VIP_ICON_SCALE[LuckyBonusManager.getInstance().userVipLevel], LuckyBonusScene.VIP_ICON_SCALE[LuckyBonusManager.getInstance().userVipLevel]);
+        vipIcon.setScale(vipIconScaleX, vipIconScaleY);
         userVipInfo.addChild(vipIcon);
     },
 
     updateSpinBtn: function(){
         if (LuckyBonusManager.getInstance().userNumberOfFreeSpin === 0){
-            this.spinBtn.loadTextures("res/Lobby/GUILuckyBonus/13.png", "res/Lobby/GUILuckyBonus/13.png", "res/Lobby/GUILuckyBonus/13.png");
+            var spinBtnImage = "res/Lobby/GUILuckyBonus/13.png";
+            this.spinBtn.loadTextures(spinBtnImage, spinBtnImage, spinBtnImage);
             this.getControl("betG", this.slotMachine).setVisible(true);
         }
         else {
-            this.spinBtn.loadTextures("res/Lobby/GUILuckyBonus/12.png", "res/Lobby/GUILuckyBonus/12.png", "res/Lobby/GUILuckyBonus/12.png");
+            var spinBtnImage = "res/Lobby/GUILuckyBonus/12.png";
+            this.spinBtn.loadTextures(spinBtnImage, spinBtnImage, spinBtnImage);
             this.getControl("betG", this.slotMachine).setVisible(false);
         }
     },
@@ -827,11 +904,12 @@ var LuckyBonusScene = BaseLayer.extend({
     updateBetG: function(){
         var betGValue = this.getControl("betG", this.slotMachine);
         var winUpToValue = this.getControl("winUpTo", this.slotMachine);
+        var betGIconPosX = this.getControl("value", betGValue).width + LuckyBonusScene.BET_G_ICON_POS_OFFSET;
         this.winUpTo = this.calculateMaxReward();
 
         this.getControl("value", betGValue).setString(this.betG.toString());
         this.getControl("value", betGValue).x = LuckyBonusScene.BET_G_VALUE_POSITION[this.betLevel];
-        this.getControl("betGIcon", betGValue).x = this.getControl("value", betGValue).width + LuckyBonusScene.BET_G_ICON_POS_OFFSET;
+        this.getControl("betGIcon", betGValue).x = betGIconPosX;
         this.getControl("value", winUpToValue).setString(this.formatGoldValue(this.winUpTo));
     },
 
@@ -851,19 +929,29 @@ var LuckyBonusScene = BaseLayer.extend({
             var time = effectMgr.flyCoinEffect(this, this.totalGold, this.totalGold / 10, animStartPos, animEndPos);
         }
     },
+    ///end
 
-    //utilities
+    ///utility functions
     calculateMaxReward: function(){
-        if (LuckyBonusManager.getInstance().userNumberOfFreeSpin === 0){
-            return LuckyBonusManager.getInstance().rollResultConfig[0].gold * LuckyBonusManager.getInstance().gToGoldFactor * (1 + (LuckyBonusManager.getInstance().streakBonus[LuckyBonusManager.getInstance().userCurrentStreak] + LuckyBonusManager.getInstance().vipBonus[LuckyBonusManager.getInstance().userVipLevel]) / 100) * this.betG;
+        var luckyBonusMgr = LuckyBonusManager.getInstance();
+        var baseGold = luckyBonusMgr.rollResultConfig[0].gold;
+        var gToGoldFactor = luckyBonusMgr.gToGoldFactor;
+        var streakBonus = luckyBonusMgr.streakBonus[luckyBonusMgr.userCurrentStreak];
+        var vipBonus = luckyBonusMgr.vipBonus[luckyBonusMgr.userVipLevel];
+        var totalBonusFactor = 1 + (streakBonus + vipBonus) / 100;
+
+        ///G spin
+        if (luckyBonusMgr.userNumberOfFreeSpin === 0){
+            return baseGold * gToGoldFactor * totalBonusFactor * this.betG;
         }
+        ///free spin
         else {
-            return LuckyBonusManager.getInstance().rollResultConfig[0].gold * (1 + (LuckyBonusManager.getInstance().streakBonus[LuckyBonusManager.getInstance().userCurrentStreak] + LuckyBonusManager.getInstance().vipBonus[LuckyBonusManager.getInstance().userVipLevel]) / 100);
+            return baseGold * totalBonusFactor;
         }
     },
 
     showTotalGold: function(){
-        //each loop is 0.02s, result in 1-second animation of updating gold value
+        ///each loop is 0.02s, result in 1-second animation of updating gold value
         var numberOfUpdateLoops = 50;
         this.currentGold += this.baseGold * this.lastRollBetG / numberOfUpdateLoops;
         this.getControl("totalGold", this.slotMachine).setString(this.formatTotalGoldValue(this.currentGold) + "$");
@@ -1270,145 +1358,3 @@ LuckyBonusScene.ROLL_FREE = 0;
 LuckyBonusScene.ROLL_G = 1;
 LuckyBonusScene.FREE_ROLL_CHARGE_CONSUME = 1;
 
-var LuckyBonusButton = cc.Node.extend({
-    ctor: function(){
-        this._super();
-
-        this.bg = ccui.ImageView("Lobby/GUILuckyBonus/iconLobby/slotMachine.png");
-        this.addChild(this.bg);
-        this.reels = new ccui.ImageView("Lobby/GUILuckyBonus/iconLobby/reels.png");
-        this.reels.setPosition(0.5, 10);
-        this.addChild(this.reels);
-        this.lever = new cc.Sprite("Lobby/GUILuckyBonus/iconLobby/lever_1.png");
-        this.lever.setPosition(-25, 10);
-        this.addChild(this.lever, -1);
-        this.hot = new ccui.ImageView("Lobby/GUILuckyBonus/iconLobby/hot.png");
-        this.hot.setPosition(17, 25);
-        this.addChild(this.hot, 1);
-
-        for (var i = 0; i < LuckyBonusButton.NUMBER_OF_REELS; i++){
-            var reel = new ccui.Layout();
-            reel.setAnchorPoint(0.5, 0.5);
-            reel.setContentSize(LuckyBonusButton.REEL_SIZE);
-            reel.setPosition(LuckyBonusButton.REEL_SIZE.width/2 + 10 * i, 1 + LuckyBonusButton.REEL_SIZE.height/2);
-            reel.setClippingEnabled(true);
-            this.reels.addChild(reel, 0, i);
-
-            var slot = new ccui.ImageView("Lobby/GUILuckyBonus/iconLobby/slot.png");
-            slot.setPosition(LuckyBonusButton.REEL_POS.x, LuckyBonusButton.REEL_POS.y);
-            reel.addChild(slot, 0, 0);
-
-            slot = new ccui.ImageView("Lobby/GUILuckyBonus/iconLobby/slot.png");
-            slot.setPosition(LuckyBonusButton.REEL_POS.x, LuckyBonusButton.REEL_POS.y + LuckyBonusButton.REEL_SIZE.height);
-            reel.addChild(slot, 0, 1);
-        }
-
-        this.btn = new ccui.Button();
-        this.btn.ignoreContentAdaptWithSize(false);
-        this.btn.setContentSize(this.bg.getContentSize());
-        this.btn.setAnchorPoint(0.5, 0.5);
-        this.addChild(this.btn);
-        this.btn.addClickEventListener(function(){
-            LuckyBonusManager.getInstance().enterLuckyBonusScene = true;
-            LuckyBonusManager.getInstance().userClickedLuckyBonusIcon = true;
-            LuckyBonusManager.getInstance().sendGetUserInfo(1);
-        });
-    },
-
-    onEnter: function(){
-        this._super();
-
-        for (var i = 0; i < LuckyBonusButton.NUMBER_OF_REELS; i++){
-            var reel = this.reels.getChildByTag(i);
-            var slot0 = reel.getChildByTag(0);
-            slot0.setPositionY(LuckyBonusButton.REEL_POS.y);
-            slot0.stopAllActions();
-            slot0.runAction(cc.sequence(
-                cc.delayTime(1.1),
-                cc.sequence(
-                    cc.moveBy(0.4, 0, -LuckyBonusButton.REEL_SIZE.height).easing(cc.easeSineIn()),
-                    cc.callFunc(function(){
-                        this.setPositionY(LuckyBonusButton.REEL_POS.y + LuckyBonusButton.REEL_SIZE.height);
-                    }.bind(slot0)),
-                    cc.moveBy(0.05, 0, -LuckyBonusButton.REEL_SIZE.height).easing(cc.easeSineIn())
-                ),
-                cc.sequence(
-                    cc.moveBy(0.025, 0, -LuckyBonusButton.REEL_SIZE.height),
-                    cc.callFunc(function(){
-                        this.setPositionY(LuckyBonusButton.REEL_POS.y + LuckyBonusButton.REEL_SIZE.height);
-                    }.bind(slot0)),
-                    cc.moveBy(0.025, 0, -LuckyBonusButton.REEL_SIZE.height)
-                ).repeat(28 + i * 10),
-                cc.sequence(
-                    cc.moveBy(0.05, 0, -LuckyBonusButton.REEL_SIZE.height).easing(cc.easeSineOut()),
-                    cc.callFunc(function(){
-                        this.setPositionY(LuckyBonusButton.REEL_POS.y + LuckyBonusButton.REEL_SIZE.height);
-                    }.bind(slot0)),
-                    cc.moveBy(0.4, 0, -LuckyBonusButton.REEL_SIZE.height).easing(cc.easeSineOut()).easing(cc.easeBackOut())
-                ),
-                cc.delayTime(3.4 + 10 * (LuckyBonusButton.NUMBER_OF_REELS - i - 1) * 0.05)
-            ).repeatForever());
-
-            var slot1 = reel.getChildByTag(1);
-            slot1.setPositionY(LuckyBonusButton.REEL_POS.y + LuckyBonusButton.REEL_SIZE.height);
-            slot1.runAction(cc.sequence(
-                cc.delayTime(1.1),
-                cc.sequence(
-                    cc.moveBy(0.4, 0, -LuckyBonusButton.REEL_SIZE.height).easing(cc.easeSineIn()),
-                    cc.moveBy(0.05, 0, -LuckyBonusButton.REEL_SIZE.height).easing(cc.easeSineIn()),
-                    cc.callFunc(function(){
-                        this.setPositionY(LuckyBonusButton.REEL_POS.y + LuckyBonusButton.REEL_SIZE.height);
-                    }.bind(slot1))
-                ),
-                cc.sequence(
-                    cc.moveBy(0.05, 0, -2 * LuckyBonusButton.REEL_SIZE.height),
-                    cc.callFunc(function(){
-                        this.setPositionY(LuckyBonusButton.REEL_POS.y + LuckyBonusButton.REEL_SIZE.height);
-                    }.bind(slot1))
-                ).repeat(28 + i * 10),
-                cc.sequence(
-                    cc.moveBy(0.05, 0, -LuckyBonusButton.REEL_SIZE.height).easing(cc.easeSineOut()),
-                    cc.moveBy(0.4, 0, -LuckyBonusButton.REEL_SIZE.height).easing(cc.easeSineOut()).easing(cc.easeBackOut()),
-                    cc.callFunc(function(){
-                        this.setPositionY(LuckyBonusButton.REEL_POS.y + LuckyBonusButton.REEL_SIZE.height);
-                    }.bind(slot1))
-                ),
-                cc.delayTime(3.4 + 10 * (LuckyBonusButton.NUMBER_OF_REELS - i - 1) * 0.05)
-            ).repeatForever());
-        }
-
-        var frames = [];
-        for (var i = 0; i < 3; i++){
-            var frame = new cc.SpriteFrame("Lobby/GUILuckyBonus/iconLobby/lever_" + (i+1).toString() + ".png", cc.rect(0, 0, 17, 33));
-            frames.push(frame);
-        }
-        var anim = new cc.Animation(frames, 0.05);
-
-        this.lever.setTexture("Lobby/GUILuckyBonus/iconLobby/lever_1.png");
-        this.lever.runAction(cc.sequence(
-            cc.delayTime(1),
-            cc.animate(anim).easing(cc.easeSineOut()),
-            cc.delayTime(0.2),
-            cc.animate(anim).reverse().easing(cc.easeSineIn()),
-            cc.delayTime(6.3)
-        ).repeatForever());
-
-        this.showNotify(false);
-    },
-
-    showNotify: function(show){
-        this.hot.setVisible(show);
-        this.hot.stopAllActions();
-        if (show){
-            this.hot.runAction(cc.sequence(
-                cc.show(),
-                cc.delayTime(0.5),
-                cc.hide(),
-                cc.delayTime(1)
-            ).repeatForever());
-        }
-    }
-});
-LuckyBonusButton.NUMBER_OF_REELS = 3;
-LuckyBonusButton.REEL_SIZE = cc.size(9, 17);
-LuckyBonusButton.REEL_POS = cc.p(5, 8);

@@ -261,36 +261,6 @@ CmdSendHandshake = CmdSendCommon.extend({
     }
 });
 
-CmdSendLogin = CmdSendCommon.extend({
-    ctor: function () {
-        this._super();
-        this.initData(100);
-        this.setControllerId(1);
-        this.setCmdId(CMD.CMD_LOGIN);
-
-    },
-    putData: function (sessionkey) {
-        //pack
-        this.packHeader();
-
-        var session = CookieUtility.getCookie(CookieUtility.KEY_SESSION_KEY);
-        if (session !== "") {
-            sessionkey = gameMgr.getSessionKey();
-        }
-        cc.log("SESSION KEY " + sessionkey);
-        if (cc.sys.isNative || Config.ENABLE_DEV) {
-            this.putString(sessionkey);
-        } else {
-            this.putString(sessionkey, true);
-        }
-        this.putString(NativeBridge.getDeviceID());
-        if (session !== "") {
-            this.putInt(!cc.sys.isNative);
-        }
-        //update
-        this.updateSize();
-    }
-});
 
 CmdSendPingPong = CmdSendCommon.extend({
     ctor: function () {
@@ -305,42 +275,6 @@ CmdSendPingPong = CmdSendCommon.extend({
         //pack
         this.packHeader();
         //update
-        this.updateSize();
-    }
-});
-
-CmdSendMobile = CmdSendCommon.extend({
-    ctor: function () {
-        this._super();
-        this.initData(100);
-        this.setControllerId(1);
-        this.setCmdId(CMD.CMD_MOBILE);
-
-    },
-    putData: function (deviceModel, osVersion, mobile, deviceID, update, installDate) {
-        cc.log("SendMobile : " + deviceModel + "/" + osVersion + "/" + mobile + "/" + deviceID + "/" + update + "/" + installDate);
-        //pack
-        this.packHeader();
-        this.putString("" + deviceModel);
-        this.putString("" + osVersion);
-        this.putByte(mobile);
-        this.putString("" + deviceID);
-
-        this.putString(gamedata.appVersion);
-        this.putString("aa");
-        this.putString("aa");
-        this.putInt(Constant.APP_FOOTBALL);
-
-        this.putByte(update);
-        this.putString(installDate);
-
-        if (gamedata.networkOperator != "") {
-            this.putShort(1);
-            this.putString(gamedata.networkOperator);
-        } else {
-            this.putShort(0);
-        }
-
         this.updateSize();
     }
 });
@@ -397,38 +331,6 @@ CmdSendGetUserInfo = CmdSendCommon.extend({
     }
 });
 
-CmdSendSelectChanel = CmdSendCommon.extend({
-    ctor: function () {
-        this._super();
-        this.initData(100);
-        this.setControllerId(1);
-        this.setCmdId(CMD.CMD_SELECT_CHANEL);
-
-    },
-    putData: function (chanelID) {
-        //pack
-        this.packHeader();
-        this.putByte(chanelID);
-        //update
-        this.updateSize();
-    }
-});
-
-CmdSendRefreshTable = CmdSendCommon.extend({
-    ctor: function () {
-        this._super();
-        this.initData(100);
-        this.setControllerId(1);
-        this.setCmdId(CMD.CMD_REFRESH_TABLE);
-        this.putData();
-    },
-    putData: function () {
-        //pack
-        this.packHeader();
-        //update
-        this.updateSize();
-    }
-});
 
 CmdSendHold = CmdSendCommon.extend({
 
@@ -557,20 +459,6 @@ CmdSendGetInfoVip = CmdSendCommon.extend({
     }
 });
 
-CmdSendGetSupportBean = CmdSendCommon.extend({
-    ctor: function () {
-        this._super();
-        this.initData(100);
-        this.setControllerId(1);
-        this.setCmdId(CMD.SUPPORT_BEAN);
-        this.putData();
-    },
-
-    putData: function () {
-        this.packHeader();
-        this.updateSize();
-    }
-});
 
 CmdSendInputCard = CmdSendCommon.extend({
     ctor: function () {
@@ -666,135 +554,6 @@ CmdSendChatString = CmdSendCommon.extend({
     }
 });
 
-CmdSendPurchaseCard = CmdSendCommon.extend({
-    ctor: function () {
-        this._super();
-        this.initData(1000);
-        this.setControllerId(1);
-        this.setCmdId(CMD.CMD_PURCHASE_CARD);
-    },
-
-    putData: function (type, code, seri, isBuyGold, isForOffer) {
-        this.packHeader();
-        this.putInt(type);
-        this.putString(code);
-        this.putString(seri);
-        if (isBuyGold)
-            this.putByte(isBuyGold);
-        else
-            this.putByte(0);
-        if (!isForOffer)
-            isForOffer = 0;
-        this.putByte(isForOffer);
-        cc.log("IS FOR OFFER " + isForOffer);
-        this.updateSize();
-    }
-});
-
-CmdSendPurchaseSMS = CmdSendCommon.extend({
-    ctor: function () {
-        this._super();
-        this.initData(1000);
-        this.setControllerId(1);
-        this.setCmdId(CMD.CMD_PURCHASE_SMS);
-    },
-
-    putData: function (operator, amount, event, isForOffer) {
-        cc.log("++SMS Request : " + JSON.stringify(arguments));
-
-        this.packHeader();
-        this.putInt(operator);
-        this.putInt(amount);
-        this.putByte(event);
-        this.putByte(isForOffer);
-        this.updateSize();
-    }
-});
-
-CmdSendPurchaseIAPGoogle = CmdSendCommon.extend({
-    ctor: function () {
-        this._super();
-        this.initData(1000);
-        this.setControllerId(1);
-        this.setCmdId(CMD.CMD_PURCHASE_IAP_GOOGLE);
-    },
-
-    putData: function (data, signature, isOffer) {
-        this.packHeader();
-        this.putString(data);
-        this.putString(signature);
-        this.putByte(isOffer);
-        cc.log("SEND OFFER *** " + isOffer);
-        this.updateSize();
-    }
-});
-
-CmdSendPurchaseIAPApple = CmdSendCommon.extend({
-    ctor: function () {
-        this._super();
-        this.initData(1000);
-        this.setControllerId(1);
-        this.setCmdId(CMD.CMD_PURCHASE_IAP_APPLE);
-    },
-
-    putData: function (receiptData) {
-        this.packHeader();
-        this.putString(receiptData);
-        this.updateSize();
-    }
-});
-
-CmdSendRequestEventShop = CmdSendCommon.extend({
-    ctor: function () {
-        this._super();
-        this.initData(1000);
-        this.setControllerId(1);
-        this.setCmdId(CMD.CMD_UPDATE_BUYGOLD);
-        this.putData();
-    },
-
-    putData: function () {
-        this.packHeader();
-        this.updateSize();
-    }
-});
-
-CmdSendPurchaseValidate = CmdSendCommon.extend({
-    ctor: function () {
-        this._super();
-        this.initData(1000);
-        this.setControllerId(1);
-        this.setCmdId(CMD.CMD_PURCHASE_IAP_VALIDATE);
-    },
-
-    putData: function (packId) {
-        this.packHeader();
-        this.putInt(packId);
-        this.updateSize();
-    }
-});
-
-CmdSendPurchaseIAPGoogleMultiPortal = CmdSendCommon.extend({
-    ctor: function () {
-        this._super();
-        this.initData(1000);
-        this.setControllerId(1);
-        this.setCmdId(CMD.CMD_PURCHASE_IAP_GOOGLE_MULTI_PORTAL);
-    },
-
-    putData: function (data, signature, packageName, isOffer) {
-        this.packHeader();
-        this.putString(data);
-        cc.log("SEND PURCHAASE PORTAL " + packageName);
-        this.putString(signature);
-        this.putString(packageName);
-        if (!isOffer)
-            isOffer = 0;
-        cc.log("IS OFFER **** " + isOffer);
-        this.putByte(isOffer);
-        this.updateSize();
-    }
-});
 
 // CHAT
 CmdSendChatNew = CmdSendCommon.extend({
@@ -861,104 +620,7 @@ CmdSendUpdateStatusFriend = CmdSendCommon.extend({
 });
 
 // ROOM
-CmdSendQuickPlay = CmdSendCommon.extend({
-    ctor: function () {
-        this._super();
-        this.initData(100);
-        this.setControllerId(1);
-        this.setCmdId(CMD.CMD_QUICK_PLAY);
-        this.putData();
-    },
-    putData: function () {
-        //pack
-        this.packHeader();
-        this.putByte(-1);
-        //update
-        this.updateSize();
-    }
-});
 
-CmdSendQuickPlayChannel = CmdSendCommon.extend({
-    ctor: function () {
-        this._super();
-        this.initData(100);
-        this.setControllerId(1);
-        this.setCmdId(CMD.CMD_QUICK_PLAY);
-        this.putData();
-    },
-    putData: function () {
-        //pack
-        this.packHeader();
-        this.putByte(gamedata.selectedChanel);
-        cc.log("CmdSendQuickPlay: ", gamedata.selectedChanel);
-        //update
-        this.updateSize();
-    }
-});
-
-CmdSendQuickPlayCustom = CmdSendCommon.extend({
-    ctor: function () {
-        this._super();
-        this.initData(100);
-        this.setControllerId(1);
-        this.setCmdId(CMD.CMD_QUICK_PLAY_CUSTOM);
-    },
-    putData: function (channelId, bet) {
-        //pack
-        this.packHeader();
-        this.putByte(channelId);
-        this.putByte(bet);
-        cc.log("CmdSendQuickPlayCustom: ", JSON.stringify(arguments));
-
-        //update
-        this.updateSize();
-    }
-});
-
-CmdSendBuyGZalo = CmdSendCommon.extend({
-    ctor: function () {
-        this._super();
-        this.initData(100);
-        this.setControllerId(1);
-        this.setCmdId(CMD.CMD_BUY_G_ZALO);
-
-    },
-    putData: function (number, isBuyGold, isForOffer) {
-        //pack
-        cc.log("isBuy Gold " + isBuyGold);
-        this.packHeader();
-        this.putInt(number);
-        this.putByte(isBuyGold);
-        this.putByte(isForOffer);
-        cc.log("IS FOR OFFER " + isForOffer);
-        //update
-        this.updateSize();
-    }
-});
-
-CmdSendBuyZaloPayV2 = CmdSendCommon.extend({
-    ctor: function () {
-        this._super();
-        this.initData(100);
-        this.setControllerId(1);
-        this.setCmdId(CMD.CMD_BUY_ZALO_V2);
-
-    },
-    putData: function (number, isBuyGold, isForOffer, offerId, packageName) {
-        //pack
-        cc.log("isBuy Gold " + isBuyGold + " isForOffer " + isForOffer + " offerID " + offerId);
-        this.packHeader();
-        this.putInt(number);
-        this.putByte(isBuyGold);
-        this.putByte(isForOffer);
-        if (offerId == undefined || offerId == null) this.putInt(-1);
-        else this.putInt(offerId);
-        if (packageName == undefined || packageName == null) this.putString("");
-        else this.putString(packageName);
-        //update
-        this.updateSize();
-    }
-});
 
 // PACKET NEW FLOW
 CmdSendGameInfo = CmdSendCommon.extend({
@@ -1020,26 +682,6 @@ CmdSendRequestMission = CmdSendCommon.extend({
 });
 
 
-CmdSendBuyGATM = CmdSendCommon.extend({
-    ctor: function () {
-        this._super();
-        this.initData(100);
-        this.setControllerId(1);
-        this.setCmdId(CMD.CMD_SEND_BUY_G_ATM);
-
-    },
-    putData: function (number, bankCode, isBuyGold, isForOffer) {
-        //pack
-        cc.log(" SEND BANK " + number + " " + bankCode + " " + isBuyGold + " IS OFFER " + isForOffer);
-        this.packHeader();
-        this.putInt(number);
-        this.putString(bankCode);
-        this.putByte(isBuyGold);
-        this.putByte(isForOffer);
-        //update
-        this.updateSize();
-    }
-});
 
 CmdSendGetConfigShop = CmdSendCommon.extend({
     ctor: function () {
@@ -1062,39 +704,6 @@ CmdSendGetConfigShop = CmdSendCommon.extend({
 CmdSendGetConfigShop.GOLD = 1;
 CmdSendGetConfigShop.G = 2;
 CmdSendGetConfigShop.ALL = 3;
-
-CmdSendMapZalo = CmdSendCommon.extend({
-    ctor: function () {
-        this._super();
-        this.initData(100);
-        this.setControllerId(1);
-        this.setCmdId(CMD.CMD_MAP_ZALO);
-
-    },
-    putData: function (sessionKey) {
-        //pack
-        this.packHeader();
-        this.putString(sessionKey);
-        //update
-        this.updateSize();
-    }
-});
-
-CmdSendResetMapZalo = CmdSendCommon.extend({
-    ctor: function () {
-        this._super();
-        this.initData(100);
-        this.setControllerId(1);
-        this.setCmdId(CMD.CMD_CHEAT_ZALO);
-
-    },
-    putData: function () {
-        //pack
-        this.packHeader();
-        //update
-        this.updateSize();
-    }
-});
 
 var CmdSendClientInfo = CmdSendCommon.extend({
     ctor: function () {

@@ -1234,7 +1234,7 @@ var ChatEmoGUI = BaseLayer.extend({
         this.emoData = [];
         this.selectedTab = -1;
 
-        this.initWithBinaryFile("Board/ChatEmoGUI.json");
+        this.initWithBinaryFile("Lobby/ChatEmoGUI.json");
     },
 
     /* region Base Flows */
@@ -1250,8 +1250,7 @@ var ChatEmoGUI = BaseLayer.extend({
                 case ccui.ListView.ON_SELECTED_ITEM_END:
                     this.selectTab(lv.getCurSelectedIndex());
             }
-        }, this);
-        this.customizeButton("btnChat", ChatEmoGUI.BTN_CHAT).setPressedActionEnabled(false);
+        }.bind(this), this);
 
         this.bgLock = this.getControl("bgLock", this.bg);
         this.lockText = this.getControl("text", this.bgLock);
@@ -1276,7 +1275,7 @@ var ChatEmoGUI = BaseLayer.extend({
         this.tbEmo.setAnchorPoint(0, 0);
         this.tbEmo.setPosition(this.tbPos);
         this.tbEmo.setDirection(cc.SCROLLVIEW_DIRECTION_VERTICAL);
-        this.tbEmo.setVerticalFillOrder(0);
+        this.tbEmo.setVerticalFillOrder(cc.TABLEVIEW_FILL_TOPDOWN);
         this.tbEmo.setDelegate(this);
         this.tbEmo.setCascadeOpacityEnabled(true);
         this.tbEmo.getContainer().setCascadeOpacityEnabled(true);
@@ -1289,74 +1288,69 @@ var ChatEmoGUI = BaseLayer.extend({
     onEnterFinish: function() {
         this.readyToUse = false;
         this.emoData = [];
-        var emoConfig = StorageManager.getInstance().itemConfig[StorageManager.TYPE_EMOTICON];
-        if (!emoConfig || !StorageManager.getInstance().userItemInfo[StorageManager.TYPE_EMOTICON]) return;
-
-        for (var emoId in emoConfig){
-            var emoItemConfig = emoConfig[emoId];
-            if (!emoItemConfig.enable) continue;
-            var emo = {
-                id: emoId,
-                vip: emoItemConfig.vip,
-                level: emoItemConfig.level,
-                listItemId: emoItemConfig.listItemId.slice(),
-                subTypes: []
-            };
-            if (emoItemConfig.groups){
-                var groups = emoItemConfig.groups;
-                emo.groups = [];
-                for (var i in groups){
-                    emo.groups.push({
-                        listItemId: groups[i]["listItemId"],
-                        vip: groups[i]["vip"],
-                        level: groups[i]["level"]
-                    });
-                }
-                emo.listItemId.sort(function(a, b){
-                    var idxA = 0, idxB = 0;
-                    for (var i = 0; i < this.length; i++){
-                        if (this[i].listItemId.indexOf(Number(a)) != -1) idxA = i;
-                        if (this[i].listItemId.indexOf(Number(b)) != -1) idxB = i;
+        if (StorageManager.getInstance().itemConfig) {
+            var emoConfig = StorageManager.getInstance().itemConfig[StorageManager.TYPE_EMOTICON];
+            if (emoConfig && StorageManager.getInstance().userItemInfo[StorageManager.TYPE_EMOTICON]) {
+                for (var emoId in emoConfig) {
+                    var emoItemConfig = emoConfig[emoId];
+                    if (!emoItemConfig.enable) continue;
+                    var emo = {
+                        id: emoId,
+                        vip: emoItemConfig.vip,
+                        level: emoItemConfig.level,
+                        listItemId: emoItemConfig.listItemId.slice(),
+                        subTypes: []
+                    };
+                    if (emoItemConfig.groups) {
+                        var groups = emoItemConfig.groups;
+                        emo.groups = [];
+                        for (var i in groups) {
+                            emo.groups.push({
+                                listItemId: groups[i]["listItemId"],
+                                vip: groups[i]["vip"],
+                                level: groups[i]["level"]
+                            });
+                        }
+                        emo.listItemId.sort(function (a, b) {
+                            var idxA = 0, idxB = 0;
+                            for (var i = 0; i < this.length; i++) {
+                                if (this[i].listItemId.indexOf(Number(a)) != -1) idxA = i;
+                                if (this[i].listItemId.indexOf(Number(b)) != -1) idxB = i;
+                            }
+                            return idxA - idxB;
+                        }.bind(emo.groups))
                     }
-                    return idxA - idxB;
-                }.bind(emo.groups))
+                    for (var subType in emoItemConfig.subTypes) {
+                        emo.subTypes.push(Number(subType));
+                    }
+                    this.emoData.push(emo);
+                }
             }
-            for (var subType in emoItemConfig.subTypes){
-                emo.subTypes.push(Number(subType));
-            }
-            this.emoData.push(emo);
         }
 
         this.btnList.removeAllChildren();
         for (var i in this.emoData){
             var emoId = this.emoData[i].id;
 
-            var btnActive = new cc.Sprite("Board/Interact/emo_panel/tabActive" + emoId + ".png");
+            var btnActive = new cc.Sprite("Storage/emo_panel/tabActive" + emoId + ".png");
+            var btnSize = btnActive.getContentSize();
             btnActive.setAnchorPoint(0, 0);
-
             var timeText = new ccui.Text("", "fonts/tahomabd.ttf", 12);
-            timeText.setAnchorPoint(0, 0);
-            timeText.setPosition(7, 10);
-            timeText.setTextHorizontalAlignment(cc.TEXT_ALIGNMENT_LEFT);
+            timeText.setAnchorPoint(0.5, 0.5);
+            timeText.setPosition(38, 9);
+            timeText.setTextHorizontalAlignment(cc.TEXT_ALIGNMENT_CENTER);
             timeText.ignoreContentAdaptWithSize(true);
-            timeText.setFontSize(15);
             timeText.enableOutline(cc.color("#be4929"), 1);
 
-            var btnInactive = new cc.Sprite("Board/Interact/emo_panel/tabInactive" + emoId + ".png");
-            btnInactive.setAnchorPoint(0, 0);
-            //btnInactive.setPosition(this.getBtnTabInactivePos(emoId));
-
-            var btnSize = btnActive.getContentSize();
-            var icon = new cc.Sprite("Board/Interact/emo_panel/icon" + emoId + ".png");
-            icon.setPosition(btnSize.width / 2, btnSize.height / 2);
+            var btnInactive = new cc.Sprite("Storage/emo_panel/tabInactive" + emoId + ".png");
+            btnInactive.setAnchorPoint(0.5, 0.5);
+            btnInactive.setPosition(this.getBtnTabInactivePos(emoId));
 
             var panel = new ccui.Layout();
-            cc.log("BTN EMOTE SIZE", JSON.stringify(btnSize));
             panel.setContentSize(btnSize);
             panel.addChild(btnInactive, 0, "inactive");
             panel.addChild(btnActive, 0, "active");
             panel.addChild(timeText, 0, "time");
-            panel.addChild(icon);
             panel.setTouchEnabled(true);
             panel.setSwallowTouches(false);
 
@@ -1365,20 +1359,15 @@ var ChatEmoGUI = BaseLayer.extend({
         if (this.emoData.length > 0)
             this.selectTab(this.selectedTab);
         else{
-            //close
-            //notify
+            this.selectedTab = -1;
         }
     },
 
     onButtonRelease: function(button, id) {
-        cc.log("ON BUTTON RELEASE ChatEmoGUI", id, this.readyToUse);
         if (!this.readyToUse) return;
         switch (id) {
             case ChatEmoGUI.BTN_CLOSE:
                 this.hide();
-                break;
-            case ChatEmoGUI.BTN_CHAT:
-                this.setVisible(false);
                 break;
         }
     },
@@ -1413,12 +1402,6 @@ var ChatEmoGUI = BaseLayer.extend({
 
     hide: function() {
         this.readyToUse = true;
-
-        if (this.chatPanel) {
-            this.chatPanel.onTouchBoard();
-            return;
-        }
-
         this.bg.stopAllActions();
         this.bg.runAction(cc.sequence(
             cc.spawn(
@@ -1532,11 +1515,11 @@ var ChatEmoGUI = BaseLayer.extend({
                         m -= h * 60;
                         var d = Math.floor(h / 24);
                         h -= d * 24;
-                        var timeStr = ""
+                        var timeStr = "";
                         if (d > 0)
                             timeStr = d + "d" + ":" + (h < 10 ? "0":"") + h + "h";
                         else
-                            timeStr = (h < 10 ? "0":"") + h + "h" + ":" + (m < 10 ? "0":"") + m + "p"
+                            timeStr = (h < 10 ? "0":"") + h + "h" + ":" + (m < 10 ? "0":"") + m + "p";
                         btn.getChildByName("time").setString(timeStr);
                     }
                 }
@@ -1548,15 +1531,14 @@ var ChatEmoGUI = BaseLayer.extend({
     setLock: function(isLock, mess){
         this.bgLock.setVisible(isLock);
         this.pItem.setVisible(isLock);
-        this.tbEmo.setColor( cc.color(100, 100, 100));
+        this.tbEmo.setColor(cc.color(100, 100, 100));
         this.isLock = isLock;
         if (isLock)
             this.lockText.setString(mess);
     },
 
     useEmoticon: function(emoIdx){
-        cc.log("USING EMOTICON");
-        if (!this.readyToUse) return;
+        if (!this.readyToUse || !this.emoData[this.selectedTab]) return;
         var id = this.emoData[this.selectedTab].id;
         var emoId = this.emoData[this.selectedTab].listItemId[emoIdx];
         StorageManager.getInstance().sendUseEmoticon(id, emoId);
@@ -1582,21 +1564,11 @@ var ChatEmoGUI = BaseLayer.extend({
                 return 0.1;
         }
         return 1;
-    },
-
-    getAnimationType: function(emoId) {
-        switch(Number(emoId)){
-            case 0:
-                return ChatEmoGUI.TYPE_DRAGONBONE;
-            case 1:
-                return ChatEmoGUI.TYPE_SPINE;
-        }
     }
 });
 
 ChatEmoGUI.className = "ChatEmoGUI";
 ChatEmoGUI.BTN_CLOSE = 0;
-ChatEmoGUI.BTN_CHAT = 1;
 ChatEmoGUI.GUI_TAG = 820;
 
 ChatEmoGUI.TYPE_DRAGONBONE = 0;

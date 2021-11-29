@@ -32,31 +32,9 @@ var ChooseRoomScene = BaseLayer.extend({
 
     onEnterFinish: function () {
         this.onUpdateGUI();
-
-        if (gamedata.selectedChanel == -1) {
-            var pk = new CmdSendSelectChanel();
-            pk.putData(gamedata.gameConfig.getCurrentChanel() + 0);
-            GameClient.getInstance().sendPacket(pk);
-            pk.clean();
-        }
-        else {
-            var nChannel = ChanelConfig.instance().getCurChanel();
-            if (nChannel < 0) nChannel = 0;
-            if (gamedata.selectedChanel != nChannel) {
-                var pk = new CmdSendSelectChanel();
-                pk.putData(nChannel);
-                GameClient.getInstance().sendPacket(pk);
-                pk.clean();
-            } else {
-                var pk = new CmdSendRefreshTable();
-                GameClient.getInstance().sendPacket(pk);
-                pk.clean();
-            }
-        }
-
-        CheckLogic.checkCaptureInBoard();
-
-        gamedata.checkSupportBean();
+        channelMgr.onEnterChannel();
+        supportMgr.checkCapture();
+        supportMgr.checkSupportBean();
 
         if (Config.ENABLE_JACKPOT) {
             this.updateJackpotGUI("init");
@@ -87,6 +65,7 @@ var ChooseRoomScene = BaseLayer.extend({
         return eff;
     },
     updateJackpotGUI: function (status) {
+        return;
         if (!Config.ENABLE_JACKPOT || gamedata.selectedChanel == -1) {
             return;
         }
@@ -274,9 +253,9 @@ var ChooseRoomScene = BaseLayer.extend({
 
     onUpdateGUI: function (data) {
         if (this._uiAvatar && this._uiName && this._uiBean) {
-            this._uiAvatar.asyncExecuteWithUrl(GameData.getInstance().userData.zName, GameData.getInstance().userData.avatar);
-            this.setLabelText(GameData.getInstance().userData.displayName, this._uiName);
-            this._uiBean.setString(StringUtility.standartNumber(GameData.getInstance().userData.bean));
+            this._uiAvatar.asyncExecuteWithUrl(userMgr.getUserName(), userMgr.getAvatar());
+            this.setLabelText(userMgr.getDisplayName(), this._uiName);
+            this._uiBean.setString(StringUtility.standartNumber(userMgr.getGold()));
         }
 
         if (this.avatarFrame){
@@ -285,9 +264,9 @@ var ChooseRoomScene = BaseLayer.extend({
         }
 
         if (!data) {
-            if (gamedata.selectedChanel != -1) {
-                this.switchTab(gamedata.selectedChanel);
-                this._listRoom = gamedata.roomlist;
+            if (channelMgr.selectedChanel != -1) {
+                this.switchTab(channelMgr.selectedChanel);
+                this._listRoom = channelMgr.roomList;
 
                 if (this.sortGroup != 0 && this.sortType != 0) {
                     this.autoSortTable();
@@ -305,9 +284,9 @@ var ChooseRoomScene = BaseLayer.extend({
         else {
             this.lbNoRoom.setVisible(false);
             if (data.getError() == 0) {
-                if (gamedata.selectedChanel != -1) {
-                    this.switchTab(gamedata.selectedChanel);
-                    this._listRoom = gamedata.roomlist;
+                if (channelMgr.selectedChanel != -1) {
+                    this.switchTab(channelMgr.selectedChanel);
+                    this._listRoom = channelMgr.roomList;
                     if (this.sortGroup != 0 && this.sortType != 0) {
                         this.autoSortTable();
                     }
@@ -331,36 +310,9 @@ var ChooseRoomScene = BaseLayer.extend({
                 this.onBack();
                 break;
             }
-            case ChooseRoomScene.BTN_X:
-            {
-                this.tfSearch.setString("");
-                break;
-            }
-            case ChooseRoomScene.BTN_SEARCH:
-            {
-                if (this.tfSearch.getString() == "")
-                    return;
-                var room = parseInt(this.tfSearch.getString());
-                if (isNaN(room)) {
-                    var mess = localized("SEARCH_TABLE_NOT_FOUND");
-                    Toast.makeToast(Toast.LONG, mess);
-                    return;
-                }
-                var pk = new CmdSendSearchTable();
-                pk.putData(room);
-
-                GameClient.getInstance().sendPacket(pk);
-                pk.clean();
-                sceneMgr.addLoading("", false);
-
-                break;
-            }
             case ChooseRoomScene.BTN_REFRESH:
             {
-                var pk = new CmdSendRefreshTable();
-                GameClient.getInstance().sendPacket(pk);
-                pk.clean();
-
+                channelMgr.sendRefreshTable();
                 sceneMgr.addLoading("", false);
                 break;
             }
@@ -370,11 +322,8 @@ var ChooseRoomScene = BaseLayer.extend({
             case ChooseRoomScene.BTN_TRIEUPHU:
             case ChooseRoomScene.BTN_TYPHU:
             {
-                if (gamedata.selectedChanel != (id - 6)) {
-                    var pk = new CmdSendSelectChanel();
-                    pk.putData(id - 6);
-                    GameClient.getInstance().sendPacket(pk);
-                    pk.clean();
+                if (channelMgr.selectedChanel != (id - 6)) {
+                    channelMgr.sendSelectChannel(id - 6);
                     this.switchTab(id - 6);
                     sceneMgr.addLoading("").timeout(15);
                 }
@@ -387,74 +336,55 @@ var ChooseRoomScene = BaseLayer.extend({
             }
             case ChooseRoomScene.BTN_CHOINGAY:
             {
-                if (CheckLogic.checkQuickPlay()) {
-                    var pk = new CmdSendQuickPlayChannel();
-                    GameClient.getInstance().sendPacket(pk);
-                    pk.clean();
-
+                if (channelMgr.checkQuickPlay()) {
+                    channelMgr.sendQuickPlayChannel();
                     sceneMgr.addLoading(LocalizedString.to("WAITING")).timeout(15);
                 }
                 else {
-                    if (gamedata.timeSupport > 0) {
-                        var pk = new CmdSendGetSupportBean();
-                        GameClient.getInstance().sendPacket(pk);
-                        gamedata.showSupportTime = true;
-                        pk.clean();
+                    if (paymentMgr.checkEnablePayment()) {
+                        var msg = LocalizedString.to("QUESTION_CHANGE_GOLD");
+                        sceneMgr.showChangeGoldDialog(msg, this, function (buttonId) {
+                            if (buttonId == Dialog.BTN_OK) {
+                                paymentMgr.openShop(this._id, true);
+                            }
+                        });
                     }
                     else {
-                        if (gamedata.checkEnablePayment()) {
-                            var msg = LocalizedString.to("QUESTION_CHANGE_GOLD");
-                            sceneMgr.showChangeGoldDialog(msg, this, function (buttonId) {
-                                if (buttonId == Dialog.BTN_OK) {
-                                    gamedata.openShop(this._id, true);
-                                }
-                            });
-                        }
-                        else {
-                            sceneMgr.showOKDialog(LocalizedString.to("NOT_ENOUGH_GOLD"));
-                        }
+                        sceneMgr.showOKDialog(LocalizedString.to("NOT_ENOUGH_GOLD"));
                     }
                 }
                 break;
             }
             case ChooseRoomScene.BTN_TAOBAN:
             {
-                if (gamedata.timeSupport > 0) {
-                    var pk = new CmdSendGetSupportBean();
-                    GameClient.getInstance().sendPacket(pk);
-                    gamedata.showSupportTime = true;
-                    pk.clean();
-                }
-                else {
-                    if (CheckLogic.checkCreateRoomMinGold()) {
-                        if (gamedata.checkEnablePayment()) {
-                            var message = LocalizedString.to("PLAY_NOT_ENOUGHT_GOLD");
-                            message = StringUtility.replaceAll(message, "%gold", StringUtility.pointNumber(CheckLogic.getMinGoldCreateRoom()));
+                if (channelMgr.checkCreateRoomMinGold()) {
+                    if (paymentMgr.checkEnablePayment()) {
+                        var message = LocalizedString.to("PLAY_NOT_ENOUGHT_GOLD");
+                        message = StringUtility.replaceAll(message, "%gold", StringUtility.pointNumber(channelMgr.getMinGoldCreateRoom()));
 
-                            SceneMgr.getInstance().showChangeGoldDialog(message, this, function (btnID) {
-                                if (btnID == Dialog.BTN_OK) {
-                                    gamedata.openShop(this._id, true);
-                                }
-                            });
-                        }
-                        else {
-                            sceneMgr.showOKDialog(LocalizedString.to("NOT_ENOUGH_GOLD"));
-                        }
+                        SceneMgr.getInstance().showChangeGoldDialog(message, this, function (btnID) {
+                            if (btnID == Dialog.BTN_OK) {
+                                paymentMgr.openShop(this._id, true);
+                            }
+                        });
                     }
                     else {
-                        if (CheckLogic.checkCreateRoomMaxGold()) {
-                            if (!gamedata.gameConfig.checkDownLevel()) {
-                                var message = LocalizedString.to("PLAY_MUCH_GOLD");
-                                message = StringUtility.replaceAll(message, "%gold", StringUtility.pointNumber(CheckLogic.getMaxGoldCreateRoom()));
-                                SceneMgr.getInstance().showOKDialog(message);
-                            }
-                            else {
-                                sceneMgr.openGUI(CreateRoomGUI.className, ChooseRoomScene.CREATE_TABLE, ChooseRoomScene.CREATE_TABLE);
-                            }
+                        sceneMgr.showOKDialog(LocalizedString.to("NOT_ENOUGH_GOLD"));
+                    }
+                }
+                else {
+                    if (channelMgr.checkCreateRoomMaxGold()) {
+                        if (!channelMgr.checkDownLevel()) {
+                            var message = LocalizedString.to("PLAY_MUCH_GOLD");
+                            message = StringUtility.replaceAll(message, "%gold", StringUtility.pointNumber(CheckLogic.getMaxGoldCreateRoom()));
+                            SceneMgr.getInstance().showOKDialog(message);
                         }
                         else {
                             sceneMgr.openGUI(CreateRoomGUI.className, ChooseRoomScene.CREATE_TABLE, ChooseRoomScene.CREATE_TABLE);
                         }
+                    }
+                    else {
+                        sceneMgr.openGUI(CreateRoomGUI.className, ChooseRoomScene.CREATE_TABLE, ChooseRoomScene.CREATE_TABLE);
                     }
                 }
                 break;
@@ -659,13 +589,13 @@ var ChooseRoomScene = BaseLayer.extend({
         var idx = cell.getIdx();
         var roomInfo = this._listRoom[idx];
 
-        if (CheckLogic.checkCreateRoomMinGold()) {
+        if (channelMgr.checkCreateRoomMinGold()) {
             var message = LocalizedString.to("PLAY_NOT_ENOUGHT_GOLD_JOIN");
-            message = StringUtility.replaceAll(message, "%gold", StringUtility.pointNumber(CheckLogic.getMinGoldCreateRoom()));
-            if (gamedata.checkEnablePayment()) {
+            message = StringUtility.replaceAll(message, "%gold", StringUtility.pointNumber(channelMgr.getMinGoldCreateRoom()));
+            if (paymentMgr.checkEnablePayment()) {
                 SceneMgr.getInstance().showChangeGoldDialog(message, this, function (btnID) {
                     if (btnID == Dialog.BTN_OK) {
-                        gamedata.openShop(this._id, true);
+                        paymentMgr.openShop(this._id, true);
                     }
                 });
             }
@@ -675,26 +605,19 @@ var ChooseRoomScene = BaseLayer.extend({
             return;
         } else {
 
-            if (CheckLogic.checkCreateRoomMaxGold()) {
-                if (!gamedata.gameConfig.checkDownLevel()) {
+            if (channelMgr.checkCreateRoomMaxGold()) {
+                if (!channelMgr.checkDownLevel()) {
                     var message = LocalizedString.to("JOIN_MUCH_GOLD");
-                    message = StringUtility.replaceAll(message, "%gold", StringUtility.pointNumber(CheckLogic.getMaxGoldCreateRoom()));
+                    message = StringUtility.replaceAll(message, "%gold", StringUtility.pointNumber(channelMgr.getMaxGoldCreateRoom()));
                     SceneMgr.getInstance().showOKDialog(message);
                     return;
                 }
             }
 
-            if (CheckLogic.checkNotifyNotEnoughGold(roomInfo))
+            if (channelMgr.checkNotifyNotEnoughGold(roomInfo))
                 return;
         }
-
-        var pk = new CmdSendQuickPlayCustom();
-        cc.log("save channel: " + this.saveChannel);
-        var channel = (this.saveChannel) ? this.saveChannel : gamedata.selectedChanel;
-        pk.putData(channel, roomInfo.bet);
-        GameClient.getInstance().sendPacket(pk);
-        pk.clean();
-
+        this.sendQuickPlayCustom(roomInfo);
         sceneMgr.addLoading(LocalizedString.to("WAITING")).timeout(15);
     },
 
