@@ -571,8 +571,6 @@ var PaymentMgr = BaseMgr.extend({
 
     checkShowSystemBonus: function () {
         cc.log("CHECK SHOW SYSTEM BONUS ");
-        if (!gamedata.gameConfig)
-            return;
         var arrayBonus = this.getMaxShopBonus();
         if (arrayBonus.length > 0) {
             this.showSystemBonus();
@@ -820,6 +818,105 @@ var PaymentMgr = BaseMgr.extend({
             }
         }
         return max;
+    },
+
+    getIsFirstGoldG: function (value) {
+        if (cc.isUndefined(this.arrayValueG))
+            return 0;
+        for (var i = 0; i < this.arrayValueG.length; i++) {
+            if (this.arrayValueG[i] == value)
+                return this.arrayIsFirstG[i];
+        }
+        return 0;
+    },
+
+    getIsFirstGoldIAP: function (value) {
+        if (cc.isUndefined(this.arrayValueIAP))
+            return 0;
+        for (var i = 0; i < this.arrayValueIAP.length; i++) {
+            if (this.arrayValueIAP[i] == value)
+                return this.arrayIsFirstIAP[i];
+        }
+        return 0;
+    },
+
+    getIsFirstGoldSMSnew: function (paymentType, value) {
+        var arrayValueSMS = this.arrayValueSMSViettel;
+        var arrayIsFirstSMS = this.arrayIsFirstSMSViettel;
+        if (paymentType === Payment.GOLD_SMS_MOBI) {
+            arrayValueSMS = this.arrayValueSMSMobi;
+            arrayIsFirstSMS = this.arrayIsFirstSMSMobi;
+        } else if (paymentType === Payment.GOLD_SMS_VINA) {
+            arrayValueSMS = this.arrayValueSMSVina;
+            arrayIsFirstSMS = this.arrayIsFirstSMSVina;
+        }
+        if (cc.isUndefined(arrayValueSMS))
+            return 0;
+        for (var i = 0; i < arrayValueSMS.length; i++) {
+            if (arrayValueSMS[i] === value)
+                return arrayIsFirstSMS[i];
+        }
+        return 0;
+    },
+
+    getIsFirstGoldZing: function (value) {
+        if (cc.isUndefined(this.arrayValueZing))
+            return 0;
+        for (var i = 0; i < this.arrayValueZing.length; i++) {
+            if (this.arrayValueZing[i] == value)
+                return this.arrayIsFirstZing[i];
+        }
+        return 0;
+    },
+
+    getIsFirstGoldZalo: function (value) {
+        if (cc.isUndefined(this.arrayValueZalo))
+            return 0;
+        for (var i = 0; i < this.arrayValueZalo.length; i++) {
+            if (this.arrayValueZalo[i] == value)
+                return this.arrayIsFirstZalo[i];
+        }
+        return 0;
+    },
+
+    getIsFirstGoldATM: function (value) {
+        if (cc.isUndefined(this.arrayValueATM))
+            return 0;
+        for (var i = 0; i < this.arrayValueATM.length; i++) {
+            if (this.arrayValueATM[i] == value)
+                return this.arrayIsFirstATM[i];
+        }
+        return 0;
+    },
+
+    getShopGoldById: function (id) {
+        for (var i = 0; i < this.arrayShopGoldConfig.length; i++) {
+            if (this.arrayShopGoldConfig[i].id == id)
+                return this.arrayShopGoldConfig[i];
+        }
+    },
+
+    getShopGoldIndexById: function(id){
+        for (var i = 0; i < this.arrayShopGoldConfig.length; i++) {
+            if (this.arrayShopGoldConfig[i].id == id)
+                return i;
+        }
+        return 0;
+    },
+
+    getShopGoldByType: function (id) {
+        for (var i = 0; i < this.arrayShopGoldConfig.length; i++) {
+            if (this.arrayShopGoldConfig[i].type == id)
+                return this.arrayShopGoldConfig[i];
+        }
+    },
+
+
+    getShopGById: function (id) {
+        for (var i = 0; i < this.arrayShopGConfig.length; i++) {
+            if (this.arrayShopGConfig[i].id == id)
+                return this.arrayShopGConfig[i];
+        }
     },
 
     // khoi tao IAP

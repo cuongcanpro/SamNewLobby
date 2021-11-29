@@ -63,6 +63,16 @@ var SupportMgr = BaseMgr.extend({
         }
     },
 
+    checkShowSupportStartUp: function () {
+        if (this.giftIndex > 0) {
+            this.showSupportStartup();
+        } else {
+            if (this.checkSupportBean()) {
+                lobbyMgr.showEffectSuggestMoney();
+            }
+        }
+    },
+
     showSupportStartup: function () {
         if (popUpManager.canShow(PopUpManager.STARTUP)) {
             var sp = sceneMgr.openGUI(SupportBeanGUI.className, PopUpManager.STARTUP, PopUpManager.STARTUP, false);

@@ -3,7 +3,7 @@ var JNI = function () {};
 
 JNI.getRefer = function () {
     var refer = "";
-    if(gamedata.checkOldNativeVersion())
+    if(gameMgr.checkOldNativeVersion())
         refer = jsb.reflection.callStaticMethod("gsn/zingplay/utils/ZPJNI", "getRefer", "()Ljava/lang/String;");
     else
         refer = fr.platformWrapper.getRefer();
@@ -11,7 +11,7 @@ JNI.getRefer = function () {
 };
 
 JNI.openHotro = function (packagee,username) {
-    if(gamedata.checkOldNativeVersion())
+    if(gameMgr.checkOldNativeVersion())
         jsb.reflection.callStaticMethod("gsn/zingplay/utils/ZPJNI", "openApp", "(Ljava/lang/String;Ljava/lang/String;)V", packagee, username);
     else
         fr.platformWrapper.openCSApplication();
@@ -19,7 +19,7 @@ JNI.openHotro = function (packagee,username) {
 
 JNI.getDeviceID = function () {
     var id = "";
-    if(gamedata.checkOldNativeVersion()) {
+    if(gameMgr.checkOldNativeVersion()) {
         id = jsb.reflection.callStaticMethod("gsn/zingplay/utils/ZPJNI", "getIMEI", "()Ljava/lang/String;");
     }
     else {
@@ -30,7 +30,7 @@ JNI.getDeviceID = function () {
 
 JNI.getDeviceModel = function () {
     var id = "";
-    if(gamedata.checkOldNativeVersion()) {
+    if(gameMgr.checkOldNativeVersion()) {
         id = jsb.reflection.callStaticMethod("gsn/zingplay/utils/ZPJNI", "getPhoneModel", "()Ljava/lang/String;");
     }
     else {
@@ -41,7 +41,7 @@ JNI.getDeviceModel = function () {
 
 JNI.getOsVersion = function () {
     var id = "";
-    if(gamedata.checkOldNativeVersion()) {
+    if(gameMgr.checkOldNativeVersion()) {
         id = jsb.reflection.callStaticMethod("gsn/zingplay/utils/ZPJNI", "getOsVersion", "()Ljava/lang/String;");;
     }
     else {
@@ -52,7 +52,7 @@ JNI.getOsVersion = function () {
 
 JNI.getNetworkStatus = function () {
     var status = 0;
-    if(gamedata.checkOldNativeVersion()) {
+    if(gameMgr.checkOldNativeVersion()) {
         status = jsb.reflection.callStaticMethod("gsn/zingplay/utils/NetworkUtility", "checkNetworkAvaiable", "()I") == 1;
     }
     else {
@@ -62,7 +62,7 @@ JNI.getNetworkStatus = function () {
 };
 
 JNI.openWebView = function (url) {
-    if(gamedata.checkOldNativeVersion()) {
+    if(gameMgr.checkOldNativeVersion()) {
         jsb.reflection.callStaticMethod("gsn/zingplay/utils/ZPJNI", "openURL", "(Ljava/lang/String;)V", url);
     }
     else {
@@ -71,7 +71,7 @@ JNI.openWebView = function (url) {
 };
 
 JNI.openHTML = function (url) {
-    if(gamedata.checkOldNativeVersion()) {
+    if(gameMgr.checkOldNativeVersion()) {
         jsb.reflection.callStaticMethod("gsn/zingplay/utils/ZPJNI", "openHTML", "(Ljava/lang/String;)V", url);
     }
     else {
@@ -80,7 +80,7 @@ JNI.openHTML = function (url) {
 };
 
 JNI.openWebViewPayment = function (url) {
-    if(gamedata.checkOldNativeVersion()) {
+    if(gameMgr.checkOldNativeVersion()) {
         NativeBridge.openURLNative(url);
     }
     else {
@@ -89,7 +89,7 @@ JNI.openWebViewPayment = function (url) {
 };
 
 JNI.sendSMS = function (phone, message) {
-    if(gamedata.checkOldNativeVersion()) {
+    if(gameMgr.checkOldNativeVersion()) {
         jsb.reflection.callStaticMethod("gsn/zingplay/utils/ZPJNI", "sendMessage", "(Ljava/lang/String;Ljava/lang/String;)V", phone + "", message + "");
     }
     else {
@@ -98,7 +98,7 @@ JNI.sendSMS = function (phone, message) {
 };
 
 JNI.sendLoginGSN = function (acountID, acountType, openID, zName) {
-    if(gamedata.checkOldNativeVersion()) {
+    if(gameMgr.checkOldNativeVersion()) {
         jsb.reflection.callStaticMethod("gsn/zingplay/utils/ZPJNI", "sendLogin", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", acountID + "", acountType + "", openID + "", zName + "");
     }
     else {
@@ -107,7 +107,7 @@ JNI.sendLoginGSN = function (acountID, acountType, openID, zName) {
 };
 
 JNI.paymentZaloWallet = function (user, uid, itemId, amount) {
-    if(gamedata.checkOldNativeVersion())
+    if(gameMgr.checkOldNativeVersion())
     {
         jsb.reflection.callStaticMethod("gsn/zingplay/utils/social/ZaloUtils", "paymentGoogleIAP", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", user + "", uid + "", itemId + "", amount + "");
     }
@@ -119,7 +119,7 @@ JNI.paymentZaloWallet = function (user, uid, itemId, amount) {
 };
 
 JNI.vibrate = function () {
-    if(gamedata.checkOldNativeVersion()) {
+    if(gameMgr.checkOldNativeVersion()) {
         jsb.reflection.callStaticMethod("gsn/zingplay/utils/ZPJNI", "vibrate", "()V");
     }
     else {
@@ -128,7 +128,7 @@ JNI.vibrate = function () {
 };
 
 JNI.getVersionString = function () {
-    if(gamedata.checkOldNativeVersion()) {
+    if(gameMgr.checkOldNativeVersion()) {
         return jsb.reflection.callStaticMethod("gsn/zingplay/utils/ZPJNI", "getVersionString", "()Ljava/lang/String;")
     }
 
@@ -136,7 +136,7 @@ JNI.getVersionString = function () {
 };
 
 JNI.getVersionCode = function () {
-    if(gamedata.checkOldNativeVersion()) {
+    if(gameMgr.checkOldNativeVersion()) {
         return jsb.reflection.callStaticMethod("gsn/zingplay/utils/ZPJNI", "getVersionCode", "()Ljava/lang/String;");
     }
 
@@ -144,7 +144,7 @@ JNI.getVersionCode = function () {
 };
 
 JNI.getNetworkOperator = function () {
-    if(gamedata.checkOldNativeVersion()) {
+    if(gameMgr.checkOldNativeVersion()) {
         return jsb.reflection.callStaticMethod("gsn/zingplay/utils/ZPJNI", "getTelephoneInfo", "()Ljava/lang/String;");
     }
 
@@ -152,7 +152,7 @@ JNI.getNetworkOperator = function () {
 };
 
 JNI.isEmulator = function () {
-    if(gamedata.checkOldNativeVersion()) {
+    if(gameMgr.checkOldNativeVersion()) {
         if(cc.sys.os == cc.sys.OS_ANDROID && NativeBridge.checkFunctionAvailable("isEmulator")) {
             var ret = jsb.reflection.callStaticMethod("gsn/zingplay/utils/ZPJNI", "isEmulator", "()Z");
             cc.log("NativeBridge.isEmulator " + ret);
@@ -164,7 +164,7 @@ JNI.isEmulator = function () {
 };
 
 JNI.openIAP = function (productIds) {
-    if(gamedata.checkOldNativeVersion()) {
+    if(gameMgr.checkOldNativeVersion()) {
         jsb.reflection.callStaticMethod("gsn/game/billing/GSNGoogleBilling", "openIAP", "(Ljava/lang/String;)V", productIds + "");
     }
     else {
@@ -173,7 +173,7 @@ JNI.openIAP = function (productIds) {
 };
 
 JNI.purchaseItem = function (itemId) {
-    if(gamedata.checkOldNativeVersion()) {
+    if(gameMgr.checkOldNativeVersion()) {
         jsb.reflection.callStaticMethod("gsn/game/billing/GSNGoogleBilling", "purchase", "(Ljava/lang/String;)V", itemId + "");
     }
     else {
@@ -182,7 +182,7 @@ JNI.purchaseItem = function (itemId) {
 };
 
 JNI.purchaseItemSuccess = function (data,signature) {
-    if(gamedata.checkOldNativeVersion()) {
+    if(gameMgr.checkOldNativeVersion()) {
         jsb.reflection.callStaticMethod("gsn/game/billing/GSNGoogleBilling", "purchaseSuccess", "(Ljava/lang/String;Ljava/lang/String;)V", data + "", signature + "");
     }
     else {
@@ -191,7 +191,7 @@ JNI.purchaseItemSuccess = function (data,signature) {
 };
 
 JNI.logJSManual = function (fName, line, msg, jsVersion) {
-    if(gamedata.checkOldNativeVersion()) {
+    if(gameMgr.checkOldNativeVersion()) {
         jsb.reflection.callStaticMethod("gsn/zingplay/utils/ZPJNI", "logJSError", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V",
             fName + "", line + "", msg + "", jsVersion);
     } else {
@@ -200,7 +200,7 @@ JNI.logJSManual = function (fName, line, msg, jsVersion) {
 };
 
 JNI.purchaseZalo = function (zptranstoken) {
-    if(gamedata.checkOldNativeVersion()) {
+    if(gameMgr.checkOldNativeVersion()) {
         jsb.reflection.callStaticMethod("gsn/zingplay/utils/ZPJNI", "purchaseZalo", "(Ljava/lang/String;)V", zptranstoken);
     }
     else {

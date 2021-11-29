@@ -62,4 +62,53 @@ Config.OLD_VERSION = 56;
 Config.MANIFEST_URL_LIVE = "https://static.service.zingplay.com/sam/mobile_38";
 Config.MANIFEST_URL_PRIVATE = "http://120.138.65.103/sources/apk/zpindo/sam";
 
+
+Config.BONUS_ZINGCARD_IAP_PROMOTE = 0;      // bat promote zingcard + iap
+Config.ENABLE_MAINTAIN_MOBILE_CARD = false; // bao tri kenh nap card
+
+Config.ENABLE_EVENT_TET = false;
+Config.ENABLE_JACKPOT = true;
+
+Config.ENABLE_DECORATE_ITEM = false;
+Config.ENABLE_MULTI_PORTAL = false;
+Config.ENABLE_NEW_LOBBY = false;
+
+// config cheat
+Config.ENABLE_CHEAT = false;                // ENABLE CHEAT CENTER IN GAME
+
+Config.CHEAT_MAX_PLAYER = 4;                // NUM PLAYER IN GAME
+Config.CHEAT_MAX_CARD = 13;                 // NUM CARD OF PLAYER
+
+Config.CARD_CHEAT_SCALE_DECK = 0.25;       // SCALE CARD
+Config.CARD_CHEAT_SCALE_PLAYER = 0.15;      // SCALE CARD PLAYER
+
+Config.CARD_CHEAT_PLAYER_LINE = 2;          // NUM LINE OF DECK CARD CHEAT
+
+// test update private
+Config.MANIFEST_URL_LIVE = "";              // LINK STATIC UPDATE
+Config.MANIFEST_URL_PRIVATE = "";           // DEFAULT LINK STATIC PRIVATE UPDATE
+
+// version open JNI function
+Config.APP_VERSION_JNI_AVAIABLE = 0;        // APPVERSION JNI FUNCTION AVAIABLE
+
+// enable timeout when connect server
+Config.TIMEOUT_CONNECT_SERVER = 0;
+
+// new framework
+Config.TEST_SMS_VINA = true;
+Config.DISABLE_FOOTBALL = true;
+Config.ENABLE_NEW_OFFER = true;
+
+Config.ENABLE_SERVICE_ENABLE_PAYMENT = false;
+
+Config.ENABLE_NEW_RANK = true;
+Config.ENABLE_TESTING_NEW_RANK = false; // trang thai chi connect den server ranking ma khong xu ly cac goi tin rank
+
+Config.ENABLE_QR_SMS_SYNTAX = false;
+
+Config.ENABLE_NEW_VIP = true;
+
+Config.URL_ZALOPAY = "vn.com.vng.zalopay";
+Config.URL_ZALOPAY_SANBOX = "vn.com.vng.zalopay.sbmc";
+
 var vec3 = cc.math.vec3;

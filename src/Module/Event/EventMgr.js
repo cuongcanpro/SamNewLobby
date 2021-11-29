@@ -78,7 +78,7 @@ var EventData = cc.Class.extend({
         }
 
 
-        if (event.promoTicket > 0) {
+        if (eventMgr.promoTicket > 0) {
             if (this.eventInstance.showPromoTicket)
                 this.eventInstance.showPromoTicket();
         }
@@ -269,21 +269,21 @@ var EventMgr = cc.Class.extend({
         if (!event)
             return;
         cc.log("FINISH 1 " + idDownload);
-        if (event.buttonLobby && eventMgr.buttonLobby.finishDownload) {
-            eventMgr.buttonLobby.finishDownload(isFinish);
+        if (event.buttonLobby && event.buttonLobby.finishDownload) {
+            event.buttonLobby.finishDownload(isFinish);
         }
         if (isFinish) {
-            eventMgr.isFinishDownload = true;
+            event.isFinishDownload = true;
             this.initEvent();
             //   this.showButtonEvent();
             // this.showHideButtonEventInGame();
         } else {
-            eventMgr.downloadFail = true;
+            event.downloadFail = true;
         }
         this.startDownloadContent();
         //var currentSceen = sceneMgr.getMainLayer();
         //if (currentSceen instanceof LobbyScene)
-        //  eventMgr.openEvent();
+        //  event.openEvent();
     },
 
     initEvent: function () {
@@ -350,9 +350,9 @@ var EventMgr = cc.Class.extend({
         if (event && !event.isFinishDownload) {
             this.btnMainEvent.waitDownload();
         }
-        if (event && eventMgr.showNotifyEvent) {
+        if (event && event.showNotifyEvent) {
             this.btnMainEvent.setInfo(event.dataEvent);
-            eventMgr.showNotifyEvent(this.btnMainEvent);
+            event.showNotifyEvent(this.btnMainEvent);
         }
     },
 
@@ -422,29 +422,29 @@ var EventMgr = cc.Class.extend({
         var event = this.getEventById(id);
         // hien tai thi cach mo EventMgr chinh va phu nhu nhau
         this.openEventInGame(event.idEvent);
-        // if (event && eventMgr.openEvent) {
-        //     eventMgr.openEvent();
+        // if (event && event.openEvent) {
+        //     event.openEvent();
         // }
     },
 
     openEventInGame: function (id) {
         var event = this.getEventById(id);
-        if (event && eventMgr.openEvent) {
+        if (event && event.openEvent) {
             if (event.isFinishDownload) {
-                eventMgr.openEvent();
+                event.openEvent();
             } else {
                 if (downloadEventManager.isUpdating) {
                     cc.log("CURRENT " + downloadEventManager.currentIdDownload + " NEXT " + id);
                     if (downloadEventManager.currentIdDownload.localeCompare(id) == 0) {
                         ToastFloat.makeToast(ToastFloat.SHORT, LocalizedString.to("LOADING_EVENT"));
                     } else {
-                        eventMgr.buttonLobby.queueDownload();
+                        event.buttonLobby.queueDownload();
                     }
                 } else {
-                    eventMgr.downloadFail = false;
+                    event.downloadFail = false;
                     downloadEventManager.startDownload(id);
                     if (event.buttonLobby) {
-                        eventMgr.buttonLobby.startDownload();
+                        event.buttonLobby.startDownload();
                     }
                 }
             }
@@ -453,16 +453,16 @@ var EventMgr = cc.Class.extend({
 
     isInEvent: function (id) {
         var event = this.getEventById(id);
-        if (event && eventMgr.isInEvent) {
-            return eventMgr.isInEvent();
+        if (event && event.isInEvent) {
+            return event.isInEvent();
         }
         return false;
     },
 
     isEndEvent: function (id) {
         var event = this.getEventById(id);
-        if (event && eventMgr.isEndEvent) {
-            return eventMgr.isEndEvent();
+        if (event && event.isEndEvent) {
+            return event.isEndEvent();
         }
         return false;
     },
@@ -489,23 +489,23 @@ var EventMgr = cc.Class.extend({
 
     checkFreeTicket: function (id) {
         var event = this.getEventById(id);
-        if (event && eventMgr.checkFreeTicket) {
-            return eventMgr.checkFreeTicket();
+        if (event && event.checkFreeTicket) {
+            return event.checkFreeTicket();
         }
     },
 
     getTicketTexture: function (id) {
         var event = this.getEventById(id);
-        if (event && eventMgr.getTicketTexture) {
-            return eventMgr.getTicketTexture();
+        if (event && event.getTicketTexture) {
+            return event.getTicketTexture();
         }
         return "";
     },
 
     getNumberTicket: function (id) {
         var event = this.getEventById(id);
-        if (event && eventMgr.keyCoin) {
-            return eventMgr.keyCoin;
+        if (event && event.keyCoin) {
+            return event.keyCoin;
         }
         return 0;
     },
@@ -514,7 +514,7 @@ var EventMgr = cc.Class.extend({
     getDataPaymentById: function (id) {
         var event = this.getEventById();
         if (event)
-            return eventMgr.dataEvent.getDataPaymentById(id);
+            return event.dataEvent.getDataPaymentById(id);
         return null;
     },
 
@@ -637,7 +637,7 @@ var EventMgr = cc.Class.extend({
         cc.log("++EventShopBonusNew : " + JSON.stringify(data));
         var event = this.getEventById(id);
         if (event)
-            eventMgr.dataEvent.onEventShopBonusNew(data);
+            event.dataEvent.onEventShopBonusNew(data);
         sceneMgr.updateCurrentGUI();
     },
 
@@ -659,14 +659,14 @@ var EventMgr = cc.Class.extend({
         var event = this.getEventById(id);
         if (!event)
             return null;
-        return eventMgr.dataEvent.getEventTicketConfig(type);
+        return event.dataEvent.getEventTicketConfig(type);
     },
 
     // tra ve mang config Ticket cua EventMgr chinh dang chay (thuong la EventMgr Out Game, ban ve truc tiep)
     getArrayConfigTicket: function () {
         var event = this.getEventById();
         if (event) {
-            return eventMgr.dataEvent.arrayConfigTicket;
+            return event.dataEvent.arrayConfigTicket;
         }
         return [];
     },
@@ -755,16 +755,16 @@ var EventMgr = cc.Class.extend({
 
     getOfferTicketImage: function (id) {
         var event = this.getEventById(id);
-        if (event && eventMgr.getOfferTicketImage) {
-            return eventMgr.getOfferTicketImage();
+        if (event && event.getOfferTicketImage) {
+            return event.getOfferTicketImage();
         }
         return "res/Lobby/Offer/bonusTicket.png";
     },
 
     getOfferTicketString: function (id) {
         var event = this.getEventById(id);
-        if (event && eventMgr.getOfferTicketString) {
-            return eventMgr.getOfferTicketString();
+        if (event && event.getOfferTicketString) {
+            return event.getOfferTicketString();
         }
         return "Vé";
     },
@@ -772,7 +772,7 @@ var EventMgr = cc.Class.extend({
     getEventIdByName: function (name) {
         var event = this.getEventByName(name);
         if (event) {
-            return eventMgr.idEvent;
+            return event.idEvent;
         }
         return 0;
     },
@@ -789,9 +789,9 @@ var EventMgr = cc.Class.extend({
         // cc.log("UPDATE DOWNLOAD " + idEvent + " " + percent);
         var event = this.getEventById(idEvent);
         if (event) {
-            if (event.dataEvent.isActive && eventMgr.buttonLobby) {
+            if (event.dataEvent.isActive && event.buttonLobby) {
                 try {
-                    eventMgr.buttonLobby.updateDownload(percent);
+                    event.buttonLobby.updateDownload(percent);
                 } catch (e) {
                     cc.log(e.stack);
                 }
@@ -808,8 +808,8 @@ var EventMgr = cc.Class.extend({
                     continue;
                 }
 
-                if (event.costRoll && eventMgr.costRoll.length > 0) {
-                    if (event.keyCoin >= eventMgr.costRoll[0]) {
+                if (event.costRoll && event.costRoll.length > 0) {
+                    if (event.keyCoin >= event.costRoll[0]) {
                         return true;
                     }
                 }
@@ -828,9 +828,9 @@ var EventMgr = cc.Class.extend({
                     continue;
                 }
 
-                if (event.gifts && eventMgr.gifts.length > 0) {
-                    for (var j = 0; j < eventMgr.gifts.length; j++) {
-                        var item = eventMgr.gifts[j];
+                if (event.gifts && event.gifts.length > 0) {
+                    for (var j = 0; j < event.gifts.length; j++) {
+                        var item = event.gifts[j];
                         if (item && item.gift > 0) {
                             return true;
                         }

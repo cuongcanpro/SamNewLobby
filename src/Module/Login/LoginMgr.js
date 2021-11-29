@@ -3,6 +3,7 @@ var LoginMgr = BaseMgr.extend({
         this._super();
         this.tag = "LOGIN MGR :";
         this.sessionKey = "";
+        this.sessionExpiredTime = 0;
         this.openId = "";
         db.DBCCFactory.getInstance().loadDragonBonesData("res/Armatures/LogoLarge/skeleton.xml","LogoLarge");
         db.DBCCFactory.getInstance().loadTextureAtlas("res/Armatures/LogoLarge/texture.plist", "LogoLarge");
@@ -192,7 +193,7 @@ var LoginMgr = BaseMgr.extend({
                 break;
         }
         try {
-            if (gamedata.isPortal()) {
+            if (PortalUtil.isPortal()) {
                 typeLogin = fr.NativePortal.getInstance().getSocialType();
                 switch (typeLogin) {
                     case Constant.FACEBOOK:
@@ -212,8 +213,8 @@ var LoginMgr = BaseMgr.extend({
         } catch (e) {
             typeLogin = Constant.ZINGME;
         }
-        socialMgr.saveSession(gamedata.sessionkey, typeLogin, gamedata.openID, socialMgr._currentSocial, gamedata.sessionExpiredTime);
-        NativeBridge.sendLoginGSN(gamedata.userData.uID + "", typeLogin, gamedata.openID + "", gamedata.userData.zName);
+        socialMgr.saveSession(this.sessionKey, typeLogin, this.openID, socialMgr._currentSocial, this.sessionExpiredTime);
+        NativeBridge.sendLoginGSN(userMgr.getUID() + "", typeLogin, this.openID + "", userMgr.getUserName());
     },
 
     setSessionKey: function (session_key) {

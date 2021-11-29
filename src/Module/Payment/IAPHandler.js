@@ -33,22 +33,6 @@ var IAPHandler = cc.Class.extend({
         this.iapWaits = [];
     },
 
-    getIndexGIAP: function () {
-        var i;
-        for (i = 0; i < gamedata.gameConfig.arrayGIAP.length; i++) {
-            if (this.iapRefundInfo.totalGIAP < gamedata.gameConfig.arrayGIAP[i])
-                return i - 1;
-        }
-        return i - 1;
-    },
-
-    getActivePackage: function (index) {
-        cc.log("INDEX " + index + "  " + this.arrayPackageOpen[index]);
-        if (this.iapRefundInfo.active == false)
-            return this.arrayPackageOpen[index];
-        return false;
-    },
-
     // user ifno
     setRefundInfo: function (info) {
         this.iapWaits = [];
@@ -83,7 +67,7 @@ var IAPHandler = cc.Class.extend({
         }
 
         if(id != "" && id !== undefined) {
-            if (gamedata.checkOldNativeVersion()) {
+            if (gameMgr.checkOldNativeVersion()) {
                 if (this.productDetails[id]) {
                     return this.productDetails[id]["price"];
                 }
@@ -105,7 +89,7 @@ var IAPHandler = cc.Class.extend({
         }
 
         if (id != "") {
-            if(gamedata.checkOldNativeVersion()) {
+            if(gameMgr.checkOldNativeVersion()) {
                 if (this.productDetails[id]) {
                     return this.productDetails[id]["price_currency_code"];
                 }
@@ -123,7 +107,7 @@ var IAPHandler = cc.Class.extend({
         if (!info || !info.id || !info.id_ios) return "";
 
         if (cc.sys.os == cc.sys.OS_ANDROID) {
-            if (gamedata.isPortal()) {
+            if (PortalUtil.isPortal()) {
                 if (Config.ENABLE_MULTI_PORTAL)
                     return fr.paymentInfo.getProductID(info.id_multi_portal);
                 else
@@ -135,7 +119,7 @@ var IAPHandler = cc.Class.extend({
 
         }
         else if (cc.sys.os == cc.sys.OS_IOS) {
-            if (gamedata.isPortal()) {
+            if (PortalUtil.isPortal()) {
                 if (Config.ENABLE_MULTI_PORTAL)
                     return fr.paymentInfo.getProductID(info.id_multi_ios_portal);
                 else
@@ -180,11 +164,11 @@ var IAPHandler = cc.Class.extend({
     },
 
     getPackIndex : function (packId) {
-        var goldIap = gamedata.gameConfig.getShopGoldById(Payment.GOLD_IAP);
+        var goldIap = paymentMgr.getShopGoldById(Payment.GOLD_IAP);
         for (var i = 0; i < goldIap.numPackage; i++) {
             var id;
             var id_ios;
-            if (gamedata.isPortal()) {
+            if (PortalUtil.isPortal()) {
                 id = goldIap["packages"][i]["portalAndroidId"];
                 id_ios = goldIap["packages"][i]["portalIOSId"];
                 if (Config.ENABLE_MULTI_PORTAL) {
@@ -201,11 +185,11 @@ var IAPHandler = cc.Class.extend({
             }
         }
 
-        goldIap = gamedata.gameConfig.getShopGById(Payment.G_IAP);
+        goldIap = paymentMgr.getShopGById(Payment.G_IAP);
         for (var i = 0; i < goldIap.numPackage; i++) {
             var id;
             var id_ios;
-            if (gamedata.isPortal()) {
+            if (PortalUtil.isPortal()) {
                 id = goldIap["packages"][i]["portalAndroidId"];
                 id_ios = goldIap["packages"][i]["portalIOSId"];
                 if (Config.ENABLE_MULTI_PORTAL) {
@@ -229,15 +213,15 @@ var IAPHandler = cc.Class.extend({
     // action
     openIAP: function () {
         if (Config.DISABLE_IAP_PORTAL) {
-            if (gamedata.isPortal()) return;
+            if (PortalUtil.isPortal()) return;
         }
-        else if (gamedata.isPortal() && cc.sys.os == cc.sys.OS_IOS) {
+        else if (PortalUtil.isPortal() && cc.sys.os == cc.sys.OS_IOS) {
             return;
         }
 
         var productIds = "";
         try {
-            var goldIap = gamedata.gameConfig.getShopGoldById(Payment.GOLD_IAP);
+            var goldIap = paymentMgr.getShopGoldById(Payment.GOLD_IAP);
             for (var i = 0; i < goldIap.numPackage; i++) {
                 if (cc.sys.os == cc.sys.OS_ANDROID) {
                     productIds += goldIap["packages"][i]["androidId"];
@@ -249,7 +233,7 @@ var IAPHandler = cc.Class.extend({
                 productIds += ",";
             }
 
-            goldIap = gamedata.gameConfig.getShopGById(Payment.G_IAP);
+            goldIap = paymentMgr.getShopGById(Payment.G_IAP);
             for (var i = 0; i < goldIap.numPackage; i++) {
                 if (cc.sys.os == cc.sys.OS_ANDROID) {
                     productIds += goldIap["packages"][i]["androidId"];
@@ -264,7 +248,7 @@ var IAPHandler = cc.Class.extend({
 
         }
 
-        if(gamedata.checkOldNativeVersion()) {
+        if(gameMgr.checkOldNativeVersion()) {
             engine.HandlerManager.getInstance().addHandler("iap_products_detail", this.onIAPProducts.bind(this));
             engine.HandlerManager.getInstance().addHandler("iap_purchase_state", this.onIAPPurchase.bind(this));
         }
@@ -274,7 +258,7 @@ var IAPHandler = cc.Class.extend({
     purchaseItem: function (item) {
         cc.log("PURCHASE ITEM " + item);
         if (Config.DISABLE_IAP_PORTAL)
-            if (gamedata.isPortal()) return;
+            if (PortalUtil.isPortal()) return;
 
         if (!item || item == "") return;
 
@@ -302,7 +286,7 @@ var IAPHandler = cc.Class.extend({
         else {
             sceneMgr.addWaiting();
             NativeBridge.purchaseItem(item);
-            if(gamedata.checkOldNativeVersion())
+            if(gameMgr.checkOldNativeVersion())
                 engine.HandlerManager.getInstance().addHandler("iap_purchase_state", this.onIAPPurchase.bind(this));
         }
     },
@@ -352,7 +336,7 @@ var IAPHandler = cc.Class.extend({
                 }
                 else {
                     NativeBridge.purchaseItem(item);
-                    if(gamedata.checkOldNativeVersion())
+                    if(gameMgr.checkOldNativeVersion())
                         engine.HandlerManager.getInstance().addHandler("iap_purchase_state", this.onIAPPurchase.bind(this));
                 }
             }
@@ -365,7 +349,7 @@ var IAPHandler = cc.Class.extend({
 
     consumeItem: function (data, signature) {
         if (Config.DISABLE_IAP_PORTAL)
-            if (gamedata.isPortal()) return;
+            if (PortalUtil.isPortal()) return;
 
         sceneMgr.clearWaiting();
         this.isWaitingConsume = false;
@@ -452,7 +436,7 @@ var IAPHandler = cc.Class.extend({
 
                         if (cc.sys.os == cc.sys.OS_ANDROID) {
                             // send to server finish purchase
-                            if (gamedata.isPortal()) {
+                            if (PortalUtil.isPortal()) {
                                 if (Config.ENABLE_MULTI_PORTAL) {
                                     var cmd = new CmdSendPurchaseIAPGoogleMultiPortal();
                                     cmd.putData(pObj.data, pObj.signature, fr.platformWrapper.getPackageName(), (offerManager.isOfferIAP() ? Payment.IS_OFFER : this.typeBuy));
@@ -473,7 +457,7 @@ var IAPHandler = cc.Class.extend({
                         }
                         else if (cc.sys.os == cc.sys.OS_IOS) {
                             // send to server finish purchase
-                            if (gamedata.isPortal()) {
+                            if (PortalUtil.isPortal()) {
                                 var cmd = new CmdSendPurchaseIAPApplePortal();
                                 cmd.putData(pObj.data);
                                 GameClient.getInstance().sendPacket(cmd);
@@ -650,7 +634,7 @@ var IAPHandler = cc.Class.extend({
         if (event == Payment.CHEAT_PAYMENT_OFFER)
             smsType = "sms";
         var url = Constant.SMS_PRIVATE;
-        var data = "gameId=" + LocalizedString.config("GAME") + "&username=" + gamedata.userData.zName + "&uId=" + gamedata.userData.uID + "&paymentType=" + smsType + "&amount=" + amount + "&forEvent=" + event;
+        var data = "gameId=" + LocalizedString.config("GAME") + "&username=" + userMgr.getUserName() + "&uId=" + userMgr.getUID() + "&paymentType=" + smsType + "&amount=" + amount + "&forEvent=" + event;
 
         this.xhr = cc.loader.getXMLHttpRequest();
         this.xhr.open("GET", url + "?" + data, true);
@@ -669,7 +653,7 @@ var IAPHandler = cc.Class.extend({
             typeBuy = 0;
         cc.log("FAKE " + amount + " TYPE " + type);
         var url = Constant.SMS_PRIVATE;
-        var data = "gameId=" + LocalizedString.config("GAME") + "&username=" + gamedata.userData.zName + "&uId=" + gamedata.userData.uID + "&paymentType=" + type + "&amount=" + amount + "&forEvent=" + typeBuy;
+        var data = "gameId=" + LocalizedString.config("GAME") + "&username=" + userMgr.getUserName() + "&uId=" + userMgr.getUID() + "&paymentType=" + type + "&amount=" + amount + "&forEvent=" + typeBuy;
 
         this.xhr = cc.loader.getXMLHttpRequest();
         this.xhr.open("GET", url + "?" + data, true);
@@ -679,7 +663,7 @@ var IAPHandler = cc.Class.extend({
 
     purchaseZalo: function (zptranstoken) {
         NativeBridge.purchaseZalo(zptranstoken);
-        if(gamedata.checkOldNativeVersion())
+        if(gameMgr.checkOldNativeVersion())
             engine.HandlerManager.getInstance().addHandler("payZalo", this.onPayZalo.bind(this));
     },
 

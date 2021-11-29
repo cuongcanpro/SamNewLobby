@@ -11,6 +11,7 @@ var UserMgr = BaseMgr.extend({
 
                 // READ DATA
                 var info = new CmdReceivedUserInfo(pk);
+                cc.log("CMD_GET_USER_INFO: " + JSON.stringify(info));
                 this.userInfo.setUserInfo(info);
 
                 // LOAD SCENE GAME
@@ -20,8 +21,8 @@ var UserMgr = BaseMgr.extend({
                     paymentMgr.setRefundInfo(info);
                     supportMgr.sendGetSupport();
                     lobbyMgr.openLobbyScene();
-                    football.getMyHistory();
-                    football.resetData();
+                    //football.getMyHistory();
+                    //football.resetData();
                     if (GameClient.connectLai) {
                         Toast.makeToast(Toast.SHORT, LocalizedString.to("RECONNECT_SUCCESS"));
                         GameClient.connectLai = false;
@@ -32,9 +33,9 @@ var UserMgr = BaseMgr.extend({
                     GameClient.getInstance().sendPacket(cmdEvent);
 
                     fr.crashLytics.setUserIdentifier(info.uId);
-                    fr.crashLytics.setString(info.uId, "+++" + gameMgr.getSessionKey());
+                    fr.crashLytics.setString(info.uId, "+++" + loginMgr.getSessionKey());
                 }
-                Event.instance().onGetUserInfoSuccess();
+                eventMgr.onGetUserInfoSuccess();
                 loginMgr.loginGameSuccess();
 
                 // sent event portal tet 2021
@@ -90,23 +91,35 @@ var UserMgr = BaseMgr.extend({
     },
 
     getGold: function () {
-        this.userInfo.getGold();
+        return this.userInfo.getGold();
     },
 
     getCoin: function () {
-        this.userInfo.getCoin();
+        return this.userInfo.getCoin();
     },
 
     getLevel: function () {
-        this.userInfo.getLevel();
+        return this.userInfo.getLevel();
     },
 
     getDiamond: function () {
-        this.userInfo.getDiamond();
+        return this.userInfo.getDiamond();
     },
 
     getUID: function () {
-        this.userInfo.getUID();
+        return this.userInfo.getUID();
+    },
+
+    getAvatar: function () {
+        return this.userInfo.getAvatar();
+    },
+
+    getUserName: function () {
+        return this.userInfo.getUserName();
+    },
+
+    getDisplayName: function () {
+        return this.userInfo.getDisplayName();
     },
 
     // check social login
