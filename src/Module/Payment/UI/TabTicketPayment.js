@@ -55,7 +55,7 @@ TabTicketPayment = cc.Layer.extend({
             id = 0;
         this.selectedTab = id;
         this.tabNormalPayment.setVisible(false);
-        var arrayConfigTicket = event.getArrayConfigTicket();
+        var arrayConfigTicket = eventMgr.getArrayConfigTicket();
         if (!arrayConfigTicket || !arrayConfigTicket[id])
             return;
         var idPayment = arrayConfigTicket[id]["type"];
@@ -68,7 +68,7 @@ TabTicketPayment = cc.Layer.extend({
         if (idPaymentCheck == Payment.GOLD_SMS) {
             cc.log("VO DAY");
             for (var i = Payment.GOLD_SMS_VIETTEL; i <= Payment.GOLD_SMS_VINA; i++) {
-                config = gamedata.gameConfig.getShopGoldById(i);
+                config = paymentMgr.getShopGoldById(i);
                 // cc.log("config sms: " + JSON.stringify(config));
                 if (config && config["isMaintained"][0] === 0) {
                     break;
@@ -84,7 +84,7 @@ TabTicketPayment = cc.Layer.extend({
             }
         } else {
             cc.log("VO DAY 2");
-            var config = gamedata.gameConfig.getShopGoldById(idPaymentCheck);
+            var config = paymentMgr.getShopGoldById(idPaymentCheck);
             if (config && config["isMaintained"][0]) {
                 this.showMaintain(true);
             } else {
@@ -102,7 +102,7 @@ TabTicketPayment = cc.Layer.extend({
 
     getButtonImage: function (id) {
         var imageResource = "btnGoogle";
-        var arrayConfigTicket = event.getArrayConfigTicket();
+        var arrayConfigTicket = eventMgr.getArrayConfigTicket();
         var idPayment = arrayConfigTicket[id]["type"];
         switch (idPayment) {
             case Payment.TICKET_IAP:
@@ -166,7 +166,7 @@ TabTicketPayment = cc.Layer.extend({
         if (idx == this.selectedTab) {
             this.currentButton = image;
         }
-        if (event.promoTicket > 0) {
+        if (eventMgr.promoTicket > 0) {
             effect.setVisible(true);
         } else {
             effect.setVisible(false);
@@ -191,6 +191,6 @@ TabTicketPayment = cc.Layer.extend({
     },
 
     numberOfCellsInTableView: function (table) {
-        return event.getArrayConfigTicket().length;
+        return eventMgr.getArrayConfigTicket().length;
     }
 });

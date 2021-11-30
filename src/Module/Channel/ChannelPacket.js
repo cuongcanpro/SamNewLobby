@@ -7,7 +7,7 @@ CmdSendSelectChanel = CmdSendCommon.extend({
         this._super();
         this.initData(100);
         this.setControllerId(1);
-        this.setCmdId(CMD.CMD_SELECT_CHANEL);
+        this.setCmdId(ChannelMgr.CMD_SELECT_CHANEL);
 
     },
     putData: function (chanelID) {
@@ -24,7 +24,7 @@ CmdSendRefreshTable = CmdSendCommon.extend({
         this._super();
         this.initData(100);
         this.setControllerId(1);
-        this.setCmdId(CMD.CMD_REFRESH_TABLE);
+        this.setCmdId(ChannelMgr.CMD_REFRESH_TABLE);
         this.putData();
     },
     putData: function () {
@@ -40,7 +40,7 @@ CmdSendQuickPlay = CmdSendCommon.extend({
         this._super();
         this.initData(100);
         this.setControllerId(1);
-        this.setCmdId(CMD.CMD_QUICK_PLAY);
+        this.setCmdId(ChannelMgr.CMD_QUICK_PLAY);
         this.putData();
     },
     putData: function () {
@@ -57,7 +57,7 @@ CmdSendQuickPlayChannel = CmdSendCommon.extend({
         this._super();
         this.initData(100);
         this.setControllerId(1);
-        this.setCmdId(CMD.CMD_QUICK_PLAY);
+        this.setCmdId(ChannelMgr.CMD_QUICK_PLAY);
         this.putData();
     },
     putData: function () {
@@ -75,7 +75,7 @@ CmdSendQuickPlayCustom = CmdSendCommon.extend({
         this._super();
         this.initData(100);
         this.setControllerId(1);
-        this.setCmdId(CMD.CMD_QUICK_PLAY_CUSTOM);
+        this.setCmdId(ChannelMgr.CMD_QUICK_PLAY_CUSTOM);
     },
     putData: function (channelId, bet) {
         //pack
@@ -83,6 +83,29 @@ CmdSendQuickPlayCustom = CmdSendCommon.extend({
         this.putByte(channelId);
         this.putByte(bet);
         cc.log("CmdSendQuickPlayCustom: ", JSON.stringify(arguments));
+
+        //update
+        this.updateSize();
+    }
+});
+
+CmdSendCreateRoom = CmdSendCommon.extend({
+    ctor: function () {
+        this._super();
+        this.initData(100);
+        this.setControllerId(1);
+        this.setCmdId(ChannelMgr.CMD_CREATE_ROOM);
+    },
+    putData: function (name, bet, bigbet, password, numpeople) {
+        //pack
+        this.packHeader();
+
+        this.putString(name);
+        this.putByte(bet);
+        this.putByte(1);
+        this.putString(password);
+        this.putByte(numpeople);
+        this.putByte(bigbet);
 
         //update
         this.updateSize();

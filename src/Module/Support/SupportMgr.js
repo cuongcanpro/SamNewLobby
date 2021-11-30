@@ -6,17 +6,39 @@ var SupportMgr = BaseMgr.extend({
 
     onReceived: function (cmd, pk) {
         switch (cmd) {
-            case CMD.GET_DAILY_GIFT: {
+            case SupportMgr.GET_DAILY_GIFT: {
                 var cDG = new CmdReceiveDailyGift(pk);
                 this.giftIndex = cDG.index;
                 this.showSupportStartup();
                 cDG.clean();
                 break;
             }
-            case CMD.SUPPORT_BEAN: {
+            case SupportMgr.SUPPORT_BEAN: {
                 var csb = new CmdReceiveSupportBean(pk);
                 csb.clean();
                 this.onSupportBean(csb);
+                break;
+            }
+            case SupportMgr.CMD_TANGVANG:
+            {
+                var pk = new CmdReceivedTangGold(pk);
+                if(pk.getError() == 0)
+                {
+                    var mess = localized("SHARE_RESULT");
+                    mess = StringUtility.replaceAll(mess,"@money",""+pk.gold);
+                    Toast.makeToast(Toast.SHORT,mess);
+                }
+                else
+                {
+                    var mess = localized("SHARE_RESULT_ERROR");
+                    Toast.makeToast(Toast.SHORT,mess);
+                }
+
+                var today = new Date();
+                var sDay = today.toISOString().substring(0, 10);
+                cc.sys.localStorage.setItem("capture_success_day",sDay);
+
+                pk.clean();
                 break;
             }
         }
@@ -224,3 +246,7 @@ SupportMgr.getInstance = function () {
     return SupportMgr.instance;
 };
 var supportMgr = SupportMgr.getInstance();
+
+SupportMgr.GET_DAILY_GIFT = 1003;
+SupportMgr.SUPPORT_BEAN = 1005;
+SupportMgr.CMD_TANGVANG = 1014;

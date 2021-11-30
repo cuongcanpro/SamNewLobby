@@ -8,7 +8,7 @@ CmdSendPurchaseCard = CmdSendCommon.extend({
         this._super();
         this.initData(1000);
         this.setControllerId(1);
-        this.setCmdId(CMD.CMD_PURCHASE_CARD);
+        this.setCmdId(PaymentMgr.CMD_PURCHASE_CARD);
     },
 
     putData: function (type, code, seri, isBuyGold, isForOffer) {
@@ -33,7 +33,7 @@ CmdSendPurchaseSMS = CmdSendCommon.extend({
         this._super();
         this.initData(1000);
         this.setControllerId(1);
-        this.setCmdId(CMD.CMD_PURCHASE_SMS);
+        this.setCmdId(PaymentMgr.CMD_PURCHASE_SMS);
     },
 
     putData: function (operator, amount, event, isForOffer) {
@@ -53,7 +53,7 @@ CmdSendPurchaseIAPGoogle = CmdSendCommon.extend({
         this._super();
         this.initData(1000);
         this.setControllerId(1);
-        this.setCmdId(CMD.CMD_PURCHASE_IAP_GOOGLE);
+        this.setCmdId(PaymentMgr.CMD_PURCHASE_IAP_GOOGLE);
     },
 
     putData: function (data, signature, isOffer) {
@@ -71,7 +71,7 @@ CmdSendPurchaseIAPApple = CmdSendCommon.extend({
         this._super();
         this.initData(1000);
         this.setControllerId(1);
-        this.setCmdId(CMD.CMD_PURCHASE_IAP_APPLE);
+        this.setCmdId(PaymentMgr.CMD_PURCHASE_IAP_APPLE);
     },
 
     putData: function (receiptData) {
@@ -86,7 +86,7 @@ CmdSendRequestEventShop = CmdSendCommon.extend({
         this._super();
         this.initData(1000);
         this.setControllerId(1);
-        this.setCmdId(CMD.CMD_UPDATE_BUYGOLD);
+        this.setCmdId(PaymentMgr.CMD_UPDATE_BUYGOLD);
         this.putData();
     },
 
@@ -101,7 +101,7 @@ CmdSendPurchaseValidate = CmdSendCommon.extend({
         this._super();
         this.initData(1000);
         this.setControllerId(1);
-        this.setCmdId(CMD.CMD_PURCHASE_IAP_VALIDATE);
+        this.setCmdId(PaymentMgr.CMD_PURCHASE_IAP_VALIDATE);
     },
 
     putData: function (packId) {
@@ -116,7 +116,7 @@ CmdSendPurchaseIAPGoogleMultiPortal = CmdSendCommon.extend({
         this._super();
         this.initData(1000);
         this.setControllerId(1);
-        this.setCmdId(CMD.CMD_PURCHASE_IAP_GOOGLE_MULTI_PORTAL);
+        this.setCmdId(PaymentMgr.CMD_PURCHASE_IAP_GOOGLE_MULTI_PORTAL);
     },
 
     putData: function (data, signature, packageName, isOffer) {
@@ -138,7 +138,7 @@ CmdSendBuyGZalo = CmdSendCommon.extend({
         this._super();
         this.initData(100);
         this.setControllerId(1);
-        this.setCmdId(CMD.CMD_BUY_G_ZALO);
+        this.setCmdId(PaymentMgr.CMD_BUY_G_ZALO);
 
     },
     putData: function (number, isBuyGold, isForOffer) {
@@ -159,7 +159,7 @@ CmdSendBuyZaloPayV2 = CmdSendCommon.extend({
         this._super();
         this.initData(100);
         this.setControllerId(1);
-        this.setCmdId(CMD.CMD_BUY_ZALO_V2);
+        this.setCmdId(PaymentMgr.CMD_BUY_ZALO_V2);
 
     },
     putData: function (number, isBuyGold, isForOffer, offerId, packageName) {
@@ -183,7 +183,7 @@ CmdSendBuyGATM = CmdSendCommon.extend({
         this._super();
         this.initData(100);
         this.setControllerId(1);
-        this.setCmdId(CMD.CMD_SEND_BUY_G_ATM);
+        this.setCmdId(PaymentMgr.CMD_SEND_BUY_G_ATM);
 
     },
     putData: function (number, bankCode, isBuyGold, isForOffer) {

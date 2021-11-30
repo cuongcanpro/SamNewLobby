@@ -9,13 +9,13 @@ var PaymentMgr = BaseMgr.extend({
 
     onReceived: function (cmd, pk) {
         switch (cmd) {
-            case CMD.CMD_GET_CONFIG_SHOP: {
+            case PaymentMgr.CMD_GET_CONFIG_SHOP: {
                 var cmdGetConfigShop = new CmdReceivedConfigShop(pk);
                 this.saveConfigShop(cmdGetConfigShop);
                 cmdGetConfigShop.clean();
                 return true;
             }
-            case CMD.CMD_UPDATE_ENABLE_PAYMENT: {
+            case PaymentMgr.CMD_UPDATE_ENABLE_PAYMENT: {
                 var uep = new CmdReceivedNewUpdateEnablePayment(pk);
                 cc.log("CMD_UPDATE_ENABLE_PAYMENT: ", JSON.stringify(uep));
                 if (Config.ENABLE_SERVICE_ENABLE_PAYMENT) {
@@ -24,11 +24,11 @@ var PaymentMgr = BaseMgr.extend({
                 }
                 return true;
             }
-            case CMD.CMD_UPDATE_BUYGOLD: {
+            case PaymentMgr.CMD_UPDATE_BUYGOLD: {
                 this.updateBuyGold(pk);
                 return true;
             }
-            case CMD.CMD_BUY_GOLD: {
+            case PaymentMgr.CMD_BUY_GOLD: {
                 var cBGold = new CmdReceiveBuyGold(p);
                 if (cBGold.error != 0) {
                     sceneMgr.showOKDialog(LocalizedString.to("CHANGE_GOLD_FAIL"));
@@ -36,7 +36,7 @@ var PaymentMgr = BaseMgr.extend({
                 cBGold.clean();
                 break;
             }
-            case CMD.CMD_UPDATE_COIN: {
+            case PaymentMgr.CMD_UPDATE_COIN: {
                 var pk = new CmdReceivedUpdateCoin(p);
                 userMgr.setCoin(pk.coin);
                 Toast.makeToast(Toast.SHORT, LocalizedString.to("NAP_G"));
@@ -46,7 +46,7 @@ var PaymentMgr = BaseMgr.extend({
                 iapHandler.onUpdateMoney();
                 break;
             }
-            case CMD.CMD_SHOP_GOLD: {
+            case PaymentMgr.CMD_SHOP_GOLD: {
                 var cSG = new CmdReceiveShopGold(p);
                 if (cSG.isOffer)
                     return;
@@ -85,7 +85,7 @@ var PaymentMgr = BaseMgr.extend({
                 cSG.clean();
                 break;
             }
-            case CMD.CMD_PURCHASE_CARD: {
+            case PaymentMgr.CMD_PURCHASE_CARD: {
                 var rPCard = new CmdReceivePurchaseCard(p);
                 cc.log("CMD_PURCHASE_CARD " + JSON.stringify(rPCard));
                 rPCard.clean();
@@ -93,28 +93,28 @@ var PaymentMgr = BaseMgr.extend({
                 iapHandler.responsePurchaseCard(rPCard);
                 break;
             }
-            case CMD.CMD_PURCHASE_SMS: {
+            case PaymentMgr.CMD_PURCHASE_SMS: {
                 var rPSMS = new CmdReceivePurchaseSMS(p);
                 rPSMS.clean();
 
                 iapHandler.purchaseSMS(rPSMS);
                 break;
             }
-            case CMD.CMD_PURCHASE_IAP_GOOGLE: {
+            case PaymentMgr.CMD_PURCHASE_IAP_GOOGLE: {
                 var rIapGoogle = new CmdReceivePurchaseIAPGoogle(p);
                 rIapGoogle.clean();
 
                 iapHandler.onResponseIapGoogle(rIapGoogle);
                 break;
             }
-            case CMD.CMD_PURCHASE_IAP_APPLE: {
+            case PaymentMgr.CMD_PURCHASE_IAP_APPLE: {
                 var rIapGoogle = new CmdReceivePurchaseIAPApple(p);
                 rIapGoogle.clean();
 
                 iapHandler.onResponseIapApple(rIapGoogle);
                 break;
             }
-            case CMD.CMD_BUY_ZALO_V2: {
+            case PaymentMgr.CMD_BUY_ZALO_V2: {
                 sceneMgr.clearLoading();
                 var cmdBuyGZalo = new CmdReceivedBuyZaloV2(p);
                 cc.log("PACKEG " + JSON.stringify(cmdBuyGZalo));
@@ -138,17 +138,17 @@ var PaymentMgr = BaseMgr.extend({
                 }
                 break;
             }
-            case CMD.CMD_IAP_PURCHASE_RESPONSE: {
+            case PaymentMgr.CMD_IAP_PURCHASE_RESPONSE: {
                 var cmd = new CmdReceivedIAPPurchase(p);
                 iapHandler.onIAPPurchaseResponse(cmd);
                 break;
             }
-            case CMD.CMD_PURCHASE_IAP_VALIDATE: {
+            case PaymentMgr.CMD_PURCHASE_IAP_VALIDATE: {
                 var cmd = new CmdReceivedIAPValidate(p);
                 iapHandler.onValidateSuccess(cmd);
                 break;
             }
-            case CMD.CMD_SEND_BUY_G_ATM: {
+            case PaymentMgr.CMD_SEND_BUY_G_ATM: {
                 sceneMgr.clearLoading();
                 var cmdBuyGATM = new CmdReceivedBuyGATM(p);
                 cc.log("PACKEG " + JSON.stringify(cmdBuyGATM));
@@ -165,7 +165,7 @@ var PaymentMgr = BaseMgr.extend({
                 }
                 break;
             }
-            case CMD.CMD_TRACK_LOG_ZALO: {
+            case PaymentMgr.CMD_TRACK_LOG_ZALO: {
                 var cmd = new CmdReceivedTrackLogZaloPay(p);
                 cc.log("CMD_TRACK_LOG_ZALO" + JSON.stringify(cmd));
                 if (cmd.payType == CmdReceivedTrackLogZaloPay.CREATE_BINDING) {
@@ -935,3 +935,28 @@ PaymentMgr.getInstance = function () {
     return PaymentMgr.instance;
 };
 var paymentMgr = PaymentMgr.getInstance();
+
+
+PaymentMgr.CMD_PURCHASE_CARD = 8900;
+PaymentMgr.CMD_PURCHASE_SMS = 8901;
+PaymentMgr.CMD_PURCHASE_IAP_GOOGLE = 8902;
+PaymentMgr.CMD_PURCHASE_IAP_APPLE = 8903;
+
+PaymentMgr.CMD_IAP_PURCHASE_RESPONSE = 8886;
+PaymentMgr.CMD_PURCHASE_IAP_VALIDATE = 8904;
+PaymentMgr.CMD_BUY_G_ZALO = 4885;
+PaymentMgr.CMD_BUY_G_ATM = 4886;
+PaymentMgr.CMD_SEND_BUY_G_ATM = 4887;
+PaymentMgr.CMD_BUY_ZALO_V2 = 4889;
+PaymentMgr.CMD_GET_CONFIG_SHOP = 1009;
+
+PaymentMgr.CMD_PURCHASE_IAP_GOOGLE_PORTAL = 8912;
+PaymentMgr.CMD_PURCHASE_IAP_APPLE_PORTAL = 8903;
+PaymentMgr.CMD_PURCHASE_IAP_GOOGLE_MULTI_PORTAL = 8913;
+PaymentMgr.CMD_UPDATE_ENABLE_PAYMENT = 8930;
+
+ConfigLog = {};
+ConfigLog.ZALO_PAY = "ZALO_PAY";
+ConfigLog.DAILY_PURCHASE = "DAILY_PURCHASE";
+ConfigLog.BEGIN = "_begin_";
+ConfigLog.END = "_end_";

@@ -156,7 +156,7 @@ var ItemIapCell = cc.TableViewCell.extend({
         this.iconTimeVip.setPositionX(this.timeVip.getPositionX() + this.timeVip.getContentSize().width + 4);
 
         //event item bonus
-        event.updateItemInShop(this.arrayLbGachaCoin, this.arrayIconGachaCoin, this.bonusValue, inf);
+        eventMgr.updateItemInShop(this.arrayLbGachaCoin, this.arrayIconGachaCoin, this.bonusValue, inf);
 
         //bonus
         this.bgBonusGold.setVisible(false);
@@ -449,7 +449,7 @@ var OfferIapCell = cc.TableViewCell.extend({
         var offerEvent = inf.offerEvents;
         for (var i = 0; i < offerEvent.length; i++) {
             var eOffer = offerEvent[i];
-            str += "\n+ " + eOffer["value"] + " " + event.getOfferTicketString(eOffer["eventId"]);
+            str += "\n+ " + eOffer["value"] + " " + eventMgr.getOfferTicketString(eOffer["eventId"]);
         }
 
         //set info bonus diamond
@@ -681,7 +681,7 @@ var ShopItemCell = cc.TableViewCell.extend({
                                 conditions.push(condition);
                             break;
                         case StorageManager.LEVEL_CONDITION:
-                            if (gamedata.userData.level < condition.num)
+                            if (userMgr.getLevel() < condition.num)
                                 conditions.push(condition);
                             break;
                     }

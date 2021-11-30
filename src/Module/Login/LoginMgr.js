@@ -88,7 +88,7 @@ var LoginMgr = BaseMgr.extend({
         var packet = new engine.InPacket();
         packet.init(pk);
         switch (cmd) {
-            case CMD.CMD_LOGIN: {
+            case LoginMgr.CMD_LOGIN: {
                 cc.log(this.tag + cmd);
                 if (packet.getError() == 0) {
                     GameClient.getInstance().startPingPong();
@@ -136,7 +136,7 @@ var LoginMgr = BaseMgr.extend({
                 }
                 return true;
             }
-            case CMD.CMD_LOGIN_FAIL: {
+            case LoginMgr.CMD_LOGIN_FAIL: {
                 cc.log("_______________________________RETRY RECONNECT OTHER SERVER________________________________");
 
                 var cmdConnectFail = new CmdReceiveConnectFail(p);
@@ -249,3 +249,6 @@ LoginMgr.getInstance = function () {
     return LoginMgr.instance;
 };
 var loginMgr = LoginMgr.getInstance();
+
+LoginMgr.CMD_LOGIN = 1;
+LoginMgr.CMD_LOGIN_FAIL = 2;

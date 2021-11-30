@@ -229,7 +229,7 @@ var EventMgr = cc.Class.extend({
         this.arrayBtnEvent = [];
         // this.arrayEvent.push(this.createEvent(EventMgr.WEEKLY_CHALLENGE, EventMgr.WEEKLY_CHALLENGE_NAME, false, WChallenge.getInstance(), false, true, 2));
         // this.arrayEvent.push(this.createEvent(EventMgr.LUCKY_CARD, EventMgr.LUCKY_CARD_NAME, false, luckyCard, false, true, 1));
-        this.arrayEvent.push(this.createEvent(EventMgr.POT_BREAKER, EventMgr.POT_BREAKER_NAME, false, potBreaker, false, true, 2));
+        // this.arrayEvent.push(this.createEvent(EventMgr.POT_BREAKER, EventMgr.POT_BREAKER_NAME, false, potBreaker, false, true, 2));
         // this.arrayEvent.push(this.createEvent(EventMgr.BLUE_OCEAN, EventMgr.BLUE_OCEAN_NAME, true, blueOcean, true, true, 1));
         // this.arrayEvent.push(this.createEvent(EventMgr.MID_AUTUMN, EventMgr.MID_AUTUMN_NAME, true, midAutumn, false, true, 1));
 

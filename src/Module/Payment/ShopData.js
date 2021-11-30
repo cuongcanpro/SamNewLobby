@@ -30,7 +30,7 @@ var ShopData = cc.Class.extend({
 
     initShopGoldOneData: function (type, maxSize, color) {
         var src = [];
-        var goldIap = gamedata.gameConfig.getShopGoldById(type);
+        var goldIap = paymentMgr.getShopGoldById(type);
         var objOffer = this.initOfferData(type);
         if (objOffer != undefined && objOffer != null) {
             for (var i = 0; i < objOffer.length; i++) {
@@ -59,24 +59,24 @@ var ShopData = cc.Class.extend({
                 var typeGetBonus = type;
                 switch (type) {
                     case Payment.GOLD_IAP:
-                        missionObj = gamedata.gameConfig.getIsFirstGoldIAP(packageShop["value"]);
+                        missionObj = paymentMgr.getIsFirstGoldIAP(packageShop["value"]);
                         break;
                     case Payment.GOLD_ZING:
-                        missionObj = gamedata.gameConfig.getIsFirstGoldZing(packageShop["value"]);
+                        missionObj = paymentMgr.getIsFirstGoldZing(packageShop["value"]);
                         break;
                     case Payment.GOLD_ZALO:
-                        missionObj = gamedata.gameConfig.getIsFirstGoldZalo(packageShop["value"]);
+                        missionObj = paymentMgr.getIsFirstGoldZalo(packageShop["value"]);
                         break;
                     case Payment.GOLD_ATM:
-                        missionObj = gamedata.gameConfig.getIsFirstGoldATM(packageShop["value"]);
+                        missionObj = paymentMgr.getIsFirstGoldATM(packageShop["value"]);
                         break;
                     case Payment.GOLD_G:
-                        missionObj = gamedata.gameConfig.getIsFirstGoldG(packageShop["value"]);
+                        missionObj = paymentMgr.getIsFirstGoldG(packageShop["value"]);
                         break;
                     case Payment.GOLD_SMS_VIETTEL:
                     case Payment.GOLD_SMS_VINA:
                     case Payment.GOLD_SMS_MOBI:
-                        missionObj = gamedata.gameConfig.getIsFirstGoldSMSnew(type, packageShop["value"]);
+                        missionObj = paymentMgr.getIsFirstGoldSMSnew(type, packageShop["value"]);
                         typeGetBonus = Payment.GOLD_SMS;
                         break;
                 }
@@ -133,7 +133,7 @@ var ShopData = cc.Class.extend({
                     continue;
                 }
             } else if (typePayment != type) continue;
-            var goldIap = gamedata.gameConfig.getShopGoldById(typePayment);
+            var goldIap = paymentMgr.getShopGoldById(typePayment);
 
             if (goldIap) {
                 var obj = {};
@@ -192,7 +192,7 @@ var ShopData = cc.Class.extend({
 
     initShopGOneData: function (type, maxSize, color) {
         var src = [];
-        var goldIap = gamedata.gameConfig.getShopGById(type);
+        var goldIap = paymentMgr.getShopGById(type);
         if (goldIap) {
             var iapEnable = iapHandler.arrayPackageOpen;
             for (var i = 0; i < goldIap.numPackage; i++) {
@@ -225,7 +225,7 @@ var ShopData = cc.Class.extend({
             obj.id_portal = packageShop["portalAndroidId"];
             obj.id_multi_portal = packageShop["id_gg_portal"];
             obj.id_multi_ios_portal = packageShop["id_ios_portal"];
-            if (!gamedata.isPortal()) {
+            if (!PortalUtil.isPortal()) {
                 obj.cost = iapHandler.getProductPrice(obj.id, obj.id_ios, packageShop["value"]);
             } else {
                 obj.cost = iapHandler.getProductPrice(obj.id_portal, obj.id_ios_portal, packageShop["value"]);
@@ -254,7 +254,7 @@ var ShopData = cc.Class.extend({
             obj.id_portal = packageShop["portalAndroidId"];
             obj.id_multi_portal = packageShop["id_gg_portal"];
             obj.id_multi_ios_portal = packageShop["id_ios_portal"];
-            if (!gamedata.isPortal()) {
+            if (!PortalUtil.isPortal()) {
                 obj.cost = iapHandler.getProductPrice(obj.id, obj.id_ios, packageShop["value"]);
             } else {
                 obj.cost = iapHandler.getProductPrice(obj.id_portal, obj.id_ios_portal, packageShop["value"]);

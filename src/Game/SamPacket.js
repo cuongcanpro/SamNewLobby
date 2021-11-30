@@ -3,28 +3,6 @@
  */
 
 
-CmdSendCreateRoom = CmdSendCommon.extend({
-    ctor: function () {
-        this._super();
-        this.initData(100);
-        this.setControllerId(1);
-        this.setCmdId(CMD.CMD_CREATE_ROOM);
-    },
-    putData: function (name, bet, bigbet, password, numpeople) {
-        //pack
-        this.packHeader();
-
-        this.putString(name);
-        this.putByte(bet);
-        this.putByte(1);
-        this.putString(password);
-        this.putByte(numpeople);
-        this.putByte(bigbet);
-
-        //update
-        this.updateSize();
-    }
-});
 
 CmdSendCheatMoney = CmdSendCommon.extend({
     ctor: function () {

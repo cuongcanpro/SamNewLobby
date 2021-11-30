@@ -623,47 +623,6 @@ CmdSendUpdateStatusFriend = CmdSendCommon.extend({
 
 
 // PACKET NEW FLOW
-CmdSendGameInfo = CmdSendCommon.extend({
-    ctor: function () {
-        this._super();
-        this.initData(100);
-        this.setControllerId(1);
-        this.setCmdId(CMD.CMD_GET_CONFIG);
-    },
-
-    putData: function (deviceName, osVersion, platform, deviceId, appVersion, trackingSource, mac, footballVersion, isUpdateApp, installDate, configVersion, quickConnect) {
-        cc.log("++GameInfo " + JSON.stringify(arguments));
-
-        //pack
-        this.packHeader();
-
-        this.putString(deviceName);
-        this.putString(osVersion);
-        this.putByte(platform);
-        this.putString(deviceId);
-        this.putString(appVersion);
-        this.putString(trackingSource);
-        this.putString(mac);
-        this.putInt(footballVersion);
-        this.putByte(isUpdateApp ? 1 : 0);
-        this.putString(installDate);
-
-        this.putInt(configVersion);
-        this.putByte(quickConnect ? 1 : 0);
-
-        var networkInfo = NativeBridge.getTelephoneInfo();
-        if (networkInfo && networkInfo != "") {
-            this.putShort(1);
-            this.putString(networkInfo);
-            cc.log("Sim Operator : " + networkInfo);
-        } else {
-            this.putShort(0);
-        }
-
-        //update
-        this.updateSize();
-    }
-});
 
 CmdSendRequestMission = CmdSendCommon.extend({
     ctor: function () {

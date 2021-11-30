@@ -35,37 +35,14 @@ var ChooseRoomScene = BaseLayer.extend({
         channelMgr.onEnterChannel();
         supportMgr.checkCapture();
         supportMgr.checkSupportBean();
-
-        if (Config.ENABLE_JACKPOT) {
-            this.updateJackpotGUI("init");
-        }
+        jackpotMgr.updateButtonJackpot(this._layout, true);
 
         if (!cc.sys.isNative) {
             this._uiTable.setTouchEnabled(true);
         }
     },
-    createAnim: function (control, anim) {
-        cc.log(anim);
-        if (control === undefined || control == null || anim === undefined || anim == "") return null;
 
-        if (control.anim) {
-            control.removeChild(control.anim);
-            control.anim = null;
-        }
-
-        var eff = db.DBCCFactory.getInstance().buildArmatureNode(anim);
-        // cc.log("create ok");
-        if (eff) {
-            control.addChild(eff);
-            eff.setPosition(control.getContentSize().width / 2, control.getContentSize().height / 2);
-            //eff.getAnimation().gotoAndPlay("1", -1, -1, 0);
-            control.anim = eff;
-            // cc.log("has effect");
-        }
-        return eff;
-    },
     updateJackpotGUI: function (status) {
-        return;
         if (!Config.ENABLE_JACKPOT || gamedata.selectedChanel == -1) {
             return;
         }

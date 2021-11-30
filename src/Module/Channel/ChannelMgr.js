@@ -9,7 +9,7 @@ var ChannelMgr = BaseMgr.extend({
 
     onReceived: function (cmd, pk) {
         switch (cmd) {
-            case CMD.CMD_SELECT_CHANEL: {
+            case ChannelMgr.CMD_SELECT_CHANEL: {
                 var selectChanel = new CmdReceivedChanlel(pk);
                 selectChanel.clean();
 
@@ -28,7 +28,7 @@ var ChannelMgr = BaseMgr.extend({
                 }
                 return true;
             }
-            case CMD.CMD_REFRESH_TABLE: {
+            case ChannelMgr.CMD_REFRESH_TABLE: {
                 var table = new CmdReceivedRefreshTable(pk);
                 if (sceneMgr.getRunningScene().getMainLayer() instanceof ChooseRoomScene) {
                     this.roomlist = table.list;
@@ -36,7 +36,7 @@ var ChannelMgr = BaseMgr.extend({
                 }
                 return true;
             }
-            case CMD.SEARCH_TABLE: {
+            case ChannelMgr.SEARCH_TABLE: {
                 if (sceneMgr.getRunningScene().getMainLayer() instanceof ChooseRoomScene) {
                     var search = new CmdReceivedUpdateSearchTable(pk);
                     this.roomlist = search.list;
@@ -45,14 +45,14 @@ var ChannelMgr = BaseMgr.extend({
                 }
                 return true;
             }
-            case CMD.CMD_LOCK_ACCOUNT: {
+            case ChannelMgr.CMD_LOCK_ACCOUNT: {
                 if (CheckLogic.checkInBoard())
                     return;
                 sceneMgr.clearLoading();
                 sceneMgr.showOKDialog(LocalizedString.to("JOIN_ROOM_FAIL_IN_WAIT_ROOM"));
                 break;
             }
-            case CMD.ACCEPT_INVITATION: {
+            case ChannelMgr.ACCEPT_INVITATION: {
                 var cai = new CmdReceiveAcceptInvitation(p);
                 if (cai.error != 0) {
                     sceneMgr.showOKDialog(LocalizedString.to("JOIN_ROOM_FAIL_NOT_REAL_ROOM"));
@@ -62,7 +62,7 @@ var ChannelMgr = BaseMgr.extend({
                 break;
             }
 
-            case CMD.JOIN_ROOM_FAIL: {
+            case ChannelMgr.JOIN_ROOM_FAIL: {
                 if (CheckLogic.checkInBoard())
                     return;
                 sceneMgr.clearLoading();
@@ -107,7 +107,7 @@ var ChannelMgr = BaseMgr.extend({
                 }
                 break;
             }
-            case CMD.CMD_CREATE_ROOM: {
+            case ChannelMgr.CMD_CREATE_ROOM: {
                 sceneMgr.clearLoading();
                 var msgCmdRCreateRoom = new CmdReceiveCreateRoom(p);
                 msgCmdRCreateRoom.clean();
@@ -391,3 +391,14 @@ ChannelMgr.getInstance = function () {
     return ChannelMgr.instance;
 };
 var channelMgr = ChannelMgr.getInstance();
+
+
+ChannelMgr.CMD_SELECT_CHANEL = 2001;
+ChannelMgr.CMD_CREATE_ROOM = 2004;
+ChannelMgr.CMD_RECEIVE_JACKPOT = 2007;
+ChannelMgr.CMD_REFRESH_TABLE = 2008;
+ChannelMgr.SEARCH_TABLE = 2013;
+ChannelMgr.CMD_QUICK_PLAY = 2103;
+ChannelMgr.CMD_QUICK_PLAY_CUSTOM = 2101;
+ChannelMgr.CMD_LOCK_ACCOUNT = 68;
+ChannelMgr.JOIN_ROOM_FAIL = 3007;

@@ -50,21 +50,6 @@ CmdSendDetermineInTable = CmdSendCommon.extend({
     }
 });
 
-CmdSendGetUserInfo = CmdSendCommon.extend({
-
-    ctor: function () {
-        this._super();
-        this.initData(1000);
-        this.setControllerId(1);
-        this.setCmdId(CMD.CMD_GET_USER_INFO);
-        this.putData();
-    },
-
-    putData: function () {
-        this.packHeader();
-        this.updateSize();
-    }
-});
 
 CmdSendLeaveRoom = CmdSendCommon.extend({
 

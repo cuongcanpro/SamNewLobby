@@ -6,13 +6,13 @@ var LevelMgr = BaseMgr.extend({
 
     onReceived: function (cmd, pk) {
         switch (cmd) {
-            case CMD.CMD_LEVEL_CONFIG: {
+            case LevelMgr.CMD_LEVEL_CONFIG: {
                 var cmd = new CmdReceivedLevelConfig(pk);
                 cmd.clean();
                 this.loadConfig(cmd);
                 return true;
             }
-            case CMD.CMD_LEVEL_UP: {
+            case LevelMgr.CMD_LEVEL_UP: {
                 var cmd = new CmdReceivedLevelUp(pk);
                 cc.log("level up: ", JSON.stringify(cmd));
 
@@ -80,3 +80,6 @@ LevelMgr.getInstance = function () {
     return LevelMgr.instance;
 };
 var levelMgr = LevelMgr.getInstance();
+
+LevelMgr.CMD_LEVEL_UP = 1110;
+LevelMgr.CMD_LEVEL_CONFIG = 1111;

@@ -78,7 +78,7 @@ var ShopIapScene = BaseLayer.extend({
 
         //load event ticket item
         this.iconTicketButton = this.getControl("iconTicket", this.btnTicket);
-        this.iconTicketButton.loadTexture(event.getTicketTexture(-1));
+        this.iconTicketButton.loadTexture(eventMgr.getTicketTexture(-1));
 
         //user info layer
         var pInfo = this.getControl("pInfo");
@@ -179,7 +179,7 @@ var ShopIapScene = BaseLayer.extend({
     },
 
     reLayoutTab: function () {
-        var arrayConfigTicket = event.getArrayConfigTicket();
+        var arrayConfigTicket = eventMgr.getArrayConfigTicket();
         cc.log("ARRAY CONFIG TICKET " + arrayConfigTicket.length);
         if (arrayConfigTicket.length > 0) {
             this.btnTicket.setVisible(true);
@@ -195,7 +195,7 @@ var ShopIapScene = BaseLayer.extend({
     onUpdateGUI: function () {
         this.updateUserInfo();
         shopData.initShopData();
-        if (!event.isHaveShopTicket()) {
+        if (!eventMgr.isHaveShopTicket()) {
             this.iconTicket.loadTexture("ShopIAP/ionCommingSoon.png");
             if (this.currentIdTab == ShopIapScene.BTN_TICKET) {
                 this.selectTabShop(ShopIapScene.BTN_GOLD);
@@ -212,19 +212,17 @@ var ShopIapScene = BaseLayer.extend({
     },
 
     updateUserInfo: function () {
-
         if (this._uiAvatar && this._uiName) {
-            this._uiAvatar.asyncExecuteWithUrl(GameData.getInstance().userData.zName, GameData.getInstance().userData.avatar);
-            this.setLabelText(GameData.getInstance().userData.displayName, this._uiName);
+            this._uiAvatar.asyncExecuteWithUrl(userMgr.getGold(), userMgr.getAvatar());
+            this.setLabelText(userMgr.getDisplayName(), this._uiName);
         }
         if (this.avatarFrame){
             this.avatarFrame.reload();
             this.defaultFrame.setVisible(!this.avatarFrame.isShow());
         }
-        if (this._uiBean) this._uiBean.setString(StringUtility.standartNumber(GameData.getInstance().userData.bean));
-        if (this._uiCoin) this._uiCoin.setString(StringUtility.standartNumber(GameData.getInstance().userData.coin));
-        if (this._uiStar) this._uiStar.setString(StringUtility.standartNumber(GameData.getInstance().userData.gStar));
-        if (this._uiDiamond) this._uiDiamond.setString(StringUtility.standartNumber(GameData.getInstance().userData.diamond));
+        if (this._uiBean) this._uiBean.setString(StringUtility.standartNumber(userMgr.getGold()));
+        if (this._uiCoin) this._uiCoin.setString(StringUtility.standartNumber(userMgr.getCoin()));
+        if (this._uiDiamond) this._uiDiamond.setString(StringUtility.standartNumber(userMgr.getDiamond()));
     },
 
     updateVipInfo: function () {
@@ -233,9 +231,9 @@ var ShopIapScene = BaseLayer.extend({
 
     updateEventInfo: function () {
         //return;
-        if (event.isInMainEvent()) {
-            this.iconTicketButton.loadTexture(event.getTicketTexture());
-            if (event.promoTicket > 0) {
+        if (eventMgr.isInMainEvent()) {
+            this.iconTicketButton.loadTexture(eventMgr.getTicketTexture());
+            if (eventMgr.promoTicket > 0) {
                 this.btnTicket.iconX2.setVisible(true);
             } else {
                 this.btnTicket.iconX2.setVisible(false);
@@ -246,11 +244,11 @@ var ShopIapScene = BaseLayer.extend({
         if (this.currentIdTab == ShopIapScene.BTN_TICKET) {
             if (this.iconTicket) {
                 this.iconTicket.setVisible(false);
-                if (event.isInMainEvent()) {
+                if (eventMgr.isInMainEvent()) {
                     this.iconTicket.setVisible(true);
-                    this.iconTicket.loadTexture(event.getTicketTexture());
-                    cc.log("is in main event " + event.getNumberTicket());
-                    this._uiTicket.setString(StringUtility.pointNumber(event.getNumberTicket()));
+                    this.iconTicket.loadTexture(eventMgr.getTicketTexture());
+                    cc.log("is in main event " + eventMgr.getNumberTicket());
+                    this._uiTicket.setString(StringUtility.pointNumber(eventMgr.getNumberTicket()));
                 } else {
 
                 }
@@ -269,9 +267,9 @@ var ShopIapScene = BaseLayer.extend({
     },
 
     selectTabShop: function (idTab) {
-        cc.log("ID TAB " + idTab + "IN EVENT " + event.isInMainEvent());
+        cc.log("ID TAB " + idTab + "IN EVENT " + eventMgr.isInMainEvent());
         if (idTab == ShopIapScene.BTN_TICKET) {
-            if (!event.isInMainEvent()) {
+            if (!eventMgr.isInMainEvent()) {
                 Toast.makeToast(Toast.SHORT, localized("GACHA_EVENT_TIMEOUT"));
                 return;
             }
@@ -396,7 +394,7 @@ var ShopIapScene = BaseLayer.extend({
         if (isGUI && this.saveGold) {
             effectMgr.flyCoinEffect(sceneMgr.layerGUI, this.saveGold, 100000, pStart, pEnd);
             if (lbGold)
-                effectMgr.runLabelPoint(lbGold, (gamedata.userData.bean - this.saveGold), gamedata.userData.bean, 1.5);
+                effectMgr.runLabelPoint(lbGold, (userMgr.getGold() - this.saveGold), userMgr.getGold(), 1.5);
         }
     },
 

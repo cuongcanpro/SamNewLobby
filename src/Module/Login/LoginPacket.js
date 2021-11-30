@@ -4,7 +4,7 @@ CmdSendLogin = CmdSendCommon.extend({
         this._super();
         this.initData(100);
         this.setControllerId(1);
-        this.setCmdId(CMD.CMD_LOGIN);
+        this.setCmdId(LoginMgr.CMD_LOGIN);
 
     },
     putData: function (sessionkey) {

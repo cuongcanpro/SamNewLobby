@@ -51,7 +51,7 @@ TabGPayment = cc.Layer.extend({
             this.selectTabMostBought();
         cc.log(" TabGPayment ********** " + this.selectedTab);
         var cmdConfig = new CmdSendGetConfigShop();
-        cmdConfig.putData(CmdSendGetConfigShop.G, gamedata.gameConfig.versionShopGold);
+        cmdConfig.putData(CmdSendGetConfigShop.G, paymentMgr.versionShopGold);
         GameClient.getInstance().sendPacket(cmdConfig);
         this.selectTab(this.selectedTab);
         this.listButton.reloadData();
@@ -74,9 +74,9 @@ TabGPayment = cc.Layer.extend({
         var targetTab = 0;
         // lay last buy
         var i;
-        for (i = 0; i < gamedata.gameConfig.arrayShopGConfig.length; i++) {
-            if (gamedata.gameConfig.arrayShopGConfig[i].type === gamedata.gameConfig.lastBuyGType) {
-                cc.log("dm123: " + JSON.stringify(gamedata.gameConfig.arrayShopGConfig[i]));
+        for (i = 0; i < paymentMgr.arrayShopGConfig.length; i++) {
+            if (paymentMgr.arrayShopGConfig[i].type === paymentMgr.lastBuyGType) {
+                cc.log("dm123: " + JSON.stringify(paymentMgr.arrayShopGConfig[i]));
                 targetTab = i;
                 if (targetTab >= 6 && targetTab < 9) {
                     targetTab = 0;
@@ -114,11 +114,11 @@ TabGPayment = cc.Layer.extend({
     },
 
     selectTab: function (id) {
-        if (gamedata.gameConfig.arrayShopGConfig[id] == null) id = 0;
+        if (paymentMgr.arrayShopGConfig[id] == null) id = 0;
         this.selectedTab = id;
         this.tabNormalPayment.setVisible(false);
         this.tabZing.setVisible(false);
-        var idPayment = gamedata.gameConfig.arrayShopGConfig[id].id;
+        var idPayment = paymentMgr.arrayShopGConfig[id].id;
         if (!cc.sys.isNative) {
             this.tabNormalPayment.getTableView().setTouchEnabled(idPayment != Payment.G_ZING);
         }
@@ -127,7 +127,7 @@ TabGPayment = cc.Layer.extend({
         if (idPayment == Payment.G_ZING) {
             this.tabZing.setVisible(true);
         } else {
-            var config = gamedata.gameConfig.getShopGById(idPayment);
+            var config = paymentMgr.getShopGById(idPayment);
             if (config && config["isMaintained"][0]) {
                 this.showMaintain(true);
             } else {
@@ -146,7 +146,7 @@ TabGPayment = cc.Layer.extend({
     getButtonImage: function (id) {
         var imageResource = "btnGoogle";
         cc.log("ID " + id);
-        var idPayment = gamedata.gameConfig.arrayShopGConfig[id].id;
+        var idPayment = paymentMgr.arrayShopGConfig[id].id;
         switch (idPayment) {
             case Payment.G_IAP:
                 if (cc.sys.os == cc.sys.OS_ANDROID) {
@@ -213,9 +213,9 @@ TabGPayment = cc.Layer.extend({
             this.currentButton = image;
         }
         var effect = cell.getChildByTag(2);
-        var config = gamedata.gameConfig.arrayShopGConfig[idx];
+        var config = paymentMgr.arrayShopGConfig[idx];
 
-        if (gamedata.gameConfig.isShopBonusAllG && config["shopBonus"] > 0) {
+        if (paymentMgr.isShopBonusAllG && config["shopBonus"] > 0) {
             effect.setVisible(true);
             var text = effect.getChildByTag(3);
             if (!cc.sys.isNative) {
@@ -246,9 +246,9 @@ TabGPayment = cc.Layer.extend({
     },
 
     numberOfCellsInTableView: function (table) {
-        if (gamedata.gameConfig && gamedata.gameConfig.arrayShopGConfig) {
-            // cc.log("--TabG : " + gamedata.gameConfig.arrayShopGConfig.length + " in " + JSON.stringify(gamedata.gameConfig.arrayShopGConfig));
-            return gamedata.gameConfig.arrayShopGConfig.length;
+        if (paymentMgr && paymentMgr.arrayShopGConfig) {
+            // cc.log("--TabG : " + paymentMgr.arrayShopGConfig.length + " in " + JSON.stringify(paymentMgr.arrayShopGConfig));
+            return paymentMgr.arrayShopGConfig.length;
         }
         return 0;
     }

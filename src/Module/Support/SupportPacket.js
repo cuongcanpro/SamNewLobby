@@ -4,7 +4,7 @@ CmdSendGetSupportBean = CmdSendCommon.extend({
         this._super();
         this.initData(100);
         this.setControllerId(1);
-        this.setCmdId(CMD.SUPPORT_BEAN);
+        this.setCmdId(SupportMgr.SUPPORT_BEAN);
         this.putData();
     },
 
@@ -21,7 +21,7 @@ CmdSendTangGold = CmdSendCommon.extend(
             this._super();
             this.initData(100);
             this.setControllerId(1);
-            this.setCmdId(CMD.CMD_TANGVANG);
+            this.setCmdId(SupportMgr.CMD_TANGVANG);
             this.putData();
 
         },

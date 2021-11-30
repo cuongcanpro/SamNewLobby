@@ -6,7 +6,7 @@ var UserMgr = BaseMgr.extend({
 
     onReceived: function (cmd, pk) {
         switch (cmd) {
-            case CMD.CMD_GET_USER_INFO: {
+            case UserMgr.CMD_GET_USER_INFO: {
                 sceneMgr.clearLoading();
 
                 // READ DATA
@@ -48,7 +48,7 @@ var UserMgr = BaseMgr.extend({
                 LogUtil.sendLogInstallZaloPay();
                 break;
             }
-            case CMD.CMD_UPDATE_MONEY: {
+            case UserMgr.CMD_UPDATE_MONEY: {
                 var update = new CmdReceivedUpdateBean(pk);
                 CheckLogic.onUpdateMoney(update);
                 this.updateMoney(update);
@@ -57,7 +57,7 @@ var UserMgr = BaseMgr.extend({
                 sceneMgr.updateCurrentGUI();
                 break;
             }
-            case CMD.CMD_GET_CONFIG: {
+            case UserMgr.CMD_GET_CONFIG: {
                 var cmd = new CmdReceivedConfig(pk);
                 cmd.clean();
                 gameConfig.loadServerConfig(cmd.jsonConfig);
@@ -140,3 +140,7 @@ UserMgr.getInstance = function () {
     return UserMgr.instance;
 };
 var userMgr = UserMgr.getInstance();
+
+UserMgr.CMD_GET_USER_INFO = 1001;
+UserMgr.CMD_UPDATE_MONEY = 1007;
+UserMgr.CMD_GET_CONFIG = 1004;

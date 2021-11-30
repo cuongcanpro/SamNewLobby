@@ -42,7 +42,7 @@ TabGoldPayment = cc.Layer.extend({
             this.selectTab(this.selectedTab);
         }
         var cmdConfig = new CmdSendGetConfigShop();
-        cmdConfig.putData(CmdSendGetConfigShop.GOLD, gamedata.gameConfig.versionShopGold);
+        cmdConfig.putData(CmdSendGetConfigShop.GOLD, paymentMgr.versionShopGold);
         GameClient.getInstance().sendPacket(cmdConfig);
         this.listButton.reloadData();
     },
@@ -62,10 +62,10 @@ TabGoldPayment = cc.Layer.extend({
         var targetTab = 0;
         cc.log("selectTabMostBought 1");
         // lay last buy
-        for (var i = 0; i < gamedata.gameConfig.arrayShopGoldConfig.length; i++) {
-            if (gamedata.gameConfig.arrayShopGoldConfig[i].type === gamedata.gameConfig.lastBuyGoldType) {
+        for (var i = 0; i < paymentMgr.arrayShopGoldConfig.length; i++) {
+            if (paymentMgr.arrayShopGoldConfig[i].type === paymentMgr.lastBuyGoldType) {
                 targetTab = i;
-                if (gamedata.gameConfig.arrayShopGoldConfig[i]["name"].indexOf("sms") >= 0) {
+                if (paymentMgr.arrayShopGoldConfig[i]["name"].indexOf("sms") >= 0) {
                     targetTab = 0;
                 }
                 break;
@@ -103,12 +103,12 @@ TabGoldPayment = cc.Layer.extend({
 
     selectTab: function (id) {
         cc.log("selectTab ** FIRST : ", id);
-        if (gamedata.gameConfig.arrayShopGoldConfig[id] == null) id = 0;
+        if (paymentMgr.arrayShopGoldConfig[id] == null) id = 0;
         this.selectedTab = id;
         this.tabNormalPayment.setVisible(false);
         this.tabSMS.setVisible(false);
-        cc.log("selectTab: ", id + "  " + JSON.stringify(gamedata.gameConfig.arrayShopGoldConfig[id]));
-        var idPayment = gamedata.gameConfig.arrayShopGoldConfig[id].id;
+        cc.log("selectTab: ", id + "  " + JSON.stringify(paymentMgr.arrayShopGoldConfig[id]));
+        var idPayment = paymentMgr.arrayShopGoldConfig[id].id;
         if (!cc.sys.isNative) {
             this.tabNormalPayment.getTableView().setTouchEnabled(idPayment != Payment.GOLD_SMS);
         }
@@ -117,7 +117,7 @@ TabGoldPayment = cc.Layer.extend({
         if (idPayment == Payment.GOLD_SMS) {
             this.tabSMS.show();
             for (var i = Payment.GOLD_SMS_VIETTEL; i <= Payment.GOLD_SMS_VINA; i++) {
-                config = gamedata.gameConfig.getShopGoldById(i);
+                config = paymentMgr.getShopGoldById(i);
                 // cc.log("config sms: " + JSON.stringify(config));
                 if (config && config["isMaintained"][0] === 0) {
                     break;
@@ -129,7 +129,7 @@ TabGoldPayment = cc.Layer.extend({
                 this.tabSMS.setVisible(false);
             }
         } else {
-            var config = gamedata.gameConfig.getShopGoldById(idPayment);
+            var config = paymentMgr.getShopGoldById(idPayment);
             if (config && config["isMaintained"][0]) {
                 this.showMaintain(true);
             } else {
@@ -147,7 +147,7 @@ TabGoldPayment = cc.Layer.extend({
 
     getButtonImage: function (id) {
         var imageResource = "btnGoogle";
-        var idPayment = gamedata.gameConfig.arrayShopGoldConfig[id].id;
+        var idPayment = paymentMgr.arrayShopGoldConfig[id].id;
         switch (idPayment) {
             case Payment.GOLD_IAP:
                 if (cc.sys.os == cc.sys.OS_ANDROID) {
@@ -214,12 +214,12 @@ TabGoldPayment = cc.Layer.extend({
         var imageResource = this.getButtonImage(idx);
         image.idButton = idx;
         image.setTexture(imageResource);
-        var config = gamedata.gameConfig.arrayShopGoldConfig[idx];
-        if (gamedata.gameConfig.isShopBonusAll && config["isShopBonus"]) {
+        var config = paymentMgr.arrayShopGoldConfig[idx];
+        if (paymentMgr.isShopBonusAll && config["isShopBonus"]) {
             effect.setVisible(true);
         } else {
             if (offerManager.haveOffer()) {
-                effect.setVisible(offerManager.checkHaveOfferPayment(gamedata.gameConfig.arrayShopGoldConfig[idx].id));
+                effect.setVisible(offerManager.checkHaveOfferPayment(paymentMgr.arrayShopGoldConfig[idx].id));
             } else {
                 effect.setVisible(false);
             }
@@ -248,8 +248,8 @@ TabGoldPayment = cc.Layer.extend({
     },
 
     numberOfCellsInTableView: function (table) {
-        if (gamedata.gameConfig && gamedata.gameConfig.arrayShopGoldConfig) {
-            var shopGoldLength = gamedata.gameConfig.arrayShopGoldConfig.length;
+        if (paymentMgr && paymentMgr.arrayShopGoldConfig) {
+            var shopGoldLength = paymentMgr.arrayShopGoldConfig.length;
             if (Config.TEST_SMS_VINA && shopGoldLength > 3) {
                 shopGoldLength -= 3;
             }
