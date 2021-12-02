@@ -477,16 +477,7 @@ CmdReceivedTrackLogZaloPay.CREATE_ORDER = 2;
 CmdReceivedTrackLogZaloPay.PAY = 3;
 
 
-CmdReceivedPortalGiftCode = CmdReceivedCommon.extend({
-    ctor: function (pkg) {
-        this._super(pkg);
-        this.readData();
-    },
-    readData: function () {
-        this.giftCode = this.getString();
-        this.error = this.getInt();
-    }
-});
+
 
 
 CmdReceivedNotifyEventRegister = CmdReceivedCommon.extend({

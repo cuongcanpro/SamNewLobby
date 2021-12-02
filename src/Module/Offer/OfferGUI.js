@@ -231,7 +231,7 @@ var GUIOffer = BaseLayer.extend({
         this.arrayBonus = [];
         for (var i = 0; i < offerData.listBonus.length; i++) {
             var bonus = offerData.listBonus[i];
-            if (bonus.type == OfferManager.TYPE_TIME && NewVipManager.getInstance().getRealVipLevel() <= 0){
+            if (bonus.type == OfferManager.TYPE_TIME && VipManager.getInstance().getRealVipLevel() <= 0){
                 continue;
             }
             var offer = this.genOffer();
@@ -1095,7 +1095,7 @@ var GUIOfferRepay = BaseLayer.extend({
         this.arrayBonus = [];
         for (var i = 0; i < offerData.listBonus.length; i++) {
             var bonus = offerData.listBonus[i];
-            // if (bonus.type == OfferManager.TYPE_TIME && NewVipManager.getInstance().getRealVipLevel() <= 0){
+            // if (bonus.type == OfferManager.TYPE_TIME && VipManager.getInstance().getRealVipLevel() <= 0){
             //     continue;
             // }
             var offer = this.genOffer();

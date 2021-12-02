@@ -47,45 +47,43 @@ var PanelIapItem = BaseLayer.extend({
 
     setData: function (data) {
         cc.log("DATA NE in Panel: " + JSON.stringify(data));
-        if (Config.ENABLE_NEW_VIP) {
-            var vipLevel = NewVipManager.getInstance().getRealVipLevel();
+        var vipLevel = VipManager.getInstance().getRealVipLevel();
+        for (var i = 0; i < data.length; i++) {
+            data[i].uptoLevelVip = 0;
+        }
+        if (vipLevel < VipManager.NUMBER_VIP) {
+            var vPoint = VipManager.getInstance().getRealVipVpoint();
+            var nextLevel = vipLevel + 1;
             for (var i = 0; i < data.length; i++) {
-                data[i].uptoLevelVip = 0;
-            }
-            if (vipLevel < NewVipManager.NUMBER_VIP) {
-                var vPoint = NewVipManager.getInstance().getRealVipVpoint();
-                var nextLevel = vipLevel + 1;
-                for (var i = 0; i < data.length; i++) {
-                    var dataItem = data[i];
-                    if (dataItem.isOffer) continue;
+                var dataItem = data[i];
+                if (dataItem.isOffer) continue;
 
-                    var totalVPoint = parseInt(vPoint) + dataItem.vPoint;
-                    var neededVPoint = 0;
-                    for (var level = vipLevel; level < nextLevel; level++)
-                        neededVPoint += NewVipManager.getInstance().getVpointNeed(level);
-                    while(true){
-                        if (totalVPoint >= neededVPoint && neededVPoint > 0){
-                            data[i].uptoLevelVip = nextLevel;
-                            nextLevel++;
-                            if (nextLevel > NewVipManager.NUMBER_VIP) break;
-                            else neededVPoint += NewVipManager.getInstance().getVpointNeed(nextLevel - 1);
-                        }
-                        else break;
+                var totalVPoint = parseInt(vPoint) + dataItem.vPoint;
+                var neededVPoint = 0;
+                for (var level = vipLevel; level < nextLevel; level++)
+                    neededVPoint += VipManager.getInstance().getVpointNeed(level);
+                while(true){
+                    if (totalVPoint >= neededVPoint && neededVPoint > 0){
+                        data[i].uptoLevelVip = nextLevel;
+                        nextLevel++;
+                        if (nextLevel > VipManager.NUMBER_VIP) break;
+                        else neededVPoint += VipManager.getInstance().getVpointNeed(nextLevel - 1);
                     }
-                    if (nextLevel > NewVipManager.NUMBER_VIP) break;
-
-                    // var totalVpointNeed = 0;
-                    // for (var j = vipLevel; j < nextLevel; j++) {
-                    //     totalVpointNeed += NewVipManager.getInstance().getVpointNeed(j);
-                    // }
-                    // if (dataItem.vPoint + parseInt(vPoint) >= totalVpointNeed && totalVpointNeed > 0) {
-                    //     data[i].uptoLevelVip = nextLevel;
-                    //     nextLevel++;
-                    //     if (nextLevel >= NewVipManager.NUMBER_VIP) {
-                    //         break;
-                    //     }
-                    // }
+                    else break;
                 }
+                if (nextLevel > VipManager.NUMBER_VIP) break;
+
+                // var totalVpointNeed = 0;
+                // for (var j = vipLevel; j < nextLevel; j++) {
+                //     totalVpointNeed += VipManager.getInstance().getVpointNeed(j);
+                // }
+                // if (dataItem.vPoint + parseInt(vPoint) >= totalVpointNeed && totalVpointNeed > 0) {
+                //     data[i].uptoLevelVip = nextLevel;
+                //     nextLevel++;
+                //     if (nextLevel >= VipManager.NUMBER_VIP) {
+                //         break;
+                //     }
+                // }
             }
         }
         this.srcList = data;

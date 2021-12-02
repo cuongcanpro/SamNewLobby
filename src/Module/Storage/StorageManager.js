@@ -802,7 +802,7 @@ var StorageManager = cc.Class.extend({
                     var cond = itemConfig.conditions[i];
                     switch(cond.type){
                         case StorageManager.VIP_CONDITION:
-                            if (NewVipManager.getInstance().getRealVipLevel() < cond.num) return false;
+                            if (VipManager.getInstance().getRealVipLevel() < cond.num) return false;
                             break;
                         case StorageManager.LEVEL_CONDITION:
                             if (gamedata.userData.level < cond.num) return false;

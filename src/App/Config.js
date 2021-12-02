@@ -26,7 +26,6 @@ Config.PORT_LIVE_WEB = 843;
 Config.ENABLE_CHEAT = true;
 Config.ENABLE_DEV = false;
 
-Config.ENABLE_NEW_LOBBY = false;
 Config.ENABLE_EVENT_SECRET_TOWER = false;
 
 Config.WITHOUT_LOGIN = true;
@@ -71,7 +70,6 @@ Config.ENABLE_JACKPOT = true;
 
 Config.ENABLE_DECORATE_ITEM = false;
 Config.ENABLE_MULTI_PORTAL = false;
-Config.ENABLE_NEW_LOBBY = false;
 
 // config cheat
 Config.ENABLE_CHEAT = false;                // ENABLE CHEAT CENTER IN GAME
@@ -105,8 +103,6 @@ Config.ENABLE_NEW_RANK = true;
 Config.ENABLE_TESTING_NEW_RANK = false; // trang thai chi connect den server ranking ma khong xu ly cac goi tin rank
 
 Config.ENABLE_QR_SMS_SYNTAX = false;
-
-Config.ENABLE_NEW_VIP = true;
 
 Config.URL_ZALOPAY = "vn.com.vng.zalopay";
 Config.URL_ZALOPAY_SANBOX = "vn.com.vng.zalopay.sbmc";

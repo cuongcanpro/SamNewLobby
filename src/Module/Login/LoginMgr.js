@@ -104,7 +104,8 @@ var LoginMgr = BaseMgr.extend({
 
                     NewRankData.connectToServerRank();
                     broadcastMgr.onStart();
-                    this.resetData();
+                    // reset du lieu cua moi Module khi nhan duoc goi Login
+                    gameMgr.resetData();
 
                 } else if (packet.getError() == -44) {
                     cc.log("_____________________LOGIN FAIL____________________");
@@ -144,8 +145,6 @@ var LoginMgr = BaseMgr.extend({
                 cc.sys.localStorage.setItem("portapp", cmdConnectFail.port);
 
                 GameClient.getInstance().connectState = ConnectState.DISCONNECTED;
-                engine.HandlerManager.getInstance().forceRemoveHandler("pingpong");
-                engine.HandlerManager.getInstance().forceRemoveHandler("received_pingpong");
                 GameClient.getInstance().disconnect();
                 GameClient.destroyInstance();
 
@@ -160,13 +159,13 @@ var LoginMgr = BaseMgr.extend({
     },
 
     backToLoginScene: function (checkPortal) {
-        if (checkPortal && PortalUtil.isPortal()) {
+        if (checkPortal && portalMgr.isPortal()) {
             gameMgr.endGame();
             return;
         }
 
         var curScene = sceneMgr.getMainLayer();
-        if (curScene instanceof LoginScene && (PortalUtil.isPortal() || !cc.sys.isNative)) {
+        if (curScene instanceof LoginScene && (portalMgr.isPortal() || !cc.sys.isNative)) {
             curScene.autoLoginPortal();
         } else {
             sceneMgr.openScene(LoginScene.className);
@@ -193,7 +192,7 @@ var LoginMgr = BaseMgr.extend({
                 break;
         }
         try {
-            if (PortalUtil.isPortal()) {
+            if (portalMgr.isPortal()) {
                 typeLogin = fr.NativePortal.getInstance().getSocialType();
                 switch (typeLogin) {
                     case Constant.FACEBOOK:
@@ -237,8 +236,7 @@ var LoginMgr = BaseMgr.extend({
 
     getOpenId: function () {
         return this.openId;
-    }
-
+    },
 })
 
 LoginMgr.instance = null;

@@ -116,7 +116,7 @@
 //                 this.gParent.showUp(false);
 //             } else {
 //                 var text = localized("VIP_NEED_TO_USE_EMO");
-//                 text = StringUtility.replaceAll(text, "@number", NewVipManager.getInstance().getLevelCanUseItem());
+//                 text = StringUtility.replaceAll(text, "@number", VipManager.getInstance().getLevelCanUseItem());
 //                 Toast.makeToast(Toast.SHORT, text);
 //             }
 //         }

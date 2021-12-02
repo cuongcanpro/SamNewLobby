@@ -5,8 +5,7 @@ var GiftCodeMgr = BaseMgr.extend({
 
     onReceived: function (cmd, pk) {
         switch (cmd) {
-
-            case CMD.CMD_GET_GIFT_CODE_SUCCESS: {
+            case GiftCodeMgr.CMD_GET_GIFT_CODE_SUCCESS: {
                 var cggcs = new CmdReceiveGiftCode(p);
                 switch (cggcs.res) {
                     case 0:
@@ -22,9 +21,9 @@ var GiftCodeMgr = BaseMgr.extend({
                         break;
                 }
                 cggcs.clean();
-                break;
+                return true;
             }
-            case CMD.CMD_GETCODE: {
+            case GiftCodeMgr.CMD_GETCODE: {
                 var crc = new CmdReceiveCode(p);
                 var data = (crc.getError() == 0) ? crc.listCodes : [];
                 var gui = sceneMgr.getRunningScene().getMainLayer();
@@ -32,9 +31,9 @@ var GiftCodeMgr = BaseMgr.extend({
                     gui.updateGiftCodes(data);
 
                 crc.clean();
-                break;
+                return true;
             }
-            case CMD.CMD_GET_LIST_CODE_NEW: {
+            case GiftCodeMgr.CMD_GET_LIST_CODE_NEW: {
                 var cglcn = new CmdReceiveListCodeNew(p);
                 cc.log("CMD_GET_LIST_CODE_NEW: ", JSON.stringify(cglcn));
                 var data = (cglcn.getError() == 0) ? cglcn.listCodes : [];
@@ -46,17 +45,14 @@ var GiftCodeMgr = BaseMgr.extend({
                 cglcn.clean();
                 break;
             }
-            case CMD.CMD_USE_CODE: {
+            case GiftCodeMgr.CMD_USE_CODE: {
                 GiftCodeScene.showResultUseGiftCode(p);
-                break;
+                return true;
             }
         }
         return false;
     },
 
-    openLobbyScene: function () {
-        var lobby = sceneMgr.openScene(LobbyScene.className);
-    }
 })
 
 GiftCodeMgr.instance = null;
@@ -67,3 +63,9 @@ GiftCodeMgr.getInstance = function () {
     return GiftCodeMgr.instance;
 };
 var giftCodeMgr = GiftCodeMgr.getInstance();
+
+GiftCodeMgr.CMD_CHECKCODE = 8001;
+GiftCodeMgr.CMD_GET_GIFT_CODE_SUCCESS = 8002;
+GiftCodeMgr.CMD_GETCODE = 8003;
+GiftCodeMgr.CMD_GET_LIST_CODE_NEW = 13003;
+GiftCodeMgr.CMD_USE_CODE = 13001;

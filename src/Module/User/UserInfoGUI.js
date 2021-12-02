@@ -291,7 +291,7 @@ var UserInfoPanel = BaseLayer.extend({
             };
             if (info == null){
                 interact.cond = {};
-                if (NewVipManager.getInstance().getRealVipLevel() < config.vip) {
+                if (VipManager.getInstance().getRealVipLevel() < config.vip) {
                     interact.cond = {
                         type: StorageManager.VIP_CONDITION,
                         num: config.vip

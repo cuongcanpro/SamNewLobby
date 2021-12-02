@@ -102,7 +102,7 @@ var ItemIapCell = cc.TableViewCell.extend({
         this.uptoLevelVip.setVisible(false);
         this.iconUp.setVisible(false);
         if (inf.uptoLevelVip > 0) {
-            var imgVip = NewVipManager.getIconVip(inf.uptoLevelVip);
+            var imgVip = VipManager.getIconVip(inf.uptoLevelVip);
             if (imgVip) {
                 this.uptoLevelVip.loadTexture(imgVip);
                 this.uptoLevelVip.setVisible(true);
@@ -148,7 +148,7 @@ var ItemIapCell = cc.TableViewCell.extend({
         this.gStar.setPositionX(this.star.getPositionX() + this.star.getContentSize().width + 5);
 
         //time vip
-        var levelVip = NewVipManager.getInstance().getRealVipLevel();
+        var levelVip = VipManager.getInstance().getRealVipLevel();
         inf.hourBonus = inf.hourBonus || 0;
         this.timeVip.setVisible(inf.vPoint > 0 && inf.hourBonus > 0 && levelVip > 0);
         this.timeVip.setString(StringUtility.replaceAll(localized("VIP_SHOP_HOUR_BONUS"), "@number", inf.hourBonus));
@@ -432,7 +432,7 @@ var OfferIapCell = cc.TableViewCell.extend({
         this.line2.setPositionX(this.goldOld.getPositionX() + this.goldOld.getContentSize().width / 2);
         this.line2.setScaleX(this.goldOld.getContentSize().width / this.line2.getContentSize().width);
 
-        var levelVip = NewVipManager.getInstance().getRealVipLevel();
+        var levelVip = VipManager.getInstance().getRealVipLevel();
         inf.hourBonus = inf.hourBonus || 0;
         if (inf.hourBonus > 0 && inf.vPoint > 0 && levelVip > 0) {
             str += "\n+ " + inf.hourBonus + "h VIP";
@@ -677,7 +677,7 @@ var ShopItemCell = cc.TableViewCell.extend({
                     var condition = item.data.conditions[j];
                     switch(condition.type){
                         case StorageManager.VIP_CONDITION:
-                            if (NewVipManager.getInstance().getRealVipLevel() < condition.num)
+                            if (VipManager.getInstance().getRealVipLevel() < condition.num)
                                 conditions.push(condition);
                             break;
                         case StorageManager.LEVEL_CONDITION:

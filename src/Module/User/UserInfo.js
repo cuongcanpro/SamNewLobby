@@ -133,7 +133,7 @@ var UserInfo = cc.Class.extend({
 
         // read user info
         this.setAvatar(info.avatar);
-        this.setDisplayName(info.displayName);
+        this.setDisplayName(info.userName);
         this.setUserName(info.zName);
         this.setGold(info.gold);
         this.setCoin(info.zMoney);

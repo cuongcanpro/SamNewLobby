@@ -102,7 +102,7 @@ var LuckyBonusScene = BaseLayer.extend({
     },
 
     createVipCheckSchedule: function(){
-        this.userVipRemainTime = NewVipManager.getInstance().getRemainTime() / 1000;
+        this.userVipRemainTime = VipManager.getInstance().getRemainTime() / 1000;
         this.schedule(this.checkUserVipExpire, 1);
     },
 
@@ -801,7 +801,7 @@ var LuckyBonusScene = BaseLayer.extend({
         var luckyBonusMgr = LuckyBonusManager.getInstance();
 
         ///user still vip
-        if (NewVipManager.getInstance().getRemainTime() > 0){
+        if (VipManager.getInstance().getRemainTime() > 0){
             var totalBonus = luckyBonusMgr.streakBonus[luckyBonusMgr.userCurrentStreak] + luckyBonusMgr.vipBonus[luckyBonusMgr.userVipLevel];
             var bonusString = "+" + totalBonus.toString() + "%";
             this.getControl("value", bonusValue).setString(bonusString);

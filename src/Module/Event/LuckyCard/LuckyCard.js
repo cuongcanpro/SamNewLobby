@@ -805,7 +805,7 @@ var LuckyCard = cc.Class.extend({
                 if (gui && gui instanceof LuckyCardOpenGiftGUI) {
                     gui.onClose();
                 }
-                NewVipManager.getInstance().setWaiting(false);
+                VipManager.getInstance().setWaiting(false);
             }
 
         } else {

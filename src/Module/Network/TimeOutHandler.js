@@ -40,7 +40,7 @@ var TimeoutConnectHandler = cc.Class.extend({
                     checkPortal = true;
                 }
 
-                gamedata.backToLoginScene(checkPortal);
+                loginMgr.backToLoginScene(checkPortal);
             });
         }
 

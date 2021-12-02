@@ -1,4 +1,4 @@
-TabGoldPayment = cc.Layer.extend({
+BaseTabShop = cc.Layer.extend({
     ctor: function (panelSize, itemSize, panelPos, listButtonSize, listButtonPos, scale) {
         this._super();
         this.panelSize = panelSize;
@@ -21,9 +21,6 @@ TabGoldPayment = cc.Layer.extend({
         this.tabSMS.setPosition(this.panelPos);
 
         this.arrayButton = [];
-        if (this.ingameIcon && !(sceneMgr.getMainLayer() instanceof LobbyScene)){
-            this.ingameIcon.updateProgress();
-        }
 
         this.listButton = new cc.TableView(this, cc.size(this.listButtonSize.width, this.listButtonSize.height / this.scaleGroup));
         this.listButton.setAnchorPoint(cc.p(0, 0));

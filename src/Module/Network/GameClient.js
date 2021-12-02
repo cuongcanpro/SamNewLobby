@@ -92,8 +92,6 @@ var GameClient = cc.Class.extend({
     },
 
     retryConnectInGame: function () {
-        engine.HandlerManager.getInstance().forceRemoveHandler("pingpong");
-        engine.HandlerManager.getInstance().forceRemoveHandler("received_pingpong");
         sceneMgr.clearLoading();
         GameClient.destroyInstance();
         GameClient.disconnectHandle();
@@ -101,8 +99,6 @@ var GameClient = cc.Class.extend({
     },
 
     retryManualConnect: function() {
-        engine.HandlerManager.getInstance().forceRemoveHandler("pingpong");
-        engine.HandlerManager.getInstance().forceRemoveHandler("received_pingpong");
         sceneMgr.clearLoading();
         GameClient.destroyInstance();
         engine.HandlerManager.getInstance().addHandler("login_count", function () {
@@ -194,7 +190,7 @@ GameClient.disconnectHandle = function () {
                 checkPortal = true;
             }
 
-            gamedata.backToLoginScene(checkPortal);
+            loginMgr.backToLoginScene(checkPortal);
         });
     }
     else {
@@ -224,7 +220,7 @@ GameClient.connectFailedHandle = function () {
                 checkPortal = true;
             }
 
-            gamedata.backToLoginScene(checkPortal);
+            loginMgr.backToLoginScene(checkPortal);
         });
     }
     else {
@@ -279,7 +275,7 @@ GameClient.showNetworkFail = function () {
         }
         else {
             cc.sys.localStorage.setItem("autologin", -1);
-            gamedata.backToLoginScene(true);
+            loginMgr.backToLoginScene(true);
         }
     });
 };

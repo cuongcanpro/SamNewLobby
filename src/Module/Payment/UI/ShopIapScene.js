@@ -226,7 +226,7 @@ var ShopIapScene = BaseLayer.extend({
     },
 
     updateVipInfo: function () {
-        NewVipManager.effectVipShopInfo(this, false);
+        VipManager.effectVipShopInfo(this, false);
     },
 
     updateEventInfo: function () {
@@ -263,7 +263,7 @@ var ShopIapScene = BaseLayer.extend({
     },
 
     effectVipInfo: function () {
-        NewVipManager.effectVipShopInfo(this, true);
+        VipManager.effectVipShopInfo(this, true);
     },
 
     selectTabShop: function (idTab) {
@@ -352,7 +352,7 @@ var ShopIapScene = BaseLayer.extend({
                 break;
             }
             case ShopIapScene.BTN_VIP: {
-                NewVipManager.openVip(ShopIapScene.className);
+                VipManager.openVip(ShopIapScene.className);
                 break;
             }
             case ShopIapScene.BTN_USERINFO: {
@@ -406,11 +406,9 @@ var ShopIapScene = BaseLayer.extend({
     },
 
     update: function (dt) {
-        if (Config.ENABLE_NEW_VIP) {
-            NewVipManager.getInstance().updateTimeVip(dt);
-            var remainTime = NewVipManager.getInstance().getRemainTime();
-            this.txtRemainVipTime.setString(NewVipManager.getRemainTimeString(remainTime));
-        }
+        VipManager.getInstance().updateTimeVip(dt);
+        var remainTime = VipManager.getInstance().getRemainTime();
+        this.txtRemainVipTime.setString(VipManager.getRemainTimeString(remainTime));
     },
 
     getPositionComponent: function (type) {

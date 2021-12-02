@@ -2267,7 +2267,7 @@ var BlueOceanOpenGiftGUI = BaseLayer.extend({
                     var cmd = new CmdSendBlueOceanChangeAward();
                     cmd.putData(false, this.info.id);
                     GameClient.getInstance().sendPacket(cmd);
-                    NewVipManager.getInstance().setWaiting(true);
+                    VipManager.getInstance().setWaiting(true);
                 } else {
                     blueOcean.showRegisterInformation([this.info.id]);
                 }
@@ -2284,7 +2284,7 @@ var BlueOceanOpenGiftGUI = BaseLayer.extend({
                     else
                         cmd.putData(true, this.info.id);
                     GameClient.getInstance().sendPacket(cmd);
-                    NewVipManager.getInstance().setWaiting(true);
+                    VipManager.getInstance().setWaiting(true);
                 }
             }
         } else {
@@ -2331,7 +2331,7 @@ var BlueOceanOpenGiftGUI = BaseLayer.extend({
         this.onClose();
         this.isWaitResponse = false;
         blueOcean.showAutoGift();
-        NewVipManager.checkShowUpLevelVip();
+        VipManager.checkShowUpLevelVip();
     },
 });
 

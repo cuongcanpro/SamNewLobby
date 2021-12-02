@@ -265,6 +265,7 @@ PersonalInfoGUI.openGUI = function () {
 };
 
 PersonalInfoGUI.checkOpenGuiFirstTime = function(){
+    return;
     if (gamedata.userData.winCount + gamedata.userData.lostCount === 0){
         var hasOpened = cc.sys.localStorage.getItem(PersonalInfoGUI.KEY_CHECK_HAS_OPEN_PERSONAL_GUI + gamedata.userData.uID);
         if (hasOpened && hasOpened === "1"){

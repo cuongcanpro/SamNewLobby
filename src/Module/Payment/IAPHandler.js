@@ -107,7 +107,7 @@ var IAPHandler = cc.Class.extend({
         if (!info || !info.id || !info.id_ios) return "";
 
         if (cc.sys.os == cc.sys.OS_ANDROID) {
-            if (PortalUtil.isPortal()) {
+            if (portalMgr.isPortal()) {
                 if (Config.ENABLE_MULTI_PORTAL)
                     return fr.paymentInfo.getProductID(info.id_multi_portal);
                 else
@@ -119,7 +119,7 @@ var IAPHandler = cc.Class.extend({
 
         }
         else if (cc.sys.os == cc.sys.OS_IOS) {
-            if (PortalUtil.isPortal()) {
+            if (portalMgr.isPortal()) {
                 if (Config.ENABLE_MULTI_PORTAL)
                     return fr.paymentInfo.getProductID(info.id_multi_ios_portal);
                 else
@@ -168,7 +168,7 @@ var IAPHandler = cc.Class.extend({
         for (var i = 0; i < goldIap.numPackage; i++) {
             var id;
             var id_ios;
-            if (PortalUtil.isPortal()) {
+            if (portalMgr.isPortal()) {
                 id = goldIap["packages"][i]["portalAndroidId"];
                 id_ios = goldIap["packages"][i]["portalIOSId"];
                 if (Config.ENABLE_MULTI_PORTAL) {
@@ -189,7 +189,7 @@ var IAPHandler = cc.Class.extend({
         for (var i = 0; i < goldIap.numPackage; i++) {
             var id;
             var id_ios;
-            if (PortalUtil.isPortal()) {
+            if (portalMgr.isPortal()) {
                 id = goldIap["packages"][i]["portalAndroidId"];
                 id_ios = goldIap["packages"][i]["portalIOSId"];
                 if (Config.ENABLE_MULTI_PORTAL) {
@@ -213,9 +213,9 @@ var IAPHandler = cc.Class.extend({
     // action
     openIAP: function () {
         if (Config.DISABLE_IAP_PORTAL) {
-            if (PortalUtil.isPortal()) return;
+            if (portalMgr.isPortal()) return;
         }
-        else if (PortalUtil.isPortal() && cc.sys.os == cc.sys.OS_IOS) {
+        else if (portalMgr.isPortal() && cc.sys.os == cc.sys.OS_IOS) {
             return;
         }
 
@@ -258,7 +258,7 @@ var IAPHandler = cc.Class.extend({
     purchaseItem: function (item) {
         cc.log("PURCHASE ITEM " + item);
         if (Config.DISABLE_IAP_PORTAL)
-            if (PortalUtil.isPortal()) return;
+            if (portalMgr.isPortal()) return;
 
         if (!item || item == "") return;
 
@@ -349,7 +349,7 @@ var IAPHandler = cc.Class.extend({
 
     consumeItem: function (data, signature) {
         if (Config.DISABLE_IAP_PORTAL)
-            if (PortalUtil.isPortal()) return;
+            if (portalMgr.isPortal()) return;
 
         sceneMgr.clearWaiting();
         this.isWaitingConsume = false;
@@ -436,7 +436,7 @@ var IAPHandler = cc.Class.extend({
 
                         if (cc.sys.os == cc.sys.OS_ANDROID) {
                             // send to server finish purchase
-                            if (PortalUtil.isPortal()) {
+                            if (portalMgr.isPortal()) {
                                 if (Config.ENABLE_MULTI_PORTAL) {
                                     var cmd = new CmdSendPurchaseIAPGoogleMultiPortal();
                                     cmd.putData(pObj.data, pObj.signature, fr.platformWrapper.getPackageName(), (offerManager.isOfferIAP() ? Payment.IS_OFFER : this.typeBuy));
@@ -457,7 +457,7 @@ var IAPHandler = cc.Class.extend({
                         }
                         else if (cc.sys.os == cc.sys.OS_IOS) {
                             // send to server finish purchase
-                            if (PortalUtil.isPortal()) {
+                            if (portalMgr.isPortal()) {
                                 var cmd = new CmdSendPurchaseIAPApplePortal();
                                 cmd.putData(pObj.data);
                                 GameClient.getInstance().sendPacket(cmd);

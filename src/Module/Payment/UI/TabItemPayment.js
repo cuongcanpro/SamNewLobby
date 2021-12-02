@@ -168,7 +168,7 @@ TabItemPayment = cc.Layer.extend({
                     for (var i = 0; i < conditions.length; i++){
                         switch(conditions[i].type){
                             case StorageManager.VIP_CONDITION:
-                                countA += Number(NewVipManager.getInstance().getRealVipLevel() < conditions[i].num);
+                                countA += Number(VipManager.getInstance().getRealVipLevel() < conditions[i].num);
                                 break;
                             case StorageManager.LEVEL_CONDITION:
                                 countA += Number(gamedata.userData.level < conditions[i].num);
@@ -180,7 +180,7 @@ TabItemPayment = cc.Layer.extend({
                     for (var i = 0; i < conditions.length; i++){
                         switch(conditions[i].type){
                             case StorageManager.VIP_CONDITION:
-                                countB += Number(NewVipManager.getInstance().getRealVipLevel() < conditions[i].num);
+                                countB += Number(VipManager.getInstance().getRealVipLevel() < conditions[i].num);
                                 break;
                             case StorageManager.LEVEL_CONDITION:
                                 countB += Number(gamedata.userData.level < conditions[i].num);
@@ -610,7 +610,7 @@ TabItemPayment = cc.Layer.extend({
             var condition = itemData.conditions[i];
             switch(condition.type){
                 case StorageManager.VIP_CONDITION:
-                    if (NewVipManager.getInstance().getRealVipLevel() < condition.num) {
+                    if (VipManager.getInstance().getRealVipLevel() < condition.num) {
                         conditions.push(condition);
                     }
                     break;

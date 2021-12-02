@@ -65,7 +65,7 @@ var SocialManager = cc.Class.extend({
     },
 
     logout: function () {
-        if (PortalUtil.isPortal()) return;
+        if (portalMgr.isPortal()) return;
 
         if (cc.sys.os == cc.sys.OS_IOS) {
             jsb.reflection.callStaticMethod("FacebookUtils", "logout");

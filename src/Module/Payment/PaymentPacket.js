@@ -1,7 +1,27 @@
 /**
  * Send Packet
  */
+CmdSendGetConfigShop = CmdSendCommon.extend({
+    ctor: function () {
+        this._super();
+        this.initData(100);
+        this.setControllerId(1);
+        this.setCmdId(PaymentMgr.CMD_GET_CONFIG_SHOP);
 
+    },
+    putData: function (type, version) {
+        //pack
+        this.packHeader();
+        this.putByte(type);
+        this.putInt(version);
+        //update
+        this.updateSize();
+    }
+});
+
+CmdSendGetConfigShop.GOLD = 1;
+CmdSendGetConfigShop.G = 2;
+CmdSendGetConfigShop.ALL = 3;
 
 CmdSendPurchaseCard = CmdSendCommon.extend({
     ctor: function () {

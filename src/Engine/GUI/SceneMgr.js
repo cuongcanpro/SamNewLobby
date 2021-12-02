@@ -1437,16 +1437,16 @@ var EffectMgr = cc.Class.extend({
         var newLevel = vipLevel + 1;
         var isUpLevel = false;
         var vPointNeed;
-        if (vipLevel >= NewVipManager.NUMBER_VIP){
-            vPointNeed = NewVipManager.getInstance().getVpointNeed(nextLevel);
-            listUpVpoint.push({startPoint: curVpoint, endPoint: curVpoint + totalVpoint, levelVip: NewVipManager.NUMBER_VIP});
+        if (vipLevel >= VipManager.NUMBER_VIP){
+            vPointNeed = VipManager.getInstance().getVpointNeed(nextLevel);
+            listUpVpoint.push({startPoint: curVpoint, endPoint: curVpoint + totalVpoint, levelVip: VipManager.NUMBER_VIP});
         }
-        while (totalVpoint > 0 && vipLevel < NewVipManager.NUMBER_VIP){
-            if (nextLevel >= NewVipManager.NUMBER_VIP){
-                listUpVpoint.push({startPoint: 0, endPoint: totalVpoint, levelVip: NewVipManager.NUMBER_VIP});
+        while (totalVpoint > 0 && vipLevel < VipManager.NUMBER_VIP){
+            if (nextLevel >= VipManager.NUMBER_VIP){
+                listUpVpoint.push({startPoint: 0, endPoint: totalVpoint, levelVip: VipManager.NUMBER_VIP});
                 break;
             }
-            vPointNeed = NewVipManager.getInstance().getVpointNeed(nextLevel);
+            vPointNeed = VipManager.getInstance().getVpointNeed(nextLevel);
             if (!isUpLevel){
                 if (curVpoint + totalVpoint >= vPointNeed){
                     isUpLevel = true;
@@ -1482,7 +1482,7 @@ var EffectMgr = cc.Class.extend({
         for (var i = 0; i < listUpVpoint.length; i++){
             var data = listUpVpoint[i];
             var action = cc.callFunc(function () {
-                NewVipScene.runEffectProgressVip(bgProgress, progress, txtExp, imgVpoint,  timeRun / listUpVpoint.length, this.startPoint, this.endPoint, this.levelVip, imgCurrVip, imgNextVip);
+                VipScene.runEffectProgressVip(bgProgress, progress, txtExp, imgVpoint,  timeRun / listUpVpoint.length, this.startPoint, this.endPoint, this.levelVip, imgCurrVip, imgNextVip);
             }.bind(data));
             actions.push(action);
             actions.push(cc.delayTime(timeRunEachAction));

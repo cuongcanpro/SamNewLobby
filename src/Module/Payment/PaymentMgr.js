@@ -70,7 +70,7 @@ var PaymentMgr = BaseMgr.extend({
                     }
 
                     if (isChangeGoldSuccess) {
-                        NewVipManager.openChangeGoldSuccess(cSG);
+                        VipManager.openChangeGoldSuccess(cSG);
                     }
                     if (cSG.channel == dailyPurchaseManager.getPromoChannel()){
                         if (cSG.packetId == dailyPurchaseManager.getPromoPackage())
@@ -204,7 +204,7 @@ var PaymentMgr = BaseMgr.extend({
 
     loadPayment: function (p) {
         this.payments = p;
-        if (PortalUtil.isPortal()) {
+        if (portalMgr.isPortal()) {
             if (Config.DISABLE_IAP_PORTAL) {
                 this.payments[Payment.GOLD_IAP] = false;
                 this.payments[Payment.G_IAP] = false;
@@ -411,6 +411,11 @@ var PaymentMgr = BaseMgr.extend({
         cc.log("CONFIG NEW SHOP G " + JSON.stringify(this.arrayShopGConfig));
     },
 
+    sendUpdateBuyGold: function () {
+        var cmdUpdateBuyGold = new CmdSendRequestEventShop();
+        this.sendPacket(cmdUpdateBuyGold);
+    },
+
     updateBuyGold: function (data) {
         var pk = new CmdReceiveUpdateBuyGold(data);
         cc.log("CMD_UPDATE_BUYGOLD: ", JSON.stringify(pk));
@@ -544,7 +549,7 @@ var PaymentMgr = BaseMgr.extend({
                     return true;
                 }
             } else {
-                if (this.payments[i] && !PortalUtil.isPortal()) {
+                if (this.payments[i] && !portalMgr.isPortal()) {
                     return true;
                 }
             }
@@ -936,7 +941,7 @@ PaymentMgr.getInstance = function () {
 };
 var paymentMgr = PaymentMgr.getInstance();
 
-
+PaymentMgr.CMD_UPDATE_BUYGOLD = 5003;
 PaymentMgr.CMD_PURCHASE_CARD = 8900;
 PaymentMgr.CMD_PURCHASE_SMS = 8901;
 PaymentMgr.CMD_PURCHASE_IAP_GOOGLE = 8902;

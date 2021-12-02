@@ -68,7 +68,7 @@ var PlayerView = cc.Node.extend({
         vip.ignoreContentAdaptWithSize(true);
         vip.setVisible(false);
         vip.ignoreContentAdaptWithSize(true);
-        this.vip = ccui.Scale9Sprite.create(NewVipManager.getIconVip(10));
+        this.vip = ccui.Scale9Sprite.create(VipManager.getIconVip(10));
         this.vip.setAnchorPoint(cc.p(1, 0.5));
         vip.getParent().addChild(this.vip);
         this.vip.setPosition(vip.getPosition());
@@ -608,8 +608,8 @@ var PlayerView = cc.Node.extend({
         this.vip.setVisible(player._info["vip"] > 0);
         try {
             if (player._info["vip"] > 0) {
-                this.vip2.loadTexture(NewVipManager.getIconVip(player._info["vip"]));
-                this.vip.initWithFile(NewVipManager.getIconVip(player._info["vip"]));
+                this.vip2.loadTexture(VipManager.getIconVip(player._info["vip"]));
+                this.vip.initWithFile(VipManager.getIconVip(player._info["vip"]));
                 this.vip.setContentSize(this.vip2.getContentSize());
                 this.vip2.setVisible(false);
                 this.vipParticle.setPosition(cc.p(this.vip.width / 2, this.vip.height / 2));
@@ -623,12 +623,12 @@ var PlayerView = cc.Node.extend({
             if (player._info["vip"] > 0) {
                 this.vip.setVisible(false);
                 this.vip2.setVisible(true);
-                this.vip2.loadTexture(NewVipManager.getIconVip(player._info["vip"]));
+                this.vip2.loadTexture(VipManager.getIconVip(player._info["vip"]));
             }
         }
 
         if (player._info["uID"] === gamedata.getUserId()) {
-            var state = (NewVipManager.getInstance().getRemainTime() > 0) ? 0 : 1;
+            var state = (VipManager.getInstance().getRemainTime() > 0) ? 0 : 1;
             this.vip.setState(state);
         }
         this.addVipEffect();
@@ -724,7 +724,7 @@ var PlayerView = cc.Node.extend({
     addVipEffect: function () {
         if (!this.info) return;
 
-        var listBenefitHave = NewVipManager.getInstance().getListBenefitHave(this.info["vip"], false);
+        var listBenefitHave = VipManager.getInstance().getListBenefitHave(this.info["vip"], false);
         if (listBenefitHave.indexOf(6) >= 0) // key hieu ung vao ban
         {
             this.vipParticle.setVisible(true);

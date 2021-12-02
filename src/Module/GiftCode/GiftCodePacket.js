@@ -1,6 +1,4 @@
 
-CMD.CMD_GET_LIST_CODE_NEW = 13003;
-CMD.CMD_USE_CODE = 13001;
 
 CmdReceiveListCodeNew = CmdReceivedCommon.extend({
     ctor: function (pkg) {
@@ -9,8 +7,6 @@ CmdReceiveListCodeNew = CmdReceivedCommon.extend({
     },
     readData: function () {
         this.listCodes = [];
-
-
         var size = this.getInt();
 
         for (var i = 0; i < size; i++) {
@@ -54,7 +50,7 @@ CmdSendGetCodeNew = CmdSendCommon.extend({
         this._super();
         this.initData(100);
         this.setControllerId(1);
-        this.setCmdId(CMD.CMD_GET_LIST_CODE_NEW);
+        this.setCmdId(GiftCodeMgr.CMD_GET_LIST_CODE_NEW);
         this.putData();
     },
 
@@ -69,7 +65,7 @@ CmdSendUseGiftCode = CmdSendCommon.extend({
         this._super();
         this.initData(100);
         this.setControllerId(1);
-        this.setCmdId(CMD.CMD_USE_CODE);
+        this.setCmdId(GiftCodeMgr.CMD_USE_CODE);
     },
 
     putData: function (code, type) {

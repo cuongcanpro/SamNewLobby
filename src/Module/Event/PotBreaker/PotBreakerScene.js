@@ -2453,7 +2453,7 @@ var PotBreakerOpenGiftGUI = BaseLayer.extend({
                 cmd.putData(true, [this.info.idGift]);
                 GameClient.getInstance().sendPacket(cmd);
                 this.onGiftSuccess();
-                NewVipManager.getInstance().setWaiting(true);
+                VipManager.getInstance().setWaiting(true);
             }
         }
         else {
@@ -2527,7 +2527,7 @@ var PotBreakerOpenGiftGUI = BaseLayer.extend({
         this.onClose();
         popUpManager.removePopUp(PopUpManager.RECEIVE_OUT_GIFT);
         potBreaker.showAutoGift();
-        NewVipManager.checkShowUpLevelVip();
+        VipManager.checkShowUpLevelVip();
         this.isWaitResponse = false;
     },
 });

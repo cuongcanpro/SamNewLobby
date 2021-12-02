@@ -642,27 +642,6 @@ CmdSendRequestMission = CmdSendCommon.extend({
 
 
 
-CmdSendGetConfigShop = CmdSendCommon.extend({
-    ctor: function () {
-        this._super();
-        this.initData(100);
-        this.setControllerId(1);
-        this.setCmdId(CMD.CMD_GET_CONFIG_SHOP);
-
-    },
-    putData: function (type, version) {
-        //pack
-        this.packHeader();
-        this.putByte(type);
-        this.putInt(version);
-        //update
-        this.updateSize();
-    }
-});
-
-CmdSendGetConfigShop.GOLD = 1;
-CmdSendGetConfigShop.G = 2;
-CmdSendGetConfigShop.ALL = 3;
 
 var CmdSendClientInfo = CmdSendCommon.extend({
     ctor: function () {
@@ -681,39 +660,6 @@ var CmdSendClientInfo = CmdSendCommon.extend({
     }
 });
 
-var CmdSendPortalQuest = CmdSendCommon.extend({
-    ctor: function () {
-        this._super();
-        this.initData(100);
-        this.setControllerId(1);
-        this.setCmdId(CMD.CMD_PORTAL_QUEST);
-    },
-    putData: function (listQuestId, expireTime, portalId) {
-        //pack
-        this.packHeader();
-        this.putIntArray(listQuestId);
-        this.putLong(expireTime);
-        this.putLong(portalId);
-        //update
-        this.updateSize();
-    }
-});
-
-var CmdSendPortalGiftCode = CmdSendCommon.extend({
-    ctor: function () {
-        this._super();
-        this.initData(100);
-        this.setControllerId(1);
-        this.setCmdId(CMD.CMD_PORTAL_GIFT_CODE);
-    },
-    putData: function (giftCode) {
-        //pack
-        this.packHeader();
-        this.putString(giftCode);
-        //update
-        this.updateSize();
-    }
-});
 
 var CmdSendEventChangeAward = CmdSendCommon.extend({
 

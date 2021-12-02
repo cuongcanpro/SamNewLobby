@@ -342,25 +342,21 @@ GiftCodeScene.showResultUseGiftCode = function (data){
             break;
     }
     string = StringUtility.replaceAll(string, "%giftcode", gamedata.inputGiftCode);
-    if (Config.ENABLE_NEW_VIP){
-        sceneMgr.showOkDialogWithAction(string, null, function () {
-            var vipLevel = NewVipManager.getInstance().getVipLevel();
-            var newLevel = NewVipManager.getInstance().getRealVipLevel();
-            if (newLevel > vipLevel){
-                NewVipManager.showUpLevelVip(vipLevel, newLevel);
-            }
-            NewVipManager.getInstance().setWaiting(false);
-            sceneMgr.updateCurrentGUI();
-        });
-        if (receivedGiftCode.error === 0){
-            NewVipManager.getInstance().setWaiting(true);
-            var gui = sceneMgr.getGUI(LobbyScene.GUI_GIFT_CODE);
-            if (gui instanceof GiftCodeScene){
-                gui.onClose();
-            }
+    sceneMgr.showOkDialogWithAction(string, null, function () {
+        var vipLevel = VipManager.getInstance().getVipLevel();
+        var newLevel = VipManager.getInstance().getRealVipLevel();
+        if (newLevel > vipLevel){
+            VipManager.showUpLevelVip(vipLevel, newLevel);
         }
-    } else {
-        sceneMgr.showOKDialog(string);
+        VipManager.getInstance().setWaiting(false);
+        sceneMgr.updateCurrentGUI();
+    });
+    if (receivedGiftCode.error === 0){
+        VipManager.getInstance().setWaiting(true);
+        var gui = sceneMgr.getGUI(LobbyScene.GUI_GIFT_CODE);
+        if (gui instanceof GiftCodeScene){
+            gui.onClose();
+        }
     }
     receivedGiftCode.clean();
 };

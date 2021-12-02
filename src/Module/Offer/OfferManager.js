@@ -588,7 +588,7 @@ var OfferManager = cc.Class.extend({
                     goldGet: cmd.bonusGold
                 };
                 offerManager.buySuccess = true;
-                NewVipManager.openChangeGoldSuccess(dataOffer, cmd.bonusGStar, cmd.bonusTime, oEvent, cmd.bonusDiamond);
+                VipManager.openChangeGoldSuccess(dataOffer, cmd.bonusGStar, cmd.bonusTime, oEvent, cmd.bonusDiamond);
                 break;
         }
     }

@@ -17,29 +17,22 @@ var UserMgr = BaseMgr.extend({
                 // LOAD SCENE GAME
                 if (!info.isHolding) {
                     channelMgr.autoSelectChannel();
-                    offerManager.resetData();
                     paymentMgr.setRefundInfo(info);
+                    paymentMgr.sendUpdateBuyGold();
                     supportMgr.sendGetSupport();
                     lobbyMgr.openLobbyScene();
                     //football.getMyHistory();
-                    //football.resetData();
                     if (GameClient.connectLai) {
                         Toast.makeToast(Toast.SHORT, LocalizedString.to("RECONNECT_SUCCESS"));
                         GameClient.connectLai = false;
                     }
-
-                    // request shop event
-                    var cmdEvent = new CmdSendRequestEventShop();
-                    GameClient.getInstance().sendPacket(cmdEvent);
-
                     fr.crashLytics.setUserIdentifier(info.uId);
                     fr.crashLytics.setString(info.uId, "+++" + loginMgr.getSessionKey());
                 }
-                eventMgr.onGetUserInfoSuccess();
                 loginMgr.loginGameSuccess();
 
                 // sent event portal tet 2021
-                PortalUtil.checkEvent();
+                portalMgr.checkEvent();
 
                 // Log simulator
                 LogUtil.sendLogSimulator();
@@ -50,7 +43,7 @@ var UserMgr = BaseMgr.extend({
             }
             case UserMgr.CMD_UPDATE_MONEY: {
                 var update = new CmdReceivedUpdateBean(pk);
-                CheckLogic.onUpdateMoney(update);
+              //  CheckLogic.onUpdateMoney(update);
                 this.updateMoney(update);
                 paymentMgr.onUpdateMoney();
                 update.clean();

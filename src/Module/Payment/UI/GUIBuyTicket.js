@@ -162,8 +162,8 @@ var GUIBuyTicket = BaseLayer.extend({
         var startGold, endGold;
         var mainLayer = sceneMgr.getMainLayer();
         var delay = 0;
-        var vipLevel = NewVipManager.getInstance().getVipLevel();
-        var newLevel = NewVipManager.getInstance().getRealVipLevel();
+        var vipLevel = VipManager.getInstance().getVipLevel();
+        var newLevel = VipManager.getInstance().getRealVipLevel();
 
         for (var i = 0; i < this.arrayBonusData.length; i++) {
             this.arrayBonusItem[i].setVisible(false);
@@ -184,20 +184,20 @@ var GUIBuyTicket = BaseLayer.extend({
             delay = delay + 0.5;
             // if (this.arrayBonusData[i].type == ShopSuccessData.TYPE_HOUR_VIP) {
             //     if (mainLayer instanceof ShopIapScene) {
-            //         var remainTime = NewVipManager.getInstance().getRemainTime();
-            //         NewVipManager.getInstance().setRemainTime(remainTime + addBonus);
+            //         var remainTime = VipManager.getInstance().getRemainTime();
+            //         VipManager.getInstance().setRemainTime(remainTime + addBonus);
             //         setTimeout(function () {
             //             var gui = sceneMgr.getMainLayer();
             //             if (gui instanceof ShopIapScene) {
-            //                 mainLayer.txtRemainVipTime.setString(NewVipManager.getRemainTimeString(NewVipManager.getInstance().getRemainTime()));
+            //                 mainLayer.txtRemainVipTime.setString(VipManager.getRemainTimeString(VipManager.getInstance().getRemainTime()));
             //             }
             //         }.bind(this), (delay + 0.5) * 1000);
             //     }
             // }
             // else if (this.arrayBonusData[i].type == ShopSuccessData.TYPE_VPOINT) {
-            //     var vipLevel = NewVipManager.getInstance().getVipLevel();
-            //     var curVpoint = NewVipManager.getInstance().getVpoint();
-            //     NewVipManager.getInstance().setVpoint(curVpoint + addBonus);
+            //     var vipLevel = VipManager.getInstance().getVipLevel();
+            //     var curVpoint = VipManager.getInstance().getVpoint();
+            //     VipManager.getInstance().setVpoint(curVpoint + addBonus);
             //     if (mainLayer instanceof ShopIapScene) {
             //         effectMgr.runVipProgress(mainLayer.bgProgressVip, mainLayer.progressVip, mainLayer.txtProgress, null, mainLayer.iconCurVip,
             //             mainLayer.iconNextVip, addBonus, delay + 0.5, false, vipLevel, curVpoint);
@@ -223,9 +223,9 @@ var GUIBuyTicket = BaseLayer.extend({
             cc.log("VO DAY MA *** Reset Bonus " + JSON.stringify(this.arrayBonusData));
             this.arrayBonusData = [];
             if (newLevel > vipLevel) {
-                NewVipManager.showUpLevelVip(vipLevel, newLevel);
+                VipManager.showUpLevelVip(vipLevel, newLevel);
             }
-            NewVipManager.getInstance().setWaiting(false);
+            VipManager.getInstance().setWaiting(false);
             var mainLayer = sceneMgr.getMainLayer();
             if (mainLayer instanceof ShopIapScene) {
                 mainLayer.updateVipInfo();

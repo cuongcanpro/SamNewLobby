@@ -142,7 +142,7 @@ var GUISupportInfo = BaseLayer.extend({
                 }
             }
             else{
-                var numSupport = (NewVipManager.getInstance().getVipLevel() > 0 && NewVipManager.getInstance().getRemainTime() > 0) ? (gamedata.gameConfig.vipConfig[NewVipManager.getInstance().getVipLevel()].support.length - 1) : (gamedata.gameConfig.vipConfig[0].support.length - 1);
+                var numSupport = (VipManager.getInstance().getVipLevel() > 0 && VipManager.getInstance().getRemainTime() > 0) ? (gamedata.gameConfig.vipConfig[VipManager.getInstance().getVipLevel()].support.length - 1) : (gamedata.gameConfig.vipConfig[0].support.length - 1);
                 this.description.setString(StringUtility.replaceAll(LocalizedString.to("SUPPORT_INFO_2"), "@num", numSupport));
                 this.btnClose.setVisible(true);
                 this.effectLight(true);
@@ -153,8 +153,8 @@ var GUISupportInfo = BaseLayer.extend({
             }
             else {
                 if (money <= 0) {
-                    if (NewVipManager.getInstance().getVipLevel() > 0 && NewVipManager.getInstance().getRemainTime() > 0) {
-                        this.totalValue.setNumber(gamedata.gameConfig.getTotalSupportBean(gamedata.userData.level, gamedata.gameConfig.vipConfig[NewVipManager.getInstance().getVipLevel()].support[1]));
+                    if (VipManager.getInstance().getVipLevel() > 0 && VipManager.getInstance().getRemainTime() > 0) {
+                        this.totalValue.setNumber(gamedata.gameConfig.getTotalSupportBean(gamedata.userData.level, gamedata.gameConfig.vipConfig[VipManager.getInstance().getVipLevel()].support[1]));
                     } else {
                         this.totalValue.setNumber(gamedata.gameConfig.getTotalSupportBean(gamedata.userData.level, gamedata.gameConfig.vipConfig[0].support[1]));
                     }
@@ -174,12 +174,12 @@ var GUISupportInfo = BaseLayer.extend({
         this.valueBonusEvent.setVisible(!isShowSpecial);
 
         if (!isShowSpecial){
-            var vipLevel = (NewVipManager.getInstance().getVipLevel() > 0 && NewVipManager.getInstance().getRemainTime() > 0) ? NewVipManager.getInstance().getVipLevel() : 0;
+            var vipLevel = (VipManager.getInstance().getVipLevel() > 0 && VipManager.getInstance().getRemainTime() > 0) ? VipManager.getInstance().getVipLevel() : 0;
             this.imgVip.setTexture("Offer/iconVip" + vipLevel + ".png");
             this.valueBonusLevel.setString("+" + gamedata.gameConfig.getLevelBonus(gamedata.userData.level) + "%");
             this.valueBonusEvent.setString("+0%");
             this.labelLevel.setString("Bonus Lv " + gamedata.userData.level);
-            var vipBonus = (NewVipManager.getInstance().getVipLevel() > 0 && NewVipManager.getInstance().getRemainTime() > 0) ? gamedata.gameConfig.vipConfig[NewVipManager.getInstance().getVipLevel()].support[1] : 30000;
+            var vipBonus = (VipManager.getInstance().getVipLevel() > 0 && VipManager.getInstance().getRemainTime() > 0) ? gamedata.gameConfig.vipConfig[VipManager.getInstance().getVipLevel()].support[1] : 30000;
             this.initValue.setNumber(vipBonus);
             this.initValue.setPositionX(375);
         }
@@ -442,7 +442,7 @@ var GUIShareFace = BaseLayer.extend({
     }
 });
 GUIShareFace.checkOpenShare = function(){
-    if (PortalUtil.isPortal() || !cc.sys.isNative){
+    if (portalMgr.isPortal() || !cc.sys.isNative){
         return;
     }
     var minDateNum = new Date(GUIShareFace.changeFormatTime(GUIShareFace.START_DATE)).getTime();

@@ -225,7 +225,7 @@ var ShopData = cc.Class.extend({
             obj.id_portal = packageShop["portalAndroidId"];
             obj.id_multi_portal = packageShop["id_gg_portal"];
             obj.id_multi_ios_portal = packageShop["id_ios_portal"];
-            if (!PortalUtil.isPortal()) {
+            if (!portalMgr.isPortal()) {
                 obj.cost = iapHandler.getProductPrice(obj.id, obj.id_ios, packageShop["value"]);
             } else {
                 obj.cost = iapHandler.getProductPrice(obj.id_portal, obj.id_ios_portal, packageShop["value"]);
@@ -254,7 +254,7 @@ var ShopData = cc.Class.extend({
             obj.id_portal = packageShop["portalAndroidId"];
             obj.id_multi_portal = packageShop["id_gg_portal"];
             obj.id_multi_ios_portal = packageShop["id_ios_portal"];
-            if (!PortalUtil.isPortal()) {
+            if (!portalMgr.isPortal()) {
                 obj.cost = iapHandler.getProductPrice(obj.id, obj.id_ios, packageShop["value"]);
             } else {
                 obj.cost = iapHandler.getProductPrice(obj.id_portal, obj.id_ios_portal, packageShop["value"]);
@@ -275,7 +275,7 @@ var ShopData = cc.Class.extend({
         obj.goldNew = obj.goldOld;
         obj.bonus = "";
         var vipRate = 0;
-        var vipIndex = NewVipManager.getInstance().getRealVipLevel();
+        var vipIndex = VipManager.getInstance().getRealVipLevel();
         if (vipIndex > 0) {
             vipRate = packageShop["vipBonus"][vipIndex];
         }

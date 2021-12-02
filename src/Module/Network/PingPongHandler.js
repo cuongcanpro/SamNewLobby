@@ -4,13 +4,10 @@ var PingPongHandler = cc.Class.extend({
         this.timeDelayPingPong = 0;
         this.timeRetryPingPong = 0;
         this.arStateTime = [];
-
         this.isRetryPingpong = false;
         this.isDelayPingpong = false;
         this.isPingpong = false;
-
         this.isNetworkSlow = false;
-
         this.isStopHandler = true;
     },
 

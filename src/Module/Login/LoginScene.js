@@ -112,7 +112,7 @@ var LoginScene = BaseLayer.extend({
         this.tfLoading.setString(LocalizedString.to("PORTAL_LOADING"));
         socialMgr._currentSocial = SocialManager.ZINGME;
 
-        loginMgr.setSessionKey(PortalUtil.getSessionKeyPortal());
+        loginMgr.setSessionKey(portalMgr.getSessionKeyPortal());
         loginMgr.setOpenId("");
         GameClient.getInstance().connect();
     },
@@ -396,15 +396,15 @@ var LoginScene = BaseLayer.extend({
         cc.sys.localStorage.setItem(LoginScene.TMP_PWD_KEY, pass);
         this.autologinZingme(uname,pass);
     },
-    
+
     delayWaitLogin : function () {
         this.idFuncWait = setTimeout(this.releaseWaitLogin.bind(this),1500);
     },
-    
+
     releaseWaitLogin : function () {
         this.idWaitLogin = -1;
     },
-    
+
     checkNetwork : function () {
         if(!NativeBridge.networkAvaiable())
         {
@@ -418,7 +418,7 @@ var LoginScene = BaseLayer.extend({
         var gui = sceneMgr.getRunningScene().getMainLayer();
         return !!(gui instanceof  LoginScene);
     },
-    
+
     showLoadingInformation : function (isLoaded) {
         this.pAccount.setVisible(false);
         this.pLoading.setVisible(true);
@@ -434,7 +434,7 @@ var LoginScene = BaseLayer.extend({
     },
 
     showLogin : function () {
-        if(PortalUtil.isPortal()) // Portal -> auto login with portal session
+        if(portalMgr.isPortal()) // Portal -> auto login with portal session
         {
             this.autoLoginPortal();
             return;

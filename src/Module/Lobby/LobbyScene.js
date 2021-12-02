@@ -88,14 +88,13 @@ var LobbyScene = BaseLayer.extend({
         offerManager.addOfferToGroup();
         offerManager.showOfferGUIKick();
         paymentMgr.checkShowSystemBonus();
-        NewVipManager.getInstance().checkShowDailyBonus();
-        eventMgr.checkFreeTicket();
-        NewVipManager.getInstance().sendGetVipInfo();
+        VipManager.getInstance().checkShowDailyBonus();
+        VipManager.getInstance().sendGetVipInfo();
         StorageManager.getInstance().showNotifyStorage();
         DailyPurchaseManager.getInstance().checkNotifyGift();
 
         // EventMgr PORTAL
-        PortalUtil.checkEventPortal();
+        portalMgr.checkEventPortal();
 
         //init lucky bonus
         if (this.btnCamera.isVisible())
@@ -170,25 +169,23 @@ var LobbyScene = BaseLayer.extend({
     },
 
     initVip: function () {
-        if (Config.ENABLE_NEW_VIP) {
-            var pTooltipVip = this.btnVip.getChildByName("nTooltipVip");
-            this.pTooltipVip = this.getControl("pTooltipVip", pTooltipVip);
-            this.pTooltipVip.setLocalZOrder(1);
-            this.pTooltipVip.defaultPos = this.pTooltipVip.getPosition();
-            this.bgTooltip = this.getControl("bgTooltip", this.pTooltipVip);
-            this.bgTooltip.defaultPos = this.bgTooltip.getPosition();
-            var iconVip = this.getControl("iconVip", this.bgTooltip);
-            iconVip.ignoreContentAdaptWithSize(true);
-            iconVip.setVisible(false);
-            this.bgTooltip.iconVip = new ccui.Scale9Sprite(NewVipManager.getIconVip(1));
-            iconVip.getParent().addChild(this.bgTooltip.iconVip);
-            this.bgTooltip.iconVip2 = iconVip;
-            this.bgTooltip.iconVip.setPosition(iconVip.getPosition());
-            this.bgTooltip.txtVip = this.getControl("txtVip", this.bgTooltip);
-            this.bgTooltip.txtRemain = this.getControl("txtRemain", this.bgTooltip);
-            this.bgTooltip.txtTimeRemain = this.getControl("txtTimeRemain", this.bgTooltip);
-            this.pTooltipVip.setVisible(false);
-        }
+        var pTooltipVip = this.btnVip.getChildByName("nTooltipVip");
+        this.pTooltipVip = this.getControl("pTooltipVip", pTooltipVip);
+        this.pTooltipVip.setLocalZOrder(1);
+        this.pTooltipVip.defaultPos = this.pTooltipVip.getPosition();
+        this.bgTooltip = this.getControl("bgTooltip", this.pTooltipVip);
+        this.bgTooltip.defaultPos = this.bgTooltip.getPosition();
+        var iconVip = this.getControl("iconVip", this.bgTooltip);
+        iconVip.ignoreContentAdaptWithSize(true);
+        iconVip.setVisible(false);
+        this.bgTooltip.iconVip = new ccui.Scale9Sprite(VipManager.getIconVip(1));
+        iconVip.getParent().addChild(this.bgTooltip.iconVip);
+        this.bgTooltip.iconVip2 = iconVip;
+        this.bgTooltip.iconVip.setPosition(iconVip.getPosition());
+        this.bgTooltip.txtVip = this.getControl("txtVip", this.bgTooltip);
+        this.bgTooltip.txtRemain = this.getControl("txtRemain", this.bgTooltip);
+        this.bgTooltip.txtTimeRemain = this.getControl("txtTimeRemain", this.bgTooltip);
+        this.pTooltipVip.setVisible(false);
     },
 
     initCenterRight: function () {
@@ -298,10 +295,6 @@ var LobbyScene = BaseLayer.extend({
         this.pOffer.pos = this.pOffer.getPosition();
         offerManager.setGroupOffer(this.pOffer);
 
-        this.pEvent = this.getControl("pEvent", pLeftCenter);
-        this.pEvent.allowUpdate = true;
-        eventMgr.initArrayBtnEvent(this.pEvent);
-
         this.pButton = this.getControl("pButton", pLeftCenter);
         LobbyButtonManager.getInstance().setPButton(this.pButton);
     },
@@ -338,7 +331,7 @@ var LobbyScene = BaseLayer.extend({
 
         var vipImg = this.getControl("imgVip", pAvatar);
         vipImg.setVisible(false);
-        this.imgVip = new ccui.Scale9Sprite(NewVipManager.getIconVip(1));
+        this.imgVip = new ccui.Scale9Sprite(VipManager.getIconVip(1));
         vipImg.getParent().addChild(this.imgVip);
         this.imgVip.setPosition(vipImg.getPosition());
         this.imgVip2 = vipImg;
@@ -710,9 +703,6 @@ var LobbyScene = BaseLayer.extend({
         supportMgr.checkShowSupportStartUp();
         eventMgr.showButtonEvent(this.btnEvent);
         eventMgr.showHideButtonEventInGame();
-
-        CheckLogic.checkCaptureInBoard();
-        CheckLogic.checkShowTutorial();
         PersonalInfoGUI.checkOpenGuiFirstTime();
     },
 
@@ -729,7 +719,7 @@ var LobbyScene = BaseLayer.extend({
             if (cCaptureDay === undefined || cCaptureDay == null) cCaptureDay = "";
 
             if (sDay != cCaptureDay) {
-                this.notifyCapture.setVisible(!PortalUtil.isPortal() && cc.sys.isNative && !userMgr.checkDisableSocialViral());
+                this.notifyCapture.setVisible(!portalMgr.isPortal() && cc.sys.isNative && !userMgr.checkDisableSocialViral());
 
                 this.notifyCapture.img1.setPositionY(this.notifyCapture.img1.pos.y + 100);
                 this.notifyCapture.img2.setPositionY(this.notifyCapture.img2.pos.y + 100);
@@ -746,21 +736,6 @@ var LobbyScene = BaseLayer.extend({
         this.notifyCapture.img2.runAction(cc.sequence(cc.delayTime(0.25), new cc.EaseBackOut(cc.moveTo(0.5, this.notifyCapture.img2.pos))));
 
         this.notifyCapture.runAction(cc.sequence(cc.delayTime(5), cc.fadeOut(0.5), cc.hide()));
-    },
-
-    updateItem: function (item) {
-        cc.log("UPDATE ITEM " + item);
-        var pBot = this.getControl("bot");
-        var ret = this.getControl("panelItem", pBot);
-        var oldItem = ret.getChildByTag(10);
-        if (oldItem) {
-            oldItem.removeFromParent(true);
-        }
-        if (item) {
-            cc.log("ADD ITEM ");
-            ret.addChild(item);
-            item.setTag(10);
-        }
     },
 
     onUpdateBtnRank: function () {
@@ -913,11 +888,11 @@ var LobbyScene = BaseLayer.extend({
                 break;
             }
             case LobbyScene.BTN_SETTING: {
-                sceneMgr.openGUI(SettingGUI.className, LobbyScene.GUI_SETTING, LobbyScene.GUI_SETTING);
+                settingMgr.openSettingGUI();
                 break;
             }
             case LobbyScene.BTN_VIP: {
-                NewVipManager.openVip();
+                VipManager.openVip();
                 break;
             }
             case LobbyScene.BTN_DOIVANG: {
@@ -928,13 +903,6 @@ var LobbyScene = BaseLayer.extend({
                 paymentMgr.openNapG();
                 break;
             }
-            case LobbyScene.BTN_CAMERA: {
-                this.notifyCapture.setVisible(false);
-
-                var gui = sceneMgr.openGUI(GUIShareFace.className, GUIShareFace.tag, GUIShareFace.tag, false);
-                gui.addImage(GUIShareFace.getContentShare());
-                break;
-            }
             case LobbyScene.BTN_GUI_GIFTCODE: {
                 this.showGiftCode();
                 break;
@@ -943,20 +911,9 @@ var LobbyScene = BaseLayer.extend({
                 eventMgr.openEvent();
                 break;
             }
-            case LobbyScene.BTN_DAILYMISSION: {
-                CheckLogic.showDailyMissionGUI();
-                break;
-            }
             case LobbyScene.BTN_HOT_NEWS: {
                 hotNews.show();
                 break;
-            }
-            case LobbyScene.BTN_SHARE: {
-                this.notifyCapture.setVisible(false);
-                // custom gui rieng
-                var gui = sceneMgr.openGUI(GUIShareFace.className, GUIShareFace.tag, GUIShareFace.tag);
-                gui.addImage(GUIShareFace.getContentShare());
-                return;
             }
             case LobbyScene.BTN_SUPPORT: {
                 sceneMgr.openGUI(GUISupportInfo.className, GUISupportInfo.tag, GUISupportInfo.tag, false).showGUI(0, supportMgr.numSupport);
@@ -1015,16 +972,13 @@ var LobbyScene = BaseLayer.extend({
     },
 
     updateVipInfo: function () {
-        if (!Config.ENABLE_NEW_VIP) {
-            return;
-        }
-        var vipLevel = NewVipManager.getInstance().getVipLevel();
+        var vipLevel = VipManager.getInstance().getVipLevel();
         this.pTooltipVip.setVisible(false);
         this.imgVip.setVisible(vipLevel > 0);
-        var state = (NewVipManager.getInstance().getRemainTime() > 0) ? 0 : 1;
+        var state = (VipManager.getInstance().getRemainTime() > 0) ? 0 : 1;
         this.imgVip.setState(state);
         this.bgTooltip.iconVip.setState(state);
-        var texture = NewVipManager.getIconVip(vipLevel);
+        var texture = VipManager.getIconVip(vipLevel);
         // cc.log("updateVipInfo: ", texture, vipLevel);
         if (texture !== "" && vipLevel > 0) {
             try {
@@ -1066,22 +1020,20 @@ var LobbyScene = BaseLayer.extend({
         this.bgTooltip.runAction(cc.sequence(cc.delayTime(delayFirst), actionMoveBy.clone(), cc.delayTime(timeOn), actionMoveBy.clone().reverse(), cc.delayTime(timeOff - delayFirst)).repeatForever());
 
         this.bgTooltip.txtVip.setString(StringUtility.replaceAll(localized("VIP_NAME"), "@level", vipLevel));
-        var remainVipTime = NewVipManager.getInstance().getRemainTime();
+        var remainVipTime = VipManager.getInstance().getRemainTime();
         this.bgTooltip.txtRemain.setVisible(remainVipTime > 0);
-        this.bgTooltip.txtTimeRemain.setString(NewVipManager.getRemainTimeString(remainVipTime));
+        this.bgTooltip.txtTimeRemain.setString(VipManager.getRemainTimeString(remainVipTime));
         var txtTemp = BaseLayer.createLabelText(this.bgTooltip.txtVip.getString());
         this.bgTooltip.txtRemain.setPositionX(this.bgTooltip.txtVip.getPositionX() + txtTemp.getContentSize().width + 5);
     },
 
     update: function (dt) {
         this.genFireWork(dt);
-        NewVipManager.getInstance().updateTimeVip(dt);
-        var remainTime = NewVipManager.getInstance().getRemainTime();
-        this.bgTooltip.txtTimeRemain.setString(NewVipManager.getRemainTimeString(remainTime));
+        VipManager.getInstance().updateTimeVip(dt);
+        var remainTime = VipManager.getInstance().getRemainTime();
+        this.bgTooltip.txtTimeRemain.setString(VipManager.getRemainTimeString(remainTime));
 
         offerManager.groupOffer.updateOffer();
-        this.pEvent.setPositionY(this.pOffer.pos.y - offerManager.groupOffer.getContentSize().height + 5);
-
         this.reloadPositionButtonBottom();
     },
 
@@ -1090,11 +1042,11 @@ var LobbyScene = BaseLayer.extend({
             return;
         }
 
-        var message = PortalUtil.isPortal() ? LocalizedString.to("LOGOUT_GAME_TO_PORTAL") : LocalizedString.to("_ASKEXIT_");
+        var message = portalMgr.isPortal() ? LocalizedString.to("LOGOUT_GAME_TO_PORTAL") : LocalizedString.to("_ASKEXIT_");
         sceneMgr.showOkCancelDialog(message, this, function (btnID) {
             switch (btnID) {
                 case 0: {
-                    PortalUtil.endGame();
+                    portalMgr.endGame();
                 }
             }
         });

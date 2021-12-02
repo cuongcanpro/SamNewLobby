@@ -462,7 +462,7 @@ var DailyPurchaseGUI = BaseLayer.extend({
                 cc.delayTime(0.5),
                 cc.fadeOut(0.5),
                 cc.callFunc(function(){
-                    NewVipManager.checkShowUpLevelVip();
+                    VipManager.checkShowUpLevelVip();
 
                     this.onUpdateGUI();
                     this.doEffect();

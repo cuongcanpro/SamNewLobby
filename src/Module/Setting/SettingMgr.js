@@ -11,6 +11,10 @@ var SettingMgr = BaseMgr.extend({
     onReceived: function (cmd, pk) {
         return false;
     },
+
+    openSettingGUI: function () {
+        sceneMgr.openGUI(SettingGUI.className, LobbyScene.GUI_SETTING, LobbyScene.GUI_SETTING);
+    }
 })
 
 SettingMgr.instance = null;

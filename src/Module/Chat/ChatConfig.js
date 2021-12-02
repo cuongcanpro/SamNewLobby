@@ -39,7 +39,7 @@ var ChatConfig = cc.Class.extend({
     },
 
     canUseItem: function (itemIdx, isEmo) {
-        var vipLevel = NewVipManager.getInstance().getVipLevel();
+        var vipLevel = VipManager.getInstance().getVipLevel();
         var vipCanUse = this.getVipUseConfig();
         var itemConfig = isEmo ? this.getEmoConfig() : this.getInteractConfig();
         var key;

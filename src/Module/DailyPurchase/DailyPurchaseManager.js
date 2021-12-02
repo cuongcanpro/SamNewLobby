@@ -158,7 +158,7 @@ var DailyPurchaseManager = cc.Class.extend({
 
     sendReceiveDailyPurchaseGift: function(dayIndex){
         sceneMgr.addLoading(LocalizedString.to("WAITING")).timeout(15);
-        NewVipManager.getInstance().setWaiting(true);
+        VipManager.getInstance().setWaiting(true);
 
         var pk = new CmdSendReceiveDailyPurchaseGift();
         pk.putData(dayIndex);

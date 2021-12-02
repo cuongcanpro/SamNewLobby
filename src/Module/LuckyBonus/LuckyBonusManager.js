@@ -218,8 +218,8 @@ var LuckyBonusManager = cc.Class.extend({
     },
 
     updateUserVipInfo: function(){
-        this.userVipLevel = NewVipManager.getInstance().getVipLevel();
-        this.userVipRemainTime = NewVipManager.getInstance().getRemainTime();
+        this.userVipLevel = VipManager.getInstance().getVipLevel();
+        this.userVipRemainTime = VipManager.getInstance().getRemainTime();
         if (!this.userVipRemainTime || this.userVipRemainTime <= 0){
             this.userVipLevel = 0;
         }

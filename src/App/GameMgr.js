@@ -39,7 +39,7 @@ var GameMgr = cc.Class.extend({
             else
                 this.appVersion = Config.APP_VERSION_IOS_DEFAULT;
         }
-        if (PortalUtil.isPortal()) {
+        if (portalMgr.isPortal()) {
             cc.sys.localStorage.setItem(LocalizedString.config("KEY_JS_VERSION"), fr.platformWrapper.getScriptVersion());
         }
     },
@@ -59,7 +59,7 @@ var GameMgr = cc.Class.extend({
             fr.tracker.enableLogErrorJSNew();
             fr.tracker.logCheckAPK(Config.URL_ZALOPAY);
 
-            if (PortalUtil.isPortal()) {
+            if (portalMgr.isPortal()) {
                 if (Config.ENABLE_MULTI_PORTAL)
                     fr.paymentInfo.loadInfo();
                 fr.portalState.init();
@@ -364,7 +364,7 @@ var GameMgr = cc.Class.extend({
     },
 
     endGame: function () {
-        if (PortalUtil.isPortal()) {
+        if (portalMgr.isPortal()) {
             try {
                 fr.NativeService.endGame();
             } catch (e) {

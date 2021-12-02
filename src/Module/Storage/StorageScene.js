@@ -1131,7 +1131,7 @@ var StorageCheatGUI = BaseLayer.extend({
         this.pPreview.addChild(sprite);
 
         var itemConfig = StorageManager.getInstance().itemConfig[this.data.type][this.data.id];
-        this.boxUnlocked.setSelected(NewVipManager.getInstance().getRealVipLevel() >= itemConfig.vip && gamedata.userData.level >= itemConfig.level);
+        this.boxUnlocked.setSelected(VipManager.getInstance().getRealVipLevel() >= itemConfig.vip && gamedata.userData.level >= itemConfig.level);
         if (this.data.index >= 0){
             this.boxHad.setSelected(true);
             var itemInfo = StorageManager.getInstance().userItemInfo[this.data.type][this.data.id][this.data.index];
@@ -1434,7 +1434,7 @@ var ChatEmoGUI = BaseLayer.extend({
             if (data.groups){
                 for (var j = 0; j < data.groups.length; j++){
                     if (data.groups[j].listItemId.indexOf(Number(emo.emoId)) != -1){
-                        if (NewVipManager.getInstance().getRealVipLevel() < data.groups[j].vip) {
+                        if (VipManager.getInstance().getRealVipLevel() < data.groups[j].vip) {
                             emo.isLock = true;
                             emo.lockMess = "Vip " + data.groups[j].vip;
                         }
@@ -1473,7 +1473,7 @@ var ChatEmoGUI = BaseLayer.extend({
         this.selectedTab = id;
         this.setSelectedButton(this.selectedTab);
 
-        if (NewVipManager.getInstance().getRealVipLevel() < this.emoData[this.selectedTab].vip)
+        if (VipManager.getInstance().getRealVipLevel() < this.emoData[this.selectedTab].vip)
             this.setLock(true, "Cần vip #d để mở khóa".replace("#d",  this.emoData[this.selectedTab].vip));
         else if (gamedata.userData.level < this.emoData[this.selectedTab].level)
             this.setLock(true, "Cần level #d để mở khóa".replace("#d", this.emoData[this.selectedTab].level));

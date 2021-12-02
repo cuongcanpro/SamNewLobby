@@ -40,8 +40,6 @@ var GameClientListener = cc.Class.extend({
         GameClient.getInstance().connectServer = false;
         if (GameClient.getInstance().connectState == ConnectState.CONNECTED) {
             GameClient.getInstance().connectState = ConnectState.DISCONNECTED;
-            engine.HandlerManager.getInstance().forceRemoveHandler("pingpong");
-            engine.HandlerManager.getInstance().forceRemoveHandler("received_pingpong");
             sceneMgr.clearLoading();
             GameClient.destroyInstance();
             if (sceneMgr.getMainLayer() instanceof LoginScene)
@@ -90,24 +88,18 @@ var GameClientListener = cc.Class.extend({
                         loginpk.putData("+++" + loginMgr.getSessionKey());
                     GameClient.getInstance().sendPacket(loginpk);
                     loginpk.clean();
-
                     break;
                 }
                 case CMD.CMD_PINGPONG: {
-                    GameClient.getInstance().receivePingPong();
+                    pingPongHandler.receivePing();
                     break;
                 }
                 case CMD.CMD_ANOTHER_COM: {
                     if (packet.getError() == 3) {
                         sceneMgr.clearLoading();
-
                         GameClient.getInstance().connectState = ConnectState.DISCONNECTED;
-                        engine.HandlerManager.getInstance().forceRemoveHandler("pingpong");
-                        engine.HandlerManager.getInstance().forceRemoveHandler("received_pingpong");
-
                         GameClient.getInstance().disconnect();
                         GameClient.destroyInstance();
-
                         sceneMgr.showOkCancelDialog(LocalizedString.to("DISCONNECT_LOGIN"), null, function (btnID) {
                             var checkPortal = false;
                             if (btnID == 0) {
@@ -118,7 +110,6 @@ var GameClientListener = cc.Class.extend({
                             }
                             loginMgr.backToLoginScene(checkPortal);
                         });
-
                         NewRankData.disconnectServer();
                     }
                     break;

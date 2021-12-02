@@ -124,8 +124,6 @@ var SettingGUI = BaseLayer.extend({
                         } else {
                             socialMgr.clearSession();
                             GameClient.getInstance().connectState = ConnectState.DISCONNECTED;
-                            engine.HandlerManager.getInstance().forceRemoveHandler("pingpong");
-                            engine.HandlerManager.getInstance().forceRemoveHandler("received_pingpong");
                             GameClient.getInstance().disconnect();
                             GameClient.destroyInstance();
                             // NewRankGameClient.getInstance().disconnect()

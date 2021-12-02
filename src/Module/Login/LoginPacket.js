@@ -31,38 +31,46 @@ CmdSendLogin = CmdSendCommon.extend({
 });
 
 
-CmdSendMobile = CmdSendCommon.extend({
+CmdSendGameInfo = CmdSendCommon.extend({
     ctor: function () {
         this._super();
         this.initData(100);
         this.setControllerId(1);
-        this.setCmdId(CMD.CMD_MOBILE);
-
+        this.setCmdId(UserMgr.CMD_GET_CONFIG);
     },
-    putData: function (deviceModel, osVersion, mobile, deviceID, update, installDate) {
-        cc.log("SendMobile : " + deviceModel + "/" + osVersion + "/" + mobile + "/" + deviceID + "/" + update + "/" + installDate);
+
+    putData: function (deviceName, osVersion, platform, deviceId, appVersion, trackingSource, mac, footballVersion, isUpdateApp, installDate, configVersion, quickConnect) {
+        cc.log("++GameInfo " + JSON.stringify(arguments));
+
         //pack
         this.packHeader();
-        this.putString("" + deviceModel);
-        this.putString("" + osVersion);
-        this.putByte(mobile);
-        this.putString("" + deviceID);
 
-        this.putString(gamedata.appVersion);
-        this.putString("aa");
-        this.putString("aa");
-        this.putInt(Constant.APP_FOOTBALL);
-
-        this.putByte(update);
+        this.putString(deviceName);
+        this.putString(osVersion);
+        this.putByte(platform);
+        this.putString(deviceId);
+        this.putString(appVersion);
+        this.putString(trackingSource);
+        this.putString(mac);
+        this.putInt(footballVersion);
+        this.putByte(isUpdateApp ? 1 : 0);
         this.putString(installDate);
 
-        if (gamedata.networkOperator != "") {
+        this.putInt(configVersion);
+        this.putByte(quickConnect ? 1 : 0);
+
+        var networkInfo = NativeBridge.getTelephoneInfo();
+        if (networkInfo && networkInfo != "") {
             this.putShort(1);
-            this.putString(gamedata.networkOperator);
+            this.putString(networkInfo);
+            cc.log("Sim Operator : " + networkInfo);
         } else {
             this.putShort(0);
+            this.putString("");
         }
+        this.putInt(1); // version de phan biet ban IOS cu
 
+        //update
         this.updateSize();
     }
 });

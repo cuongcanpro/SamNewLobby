@@ -762,7 +762,7 @@ var UserInfoEnemyUI = BaseLayer.extend({
             else {
                 // Toast.makeToast(Toast.SHORT, LocalizedString.to("_VIP_ONLY_USE_"));
                 var text = localized("VIP_NEED_TO_USE_INTERACT");
-                text = StringUtility.replaceAll(text, "@number", NewVipManager.getInstance().getLevelCanUseItem());
+                text = StringUtility.replaceAll(text, "@number", VipManager.getInstance().getLevelCanUseItem());
                 Toast.makeToast(Toast.SHORT, text);
             }
         }

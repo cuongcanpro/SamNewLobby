@@ -2530,8 +2530,8 @@ var LuckyCardScene = BaseLayer.extend({
         //return;
         //}
 
-        if(NewVipManager.getInstance().getDataSave()){
-            NewVipManager.getInstance().setWaiting(false);
+        if(VipManager.getInstance().getDataSave()){
+            VipManager.getInstance().setWaiting(false);
         }
 
         //send msg metric
@@ -3244,7 +3244,7 @@ var LuckyCardOpenResultGUI = BaseLayer.extend({
                     var cmd = new CmdSendLuckyCardChangeAward();
                     cmd.putData(false, gIds);
                     GameClient.getInstance().sendPacket(cmd);
-                    //NewVipManager.getInstance().setWaiting(true);
+                    //VipManager.getInstance().setWaiting(true);
                 } else {
                     luckyCard.showRegisterInformation(gIds);
                 }
@@ -3515,7 +3515,7 @@ var LuckyCardOpenGiftGUI = BaseLayer.extend({
 
     onFinishEffectPhysics: function () {
         this.runAction(cc.sequence(cc.delayTime(3.5), cc.callFunc(this.onClose.bind(this))));
-        NewVipManager.checkShowUpLevelVip();
+        VipManager.checkShowUpLevelVip();
         return;
         if (this.info.id == 1004) {
             this.runAction(cc.sequence(cc.delayTime(2.5), cc.callFunc(this.onClose.bind(this))));
@@ -3737,7 +3737,7 @@ var LuckyCardOpenGiftGUI = BaseLayer.extend({
                 var cmd = new CmdSendLuckyCardChangeAward();
                 cmd.putData(true, gIds);
                 GameClient.getInstance().sendPacket(cmd);
-                NewVipManager.getInstance().setWaiting(true);
+                VipManager.getInstance().setWaiting(true);
             }
         } else {
             this.onCapture();

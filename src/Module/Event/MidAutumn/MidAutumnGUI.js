@@ -2184,7 +2184,7 @@ var MidAutumnOpenGiftGUI = BaseLayer.extend({
                     var cmd = new CmdSendMidAutumnChangeAward();
                     cmd.putData(false, this.info.id);
                     GameClient.getInstance().sendPacket(cmd);
-                    NewVipManager.getInstance().setWaiting(true);
+                    VipManager.getInstance().setWaiting(true);
                 } else {
                     midAutumn.showRegisterInformation([this.info.id]);
                 }
@@ -2201,7 +2201,7 @@ var MidAutumnOpenGiftGUI = BaseLayer.extend({
                     else
                         cmd.putData(true, this.info.id);
                     GameClient.getInstance().sendPacket(cmd);
-                    NewVipManager.getInstance().setWaiting(true);
+                    VipManager.getInstance().setWaiting(true);
                 }
             }
         } else {
@@ -2248,7 +2248,7 @@ var MidAutumnOpenGiftGUI = BaseLayer.extend({
         this.onClose();
         this.isWaitResponse = false;
         midAutumn.showAutoGift();
-        NewVipManager.checkShowUpLevelVip();
+        VipManager.checkShowUpLevelVip();
     },
 });
 

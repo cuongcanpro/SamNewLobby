@@ -1022,7 +1022,7 @@ var EggBreaker = cc.Class.extend({
                 if (rCoinBonus.reasonGet == CmdReceiveEggBreakerKeyCoinBonus.TYPE_COIN_OFFER)
                     return;
                 if (rCoinBonus.reasonGet == CmdReceiveEggBreakerKeyCoinBonus.TYPE_COIN_BUY_TICKET) {
-                    //NewVipManager.getInstance().setWaiting(true);
+                    //VipManager.getInstance().setWaiting(true);
                     var gui = sceneMgr.openGUI(GUIBuyTicket.className, GUIBuyTicket.TAG, GUIBuyTicket.TAG);
                     gui.setInfo(rCoinBonus);
                     return;
