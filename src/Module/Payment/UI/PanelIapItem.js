@@ -338,3 +338,5 @@ var PanelIapItem = BaseLayer.extend({
         return this.tbList;
     }
 });
+
+PanelIapItem.HEIGHT_PANEL = 300;

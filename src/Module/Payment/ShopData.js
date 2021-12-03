@@ -330,3 +330,19 @@ ShopData.getInstance = function () {
     return ShopData._instance;
 };
 var shopData = ShopData.getInstance();
+
+ChannelPaymentData = cc.Class.extend({
+    ctor: function (idPayment, resource, isHot) {
+        this.idPayment = idPayment;
+        this.resource = resource;
+        this.isHot = isHot;
+    },
+
+    getResourceSelect: function () {
+        return "res/Lobby/ShopIAP/" + this.resource + "Select.png";
+    },
+
+    getResource: function () {
+        return "res/Lobby/ShopIAP/" + this.resource + ".png";
+    }
+})
