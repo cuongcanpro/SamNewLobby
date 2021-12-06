@@ -30,26 +30,6 @@ var ItemIapCell = cc.TableViewCell.extend({
         this.goldNew.defaultPos = this.goldNew.getPosition();
         this.line = ccui.Helper.seekWidgetByName(this._layout, "line");
 
-        this.star = this.cloneLabel(ccui.Helper.seekWidgetByName(this._layout, "star"));
-        this.star.ignoreContentAdaptWithSize(true);
-        this.star.defaultPosition = this.star.getPosition();
-        this.starOld = this.cloneLabel(ccui.Helper.seekWidgetByName(this._layout, "star_old"));
-        this.starOld.ignoreContentAdaptWithSize(true);
-        this.starOld.defaultPosition = this.starOld.getPosition();
-        this.vPointLine = ccui.Helper.seekWidgetByName(this._layout, "vpoint_line");
-        this.gStar = ccui.Helper.seekWidgetByName(this._layout, "iconStar");
-
-        this.timeVip = this.cloneLabel(ccui.Helper.seekWidgetByName(this._layout, "timeVip"));
-        this.timeVip.ignoreContentAdaptWithSize(true);
-        this.iconTimeVip = ccui.Helper.seekWidgetByName(this._layout, "iconTimeVip");
-
-        this.arrayLbGachaCoin = [];
-        this.arrayIconGachaCoin = [];
-        for (var i = 0; i < 2; i++) {
-            this.arrayIconGachaCoin.push(ccui.Helper.seekWidgetByName(this._layout, "iconGacha_" + i));
-            this.arrayLbGachaCoin.push(ccui.Helper.seekWidgetByName(this._layout, "lbGacha_" + i));
-        }
-
         this.bgBonus = ccui.Helper.seekWidgetByName(this._layout, "bgBonus");
         this.bgBonus.text = ccui.Helper.seekWidgetByName(this.bgBonus, "text");
         this.bgBonus.bonus = ccui.Helper.seekWidgetByName(this.bgBonus, "bonus");
@@ -69,6 +49,9 @@ var ItemIapCell = cc.TableViewCell.extend({
         this.bonusValue = ccui.Helper.seekWidgetByName(this._layout, "bonusValue");
 
         this.lastActionUpdate = 0;
+
+        this.groupBonus = new GroupShopBonus();
+        this.addChild(this.groupBonus);
     },
 
     /**
@@ -134,29 +117,9 @@ var ItemIapCell = cc.TableViewCell.extend({
         this.line.setPositionX(this.goldOld.getPositionX() + this.goldOld.getContentSize().width / 2);
         this.line.setScaleX(this.goldOld.getContentSize().width / this.line.getContentSize().width);
 
-        //vip points
-        this.star.setVisible(inf.vPoint > 0);
-        this.gStar.setVisible(inf.vPoint > 0);
-        this.star.setString("+" + StringUtility.pointNumber(inf.vPoint));
-        this.starOld.setVisible(inf.vPointOld != null);
-        this.vPointLine.setVisible(inf.vPointOld != null);
-        if (inf.vPointOld != null){
-            this.starOld.setString("+" + StringUtility.pointNumber(inf.vPointOld));
-            this.vPointLine.setScaleX(this.starOld.getContentSize().width / this.vPointLine.getContentSize().width);
-            this.vPointLine.setPositionX(this.starOld.getPositionX() - this.starOld.getContentSize().width/2);
-        }
-        this.gStar.setPositionX(this.star.getPositionX() + this.star.getContentSize().width + 5);
-
-        //time vip
-        var levelVip = VipManager.getInstance().getRealVipLevel();
-        inf.hourBonus = inf.hourBonus || 0;
-        this.timeVip.setVisible(inf.vPoint > 0 && inf.hourBonus > 0 && levelVip > 0);
-        this.timeVip.setString(StringUtility.replaceAll(localized("VIP_SHOP_HOUR_BONUS"), "@number", inf.hourBonus));
-        this.iconTimeVip.setVisible(inf.vPoint > 0 && inf.hourBonus > 0 && levelVip > 0);
-        this.iconTimeVip.setPositionX(this.timeVip.getPositionX() + this.timeVip.getContentSize().width + 4);
-
-        //event item bonus
-        eventMgr.updateItemInShop(this.arrayLbGachaCoin, this.arrayIconGachaCoin, this.bonusValue, inf);
+        // group Bonus
+       this.groupBonus.setInfo(inf);
+       this.groupBonus.setPositionY(200 - this.groupBonus.getContentSize().height);
 
         //bonus
         this.bgBonusGold.setVisible(false);
@@ -360,6 +323,70 @@ ItemIapCell.CURRENCY_G = "G";
 ItemIapCell.CURRENCY_ATM = "VND";
 ItemIapCell.CURRENCY_ZING = "VND";
 ItemIapCell.CURRENCY_ZALO = "VND";
+
+GroupShopBonus = cc.Node.extend({
+    ctor: function () {
+        this._super();
+        this.arrayBonusRow = [];
+        this.bg = new cc.Scale9Sprite("res/Lobby/ShopIAP/bgTextfield.png");
+        this.addChild(this.bg);
+        this.bg.setAnchorPoint(cc.p(0, 0));
+    },
+
+    setInfo: function (shopPackage) {
+        for (var i = 0; i < this.arrayBonusRow.length; i++) {
+            this.arrayBonusRow[i].setVisible(false);
+        }
+        this.arrayBonus = ShopBonusData.getArrayBonus(shopPackage);
+        cc.log("ARRAY BONUS " + JSON.stringify(this.arrayBonus));
+        var height = (this.arrayBonus.length < 3 ? 3 : this.arrayBonus.length) * ShopBonusRow.PAD_Y;
+        for (var i = 0; i < this.arrayBonus.length; i++) {
+            var row = this.getShopBonusRow();
+            row.setInfo(this.arrayBonus[i]);
+            row.setPosition(10 , height - (i + 0.5) * ShopBonusRow.PAD_Y);
+        }
+        this.bg.setContentSize(this.bg.getContentSize().width, height);
+        this.setContentSize(cc.size(this.bg.getContentSize().width, height));
+    },
+
+    getShopBonusRow: function () {
+        for (var i = 0; i < this.arrayBonusRow.length; i++) {
+            if (!this.arrayBonusRow[i].isVisible())
+                return this.arrayBonusRow[i];
+        }
+        var bonus = new ShopBonusRow(this);
+        this.arrayBonusRow.push(bonus);
+        this.addChild(bonus);
+        return bonus;
+    },
+})
+
+ShopBonusRow =  cc.Node.extend({
+    ctor: function () {
+        this._super();
+        this.setAnchorPoint(cc.p(0, 0));
+        this.setCascadeOpacityEnabled(true);
+
+
+        this.icon = new cc.Sprite("res/Lobby/GUIVipNew/iconVpoint.png");
+        this.addChild(this.icon);
+        this.labelDescrible = BaseLayer.createLabelText("fkdsjl fjsdj fsld kjfd kf sdfd ssds lfj", cc.color(255, 246, 220, 255));
+        this.labelDescrible.setFontName(SceneMgr.FONT_BOLD);
+        this.labelDescrible.setTextHorizontalAlignment(cc.TEXT_ALIGNMENT_CENTER);
+        this.labelDescrible.setAnchorPoint(cc.p(0, 0.5));
+        this.labelDescrible.setFontSize(16);
+        this.labelDescrible.ignoreContentAdaptWithSize(false);
+        this.addChild(this.labelDescrible);
+    },
+
+    // set thong tin chung cua Bonus
+    setInfo: function (bonusData) {
+        this.icon.setTexture(bonusData.getResourceIcon());
+        this.icon.setScale(bonusData.getScaleRate());
+        this.labelDescrible.setString(bonusData.getTitle());
+    },
+});
+ShopBonusRow.PAD_Y = 30;
 
 var OfferIapCell = cc.TableViewCell.extend({
     ctor: function (p) {
@@ -593,6 +620,9 @@ var OfferIapCell = cc.TableViewCell.extend({
         this.time.setString(s);
     }
 });
+
+ItemIapCell.WIDTH_ITEM = 200;
+ItemIapCell.HEIGHT_ITEM = 250;
 
 var ShopItemCell = cc.TableViewCell.extend({
     ctor: function(numCol, itemScale, itemSpace, highlight, tabItemPayment) {

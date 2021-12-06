@@ -655,6 +655,36 @@ VipManager.checkShowUpLevelVip = function () {
     VipManager.getInstance().setWaiting(false);
 }
 
+VipManager.setNextLevelVip = function (data) {
+    var vipLevel = VipManager.getInstance().getRealVipLevel();
+    for (var i = 0; i < data.length; i++) {
+        data[i].uptoLevelVip = 0;
+    }
+    if (vipLevel < VipManager.NUMBER_VIP) {
+        var vPoint = VipManager.getInstance().getRealVipVpoint();
+        var nextLevel = vipLevel + 1;
+        for (var i = 0; i < data.length; i++) {
+            var dataItem = data[i];
+            if (dataItem.isOffer) continue;
+
+            var totalVPoint = parseInt(vPoint) + dataItem.vPoint;
+            var neededVPoint = 0;
+            for (var level = vipLevel; level < nextLevel; level++)
+                neededVPoint += VipManager.getInstance().getVpointNeed(level);
+            while(true){
+                if (totalVPoint >= neededVPoint && neededVPoint > 0){
+                    data[i].uptoLevelVip = nextLevel;
+                    nextLevel++;
+                    if (nextLevel > VipManager.NUMBER_VIP) break;
+                    else neededVPoint += VipManager.getInstance().getVpointNeed(nextLevel - 1);
+                }
+                else break;
+            }
+            if (nextLevel > VipManager.NUMBER_VIP) break;
+        }
+    }
+}
+
 VipManager.NUMBER_VIP = 10;
 VipManager.NUMBER_BENEFIT = 10;
 

@@ -2,20 +2,15 @@
  * Trong Moi mot Tab Payment se chua Mot PanelIapItem la list cac Goi Shop Gold, G
  */
 var PanelIapItem = BaseLayer.extend({
-
-    ctor: function (_parent, _tbSize, _itemSize) {
-        this.guiParent = _parent;
+    ctor: function () {
         this.tbList = null;
-        this.tbSize = _tbSize;
-        this.itemSize = _itemSize;
         this.srcList = [];
         this.itemType = -1;
         this.imgCaches = {};
 
         this._super("");
-
-        this.tbList = new cc.TableView(this, this.tbSize);
-        this.tbList.setDirection(cc.SCROLLVIEW_DIRECTION_VERTICAL);
+        this.tbList = new cc.TableView(this, cc.size(cc.winSize.width, ItemIapCell.HEIGHT_ITEM));
+        this.tbList.setDirection(cc.SCROLLVIEW_DIRECTION_HORIZONTAL);
         this.tbList.setPosition(0, 0);
         this.tbList.setVerticalFillOrder(0);
         this.tbList.setDelegate(this);
@@ -29,6 +24,10 @@ var PanelIapItem = BaseLayer.extend({
         }
     },
 
+    /**
+     * Set Mang du lieu cho Panel nay, la mang du lieu ve cac goi Mua Gold, G, hay Ticket
+     * @param type
+     */
     setItemType: function (type) {
         cc.log("SELECT TYPE " + type);
         this.itemType = type;
@@ -36,58 +35,14 @@ var PanelIapItem = BaseLayer.extend({
         if (type < Payment.BUY_TICKET_FROM) {
             data = shopData.getDataByPaymentId(type);
         } else {
-            data = event.getDataPaymentById(type);
+            data = eventMgr.getDataPaymentById(type);
         }
         cc.log("DATA NE **:  " + type + "    " + JSON.stringify(data));
         if (data) {
-            this.setData(data);
+            VipManager.setNextLevelVip(data);
+            this.srcList = data;
             this.tbList.reloadData();
         }
-    },
-
-    setData: function (data) {
-        cc.log("DATA NE in Panel: " + JSON.stringify(data));
-        var vipLevel = VipManager.getInstance().getRealVipLevel();
-        for (var i = 0; i < data.length; i++) {
-            data[i].uptoLevelVip = 0;
-        }
-        if (vipLevel < VipManager.NUMBER_VIP) {
-            var vPoint = VipManager.getInstance().getRealVipVpoint();
-            var nextLevel = vipLevel + 1;
-            for (var i = 0; i < data.length; i++) {
-                var dataItem = data[i];
-                if (dataItem.isOffer) continue;
-
-                var totalVPoint = parseInt(vPoint) + dataItem.vPoint;
-                var neededVPoint = 0;
-                for (var level = vipLevel; level < nextLevel; level++)
-                    neededVPoint += VipManager.getInstance().getVpointNeed(level);
-                while(true){
-                    if (totalVPoint >= neededVPoint && neededVPoint > 0){
-                        data[i].uptoLevelVip = nextLevel;
-                        nextLevel++;
-                        if (nextLevel > VipManager.NUMBER_VIP) break;
-                        else neededVPoint += VipManager.getInstance().getVpointNeed(nextLevel - 1);
-                    }
-                    else break;
-                }
-                if (nextLevel > VipManager.NUMBER_VIP) break;
-
-                // var totalVpointNeed = 0;
-                // for (var j = vipLevel; j < nextLevel; j++) {
-                //     totalVpointNeed += VipManager.getInstance().getVpointNeed(j);
-                // }
-                // if (dataItem.vPoint + parseInt(vPoint) >= totalVpointNeed && totalVpointNeed > 0) {
-                //     data[i].uptoLevelVip = nextLevel;
-                //     nextLevel++;
-                //     if (nextLevel >= VipManager.NUMBER_VIP) {
-                //         break;
-                //     }
-                // }
-            }
-        }
-        this.srcList = data;
-        this.tbList.reloadData();
     },
 
     tableCellAtIndex: function (table, idx) {
@@ -117,8 +72,8 @@ var PanelIapItem = BaseLayer.extend({
 
     tableCellSizeForIndex: function (table, idx) {
         var info = this.srcList[idx];
-        if (info.isOffer) return cc.size(this.itemSize.width, this.itemSize.height * 1.55);
-        return this.itemSize;
+        if (info.isOffer) return cc.size(ItemIapCell.WIDTH_ITEM, ItemIapCell.HEIGHT_ITEM * 1.55);
+        return cc.size(ItemIapCell.WIDTH_ITEM, ItemIapCell.HEIGHT_ITEM);
     },
 
     numberOfCellsInTableView: function (table) {
@@ -128,7 +83,6 @@ var PanelIapItem = BaseLayer.extend({
     tableCellTouched: function (table, cell) {
         try {
             cc.log("##ShopIAP : " + this.itemType + " -> " + JSON.stringify(cell.info));
-
             this.selectItem(cell.info, this.itemType);
         } catch (e) {
             cc.log("Touch Item error " + e);
@@ -317,10 +271,6 @@ var PanelIapItem = BaseLayer.extend({
                     }
                 }
                 break;
-            case Payment.G_EVENT_TICKET : {
-                event.buyGTicket(info);
-                break;
-            }
             case Payment.TICKET_SMS: {
                 event.buySMSTicket(info);
                 break;

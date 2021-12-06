@@ -411,6 +411,12 @@ var PaymentMgr = BaseMgr.extend({
         cc.log("CONFIG NEW SHOP G " + JSON.stringify(this.arrayShopGConfig));
     },
 
+    sendGetConfigShop: function (type, version) {
+        var cmd = new CmdSendGetConfigShop();
+        cmd.putData(type, version);
+        this.sendPacket(cmd);
+    },
+
     sendUpdateBuyGold: function () {
         var cmdUpdateBuyGold = new CmdSendRequestEventShop();
         this.sendPacket(cmdUpdateBuyGold);
@@ -468,12 +474,8 @@ var PaymentMgr = BaseMgr.extend({
 
     openShop: function (waiting, callback, defaultTab) {
         if (this.checkEnablePayment()) {
-            var cmd = new CmdSendGetConfigShop();
             var versionGold = (this.isShopBonusAll) ? -1 : this.versionShopGold;
-            cmd.putData(CmdSendGetConfigShop.GOLD, versionGold);
-            GameClient.getInstance().sendPacket(cmd);
-            cc.log("SEND WHEN OPEN SHOP");
-
+            this.sendGetConfigShop(CmdSendGetConfigShop.GOLD, versionGold);
             var gui = sceneMgr.openScene(ShopIapScene.className, waiting, callback);
             if (gui instanceof ShopIapScene) {
                 if (defaultTab) {
@@ -487,11 +489,8 @@ var PaymentMgr = BaseMgr.extend({
 
     openShopInTab: function (id) {
         if (this.checkEnablePayment()) {
-            var cmd = new CmdSendGetConfigShop();
             var versionGold = (this.isShopBonusAll) ? -1 : this.versionShopGold;
-            cmd.putData(CmdSendGetConfigShop.GOLD, versionGold);
-            GameClient.getInstance().sendPacket(cmd);
-
+            this.sendGetConfigShop(CmdSendGetConfigShop.GOLD, versionGold);
             var gui = sceneMgr.openScene(ShopIapScene.className);
             if (gui instanceof ShopIapScene) {
                 gui.selectTabPaymentInGold(id);
@@ -501,10 +500,8 @@ var PaymentMgr = BaseMgr.extend({
 
     openNapG: function (waiting, callback) {
         if (this.checkEnablePayment() && this.checkEnableNapG()) {
-            var cmd = new CmdSendGetConfigShop();
             var versionG = (this.isShopBonusAll) ? -1 : this.versionShopG;
-            cmd.putData(CmdSendGetConfigShop.G, versionG);
-            GameClient.getInstance().sendPacket(cmd);
+            this.sendGetConfigShop(CmdSendGetConfigShop.G, versionG);
             var gui = sceneMgr.openScene(ShopIapScene.className, waiting, callback);
             if (gui instanceof ShopIapScene) {
                 gui.selectTabPaymentInG(-1);
@@ -514,11 +511,8 @@ var PaymentMgr = BaseMgr.extend({
 
     openNapGInTab: function (id, waiting, callback) {
         if (this.checkEnablePayment() && this.checkEnableNapG()) {
-            var cmd = new CmdSendGetConfigShop();
             var versionG = (this.isShopBonusAll) ? -1 : this.versionShopG;
-            cmd.putData(CmdSendGetConfigShop.G, versionG);
-            GameClient.getInstance().sendPacket(cmd);
-
+            this.sendGetConfigShop(CmdSendGetConfigShop.G, versionG);
             var gui = sceneMgr.openScene(ShopIapScene.className, waiting, callback);
             if (gui instanceof ShopIapScene)
                 gui.selectTabPaymentInG(id);
@@ -527,11 +521,8 @@ var PaymentMgr = BaseMgr.extend({
 
     openShopTicket: function (waiting, callback) {
         if (this.checkEnablePayment()) {
-            var cmd = new CmdSendGetConfigShop();
             var versionGold = (this.isShopBonusAll) ? -1 : this.versionShopGold;
-            cmd.putData(CmdSendGetConfigShop.GOLD, versionGold);
-            GameClient.getInstance().sendPacket(cmd);
-
+            this.sendGetConfigShop(CmdSendGetConfigShop.GOLD, versionGold);
             var gui = sceneMgr.openScene(ShopIapScene.className, waiting, callback);
             if (gui instanceof ShopIapScene)
                 gui.selectTabPaymentInTicket(-1);
@@ -713,6 +704,183 @@ var PaymentMgr = BaseMgr.extend({
             if (sp) sp.showBonus(2);
         }
 
+    },
+
+    /**
+     * GET Function
+     */
+
+    /**
+     * Mang nhung Kenh Payment mua GOLD
+     * @returns {[]|*[]}
+     */
+    getArrayChannelGold: function () {
+        if (this.arrayShopGoldConfig) {
+            var shopGoldLength = this.arrayShopGoldConfig.length;
+            if (shopGoldLength > 3) {
+                shopGoldLength -= 3;
+            }
+            var arrayChannel = [];
+            for (var i = 0; i < shopGoldLength; i++) {
+                var config = this.arrayShopGoldConfig[i];
+                var idPayment = config.id;
+                var isHot = false;
+                if (this.isShopBonusAll && config["isShopBonus"]) {
+                    isHot = true;
+                } else {
+                    if (offerManager.haveOffer()) {
+                        isHot = offerManager.checkHaveOfferPayment(idPayment);
+                    }
+                }
+                var imageResource;
+                switch (idPayment) {
+                    case Payment.GOLD_IAP:
+                        if (cc.sys.os == cc.sys.OS_ANDROID) {
+                            imageResource = "btnGoogle";
+
+                        } else if (cc.sys.os == cc.sys.OS_IOS) {
+                            imageResource = "btnApple";
+                        }
+                        break;
+                    case Payment.GOLD_ATM:
+                        imageResource = "btnATM";
+                        break;
+                    case Payment.GOLD_ZALO:
+                        imageResource = "btnZalo";
+                        break;
+                    case Payment.GOLD_ZING:
+                        imageResource = "btnZing";
+                        break;
+                    case Payment.GOLD_G:
+                        imageResource = "btnG";
+                        break;
+                    case Payment.GOLD_SMS:
+                        imageResource = "btnSMS";
+                        break;
+                }
+                var channel = new ChannelPaymentData(i, imageResource, isHot);
+                arrayChannel.push(channel);
+            }
+            return arrayChannel;
+        }
+        return [];
+    },
+
+    /**
+     * Mang nhung Kenh Payment mua GOLD
+     * @returns {[]|*[]}
+     */
+    getArrayChannelG: function () {
+        if (this.arrayShopGConfig) {
+            var arrayChannel = [];
+            for (var i = 0; i < this.arrayShopGConfig.length; i++) {
+                var config = this.arrayShopGConfig[i];
+                var idPayment = config.id;
+                var isHot = false;
+                if (this.isShopBonusAllG && config["shopBonus"] > 0) {
+                    isHot = true;
+                } else {
+                    isHot = false;
+                }
+                var imageResource;
+                switch (idPayment) {
+                    case Payment.G_IAP:
+                        if (cc.sys.os == cc.sys.OS_ANDROID) {
+                            imageResource = "btnGoogle";
+                        } else if (cc.sys.os == cc.sys.OS_IOS) {
+                            imageResource = "btnApple";
+                        }
+                        break;
+                    case Payment.G_ATM:
+                        imageResource = "btnATM";
+                        break;
+                    case Payment.G_ZALO:
+                        imageResource = "btnZalo";
+                        break;
+                    case Payment.G_ZING:
+                        imageResource = "btnZing";
+                        break;
+                    case Payment.G_CARD:
+                        imageResource = "btnCard";
+                        break;
+                }
+                var channel = new ChannelPaymentData(i, imageResource, isHot);
+                arrayChannel.push(channel);
+            }
+            return arrayChannel;
+        }
+        return [];
+    },
+
+    /**
+     * Mang nhung Kenh Payment mua Ticket
+     * @returns {[]|*[]}
+     */
+    getArrayChannelTicket: function () {
+        var arrayConfigTicket = eventMgr.getArrayConfigTicket();
+        var arrayChannel = [];
+        for (var i = 0; i < arrayConfigTicket.length; i++) {
+            var config = this.arrayShopGConfig[i];
+            var idPayment = arrayConfigTicket[id]["type"];
+            var isHot = eventMgr.promoTicket > 0;
+            var imageResource;
+            switch (idPayment) {
+                case Payment.TICKET_IAP:
+                    if (cc.sys.os == cc.sys.OS_ANDROID) {
+                        imageResource = "btnGoogle";
+
+                    } else if (cc.sys.os == cc.sys.OS_IOS) {
+                        imageResource = "btnApple";
+                    }
+                    break;
+                case Payment.TICKET_ATM:
+                    imageResource = "btnATM";
+                    break;
+                case Payment.TICKET_ZALO:
+                    imageResource = "btnZalo";
+                    break;
+                case Payment.TICKET_ZING:
+                    imageResource = "btnZing";
+                    break;
+                case Payment.TICKET_G:
+                    imageResource = "btnG";
+                    break;
+                case Payment.TICKET_SMS:
+                    imageResource = "btnSMS";
+                    break;
+            }
+            var channel = new ChannelPaymentData(i, imageResource, isHot);
+            arrayChannel.push(channel);
+        }
+        return arrayChannel;
+    },
+
+    getLastBuyGold: function () {
+        for (var i = 0; i < paymentMgr.arrayShopGoldConfig.length; i++) {
+            if (paymentMgr.arrayShopGoldConfig[i].type === paymentMgr.lastBuyGoldType) {
+                return i;
+                if (paymentMgr.arrayShopGoldConfig[i]["name"].indexOf("sms") >= 0) {
+                    return 0;
+                }
+                break;
+            }
+        }
+        return 0;
+    },
+
+    getLastBuyG: function () {
+        var targetTab = 0;
+        for (var i = 0; i < paymentMgr.arrayShopGConfig.length; i++) {
+            if (paymentMgr.arrayShopGConfig[i].type === paymentMgr.lastBuyGType) {
+                cc.log("dm123: " + JSON.stringify(paymentMgr.arrayShopGConfig[i]));
+                targetTab = i;
+                if (targetTab >= 6 && targetTab < 9) {
+                    targetTab = 0;
+                }
+                break;
+            }
+        }
+        return targetTab;
     },
 
     getMaxShopBonus: function () {

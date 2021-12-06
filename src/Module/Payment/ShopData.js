@@ -332,8 +332,8 @@ ShopData.getInstance = function () {
 var shopData = ShopData.getInstance();
 
 ChannelPaymentData = cc.Class.extend({
-    ctor: function (idPayment, resource, isHot) {
-        this.idPayment = idPayment;
+    ctor: function (index, resource, isHot) {
+        this.index = index;
         this.resource = resource;
         this.isHot = isHot;
     },
@@ -346,3 +346,108 @@ ChannelPaymentData = cc.Class.extend({
         return "res/Lobby/ShopIAP/" + this.resource + ".png";
     }
 })
+
+var ShopBonusData = cc.Class.extend({
+    ctor: function (type, num, idEvent) {
+        this.type = type;
+        this.num = num;
+        this.idEvent = idEvent;
+    },
+
+    getSource: function (index) {
+        var s = localized("SHOP_GOLD_SOURCE_" + this.arraySubType[index]);
+        var percent = Math.floor(this.arrayNum[index] / this.arrayNum[0] * 100);
+        if (index != 0)
+            return s + " " + percent + "%";
+        else
+            return s;
+    },
+
+    getScaleRate: function () {
+        if (this.type == ShopSuccessData.TYPE_ITEM) {
+            if (this.typeItem == StorageManager.TYPE_AVATAR) {
+                return 0.5;
+            }
+            else {
+                return 0.7;
+            }
+        } else if (this.type == ShopSuccessData.TYPE_TICKET) {
+            return 0.7;
+        }
+        else {
+            return 1.0;
+        }
+    },
+
+    getResourceIcon: function () {
+        switch (this.type) {
+            case ShopBonusData.TYPE_G:
+                return "res/Lobby/ShopIAP/ShopSuccess/iconG.png";
+                break;
+            case ShopBonusData.TYPE_GOLD:
+                return "res/Lobby/ShopIAP/ShopSuccess/iconGold.png";
+                break;
+            case ShopBonusData.TYPE_VPOINT:
+                return "res/Lobby/GUIVipNew/iconVpoint.png";
+                break;
+            case ShopBonusData.TYPE_HOUR_VIP:
+                return "res/Lobby/GUIVipNew/iconTime.png";
+                break;
+            case ShopBonusData.TYPE_TICKET:
+                return eventMgr.getTicketTexture(this.idEvent);
+                break;
+        }
+    },
+
+    getTitle: function () {
+        var s = this.num + " ";
+        switch (this.type) {
+            case ShopBonusData.TYPE_G:
+                s = s + "G";
+                break;
+            case ShopBonusData.TYPE_GOLD:
+                s = s + "Gold";
+                break;
+            case ShopBonusData.TYPE_VPOINT:
+                s = s + "VPoint";
+                break;
+            case ShopBonusData.TYPE_HOUR_VIP:
+                s = s + localized("SHOP_GOLD_HOUR_VIP");
+                break;
+            case ShopBonusData.TYPE_TICKET:
+                s = s + eventMgr.getOfferTicketString(this.idEvent);
+                break;
+        }
+        return s;
+    },
+})
+
+ShopBonusData.getArrayBonus = function (shopPackage) {
+    var arrayBonus = [];
+    //vip points
+    if (shopPackage.vPoint > 0) {
+        arrayBonus.push(new ShopBonusData(ShopBonusData.TYPE_VPOINT, shopPackage.vPoint, ""));
+    }
+
+    //time vip
+    var levelVip = VipManager.getInstance().getRealVipLevel();
+    shopPackage.hourBonus = shopPackage.hourBonus || 0;
+    if (shopPackage.vPoint > 0 && shopPackage.hourBonus > 0 && levelVip > 0) {
+        arrayBonus.push(new ShopBonusData(ShopBonusData.TYPE_HOUR_VIP, shopPackage.hourBonus, ""));
+    }
+
+    //event item bonus
+    var arrayBonusTicket = eventMgr.getEventBonusTicket(shopPackage.type, shopPackage.costConfig);
+    for (var i = 0; i < arrayBonusTicket.length; i++) {
+        if (arrayBonusTicket[i].numTicket > 0) {
+            arrayBonus.push(new ShopBonusData(ShopBonusData.TYPE_TICKET, arrayBonusTicket[i].numTicket, arrayBonusTicket[i].idEvent));
+        }
+    }
+    return arrayBonus;
+}
+
+ShopBonusData.TYPE_G = 0;
+ShopBonusData.TYPE_GOLD = 1;
+ShopBonusData.TYPE_VPOINT = 2;
+ShopBonusData.TYPE_HOUR_VIP = 3;
+ShopBonusData.TYPE_TICKET = 4;

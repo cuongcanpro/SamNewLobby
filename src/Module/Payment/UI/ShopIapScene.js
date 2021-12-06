@@ -16,43 +16,18 @@ var ShopIapScene = BaseLayer.extend({
 
     initGUI: function () {
         //main parts
-        var bBot = this.getControl("bgBot");
-        var bTop = this.getControl("bgTop");
-        var bSub = this.getControl("bgSub");
-        var bButton = this.getControl("bgButton");
-        var bSubPanel = this.getControl("bgSubPanel");
-        var pButton = this.getControl("pButton");
+        this.panelTop = this.getControl("panelTop");
         this.panelMaintain = this.getControl("panelMaintain");
         this.panelMaintain.setVisible(false);
 
-        //init transformation for main parts
-        var bSubSize = cc.director.getWinSize().height - bTop.getContentSize().height * this._scale - bBot.getContentSize().height * this._scale;   //height of mid panel
-        bSub.setScaleY(bSubSize / bSub.getContentSize().height);    //set mid panel scale Y
-        bButton.setScaleY(bSubSize / bSub.getContentSize().height); //set side button background scale Y
-
-        if (!cc.sys.isNative) {
-            this.getControl("bg").setLocalZOrder(-2);
-            bButton.setLocalZOrder(-1);
-            bButton.setScaleY(cc.winSize.height / bButton.getContentSize().height);
-        }
-
-        bSub.setPositionY(bTop.getPositionY() - bTop.getContentSize().height * this._scale - bSubSize / 2);
-        bButton.setPositionY(bSub.getPositionY());
-
-        bSubPanel.setPositionY(bBot.getPositionY() + bBot.getContentSize().height * this._scale);
-        bSubPanel.setLocalZOrder(999);
-        bSubPanel.setScaleX((cc.director.getWinSize().width - bButton.getContentSize().width * this._scale) / bSubPanel.getContentSize().width);
-        bSubPanel.setScaleY(this._scale);
-        pButton.setPositionY(bTop.getPositionY() - bTop.getContentSize().height * this._scale);
-
         //top buttons
-        this.btnGold = this.customButton("btnGold", ShopIapScene.BTN_GOLD, bTop);
+        this.btnGold = this.customButton("btnGold", ShopIapScene.BTN_GOLD, this.panelTop);
         this.btnGold.setPressedActionEnabled(false);
-        this.btnG = this.customButton("btnG", ShopIapScene.BTN_G, bTop);
+        this.btnG = this.customButton("btnG", ShopIapScene.BTN_G, this.panelTop);
         this.btnG.setPressedActionEnabled(false);
-        this.btnTicket = this.customButton("btnTicket", ShopIapScene.BTN_TICKET, bTop);
+        this.btnTicket = this.customButton("btnTicket", ShopIapScene.BTN_TICKET, this.panelTop);
         this.btnTicket.setPressedActionEnabled(false);
-        this.btnItem = this.customButton("btnItem", ShopIapScene.BTN_ITEM, bTop);
+        this.btnItem = this.customButton("btnItem", ShopIapScene.BTN_ITEM, this.panelTop);
         this.btnItem.setPressedActionEnabled(false);
         this.btnGold.pos = this.btnGold.getPosition();
         this.btnG.pos = this.btnG.getPosition();
@@ -62,88 +37,39 @@ var ShopIapScene = BaseLayer.extend({
         this.btnTicket.iconX2.setPosition(110, 40);
         this.customButton("btnClose", ShopIapScene.BTN_CLOSE);
         this.customButton("btnHelp", ShopIapScene.BTN_HELP);
-        this.title = this.getControl("title", bTop);
-        if (this._scale < 1){
-            this.title.setScaleX(this.title.getScaleX() * this._scale);
-            this.title.setPositionX(this.title.x * this._scale);
-            this.btnTicket.setScaleX(this._scale);
-            this.btnTicket.setPositionX(cc.winSize.width - (cc.winSize.width - this.btnTicket.x)*this._scale);
-            this.btnItem.setScaleX(this._scale);
-            this.btnItem.setPositionX(cc.winSize.width - (cc.winSize.width - this.btnItem.x)*this._scale);
-            this.btnGold.setScaleX(this._scale);
-            this.btnGold.setPositionX(cc.winSize.width - (cc.winSize.width - this.btnGold.x)*this._scale);
-            this.btnG.setScaleX(this._scale);
-            this.btnG.setPositionX(cc.winSize.width - (cc.winSize.width - this.btnG.x)*this._scale);
-        }
+        this.title = this.getControl("title", this.panelTop);
 
         //load event ticket item
         this.iconTicketButton = this.getControl("iconTicket", this.btnTicket);
         this.iconTicketButton.loadTexture(eventMgr.getTicketTexture(-1));
 
         //user info layer
-        var pInfo = this.getControl("pInfo");
-        this._uiName = this.getControl("name", pInfo);
-        this.iconGold = this.getControl("iconGold", pInfo);
-        this._uiBean = this.getControl("gold", pInfo);
-        this.iconCoin = this.getControl("iconCoin", pInfo);
-        this._uiCoin = this.getControl("coin", pInfo);
-        this._uiStar = this.getControl("star", pInfo);
-        this.iconDiamond = this.getControl("iconDiamond", pInfo);
+        this.pInfo = this.getControl("pInfo");
+        this._uiName = this.getControl("name", this.pInfo);
+        this.iconGold = this.getControl("iconGold", this.pInfo);
+        this._uiBean = this.getControl("gold", this.pInfo);
+        this.iconCoin = this.getControl("iconCoin", this.pInfo);
+        this._uiCoin = this.getControl("coin", this.pInfo);
+        this._uiStar = this.getControl("star", this.pInfo);
+        this.iconDiamond = this.getControl("iconDiamond", this.pInfo);
         this._uiDiamond = this.getControl("diamond", this.iconDiamond);
         try {
-            this.iconTicket = this.getControl("iconTicket", pInfo);
-            this._uiTicket = this.getControl("ticket", pInfo);
+            this.iconTicket = this.getControl("iconTicket");
+            this._uiTicket = this.getControl("ticket");
             this.iconTicket.setVisible(false);
         } catch (e) {
 
         }
 
-        this.btnAvatar = this.customButton("btnAvatar", ShopIapScene.BTN_USERINFO, pInfo);
-        this.btnAvatar.setPressedActionEnabled(false);
-        var bgAvatar = this.getControl("bgAvatar", pInfo);
-        this._uiAvatar = new AvatarUI("Common/defaultAvatar.png", "Common/maskAvatar.png", "");
-        var size = bgAvatar.getContentSize();
-        this._uiAvatar.setPosition(cc.p(size.width / 2, size.height / 2));
-        bgAvatar.addChild(this._uiAvatar);
-
-        this.defaultFrame = this.getControl("border", bgAvatar);
-        this.defaultFrame.setLocalZOrder(1);
-        this.avatarFrame = new UIAvatarFrame();
-        this.avatarFrame.setPosition(cc.p(size.width / 2, size.height / 2));
-        bgAvatar.addChild(this.avatarFrame, 2);
-        this.avatarFrame.setScale(0.5);
-
         // init panel tab
-        var pItem = this.getControl("pItem");
-        pItem.setPositionY(bBot.getPositionY() + bBot.getContentSize().height * this._scale);
-        pItem.setPositionX(bButton.getPositionX() + bButton.getContentSize().width * this._scale);
-        var item;
-        try {
-            item = this.getControl("item", pItem);
-        } catch (e) {
-            item = pItem.getChildByName("item");
-        }
-        if (!item) {
-            item = pItem.getChildByName("item");
-        }
-        var panelSize = cc.size(cc.director.getWinSize().width - bButton.getContentSize().width * this._scale, bSubSize);
-        var deltaItemX = panelSize.width / 2 - item.getContentSize().width * this._scale / 2;
-        var itemSize = cc.size(item.getContentSize().width * this._scale, item.getContentSize().height * this._scale * 1.05);
-        var positionPanel = cc.p(pItem.getPosition().x + deltaItemX, pItem.getPositionY());
-        var listButtonY = this.btnAvatar.convertToWorldSpace(cc.p(0, this.btnAvatar.height)).y;
-        var heightListButton = pButton.getPositionY() - listButtonY;
-        var sizeListButton = cc.size(pButton.getContentSize().width, heightListButton);
-        var posListButton = cc.p(pButton.getPositionX() * this._scale, listButtonY);
-        var panelCardPos = cc.p(pItem.getPositionX() + panelSize.width / 2, pItem.getPositionY() + pItem.getContentSize().height / 2);
-
-        cc.log("INIT GUI NE ");
-        this.tabGold = new TabGoldPayment(panelSize, itemSize, positionPanel, sizeListButton, posListButton, this._scale);
+        var heightTab = cc.winSize.height - this.panelTop.getContentSize().height;
+        this.tabGold = new TabGoldPayment(heightTab);
         this._layout.addChild(this.tabGold);
-        this.tabG = new TabGPayment(panelSize, itemSize, positionPanel, sizeListButton, posListButton, panelCardPos, this._scale);
+        this.tabG = new TabGPayment(heightTab);
         this._layout.addChild(this.tabG);
-        this.tabTicket = new TabTicketPayment(panelSize, itemSize, positionPanel, sizeListButton, posListButton, this._scale);
+        this.tabTicket = new TabTicketPayment(heightTab);
         this._layout.addChild(this.tabTicket);
-        this.tabItem = new TabItemPayment(panelSize, pItem.getPosition(), sizeListButton, posListButton, this._scale);
+        this.tabItem = new TabItemPayment(cc.size(300, 300), cc.p(3, 3), cc.size(200, 200), cc.p(3,3), this._scale);
         this._layout.addChild(this.tabItem);
 
         // config common
@@ -156,16 +82,11 @@ var ShopIapScene = BaseLayer.extend({
         this.getControl("btnHelp").setVisible(!paymentMgr.checkInReview());
 
         // request shop event
-        var cmdEvent = new CmdSendRequestEventShop();
-        GameClient.getInstance().sendPacket(cmdEvent);
-
-        var cmdConfig = new CmdSendGetConfigShop();
-        cmdConfig.putData(CmdSendGetConfigShop.GOLD, paymentMgr.versionShopGold);
-        GameClient.getInstance().sendPacket(cmdConfig);
+        paymentMgr.sendUpdateBuyGold();
+        paymentMgr.sendGetConfigShop(CmdSendGetConfigShop.GOLD, paymentMgr.versionShopGold);
         eventMgr.requestShopEventConfig();
         this.effectVipInfo();
         this.scheduleUpdate();
-
         this.reLayoutTab();
         this.tabGold.onEnterFinish();
         this.tabG.onEnterFinish();
@@ -212,14 +133,6 @@ var ShopIapScene = BaseLayer.extend({
     },
 
     updateUserInfo: function () {
-        if (this._uiAvatar && this._uiName) {
-            this._uiAvatar.asyncExecuteWithUrl(userMgr.getGold(), userMgr.getAvatar());
-            this.setLabelText(userMgr.getDisplayName(), this._uiName);
-        }
-        if (this.avatarFrame){
-            this.avatarFrame.reload();
-            this.defaultFrame.setVisible(!this.avatarFrame.isShow());
-        }
         if (this._uiBean) this._uiBean.setString(StringUtility.standartNumber(userMgr.getGold()));
         if (this._uiCoin) this._uiCoin.setString(StringUtility.standartNumber(userMgr.getCoin()));
         if (this._uiDiamond) this._uiDiamond.setString(StringUtility.standartNumber(userMgr.getDiamond()));
@@ -291,14 +204,10 @@ var ShopIapScene = BaseLayer.extend({
         this.currentIdTab = idTab;
         if (this.currentIdTab == ShopIapScene.BTN_TICKET) {
             this.iconTicket.setVisible(true);
-            this.iconCoin.setVisible(false);
-            this.iconGold.setVisible(false);
-            this.iconDiamond.setVisible(false);
+            this.pInfo.setVisible(false);
         } else {
             this.iconTicket.setVisible(false);
-            this.iconCoin.setVisible(true);
-            this.iconGold.setVisible(true);
-            this.iconDiamond.setVisible(true);
+            this.pInfo.setVisible(true);
         }
         switch (idTab) {
             case ShopIapScene.BTN_GOLD:
