@@ -69,7 +69,7 @@ var ShopIapScene = BaseLayer.extend({
         this._layout.addChild(this.tabG);
         this.tabTicket = new TabTicketPayment(heightTab);
         this._layout.addChild(this.tabTicket);
-        this.tabItem = new TabItemPayment(cc.size(300, 300), cc.p(3, 3), cc.size(200, 200), cc.p(3,3), this._scale);
+        this.tabItem = new TabItemPayment(cc.size(cc.winSize.width, heightTab));
         this._layout.addChild(this.tabItem);
 
         // config common

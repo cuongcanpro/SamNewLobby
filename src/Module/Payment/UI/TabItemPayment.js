@@ -1,11 +1,7 @@
 TabItemPayment = cc.Layer.extend({
-    ctor: function(panelSize, panelPos, listButtonSize, listButtonPos, scale) {
+    ctor: function(panelSize) {
         this._super();
         this.panelSize = panelSize; //size of this tab
-        this.panelPos = panelPos;   //pos of this tab
-        this.listButtonSize = listButtonSize;   //size of tab list button
-        this.listButtonPos = listButtonPos;     //pos of tab list button
-        this.scaleGroup = scale;
         this.selectedTab = -1;
         this.shopItemData = {};
         this.selectedItem = {};
@@ -22,18 +18,18 @@ TabItemPayment = cc.Layer.extend({
 
     initGUI: function() {
         //init list button
+        var heightTableView = this.panelSize.height - 70;
         this.listButton = new ccui.ListView();
         this.listButton.setAnchorPoint(cc.p(0, 0));
-        this.listButton.setPosition(this.listButtonPos);
-        this.listButton.setContentSize(cc.size(this.listButtonSize.width, this.listButtonSize.height / this.scaleGroup));
-        this.listButton.setScale(this.scaleGroup);
-        this.listButton.setDirection(cc.SCROLLVIEW_DIRECTION_VERTICAL);
+        this.listButton.setPosition(0, heightTableView);
+        this.listButton.setContentSize(cc.size(cc.winSize.width, 70));
+        this.listButton.setDirection(ccui.ScrollView.DIR_HORIZONTAL);
         this.listButton.setBounceEnabled(true);
         this.listButton.setScrollBarEnabled(false);
         for (var i = 0; i < this.arrayButtonId.length; i++){
             var tabId = this.arrayButtonId[i];
             var panel = new ccui.Layout();
-            panel.setContentSize(this.listButton.width, 70);
+            panel.setContentSize(100, 70);
 
             var tabImage = new cc.Sprite(this.getButtonImage(tabId));
             tabImage.setPosition(tabImage.width/2, 35);
@@ -48,8 +44,10 @@ TabItemPayment = cc.Layer.extend({
 
             panel.addChild(tabImage);
             panel.addChild(effect);
+
             this.listButton.addChild(panel);
             panel.setTouchEnabled(true);
+            cc.log("DU MA NO CHU***** " + i);
         }
         this.addChild(this.listButton);
         this.listButton.addEventListener(function(listButton, type){
@@ -60,18 +58,18 @@ TabItemPayment = cc.Layer.extend({
         //init preview panel
         this.pPreview = ccs.load("Lobby/ShopItemPreview.json").node;
         ccui.Helper.doLayout(this.pPreview);
-        this.pPreview.setScale(this.panelSize.height / this.pPreview.height);
-        this.pPreview.setPosition(cc.winSize.width - this.pPreview.width * this.pPreview.getScale(), this.panelPos.y);
+        this.pPreview.setScale(heightTableView / this.pPreview.height);
+        this.pPreview.setPosition(cc.winSize.width - this.pPreview.width * this.pPreview.getScale(), 0);
         this.pPreview.setLocalZOrder(1);
         this.addChild(this.pPreview);
         this.initPanelPreview();
 
         //init item list
-        this.tbItemSize = cc.size(this.panelSize.width - (this.pPreview.width - 10) * this.pPreview.getScale() - 10, this.panelSize.height);
+        this.tbItemSize = cc.size(this.panelSize.width - (this.pPreview.width - 10) * this.pPreview.getScale() - 10, heightTableView);
         this.initPItem(this.tbItemSize);
         this.pItem = new cc.TableView(this, this.tbItemSize);
         this.pItem.setAnchorPoint(cc.p(0, 0));
-        this.pItem.setPosition(this.panelPos.x + 5, this.panelPos.y);
+        this.pItem.setPosition( 5, 0);
         this.pItem.setDirection(cc.SCROLLVIEW_DIRECTION_VERTICAL);
         this.pItem.setVerticalFillOrder(0);
         this.pItem.setDelegate(this);
@@ -115,7 +113,7 @@ TabItemPayment = cc.Layer.extend({
         StorageManager.getInstance().sendGetShopItemConfig();
 
         try {
-            this.pPreview.avatar.asyncExecuteWithUrl(GameData.getInstance().userData.zName, GameData.getInstance().userData.avatar);
+            this.pPreview.avatar.asyncExecuteWithUrl(userMgr.getUserName(), userMgr.getAvatar());
         } catch (e) {}
 
         var avatarFramePath = StorageManager.getInstance().getUserAvatarFramePath();
@@ -171,7 +169,7 @@ TabItemPayment = cc.Layer.extend({
                                 countA += Number(VipManager.getInstance().getRealVipLevel() < conditions[i].num);
                                 break;
                             case StorageManager.LEVEL_CONDITION:
-                                countA += Number(gamedata.userData.level < conditions[i].num);
+                                countA += Number(userMgr.getLevel() < conditions[i].num);
                                 break;
                         }
                     }
@@ -183,7 +181,7 @@ TabItemPayment = cc.Layer.extend({
                                 countB += Number(VipManager.getInstance().getRealVipLevel() < conditions[i].num);
                                 break;
                             case StorageManager.LEVEL_CONDITION:
-                                countB += Number(gamedata.userData.level < conditions[i].num);
+                                countB += Number(userMgr.getLevel() < conditions[i].num);
                                 break;
                         }
                     }
@@ -615,7 +613,7 @@ TabItemPayment = cc.Layer.extend({
                     }
                     break;
                 case StorageManager.LEVEL_CONDITION:
-                    if (gamedata.userData.level < condition.num) {
+                    if (userMgr.getLevel() < condition.num) {
                         conditions.push(condition);
                     }
                     break;
@@ -795,7 +793,7 @@ TabItemPayment = cc.Layer.extend({
     setPreviewNumInfo: function(selectedNum, options) {
         if (options){
             this.previewItemData.options = options;
-            this.previewItemData.maxNum = Math.floor(gamedata.userData.diamond / this.previewItemData.options[0].price);
+            this.previewItemData.maxNum = Math.floor(userMgr.getDiamond() / this.previewItemData.options[0].price);
         }
 
         if (selectedNum < 1) selectedNum = 1;
@@ -872,7 +870,7 @@ TabItemPayment = cc.Layer.extend({
         var d = w/2 - this.pPreview.iconDiamond.width/2;
         this.pPreview.iconDiamond.setPositionX(this.pPreview.btnBuy.width/2 - d);
 
-        this.setPreviewBtnBuyEnabled(diamond <= gamedata.userData.diamond);
+        this.setPreviewBtnBuyEnabled(diamond <= userMgr.getDiamond());
     },
 
     setPreviewBtnBuyEnabled: function(enabled) {

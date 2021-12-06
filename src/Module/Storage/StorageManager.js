@@ -2,8 +2,9 @@
  * Created by sonbnt on 3/3/2021
  */
 
-var StorageManager = cc.Class.extend({
+var StorageManager = BaseMgr.extend({
     ctor: function() {
+        this._super();
         this.resetData();
         cc.director.getScheduler().schedule(this.update, this, 1, cc.REPEAT_FOREVER, 0, false, "StorageUpdate");
     },
@@ -157,78 +158,78 @@ var StorageManager = cc.Class.extend({
     /* endregion GUI Controllers */
 
     /* region Listener and Handlers */
-    onReceive: function(cmd, data) {
+    onReceived: function(cmd, data) {
         switch(cmd){
             case StorageManager.CMD_GET_ITEM_CONFIG:
                 var pk = new CmdReceivedGetItemConfig(data);
                 pk.clean();
                 this.onReceiveItemConfig(pk);
-                break;
+                return true;
             case StorageManager.CMD_GET_USER_ITEM_INFO:
                 var pk = new CmdReceivedGetUserItemInfo(data);
                 pk.clean();
                 this.onReceiveUserItemInfo(pk);
-                break;
+                return true;
             case StorageManager.CMD_GET_SHOP_ITEM_CONFIG:
                 var pk = new CmdReceivedGetShopItemConfig(data);
                 pk.clean();
                 this.onReceiveShopItemConfig(pk);
-                break;
+                return true;
             case StorageManager.CMD_CHEAT_ITEM:
                 var pk = new CmdReceivedCheatItem(data);
                 pk.clean();
                 Toast.makeToast(Toast.SHORT, "Cheat item response: " + pk.status);
-                break;
+                return true;
             case StorageManager.CMD_CHEAT_DIAMOND:
                 var pk = new CmdReceivedCheatDiamond(data);
                 pk.clean();
                 Toast.makeToast(Toast.SHORT, "Cheat diamond response: " + pk.status);
-                break;
+                return true;
             case StorageManager.CMD_USE_ITEM:
                 var pk = new CmdReceivedUseItem(data);
                 pk.clean();
                 this.onReceiveUseItem(pk);
-                break;
+                return true;
             case StorageManager.CMD_USE_INTERACT:
                 var pk = new CmdReceivedUseInteract(data);
                 pk.clean();
                 this.onReceiveUseInteract(pk);
-                break;
+                return true;
             case StorageManager.CMD_USE_EMOTICON:
                 var pk = new CmdReceivedUseEmoticon(data);
                 pk.clean();
                 this.onReceiveUseEmoticon(pk);
-                break;
+                return true;
             case StorageManager.CMD_BUY_ITEM:
                 var pk = new CmdReceivedBuyItem(data);
                 pk.clean();
                 this.onReceiveBuyItem(pk);
-                break;
+                return true;
             case StorageManager.CMD_BONUS_VOUCHER_IN_SHOP:
                 var pk = new CmdReceivedBonusVoucherInShop(data);
                 pk.clean();
                 // this.onReceiveBonusVoucherInShop(pk);
-                break;
+                return true;
             case StorageManager.CMD_UNLOCK_ITEM:
                 var pk = new CmdReceivedUnlockItem(data);
                 pk.clean();
                 this.onReceiveUnlockItem(pk);
-                break;
+                return true;
             case StorageManager.CMD_POP_UP_NEW_ITEM:
                 var pk = new CmdReceivedPopUpNewItem(data);
                 pk.clean();
                 this.onReceivePopUpNewItem(pk);
-                break;
+                return true;
             case StorageManager.CMD_ITEM_INFO_FROM_ALL:
                 var pk = new CmdReceivedItemInfoFromAll(data);
                 pk.clean();
                 this.onReceiveItemInfoFromAll(pk);
-                break;
+                return true;
             case StorageManager.CMD_ITEM_INFO_TO_ALL:
                 var pk = new CmdReceivedItemInfoToAll(data);
                 pk.clean();
                 this.onReceiveItemInfoToAll(pk);
-                break;
+                return true;
         }
     },
 
@@ -773,7 +774,7 @@ var StorageManager = cc.Class.extend({
     },
 
     checkEnableItem: function(){
-        var open = this.levelEnableItem && gamedata.userData.level >= this.levelEnableItem;
+        var open = this.levelEnableItem && userMgr.getLevel() >= this.levelEnableItem;
         if (!open){
             Toast.makeToast(Toast.LONG, "Lên level "+ this.levelEnableItem +" để mở khóa tính năng kho đồ.");
         }
@@ -805,7 +806,7 @@ var StorageManager = cc.Class.extend({
                             if (VipManager.getInstance().getRealVipLevel() < cond.num) return false;
                             break;
                         case StorageManager.LEVEL_CONDITION:
-                            if (gamedata.userData.level < cond.num) return false;
+                            if (userMgr.getLevel() < cond.num) return false;
                             break;
                     }
                 }

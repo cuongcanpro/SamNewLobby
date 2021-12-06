@@ -858,7 +858,32 @@ var LobbyScene = BaseLayer.extend({
                 break;
             }
             case LobbyScene.BTN_CHONBAN: {
-                sceneMgr.openScene(ChooseRoomScene.className);
+              //  sceneMgr.openScene(ChooseRoomScene.className);
+                this.listButton = new ccui.ListView();
+                this.listButton.setAnchorPoint(cc.p(0, 0));
+                this.listButton.setPosition(220, 200);
+                this.listButton.setContentSize(cc.size(300, 300));
+                this.listButton.setDirection(ccui.ScrollView.DIR_HORIZONTAL);
+                this.listButton.setBounceEnabled(true);
+                this.listButton.setScrollBarEnabled(false);
+
+                var panel = new ccui.Layout();
+                panel.setContentSize(100, 100);
+                this.listButton.setItemModel(panel);
+                for (var i = 0; i < 5; i++){
+                    var panel = new ccui.Layout();
+                    panel.setContentSize(100, 100);
+
+                    var tabImage = new cc.Sprite("Lobby/LobbyGUI/minigame.png");
+                    tabImage.setPosition(20, 35);
+                    tabImage.setTag(1);
+                    panel.addChild(tabImage);
+
+                    this.listButton.pushBackCustomItem(panel);
+                    panel.setTouchEnabled(true);
+                    cc.log("DU MA NO CHU***** " + i);
+                }
+                this.addChild(this.listButton);
                 break;
             }
             case LobbyScene.BTN_AVATAR: {

@@ -17,16 +17,6 @@ var NewVipManager = cc.Class.extend({
         // this.saveDailyBonusGold(200000);
     },
 
-    setConfig: function (config) {
-        var vObj = config["VIP"];
-        var size = vObj["num"];
-        this.setBenefitConfig(config["VIPBenefit"]);
-        this.setOldVipConfig(config["OldVIP"]);
-        this.setRatioGstarToVpoint(config["VIP"]["convertGstar"]);
-        this.setNumberVip(size);
-        this.setBeanNeedSupportConfig(config["BeanNeedSupport"]);
-    },
-
     resetData: function(){
         this.vipLevel = 0;
         this.remainTime = 0;
@@ -86,16 +76,6 @@ var NewVipManager = cc.Class.extend({
 
     saveDailyBonusGold: function(gold){
         this.dailyBonusGold = gold;
-    },
-
-    checkShowDailyBonus: function () {
-        var dailyBonus = this.getDailyBonusGold();
-        if (dailyBonus) {
-            if (popUpManager.canShow(PopUpManager.DAILY_BONUS_VIP)) {
-                var gui = sceneMgr.openGUI(VipDailyGoldBonusGUI.className, PopUpManager.DAILY_BONUS_VIP, PopUpManager.DAILY_BONUS_VIP);
-                gui.setInfoDailyBonus(dailyBonus);
-            }
-        }
     },
 
     getDailyBonusGold: function(){
@@ -395,12 +375,6 @@ var NewVipManager = cc.Class.extend({
             var cmdEvent = new CmdSendRequestEventShop();
             GameClient.getInstance().sendPacket(cmdEvent);
         }
-    },
-
-    sendGetVipInfo: function () {
-        var getInfoVip = new CmdSendGetVipInfo();
-        GameClient.getInstance().sendPacket(getInfoVip);
-        getInfoVip.clean();
     }
 });
 
@@ -503,7 +477,7 @@ NewVipManager.preloadResource = function(){
     var folder = "res/Lobby/GUIVipNew/vipRes/";
     LocalizedString.add(folder + "VipLocalized_vi");
 
-    // cc.spriteFrameCache.addSpriteFrames("EventMgr/PotBreakerRes/gold.plist");
+    // cc.spriteFrameCache.addSpriteFrames("Event/PotBreakerRes/gold.plist");
 
     db.DBCCFactory.getInstance().loadDragonBonesData(folder + "Ngoc1/skeleton.xml","Ngoc1");
     db.DBCCFactory.getInstance().loadTextureAtlas(folder + "Ngoc1/texture.plist", "Ngoc1");
@@ -547,16 +521,12 @@ NewVipManager.viewedNewVip = function(){
 };
 
 NewVipManager.openVip = function(oldScene){
-    if (Config.ENABLE_NEW_VIP) {
-        var scene = sceneMgr.getRunningScene().getMainLayer();
-        if (scene instanceof LobbyScene && NewVipManager.checkNotifyNewVip()) {
-            sceneMgr.openGUI(VipIntroGUI.className);
-            return;
-        }
-        sceneMgr.openScene(NewVipScene.className, oldScene);
-    } else {
-        sceneMgr.openScene(VipScene.className, oldScene);
+    var scene = sceneMgr.getRunningScene().getMainLayer();
+    if (scene instanceof LobbyScene && NewVipManager.checkNotifyNewVip()) {
+        sceneMgr.openGUI(VipIntroGUI.className);
+        return;
     }
+    sceneMgr.openScene(NewVipScene.className, oldScene);
 };
 
 NewVipManager.effectVipShopInfo = function(scene, isEffect){
@@ -661,8 +631,6 @@ NewVipManager.getInstance = function () {
 
     return NewVipManager.instance;
 };
-
-var vipMgr = NewVipManager.getInstance();
 
 //----------------------------------------------------------------------------------------------------------------------
 

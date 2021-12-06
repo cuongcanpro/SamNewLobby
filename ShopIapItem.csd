@@ -6,17 +6,17 @@
       <ObjectData Name="Layer" Tag="1891" ctype="GameLayerObjectData">
         <Size X="200.0000" Y="250.0000" />
         <Children>
-          <AbstractNodeData Name="bg" ActionTag="1052899909" Tag="32" IconVisible="False" PositionPercentYEnabled="True" HorizontalEdge="LeftEdge" LeftMargin="2.0830" RightMargin="-2.0830" TopMargin="0.1160" BottomMargin="-0.1160" LeftEage="15" RightEage="15" TopEage="15" BottomEage="15" Scale9OriginX="15" Scale9OriginY="15" Scale9Width="246" Scale9Height="17" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="bg" ActionTag="1052899909" Tag="32" IconVisible="False" PositionPercentYEnabled="True" HorizontalEdge="LeftEdge" LeftMargin="2.0830" RightMargin="-2.0830" TopMargin="0.1250" BottomMargin="-0.1250" LeftEage="15" RightEage="15" TopEage="15" BottomEage="15" Scale9OriginX="15" Scale9OriginY="15" Scale9Width="246" Scale9Height="17" ctype="ImageViewObjectData">
             <Size X="200.0000" Y="250.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="102.0830" Y="124.8840" />
+            <Position X="102.0830" Y="124.8750" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.5104" Y="0.4995" />
             <PreSize X="1.0000" Y="1.0000" />
             <FileData Type="Normal" Path="ShopIAP/bg_text_card.png" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="btn" ActionTag="-220615173" Tag="29" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="35.8409" RightMargin="31.1591" TopMargin="195.7461" BottomMargin="2.2539" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="103" Scale9Height="30" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="btn" ActionTag="-220615173" Tag="29" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="35.8409" RightMargin="31.1591" TopMargin="195.7500" BottomMargin="2.2500" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="103" Scale9Height="30" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="133.0000" Y="52.0000" />
             <Children>
               <AbstractNodeData Name="lb" ActionTag="93676401" Tag="30" IconVisible="False" LeftMargin="17.0000" RightMargin="13.0000" TopMargin="4.8101" BottomMargin="29.1899" IsCustomSize="True" FontSize="13" LabelText="VND" HorizontalAlignmentType="HT_Right" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
@@ -45,7 +45,7 @@
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="102.3409" Y="28.2539" />
+            <Position X="102.3409" Y="28.2500" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.5117" Y="0.1130" />
@@ -104,10 +104,10 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="line" ActionTag="87984956" Tag="38" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="11.7050" RightMargin="118.2950" TopMargin="9.8218" BottomMargin="238.9282" LeftEage="72" RightEage="72" Scale9OriginX="-2" Scale9Width="74" Scale9Height="1" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="line" ActionTag="87984956" Tag="38" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="11.7000" RightMargin="118.3000" TopMargin="9.8218" BottomMargin="238.9282" LeftEage="72" RightEage="72" Scale9OriginX="-2" Scale9Width="74" Scale9Height="1" ctype="ImageViewObjectData">
             <Size X="70.0000" Y="1.2500" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="46.7050" Y="239.5532" />
+            <Position X="46.7000" Y="239.5532" />
             <Scale ScaleX="1.0000" ScaleY="1.5000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.2335" Y="0.9582" />
@@ -126,118 +126,39 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="bgBonus" ActionTag="457783180" Tag="40" IconVisible="False" VerticalEdge="TopEdge" LeftMargin="96.0000" RightMargin="-78.0000" BottomMargin="233.0000" LeftEage="60" RightEage="60" TopEage="5" BottomEage="5" Scale9OriginX="60" Scale9OriginY="5" Scale9Width="62" Scale9Height="7" ctype="ImageViewObjectData">
-            <Size X="182.0000" Y="17.0000" />
+          <AbstractNodeData Name="bgBonus" ActionTag="1117189152" Tag="274" IconVisible="False" LeftMargin="141.6349" RightMargin="12.3651" TopMargin="115.8892" BottomMargin="98.1108" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+            <Size X="46.0000" Y="36.0000" />
             <Children>
-              <AbstractNodeData Name="text" ActionTag="1927772550" Tag="41" RotationSkewX="10.0000" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="37.0000" RightMargin="60.0000" TopMargin="-1.0000" BottomMargin="-1.0000" FontSize="14" LabelText="Nap lan dau" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                <Size X="85.0000" Y="19.0000" />
-                <AnchorPoint ScaleX="1.0000" ScaleY="0.5000" />
-                <Position X="122.0000" Y="8.5000" />
-                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.6703" Y="0.5000" />
-                <PreSize X="0.4670" Y="1.1176" />
-                <FontResource Type="Normal" Path="Font/tahoma.ttf" Plist="" />
-                <OutlineColor A="255" R="255" G="0" B="0" />
-                <ShadowColor A="255" R="110" G="110" B="110" />
-              </AbstractNodeData>
-              <AbstractNodeData Name="bonus" ActionTag="389440086" Tag="42" RotationSkewX="10.0000" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="124.0000" RightMargin="10.0000" TopMargin="-1.0000" BottomMargin="-1.0000" FontSize="14" LabelText="+100%" HorizontalAlignmentType="HT_Right" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+              <AbstractNodeData Name="bonus" ActionTag="389440086" Tag="42" RotationSkewX="9.9998" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="-3.3705" RightMargin="1.3705" TopMargin="8.4005" BottomMargin="8.5995" FontSize="14" LabelText="+100%" HorizontalAlignmentType="HT_Right" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                 <Size X="48.0000" Y="19.0000" />
                 <AnchorPoint ScaleY="0.5000" />
-                <Position X="124.0000" Y="8.5000" />
+                <Position X="-3.3705" Y="18.0995" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.6813" Y="0.5000" />
-                <PreSize X="0.2637" Y="1.1176" />
+                <CColor A="255" R="32" G="16" B="16" />
+                <PrePosition X="-0.0733" Y="0.5028" />
+                <PreSize X="1.0435" Y="0.5278" />
                 <FontResource Type="Normal" Path="Font/tahomabd.ttf" Plist="" />
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="187.0000" Y="241.5000" />
+            <Position X="164.6349" Y="116.1108" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.9350" Y="0.9660" />
-            <PreSize X="0.9100" Y="0.0680" />
-            <FileData Type="Normal" Path="ShopIAP/bgBonusBase.png" Plist="" />
+            <PrePosition X="0.8232" Y="0.4644" />
+            <PreSize X="0.2300" Y="0.1440" />
+            <TextColor A="255" R="65" G="65" B="70" />
+            <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
+            <PressedFileData Type="Default" Path="Default/Button_Press.png" Plist="" />
+            <NormalFileData Type="Default" Path="Default/Button_Normal.png" Plist="" />
+            <OutlineColor A="255" R="255" G="0" B="0" />
+            <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="bgBonusGold" ActionTag="-186069755" Tag="43" IconVisible="False" VerticalEdge="TopEdge" LeftMargin="115.7369" RightMargin="-46.7369" TopMargin="16.6781" BottomMargin="216.3219" LeftEage="60" RightEage="60" TopEage="5" BottomEage="5" Scale9OriginX="60" Scale9OriginY="5" Scale9Width="11" Scale9Height="7" ctype="ImageViewObjectData">
-            <Size X="131.0000" Y="17.0000" />
-            <Children>
-              <AbstractNodeData Name="text" ActionTag="1618638905" Tag="44" RotationSkewX="10.0000" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="39.0000" RightMargin="59.0000" TopMargin="-1.0000" BottomMargin="-1.0000" FontSize="14" LabelText="Gold" HorizontalAlignmentType="HT_Right" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                <Size X="33.0000" Y="19.0000" />
-                <AnchorPoint ScaleX="1.0000" ScaleY="0.5000" />
-                <Position X="72.0000" Y="8.5000" />
-                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                <CColor A="255" R="133" G="39" B="2" />
-                <PrePosition X="0.5496" Y="0.5000" />
-                <PreSize X="0.2519" Y="1.1176" />
-                <FontResource Type="Normal" Path="Font/tahoma.ttf" Plist="" />
-                <OutlineColor A="255" R="255" G="0" B="0" />
-                <ShadowColor A="255" R="110" G="110" B="110" />
-              </AbstractNodeData>
-              <AbstractNodeData Name="bonus" ActionTag="1993582559" Tag="45" RotationSkewX="10.0000" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="72.0000" RightMargin="11.0000" TopMargin="-1.0000" BottomMargin="-1.0000" FontSize="14" LabelText="+100%" HorizontalAlignmentType="HT_Right" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                <Size X="48.0000" Y="19.0000" />
-                <AnchorPoint ScaleY="0.5000" />
-                <Position X="72.0000" Y="8.5000" />
-                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                <CColor A="255" R="133" G="39" B="2" />
-                <PrePosition X="0.5496" Y="0.5000" />
-                <PreSize X="0.3664" Y="1.1176" />
-                <FontResource Type="Normal" Path="Font/tahomabd.ttf" Plist="" />
-                <OutlineColor A="255" R="255" G="0" B="0" />
-                <ShadowColor A="255" R="110" G="110" B="110" />
-              </AbstractNodeData>
-            </Children>
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="181.2369" Y="224.8219" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-            <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.9062" Y="0.8993" />
-            <PreSize X="0.6550" Y="0.0680" />
-            <FileData Type="Normal" Path="ShopIAP/bgBonusGold.png" Plist="" />
-          </AbstractNodeData>
-          <AbstractNodeData Name="bgBonusVip" Visible="False" ActionTag="1697659781" Tag="46" IconVisible="False" VerticalEdge="TopEdge" LeftMargin="115.7369" RightMargin="-46.7369" TopMargin="16.6781" BottomMargin="216.3219" LeftEage="60" RightEage="60" TopEage="5" BottomEage="5" Scale9OriginX="60" Scale9OriginY="5" Scale9Width="11" Scale9Height="7" ctype="ImageViewObjectData">
-            <Size X="131.0000" Y="17.0000" />
-            <Children>
-              <AbstractNodeData Name="text" ActionTag="-1788879194" Tag="47" RotationSkewX="10.0000" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="27.0000" RightMargin="59.0000" TopMargin="-1.0000" BottomMargin="-1.0000" FontSize="14" LabelText="VPoint" HorizontalAlignmentType="HT_Right" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                <Size X="45.0000" Y="19.0000" />
-                <AnchorPoint ScaleX="1.0000" ScaleY="0.5000" />
-                <Position X="72.0000" Y="8.5000" />
-                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.5496" Y="0.5000" />
-                <PreSize X="0.3435" Y="1.1176" />
-                <FontResource Type="Normal" Path="Font/tahoma.ttf" Plist="" />
-                <OutlineColor A="255" R="255" G="0" B="0" />
-                <ShadowColor A="255" R="110" G="110" B="110" />
-              </AbstractNodeData>
-              <AbstractNodeData Name="bonus" ActionTag="-574717491" Tag="48" RotationSkewX="10.0000" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="72.0000" RightMargin="11.0000" TopMargin="-1.0000" BottomMargin="-1.0000" FontSize="14" LabelText="+100%" HorizontalAlignmentType="HT_Right" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                <Size X="48.0000" Y="19.0000" />
-                <AnchorPoint ScaleY="0.5000" />
-                <Position X="72.0000" Y="8.5000" />
-                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.5496" Y="0.5000" />
-                <PreSize X="0.3664" Y="1.1176" />
-                <FontResource Type="Normal" Path="Font/tahomabd.ttf" Plist="" />
-                <OutlineColor A="255" R="255" G="0" B="0" />
-                <ShadowColor A="255" R="110" G="110" B="110" />
-              </AbstractNodeData>
-            </Children>
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="181.2369" Y="224.8219" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-            <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.9062" Y="0.8993" />
-            <PreSize X="0.6550" Y="0.0680" />
-            <FileData Type="Normal" Path="ShopIAP/bgBonusVip.png" Plist="" />
-          </AbstractNodeData>
-          <AbstractNodeData Name="img" ActionTag="-1030320211" Tag="36" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="78.4890" RightMargin="71.5110" TopMargin="140.6566" BottomMargin="59.3434" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
+          <AbstractNodeData Name="img" ActionTag="-1030320211" Tag="36" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="78.4890" RightMargin="71.5110" TopMargin="140.6500" BottomMargin="59.3500" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
             <Size X="50.0000" Y="50.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="103.4890" Y="84.3434" />
+            <Position X="103.4890" Y="84.3500" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.5174" Y="0.3374" />

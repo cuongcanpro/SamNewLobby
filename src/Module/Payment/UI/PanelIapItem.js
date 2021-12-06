@@ -64,7 +64,6 @@ var PanelIapItem = BaseLayer.extend({
         }
         this.srcList[idx].itemType = this.itemType;
         cell.setInfo(info);
-        cell.setButton(this.itemType);
 
         cc.log("table at index: " + idx);
         return cell;

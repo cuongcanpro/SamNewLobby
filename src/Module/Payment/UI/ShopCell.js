@@ -31,20 +31,9 @@ var ItemIapCell = cc.TableViewCell.extend({
         this.line = ccui.Helper.seekWidgetByName(this._layout, "line");
 
         this.bgBonus = ccui.Helper.seekWidgetByName(this._layout, "bgBonus");
-        this.bgBonus.text = ccui.Helper.seekWidgetByName(this.bgBonus, "text");
         this.bgBonus.bonus = ccui.Helper.seekWidgetByName(this.bgBonus, "bonus");
-        this.bgBonus.text.ignoreContentAdaptWithSize(true);
         this.bgBonus.bonus.ignoreContentAdaptWithSize(true);
-
-        this.bgBonusGold = ccui.Helper.seekWidgetByName(this._layout, "bgBonusGold");
-        this.bgBonusGold.text = ccui.Helper.seekWidgetByName(this.bgBonusGold, "text");
-        this.bgBonusGold.bonus = ccui.Helper.seekWidgetByName(this.bgBonusGold, "bonus");
-        this.bgBonusGold.bonus.ignoreContentAdaptWithSize(true);
-
-        this.bgBonusVip = ccui.Helper.seekWidgetByName(this._layout, "bgBonusVip");
-        this.bgBonusVip.text = ccui.Helper.seekWidgetByName(this.bgBonusVip, "text");
-        this.bgBonusVip.bonus = ccui.Helper.seekWidgetByName(this.bgBonusVip, "bonus");
-        this.bgBonusVip.bonus.ignoreContentAdaptWithSize(true);
+        this.bgBonus.addClickEventListener(this.onClickBonus.bind(this));
 
         this.bonusValue = ccui.Helper.seekWidgetByName(this._layout, "bonusValue");
 
@@ -52,6 +41,13 @@ var ItemIapCell = cc.TableViewCell.extend({
 
         this.groupBonus = new GroupShopBonus();
         this.addChild(this.groupBonus);
+
+        this.groupBonusSource = new GroupBonusSource();
+        this.addChild(this.groupBonusSource);
+    },
+
+    onClickBonus: function () {
+        this.groupBonusSource.showGroup();
     },
 
     /**
@@ -122,88 +118,33 @@ var ItemIapCell = cc.TableViewCell.extend({
        this.groupBonus.setPositionY(200 - this.groupBonus.getContentSize().height);
 
         //bonus
-        this.bgBonusGold.setVisible(false);
-        this.bgBonusVip.setVisible(false);
-        if (inf.curVoucher != null){
-            var bgBonus = null;
-            if (inf.curVoucher.bonusType == StorageManager.BONUS_GOLD)
-                bgBonus = this.bgBonusGold;
-            if (inf.curVoucher.bonusType == StorageManager.BONUS_VPOINT)
-                bgBonus = this.bgBonusVip;
-            bgBonus.setVisible(true);
-            bgBonus.bonus.setString("+" + inf.curVoucher.bonusValue + "%");
-        }
-
-        this.bgBonus.setVisible(inf.bonusValue && inf.bonusValue > 0);
+        var sum = 0;
         if (inf.bonusValue && inf.bonusValue > 0){
-            this.bgBonus.text.setString(inf.bonus + (inf.isBonusVip ? levelVip : ""));
-            this.bgBonus.bonus.setString("+" + inf.bonusValue + "%");
+            sum = sum + inf.bonusValue;
+            if (inf.curVoucher != null) {
+                if (inf.curVoucher.bonusType == StorageManager.BONUS_GOLD) {
+                    sum = sum + inf.curVoucher.bonusValue;
+                }
+            }
         }
-    },
+        if (sum == 0) {
+            if (inf.curVoucher != null) {
+                if (inf.curVoucher.bonusType == StorageManager.BONUS_VPOINT) {
+                    sum = sum + inf.curVoucher.bonusValue;
+                }
+            }
+        }
 
-    setButton: function (type) {
-        switch (type) {
-            case Payment.GOLD_G:
-            case Payment.TICKET_G: {
-                this.btn.loadTextures("ShopIAP/g_btn.png", "ShopIAP/g_btn.png");
-                this.currency.setString(ItemIapCell.CURRENCY_G);
-                this.currency.setColor(cc.color(52, 104, 2, 0));
-                this.cost.setColor(cc.color(52, 104, 2, 0));
-                this.currency.setVisible(true);
-                break;
-            }
-            case Payment.GOLD_ATM:
-            case Payment.G_ATM:
-            case Payment.TICKET_ATM: {
-                this.btn.loadTextures("ShopIAP/ATMBtn.png", "ShopIAP/ATMBtn.png");
-                this.currency.setString(ItemIapCell.CURRENCY_ATM);
-                this.currency.setColor(cc.color(62, 23, 89, 0));
-                this.cost.setColor(cc.color(62, 23, 89, 0));
-                this.currency.setVisible(true);
-                break;
-            }
-            case Payment.GOLD_ZING:
-            case Payment.G_ZING:
-            case Payment.TICKET_ZING: {
-                this.btn.loadTextures("ShopIAP/zingBtn.png", "ShopIAP/zingBtn.png");
-                this.currency.setString(ItemIapCell.CURRENCY_ZING);
-                this.currency.setColor(cc.color(121, 5, 48, 0));
-                this.cost.setColor(cc.color(121, 5, 48, 0));
-                this.currency.setVisible(true);
-                break;
-            }
-            case Payment.GOLD_IAP:
-            case Payment.G_IAP:
-            case Payment.TICKET_IAP: {
-                this.scheduleUpdate();
-
-                this.btn.loadTextures(this.getIAPImage(), this.getIAPImage());
-                this.cost.setColor(this.getIAPColor());
-                this.currency.setVisible(false);
-                break;
-            }
-            case Payment.GOLD_SMS_VIETTEL:
-            case Payment.GOLD_SMS_MOBI:
-            case Payment.GOLD_SMS_VINA:
-            case Payment.GOLD_SMS:
-            case Payment.TICKET_SMS: {
-                this.btn.loadTextures("ShopIAP/btn_sms.png", "ShopIAP/btn_sms.png");
-                this.currency.setString(ItemIapCell.CURRENCY_SMS);
-                this.currency.setColor(cc.color(149, 64, 46, 0));
-                this.cost.setColor(cc.color(149, 64, 46, 0));
-                this.currency.setVisible(true);
-                break;
-            }
-            case Payment.G_ZALO:
-            case Payment.GOLD_ZALO:
-            case Payment.TICKET_ZALO: {
-                this.btn.loadTextures("ShopIAP/zaloBtn.png", "ShopIAP/zaloBtn.png");
-                this.currency.setString(ItemIapCell.CURRENCY_ZALO);
-                this.currency.setColor(cc.color(255, 255, 255, 0));
-                this.cost.setColor(cc.color(255, 255, 255, 0));
-                this.currency.setVisible(true);
-                break;
-            }
+        this.bgBonus.setVisible(sum > 0);
+        if (sum > 0){
+            this.bgBonus.bonus.setString("+" + sum + "%");
+            this.groupBonusSource.setInfo(inf);
+            this.groupBonusSource.hideGroup();
+            this.groupBonusSource.setPosition(this.bgBonus.getPositionX() - this.groupBonusSource.getContentSize().width * 0.5,
+                this.bgBonus.getPositionY() - this.groupBonusSource.getContentSize().height);
+        }
+        else {
+            this.bgBonus.setVisible(false);
         }
     },
 
@@ -228,26 +169,6 @@ var ItemIapCell = cc.TableViewCell.extend({
             this.img.addChild(sp);
             sp.setPosition(this.img.getContentSize().width / 2, this.img.getContentSize().height / 2);
         }
-    },
-
-    getIAPImage: function () {
-        if (cc.sys.os == cc.sys.OS_IOS) {
-            return "ShopIAP/iap_ios_btn.png";
-        } else if (cc.sys.os == cc.sys.OS_ANDROID) {
-            return "ShopIAP/iap_btn.png";
-        }
-
-        return "ShopIAP/iap_ios_btn.png";
-    },
-
-    getIAPColor: function () {
-        if (cc.sys.os == cc.sys.OS_IOS) {
-            return cc.color(12, 45, 115, 0);
-        } else if (cc.sys.os == cc.sys.OS_ANDROID) {
-            return cc.color(19, 90, 77, 0);
-        }
-
-        return cc.color(12, 45, 115, 0);
     },
 
     cloneLabel: function (lb) {
@@ -324,6 +245,79 @@ ItemIapCell.CURRENCY_ATM = "VND";
 ItemIapCell.CURRENCY_ZING = "VND";
 ItemIapCell.CURRENCY_ZALO = "VND";
 
+GroupBonusSource = cc.Node.extend({
+    ctor: function () {
+        this._super();
+        this.arrayBonusRow = [];
+        this.bg = new cc.Scale9Sprite("res/Lobby/ShopIAP/bgTextfield.png");
+        this.addChild(this.bg);
+        this.bg.setAnchorPoint(cc.p(0, 0));
+    },
+
+    setInfo: function (shopPackage) {
+        for (var i = 0; i < this.arrayBonusRow.length; i++) {
+            this.arrayBonusRow[i].setVisible(false);
+        }
+        var levelVip = VipManager.getInstance().getRealVipLevel();
+        var count = 0;
+        var pad = 30;
+        if (shopPackage.curVoucher != null) {
+            var bonusRow = this.getShopBonusRow();
+            var s = "+" + shopPackage.curVoucher.bonusValue + "% ";
+            if (shopPackage.curVoucher.bonusType == StorageManager.BONUS_GOLD) {
+                s = s + "Vourcher Gold";
+            }
+            else {
+                s = s + "Vourcher VPoint";
+            }
+            bonusRow.setString(s);
+            bonusRow.setPosition(5, pad * (count + 0.5));
+            count++;
+        }
+
+        if (shopPackage.bonusValue && shopPackage.bonusValue > 0) {
+            var s = "+" + shopPackage.bonusValue + "% " + shopPackage.bonus + (shopPackage.isBonusVip ? levelVip : "");
+            var bonusRow = this.getShopBonusRow();
+            bonusRow.setString(s);
+            bonusRow.setPosition(5, pad * (count + 0.5));
+            count++;
+        }
+        this.bg.setContentSize(this.bg.getContentSize().width, pad * count);
+        this.setContentSize(cc.size(this.bg.getContentSize().width, pad * count));
+    },
+
+    getShopBonusRow: function () {
+        for (var i = 0; i < this.arrayBonusRow.length; i++) {
+            if (!this.arrayBonusRow[i].isVisible())
+                return this.arrayBonusRow[i];
+        }
+        var bonus = new ccui.Text();
+        bonus.setFontName(SceneMgr.FONT_NORMAL);
+        bonus.setAnchorPoint(cc.p(0, 0.5));
+        this.arrayBonusRow.push(bonus);
+        this.addChild(bonus);
+        return bonus;
+    },
+
+    showGroup: function () {
+        this.isShow = !this.isShow;
+        this.stopAllActions();
+        if (this.isShow) {
+            this.setVisible(true);
+            this.setScale(0);
+            this.runAction(cc.scaleTo(0.3, 1, 1));
+        }
+        else {
+            this.runAction(cc.scaleTo(0.3, 0, 0));
+        }
+    },
+
+    hideGroup: function () {
+        this.setVisible(false);
+        this.isShow = false;
+    }
+})
+
 GroupShopBonus = cc.Node.extend({
     ctor: function () {
         this._super();
@@ -338,6 +332,11 @@ GroupShopBonus = cc.Node.extend({
             this.arrayBonusRow[i].setVisible(false);
         }
         this.arrayBonus = ShopBonusData.getArrayBonus(shopPackage);
+        if (this.arrayBonus.length == 0) {
+            this.setVisible(false);
+            return;
+        }
+        this.setVisible(true);
         cc.log("ARRAY BONUS " + JSON.stringify(this.arrayBonus));
         var height = (this.arrayBonus.length < 3 ? 3 : this.arrayBonus.length) * ShopBonusRow.PAD_Y;
         for (var i = 0; i < this.arrayBonus.length; i++) {
@@ -794,7 +793,7 @@ ShopItemCell.setDiamond = function(itemNode, price) {
 ShopItemCell.className = "ShopItemCell";
 ShopItemCell.WIDTH = 110;
 ShopItemCell.HEIGHT = 110;
-ShopItemCell.MIN_COL = 2;
-ShopItemCell.MAX_COL = 3;
+ShopItemCell.MIN_COL = 4;
+ShopItemCell.MAX_COL = 4;
 ShopItemCell.MIN_SPACE = 15;
 ShopItemCell.MIN_SCALE = 0.75;
