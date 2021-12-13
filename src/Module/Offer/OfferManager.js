@@ -17,17 +17,8 @@ var OfferData = cc.Class.extend({
         this.isFirstPay = false;
         this.remainBuy = 0;
         this.maxBuy = 0;
-        // var obj = {"type": 0, "value": 100};
-        // this.listBonus.push(obj);
-        //
-        // obj = {"type": 1, "value": 100};
-        // this.listBonus.push(obj);
-        //
-        // obj = {"type": 2, "value": 1};
-        // this.listBonus.push(obj);
+        this.bonusPercentage = 0;
     },
-
-
 
     getTimeLeft: function () {
         var time = this.timeOffer - new Date().getTime();
@@ -42,75 +33,220 @@ var OfferData = cc.Class.extend({
         return this.getTimeLeft() / 1000;
     },
 
-    loadConfigOffer: function () {
-        try {
-            cc.log("LOAD CONFING OFFER *********************** " + this.valueOffer + " ID " + this.offerId);
-            var value = this.valueOffer;
-            var config = gamedata.gameConfig.getShopGoldById(offerManager.convertOfferPayment(this.typeOffer));
-            if (config) {
-                for (var i = 0; i < config.numPackage; i++) {
-                    var packageShop = config["packages"][i];
-                    if (packageShop["value"] == value) {
-                        this.configOffer = packageShop;
-                        cc.log("FLJKDSFLDSJK " + JSON.stringify(this.configOffer));
-                        return;
-                    }
-                }
-            }
-
-        } catch (ex) {
-            cc.log("JFKLDSJFDKL: ERROR " + ex.stack);
+    // chuyen tu loai Payment o Offer thanh Payment trong He thong
+    convertOfferPayment: function () {
+        var typeOffer = this.getLastBuy();
+        //cc.log("convertOfferPayment typeOffer " + typeOffer);
+        if (typeOffer == OfferManager.TYPE_IAP) {
+            return Payment.GOLD_IAP;
+        } else if (typeOffer == OfferManager.TYPE_SMS) {
+            return Payment.GOLD_SMS_VIETTEL;
+        } else if (typeOffer == OfferManager.TYPE_ZALOPAY) {
+            return Payment.GOLD_ZALO;
+        } else if (typeOffer == OfferManager.TYPE_ZING) {
+            return Payment.GOLD_ZING;
+        } else if (typeOffer == OfferManager.TYPE_ATM) {
+            return Payment.GOLD_ATM;
         }
     },
 
     getConfigOffer: function () {
         try {
-            cc.log("LOAD CONFING OFFER *********************** " + this.valueOffer + " ID " + this.offerId);
+            //  cc.log("LOAD CONFING OFFER *********************** " + this.valueOffer + " ID " + this.offerId);
             var value = this.valueOffer;
-            var config = gamedata.gameConfig.getShopGoldById(offerManager.convertOfferPayment(this.typeOffer));
-            if (config) {
-                for (var i = 0; i < config.numPackage; i++) {
-                    var packageShop = config["packages"][i];
-                    if (packageShop["value"] == value) {
-                        this.configOffer = packageShop;
-                        return this.configOffer;
+            var min = 1000000000;
+            if (this.isNoPrice()) {
+                var config = paymentMgr.getShopGoldById(this.convertOfferPayment());
+                if (config) {
+                    for (var i = 0; i < config.numPackage; i++) {
+                        var packageShop = config["packages"][i];
+                        if (packageShop["value"] >= value && packageShop["value"] <= min) {
+                            this.configOffer = packageShop;
+                            min = packageShop["value"];
+                        }
+                    }
+                    return this.configOffer;
+                }
+            }
+            else {
+                var config = paymentMgr.getShopGoldById(this.convertOfferPayment());
+                if (config) {
+                    for (var i = 0; i < config.numPackage; i++) {
+                        var packageShop = config["packages"][i];
+                        if (packageShop["value"] == value) {
+                            this.configOffer = packageShop;
+                            return this.configOffer;
+                        }
                     }
                 }
             }
-            cc.log("FLJKDSFLDSJK " + JSON.stringify(config));
         } catch (ex) {
             cc.log("JFKLDSJFDKL: ERROR " + ex.stack);
         }
         return null;
-    }
+    },
+
+    getValueToBuy: function () {
+        if (this.isNoPaymentType()) {
+            var config = this.getConfigOffer();
+            cc.log("CONFIG TO BUY " + JSON.stringify(config));
+            return config["value"];
+        }
+        else {
+            if (this.typeGroupOffer == OfferManager.TYPE_GROUP_PROMO) {
+                // rieng promo loai nay phai dao nguoc gia tri goi mua, goi mua thuc chat lai la realValue, do ben tren da doi 2 gia tri de xu ly chung 1 Flow duoi Client
+                return this.realValue;
+            }
+            else {
+                return this.valueOffer;
+            }
+        }
+    },
+
+    getValueToShow: function () {
+        if (this.isNoPaymentType()) {
+            var config = this.getConfigOffer();
+            return config["value"];
+        }
+        else {
+            if (this.typeGroupOffer == OfferManager.TYPE_GROUP_ZALO || this.typeGroupOffer == OfferManager.TYPE_GROUP_PROMO) {
+                return this.realValue;
+            }
+            else {
+                return this.valueOffer;
+            }
+        }
+    },
+
+    getPaymentString: function () {
+        if (this.typeOffer == OfferManager.TYPE_ATM) {
+            return "ATM";
+        }
+        else if (this.typeOffer == OfferManager.TYPE_ZALOPAY) {
+            return "ZaloPay";
+        }
+        else if (this.typeOffer == OfferManager.TYPE_ZING) {
+            return "Zing";
+        }
+        else if (this.typeOffer == OfferManager.TYPE_IAP) {
+            return "IAP";
+        }
+        else if (this.typeOffer == OfferManager.TYPE_G) {
+            return "G";
+        }
+        else if (this.typeOffer == OfferManager.TYPE_SMS) {
+            return "SMS";
+        }
+        return "";
+    },
+
+    getResourceTypePayment: function () {
+        var resource = "";
+        switch (this.typeOffer) {
+            case OfferManager.TYPE_ATM:
+                resource = "Lobby/Offer/iconATM.png";
+                break;
+            case OfferManager.TYPE_SMS:
+                resource = "Lobby/Offer/iconSMS.png";
+                break;
+            case OfferManager.TYPE_ZALOPAY:
+                resource = "Lobby/Offer/iconZaloPay.png";
+                break;
+            case OfferManager.TYPE_ZING:
+                resource = "Lobby/Offer/iconZing.png";
+                break;
+            case OfferManager.TYPE_IAP:
+                if (cc.sys.os == cc.sys.OS_ANDROID) {
+                    resource = "Lobby/Offer/iconGoogle.png";
+                } else {
+                    resource = "Lobby/Offer/iconApple.png";
+                }
+                break;
+        }
+        return resource;
+    },
+
+    // trar ve Id Payment Offer se dung de mua Offer, la loai Payment lan mua cuoi cung cua User
+    // Neu GUI Offer mo ra tu Shop, thi loai Payment dung de mua la Payment hien tai trong Shop duoc luu o offerManager.selectIdPayment
+    getLastBuy: function () {
+        if (!this.isNoPaymentType())
+            return this.typeOffer;
+        var id = paymentMgr.getLastShopGoldId();
+        cc.log("getLastBuy offerManager.selectIdPayment" + offerManager.selectIdPayment);
+        if (offerManager.selectIdPayment > 0)
+            id = offerManager.selectIdPayment;
+        else if (id == Payment.GOLD_G) {
+            id = Payment.GOLD_SMS;
+        }
+        cc.log("getLastBuy Select " + id + " " + this.convertIdPaymentToOfferPayment(id));
+        return this.convertIdPaymentToOfferPayment(id);
+    },
+
+    // chuyen ID Payment trong he thong Shop thanh ID payment trong Offer ( 1-> SmS)
+    convertIdPaymentToOfferPayment: function (id) {
+        switch (id) {
+            case Payment.GOLD_ATM:
+                return OfferManager.TYPE_ATM;
+                break;
+            case Payment.GOLD_IAP:
+                return OfferManager.TYPE_IAP;
+                break;
+            case Payment.GOLD_ZALO:
+                return OfferManager.TYPE_ZALOPAY;
+                break;
+            case Payment.GOLD_ZING:
+                return OfferManager.TYPE_ZING;
+                break;
+            case Payment.GOLD_SMS:
+            case Payment.GOLD_SMS_VIETTEL:
+            case Payment.GOLD_SMS_MOBI:
+            case Payment.GOLD_SMS_VINA:
+                return OfferManager.TYPE_SMS;
+                break;
+            case Payment.GOLD_G:
+                return OfferManager.TYPE_G;
+                break;
+        }
+    },
+
+    isNoPrice: function () {
+        return this.typeGroupOffer == OfferManager.TYPE_GROUP_NO_FIX_PRICE;
+    },
+
+    isNoPaymentType: function () {
+        return this.typeOffer == OfferManager.TYPE_ALL;
+    },
+
+    isSuitableForNoPrice: function (idPayment, value) {
+        if (!this.isNoPrice())
+            return false;
+        if (!this.isNoPaymentType()) {
+            if (this.convertOfferPayment() != idPayment)
+                return false;
+        }
+        return value >= this.valueOffer;
+    },
+
 });
 
 var OfferManager = cc.Class.extend({
     ctor: function () {
         this.kickInGame = false;
-        this.groupOffer = null;
+        this.groupOffer = new GroupOfferButton();
         this.arrayOffer = [];
+        this.selectIdPayment = -1; // id Payemnt khi mo Offer trong Shop
     },
 
     resetData: function () {
         this.arrayOffer = [];
-    },
-
-    setGroupOffer: function (pOffer) {
-        if (pOffer.groupOffer)
-            return;
-        cc.log("RUN HERRE *** 2 ");
-        this.groupOffer = new GroupOfferButton();
-        this.groupOffer.retain();
-        pOffer.addChild(this.groupOffer);
-        pOffer.groupOffer = this.groupOffer;
-        this.addOfferToGroup();
+        this.selectIdPayment = -1;
     },
 
     addOfferToGroup: function () {
         if (!this.groupOffer)
             return;
         cc.log("RUN HERRE *** 1 " + this.arrayOffer.length);
+        cc.log("ARAY OFFER " + JSON.stringify(this.arrayOffer));
         for (var i = 0; i < this.arrayOffer.length; i++) {
             this.groupOffer.addButton(this.arrayOffer[i]);
         }
@@ -188,7 +324,7 @@ var OfferManager = cc.Class.extend({
                     break;
                 case OfferManager.TYPE_TICKET:
                     cc.log("GET PERCENT TICKET " + offer.typeOffer + " " + eventId);
-                    var config = event.getEventTicketConfig(this.convertOfferPayment(offer.typeOffer), eventId);
+                    var config = event.getEventTicketConfig(offer.convertOfferPayment(), eventId);
                     cc.log("CONFIG TICKET " + JSON.stringify(config));
                     //var convert = this.valueOffer / 100;
                     if (config && config != null && config != undefined)
@@ -208,23 +344,9 @@ var OfferManager = cc.Class.extend({
         return percent;
     },
 
-    convertOfferPayment: function (typeOfferPayment) {
-        if (typeOfferPayment == OfferManager.TYPE_IAP) {
-            return Payment.GOLD_IAP;
-        } else if (typeOfferPayment == OfferManager.TYPE_SMS) {
-            return Payment.GOLD_SMS_VIETTEL;
-        } else if (typeOfferPayment == OfferManager.TYPE_ZALOPAY) {
-            return Payment.GOLD_ZALO;
-        } else if (typeOfferPayment == OfferManager.TYPE_ZING) {
-            return Payment.GOLD_ZING;
-        } else if (typeOfferPayment == OfferManager.TYPE_ATM) {
-            return Payment.GOLD_ATM;
-        }
-    },
-
     checkHaveOfferPayment: function (id) {
         for (var i = 0; i < this.arrayOffer.length; i++) {
-            var idPayment = this.convertOfferPayment(this.arrayOffer[i].typeOffer);
+            var idPayment = this.arrayOffer[i].convertOfferPayment();
             if (idPayment == Payment.GOLD_SMS_VIETTEL)
                 idPayment = Payment.GOLD_SMS;
             if (idPayment == id) {
@@ -234,27 +356,40 @@ var OfferManager = cc.Class.extend({
         return false;
     },
 
+    isSuitableForNoPrice: function (idPayment, value) {
+        for (var i = 0; i < this.arrayOffer.length; i++) {
+            if (this.arrayOffer[i].isSuitableForNoPrice(idPayment, value)) {
+                return true;
+            }
+        }
+        return false;
+    },
+
     reloadOffer: function () {
         if (this.arrayOffer.length == 0)
             return;
-        if (gamedata.payments.length == 0)
+        if (paymentMgr.payments.length == 0)
             return;
         for (var i = 0; i < this.arrayOffer.length; i++) {
             var offer = this.arrayOffer[i];
             var saveOfferId = offer.offerId;
             var cmdLog = new CmdSendLogOffer();
             var config;
-            if (gamedata.gameConfig) {
-                config = gamedata.gameConfig.getShopGoldById(this.convertOfferPayment(offer.typeOffer));
+
+            if (paymentMgr) {
+                config = paymentMgr.getShopGoldById(offer.convertOfferPayment());
             } else {
                 offer.offerId = -1;
                 return;
             }
+            if (offer.typeOffer == OfferManager.TYPE_ALL) {
+                break;
+            }
             if (!config || config["isMaintained"][0]) {
-                // cc.log("NOT SHOW 1 " + JSON.stringify(gamedata.gameConfig.arrayShopGoldConfig) + " " + this.convertOfferPayment(this.typeOffer));
+                // cc.log("NOT SHOW 1 " + JSON.stringify(paymentMgr.arrayShopGoldConfig) + " " + this.convertOfferPayment(this.typeOffer));
                 offer.offerId = -1;
                 // detect reason
-                if (offer.typeOffer == Payment.GOLD_IAP) {
+                if (offer.typeOffer == OfferManager.TYPE_IAP) {
                     if (!cc.sys.isNative) {
                         cmdLog.putData(saveOfferId, OfferManager.NOT_SHOW_WEB);
                     } else if (cc.sys.os == cc.sys.OS_IOS) {
@@ -265,7 +400,7 @@ var OfferManager = cc.Class.extend({
                 } else {
                     cmdLog.putData(saveOfferId, OfferManager.NOT_SHOW_ENABLE_PAYMENT);
                 }
-            } else if (offer.typeOffer == Payment.GOLD_IAP) {
+            } else if (offer.typeOffer == OfferManager.TYPE_IAP) {
                 if (!cc.sys.isNative) {
                     offer.offerId = -1;
                     cmdLog.putData(saveOfferId, OfferManager.NOT_SHOW_WEB);
@@ -301,11 +436,11 @@ var OfferManager = cc.Class.extend({
     },
 
     showOfferGUILogin: function () {
-        cc.log("showOfferGUILogin");
+        cc.log("showOfferGUILogin **** ");
         if (!this.haveOffer()) {
             return;
         }
-
+        cc.log("showOfferGUILogin **** 1");
         var cur = sceneMgr.getRunningScene().getMainLayer();
         if (cur instanceof LobbyScene) {
             // var random = Math.floor(Math.random() * this.arrayOffer.length * 0.999);
@@ -315,16 +450,12 @@ var OfferManager = cc.Class.extend({
                 show = this.showOfferPrioriy(OfferManager.TYPE_GROUP_PROMO);
             }
             if (!show) {
-                this.showOfferPrioriy(OfferManager.TYPE_GROUP_NORMAL);
+                show = this.showOfferPrioriy(OfferManager.TYPE_GROUP_NO_FIX_PRICE);
+            }
+            if (!show) {
+                show = this.showOfferPrioriy(OfferManager.TYPE_GROUP_NORMAL);
             }
         }
-        // var check = cc.sys.localStorage.getItem("showOfferGUILogin" + gamedata.userData.uID);
-        // //check = false;
-        // if (!check || check == undefined || check == null) {
-        //     cc.sys.localStorage.setItem("showOfferGUILogin" + gamedata.userData.uID, 1);
-        // } else {
-
-        // }
     },
 
     showOfferPrioriy: function (type) {
@@ -337,30 +468,14 @@ var OfferManager = cc.Class.extend({
         return false;
     },
 
-    getResourceTypePayment: function (typePayment) {
-        var resource;
-        switch (typePayment) {
-            case OfferManager.TYPE_ATM:
-                resource = "Lobby/Offer/iconATM.png";
+    showOfferNoPriceGUI: function (idPayment) {
+        for (var i = 0; i < this.arrayOffer.length; i++) {
+            if (this.arrayOffer[i].isNoPrice()) {
+                this.showOfferGUI(true, this.arrayOffer[i]);
                 break;
-            case OfferManager.TYPE_SMS:
-                resource = "Lobby/Offer/iconSMS.png";
-                break;
-            case OfferManager.TYPE_ZALOPAY:
-                resource = "Lobby/Offer/iconZaloPay.png";
-                break;
-            case OfferManager.TYPE_ZING:
-                resource = "Lobby/Offer/iconZing.png";
-                break;
-            case OfferManager.TYPE_IAP:
-                if (cc.sys.os == cc.sys.OS_ANDROID) {
-                    resource = "Lobby/Offer/iconGoogle.png";
-                } else {
-                    resource = "Lobby/Offer/iconApple.png";
-                }
-                break;
+            }
         }
-        return resource;
+        this.selectIdPayment = idPayment;
     },
 
     showOfferGUI: function (forceShow, offer) {
@@ -368,20 +483,6 @@ var OfferManager = cc.Class.extend({
         if (forceShow) {
             show = true;
         }
-        //else {
-        //    var today = new Date();
-        //    var check = cc.sys.localStorage.getItem("showOfferGUI") + "";
-        //    if (check != today.toISOString().substring(0, 10)) {
-        //        cc.sys.localStorage.setItem("showOfferGUI", today.toISOString().substring(0, 10));
-        //        show = true;
-        //    }
-        //}
-
-        // var gui = sceneMgr.getGUIByClassName(GUIOffer.className);
-        // if (gui && gui.isShow) {
-        //     show = false;
-        //     cc.log("OFFER IS SHOW ******** ");
-        // }
 
         if (show) {
             var idPopUp = PopUpManager.OFFER;
@@ -398,7 +499,6 @@ var OfferManager = cc.Class.extend({
 
                 var gui;
                 if (offer.typeGroupOffer == OfferManager.TYPE_GROUP_NORMAL) {
-                    cc.log("SHOW HERE *********** ");
                     if (offer.offerId == 173 || offer.offerId == 174 || offer.offerId == 175 || offer.offerId == 176) {
                         gui = sceneMgr.openGUI(GUIOfferQuocKhanh.className, GUIOfferQuocKhanh.tag, GUIOfferQuocKhanh.tag);
                         gui.setInfo(offer);
@@ -418,6 +518,10 @@ var OfferManager = cc.Class.extend({
                         gui.setInfo(offer);
                     }
                 }
+                else if (offer.typeGroupOffer == OfferManager.TYPE_GROUP_NO_FIX_PRICE) {
+                    gui = sceneMgr.openGUI(GUIOfferNoPrice.className, GUIOfferNoPrice.tag, GUIOfferNoPrice.tag);
+                    gui.setInfo(offer);
+                }
                 else {
                     if (offer.isFirstPay) {
                         gui = sceneMgr.openGUI(GUIOfferZaloFirstPay.className, GUIOfferZaloFirstPay.tag, GUIOfferZaloFirstPay.tag);
@@ -428,9 +532,9 @@ var OfferManager = cc.Class.extend({
                         gui.setInfo(offer);
                     }
                 }
-
             }
         }
+        this.selectIdPayment = -1;
     },
 
     onReceived: function (cmd, data) {
@@ -501,35 +605,61 @@ var OfferManager = cc.Class.extend({
                         var obj = {"type": OfferManager.TYPE_DIAMOND, "value": cmd.diamond[i]};
                         offer.listBonus.push(obj);
                     }
+                    if (cmd.offerItem && cmd.offerItem[i] && cmd.offerItem[i].length > 0) {
+                        for (var j = 0; j < cmd.offerItem[i].length; j++) {
+                            var tmp = cmd.offerItem[i][j];
+                            var eventId = event.getEventIdByName(tmp["eventName"]);
+                            var obj = {
+                                "type": OfferManager.TYPE_ITEM,
+                                "idType": tmp["type"],
+                                "subType": tmp["subType"],
+                                "id": tmp["id"],
+                                "value": tmp['number']
+                            };
+                            offer.listBonus.push(obj);
+                        }
+                    }
+                    offer.bonusPercentage = cmd.bonusPercentage[i];
                     // net khong co bonus nao thi coi nhu khong co Offer
                     if (offer.listBonus.length != 0) {
                         this.arrayOffer.push(offer);
                     }
                 }
 
+                cc.log("ARRAY OFFER TRUOC KHI RELOAD " + JSON.stringify(this.arrayOffer));
                 this.reloadOffer();
-                if (this.haveOffer()) {
-                    for (var i = 0; i < this.arrayOffer.length; i++) {
-                        this.arrayOffer[i].loadConfigOffer();
-                    }
-                }
-
+                cc.log("ARRAY OFFER SAU KHI RELOAD " + JSON.stringify(this.arrayOffer));
                 this.addOfferToGroup();
 
-                var cur = sceneMgr.getRunningScene().getMainLayer();
-                if (cur instanceof LobbyScene && !offerManager.buySuccess) {
-                    // show Offer gui sau khi login
-                    setTimeout(this.showOfferGUILogin.bind(this), 1000);
+                var func = function () {
+                    cc.log("Callback check show Offer");
+                    var cur = sceneMgr.getRunningScene().getMainLayer();
+                    if (cur instanceof LobbyScene && !offerManager.buySuccess) {
+                        // show Offer gui sau khi login
+                        offerManager.showOfferGUILogin();
+                    }
+                    offerManager.buySuccess = false;
                 }
-                offerManager.buySuccess = false;
+                setTimeout(func, 1000);
                 break;
             case OfferManager.CMD_OFFER_SUCCESS:
                 var cmd = new CmdReceivedOfferSuccess(data);
+                cc.log("CMD_OFFER_SUCCESS" + JSON.stringify(cmd));
+                offerManager.buySuccess = true;
+                return;
+                var offerData = this.getOfferById(cmd.offerId);
+                if (offerData.typeGroupOffer == OfferManager.TYPE_GROUP_NO_FIX_PRICE) {
+                    this.cmdOfferSuccess = cmd;
+                }
+                // de chan viec hien thi GUI Offer moi khi co goi Offer tra ve
+
+                return;
+
                 //cmd.bonusGold = 0;
                 //cmd.bonusGStar = 0;
                 //cmd.bonusTime = 0;
                 //cmd.bonusTicket = 10;
-                cc.log("CMD_OFFER_SUCCESS" + JSON.stringify(cmd));
+
                 var arrayBonus = [];
                 if (cmd.bonusGold > 0) {
                     var obj = {"type": OfferManager.TYPE_GOLD, "value": cmd.bonusGold};
@@ -539,18 +669,6 @@ var OfferManager = cc.Class.extend({
                     var obj = {"type": OfferManager.TYPE_G_STAR, "value": cmd.bonusGStar};
                     arrayBonus.push(obj);
                 }
-                //if (cmd.vipType >= 0) {
-                //    var obj = {"type": OfferManager.TYPE_VIP, "value": cmd.vipType};
-                //    arrayBonus.push(obj);
-                //}
-                // if (cmd.bonusTicket > 0 && event.isInEvent()) {
-                //     var obj = {"type": OfferManager.TYPE_TICKET, "value": cmd.bonusTicket};
-                //     arrayBonus.push(obj);
-                // }
-                // else {
-                //     cmd.bonusTicket = 0;
-                // }
-
                 var oEvent = [];
                 if (cmd.offerEvent && cmd.offerEvent.length > 0) {
                     for (var i = 0; i < cmd.offerEvent.length; i++) {
@@ -580,32 +698,47 @@ var OfferManager = cc.Class.extend({
                     arrayBonus.push(obj);
                 }
 
-                var dataOffer = {
-                    error: cmd.getError(),
-                    isOffer: true,
-                    channel: cmd.channel,
-                    packetId: cmd.packetId,
-                    goldGet: cmd.bonusGold
-                };
-                offerManager.buySuccess = true;
-                VipManager.openChangeGoldSuccess(dataOffer, cmd.bonusGStar, cmd.bonusTime, oEvent, cmd.bonusDiamond);
+
+                if (offerData.typeGroupOffer == OfferManager.TYPE_GROUP_NO_FIX_PRICE) {
+                    var gui = sceneMgr.getGUIByClassName(GUIShopGoldSuccess.className);
+                    if (gui) {
+                        gui.setInfoOffer(cmd);
+                    }
+                }
+                else {
+                    var dataOffer = {
+                        error: cmd.getError(),
+                        isOffer: true,
+                        channel: cmd.channel,
+                        packetId: cmd.packetId,
+                        goldGet: cmd.bonusGold
+                    };
+                    // NewVipManager.openChangeGoldSuccess(dataOffer, cmd.bonusGStar, cmd.bonusTime, oEvent, cmd.bonusDiamond);
+                }
                 break;
         }
     }
 });
 
+OfferManager.getNameItem = function (idType, id, subType, num) {
+    if (idType == StorageManager.TYPE_AVATAR || idType == StorageManager.TYPE_EMOTICON) {
+        var config = StorageManager.getInstance().itemConfig;
+        var expireTime = config[idType][id]["subTypes"][subType].expireTime;
+        if (expireTime < 0) {
+            return localized("TIME_FOREVER");
+        }
+        else {
+            return expireTime + " " + localized("TIME_DAY");
+        }
+    }
+    else {
+        return num + " " + localized("SHOP_GOLD_ITEM");
+    }
+}
+
 OfferManager.getValueOfferToBuy = function (offer) {
     if (offer.typeGroupOffer == OfferManager.TYPE_GROUP_PROMO) {
         // rieng promo loai nay phai dao nguoc gia tri goi mua, goi mua thuc chat lai la realValue, do ben tren da doi 2 gia tri de xu ly chung 1 Flow duoi Client
-        return offer.realValue;
-    }
-    else {
-        return offer.valueOffer;
-    }
-};
-
-OfferManager.getValueOfferToShow = function (offer) {
-    if (offer.typeGroupOffer == OfferManager.TYPE_GROUP_ZALO || offer.typeGroupOffer == OfferManager.TYPE_GROUP_PROMO) {
         return offer.realValue;
     }
     else {
@@ -624,29 +757,30 @@ OfferManager.buyOffer = function (isInShop, offerId) {
         sceneMgr.showOKDialog(msg);
         return;
     }
+    var typeOffer = offer.getLastBuy();
 
-    if (offer.typeOffer == OfferManager.TYPE_SMS) {
-        var networkInfo = gamedata.getNetworkTelephone();
+    cc.log("TYPE OFER ** " + typeOffer);
+    if (typeOffer == OfferManager.TYPE_SMS) {
+        var networkInfo = paymentMgr.getNetworkTelephone();
         var operator = 0;
-        // var type = this.getIdSMS(networkInfo);
         var configSMS;
         var type = 0;
         switch (networkInfo) {
             case Constant.ID_VIETTEL: {
                 operator = PanelCard.BTN_VIETTEL;
-                configSMS = gamedata.gameConfig.getShopGoldById(Payment.GOLD_SMS_VIETTEL);
+                configSMS = paymentMgr.getShopGoldById(Payment.GOLD_SMS_VIETTEL);
                 type = Payment.GOLD_SMS_VIETTEL;
                 break;
             }
             case Constant.ID_MOBIFONE: {
                 operator = PanelCard.BTN_MOBIFONE;
-                configSMS = gamedata.gameConfig.getShopGoldById(Payment.GOLD_SMS_MOBI);
+                configSMS = paymentMgr.getShopGoldById(Payment.GOLD_SMS_MOBI);
                 type = Payment.GOLD_SMS_MOBI;
                 break;
             }
             case Constant.ID_VINAPHONE: {
                 operator = PanelCard.BTN_VINAPHONE;
-                configSMS = gamedata.gameConfig.getShopGoldById(Payment.GOLD_SMS_VINA);
+                configSMS = paymentMgr.getShopGoldById(Payment.GOLD_SMS_VINA);
                 type = Payment.GOLD_SMS_VINA;
                 break;
             }
@@ -655,53 +789,73 @@ OfferManager.buyOffer = function (isInShop, offerId) {
                 break;
             }
         }
-
+        cc.log("OFFER iS NO PRICE **** " + offer.isNoPrice());
         if (operator == 0) {
-            sceneMgr.openGUI(SimOperatorPopup.className, SimOperatorPopup.TAG, SimOperatorPopup.TAG).setAmount(OfferManager.getValueOfferToBuy(offer), Payment.CHEAT_PAYMENT_OFFER);
+            if (offer.isNoPrice())
+                sceneMgr.openGUI(SimOperatorPopup.className, SimOperatorPopup.TAG, SimOperatorPopup.TAG).setAmount(offer.getValueToBuy(), Payment.CHEAT_PAYMENT_NORMAL);
+            else
+                sceneMgr.openGUI(SimOperatorPopup.className, SimOperatorPopup.TAG, SimOperatorPopup.TAG).setAmount(offer.getValueToBuy(), Payment.CHEAT_PAYMENT_OFFER);
         } else {
-            //var configSMS = gamedata.gameConfig.getShopGoldById(Payment.GOLD_SMS);
+            //var configSMS = paymentMgr.getShopGoldById(Payment.GOLD_SMS);
             if (!configSMS || configSMS["isMaintained"][0]) {
                 sceneMgr.openGUI(GUIMaintainSMS.className, GUIMaintainSMS.TAG, GUIMaintainSMS.TAG);
             } else {
-                iapHandler.requestSMSSyntax(operator, OfferManager.getValueOfferToBuy(offer), Payment.CHEAT_PAYMENT_OFFER, type, Payment.IS_OFFER);
+                if (offer.isNoPrice())
+                    PaymentUtils.requestSMSSyntax(operator, offer.getValueToBuy(), Payment.CHEAT_PAYMENT_NORMAL, type, Payment.NO_OFFER);
+                else
+                    PaymentUtils.requestSMSSyntax(operator, offer.getValueToBuy(), Payment.CHEAT_PAYMENT_OFFER, type, Payment.IS_OFFER);
             }
         }
-    } else if (offer.typeOffer == OfferManager.TYPE_ATM) {
+    } else if (typeOffer == OfferManager.TYPE_ATM) {
         if (Config.ENABLE_CHEAT && CheatCenter.ENABLE_FAKE_SMS) {
-            iapHandler.fakePayment(OfferManager.getValueOfferToBuy(offer), Constant.GOLD_ATM, Payment.CHEAT_PAYMENT_OFFER);
+            sceneMgr.addLoading(LocalizedString.to("WAITING")).timeout(3);
+            if (offer.isNoPrice())
+                PaymentUtils.fakePayment(offer.getValueToBuy(), Constant.GOLD_ATM, Payment.CHEAT_PAYMENT_NORMAL);
+            else
+                PaymentUtils.fakePayment(offer.getValueToBuy(), Constant.GOLD_ATM, Payment.CHEAT_PAYMENT_OFFER);
         } else {
             var gui = sceneMgr.openGUI(GUIBank.className, GUIBank.TAG, GUIBank.TAG);
-            gui.setInfoBuy(OfferManager.getValueOfferToBuy(offer), true, Payment.IS_OFFER);
+            if (offer.isNoPrice())
+                gui.setInfoBuy(offer.getValueToBuy(), true, Payment.NO_OFFER);
+            else
+                gui.setInfoBuy(offer.getValueToBuy(), true, Payment.IS_OFFER);
         }
-    } else if (offer.typeOffer == OfferManager.TYPE_ZALOPAY) {
-        // if (Config.ENABLE_CHEAT && CheatCenter.ENABLE_FAKE_SMS) {
-        //     iapHandler.fakePayment(offerManager.valueOffer, Constant.GOLD_ZALO, Payment.CHEAT_PAYMENT_OFFER);
-        // }
-        // else {
-        //}
+    } else if (typeOffer == OfferManager.TYPE_ZALOPAY) {
         fr.tracker.logStepStart(ConfigLog.ZALO_PAY, ConfigLog.BEGIN + "BUY_ZALO");
         fr.tracker.logStepStart(ConfigLog.ZALO_PAY, "CLICK_OFFER");
         if (Config.ENABLE_NEW_OFFER) {
             if (CheckLogic.checkZaloPay()) {
                 var curGui = sceneMgr.getRunningScene().getMainLayer();
                 var msg = LocalizedString.to("ZALOPAY_MSG");
-                msg = StringUtility.replaceAll(msg, "@value", StringUtility.pointNumber(OfferManager.getValueOfferToShow(offer)));
+                msg = StringUtility.replaceAll(msg, "@value", StringUtility.pointNumber(offer.getValueToShow(offer)));
                 sceneMgr.showOkCancelDialog(msg, curGui, function (btnId) {
                     if (btnId == Dialog.BTN_OK) {
                         fr.tracker.logStepStart(ConfigLog.ZALO_PAY, "SEND_BUY");
                         var packageName = fr.platformWrapper.getPackageName();
-                        sceneMgr.addLoading(LocalizedString.to("WAITING")).timeout(5);
-                        var cmd = new CmdSendBuyZaloPayV2();
-                        cmd.putData(OfferManager.getValueOfferToBuy(offer), 1, Payment.IS_OFFER, offer.offerId, packageName);
-                        GameClient.getInstance().sendPacket(cmd);
-                        cmd.clean();
+                        if (Config.ENABLE_CHEAT && CheatCenter.ENABLE_FAKE_SMS) {
+                            sceneMgr.addLoading(LocalizedString.to("WAITING")).timeout(3);
+                            if (offer.isNoPrice())
+                                PaymentUtils.fakePayment(offer.getValueToBuy(), Constant.GOLD_ZALO, Payment.CHEAT_PAYMENT_NORMAL);
+                            else
+                                PaymentUtils.fakePayment(offer.getValueToBuy(), Constant.GOLD_ZALO, Payment.CHEAT_PAYMENT_OFFER);
+                        }
+                        else {
+                            sceneMgr.addLoading(LocalizedString.to("WAITING")).timeout(5);
+                            var cmd = new CmdSendBuyZaloPayV2();
+                            if (offer.isNoPrice())
+                                cmd.putData(offer.getValueToBuy(), 1, Payment.NO_OFFER, offer.offerId, packageName);
+                            else
+                                cmd.putData(offer.getValueToBuy(), 1, Payment.IS_OFFER, offer.offerId, packageName);
+                            GameClient.getInstance().sendPacket(cmd);
+                            cmd.clean();
+                        }
                     }
                 });
             }
         }
         else {
             if (Config.ENABLE_CHEAT && CheatCenter.ENABLE_FAKE_SMS) {
-                iapHandler.fakePayment(OfferManager.getValueOfferToBuy(offer), Constant.GOLD_ZALO, Payment.CHEAT_PAYMENT_OFFER);
+                PaymentUtils.fakePayment(OfferManager.getValueOfferToBuy(offer), Constant.GOLD_ZALO, Payment.CHEAT_PAYMENT_OFFER);
             }
             else {
                 sceneMgr.addLoading(LocalizedString.to("WAITING")).timeout(15);
@@ -710,21 +864,28 @@ OfferManager.buyOffer = function (isInShop, offerId) {
                 GameClient.getInstance().sendPacket(cmd);
             }
         }
-    } else if (offer.typeOffer == OfferManager.TYPE_ZING) {
+    } else if (typeOffer == OfferManager.TYPE_ZING) {
         if (Config.ENABLE_CHEAT && CheatCenter.ENABLE_FAKE_SMS) {
-            iapHandler.fakePayment(OfferManager.getValueOfferToBuy(offer), Constant.GOLD_ZING, Payment.CHEAT_PAYMENT_OFFER);
+            sceneMgr.addLoading(LocalizedString.to("WAITING")).timeout(3);
+            if (offer.isNoPrice())
+                PaymentUtils.fakePayment(offer.getValueToBuy(), Constant.GOLD_ZING, Payment.CHEAT_PAYMENT_NORMAL);
+            else
+                PaymentUtils.fakePayment(offer.getValueToBuy(), Constant.GOLD_ZING, Payment.CHEAT_PAYMENT_OFFER);
         } else {
             var gui = sceneMgr.openGUI(GUIInputCard.className, GUIInputCard.TAG, GUIInputCard.TAG);
-            gui.setInfo(OfferManager.getValueOfferToBuy(offer), Payment.IS_OFFER);
+            if (offer.isNoPrice())
+                gui.setInfo(offer.getValueToBuy(), Payment.NO_OFFER);
+            else
+                gui.setInfo(offer.getValueToBuy(), Payment.IS_OFFER);
         }
-    } else if (offer.typeOffer == OfferManager.TYPE_IAP) {
-        var goldIap = gamedata.gameConfig.getShopGoldById(Payment.GOLD_IAP);
+    } else if (typeOffer == OfferManager.TYPE_IAP) {
+        var goldIap = paymentMgr.getShopGoldById(Payment.GOLD_IAP);
         var obj = {};
         if (goldIap) {
             for (var i = 0; i < goldIap.numPackage; i++) {
 
                 var packageShop = goldIap["packages"][i];
-                if (packageShop["value"] == OfferManager.getValueOfferToBuy(offer)) {
+                if (packageShop["value"] == offer.getValueToBuy()) {
                     obj.id = packageShop["androidId"];
                     obj.id_ios = packageShop["iOSId"];
                     obj.id_ios_portal = packageShop["portalIOSId"];
@@ -737,14 +898,19 @@ OfferManager.buyOffer = function (isInShop, offerId) {
             }
         }
         if (Config.ENABLE_CHEAT && CheatCenter.ENABLE_FAKE_SMS) {
-            iapHandler.fakePayment(obj.costConfig, Constant.GOLD_IAP, Payment.CHEAT_PAYMENT_OFFER);
+            sceneMgr.addLoading(LocalizedString.to("WAITING")).timeout(3);
+            if (offer.isNoPrice())
+                PaymentUtils.fakePayment(obj.costConfig, Constant.GOLD_IAP, Payment.CHEAT_PAYMENT_NORMAL);
+            else
+                PaymentUtils.fakePayment(obj.costConfig, Constant.GOLD_IAP, Payment.CHEAT_PAYMENT_OFFER);
         } else {
-            cc.log("PURCHASE IAP ***** ");
-            offerManager.setOfferIAP(1);
+            if (offer.isNoPrice())
+                offerManager.setOfferIAP(0);
+            else
+                offerManager.setOfferIAP(1);
             iapHandler.purchaseItem(iapHandler.getProductIdIAP(obj));
         }
     }
-
     popUpManager.removePopUp(PopUpManager.OFFER);
 };
 
@@ -754,16 +920,19 @@ OfferManager.TYPE_VIP = 2;
 OfferManager.TYPE_TICKET = 3;
 OfferManager.TYPE_TIME = 4;
 OfferManager.TYPE_DIAMOND = 5;
+OfferManager.TYPE_ITEM = 6;
 
 OfferManager.TYPE_SMS = "sms";
 OfferManager.TYPE_IAP = "iap";
 OfferManager.TYPE_ZING = "zing";
 OfferManager.TYPE_ATM = "atm";
 OfferManager.TYPE_ZALOPAY = "zalopay";
+OfferManager.TYPE_ALL = "all";
 
 OfferManager.TYPE_GROUP_NORMAL = 0;
 OfferManager.TYPE_GROUP_ZALO = 1;
 OfferManager.TYPE_GROUP_PROMO = 2;
+OfferManager.TYPE_GROUP_NO_FIX_PRICE = 3;
 
 OfferManager.NOT_SHOW_WEB = 2;
 OfferManager.NOT_SHOW_ENABLE_PAYMENT = 3;
@@ -824,6 +993,13 @@ CmdReceivedNotifyOffer = CmdReceivedCommon.extend({
         this.remainBuy = this.getInts();
         this.maxBuy = this.getInts();
         this.diamond = this.getInts();
+        var dataItem = this.getStrings();
+        cc.log("DATA ITEM " + dataItem);
+        this.offerItem = [];
+        for (var i = 0; i < dataItem.length; i++) {
+            this.offerItem[i] = JSON.parse(dataItem[i]);
+        }
+        this.bonusPercentage = this.getInts();
     }
 });
 
@@ -843,7 +1019,8 @@ CmdReceivedOfferSuccess = CmdReceivedCommon.extend({
         this.bonusTime = this.getInt();
         this.offerEvent = JSON.parse(this.getString());
         this.bonusDiamond = this.getInt();
-        cc.log("offer event success: ", JSON.stringify(this.offerEvent));
+        this.offerItem = JSON.parse(this.getString());
+        // cc.log("offer event success: ", JSON.stringify(this.offerEvent));
     }
 });
 

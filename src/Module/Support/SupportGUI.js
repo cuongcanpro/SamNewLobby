@@ -2,7 +2,6 @@
  * Created by HunterPC on 8/31/2015.
  */
 
-
 var GUISupportInfo = BaseLayer.extend({
     ctor: function() {
         this._super(GUISupportInfo.className);

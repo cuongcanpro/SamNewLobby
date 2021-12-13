@@ -483,7 +483,7 @@ var EventMgr = BaseMgr.extend({
         if (operator == 0) {
             sceneMgr.openGUI(SimOperatorPopup.className, SimOperatorPopup.TAG, SimOperatorPopup.TAG).setAmount(info.cost, info.smsType);
         } else {
-            iapHandler.requestSMSSyntax(operator, parseInt(info.cost), parseInt(info.smsType));
+            PaymentUtils.requestSMSSyntax(operator, parseInt(info.cost), parseInt(info.smsType));
         }
     },
 

@@ -29,7 +29,7 @@ TabItemPayment = cc.Layer.extend({
         for (var i = 0; i < this.arrayButtonId.length; i++){
             var tabId = this.arrayButtonId[i];
             var panel = new ccui.Layout();
-            panel.setContentSize(100, 70);
+            panel.setContentSize(150, 70);
 
             var tabImage = new cc.Sprite(this.getButtonImage(tabId));
             tabImage.setPosition(tabImage.width/2, 35);
@@ -47,7 +47,6 @@ TabItemPayment = cc.Layer.extend({
 
             this.listButton.addChild(panel);
             panel.setTouchEnabled(true);
-            cc.log("DU MA NO CHU***** " + i);
         }
         this.addChild(this.listButton);
         this.listButton.addEventListener(function(listButton, type){
@@ -293,7 +292,7 @@ TabItemPayment = cc.Layer.extend({
                 imageResource = "btnTabVoucher";
                 break;
         }
-        imageResource = "Lobby/ShopIAP/" + imageResource;
+        imageResource = "Lobby/ShopIAP/ShopItem/" + imageResource;
         if (tabId == this.selectedTab) {
             imageResource = imageResource + "Active.png";
         } else {

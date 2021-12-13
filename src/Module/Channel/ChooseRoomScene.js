@@ -18,11 +18,8 @@ var ChooseRoomScene = BaseLayer.extend({
         this.btnBan = null;
         this.btnGold = null;
         this.btnNumPlayer = null;
-
         this.lbNoRoom = null;
-
         this.tfSearch = null;
-
         this.notifyChat = null;
         this.saveChannel = 0;
 
@@ -43,62 +40,43 @@ var ChooseRoomScene = BaseLayer.extend({
     },
 
     initGUI: function() {
-        var bBot = this.getControl("bgBot");
-        var bTop = this.getControl("bgTop");
         var bSub = this.getControl("bgSub");
         var bSlide = this.getControl("bgSlide");
-        var bListRoom = this.getControl("listroom");
 
-        var bSubSize = cc.director.getWinSize().height - bTop.getContentSize().height * this._scale - bBot.getContentSize().height * this._scale;
-        var scaleY = bSubSize / bSub.getContentSize().height;
-        bSub.setScaleY(scaleY);
-
-        this.listRoomHeight = bSubSize - bSlide.getContentSize().height * this._scale;
-
-        bSub.setPositionY(bTop.getPositionY() - bTop.getContentSize().height * this._scale - bSubSize / 2);
-        bSlide.setPositionY(bTop.getPositionY() - bTop.getContentSize().height * this._scale - bSlide.getContentSize().height * this._scale / 2);
-        bListRoom.setPositionY(bSlide.getPositionY() - bSlide.getContentSize().height * this._scale / 2 - this.listRoomHeight);
+        this.listRoomHeight = bSlide.getPositionY() - bSlide.getContentSize().height;
 
         // Right top
         var pRightTop = this.getControl("pRightTop");
-        this.customButton("btnChoingay", ChooseRoomScene.BTN_CHOINGAY, pRightTop);
-        this.customButton("btnTaoban", ChooseRoomScene.BTN_TAOBAN, pRightTop);
-        this.customButton("btnRefresh", ChooseRoomScene.BTN_REFRESH, pRightTop);
+        // user info
+        this.pUserInfo = new UserDetailInfo();
+        pRightTop.addChild(this.pUserInfo);
+
 
         // left top
-        var pLeftTop = this.getControl("pLeftTop");
-        this.customButton("btnQuit", ChooseRoomScene.BTN_QUIT, pLeftTop);
-
-        // user info
-        var pInfo = this.getControl("pInfo");
-        pInfo.setLocalZOrder(3);
-
-        this._uiName = this.getControl("name", pInfo);
-        this._uiBean = this.getControl("gold", pInfo);
-        this._uiBean.ignoreContentAdaptWithSize(true);
-
-        this.customButton("btnAvatar", ChooseRoomScene.BTN_AVATAR, pInfo).setPressedActionEnabled(false);
-        var bgAvatar = this.getControl("bgAvatar", pInfo);
-        this._uiAvatar = new AvatarUI("Common/defaultAvatar.png", "Common/maskAvatar.png", "");
-        var size = bgAvatar.getContentSize();
-        this._uiAvatar.setPosition(cc.p(size.width / 2, size.height / 2));
-        bgAvatar.addChild(this._uiAvatar);
-
-        this.defaultFrame = this.getControl("border", pInfo);
-        this.avatarFrame = new UIAvatarFrame();
-        this.avatarFrame.setPosition(cc.p(size.width / 2, size.height / 2));
-        bgAvatar.addChild(this.avatarFrame);
-        this.avatarFrame.setScale(0.5);
-
+        this.pLeftTop = this.getControl("pLeftTop");
+        this.customButton("btnQuit", ChooseRoomScene.BTN_QUIT, this.pLeftTop);
         // chanel button
-        var pRightBot = this.getControl("pRightBot");
         this.tabRooms = [];
         for (var i = 0; i < 4; i++) {
-            var btn = this.customButton("btn" + i, i + ChooseRoomScene.BTN_TAPSU, pRightBot, false);
+            var btn = this.customButton("btn" + i, i + ChooseRoomScene.BTN_TAPSU, this.pLeftTop, false);
             btn.select = this.getControl("select", btn);
-            btn.nonselect = this.getControl("nonselect", btn);
+            btn.range = this.getControl("range", btn);
+            var s = "";
+            if (channelMgr.getMaxGoldInChannel(i) > 0) {
+                s = StringUtility.formatNumberSymbol(channelMgr.getMinGoldInChannel(i)) + "-" + StringUtility.formatNumberSymbol(channelMgr.getMaxGoldInChannel(i));
+            }
+            else {
+                s = "Above " + StringUtility.formatNumberSymbol(channelMgr.getMinGoldInChannel(i));
+            }
+            btn.range.setString(s);
             this.tabRooms.push(btn);
         }
+
+        this.bgBottom = this.getControl("bgBottom");
+        this.bgBottom.setLocalZOrder(2);
+        this.customButton("btnChoingay", ChooseRoomScene.BTN_CHOINGAY, this.bgBottom);
+        this.customButton("btnTaoban", ChooseRoomScene.BTN_TAOBAN, this.bgBottom);
+        this.customButton("btnRefresh", ChooseRoomScene.BTN_REFRESH, this.bgBottom);
 
         this.lbNoRoom = this.getControl("noroom");
 
@@ -111,31 +89,23 @@ var ChooseRoomScene = BaseLayer.extend({
         this.btnGold.sort = this.btnGold.getChildByName("sort");
         this.btnNumPlayer.sort = this.btnNumPlayer.getChildByName("sort");
 
-        this.btnBan.setPositionY(bSlide.getPositionY());
-        this.btnGold.setPositionY(bSlide.getPositionY());
-        this.btnNumPlayer.setPositionY(bSlide.getPositionY());
+        this.btnBan.setPositionY(bSlide.getPositionY() - bSlide.getContentSize().height * 0.5);
+        this.btnGold.setPositionY(this.btnBan.getPositionY());
+        this.btnNumPlayer.setPositionY(this.btnBan.getPositionY());
 
         this.btnBan.sort.setVisible(false);
         this.btnGold.sort.setVisible(false);
         this.btnNumPlayer.sort.setVisible(false);
 
-        this.getControl("btnTenBan").setPositionY(bSlide.getPositionY());
-
-        this.getControl("sp1").setPositionY(bSlide.getPositionY());
-        this.getControl("sp2").setPositionY(bSlide.getPositionY());
-        this.getControl("sp3").setPositionY(bSlide.getPositionY());
+        this.getControl("btnTenBan").setPositionY(this.btnBan.getPositionY());
 
         // list room
         var sizeList = cc.size(cc.winSize.width, this.listRoomHeight);
         this._uiTable = new cc.TableView(this, sizeList);
         this._uiTable.setDirection(cc.SCROLLVIEW_DIRECTION_VERTICAL);
-        this._uiTable.setPosition(bListRoom.getPosition());
         this._uiTable.setVerticalFillOrder(0);
 
-        var rItem = this.getControl("item", bListRoom);
-        rItem.setVisible(false);
-        this.cellSize = cc.size(rItem.getContentSize().width, rItem.getContentSize().height * this._scale);
-
+        this.cellSize = cc.size(cc.winSize.width, 60);
         this._layout.addChild(this._uiTable);
         this._uiTable.setDelegate(this);
         this._uiTable.reloadData();
@@ -148,17 +118,7 @@ var ChooseRoomScene = BaseLayer.extend({
     },
 
     onUpdateGUI: function (data) {
-        if (this._uiAvatar && this._uiName && this._uiBean) {
-            this._uiAvatar.asyncExecuteWithUrl(userMgr.getUserName(), userMgr.getAvatar());
-            this.setLabelText(userMgr.getDisplayName(), this._uiName);
-            this._uiBean.setString(StringUtility.standartNumber(userMgr.getGold()));
-        }
-
-        if (this.avatarFrame){
-            this.avatarFrame.reload();
-            this.defaultFrame.setVisible(!this.avatarFrame.isShow());
-        }
-
+        this.pUserInfo.updateToCurrentData();
         if (!data) {
             if (channelMgr.selectedChanel != -1) {
                 this.switchTab(channelMgr.selectedChanel);
@@ -455,14 +415,14 @@ var ChooseRoomScene = BaseLayer.extend({
     switchTab: function (tabIdx) {
         for (var i = 0; i < 4; i++) {
             if (i == tabIdx) {
-                this.tabRooms[i].loadTextures("ChooseRoomGUI/chanelselect.png", "ChooseRoomGUI/chanelselect.png", "");
-                this.tabRooms[i].select.setVisible(true);
-                this.tabRooms[i].nonselect.setVisible(false);
+                this.tabRooms[i].loadTextures("ChooseRoomGUI/btnChannelSelect.png", "ChooseRoomGUI/btnChannelSelect.png", "");
+                this.tabRooms[i].select.loadTexture("ChooseRoomGUI/textChannelSelect_" + i + ".png");
+                this.tabRooms[i].setLocalZOrder(1);
             }
             else {
-                this.tabRooms[i].loadTextures("ChooseRoomGUI/btn.png", "ChooseRoomGUI/btn.png", "");
-                this.tabRooms[i].select.setVisible(false);
-                this.tabRooms[i].nonselect.setVisible(true);
+                this.tabRooms[i].loadTextures("ChooseRoomGUI/btnChannel.png", "ChooseRoomGUI/btnChannel.png", "");
+                this.tabRooms[i].select.loadTexture("ChooseRoomGUI/textChannel_" + i + ".png");
+                this.tabRooms[i].setLocalZOrder(0);
             }
         }
         this.saveChannel = tabIdx;

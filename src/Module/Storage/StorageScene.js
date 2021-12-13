@@ -267,14 +267,14 @@ var StorageScene = BaseLayer.extend({
 
         // update avatar
         try {
-            this.avatar.asyncExecuteWithUrl(GameData.getInstance().userData.zName, GameData.getInstance().userData.avatar);
+            this.avatar.asyncExecuteWithUrl(userMgr.getUserName(), userMgr.getAvatar());
         } catch (e) {}
         this.avatarFrame.reload();
 
         // update bean
-        this.setGValue(gamedata.userData.coin);
-        this.setGoldValue(gamedata.userData.bean);
-        this.setDiamondValue(gamedata.userData.diamond);
+        this.setGValue(userMgr.getCoin());
+        this.setGoldValue(userMgr.getGold());
+        this.setDiamondValue(userMgr.getDiamond());
 
         this.itemData = {};
         for (var i = 0; i < this.arrayButtonId.length; i++)
@@ -1131,7 +1131,7 @@ var StorageCheatGUI = BaseLayer.extend({
         this.pPreview.addChild(sprite);
 
         var itemConfig = StorageManager.getInstance().itemConfig[this.data.type][this.data.id];
-        this.boxUnlocked.setSelected(VipManager.getInstance().getRealVipLevel() >= itemConfig.vip && gamedata.userData.level >= itemConfig.level);
+        this.boxUnlocked.setSelected(VipManager.getInstance().getRealVipLevel() >= itemConfig.vip && userMgr.getLevel() >= itemConfig.level);
         if (this.data.index >= 0){
             this.boxHad.setSelected(true);
             var itemInfo = StorageManager.getInstance().userItemInfo[this.data.type][this.data.id][this.data.index];
@@ -1438,7 +1438,7 @@ var ChatEmoGUI = BaseLayer.extend({
                             emo.isLock = true;
                             emo.lockMess = "Vip " + data.groups[j].vip;
                         }
-                        else if (gamedata.userData.level < data.groups[j].level){
+                        else if (userMgr.getLevel() < data.groups[j].level){
                             emo.isLock = true;
                             emo.lockMess = "Level " + data.groups[j].level;
                         }
@@ -1475,7 +1475,7 @@ var ChatEmoGUI = BaseLayer.extend({
 
         if (VipManager.getInstance().getRealVipLevel() < this.emoData[this.selectedTab].vip)
             this.setLock(true, "Cần vip #d để mở khóa".replace("#d",  this.emoData[this.selectedTab].vip));
-        else if (gamedata.userData.level < this.emoData[this.selectedTab].level)
+        else if (userMgr.getLevel() < this.emoData[this.selectedTab].level)
             this.setLock(true, "Cần level #d để mở khóa".replace("#d", this.emoData[this.selectedTab].level));
         else{
             var emoId = this.emoData[this.selectedTab].id;
@@ -1839,7 +1839,7 @@ var InboardStorageGUI = BaseLayer.extend({
 
         // update avatar
         try {
-            this.avatar.asyncExecuteWithUrl(GameData.getInstance().userData.zName, GameData.getInstance().userData.avatar);
+            this.avatar.asyncExecuteWithUrl(userMgr.getUserName(), userMgr.getAvatar());
         } catch (e) {}
         this.avatarFrame.reload();
 
@@ -2680,7 +2680,7 @@ var StorageNotifyGUI = BaseLayer.extend({
                     cc.callFunc(function(){
                         var scene = sceneMgr.getMainLayer();
                         if (scene instanceof LobbyScene) {
-                            effectMgr.runLabelPoint(scene._uiDiamond, gamedata.userData.diamond - StorageManager.getInstance().diamondNewItem, gamedata.userData.diamond, 0.5);
+                            effectMgr.runLabelPoint(scene._uiDiamond, userMgr.getDiamond() - StorageManager.getInstance().diamondNewItem, userMgr.getDiamond(), 0.5);
                         }
                         popUpManager.removePopUp(PopUpManager.NEW_ITEM);
                     }),

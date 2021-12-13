@@ -99,9 +99,9 @@ var SimOperatorPopup = BaseLayer.extend({
             return;
         cc.log("TYPE NE " + this.type);
         if (this.typeBuy == Payment.CHEAT_PAYMENT_OFFER)
-            iapHandler.requestSMSSyntax(id, parseInt(this.amount), Payment.CHEAT_PAYMENT_OFFER, parseInt(this.type), Payment.IS_OFFER);
+            PaymentUtils.requestSMSSyntax(id, parseInt(this.amount), Payment.CHEAT_PAYMENT_OFFER, parseInt(this.type), Payment.IS_OFFER);
         else
-            iapHandler.requestSMSSyntax(id, parseInt(this.amount), Payment.CHEAT_PAYMENT_EVENT, parseInt(this.type), Payment.NO_OFFER);
+            PaymentUtils.requestSMSSyntax(id, parseInt(this.amount), Payment.CHEAT_PAYMENT_EVENT, parseInt(this.type), Payment.NO_OFFER);
 
         cc.log("##SimOperator::purchaseSMS : " + id + "/" + this.amount);
     },
@@ -204,7 +204,7 @@ var GUIInputCard = BaseLayer.extend({
     onButtonRelease: function (btn, id) {
         if (id == PanelCard.BTN_PURCHASE) {
             if (Config.ENABLE_CHEAT && CheatCenter.ENABLE_FAKE_SMS) {
-                iapHandler.fakePayment(this.amount, Constant.GOLD_ZING);
+                PaymentUtils.fakePayment(this.amount, Constant.GOLD_ZING);
             } else {
                 var card = this.txCard.getString();
                 var seri = this.txSerial.getString();
@@ -218,7 +218,7 @@ var GUIInputCard = BaseLayer.extend({
                     //cmd.putData(this.curCardSelect, card, seri);
                     //GameClient.getInstance().sendPacket(cmd);
 
-                    iapHandler.purchaseCard(PanelCard.BTN_ZING, card, seri, 1, this.typeBuy);
+                    PaymentUtils.purchaseCard(PanelCard.BTN_ZING, card, seri, 1, this.typeBuy);
                     this.updateButton(false);
                     this.onClose();
                 }
@@ -641,7 +641,7 @@ var ZingCardPanel = BaseLayer.extend({
             case ZingCardPanel.BTN_PURCHASE : {
                 if (Config.ENABLE_CHEAT && CheatCenter.ENABLE_FAKE_SMS) {
                     var card = this.txCard.getString();
-                    iapHandler.fakePayment(parseInt(card), Constant.G_ZING);
+                    PaymentUtils.fakePayment(parseInt(card), Constant.G_ZING);
                 } else {
                     var card = this.txCard.getString();
                     var seri = this.txSerial.getString();
@@ -657,7 +657,7 @@ var ZingCardPanel = BaseLayer.extend({
                         //cmd.putData(this.curCardSelect, card, seri);
                         //GameClient.getInstance().sendPacket(cmd);
 
-                        iapHandler.purchaseCard(PanelCard.BTN_ZING, card, seri);
+                        PaymentUtils.purchaseCard(PanelCard.BTN_ZING, card, seri);
                         this.updateButton(false);
                     }
                 }

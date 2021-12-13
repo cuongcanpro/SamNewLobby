@@ -10,9 +10,16 @@ BaseTabShop = cc.Layer.extend({
     },
 
     initGUI: function () {
+        this.bgChannel = new cc.Sprite("res/Lobby/Common/bgColumn.png");
+        this.addChild(this.bgChannel);
+        this.bgChannel.setScaleX(cc.winSize.width / this.bgChannel.getContentSize().width);
+        this.bgChannel.setPosition(cc.winSize.width * 0.5, this.heightTab - this.bgChannel.getContentSize().height * 0.5);
+
+        var startY = this.heightTab - this.bgChannel.getContentSize().height;
+
         this.tabNormalPayment = new PanelIapItem(this);
         this.addChild(this.tabNormalPayment);
-        this.tabNormalPayment.setPosition(10, 50);
+        this.tabNormalPayment.setPosition(10, startY * 0.5 - ItemIapCell.HEIGHT_ITEM * 0.5 );
 
         var scrollView = new ccui.ScrollView();
         scrollView.setDirection(ccui.ScrollView.DIR_HORIZONTAL);
@@ -21,10 +28,10 @@ BaseTabShop = cc.Layer.extend({
         //scrollView.setBackGroundColorType(ccui.Layout.BG_COLOR_SOLID);
         scrollView.setBackGroundColor(cc.color(255,255,255));
         //scrollView.setBackGroundImageScale9Enabled(true);
-        scrollView.setContentSize(cc.size(800, 70));
-        scrollView.setInnerContainerSize(cc.size(800, 70));
-        scrollView.setAnchorPoint(cc.p(0.0, 0.5));
-        scrollView.setPosition(0, this.heightTab - 35);
+        scrollView.setContentSize(cc.size(cc.winSize.width, this.bgChannel.getContentSize().height));
+        scrollView.setInnerContainerSize(cc.size(cc.winSize.width, this.bgChannel.getContentSize().height));
+        scrollView.setAnchorPoint(cc.p(0.0, 0));
+        scrollView.setPosition(0, startY);
         this.addChild(scrollView);
         this.scrollView = scrollView;
 
@@ -46,7 +53,7 @@ BaseTabShop = cc.Layer.extend({
               var btn = this.getButton();
               btn.setData(arrayChannelData[i]);
               btn.setSelect(false);
-              btn.setPosition(padX + btn.getContentSize().width * (i + 0.5), btn.getContentSize().height * 0.5);
+              btn.setPosition(padX * (i + 1) + btn.getContentSize().width * (i + 0.5), this.scrollView.getContentSize().height * 0.5);
           }
           cc.log("ARRAY BUTTON**** " + this.arrayChannelButton.length);
     },

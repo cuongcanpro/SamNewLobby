@@ -30,7 +30,6 @@ var LobbyScene = BaseLayer.extend({
         this.btnEventInGame = null;
 
         this.btnCamera = null;
-        this.notifyCapture = null;
         this.btnHotNews = null;
 
         this.isRequestTop = false;
@@ -50,21 +49,22 @@ var LobbyScene = BaseLayer.extend({
         if (paymentMgr.checkEnablePayment()) {
             this.btnGold.setVisible(true);
             if (paymentMgr.checkEnableNapG())
-                this.getControl("btn", this.btnG).setVisible(true);
+                this.pUserInfo.btnCoin.setVisible(true);
             else
-                this.getControl("btn", this.btnG).setVisible(false);
-            this.getControl("btn", this.btnGoldSmall).setVisible(true);
+                this.pUserInfo.btnCoin.setVisible(false);
+            this.pUserInfo.btnGold.setVisible(true);
         } else {
             this.btnGold.setVisible(false);
 
-            this.getControl("btn", this.btnG).setVisible(false);
-            this.getControl("btn", this.btnGoldSmall).setVisible(false);
+            this.pUserInfo.btnCoin.setVisible(false);
+            this.pUserInfo.btnGold.setVisible(false);
         }
         this.btnCamera.setVisible(!userMgr.checkDisableSocialViral() && cc.sys.isNative && cc.sys.isNative);
 
         // this.btnCamera.setVisible(false);
         this.updateMoreButtonTopRight();
         this.onUpdateGUI();
+        this.pUserInfo.updateToCurrentData();
         this.loadAnimation();
         if (Config.ENABLE_NEW_RANK)
             this.onUpdateBtnRank();
@@ -98,8 +98,9 @@ var LobbyScene = BaseLayer.extend({
 
         //init lucky bonus
         if (this.btnCamera.isVisible())
-            this.btnLuckyBonus.setPosition(LuckyBonusManager.LOBBY_BTN_POS_X_WITH_CAMERA_BTN, LuckyBonusManager.LOBBY_BTN_POS_Y);
-        else this.btnLuckyBonus.setPosition(LuckyBonusManager.LOBBY_BTN_POS_X_WITHOUT_CAMERA_BTN, LuckyBonusManager.LOBBY_BTN_POS_Y);
+            this.btnLuckyBonus.setPosition(this.btnCamera.getPositionX() - 70, this.btnCamera.getPositionY());
+        else
+            this.btnLuckyBonus.setPosition(this.btnSupport.getPositionX() - 70, this.btnCamera.getPositionY());
         LuckyBonusManager.getInstance().checkShowNotify(this.btnLuckyBonus);
     },
 
@@ -142,7 +143,6 @@ var LobbyScene = BaseLayer.extend({
         this.panelBgNew = this.getControl("panelBgNew");
 
         this.initTopLeft();
-        this.initTopRight();
         this.initCenterLeft();
         this.initCenterRight();
         this.initBottom();
@@ -190,6 +190,11 @@ var LobbyScene = BaseLayer.extend({
 
     initCenterRight: function () {
         var pRightButton = this.getControl("pRightButton");
+        this.btnCamera = this.customButton("btnCamera", LobbyScene.BTN_SHARE, pRightButton);
+        this.btnSupport = this.customButton("btnSupport", LobbyScene.BTN_SUPPORT, pRightButton);
+
+        this.btnLuckyBonus = new LuckyBonusButton();
+        pRightButton.addChild(this.btnLuckyBonus);
         //pRightButton.setPositionX(pRightButton.getPositionX() - (cc.winSize.width - Constant.WIDTH) * 0.15);
 
         this.btnQuickPlay = this.customButton("btnChoingay", LobbyScene.BTN_CHOINGAY, pRightButton);
@@ -234,6 +239,7 @@ var LobbyScene = BaseLayer.extend({
     },
 
     reloadPositionButtonBottom: function () {
+        return;
         var startX;
         var width;
         var pBotButton = this.getControl("bot");
@@ -291,81 +297,42 @@ var LobbyScene = BaseLayer.extend({
         var pLeftCenter = this.getControl("pLeftCenter");
         this.btnShare = this.customButton("btnShare", LobbyScene.BTN_SHARE, pLeftCenter);
 
-        this.pOffer = this.getControl("pOffer", pLeftCenter);
-        this.pOffer.pos = this.pOffer.getPosition();
-        offerManager.setGroupOffer(this.pOffer);
-
         this.pButton = this.getControl("pButton", pLeftCenter);
         LobbyButtonManager.getInstance().setPButton(this.pButton);
     },
 
     initUserInfo: function () {
-        var pAvatar = this.getControl("pLeftTop");
-        // pAvatar = pBotButton;
+        var pLeftTop = this.getControl("pLeftTop");
 
-        this.btnGoldSmall = this.customButton("btnGold", LobbyScene.BTN_DOIVANG, pAvatar);
-        this.btnGoldSmall.setPressedActionEnabled(false);
-        this.btnG = this.customButton("btnG", LobbyScene.BTN_NAPG, pAvatar);
-        this.btnG.setPressedActionEnabled(false);
-        this.btnDiamond = this.customButton("btnDiamond", LobbyScene.BTN_BUY_DIAMOND, pAvatar);
-        this.btnDiamond.setPressedActionEnabled(false);
-        this.btnDiamond.setTouchEnabled(false);
-
-        var btnAvatar = this.customButton("btnAvatar", LobbyScene.BTN_AVATAR, pAvatar, pAvatar);
+        var btnAvatar = this.customButton("btnAvatar", LobbyScene.BTN_AVATAR, pLeftTop, pLeftTop);
         btnAvatar.setPressedActionEnabled(false);
         this.btnAvatar = btnAvatar;
 
-        var bgAvatar = this.getControl("bgAvatar", pAvatar);
+        this.pAvatar = this.getControl("pAvatar", pLeftTop);
         this._uiAvatar = new AvatarUI("Common/defaultAvatar.png", "Common/maskAvatar.png", "");////engine.UIAvatar.create("Common/defaultAvatar.png");
-        var size = bgAvatar.getContentSize();
+        var size = this.pAvatar.getContentSize();
         this._uiAvatar.setPosition(cc.p(size.width / 2, size.height / 2));
-        bgAvatar.addChild(this._uiAvatar, 0);
+        this.pAvatar.addChild(this._uiAvatar, 0);
         this._uiAvatar.setScale(0.77);
 
-        this.defaultFrame = this.getControl("border", bgAvatar);
+        this.defaultFrame = this.getControl("border", this.pAvatar);
         this.defaultFrame.setLocalZOrder(1);
         this.avatarFrame = new UIAvatarFrame();
         this.avatarFrame.setPosition(cc.p(size.width / 2, size.height / 2));
-        bgAvatar.addChild(this.avatarFrame, 2);
+        this.pAvatar.addChild(this.avatarFrame, 2);
         this.avatarFrame.setScale(0.39);
 
-        var vipImg = this.getControl("imgVip", pAvatar);
-        vipImg.setVisible(false);
-        this.imgVip = new ccui.Scale9Sprite(VipManager.getIconVip(1));
-        vipImg.getParent().addChild(this.imgVip);
-        this.imgVip.setPosition(vipImg.getPosition());
-        this.imgVip2 = vipImg;
-        this.imgVip2.ignoreContentAdaptWithSize(true);
+        var bgName = this.getControl("bgName", this.pAvatar);
+        this.lbName = this.getControl("lbName", bgName);
 
-        this._uiName = this.getControl("name", pAvatar);
-        this._uiCoin = this.getControl("xu", this.btnG);
-        this._uiBean = this.getControl("gold", this.btnGoldSmall);
-        this._uiDiamond = this.getControl("diamond", this.btnDiamond);
+        var bgVip = this.getControl("bgVip", this.pAvatar);
+        this.imgVip = this.getControl("imgVip", bgVip);
+        this.imgVip.ignoreContentAdaptWithSize(true);
+        this.lbVip = this.getControl("lbVip", bgVip);
 
-        this._uiCoin.ignoreContentAdaptWithSize(true);
-        this._uiBean.ignoreContentAdaptWithSize(true);
-        this._uiDiamond.ignoreContentAdaptWithSize(true);
-    },
-
-    initTopRight: function () {
-        var pRightTop = this.getControl("pRightTop");
-
-        this.btnCamera = this.customButton("btnCamera", LobbyScene.BTN_SHARE, pRightTop);
-        this.notifyCapture = this.getControl("notify", pRightTop);
-        this.notifyCapture.setVisible(false);
-        this.notifyCapture.setLocalZOrder(1);
-        this.notifyCapture.pos = this.notifyCapture.getPosition();
-
-        this.notifyCapture.img1 = this.getControl("img1", this.notifyCapture);
-        this.notifyCapture.img1.pos = this.notifyCapture.img1.getPosition();
-
-        this.notifyCapture.img2 = this.getControl("img2", this.notifyCapture);
-        this.notifyCapture.img2.pos = this.notifyCapture.img2.getPosition();
-
-        this.btnSupport = this.customButton("btnSupport", LobbyScene.BTN_SUPPORT, pRightTop);
-
-        this.btnLuckyBonus = new LuckyBonusButton();
-        pRightTop.addChild(this.btnLuckyBonus);
+        this.pUserInfo = new UserDetailInfo();
+        this.pAvatar.addChild(this.pUserInfo);
+        this.pUserInfo.setPosition(bgName.getPositionX() + bgName.getContentSize().width * 0.6, bgName.getPositionY() - bgName.getContentSize().height * 1.0);
     },
 
     waitEffectOneElement: function (parent, element, distanceX, distanceY) {
@@ -420,8 +387,6 @@ var LobbyScene = BaseLayer.extend({
 
         // LEFT
         var pLeftCenter = this.getControl("pLeftCenter");
-        this.waitEffectOneElement(pLeftCenter, "pOffer", -0, 0);
-        this.waitEffectOneElement(pLeftCenter, "pEvent", -0, 0);
 
     },
 
@@ -468,8 +433,6 @@ var LobbyScene = BaseLayer.extend({
 
         // LEFT
         var pLeftCenter = this.getControl("pLeftCenter");
-        this.waitEffectOneElement(pLeftCenter, "pOffer", -400, 0);
-        this.waitEffectOneElement(pLeftCenter, "pEvent", -400, 0);
     },
 
     effect: function () {
@@ -546,15 +509,7 @@ var LobbyScene = BaseLayer.extend({
 
         // LEFT - EFFECT
         timeTop += 0.1;
-        ret = this.getControl("pOffer", pLeftCenter);
-        ret.runAction(new cc.Sequence(new cc.DelayTime(timeTop), new cc.EaseBackOut(cc.moveBy(time, cc.p(400, 0)))));
-
-        timeTop += 0.2;
         ret = this.getControl("btnShare", pLeftCenter);
-        ret.runAction(new cc.Sequence(new cc.DelayTime(timeTop), new cc.EaseBackOut(cc.moveBy(time, cc.p(400, 0)))));
-
-        timeTop += 0.25;
-        ret = this.getControl("pEvent", pLeftCenter);
         ret.runAction(new cc.Sequence(new cc.DelayTime(timeTop), new cc.EaseBackOut(cc.moveBy(time, cc.p(400, 0)))));
 
         // RIGHT - EFFECT
@@ -582,8 +537,7 @@ var LobbyScene = BaseLayer.extend({
     },
 
     loadAnimation: function () {
-        this.notifyCapture.setVisible(false);
-
+        return;
         this.createAnim(this.logo, "LogoSmall");
 
         var effNPC = this.createAnim(this.npc, "Girl");
@@ -664,18 +618,15 @@ var LobbyScene = BaseLayer.extend({
     },
 
     onUpdateGUI: function (data) {
-        if (this._uiAvatar && this._uiName && this._uiBean && this._uiCoin) {
+        if (this._uiAvatar && this.lbName) {
             try {
                 this._uiAvatar.asyncExecuteWithUrl(userMgr.getUserName(), userMgr.getAvatar());
             } catch (e) {
 
             }
-            this.setLabelText(userMgr.getDisplayName(), this._uiName);
-            cc.log("GOLD NE ** " + userMgr.getGold());
-            this._uiBean.setString(StringUtility.formatNumberSymbol(userMgr.getGold()));
-            this._uiCoin.setString(StringUtility.standartNumber(userMgr.getGold()));
+            this.setLabelText(userMgr.getDisplayName(), this.lbName);
             if (!StorageManager.getInstance().waitDiamondNewItem)
-                this._uiDiamond.setString(StringUtility.standartNumber(userMgr.getDiamond()));
+                this.pUserInfo.updateDiamond(userMgr.getDiamond());
             else StorageManager.getInstance().waitDiamondNewItem = false;
         }
 
@@ -707,35 +658,7 @@ var LobbyScene = BaseLayer.extend({
     },
 
     onEffectSuggestMoney: function (visible) {
-        if (visible === undefined) visible = true;
 
-        this.notifyCapture.setVisible(false);
-
-        if (visible) {
-            this.updateMoreButtonTopRight();
-            var today = new Date();
-            var sDay = today.toISOString().substring(0, 10);
-            var cCaptureDay = cc.sys.localStorage.getItem("capture_success_day");
-            if (cCaptureDay === undefined || cCaptureDay == null) cCaptureDay = "";
-
-            if (sDay != cCaptureDay) {
-                this.notifyCapture.setVisible(!portalMgr.isPortal() && cc.sys.isNative && !userMgr.checkDisableSocialViral());
-
-                this.notifyCapture.img1.setPositionY(this.notifyCapture.img1.pos.y + 100);
-                this.notifyCapture.img2.setPositionY(this.notifyCapture.img2.pos.y + 100);
-
-                this.notifyCapture.setPositionX(this.notifyCapture.pos.x + 300);
-                this.notifyCapture.setOpacity(0);
-                this.notifyCapture.runAction(cc.sequence(cc.spawn(cc.fadeIn(0.5), new cc.EaseBackOut(cc.moveTo(0.5, this.notifyCapture.pos))), cc.callFunc(this.onMoneyDrop.bind(this))));
-            }
-        }
-    },
-
-    onMoneyDrop: function () {
-        this.notifyCapture.img1.runAction(new cc.EaseBackOut(cc.moveTo(0.5, this.notifyCapture.img1.pos)));
-        this.notifyCapture.img2.runAction(cc.sequence(cc.delayTime(0.25), new cc.EaseBackOut(cc.moveTo(0.5, this.notifyCapture.img2.pos))));
-
-        this.notifyCapture.runAction(cc.sequence(cc.delayTime(5), cc.fadeOut(0.5), cc.hide()));
     },
 
     onUpdateBtnRank: function () {
@@ -858,32 +781,7 @@ var LobbyScene = BaseLayer.extend({
                 break;
             }
             case LobbyScene.BTN_CHONBAN: {
-              //  sceneMgr.openScene(ChooseRoomScene.className);
-                this.listButton = new ccui.ListView();
-                this.listButton.setAnchorPoint(cc.p(0, 0));
-                this.listButton.setPosition(220, 200);
-                this.listButton.setContentSize(cc.size(300, 300));
-                this.listButton.setDirection(ccui.ScrollView.DIR_HORIZONTAL);
-                this.listButton.setBounceEnabled(true);
-                this.listButton.setScrollBarEnabled(false);
-
-                var panel = new ccui.Layout();
-                panel.setContentSize(100, 100);
-                this.listButton.setItemModel(panel);
-                for (var i = 0; i < 5; i++){
-                    var panel = new ccui.Layout();
-                    panel.setContentSize(100, 100);
-
-                    var tabImage = new cc.Sprite("Lobby/LobbyGUI/minigame.png");
-                    tabImage.setPosition(20, 35);
-                    tabImage.setTag(1);
-                    panel.addChild(tabImage);
-
-                    this.listButton.pushBackCustomItem(panel);
-                    panel.setTouchEnabled(true);
-                    cc.log("DU MA NO CHU***** " + i);
-                }
-                this.addChild(this.listButton);
+                sceneMgr.openScene(ChooseRoomScene.className);
                 break;
             }
             case LobbyScene.BTN_AVATAR: {
@@ -1001,31 +899,31 @@ var LobbyScene = BaseLayer.extend({
         this.pTooltipVip.setVisible(false);
         this.imgVip.setVisible(vipLevel > 0);
         var state = (VipManager.getInstance().getRemainTime() > 0) ? 0 : 1;
-        this.imgVip.setState(state);
+        this.imgVip.getVirtualRenderer().setState(state);
+
         this.bgTooltip.iconVip.setState(state);
         var texture = VipManager.getIconVip(vipLevel);
         // cc.log("updateVipInfo: ", texture, vipLevel);
         if (texture !== "" && vipLevel > 0) {
             try {
-                this.imgVip2.loadTexture(texture);
+                this.imgVip.loadTexture(texture);
+                this.imgVip.setVisible(true);
                 this.bgTooltip.iconVip2.loadTexture(texture);
-                this.imgVip.initWithFile(texture);
                 this.bgTooltip.iconVip.initWithFile(texture);
-                this.imgVip.setContentSize(this.imgVip2.getContentSize());
                 this.bgTooltip.iconVip.setContentSize(this.bgTooltip.iconVip2.getContentSize());
-                this.imgVip2.setVisible(false);
                 this.bgTooltip.iconVip2.setVisible(false);
+                this.lbVip.setString("VIP " + vipLevel);
             } catch (e) {
                 this.imgVip.setVisible(false);
                 this.bgTooltip.iconVip.setVisible(false);
-                this.imgVip2.setVisible(true);
                 this.bgTooltip.iconVip2.setVisible(true);
-                this.imgVip2.loadTexture(texture);
                 this.bgTooltip.iconVip2.loadTexture(texture);
             }
         }
 
         if (vipLevel === 0) {
+            this.lbVip.setString("No Vip");
+            this.imgVip.setVisible(false);
             return;
         }
 

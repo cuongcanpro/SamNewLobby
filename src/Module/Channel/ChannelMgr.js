@@ -31,7 +31,7 @@ var ChannelMgr = BaseMgr.extend({
             case ChannelMgr.CMD_REFRESH_TABLE: {
                 var table = new CmdReceivedRefreshTable(pk);
                 if (sceneMgr.getRunningScene().getMainLayer() instanceof ChooseRoomScene) {
-                    this.roomlist = table.list;
+                    this.roomList = table.list;
                     sceneMgr.updateCurrentGUI();
                 }
                 return true;
@@ -369,6 +369,14 @@ var ChannelMgr = BaseMgr.extend({
 
         }
         return 0;
+    },
+
+    getMinGoldInChannel: function (idChannel) {
+        return this.chanelConfig[idChannel].minGold;
+    },
+
+    getMaxGoldInChannel: function (idChannel) {
+        return this.chanelConfig[idChannel].maxGold;
     },
 
     onEnterChannel: function () {

@@ -26,24 +26,31 @@ var ItemIapCell = cc.TableViewCell.extend({
 
         this.goldOld = this.cloneLabel(ccui.Helper.seekWidgetByName(this._layout, "gold_old"));
         this.goldOld.setColor(cc.color(200, 200, 200));
-        this.goldNew = this.cloneLabel(ccui.Helper.seekWidgetByName(this._layout, "gold_new"));
+        this.goldNew = new NumberGroupCustom("res/Lobby/ShopIAP/Number/num_", -4, NumberGroupCustom.TYPE_POINT);
+        this.goldNew.setPositionX(this._layout.getContentSize().width * 0.5);
+        this.goldNew.setPositionY(this.goldOld.getPositionY() - 40);
         this.goldNew.defaultPos = this.goldNew.getPosition();
+        this._layout.addChild(this.goldNew);
         this.line = ccui.Helper.seekWidgetByName(this._layout, "line");
 
         this.bgBonus = ccui.Helper.seekWidgetByName(this._layout, "bgBonus");
         this.bgBonus.bonus = ccui.Helper.seekWidgetByName(this.bgBonus, "bonus");
         this.bgBonus.bonus.ignoreContentAdaptWithSize(true);
         this.bgBonus.addClickEventListener(this.onClickBonus.bind(this));
+        this.bgBonus.setLocalZOrder(2);
 
         this.bonusValue = ccui.Helper.seekWidgetByName(this._layout, "bonusValue");
 
         this.lastActionUpdate = 0;
 
         this.groupBonus = new GroupShopBonus();
-        this.addChild(this.groupBonus);
+        this._layout.addChild(this.groupBonus);
+        this.groupBonus.setPosition(ItemIapCell.WIDTH_ITEM * 0.5 - this.groupBonus.getContentSize().width * 0.5, 500)
 
         this.groupBonusSource = new GroupBonusSource();
-        this.addChild(this.groupBonusSource);
+        this._layout.addChild(this.groupBonusSource);
+        this.groupBonusSource.setPosition(this.bgBonus.getPositionX() - this.groupBonusSource.getContentSize().width * 0.5,
+            this.bgBonus.getPositionY() - 100 - this.groupBonusSource.getContentSize().height);
     },
 
     onClickBonus: function () {
@@ -93,29 +100,22 @@ var ItemIapCell = cc.TableViewCell.extend({
         }
 
         //gold value
-        if (inf.smsType == 1) {
-            if (Config.ENABLE_EVENT_TET)
-                this.goldNew.setString(StringUtility.pointNumber(inf.goldNew) + " " + localized("EVENT_TET_LABEL_SHOP"));
-            else
-                this.goldNew.setString(StringUtility.pointNumber(inf.goldNew));
-        } else {
-            this.goldNew.setString(StringUtility.pointNumber(inf.goldNew));
-        }
+        this.goldNew.setNumber(inf.goldNew);
         this.goldOld.setString(StringUtility.pointNumber(inf.goldOld));
         if (inf.goldColor)
             this.goldNew.setColor(inf.goldColor);
         else
             this.goldNew.setColor(cc.color(255, 171, 27, 0));
         this.goldOld.setVisible(inf.goldNew != inf.goldOld);
-        if (this.goldOld.isVisible()) this.goldNew.setPositionY(this.goldNew.defaultPos.y);
-        else this.goldNew.setPositionY(this._layout.getContentSize().height/2);
+        // if (this.goldOld.isVisible()) this.goldNew.setPositionY(this.goldNew.defaultPos.y);
+        // else this.goldNew.setPositionY(this.goldOld.getPositionY() - 10);
         this.line.setVisible(inf.goldNew != inf.goldOld);
         this.line.setPositionX(this.goldOld.getPositionX() + this.goldOld.getContentSize().width / 2);
         this.line.setScaleX(this.goldOld.getContentSize().width / this.line.getContentSize().width);
 
         // group Bonus
        this.groupBonus.setInfo(inf);
-       this.groupBonus.setPositionY(200 - this.groupBonus.getContentSize().height);
+       this.groupBonus.setPositionY(this.goldNew.getPositionY() - 40 - this.groupBonus.getContentSize().height);
 
         //bonus
         var sum = 0;
@@ -141,7 +141,7 @@ var ItemIapCell = cc.TableViewCell.extend({
             this.groupBonusSource.setInfo(inf);
             this.groupBonusSource.hideGroup();
             this.groupBonusSource.setPosition(this.bgBonus.getPositionX() - this.groupBonusSource.getContentSize().width * 0.5,
-                this.bgBonus.getPositionY() - this.groupBonusSource.getContentSize().height);
+                this.bgBonus.getPositionY() - this.bgBonus.getContentSize().height * 0.6 - this.groupBonusSource.getContentSize().height);
         }
         else {
             this.bgBonus.setVisible(false);
@@ -245,11 +245,14 @@ ItemIapCell.CURRENCY_ATM = "VND";
 ItemIapCell.CURRENCY_ZING = "VND";
 ItemIapCell.CURRENCY_ZALO = "VND";
 
+/**
+ * Thong tin nhung bonus % cua goi, khuyen mai Gold, nap lan dau, khuyen mai Vip, Vourcher....
+ */
 GroupBonusSource = cc.Node.extend({
     ctor: function () {
         this._super();
         this.arrayBonusRow = [];
-        this.bg = new cc.Scale9Sprite("res/Lobby/ShopIAP/bgTextfield.png");
+        this.bg = new cc.Scale9Sprite("res/Lobby/ShopIAP/ShopCell/bgInfoBonus.png");
         this.addChild(this.bg);
         this.bg.setAnchorPoint(cc.p(0, 0));
     },
@@ -278,12 +281,14 @@ GroupBonusSource = cc.Node.extend({
         if (shopPackage.bonusValue && shopPackage.bonusValue > 0) {
             var s = "+" + shopPackage.bonusValue + "% " + shopPackage.bonus + (shopPackage.isBonusVip ? levelVip : "");
             var bonusRow = this.getShopBonusRow();
+            bonusRow.setVisible(true);
             bonusRow.setString(s);
-            bonusRow.setPosition(5, pad * (count + 0.5));
+            bonusRow.setPosition(5, pad * (count + 0.9));
             count++;
         }
-        this.bg.setContentSize(this.bg.getContentSize().width, pad * count);
-        this.setContentSize(cc.size(this.bg.getContentSize().width, pad * count));
+        this.bg.setContentSize(this.bg.getContentSize().width, pad * (count + 1));
+        this.setContentSize(cc.size(this.bg.getContentSize().width, pad * (count + 1)));
+        this.shopPackage = shopPackage;
     },
 
     getShopBonusRow: function () {
@@ -300,6 +305,8 @@ GroupBonusSource = cc.Node.extend({
     },
 
     showGroup: function () {
+        cc.log("SHOP PACKAGE " + JSON.stringify(this.shopPackage));
+        cc.log("THONG TIN BONUS " + this.shopPackage.bonusValue + " " + this.shopPackage.bonus);
         this.isShow = !this.isShow;
         this.stopAllActions();
         if (this.isShow) {
@@ -318,13 +325,17 @@ GroupBonusSource = cc.Node.extend({
     }
 })
 
+/**
+ * Moi mot GOI mua se co khuyen mai tang kem VPoint, gio vip, Item Event...
+ */
 GroupShopBonus = cc.Node.extend({
     ctor: function () {
         this._super();
         this.arrayBonusRow = [];
-        this.bg = new cc.Scale9Sprite("res/Lobby/ShopIAP/bgTextfield.png");
+        this.bg = new cc.Scale9Sprite("res/Lobby/ShopIAP/ShopCell/bgItemBonus.png");
         this.addChild(this.bg);
         this.bg.setAnchorPoint(cc.p(0, 0));
+        this.setContentSize(this.bg.getContentSize());
     },
 
     setInfo: function (shopPackage) {
@@ -337,12 +348,13 @@ GroupShopBonus = cc.Node.extend({
             return;
         }
         this.setVisible(true);
-        cc.log("ARRAY BONUS " + JSON.stringify(this.arrayBonus));
+        cc.log("ARRAY BONUS ********** " + JSON.stringify(this.arrayBonus));
         var height = (this.arrayBonus.length < 3 ? 3 : this.arrayBonus.length) * ShopBonusRow.PAD_Y;
         for (var i = 0; i < this.arrayBonus.length; i++) {
             var row = this.getShopBonusRow();
             row.setInfo(this.arrayBonus[i]);
             row.setPosition(10 , height - (i + 0.5) * ShopBonusRow.PAD_Y);
+            row.setVisible(true);
         }
         this.bg.setContentSize(this.bg.getContentSize().width, height);
         this.setContentSize(cc.size(this.bg.getContentSize().width, height));
@@ -360,21 +372,26 @@ GroupShopBonus = cc.Node.extend({
     },
 })
 
+/**
+ * Hang Bonus di kem trong Group Bonus
+ */
 ShopBonusRow =  cc.Node.extend({
     ctor: function () {
         this._super();
         this.setAnchorPoint(cc.p(0, 0));
         this.setCascadeOpacityEnabled(true);
 
-
         this.icon = new cc.Sprite("res/Lobby/GUIVipNew/iconVpoint.png");
         this.addChild(this.icon);
-        this.labelDescrible = BaseLayer.createLabelText("fkdsjl fjsdj fsld kjfd kf sdfd ssds lfj", cc.color(255, 246, 220, 255));
+        this.icon.setPositionX(this.icon.getContentSize().width * 0.5);
+
+        this.labelDescrible = BaseLayer.createLabelText("fkdsjl fjsdj fsld kjfd", cc.color(255, 246, 220, 255));
         this.labelDescrible.setFontName(SceneMgr.FONT_BOLD);
-        this.labelDescrible.setTextHorizontalAlignment(cc.TEXT_ALIGNMENT_CENTER);
+        this.labelDescrible.setTextHorizontalAlignment(cc.TEXT_ALIGNMENT_LEFT);
         this.labelDescrible.setAnchorPoint(cc.p(0, 0.5));
         this.labelDescrible.setFontSize(16);
         this.labelDescrible.ignoreContentAdaptWithSize(false);
+        this.labelDescrible.setPositionX(this.icon.getPositionX() + this.icon.getContentSize().width * 0.8);
         this.addChild(this.labelDescrible);
     },
 
@@ -385,7 +402,7 @@ ShopBonusRow =  cc.Node.extend({
         this.labelDescrible.setString(bonusData.getTitle());
     },
 });
-ShopBonusRow.PAD_Y = 30;
+ShopBonusRow.PAD_Y = 40;
 
 var OfferIapCell = cc.TableViewCell.extend({
     ctor: function (p) {
@@ -620,8 +637,8 @@ var OfferIapCell = cc.TableViewCell.extend({
     }
 });
 
-ItemIapCell.WIDTH_ITEM = 200;
-ItemIapCell.HEIGHT_ITEM = 250;
+ItemIapCell.WIDTH_ITEM = 306;
+ItemIapCell.HEIGHT_ITEM = 458;
 
 var ShopItemCell = cc.TableViewCell.extend({
     ctor: function(numCol, itemScale, itemSpace, highlight, tabItemPayment) {

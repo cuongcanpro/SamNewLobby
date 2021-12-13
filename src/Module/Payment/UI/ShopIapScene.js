@@ -23,12 +23,20 @@ var ShopIapScene = BaseLayer.extend({
         //top buttons
         this.btnGold = this.customButton("btnGold", ShopIapScene.BTN_GOLD, this.panelTop);
         this.btnGold.setPressedActionEnabled(false);
+        this.btnGoldTitle = this.getControl("imgTitle", this.btnGold);
+
         this.btnG = this.customButton("btnG", ShopIapScene.BTN_G, this.panelTop);
         this.btnG.setPressedActionEnabled(false);
+        this.btnGTitle = this.getControl("imgTitle", this.btnG);
+
         this.btnTicket = this.customButton("btnTicket", ShopIapScene.BTN_TICKET, this.panelTop);
         this.btnTicket.setPressedActionEnabled(false);
+        this.btnTicketTitle = this.getControl("imgTitle", this.btnTicket);
+
         this.btnItem = this.customButton("btnItem", ShopIapScene.BTN_ITEM, this.panelTop);
         this.btnItem.setPressedActionEnabled(false);
+        this.btnItemTitle = this.getControl("imgTitle", this.btnItem);
+
         this.btnGold.pos = this.btnGold.getPosition();
         this.btnG.pos = this.btnG.getPosition();
         this.btnTicket.iconX2 = new cc.Sprite("LobbyGUI/iconX2.png");
@@ -39,27 +47,14 @@ var ShopIapScene = BaseLayer.extend({
         this.customButton("btnHelp", ShopIapScene.BTN_HELP);
         this.title = this.getControl("title", this.panelTop);
 
-        //load event ticket item
-        this.iconTicketButton = this.getControl("iconTicket", this.btnTicket);
-        this.iconTicketButton.loadTexture(eventMgr.getTicketTexture(-1));
-
         //user info layer
-        this.pInfo = this.getControl("pInfo");
-        this._uiName = this.getControl("name", this.pInfo);
-        this.iconGold = this.getControl("iconGold", this.pInfo);
-        this._uiBean = this.getControl("gold", this.pInfo);
-        this.iconCoin = this.getControl("iconCoin", this.pInfo);
-        this._uiCoin = this.getControl("coin", this.pInfo);
-        this._uiStar = this.getControl("star", this.pInfo);
-        this.iconDiamond = this.getControl("iconDiamond", this.pInfo);
-        this._uiDiamond = this.getControl("diamond", this.iconDiamond);
-        try {
-            this.iconTicket = this.getControl("iconTicket");
-            this._uiTicket = this.getControl("ticket");
-            this.iconTicket.setVisible(false);
-        } catch (e) {
+        this.pUserInfo = new UserDetailInfo();
+        this.addChild(this.pUserInfo);
+        this.pUserInfo.setPosition(cc.winSize.height - 50, cc.winSize.width - this.pUserInfo.getContentSize().width);
 
-        }
+        this.iconTicket = this.getControl("iconTicket");
+        this._uiTicket = this.getControl("ticket");
+        this.iconTicket.setVisible(false);
 
         // init panel tab
         var heightTab = cc.winSize.height - this.panelTop.getContentSize().height;
@@ -78,8 +73,9 @@ var ShopIapScene = BaseLayer.extend({
 
     onEnterFinish: function () {
         cc.log(" ******* ON ENTER FINISH SHOP IAP SCENE ******* ");
-        this.onUpdateGUI();
+
         this.getControl("btnHelp").setVisible(!paymentMgr.checkInReview());
+        this.pUserInfo.updateToCurrentData();
 
         // request shop event
         paymentMgr.sendUpdateBuyGold();
@@ -114,7 +110,6 @@ var ShopIapScene = BaseLayer.extend({
     },
 
     onUpdateGUI: function () {
-        this.updateUserInfo();
         shopData.initShopData();
         if (!eventMgr.isHaveShopTicket()) {
             this.iconTicket.loadTexture("ShopIAP/ionCommingSoon.png");
@@ -132,12 +127,6 @@ var ShopIapScene = BaseLayer.extend({
         this.updateEventInfo();
     },
 
-    updateUserInfo: function () {
-        if (this._uiBean) this._uiBean.setString(StringUtility.standartNumber(userMgr.getGold()));
-        if (this._uiCoin) this._uiCoin.setString(StringUtility.standartNumber(userMgr.getCoin()));
-        if (this._uiDiamond) this._uiDiamond.setString(StringUtility.standartNumber(userMgr.getDiamond()));
-    },
-
     updateVipInfo: function () {
         VipManager.effectVipShopInfo(this, false);
     },
@@ -145,14 +134,11 @@ var ShopIapScene = BaseLayer.extend({
     updateEventInfo: function () {
         //return;
         if (eventMgr.isInMainEvent()) {
-            this.iconTicketButton.loadTexture(eventMgr.getTicketTexture());
             if (eventMgr.promoTicket > 0) {
                 this.btnTicket.iconX2.setVisible(true);
             } else {
                 this.btnTicket.iconX2.setVisible(false);
             }
-        } else {
-            this.iconTicketButton.loadTexture("ShopIAP/ionCommingSoon.png");
         }
         if (this.currentIdTab == ShopIapScene.BTN_TICKET) {
             if (this.iconTicket) {
@@ -166,12 +152,10 @@ var ShopIapScene = BaseLayer.extend({
 
                 }
             }
-            this.iconCoin.setVisible(false);
-            this.iconGold.setVisible(false);
+            this.pUserInfo.setVisible(false);
         } else {
             this.iconTicket.setVisible(false);
-            this.iconCoin.setVisible(true);
-            this.iconGold.setVisible(true);
+            this.pUserInfo.setVisible(true);
         }
     },
 
@@ -192,22 +176,29 @@ var ShopIapScene = BaseLayer.extend({
         this.tabGold.setVisible(false);
         this.tabTicket.setVisible(false);
         this.tabItem.setVisible(false);
-        var resourceGold = (idTab == ShopIapScene.BTN_GOLD ? "ShopIAP/btnTabGoldActive.png" : "ShopIAP/btnTabGoldInactive.png");
-        var resourceG = (idTab == ShopIapScene.BTN_G ? "ShopIAP/btnTabGActive.png" : "ShopIAP/btnTabGInactive.png");
-        var resourceTicket = (idTab == ShopIapScene.BTN_TICKET ? "ShopIAP/btnTabEventActive.png" : "ShopIAP/btnTabEventInactive.png");
-        var resourceItem = (idTab == ShopIapScene.BTN_ITEM) ? "ShopIAP/btnTabItemActive.png" : "ShopIAP/btnTabItemInactive.png";
-        this.iconTicketButton.setOpacity(idTab == ShopIapScene.BTN_TICKET ? 255 : 100);
+        var resourceGold = (idTab == ShopIapScene.BTN_GOLD ? "ShopIAP/BtnTab/btnTabGoldActive.png" : "ShopIAP/BtnTab/btnTabGoldInactive.png");
+        var resourceG = (idTab == ShopIapScene.BTN_G ? "ShopIAP/BtnTab/btnTabGActive.png" : "ShopIAP/BtnTab/btnTabGInactive.png");
+        var resourceTicket = (idTab == ShopIapScene.BTN_TICKET ? "ShopIAP/BtnTab/btnTabEventActive.png" : "ShopIAP/BtnTab/btnTabEventInactive.png");
+        var resourceItem = (idTab == ShopIapScene.BTN_ITEM) ? "ShopIAP/BtnTab/btnTabItemActive.png" : "ShopIAP/BtnTab/btnTabItemInactive.png";
+        var resourceGoldTitle = (idTab == ShopIapScene.BTN_GOLD ? "ShopIAP/BtnTab/textGoldSelect.png" : "ShopIAP/BtnTab/textGold.png");
+        var resourceGTitle = (idTab == ShopIapScene.BTN_G ? "ShopIAP/BtnTab/textGSelect.png" : "ShopIAP/BtnTab/textG.png");
+        var resourceTicketTitle = (idTab == ShopIapScene.BTN_TICKET ? "ShopIAP/BtnTab/textEventSelect.png" : "ShopIAP/BtnTab/textEvent.png");
+        var resourceItemTitle = (idTab == ShopIapScene.BTN_ITEM) ? "ShopIAP/BtnTab/textItemSelect.png" : "ShopIAP/BtnTab/textItem.png";
         this.btnGold.loadTextures(resourceGold, resourceGold, resourceGold);
         this.btnG.loadTextures(resourceG, resourceG, resourceG);
         this.btnTicket.loadTextures(resourceTicket, resourceTicket, resourceTicket);
         this.btnItem.loadTextures(resourceItem, resourceItem, resourceItem);
+        this.btnGoldTitle.loadTexture(resourceGoldTitle);
+        this.btnGTitle.loadTexture(resourceGTitle);
+        this.btnTicketTitle.loadTexture(resourceTicketTitle);
+        this.btnItemTitle.loadTexture(resourceItemTitle);
         this.currentIdTab = idTab;
         if (this.currentIdTab == ShopIapScene.BTN_TICKET) {
             this.iconTicket.setVisible(true);
-            this.pInfo.setVisible(false);
+            this.pUserInfo.setVisible(false);
         } else {
             this.iconTicket.setVisible(false);
-            this.pInfo.setVisible(true);
+            this.pUserInfo.setVisible(true);
         }
         switch (idTab) {
             case ShopIapScene.BTN_GOLD:

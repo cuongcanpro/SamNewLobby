@@ -180,6 +180,7 @@ CommonLogic.addIgnoreSceneCache = function () {
 };
 
 CommonLogic.updateDesignSolution = function (layer) {
+    return;
     if (!cc.sys.isNative) {
         // cc.view.setDesignResolutionSize(Constant.WIDTH, Constant.HEIGHT, cc.ResolutionPolicy.SHOW_ALL);
         return;

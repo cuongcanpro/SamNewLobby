@@ -8,23 +8,6 @@ var IAPHandler = cc.Class.extend({
         this.productDetails = [];
         this.typeBuy = IAPHandler.BUY_GOLD;
         this.isWaitingConsume = false;
-
-        /**
-         * iapRefundInfo
-         * + dayLeft : số ngày đã nhận goldf
-         * + dayTotal : tổng sổ ngày
-         * + productId : id của gói gold đã mua
-         * + active : có gói active hay không
-         */
-        this.iapRefundInfo = {};
-        this.iapRefundInfo.dayLeft = 2;
-        this.iapRefundInfo.dayTotal = 5;
-        this.iapRefundInfo.productId = "pack_1";
-        this.iapRefundInfo.productIndex = 0;
-        this.iapRefundInfo.totalGIAP = 0;
-        this.iapRefundInfo.active = false;
-        this.receivedDailyGold = false;
-        this.cmdReceiveGold = null;
         this.waitIAP = false;
         this.arrayPackageOpen = [1, 0, 0, 0, 0];
         this.arrayPackageTime = [0, 0, 0, 0, 0];
@@ -36,16 +19,6 @@ var IAPHandler = cc.Class.extend({
     // user ifno
     setRefundInfo: function (info) {
         this.iapWaits = [];
-
-        if (Config.ENABLE_IAP_REFUND) {
-            iapHandler.iapRefundInfo.totalGIAP = info.totalGIAP;
-            iapHandler.iapRefundInfo.dayTotal = info.totalDayIAP;
-            iapHandler.iapRefundInfo.dayLeft = info.dayReceivedIAP;
-            iapHandler.iapRefundInfo.productIndex = info.idPackage;
-            iapHandler.arrayPackageOpen = info.arrayPackageIAP;
-            iapHandler.iapRefundInfo.active = info.idPackage >= 0;
-            cc.log("TOTAL G IAP " + info.dayReceivedIAP + "  " + info.totalDayIAP + "  " + info.totalGIAP);
-        }
 
         if (Config.ENABLE_IAP_LIMIT_TIME) {
             iapHandler.arrayPackageOpen = info.arrayPackageIAP;
@@ -132,10 +105,6 @@ var IAPHandler = cc.Class.extend({
         else {
             return info.id;
         }
-    },
-
-    checkIapRefundProductActive: function (pack) {
-        return !!(iapHandler.iapRefundInfo.active && iapHandler.iapRefundInfo.productIndex == pack);
     },
 
     getTimeLimitLeft : function (idx) {
@@ -284,7 +253,7 @@ var IAPHandler = cc.Class.extend({
             // end test
         }
         else {
-            sceneMgr.addWaiting();
+            sceneMgr.addLoading(LocalizedString.to("WAITING")).timeout(3);
             NativeBridge.purchaseItem(item);
             if(gameMgr.checkOldNativeVersion())
                 engine.HandlerManager.getInstance().addHandler("iap_purchase_state", this.onIAPPurchase.bind(this));
@@ -512,192 +481,7 @@ var IAPHandler = cc.Class.extend({
         }
     },
 
-    // purchase card
-    purchaseCard: function (cType, card, seri, isBuyGold, isForOffer) {
-        WaitingPopup.show(LocalizedString.to("PURCHASE_CARD_PROCESS"));
 
-        this.isWaitPurchase = true;
-        if (!isForOffer)
-            isForOffer = Payment.NO_OFFER;
-        var cmd = new CmdSendPurchaseCard();
-        cmd.putData(cType, card, seri, isBuyGold, isForOffer);
-        GameClient.getInstance().sendPacket(cmd);
-    },
-
-    responsePurchaseCard: function (cmd) {
-        if (cmd.response > 1) {
-            // wait response from services
-        }
-        else if (cmd.response < 1) {
-            sceneMgr.showOKDialog(cmd.message);
-        }
-        else {
-            sceneMgr.showOKDialog(LocalizedString.to("PURCHASE_CARD_SUCCESS"));
-        }
-
-        if (cmd.response <= 1) {
-            this.isWaitPurchase = false;
-            WaitingPopup.clear();
-
-            var gui = sceneMgr.getMainLayer();
-            //if (gui instanceof AddGIapScene) {
-            //    if (gui.tabCard) gui.tabCard.updateButton(true);
-            //}
-        }
-    },
-
-    onUpdateMoney: function () {
-        if (this.isWaitPurchase) {
-            this.isWaitPurchase = false;
-            WaitingPopup.clear();
-
-            sceneMgr.showOKDialog(LocalizedString.to("PURCHASE_CARD_SUCCESS"));
-
-            var gui = sceneMgr.getMainLayer();
-            //if (gui instanceof AddGIapScene) {
-            //    if (gui.tabCard) gui.tabCard.updateButton(true);
-            //}
-        }
-    },
-
-    onIAPNewResponse: function (cmd) {
-        sceneMgr.clearWaiting();
-
-        var gui = sceneMgr.openGUI(IAPGoldDailyGUI.className, LobbyScene.GUI_IAP_DAILY, LobbyScene.GUI_IAP_DAILY);
-        if (gui && gui instanceof IAPGoldDailyGUI) {
-            var cmd1 = new Object();
-            cmd1.totalDay = 5;
-            cmd1.dayReceived = 1;
-            cmd1.index = 0;
-            cmd1.gold = 10000000;
-
-            //   gui.setInfo(cmd1);
-            cc.log("CLJ " + cmd1.gold);
-        }
-    },
-
-    // purchase sms
-    requestSMSSyntax: function (operator, amount, event, smsType, isOffer) {
-        event = event || 0;
-        if (!isOffer)
-            isOffer = 0;
-        cc.log("SMS TYPE " + smsType);
-        if ((Config.ENABLE_CHEAT && CheatCenter.ENABLE_FAKE_SMS)) //(cc.sys.os != cc.sys.OS_ANDROID && cc.sys.os != cc.sys.OS_IOS) ||
-        {
-            ToastFloat.makeToast(ToastFloat.LONG, "Fake SMS " + amount);
-
-            this.fakeSMS(amount, event, smsType);
-        }
-        else {
-            WaitingPopup.show(LocalizedString.to("TINNHAN_WAITING_REQUEST"));
-
-            var cmd = new CmdSendPurchaseSMS();
-            cmd.putData(operator, amount, event, isOffer);
-            GameClient.getInstance().sendPacket(cmd);
-        }
-    },
-
-    purchaseSMS: function (rPSMS) {
-        WaitingPopup.clear();
-        if (cc.sys.isNative) {
-            WaitingPopup.show(LocalizedString.to("TINNHAN_WAITING_PROCESS"), 5);
-
-            if (rPSMS.service == "" || rPSMS.syntax == "") {
-                sceneMgr.showOKDialog(LocalizedString.to("PURCHASE_TINNHAN_FAIL"));
-                return;
-            }
-
-            NativeBridge.sendSMS(rPSMS.service, rPSMS.syntax);
-        }
-        else {
-            var scene = sceneMgr.openGUI(SmsSyntaxPopup.className, SmsSyntaxPopup.tag,  SmsSyntaxPopup.tag);
-            scene.setSyntax(rPSMS.syntax, rPSMS.service);
-        }
-    },
-
-    fakeSMS: function (amount, event, type) {
-        var smsType = type || "sms";
-        switch (type) {
-            case Payment.GOLD_SMS_VIETTEL:{
-                smsType = "sms_viettel";
-                break;
-            }
-            case Payment.GOLD_SMS_MOBI:{
-                smsType = "sms_mobifone";
-                break;
-            }
-            case Payment.GOLD_SMS_VINA:{
-                smsType = "sms_vinaphone";
-                break;
-            }
-        }
-        if (event == Payment.CHEAT_PAYMENT_OFFER)
-            smsType = "sms";
-        var url = Constant.SMS_PRIVATE;
-        var data = "gameId=" + LocalizedString.config("GAME") + "&username=" + userMgr.getUserName() + "&uId=" + userMgr.getUID() + "&paymentType=" + smsType + "&amount=" + amount + "&forEvent=" + event;
-
-        this.xhr = cc.loader.getXMLHttpRequest();
-        this.xhr.open("GET", url + "?" + data, true);
-        this.xhr.send();
-    },
-
-
-    /**
-     *
-     * @param amount
-     * @param type
-     * @param typeBuy: 0 la mua Gold, 1 la mua OFfer, 2 la mua ve cho event
-     */
-    fakePayment: function (amount, type, typeBuy) {
-        if (!typeBuy)
-            typeBuy = 0;
-        cc.log("FAKE " + amount + " TYPE " + type);
-        var url = Constant.SMS_PRIVATE;
-        var data = "gameId=" + LocalizedString.config("GAME") + "&username=" + userMgr.getUserName() + "&uId=" + userMgr.getUID() + "&paymentType=" + type + "&amount=" + amount + "&forEvent=" + typeBuy;
-
-        this.xhr = cc.loader.getXMLHttpRequest();
-        this.xhr.open("GET", url + "?" + data, true);
-        cc.log("URL " + url + "?" + data);
-        this.xhr.send();
-    },
-
-    purchaseZalo: function (zptranstoken) {
-        NativeBridge.purchaseZalo(zptranstoken);
-        if(gameMgr.checkOldNativeVersion())
-            engine.HandlerManager.getInstance().addHandler("payZalo", this.onPayZalo.bind(this));
-    },
-
-    purchaseATM: function (urlDirect) {
-        NativeBridge.openWebViewPayment(urlDirect);
-    },
-
-    onPayZalo: function (data) {
-        cc.log("ON PAY ZALO ****** ");
-        var obj = {};
-        try {
-            obj = JSON.parse(data);
-        }
-        catch (e) {
-            return;
-        }
-
-        if (obj.error == 0) {
-            cc.log(" Purchase Zalo thanh cong");
-        }
-        else {
-            ToastFloat.makeToast(ToastFloat.LONG, localized("PURCHASE_TINNHAN_FAIL") + "  " + obj.error);
-        }
-    },
-
-    showDailyGold: function () {
-        if (this.receivedDailyGold) {
-            this.receivedDailyGold = false;
-            var gui = sceneMgr.openGUI(IAPGoldDailyGUI.className, LobbyScene.GUI_IAP_DAILY, LobbyScene.GUI_IAP_DAILY);
-            if (gui && gui instanceof IAPGoldDailyGUI) {
-                gui.setInfo(this.cmdReceiveGold);
-            }
-        }
-    }
 
 });
 

@@ -43,7 +43,7 @@ var PaymentMgr = BaseMgr.extend({
                 sceneMgr.updateCurrentGUI();
                 pk.clean();
 
-                iapHandler.onUpdateMoney();
+                PaymentUtils.onUpdateMoney();
                 break;
             }
             case PaymentMgr.CMD_SHOP_GOLD: {
@@ -90,14 +90,14 @@ var PaymentMgr = BaseMgr.extend({
                 cc.log("CMD_PURCHASE_CARD " + JSON.stringify(rPCard));
                 rPCard.clean();
 
-                iapHandler.responsePurchaseCard(rPCard);
+                PaymentUtils.responsePurchaseCard(rPCard);
                 break;
             }
             case PaymentMgr.CMD_PURCHASE_SMS: {
                 var rPSMS = new CmdReceivePurchaseSMS(p);
                 rPSMS.clean();
 
-                iapHandler.purchaseSMS(rPSMS);
+                PaymentUtils.purchaseSMS(rPSMS);
                 break;
             }
             case PaymentMgr.CMD_PURCHASE_IAP_GOOGLE: {
@@ -154,7 +154,7 @@ var PaymentMgr = BaseMgr.extend({
                 cc.log("PACKEG " + JSON.stringify(cmdBuyGATM));
                 if (cmdBuyGATM.errorCode >= 1) { // || cmdBuyGATM.errorCode == 9) {
                     if (cc.sys.isNative) {
-                        iapHandler.purchaseATM(cmdBuyGATM.urlDirect);
+                        PaymentUtils.purchaseATM(cmdBuyGATM.urlDirect);
                     } else {
                         bankPopup.location = cmdBuyGATM.urlDirect;
                     }
@@ -741,6 +741,9 @@ var PaymentMgr = BaseMgr.extend({
                         } else if (cc.sys.os == cc.sys.OS_IOS) {
                             imageResource = "btnApple";
                         }
+                        else {
+                            imageResource = "btnGoogle";
+                        }
                         break;
                     case Payment.GOLD_ATM:
                         imageResource = "btnATM";
@@ -1084,12 +1087,58 @@ var PaymentMgr = BaseMgr.extend({
         }
     },
 
-
     getShopGById: function (id) {
         for (var i = 0; i < this.arrayShopGConfig.length; i++) {
             if (this.arrayShopGConfig[i].id == id)
                 return this.arrayShopGConfig[i];
         }
+    },
+
+    getLastShopGoldId: function () {
+        for (var i = 0; i < this.arrayShopGoldConfig.length; i++) {
+            if (this.arrayShopGoldConfig[i].type == this.lastBuyGoldType) {
+                if (this.arrayShopGoldConfig[i].id == Payment.GOLD_SMS_VIETTEL || this.arrayShopGoldConfig[i].id == Payment.GOLD_SMS_VINA ||
+                    this.arrayShopGoldConfig[i].id == Payment.GOLD_SMS_MOBI) {
+                    return Payment.GOLD_SMS;
+
+                }
+                else
+                    return this.arrayShopGoldConfig[i].id;
+            }
+        }
+        return Payment.GOLD_SMS;
+    },
+
+    getNetworkTelephone: function () {
+        return -1;
+        /*
+        var teleInfo = NativeBridge.getTelephoneInfo();
+        var operator = -1;
+        switch (teleInfo) {
+            case Constant.TELE_VIETTEL:
+            {
+                operator = Constant.ID_VIETTEL;
+                break;
+            }
+            case Constant.TELE_MOBIFONE:
+            {
+                operator = Constant.ID_MOBIFONE;
+                break;
+            }
+            case Constant.TELE_VINAPHONE:
+            {
+                operator = Constant.ID_VINAPHONE;
+                break;
+            }
+            default :
+            {
+                operator = -1;
+                break;
+            }
+        }
+
+        return operator;
+        */
     },
 
     // khoi tao IAP

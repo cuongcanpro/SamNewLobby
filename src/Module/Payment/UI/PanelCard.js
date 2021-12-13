@@ -164,9 +164,9 @@ var PanelCard = BaseLayer.extend({
                         type = Constant.MOBI;
                     else if (this.curCardSelect == PanelCard.BTN_VINAPHONE)
                         type = Constant.VINA;
-                    iapHandler.fakePayment(parseInt(card), type);
+                    PaymentUtils.fakePayment(parseInt(card), type);
                 } else {
-                    iapHandler.fakePayment(parseInt(card), Constant.G_ZING);
+                    PaymentUtils.fakePayment(parseInt(card), Constant.G_ZING);
                 }
             } else {
                 var card = this.txCard.getString();
@@ -181,7 +181,7 @@ var PanelCard = BaseLayer.extend({
                     //cmd.putData(this.curCardSelect, card, seri);
                     //GameClient.getInstance().sendPacket(cmd);
 
-                    iapHandler.purchaseCard(this.curCardSelect, card, seri, 0);
+                    PaymentUtils.purchaseCard(this.curCardSelect, card, seri, 0);
                     this.updateButton(false);
                 }
             }

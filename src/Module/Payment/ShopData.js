@@ -39,6 +39,7 @@ var ShopData = cc.Class.extend({
         }
         if (goldIap) {
             var promoDailyPurchase = type != Payment.GOLD_G;
+            var isOfferNoPrice = false;
             for (var i = 0; i < goldIap.numPackage; i++) {
                 var obj = {};
                 var isIap = false;
@@ -52,7 +53,7 @@ var ShopData = cc.Class.extend({
                 var packageShop = goldIap["packages"][i];
                 var idx = i + 1;
                 if (idx > maxSize) idx = maxSize;
-                obj.img = "ShopIAP/coin" + idx + ".png";
+                obj.img = "ShopIAP/IconGold/coin" + idx + ".png";
                 obj.id = i;
                 obj.goldColor = color;
                 var missionObj;
@@ -95,6 +96,12 @@ var ShopData = cc.Class.extend({
                             obj.vPoint += obj.vPoint * obj.curVoucher.bonusValue / 100;
                             break;
                     }
+                }
+
+                // apply Offer Noprice
+                if (!isOfferNoPrice && offerManager.isSuitableForNoPrice(type, packageShop["value"])) {
+                    obj.isOfferNoPrice = true;
+                    isOfferNoPrice = true;
                 }
 
                 //daily purchase
@@ -206,7 +213,7 @@ var ShopData = cc.Class.extend({
                 }
                 var packageShop = goldIap["packages"][i];
                 var idx = (i > maxSize) ? maxSize : i;
-                obj.img = "ShopIAP/xu" + idx + ".png";
+                obj.img = "ShopIAP/IconG/xu" + idx + ".png";
                 this.initInfoPackageG(obj, goldIap, packageShop, true);
                 obj.goldColor = color;
                 // obj.bonusGachaCoin = event.getEventBonusTicket(type, packageShop["value"]);
@@ -339,11 +346,11 @@ ChannelPaymentData = cc.Class.extend({
     },
 
     getResourceSelect: function () {
-        return "res/Lobby/ShopIAP/" + this.resource + "Select.png";
+        return "res/Lobby/ShopIAP/BtnChannelPayment/" + this.resource + "Select.png";
     },
 
     getResource: function () {
-        return "res/Lobby/ShopIAP/" + this.resource + ".png";
+        return "res/Lobby/ShopIAP/BtnChannelPayment/" + this.resource + ".png";
     }
 })
 

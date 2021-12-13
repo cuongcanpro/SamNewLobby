@@ -50,5 +50,5 @@ Constant.ID_VIETTEL = 1;
 Constant.ID_MOBIFONE = 3;
 Constant.ID_VINAPHONE = 2;
 
-Constant.WIDTH = 800;
-Constant.HEIGHT = 480;
+Constant.WIDTH = 1200;
+Constant.HEIGHT = 720;

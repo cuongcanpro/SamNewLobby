@@ -69,10 +69,9 @@ Config.ENABLE_EVENT_TET = false;
 Config.ENABLE_JACKPOT = true;
 
 Config.ENABLE_DECORATE_ITEM = false;
-Config.ENABLE_MULTI_PORTAL = false;
 
 // config cheat
-Config.ENABLE_CHEAT = false;                // ENABLE CHEAT CENTER IN GAME
+Config.ENABLE_CHEAT = true;                // ENABLE CHEAT CENTER IN GAME
 
 Config.CHEAT_MAX_PLAYER = 4;                // NUM PLAYER IN GAME
 Config.CHEAT_MAX_CARD = 13;                 // NUM CARD OF PLAYER

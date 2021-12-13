@@ -107,7 +107,7 @@ var PanelIapItem = BaseLayer.extend({
         switch (type) {
             case Payment.G_IAP : {
                 if (Config.ENABLE_CHEAT && CheatCenter.ENABLE_FAKE_SMS) {
-                    iapHandler.fakePayment(info.costConfig, Constant.G_IAP);
+                    PaymentUtils.fakePayment(info.costConfig, Constant.G_IAP);
                 } else {
                     iapHandler.purchaseItem(iapHandler.getProductIdIAP(info));
                 }
@@ -115,7 +115,7 @@ var PanelIapItem = BaseLayer.extend({
             }
             case Payment.G_ATM : {
                 if (Config.ENABLE_CHEAT && CheatCenter.ENABLE_FAKE_SMS) {
-                    iapHandler.fakePayment(info.cost, Constant.G_ATM);
+                    PaymentUtils.fakePayment(info.cost, Constant.G_ATM);
                 } else {
                     var gui = sceneMgr.openGUI(GUIBank.className, GUIBank.TAG, GUIBank.TAG);
                     gui.setInfoBuy(info.cost, false);
@@ -141,7 +141,7 @@ var PanelIapItem = BaseLayer.extend({
                 }
                 else {
                     if (Config.ENABLE_CHEAT && CheatCenter.ENABLE_FAKE_SMS) {
-                        iapHandler.fakePayment(info.cost, Constant.G_ZALO);
+                        PaymentUtils.fakePayment(info.cost, Constant.G_ZALO);
                     }
                     else {
                         sceneMgr.addLoading(LocalizedString.to("WAITING")).timeout(15);
@@ -158,7 +158,7 @@ var PanelIapItem = BaseLayer.extend({
                 offerManager.setOfferIAP(0);
                 iapHandler.typeBuy = typeBuy;
                 if (Config.ENABLE_CHEAT && CheatCenter.ENABLE_FAKE_SMS) {
-                    iapHandler.fakePayment(info.costConfig, Constant.GOLD_IAP, typeCheat);
+                    PaymentUtils.fakePayment(info.costConfig, Constant.GOLD_IAP, typeCheat);
                 } else {
                     cc.log("PURCHASE IAP ***** ");
                     iapHandler.purchaseItem(iapHandler.getProductIdIAP(info));
@@ -213,14 +213,14 @@ var PanelIapItem = BaseLayer.extend({
                 if (configSMS && configSMS["isMaintained"][0]) {
                     sceneMgr.openGUI(GUIMaintainSMS.className, GUIMaintainSMS.TAG, GUIMaintainSMS.TAG);
                 } else {
-                    iapHandler.requestSMSSyntax(operator, parseInt(info.cost), parseInt(info.smsType), type);
+                    PaymentUtils.requestSMSSyntax(operator, parseInt(info.cost), parseInt(info.smsType), type);
                 }
                 break;
             }
             case Payment.GOLD_ATM:
             case Payment.TICKET_ATM:
                 if (Config.ENABLE_CHEAT && CheatCenter.ENABLE_FAKE_SMS) {
-                    iapHandler.fakePayment(info.cost, Constant.GOLD_ATM, typeCheat);
+                    PaymentUtils.fakePayment(info.cost, Constant.GOLD_ATM, typeCheat);
                 } else {
                     var gui = sceneMgr.openGUI(GUIBank.className, GUIBank.TAG, GUIBank.TAG);
                     gui.setInfoBuy(info.cost, true, typeBuy);
@@ -230,7 +230,7 @@ var PanelIapItem = BaseLayer.extend({
             case Payment.GOLD_ZING:
             case Payment.TICKET_ZING:
                 if (Config.ENABLE_CHEAT && CheatCenter.ENABLE_FAKE_SMS) {
-                    iapHandler.fakePayment(info.cost, Constant.GOLD_ZING, typeCheat);
+                    PaymentUtils.fakePayment(info.cost, Constant.GOLD_ZING, typeCheat);
                 } else {
                     var gui = sceneMgr.openGUI(GUIInputCard.className, GUIInputCard.TAG, GUIInputCard.TAG);
                     gui.setInfo(info.cost, typeBuy);
@@ -260,7 +260,7 @@ var PanelIapItem = BaseLayer.extend({
                 }
                 else {
                     if (Config.ENABLE_CHEAT&& CheatCenter.ENABLE_FAKE_SMS) {
-                        iapHandler.fakePayment(info.cost, Constant.GOLD_ZALO, typeCheat);
+                        PaymentUtils.fakePayment(info.cost, Constant.GOLD_ZALO, typeCheat);
                     }
                     else {
                         sceneMgr.addLoading(LocalizedString.to("WAITING")).timeout(15);

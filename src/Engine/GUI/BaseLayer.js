@@ -41,9 +41,12 @@ var BaseLayer  = cc.Layer.extend({
 
             this._scale = (this._scale > 1) ? 1 : this._scale;
         }
+        this._scale = 1;
 
         this._scaleRealX = cc.director.getWinSize().width/Constant.WIDTH;
         this._scaleRealY = cc.director.getWinSize().height/Constant.HEIGHT;
+        this._scaleRealX = 1;
+        this._scaleRealY = 1;
 
         this._layerColor = new cc.LayerColor(cc.BLACK);
         this.addChild(this._layerColor);
@@ -813,7 +816,7 @@ var NumberGroupCustom = cc.Node.extend({
         if (type)
             this.type = type;
         else
-            this.type = 0;
+            this.type = NumberGroupCustom.TYPE_SYMBOL;
     },
 
     setNumber: function(number) {
@@ -822,7 +825,7 @@ var NumberGroupCustom = cc.Node.extend({
         }
         this.arrayChar = [];
         var string = "";
-        if (this.type == 0)
+        if (this.type == NumberGroupCustom.TYPE_SYMBOL)
             string = StringUtility.formatNumberSymbol(number);
         else
             string = StringUtility.pointNumber(number);
@@ -848,7 +851,7 @@ var NumberGroupCustom = cc.Node.extend({
         var startX = -sum * 0.5;
         for (var i = 0; i < this.arrayChar.length; i++) {
             if (string.charAt(i) == '.')
-                this.arrayChar[i].setPositionY(-this.getContentSize().height * 0.5 + this.arrayChar[i].getContentSize().width * 0.8);
+                this.arrayChar[i].setPositionY(-this.getContentSize().height * 0.5 + this.arrayChar[i].getContentSize().width * 0.5);
             this.arrayChar[i].setPositionX(startX + this.arrayChar[i].getContentSize().width * 0.5);
             startX = startX + this.arrayChar[i].getContentSize().width + this.pad;
         }
@@ -859,7 +862,8 @@ var NumberGroupCustom = cc.Node.extend({
     }
 
 })
-
+NumberGroupCustom.TYPE_POINT = 1;
+NumberGroupCustom.TYPE_SYMBOL = 0;
 
 var BaseImage = cc.Sprite.extend({
     ctor: function (res) {
