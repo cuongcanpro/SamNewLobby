@@ -1,0 +1,300 @@
+{
+  "ID": "a258e0c8-0808-4522-8de1-5bf6b8b84ae0",
+  "Version": "2.3.4",
+  "Name": "EventTetPromoTicketGUI",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 130,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "EventTetUI/bgPromoTicket.png",
+              "Plist": ""
+            },
+            "Scale9OriginX": 218,
+            "Scale9OriginY": 149,
+            "Scale9Width": 337,
+            "Scale9Height": 83,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 399.04,
+              "Y": 273.024
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4988,
+              "Y": 0.5688
+            },
+            "PreSize": {
+              "X": 0.9663,
+              "Y": 0.7937
+            },
+            "HorizontalEdge": "BothEdge",
+            "VerticalEdge": "BothEdge",
+            "LeftMargin": 12.54,
+            "RightMargin": 14.46,
+            "TopMargin": 16.476,
+            "BottomMargin": 82.524,
+            "UserData": "scale",
+            "Tag": 131,
+            "Children": [
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Default",
+                  "Path": "Default/Button_Disable.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "Normal",
+                  "Path": "EventTetUI/btnCloseX2.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "EventTetUI/btnCloseX2.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 16,
+                "Scale9Height": 25,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 702.1535,
+                  "Y": 288.4423
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.9083,
+                  "Y": 0.7571
+                },
+                "PreSize": {
+                  "X": 0.0595,
+                  "Y": 0.1234
+                },
+                "LeftMargin": 679.1535,
+                "RightMargin": 47.8465,
+                "TopMargin": 69.0577,
+                "BottomMargin": 264.9423,
+                "Tag": 132,
+                "ActionTag": 222732184,
+                "Size": {
+                  "X": 46.0,
+                  "Y": 47.0
+                },
+                "Name": "close",
+                "ctype": "ButtonObjectData"
+              },
+              {
+                "IsCustomSize": true,
+                "FontSize": 20,
+                "LabelText": "1/4 - 15/4",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahomabd.ttf",
+                  "Plist": ""
+                },
+                "HorizontalAlignmentType": "HT_Center",
+                "VerticalAlignmentType": "VT_Center",
+                "OutlineColor": {
+                  "R": 188,
+                  "G": 99,
+                  "B": 37
+                },
+                "OutlineEnabled": true,
+                "ShadowColor": {
+                  "R": 236,
+                  "G": 203,
+                  "B": 203
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 613.0009,
+                  "Y": 156.1264
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "RotationSkewX": 15.9963,
+                "CColor": {
+                  "R": 250,
+                  "G": 239,
+                  "B": 91
+                },
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.793,
+                  "Y": 0.4098
+                },
+                "PreSize": {
+                  "X": 0.2587,
+                  "Y": 0.0787
+                },
+                "LeftMargin": 413.0009,
+                "RightMargin": 159.9991,
+                "TopMargin": 209.8736,
+                "BottomMargin": 141.1264,
+                "Tag": 437,
+                "ActionTag": -1976120891,
+                "Size": {
+                  "X": 200.0,
+                  "Y": 30.0
+                },
+                "Name": "lbTime",
+                "ctype": "TextObjectData"
+              },
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Default",
+                  "Path": "Default/Button_Disable.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "Normal",
+                  "Path": "EventTetUI/btnBuy.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "EventTetUI/btnBuy.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 100,
+                "Scale9Height": 29,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 520.1113,
+                  "Y": 75.6886
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.6728,
+                  "Y": 0.1987
+                },
+                "PreSize": {
+                  "X": 0.1682,
+                  "Y": 0.1339
+                },
+                "LeftMargin": 455.1113,
+                "RightMargin": 187.8887,
+                "TopMargin": 279.8114,
+                "BottomMargin": 50.1886,
+                "Tag": 133,
+                "ActionTag": 150192225,
+                "Size": {
+                  "X": 130.0,
+                  "Y": 51.0
+                },
+                "Name": "join",
+                "ctype": "ButtonObjectData"
+              }
+            ],
+            "ActionTag": -61592611,
+            "Size": {
+              "X": 773.0,
+              "Y": 381.0
+            },
+            "Name": "bg",
+            "ctype": "ImageViewObjectData"
+          }
+        ],
+        "Size": {
+          "X": 800.0,
+          "Y": 480.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "Default/Button_Disable.png",
+        "EventTetUI/bgPromoTicket.png",
+        "EventTetUI/btnBuy.png",
+        "EventTetUI/btnCloseX2.png",
+        "Font/tahomabd.ttf"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

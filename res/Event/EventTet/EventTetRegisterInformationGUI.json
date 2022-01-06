@@ -1,0 +1,1345 @@
+{
+  "ID": "695cddb5-0e83-43fa-8ddb-dc7f711db4ab",
+  "Version": "2.3.4",
+  "Name": "EventTetRegisterInformationGUI",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 454,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "EventTetUI/bgRegister.png",
+              "Plist": ""
+            },
+            "Scale9OriginX": 173,
+            "Scale9OriginY": 158,
+            "Scale9Width": 181,
+            "Scale9Height": 65,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 404.0,
+              "Y": 255.984
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.505,
+              "Y": 0.5333
+            },
+            "PreSize": {
+              "X": 0.6875,
+              "Y": 0.7937
+            },
+            "HorizontalEdge": "BothEdge",
+            "VerticalEdge": "BothEdge",
+            "LeftMargin": 129.0,
+            "RightMargin": 121.0,
+            "TopMargin": 33.516,
+            "BottomMargin": 65.484,
+            "UserData": "scale",
+            "Tag": 143,
+            "Children": [
+              {
+                "ClipAble": false,
+                "BackColorAlpha": 102,
+                "SingleColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "FirstColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "EndColor": {},
+                "ColorVector": {
+                  "ScaleY": 1.0
+                },
+                "Scale9Width": 1,
+                "Scale9Height": 1,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 275.0,
+                  "Y": 190.5
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 1.2727,
+                  "Y": 1.1024
+                },
+                "LeftMargin": -75.0,
+                "RightMargin": -75.0,
+                "TopMargin": -19.5,
+                "BottomMargin": -19.5,
+                "Tag": 145,
+                "ActionTag": -143535488,
+                "Size": {
+                  "X": 700.0,
+                  "Y": 420.0
+                },
+                "Name": "fog",
+                "ctype": "PanelObjectData"
+              },
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Normal",
+                  "Path": "EventTetUI/btnComplete.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "Normal",
+                  "Path": "EventTetUI/btnComplete.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "EventTetUI/btnComplete.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 100,
+                "Scale9Height": 29,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 269.665,
+                  "Y": -23.6993
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PrePosition": {
+                  "X": 0.4903,
+                  "Y": -0.0622
+                },
+                "PreSize": {
+                  "X": 0.2364,
+                  "Y": 0.1339
+                },
+                "LeftMargin": 204.665,
+                "RightMargin": 215.335,
+                "TopMargin": 379.1993,
+                "BottomMargin": -49.1993,
+                "Tag": 457,
+                "ActionTag": -677302758,
+                "Size": {
+                  "X": 130.0,
+                  "Y": 51.0
+                },
+                "Name": "complete",
+                "ctype": "ButtonObjectData"
+              },
+              {
+                "FontSize": 16,
+                "LabelText": "Mac Book Pro lkfjdljf dlsjf lsdkjfklsdjflkd sflsdjfl",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahomabd.ttf",
+                  "Plist": ""
+                },
+                "HorizontalAlignmentType": "HT_Center",
+                "VerticalAlignmentType": "VT_Center",
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 275.0,
+                  "Y": 312.5711
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "R": 167,
+                  "G": 34,
+                  "B": 7
+                },
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.8204
+                },
+                "PreSize": {
+                  "X": 0.6891,
+                  "Y": 0.0577
+                },
+                "LeftMargin": 85.5,
+                "RightMargin": 85.5,
+                "TopMargin": 57.4289,
+                "BottomMargin": 301.5711,
+                "Tag": 466,
+                "ActionTag": -606844381,
+                "Size": {
+                  "X": 379.0,
+                  "Y": 22.0
+                },
+                "Name": "gift",
+                "ctype": "TextObjectData"
+              },
+              {
+                "FontSize": 13,
+                "LabelText": "Vui lòng cung cấp CHÍNH XÁC thông tin NPH có thể tiến hành trao giải.",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahoma.ttf",
+                  "Plist": ""
+                },
+                "HorizontalAlignmentType": "HT_Center",
+                "VerticalAlignmentType": "VT_Center",
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 270.49,
+                  "Y": 294.2618
+                },
+                "Scale": {
+                  "ScaleX": 0.98,
+                  "ScaleY": 0.98
+                },
+                "RotationSkewX": 9.9994,
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PrePosition": {
+                  "X": 0.4918,
+                  "Y": 0.7723
+                },
+                "PreSize": {
+                  "X": 0.7745,
+                  "Y": 0.0472
+                },
+                "LeftMargin": 57.49,
+                "RightMargin": 66.51,
+                "TopMargin": 77.7382,
+                "BottomMargin": 285.2618,
+                "Tag": 467,
+                "ActionTag": -168428034,
+                "Size": {
+                  "X": 426.0,
+                  "Y": 18.0
+                },
+                "Name": "noteRegister",
+                "ctype": "TextObjectData"
+              },
+              {
+                "FontSize": 14,
+                "LabelText": "Họ và tên :",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahomabd.ttf",
+                  "Plist": ""
+                },
+                "HorizontalAlignmentType": "HT_Right",
+                "VerticalAlignmentType": "VT_Center",
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 101.5123,
+                  "Y": 258.8762
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.1846,
+                  "Y": 0.6795
+                },
+                "PreSize": {
+                  "X": 0.1418,
+                  "Y": 0.0499
+                },
+                "LeftMargin": 62.5123,
+                "RightMargin": 409.4877,
+                "TopMargin": 112.6238,
+                "BottomMargin": 249.3762,
+                "Tag": 468,
+                "ActionTag": 865807177,
+                "Size": {
+                  "X": 78.0,
+                  "Y": 19.0
+                },
+                "Name": "lb",
+                "ctype": "TextObjectData"
+              },
+              {
+                "FontSize": 14,
+                "LabelText": "Địa chỉ :",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahomabd.ttf",
+                  "Plist": ""
+                },
+                "HorizontalAlignmentType": "HT_Right",
+                "VerticalAlignmentType": "VT_Center",
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 111.5114,
+                  "Y": 227.0939
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.2027,
+                  "Y": 0.596
+                },
+                "PreSize": {
+                  "X": 0.1036,
+                  "Y": 0.0499
+                },
+                "LeftMargin": 83.0114,
+                "RightMargin": 409.9886,
+                "TopMargin": 144.4061,
+                "BottomMargin": 217.5939,
+                "Tag": 469,
+                "ActionTag": -868171221,
+                "Size": {
+                  "X": 57.0,
+                  "Y": 19.0
+                },
+                "Name": "lb",
+                "ctype": "TextObjectData"
+              },
+              {
+                "FontSize": 14,
+                "LabelText": "Số CMND :",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahomabd.ttf",
+                  "Plist": ""
+                },
+                "HorizontalAlignmentType": "HT_Right",
+                "VerticalAlignmentType": "VT_Center",
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 102.5135,
+                  "Y": 196.3139
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.1864,
+                  "Y": 0.5153
+                },
+                "PreSize": {
+                  "X": 0.1364,
+                  "Y": 0.0499
+                },
+                "LeftMargin": 65.0135,
+                "RightMargin": 409.9865,
+                "TopMargin": 175.1861,
+                "BottomMargin": 186.8139,
+                "Tag": 470,
+                "ActionTag": 1849359995,
+                "Size": {
+                  "X": 75.0,
+                  "Y": 19.0
+                },
+                "Name": "lb",
+                "ctype": "TextObjectData"
+              },
+              {
+                "FontSize": 14,
+                "LabelText": "Số điện thoại :",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahomabd.ttf",
+                  "Plist": ""
+                },
+                "HorizontalAlignmentType": "HT_Right",
+                "VerticalAlignmentType": "VT_Center",
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 89.0119,
+                  "Y": 165.5332
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.1618,
+                  "Y": 0.4345
+                },
+                "PreSize": {
+                  "X": 0.1855,
+                  "Y": 0.0499
+                },
+                "LeftMargin": 38.0119,
+                "RightMargin": 409.9881,
+                "TopMargin": 205.9668,
+                "BottomMargin": 156.0332,
+                "Tag": 471,
+                "ActionTag": 1302329599,
+                "Size": {
+                  "X": 102.0,
+                  "Y": 19.0
+                },
+                "Name": "lb",
+                "ctype": "TextObjectData"
+              },
+              {
+                "FontSize": 14,
+                "LabelText": "Email : ",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahomabd.ttf",
+                  "Plist": ""
+                },
+                "HorizontalAlignmentType": "HT_Right",
+                "VerticalAlignmentType": "VT_Center",
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 112.5132,
+                  "Y": 133.7517
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.2046,
+                  "Y": 0.3511
+                },
+                "PreSize": {
+                  "X": 0.0891,
+                  "Y": 0.0499
+                },
+                "LeftMargin": 88.0132,
+                "RightMargin": 412.9868,
+                "TopMargin": 237.7483,
+                "BottomMargin": 124.2517,
+                "Tag": 472,
+                "ActionTag": -2091482695,
+                "Size": {
+                  "X": 49.0,
+                  "Y": 19.0
+                },
+                "Name": "lb",
+                "ctype": "TextObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "EventTetUI/textField.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 110,
+                "Scale9OriginY": 10,
+                "Scale9Width": 117,
+                "Scale9Height": 6,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 314.4023,
+                  "Y": 258.878
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.5716,
+                  "Y": 0.6795
+                },
+                "PreSize": {
+                  "X": 0.6127,
+                  "Y": 0.0682
+                },
+                "LeftMargin": 145.9023,
+                "RightMargin": 67.0977,
+                "TopMargin": 109.122,
+                "BottomMargin": 245.878,
+                "Tag": 473,
+                "ActionTag": 1080557704,
+                "Size": {
+                  "X": 337.0,
+                  "Y": 26.0
+                },
+                "Name": "bgName",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "EventTetUI/textField.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 110,
+                "Scale9OriginY": 10,
+                "Scale9Width": 117,
+                "Scale9Height": 6,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 314.4017,
+                  "Y": 227.0966
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.5716,
+                  "Y": 0.5961
+                },
+                "PreSize": {
+                  "X": 0.6127,
+                  "Y": 0.0682
+                },
+                "LeftMargin": 145.9017,
+                "RightMargin": 67.0983,
+                "TopMargin": 140.9034,
+                "BottomMargin": 214.0966,
+                "Tag": 474,
+                "ActionTag": -1901953551,
+                "Size": {
+                  "X": 337.0,
+                  "Y": 26.0
+                },
+                "Name": "bgAdd",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "EventTetUI/textField.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 110,
+                "Scale9OriginY": 10,
+                "Scale9Width": 117,
+                "Scale9Height": 6,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 314.4017,
+                  "Y": 196.3153
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.5716,
+                  "Y": 0.5153
+                },
+                "PreSize": {
+                  "X": 0.6127,
+                  "Y": 0.0682
+                },
+                "LeftMargin": 145.9017,
+                "RightMargin": 67.0983,
+                "TopMargin": 171.6847,
+                "BottomMargin": 183.3153,
+                "Tag": 475,
+                "ActionTag": -1399555799,
+                "Size": {
+                  "X": 337.0,
+                  "Y": 26.0
+                },
+                "Name": "bgCmnd",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "EventTetUI/textField.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 110,
+                "Scale9OriginY": 10,
+                "Scale9Width": 117,
+                "Scale9Height": 6,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 314.4015,
+                  "Y": 165.5346
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.5716,
+                  "Y": 0.4345
+                },
+                "PreSize": {
+                  "X": 0.6127,
+                  "Y": 0.0682
+                },
+                "LeftMargin": 145.9015,
+                "RightMargin": 67.0985,
+                "TopMargin": 202.4654,
+                "BottomMargin": 152.5346,
+                "Tag": 476,
+                "ActionTag": 1147228737,
+                "Size": {
+                  "X": 337.0,
+                  "Y": 26.0
+                },
+                "Name": "bgSdt",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "EventTetUI/textField.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 110,
+                "Scale9OriginY": 10,
+                "Scale9Width": 117,
+                "Scale9Height": 6,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 314.4015,
+                  "Y": 133.7526
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.5716,
+                  "Y": 0.3511
+                },
+                "PreSize": {
+                  "X": 0.6127,
+                  "Y": 0.0682
+                },
+                "LeftMargin": 145.9015,
+                "RightMargin": 67.0985,
+                "TopMargin": 234.2474,
+                "BottomMargin": 120.7526,
+                "Tag": 477,
+                "ActionTag": -673166707,
+                "Size": {
+                  "X": 337.0,
+                  "Y": 26.0
+                },
+                "Name": "bgEmail",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FontSize": 16,
+                "LabelText": "Đăng kí nhận thưởng",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahomabd.ttf",
+                  "Plist": ""
+                },
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 275.0,
+                  "Y": 350.0871
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.9189
+                },
+                "PreSize": {
+                  "X": 0.3218,
+                  "Y": 0.0577
+                },
+                "LeftMargin": 186.5,
+                "RightMargin": 186.5,
+                "TopMargin": 19.9129,
+                "BottomMargin": 339.0871,
+                "Tag": 346,
+                "ActionTag": 313616096,
+                "Size": {
+                  "X": 177.0,
+                  "Y": 22.0
+                },
+                "Name": "Text_1",
+                "ctype": "TextObjectData"
+              },
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Default",
+                  "Path": "Default/Button_Disable.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "Normal",
+                  "Path": "EventTetUI/btnClose.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "EventTetUI/btnClose.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 7,
+                "Scale9OriginY": 11,
+                "Scale9Width": 8,
+                "Scale9Height": 1,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 517.7413,
+                  "Y": 337.6104
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.9413,
+                  "Y": 0.8861
+                },
+                "PreSize": {
+                  "X": 0.04,
+                  "Y": 0.0577
+                },
+                "LeftMargin": 506.7413,
+                "RightMargin": 21.2587,
+                "TopMargin": 32.3896,
+                "BottomMargin": 326.6104,
+                "Tag": 346,
+                "ActionTag": -1780406616,
+                "Size": {
+                  "X": 22.0,
+                  "Y": 22.0
+                },
+                "Name": "close",
+                "ctype": "ButtonObjectData"
+              },
+              {
+                "IsCustomSize": true,
+                "FontSize": 14,
+                "LabelText": "Gửi ảnh CMND 2 mặt vào",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahoma.ttf",
+                  "Plist": ""
+                },
+                "VerticalAlignmentType": "VT_Center",
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 184.6195,
+                  "Y": 93.4222
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "G": 246,
+                  "B": 166
+                },
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.3357,
+                  "Y": 0.2452
+                },
+                "PreSize": {
+                  "X": 0.5455,
+                  "Y": 0.0525
+                },
+                "LeftMargin": 34.6195,
+                "RightMargin": 215.3805,
+                "TopMargin": 277.5778,
+                "BottomMargin": 83.4222,
+                "Tag": 142,
+                "ActionTag": 1782863231,
+                "Size": {
+                  "X": 300.0,
+                  "Y": 20.0
+                },
+                "Name": "notice",
+                "ctype": "TextObjectData"
+              },
+              {
+                "IsCustomSize": true,
+                "FontSize": 14,
+                "LabelText": " với cú pháp:",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahoma.ttf",
+                  "Plist": ""
+                },
+                "VerticalAlignmentType": "VT_Center",
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 505.309,
+                  "Y": 93.209
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "RotationSkewY": 0.0022,
+                "CColor": {
+                  "G": 246,
+                  "B": 166
+                },
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.9187,
+                  "Y": 0.2446
+                },
+                "PreSize": {
+                  "X": 0.4545,
+                  "Y": 0.0525
+                },
+                "LeftMargin": 380.309,
+                "RightMargin": -80.309,
+                "TopMargin": 277.791,
+                "BottomMargin": 83.209,
+                "Tag": 141,
+                "ActionTag": 1273414840,
+                "Size": {
+                  "X": 250.0,
+                  "Y": 20.0
+                },
+                "Name": "notice_1",
+                "ctype": "TextObjectData"
+              },
+              {
+                "FontSize": 14,
+                "LabelText": "Inbox Fanpage ZingPlay",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahomabd.ttf",
+                  "Plist": ""
+                },
+                "VerticalAlignmentType": "VT_Center",
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 294.3344,
+                  "Y": 93.237
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "RotationSkewX": 13.9977,
+                "CColor": {
+                  "R": 56,
+                  "B": 140
+                },
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.5352,
+                  "Y": 0.2447
+                },
+                "PreSize": {
+                  "X": 0.3073,
+                  "Y": 0.0499
+                },
+                "LeftMargin": 209.8344,
+                "RightMargin": 171.1656,
+                "TopMargin": 278.263,
+                "BottomMargin": 83.737,
+                "Tag": 140,
+                "ActionTag": -2146420402,
+                "Size": {
+                  "X": 169.0,
+                  "Y": 19.0
+                },
+                "Name": "notice_0",
+                "ctype": "TextObjectData"
+              },
+              {
+                "FontSize": 14,
+                "LabelText": "Nhận thưởng sự kiện Tết Đầy Đón Xuân- [Quà trúng] - [Ngày trúng]",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahomabd.ttf",
+                  "Plist": ""
+                },
+                "VerticalAlignmentType": "VT_Center",
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 262.9255,
+                  "Y": 74.8512
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "R": 141,
+                  "G": 197,
+                  "B": 244
+                },
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.478,
+                  "Y": 0.1965
+                },
+                "PreSize": {
+                  "X": 0.8582,
+                  "Y": 0.0499
+                },
+                "LeftMargin": 26.9255,
+                "RightMargin": 51.0745,
+                "TopMargin": 296.6488,
+                "BottomMargin": 65.3512,
+                "Tag": 139,
+                "ActionTag": 1262071620,
+                "Size": {
+                  "X": 472.0,
+                  "Y": 19.0
+                },
+                "Name": "notice_0_0",
+                "ctype": "TextObjectData"
+              },
+              {
+                "IsCustomSize": true,
+                "FontSize": 14,
+                "LabelText": "Ngày 3/3 là hạn chót điền thông tin nhận thưởng. Giải thưởng sẽ bị \nhủy nếu thông tin nhận thưởng không được cụng cấp đầy đủ và đúng hạn",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahoma.ttf",
+                  "Plist": ""
+                },
+                "VerticalAlignmentType": "VT_Center",
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 281.481,
+                  "Y": 46.4261
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "G": 246,
+                  "B": 166
+                },
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.5118,
+                  "Y": 0.1219
+                },
+                "PreSize": {
+                  "X": 0.9455,
+                  "Y": 0.1312
+                },
+                "LeftMargin": 21.481,
+                "RightMargin": 8.519,
+                "TopMargin": 309.5739,
+                "BottomMargin": 21.4261,
+                "Tag": 138,
+                "ActionTag": 1021865022,
+                "Size": {
+                  "X": 520.0,
+                  "Y": 50.0
+                },
+                "Name": "notice_2",
+                "ctype": "TextObjectData"
+              },
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Default",
+                  "Path": "Default/Button_Disable.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "Normal",
+                  "Path": "EventTetUI/btnSendCMND.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "EventTetUI/btnSendCMND.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 67,
+                "Scale9Height": 16,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 478.8681,
+                  "Y": -23.3367
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.8707,
+                  "Y": -0.0613
+                },
+                "PreSize": {
+                  "X": 0.1764,
+                  "Y": 0.0997
+                },
+                "LeftMargin": 430.3681,
+                "RightMargin": 22.6318,
+                "TopMargin": 385.3367,
+                "BottomMargin": -42.3367,
+                "Tag": 429,
+                "ActionTag": 959127912,
+                "Size": {
+                  "X": 97.0,
+                  "Y": 38.0
+                },
+                "Name": "btnSendCMND",
+                "ctype": "ButtonObjectData"
+              }
+            ],
+            "ActionTag": 1031665249,
+            "Size": {
+              "X": 550.0,
+              "Y": 381.0
+            },
+            "Name": "bg",
+            "ctype": "ImageViewObjectData"
+          }
+        ],
+        "Size": {
+          "X": 800.0,
+          "Y": 480.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "Default/Button_Disable.png",
+        "EventTetUI/bgRegister.png",
+        "EventTetUI/btnClose.png",
+        "EventTetUI/btnComplete.png",
+        "EventTetUI/btnSendCMND.png",
+        "EventTetUI/textField.png",
+        "Font/tahoma.ttf",
+        "Font/tahomabd.ttf"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

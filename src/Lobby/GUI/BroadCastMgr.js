@@ -5,7 +5,7 @@
 var Broadcast = function () {};
 
 Broadcast.UPDATE_DELTA_TIME = 1/60;
-Broadcast.WIDTH_RATIO_DEFAULT = 0.3;
+Broadcast.WIDTH_RATIO_DEFAULT = 0.5;
 Broadcast.ANCHOR_DEFAULT = cc.p(0,0.5);
 
 Broadcast.MESSAGE_NORMAL = 1;
@@ -31,12 +31,12 @@ var BroadcastNode = cc.Node.extend({
         this.isDead = false;
 
         this.ID = new Date().getTime();
-        this.sprite = new cc.Sprite("Common/bgBroadcast.png");
-		this.sprite.setOpacity(150);
+        this.sprite = cc.Sprite.create("Common/bgBroadcast.png");
+        this.sprite.setOpacity(150);
         this.addChild(this.sprite);
         var length = cc.winSize.width*Broadcast.WIDTH_RATIO_DEFAULT;
         this.sprite.setPosition(pos.x + length * 0.5, pos.y + 10);
-        this.node = new cc.Node();
+        this.node = cc.Node.create();
         this.addChild(this.node);
         this.node.setPosition(pos);
         switch (type) {
@@ -109,7 +109,7 @@ var BroadcastNode = cc.Node.extend({
         scale = (scale > 1) ? 1 : scale;
         clipper.setScale(scale);
 
-        var toX = 0;
+        var toX;
         if(this.lbMessage instanceof RichLabelText)
             toX = -this.lbMessage.getWidth() - length;
         else
@@ -232,7 +232,7 @@ var BroadcastHandler = cc.Class.extend({
     },
 
     updateHandler : function (dt) {
-        if(this.timeoutWait > 0 && (this.currentBroadcast == null)) {
+        if(this.timeoutWait > 0 && this.currentBroadcast == null) {
             this.timeoutWait -= dt;
             if(this.timeoutWait <= 0) {
                 this.checkAndPlay(true);
@@ -265,7 +265,7 @@ var BroadcastMgr = cc.Class.extend({
 
         if(Config.ENABLE_EGGBREAKER) {
             var x = cc.winSize.width * 0.5 - cc.winSize.width*Broadcast.WIDTH_RATIO_DEFAULT * 0.5;
-            var y = cc.winSize.height - 30;
+            var y = cc.winSize.height - 24;
             this.addHandler(Broadcast.TYPE_EVENT,Broadcast.MESSAGE_RICH,cc.p(x,y));
         }
         else if (Config.ENABLE_EVENT_TET) {

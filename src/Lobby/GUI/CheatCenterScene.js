@@ -11,8 +11,6 @@ var CARD_CHEAT_PLAYER = 2;
 var CHEAT_FAKE_UID = "cheat_center_fake_uid";
 var CHEAT_SERVER_IP = "cheat_center_server_ip";
 var CHEAT_SERVER_PORT = "cheat_center_server_port";
-var CHEAT_SERVER_CHAT_ROULETE_IP = "cheat_center_chat_server_ip";
-var CHEAT_SERVER_CHAT_ROULETE_PORT = "cheat_center_chat_server_port";
 
 var CHEAT_SERVER_RANK_IP = "cheat_center_rank_ip";
 var CHEAT_SERVER_RANK_PORT = "cheat_center_rank_port";
@@ -63,7 +61,8 @@ CheatCenter.loadOldLog = function () {
     cc.loader.loadTxt(fullPath, function (error, txt) {
         if (error != null) {
             CheatCenter.OLD_LOG = "Empty";
-        } else {
+        }
+        else {
             CheatCenter.OLD_LOG = txt;
         }
     });
@@ -83,7 +82,8 @@ CheatCenter.onLogJS = function (args) {
                     line = "<p style='color:red'>";
                 else
                     line = "<p style='color:black'>";
-            } catch (e) {
+            }
+            catch (e) {
                 line = "<p style='color:black'>";
             }
 
@@ -94,7 +94,8 @@ CheatCenter.onLogJS = function (args) {
             CheatCenterScene.instance.onLogJS(d.toLocaleString() + " : " + s);
             CheatCenter.LOGS.push(line);
         }
-    } catch (e) {
+    }
+    catch (e) {
         //***** ERROR PARSE cc.log *****
     }
 };
@@ -125,10 +126,12 @@ CheatCenter.showLogJS = function () {
     if (CheatCenter.onSaveLog()) {
         if (cc.sys.os == cc.sys.OS_WINDOWS) {
             NativeBridge.openURLNative(fullPath);
-        } else {
+        }
+        else {
             NativeBridge.openHTML("file:///" + fullPath);
         }
-    } else {
+    }
+    else {
         ToastFloat.makeToast(ToastFloat.SHORT, "WRITE LOG ERROR !!!!!!");
     }
 };
@@ -137,7 +140,7 @@ CheatCenter.fakeLogin = function () {
     var session = cc.sys.localStorage.getItem(CHEAT_FAKE_SESSION);
     var social = cc.sys.localStorage.getItem(CHEAT_FAKE_SOCIAL);
 
-    if (session == null || social == null || session == "" || social == -1) {
+    if (session == null || social == null || session == "" || social == -1 || !cc.sys.isNative) {
         return false;
     }
 
@@ -164,7 +167,7 @@ CheatCenter.checkOpenCheat = function (s) {
     */
 
     //if (s == CheatCenter.CODE_OPEN_CHEAT) {
-    if (generateOTP(gamedata.userData.zName) == s) {
+    if(generateOTP(gamedata.userData.zName) == s) {
         cc.sys.localStorage.setItem(CHEAT_OPEN, CHEAT_CODE_CHECK_OPEN);
         cc.sys.localStorage.setItem(CHEAT_OPEN_EXPIRED, Date.now());
         ToastFloat.makeToast(ToastFloat.SHORT, "Open CheatCenter success !!!!!! Restart game to apply this !");
@@ -184,16 +187,15 @@ CheatCenter.checkEnableCheat = function () {
 
             if (cur - cheatExpired < CHEAT_CODE_EXPIRED_TIME) {
                 Config.ENABLE_CHEAT = true;
-            } else {
+            }
+            else {
                 cc.sys.localStorage.removeItem(CHEAT_OPEN);
                 cc.sys.localStorage.removeItem(CHEAT_OPEN_EXPIRED);
             }
         }
     }
 
-    if (cc.sys.isNative) {
-        CheatCenter.enableLogJS();
-    }
+    CheatCenter.enableLogJS();
 };
 
 CheatCenter.openCheatPopup = function () {
@@ -210,30 +212,17 @@ CheatCenter.enableLogJS = function () {
         }
         flog.apply(this, arguments);
     };
-
-    var eLog = cc.error;
-    cc.error = function () {
-        if (Config.ENABLE_CHEAT) {
-            CheatCenter.onLogJS(arguments);
-        }
-        eLog.apply(this, arguments);
-    };
 };
 
 CheatCenter.LOGS = [];
+CheatCenter.LIST_LOGS = [];
 CheatCenter.OLD_LOG = "";
 
 CheatCenter.IS_FAKE_UID = false;
-CheatCenter.SERVER_IP = "123";
-CheatCenter.SERVER_PORT = "123";
-CheatCenter.SERVER_CHAT_ROULETE_IP = "";
-CheatCenter.SERVER_CHAT_ROULETE_PORT = "";
+CheatCenter.SERVER_IP = "";
+CheatCenter.SERVER_PORT = "";
 CheatCenter.SERVER_NEW_RANK_IP = "";
 CheatCenter.SERVER_NEW_RANK_PORT = "";
-CheatCenter.SERVER_CHAT_TAI_XIU_IP = "118.102.3.29";
-CheatCenter.SERVER_CHAT_TAI_XIU_PORT = "443";
-//CheatCenter.SERVER_CHAT_TAI_XIU_IP = "118.102.3.28";
-//CheatCenter.SERVER_CHAT_TAI_XIU_PORT = "10012";
 
 CheatCenter.ENABLE_PAYMENT = false;
 CheatCenter.ENABLE_PAYMENT_IAP = false;
@@ -261,7 +250,7 @@ var CheatCenterScene = BaseLayer.extend({
 
         this.arLogs = [];
 
-        this.oldPos = {x: 0, y: 0};
+        this.oldPos = {x : 0, y : 0};
 
         this.isMove = false;
 
@@ -269,8 +258,8 @@ var CheatCenterScene = BaseLayer.extend({
 
         this.isAutoHideCheat = false;
 
-        Array.min = function (array) {
-            return Math.min.apply(Math, array);
+        Array.min = function( array ){
+            return Math.min.apply( Math, array );
         };
 
         this.guisListener = [];
@@ -283,14 +272,14 @@ var CheatCenterScene = BaseLayer.extend({
         var winSize = cc.director.getWinSize();
         this.pMove = this.getControl("pMove");
         var size = this.pMove.getContentSize();
-        this.pMove.setPosition(size.width / 2, winSize.height - size.height / 2);
+        this.pMove.setPosition(size.width/2,winSize.height - size.height/2);
         this.pMove.stateVisible = false;
         this.pMove.setOpacity(OPACITY_HIDDEN_LOGO);
 
         this.pTab = this.getControl("pTab");
         this.customButton("cheatCard", CheatCenterScene.BTN_CHEAT_CARD, this.pTab);
         this.customButton("cheatInfo", CheatCenterScene.BTN_CHEAT_INFO, this.pTab);
-        this.pTab.setVisible(Config.ENABLE_CHEAT);
+        this.pTab.setVisible(Config.ENABLE_CHEAT && !cc.sys.isNative);
 
         this.pTab.pos = this.pTab.getPosition();
 
@@ -337,10 +326,10 @@ var CheatCenterScene = BaseLayer.extend({
         cc.eventManager.addCustomListener(cc.game.EVENT_HIDE, CheatCenter.onSaveLog);
     },
 
-    onEnterFinish: function () {
+    onEnterFinish : function () {
         this.pMove.stateVisible = true;
-        this.schedule(this.onUpdateUI, 1);
-        if (!cc.sys.isNative) {
+        this.schedule(this.onUpdateUI,1);
+        if (!cc.sys.isNative){
             cc.eventManager.addListener({
                 event: cc.EventListener.TOUCH_ONE_BY_ONE,
 
@@ -366,32 +355,24 @@ var CheatCenterScene = BaseLayer.extend({
         }
     },
 
-    addHandlerPressCheat: function (listener) {
-        for (var i = 0, size = this.guisListener.length; i < size; i++) {
-            if (this.guisListener[i].id == listener.id) {
-                return;
-            }
-        }
-        this.guisListener.push(listener);
-    },
-
-    onUpdateUI: function (dt) {
+    onUpdateUI : function (dt) {
         OPACITY_HIDDEN_LOGO = this.isAutoHideCheat ? 0 : 125;
 
         var stateVisible = this.pTab.isVisible();
         this.pMove.stopAllActions();
 
-        if (this.pMove.stateVisible == stateVisible) {
-            this.pMove.setOpacity(this.pMove.stateVisible ? 255 : OPACITY_HIDDEN_LOGO);
+        if(this.pMove.stateVisible == stateVisible) {
+            this.pMove.setOpacity(this.pMove.stateVisible?255:OPACITY_HIDDEN_LOGO);
             return;
         }
 
         this.pMove.stopAllActions();
-        if (stateVisible) {
+        if(stateVisible) {
             this.pMove.stateVisible = true;
             this.pMove.setOpacity(OPACITY_HIDDEN_LOGO);
-            this.pMove.runAction(cc.fadeTo(1, 255));
-        } else {
+            this.pMove.runAction(cc.fadeTo(1,255));
+        }
+        else {
             this.pMove.stateVisible = false;
             this.pMove.setOpacity(0);
             this.pMove.runAction(cc.fadeOut(1));
@@ -399,33 +380,35 @@ var CheatCenterScene = BaseLayer.extend({
     },
 
     onTouch: function (type, pos) {
-        // cc.log("ON TOUCH " + type);
         if (this.isTouchMove(pos)) {
             switch (type) {
-                case 0: {
+                case 0:
+                {
                     this.isMove = true;
                     this.deltaPos = cc.p(pos.x - this.pMove.getPositionX(), pos.y - this.pMove.getPositionY());
                     this.oldPos = this.pMove.getPosition();
                     this.timeStartTouch = new Date().getTime();
                     break;
                 }
-                case 2: {
+                case 2:
+                {
                     var dX = Math.abs(this.pMove.getPositionX() - this.oldPos.x);
                     var dY = Math.abs(this.pMove.getPositionY() - this.oldPos.y);
                     this.isMove = false;
                     var deltaTime = (new Date().getTime()) - this.timeStartTouch;
 
-                    if ((deltaTime < 100) || (dX < 5 && dY < 5)) {
+                    if((deltaTime < 100) || (dX < 5 && dY < 5)) {
                         this.pTab.setVisible(!this.pTab.isVisible());
 
                         try {
-                            for (var i in this.guisListener)
+                            for(var i in this.guisListener)
                                 this.guisListener[i].visibleCheat(this.pTab.isVisible());
-                        } catch (e) {
+                        }
+                        catch(e) {
 
                         }
 
-                        if (!this.pTab.isVisible()) {
+                        if(!this.pTab.isVisible()) {
                             this.pBoard.setVisible(false);
                             this.pLobby.setVisible(false);
                             this.pFakeLogin.setVisible(false);
@@ -440,10 +423,10 @@ var CheatCenterScene = BaseLayer.extend({
 
                     // check 4 direct
                     var arPos = [];
-                    arPos.push(cc.p(size.width / 2, pos.y));
-                    arPos.push(cc.p(winSize.width - size.width / 2, pos.y));
-                    arPos.push(cc.p(pos.x, size.height / 2));
-                    arPos.push(cc.p(pos.x, winSize.height - size.height / 2));
+                    arPos.push(cc.p(size.width / 2,pos.y));
+                    arPos.push(cc.p(winSize.width - size.width / 2,pos.y));
+                    arPos.push(cc.p(pos.x,size.height / 2));
+                    arPos.push(cc.p(pos.x,winSize.height - size.height / 2));
 
                     var arP = [];
                     arP.push(Math.abs(pos.x - size.width / 2));
@@ -452,15 +435,15 @@ var CheatCenterScene = BaseLayer.extend({
                     arP.push(Math.abs(pos.y - (winSize.height - size.height / 2)));
                     var min = Array.min(arP);
 
-                    var nextPos = cc.p(0, 0);
-                    for (var i = 0; i < 4; i++) {
-                        if (arP[i] == min) {
+                    var nextPos = cc.p(0,0);
+                    for(var i = 0; i < 4 ; i++) {
+                        if(arP[i] == min) {
                             nextPos = arPos[i];
                         }
                     }
 
                     this.pMove.stopAllActions();
-                    this.pMove.runAction(new cc.EaseSineOut(cc.moveTo(0.15, nextPos)));
+                    this.pMove.runAction(new cc.EaseSineOut(cc.moveTo(0.15,nextPos)));
                     break;
                 }
             }
@@ -513,63 +496,47 @@ var CheatCenterScene = BaseLayer.extend({
         var sIP = cc.sys.localStorage.getItem(CHEAT_SERVER_IP);
         var sPort = parseInt(cc.sys.localStorage.getItem(CHEAT_SERVER_PORT));
 
-        if ((this.validateIPAddress(sIP) && sPort) || (!cc.sys.isNative && sIP)) {
+        if ((this.validateIPAddress(sIP) || !cc.sys.isNative) && sPort) {
             CheatCenter.SERVER_IP = sIP;
             CheatCenter.SERVER_PORT = sPort;
-        } else {
-            if (Config.ENABLE_DEV) {
+        }
+        else {
+            if(Config.ENABLE_DEV) {
                 CheatCenter.SERVER_IP = Config.SERVER_DEV;
                 CheatCenter.SERVER_PORT = Config.PORT_DEV;
-            } else {
-                if (cc.sys.isNative) {
-                    CheatCenter.SERVER_IP = Config.SERVER_PRIVATE;
-                    CheatCenter.SERVER_PORT = Config.PORT_PRIVATE;
-                } else {
-                    CheatCenter.SERVER_IP = Config.SERVER_PRIVATE_WEB;
-                    CheatCenter.SERVER_PORT = Config.PORT_PRIVATE_WEB;
-                }
+            }
+            else {
+				if (cc.sys.isNative) {
+	                CheatCenter.SERVER_IP = Config.SERVER_PRIVATE;
+	                CheatCenter.SERVER_PORT = Config.PORT;
+	            }
+	            else {
+	                CheatCenter.SERVER_IP = Config.SERVER_PRIVATE_WEB;
+	                CheatCenter.SERVER_PORT = Config.PORT_WEB;
+	            }
             }
 
             cc.sys.localStorage.setItem(CHEAT_SERVER_IP, CheatCenter.SERVER_IP);
             cc.sys.localStorage.setItem(CHEAT_SERVER_PORT, CheatCenter.SERVER_PORT);
         }
 
-        if (Config.ENABLE_MINIGAME) {
-            var chatRouleteIp = cc.sys.localStorage.getItem(CHEAT_SERVER_CHAT_ROULETE_IP);
-            var chatRouletePort = cc.sys.localStorage.getItem(CHEAT_SERVER_CHAT_ROULETE_PORT);
+        var rankIp = cc.sys.localStorage.getItem(CHEAT_SERVER_RANK_IP);
+        var rankPort = cc.sys.localStorage.getItem(CHEAT_SERVER_RANK_PORT);
 
-            if (this.validateIPAddress(chatRouleteIp) && chatRouletePort) {
-                CheatCenter.SERVER_CHAT_ROULETE_IP = chatRouleteIp;
-                CheatCenter.SERVER_CHAT_ROULETE_PORT = chatRouletePort;
+        if (this.validateIPAddress(rankIp) && rankPort || !cc.sys.isNative) {
+            CheatCenter.SERVER_NEW_RANK_IP = rankIp;
+            CheatCenter.SERVER_NEW_RANK_PORT = rankPort;
+        } else {
+            if (cc.sys.isNative) {
+                CheatCenter.SERVER_NEW_RANK_IP = NewRankData.IP_DEV;
+                CheatCenter.SERVER_NEW_RANK_PORT = NewRankData.PORT_DEV;
             } else {
-                CheatCenter.SERVER_CHAT_ROULETE_IP = RouleteChatClient.IP_PRIVATE;
-                CheatCenter.SERVER_CHAT_ROULETE_PORT = RouleteChatClient.PORT_PRIVATE;
-
-                cc.sys.localStorage.setItem(CHEAT_SERVER_CHAT_ROULETE_IP, CheatCenter.SERVER_CHAT_ROULETE_IP);
-                cc.sys.localStorage.setItem(CHEAT_SERVER_CHAT_ROULETE_PORT, CheatCenter.SERVER_CHAT_ROULETE_PORT);
+                CheatCenter.SERVER_NEW_RANK_IP = NewRankData.IP_DEV_WEB;
+                CheatCenter.SERVER_NEW_RANK_PORT = NewRankData.PORT_DEV;
             }
-        }
 
-        if (Config.ENABLE_NEW_RANK) {
-            var rankIp = cc.sys.localStorage.getItem(CHEAT_SERVER_RANK_IP);
-            var rankPort = cc.sys.localStorage.getItem(CHEAT_SERVER_RANK_PORT);
-
-            if (this.validateIPAddress(rankIp) && rankPort || !cc.sys.isNative) {
-                CheatCenter.SERVER_NEW_RANK_IP = rankIp;
-                CheatCenter.SERVER_NEW_RANK_PORT = rankPort;
-            } else {
-                if (cc.sys.isNative) {
-                    CheatCenter.SERVER_NEW_RANK_IP = NewRankData.IP_DEV;
-                    CheatCenter.SERVER_NEW_RANK_PORT = NewRankData.PORT_DEV;
-                } else {
-                    CheatCenter.SERVER_NEW_RANK_IP = NewRankData.IP_DEV_WEB;
-                    CheatCenter.SERVER_NEW_RANK_PORT = NewRankData.PORT_DEV;
-                }
-
-
-                cc.sys.localStorage.setItem(CHEAT_SERVER_RANK_IP, CheatCenter.SERVER_NEW_RANK_IP);
-                cc.sys.localStorage.setItem(CHEAT_SERVER_RANK_PORT, CheatCenter.SERVER_NEW_RANK_PORT);
-            }
+            cc.sys.localStorage.setItem(CHEAT_SERVER_RANK_IP, CheatCenter.SERVER_NEW_RANK_IP);
+            cc.sys.localStorage.setItem(CHEAT_SERVER_RANK_PORT, CheatCenter.SERVER_NEW_RANK_PORT);
         }
 
         this.txIP.setString(CheatCenter.SERVER_IP);
@@ -591,10 +558,7 @@ var CheatCenterScene = BaseLayer.extend({
         CheatCenter.ENABLE_REVIEW = sReview;
         CheatCenter.ENABLE_FAKE_SMS = sFakeSMS;
         CheatCenter.ENABLE_LOGIN_DEV = sLoginDev;
-        //CheatCenter.ENABLE_LOGIN_DEV = false;
-
         Config.ENABLE_DEV = CheatCenter.ENABLE_LOGIN_DEV;
-        Config.DEV_LOCAL = Config.ENABLE_DEV;
         this.cbLoginDev.setSelected(sLoginDev);
         CheatCenter.IS_FAKE_UID = sFakeId;
         CheatCenter.ENABLE_AUTO_CONSUME = sAutoConsume;
@@ -617,15 +581,17 @@ var CheatCenterScene = BaseLayer.extend({
         // load version.manifest
         var resPath = jsb.fileUtils.fullPathForFilename("version.manifest");
 
-        if (jsb.fileUtils.isFileExist(resPath)) {
+        if(jsb.fileUtils.isFileExist(resPath)) {
             cc.loader.loadTxt(resPath, function (error, txt) {
                 if (error != null) {
 
-                } else {
+                }
+                else {
                     try {
                         var str = JSON.parse(txt);
                         this.urlUpdateVersion = str["packageUrl"];
-                    } catch (e) {
+                    }
+                    catch(e) {
 
                     }
                 }
@@ -706,7 +672,7 @@ var CheatCenterScene = BaseLayer.extend({
         this.cbAutoConsume.addEventListener(this.selectedStateEvent, this);
     },
 
-    loadFakeZalo: function () {
+    loadFakeZalo: function() {
         this.tfSessionInputZalo = this.addEditbox("sessionInput", this.pFakeZalo);
 
         this.customButton("fakeSession", CheatCenterScene.BTN_SEND_FAKE_ZALO, this.pFakeZalo);
@@ -750,14 +716,8 @@ var CheatCenterScene = BaseLayer.extend({
         this.selectSocialLogin(0, false);
     },
 
-    loadLogPanel: function () {
-        this.pLog = this.getControl("pLog");
-        this.pLog.panel = new CheatLogPanel(this.pLog);
-        this.pLog.setVisible(false);
-    },
-
-    onLogJS: function (s) {
-        if (this.pLog && this.pLog.isVisible() && this.pLog.panel) {
+    onLogJS : function (s) {
+        if(this.pLog && this.pLog.isVisible() && this.pLog.panel) {
             this.pLog.panel.onLogJS(s);
         }
     },
@@ -767,7 +727,8 @@ var CheatCenterScene = BaseLayer.extend({
 
         var needRestart = true;
         switch (sender.getTag()) {
-            case CheatCenterScene.CB_PAYMENT: {
+            case CheatCenterScene.CB_PAYMENT:
+            {
                 CheatCenter.ENABLE_PAYMENT = isSelect ? 1 : 0;
                 cc.sys.localStorage.setItem(CHEAT_ENABLE_PAYMENT, CheatCenter.ENABLE_PAYMENT);
 
@@ -782,63 +743,73 @@ var CheatCenterScene = BaseLayer.extend({
                 }
                 break;
             }
-            case CheatCenterScene.CB_PAYMENT_IAP: {
+            case CheatCenterScene.CB_PAYMENT_IAP:
+            {
                 CheatCenter.ENABLE_PAYMENT_IAP = isSelect ? 1 : 0;
                 cc.sys.localStorage.setItem(CHEAT_PAYMENT_IAP, CheatCenter.ENABLE_PAYMENT_IAP);
                 break;
             }
-            case CheatCenterScene.CB_PAYMENT_DIRECT: {
+            case CheatCenterScene.CB_PAYMENT_DIRECT:
+            {
                 CheatCenter.ENABLE_PAYMENT_DIRECT = isSelect ? 1 : 0;
                 cc.sys.localStorage.setItem(CHEAT_PAYMENT_DIRECT, CheatCenter.ENABLE_PAYMENT_DIRECT);
                 break;
             }
-            case CheatCenterScene.CB_REVIEW: {
+            case CheatCenterScene.CB_REVIEW:
+            {
                 CheatCenter.ENABLE_REVIEW = isSelect ? 1 : 0;
                 cc.sys.localStorage.setItem(CHEAT_REVIEW, CheatCenter.ENABLE_REVIEW);
                 break;
             }
-            case CheatCenterScene.CB_FAKE_ID: {
+            case CheatCenterScene.CB_FAKE_ID:
+            {
                 CheatCenter.IS_FAKE_UID = isSelect ? 1 : 0;
                 cc.sys.localStorage.setItem(CHEAT_FAKE_UID, CheatCenter.IS_FAKE_UID);
                 break;
             }
-            case CheatCenterScene.CB_CHECK_ENOUGH: {
+            case CheatCenterScene.CB_CHECK_ENOUGH:
+            {
                 needRestart = false;
                 this.isCheckEnoughCard = isSelect ? 1 : 0;
             }
             case CheatCenterScene.CB_GOOGLE:
             case CheatCenterScene.CB_FACEBOOK:
             case CheatCenterScene.CB_ZINGME:
-            case CheatCenterScene.CB_ZALO: {
+            case CheatCenterScene.CB_ZALO:
+            {
                 this.selectSocialLogin(sender.getTag(), isSelect);
                 needRestart = false;
                 break;
             }
-            case CheatCenterScene.CB_PORTAL: {
+            case CheatCenterScene.CB_PORTAL:
+            {
                 var isOK = this.fakePortal(isSelect);
                 if (isOK) {
                     needRestart = true;
-                } else {
+                }
+                else {
                     needRestart = false;
                     this.cbPortal.setSelected(false);
                 }
                 break;
             }
-            case CheatCenterScene.CB_LOGINDEV: {
+            case CheatCenterScene.CB_LOGINDEV:
+            {
                 needRestart = true;
                 CheatCenter.ENABLE_LOGIN_DEV = isSelect ? 1 : 0;
                 Config.ENABLE_DEV = CheatCenter.ENABLE_LOGIN_DEV;
-                Config.DEV_LOCAL = Config.ENABLE_DEV;
                 cc.sys.localStorage.setItem(CHEAT_FAKE_LOGIN_DEV, CheatCenter.ENABLE_LOGIN_DEV);
                 break;
             }
-            case CheatCenterScene.CB_FAKE_SMS: {
+            case CheatCenterScene.CB_FAKE_SMS:
+            {
                 needRestart = false;
                 CheatCenter.ENABLE_FAKE_SMS = isSelect ? 1 : 0;
                 cc.sys.localStorage.setItem(CHEAT_ENABLE_FAKE_SMS, CheatCenter.ENABLE_FAKE_SMS);
                 break;
             }
-            case CheatCenterScene.CB_AUTO_CONSUME: {
+            case CheatCenterScene.CB_AUTO_CONSUME:
+            {
                 needRestart = false;
                 CheatCenter.ENABLE_AUTO_CONSUME = isSelect ? 1 : 0;
                 cc.sys.localStorage.setItem(CHEAT_ENABLE_AUTO_CONSUME, CheatCenter.ENABLE_AUTO_CONSUME);
@@ -974,11 +945,6 @@ var CheatCenterScene = BaseLayer.extend({
         this.pFakeLogin.setVisible(!this.pFakeLogin.isVisible());
     },
 
-    visibleFakeZalo: function () {
-        this.pLobby.setVisible(false);
-        this.pFakeZalo.setVisible(true);
-    },
-
     sortCardPlayer: function (p) {
         var cxxx = new CardCheat(0);
         cxxx.setCardSize(Config.CARD_CHEAT_SCALE_PLAYER);
@@ -987,7 +953,7 @@ var CheatCenterScene = BaseLayer.extend({
             startPos = cc.p(0, this.pPlayers[0].getContentSize().height / 2 - cxxx.getCardHeight() / 2);
         }
 
-        var maxLineCard = 0;
+        var maxLineCard;
         if (Config.CHEAT_MAX_CARD % Config.CARD_CHEAT_PLAYER_LINE == 0) maxLineCard = Config.CHEAT_MAX_CARD / Config.CARD_CHEAT_PLAYER_LINE;
         else maxLineCard = parseInt(Config.CHEAT_MAX_CARD / Config.CARD_CHEAT_PLAYER_LINE) + 1;
 
@@ -1077,7 +1043,8 @@ var CheatCenterScene = BaseLayer.extend({
                 for (var j = 0; j < p.cards.length; j++) {
                     arCards.push(p.cards[j].id);
                 }
-            } else {
+            }
+            else {
                 if (p.cards.length > 0) {
                     pIndex = i + 1;
                     isNotEnough = true;
@@ -1088,12 +1055,8 @@ var CheatCenterScene = BaseLayer.extend({
 
         if (isNotEnough || arCards.length == 0) {
             ToastFloat.makeToast(ToastFloat.SHORT, "PLAYER " + pIndex + " NOT ENOUGH CARD !!!!");
-        } else {
-            var restCard = this.getRestCardInDeck();
-            for (var i = 0; i < restCard.length; i++) {
-                arCards.push(restCard[i]);
-            }
-
+        }
+        else {
             var cmd = new CmdSendCheatConfigCard();
 
             cmd.putData(CheckLogic.convertCardCheat(arCards));
@@ -1179,89 +1142,102 @@ var CheatCenterScene = BaseLayer.extend({
         return this.cards[arIdxs[rndIdx]];
     },
 
-    getRestCardInDeck: function () {
-        var arIdxs = [];
-        for (var i = 0; i < this.cards.length; i++) {
-            if (this.cards[i] && this.cards[i].isVisible()) {
-                arIdxs.push(i);
-            }
-        }
-        return arIdxs;
-    },
-
     onButtonRelease: function (button, id) {
         switch (id) {
-            case CheatCenterScene.BTN_OPEN_CHEAT: {
+            case CheatCenterScene.BTN_OPEN_CHEAT:
+            {
                 this.pTab.setVisible(!this.pTab.isVisible());
                 break;
             }
-            case CheatCenterScene.BTN_CHEAT_INFO: {
+            case CheatCenterScene.BTN_CHEAT_INFO:
+            {
                 this.visibleLobby();
                 break;
             }
-            case CheatCenterScene.BTN_CHEAT_CARD: {
+            case CheatCenterScene.BTN_CHEAT_CARD:
+            {
                 this.visibleBoard();
                 break;
             }
-            case CheatCenterScene.BTN_SHOW_LOG: {
+            case CheatCenterScene.BTN_SHOW_LOG:
+            {
                 CheatCenter.showLogJS();
                 break;
             }
-            case CheatCenterScene.BTN_SHOW_LOG_FLOAT: {
+            case CheatCenterScene.BTN_SHOW_LOG_FLOAT:
+            {
                 this.pLog.setVisible(!this.pLog.isVisible());
                 break;
             }
-            case CheatCenterScene.BTN_CLEAR_LOG: {
+            case CheatCenterScene.BTN_CLEAR_LOG:
+            {
                 CheatCenter.LOGS = [];
                 CheatCenter.OLD_LOG = "";
                 break;
             }
             case CheatCenterScene.BTN_CHEAT_ADD:
-            case CheatCenterScene.BTN_CHEAT_SUB: {
+            case CheatCenterScene.BTN_CHEAT_SUB:
+            {
                 var gold = id * parseFloat(this.txGold.getString());
                 var g = id * parseFloat(this.txG.getString());
                 var gStar = id * parseFloat(this.txGStar.getString());
                 var exp = id * parseFloat(this.txEXP.getString());
-                var gstar = id * parseFloat(this.txGStar.getString());
+                var jackpot = id * parseFloat(this.txJackpot.getString());
 
-                this.cheatLobby(gold, g, gStar, exp, gstar);
+                this.cheatLobby(gold, g, gStar, exp, jackpot);
                 break;
             }
-            case CheatCenterScene.BTN_CHANGE_URL_DOWNLOAD: {
+            case CheatCenterScene.BTN_CHANGE_URL_DOWNLOAD:
+            {
                 this.changeUpdateURL();
                 break;
             }
-            case CheatCenterScene.BTN_CHANGE_VERSION_UPDATE: {
+            case CheatCenterScene.BTN_CHANGE_VERSION_UPDATE:
+            {
                 this.changeVersionUpdate();
                 break;
             }
-            case CheatCenterScene.BTN_CHANGE_LINK_CHEAT_SMS: {
+            case CheatCenterScene.BTN_CHANGE_LINK_CHEAT_SMS:
+            {
                 this.changeLinkCheatSms();
                 break;
             }
-            case CheatCenterScene.BTN_RESET: {
+            case CheatCenterScene.BTN_RESET:
+            {
                 this.resetCardDeck();
                 break;
             }
-            case CheatCenterScene.BTN_SEND: {
+            case CheatCenterScene.BTN_SEND:
+            {
                 this.cheatConfigCard();
                 break;
             }
-            case CheatCenterScene.BTN_RANDOM: {
+            case CheatCenterScene.BTN_RANDOM:
+            {
                 this.randomCardPlayer();
                 break;
             }
-            case CheatCenterScene.BTN_RANDOM_SELECT: {
+            case CheatCenterScene.BTN_RANDOM_SELECT:
+            {
                 this.randomCardPlayerIndex(this.currentPlayer);
                 break;
             }
-            case CheatCenterScene.BTN_CLEAR_CACHE: {
+            case CheatCenterScene.BTN_FAKE_DEVICE:
+            {
                 cc.sys.localStorage.clear();
 
                 ToastFloat.makeToast(ToastFloat.SHORT, "Restart Game to apply this !");
                 break;
             }
-            case CheatCenterScene.BTN_CHANGE_SERVER: {
+            case CheatCenterScene.BTN_CLEAR_CACHE:
+            {
+                cc.sys.localStorage.clear();
+
+                ToastFloat.makeToast(ToastFloat.SHORT, "Restart Game to apply this !");
+                break;
+            }
+            case CheatCenterScene.BTN_CHANGE_SERVER:
+            {
                 var sIp = this.txIP.getString();
                 if (!this.validateIPAddress(sIp) && cc.sys.isNative) {
                     ToastFloat.makeToast(ToastFloat.SHORT, "IP address format error !!!");
@@ -1286,33 +1262,25 @@ var CheatCenterScene = BaseLayer.extend({
                 ToastFloat.makeToast(ToastFloat.SHORT, "Restart Game to apply this !");
                 break;
             }
-            case CheatCenterScene.BTN_DEFAULT_SERVER: {
+            case CheatCenterScene.BTN_DEFAULT_SERVER:
+            {
                 if (cc.sys.isNative) {
                     CheatCenter.SERVER_IP = Config.SERVER_PRIVATE;
-                    CheatCenter.SERVER_PORT = Config.PORT_PRIVATE;
-                } else {
+                    CheatCenter.SERVER_PORT = Config.PORT;
+                }
+                else {
                     CheatCenter.SERVER_IP = Config.SERVER_PRIVATE_WEB;
-                    CheatCenter.SERVER_PORT = Config.PORT_PRIVATE_WEB;
+                    CheatCenter.SERVER_PORT = Config.PORT_WEB;
                 }
 
                 cc.sys.localStorage.setItem(CHEAT_SERVER_IP, CheatCenter.SERVER_IP);
                 cc.sys.localStorage.setItem(CHEAT_SERVER_PORT, CheatCenter.SERVER_PORT);
 
-                if (Config.ENABLE_MINIGAME) {
-                    CheatCenter.SERVER_CHAT_ROULETE_IP = RouleteChatClient.IP_PRIVATE;
-                    CheatCenter.SERVER_CHAT_ROULETE_PORT = RouleteChatClient.PORT_PRIVATE;
+                CheatCenter.SERVER_NEW_RANK_IP = (cc.sys.isNative) ? NewRankData.IP_DEV : NewRankData.IP_DEV_WEB;
+                CheatCenter.SERVER_NEW_RANK_PORT = NewRankData.PORT_DEV;
 
-                    cc.sys.localStorage.setItem(CHEAT_SERVER_CHAT_ROULETE_IP, CheatCenter.SERVER_CHAT_ROULETE_IP);
-                    cc.sys.localStorage.setItem(CHEAT_SERVER_CHAT_ROULETE_PORT, CheatCenter.SERVER_CHAT_ROULETE_PORT);
-                }
-
-                if (Config.ENABLE_NEW_RANK) {
-                    CheatCenter.SERVER_NEW_RANK_IP = (cc.sys.isNative) ? NewRankData.IP_DEV : NewRankData.IP_DEV_WEB;
-                    CheatCenter.SERVER_NEW_RANK_PORT = NewRankData.PORT_DEV;
-
-                    cc.sys.localStorage.setItem(CHEAT_SERVER_RANK_IP, CheatCenter.SERVER_NEW_RANK_IP);
-                    cc.sys.localStorage.setItem(CHEAT_SERVER_RANK_PORT, CheatCenter.SERVER_NEW_RANK_PORT);
-                }
+                cc.sys.localStorage.setItem(CHEAT_SERVER_RANK_IP, CheatCenter.SERVER_NEW_RANK_IP);
+                cc.sys.localStorage.setItem(CHEAT_SERVER_RANK_PORT, CheatCenter.SERVER_NEW_RANK_PORT);
 
                 this.txIP.setString(CheatCenter.SERVER_IP);
                 this.txPort.setString(CheatCenter.SERVER_PORT);
@@ -1320,15 +1288,18 @@ var CheatCenterScene = BaseLayer.extend({
                 ToastFloat.makeToast(ToastFloat.SHORT, "Restart Game to apply this !");
                 break;
             }
-            case CheatCenterScene.BTN_DEFAULT_SERVER_LIVE: {
+            case CheatCenterScene.BTN_DEFAULT_SERVER_LIVE:
+            {
                 if (cc.sys.localStorage.getItem("ipapp")) {
                     CheatCenter.SERVER_IP = cc.sys.localStorage.getItem("ipapp");
                     CheatCenter.SERVER_PORT = cc.sys.localStorage.getItem("portapp");
-                } else {
+                }
+                else {
                     if (cc.sys.isNative) {
                         CheatCenter.SERVER_IP = Config.SERVER_LIVE;
                         CheatCenter.SERVER_PORT = Config.PORT_LIVE;
-                    } else {
+                    }
+                    else {
                         CheatCenter.SERVER_IP = Config.SERVER_LIVE_WEB;
                         CheatCenter.SERVER_PORT = Config.PORT_LIVE_WEB;
                     }
@@ -1340,63 +1311,62 @@ var CheatCenterScene = BaseLayer.extend({
                 this.txIP.setString(CheatCenter.SERVER_IP);
                 this.txPort.setString(CheatCenter.SERVER_PORT);
 
-                if (Config.ENABLE_MINIGAME) {
-                    CheatCenter.SERVER_CHAT_ROULETE_IP = RouleteChatClient.IP_LIVE;
-                    CheatCenter.SERVER_CHAT_ROULETE_PORT = RouleteChatClient.PORT_LIVE;
+                CheatCenter.SERVER_NEW_RANK_IP = (cc.sys.isNative) ? NewRankData.IP_LIVE : NewRankData.IP_LIVE_WEB;
+                CheatCenter.SERVER_NEW_RANK_PORT = NewRankData.PORT_LIVE;
 
-                    cc.sys.localStorage.setItem(CHEAT_SERVER_CHAT_ROULETE_IP, CheatCenter.SERVER_CHAT_ROULETE_IP);
-                    cc.sys.localStorage.setItem(CHEAT_SERVER_CHAT_ROULETE_PORT, CheatCenter.SERVER_CHAT_ROULETE_PORT);
-                }
-
-                if (Config.ENABLE_NEW_RANK) {
-                    CheatCenter.SERVER_NEW_RANK_IP = (cc.sys.isNative) ? NewRankData.IP_LIVE : NewRankData.IP_LIVE_WEB;
-                    CheatCenter.SERVER_NEW_RANK_PORT = NewRankData.PORT_LIVE;
-
-                    cc.sys.localStorage.setItem(CHEAT_SERVER_RANK_IP, CheatCenter.SERVER_NEW_RANK_IP);
-                    cc.sys.localStorage.setItem(CHEAT_SERVER_RANK_PORT, CheatCenter.SERVER_NEW_RANK_PORT);
-                }
+                cc.sys.localStorage.setItem(CHEAT_SERVER_RANK_IP, CheatCenter.SERVER_NEW_RANK_IP);
+                cc.sys.localStorage.setItem(CHEAT_SERVER_RANK_PORT, CheatCenter.SERVER_NEW_RANK_PORT);
 
                 ToastFloat.makeToast(ToastFloat.SHORT, "Restart Game to apply this !");
                 break;
             }
-            case CheatCenterScene.BTN_TEST_FUNC: {
+            case CheatCenterScene.BTN_TEST_FUNC:
+            {
                 this.onTestFunc();
                 break;
             }
             case CheatCenterScene.BTN_FAKE_LOGIN_PANEL:
-            case CheatCenterScene.BTN_CLOSE_FAKE_LOGIN: {
+            case CheatCenterScene.BTN_CLOSE_FAKE_LOGIN:
+            {
                 this.visibleFakeLogin();
                 break;
             }
-            case CheatCenterScene.BTN_GET_SESSION_FROM_ATK: {
+            case CheatCenterScene.BTN_GET_SESSION_FROM_ATK:
+            {
                 this.getSessionFromAccessToken();
                 break;
             }
-            case CheatCenterScene.BTN_CLEAR_SESSION: {
+            case CheatCenterScene.BTN_CLEAR_SESSION:
+            {
                 this.clearSession();
                 break;
             }
-            case CheatCenterScene.BTN_FAKE_SESSION: {
+            case CheatCenterScene.BTN_FAKE_SESSION:
+            {
                 this.fakeSession();
                 break;
             }
-            case CheatCenterScene.BTN_SHOW_FPS: {
+            case CheatCenterScene.BTN_SHOW_FPS:
+            {
                 this.visibleFPS();
                 break;
             }
-            case CheatCenterScene.BTN_RESET_MAP: {
+            case CheatCenterScene.BTN_RESET_MAP:
+            {
                 var pk = new CmdSendResetMapZalo();
                 pk.putData();
                 GameClient.getInstance().sendPacket(pk);
                 pk.clean();
                 break;
             }
-            case CheatCenterScene.BTN_CLOSE_FAKE_ZALO: {
+            case CheatCenterScene.BTN_CLOSE_FAKE_ZALO:
+            {
                 this.pLobby.setVisible(true);
                 this.pFakeZalo.setVisible(false);
                 break;
             }
-            case CheatCenterScene.BTN_FAKE_ZALO: {
+            case CheatCenterScene.BTN_FAKE_ZALO:
+            {
                 //this.pLobby.setVisible(false);
                 //this.pFakeZalo.setVisible(true);
 
@@ -1406,8 +1376,10 @@ var CheatCenterScene = BaseLayer.extend({
                 GameClient.getInstance().sendPacket(pk);
                 pk.clean();
                 break;
+                break;
             }
-            case CheatCenterScene.BTN_SEND_FAKE_ZALO: {
+            case CheatCenterScene.BTN_SEND_FAKE_ZALO:
+            {
                 cc.log("lkjfdl");
                 //socialMgr._currentSocial = varant.ZALO;
                 //GameData.getInstance().sessionkey = this.tfSessionInputZalo.getString();
@@ -1425,7 +1397,6 @@ var CheatCenterScene = BaseLayer.extend({
     },
 
     validateIPAddress: function (ip) {
-        if (!ip || !cc.sys.isNative) return false;
         if (!ip) return false;
 
         var re = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
@@ -1469,13 +1440,15 @@ var CheatCenterScene = BaseLayer.extend({
         var obj = {};
         try {
             obj = JSON.parse(this.xhr.responseText);
-        } catch (e) {
+        }
+        catch (e) {
             obj["error"] = 1;
         }
 
         if (obj["error"] == 0) {
             this.tfSessionInput.setString(obj["sessionKey"]);
-        } else {
+        }
+        else {
             this.tfSessionInput.setString(JSON.stringify(obj));
         }
     },
@@ -1529,148 +1502,158 @@ var CheatCenterScene = BaseLayer.extend({
         ToastFloat.makeToast(ToastFloat.SHORT, "Logout game to apply this !");
     },
 
-    changeUpdateURL: function () {
+    changeUpdateURL : function () {
         // get default link
         var curURL = Config.MANIFEST_URL_LIVE;
         var desURL = Config.MANIFEST_URL_PRIVATE;
 
-        if (this.urlUpdateVersion) {
+        if(this.urlUpdateVersion) {
             curURL = this.urlUpdateVersion;
         }
 
         var sDes = this.txUrlDownload.getString().trim();
-        if (sDes != "") {
+        if(sDes != "") {
             desURL = sDes;
         }
 
         var fVersion = "version.manifest";
         var fProject = "project.manifest";
 
-        this.readManifestFile(fVersion, curURL, desURL);
-        this.readManifestFile(fProject, curURL, desURL);
+        this.readManifestFile(fVersion,curURL,desURL);
+        this.readManifestFile(fProject,curURL,desURL);
     },
 
-    changeVersionUpdate: function () {
+    changeVersionUpdate : function () {
         var sDes = parseInt(this.txVersionUpdate.getString().trim());
-        if (isNaN(sDes)) {
+        if(isNaN(sDes)) {
             sDes = 1;
         }
 
         var fVersion = "version.manifest";
         var fProject = "project.manifest";
 
-        this.changeVersionManifest(fVersion, sDes);
-        this.changeVersionManifest(fProject, sDes);
+        this.changeVersionManifest(fVersion,sDes);
+        this.changeVersionManifest(fProject,sDes);
     },
 
-    changeLinkCheatSms: function () {
+    changeLinkCheatSms: function(){
         Constant.SMS_PRIVATE = this.txLinkCheatSms.getString();
         cc.sys.localStorage.setItem(CHEAT_LINK_FAKE_PAYMENT, Constant.SMS_PRIVATE);
     },
 
-    readManifestFile: function (fName, cur, des) {
+    readManifestFile : function (fName,cur,des) {
         var downPath = fr.NativeService.getFolderUpdateAssets() + "/" + fName;
         var resPath = jsb.fileUtils.fullPathForFilename(fName);
 
         var fName = "";
-        if (jsb.fileUtils.isFileExist(downPath)) {
+        if(jsb.fileUtils.isFileExist(downPath)) {
             fName = downPath;
-        } else if (jsb.fileUtils.isFileExist(resPath)) {
+        }
+        else if(jsb.fileUtils.isFileExist(resPath)) {
             fName = resPath;
-        } else {
+        }
+        else {
             fName = "";
         }
 
-        if (fName) {
+        if(fName) {
             cc.loader.loadTxt(fName, function (error, txt) {
                 if (error != null) {
-                    ToastFloat.makeToast(ToastFloat.SHORT, "Error load " + fName);
-                } else {
+                    ToastFloat.makeToast(ToastFloat.SHORT,"Error load " + fName);
+                }
+                else {
                     var str = txt;
-                    str = StringUtility.replaceAll(str, cur, des);
+                    str = StringUtility.replaceAll(str,cur,des);
 
                     var success = jsb.fileUtils.writeStringToFile(str, downPath);
-                    if (success) {
-                        ToastFloat.makeToast(ToastFloat.SHORT, "Change URL Download success. Restart game to apply this !");
-                    } else {
-                        ToastFloat.makeToast(ToastFloat.SHORT, "Error change URL !");
+                    if(success) {
+                        ToastFloat.makeToast(ToastFloat.SHORT,"Change URL Download success. Restart game to apply this !");
+                    }
+                    else {
+                        ToastFloat.makeToast(ToastFloat.SHORT,"Error change URL !");
                     }
                 }
             });
         }
     },
 
-    changeVersionManifest: function (fName, cur) {
+    changeVersionManifest : function (fName,cur) {
         var downPath = fr.NativeService.getFolderUpdateAssets() + "/" + fName;
         var resPath = jsb.fileUtils.fullPathForFilename(fName);
 
         var fName = "";
-        if (jsb.fileUtils.isFileExist(downPath)) {
+        if(jsb.fileUtils.isFileExist(downPath)) {
             fName = downPath;
-        } else if (jsb.fileUtils.isFileExist(resPath)) {
+        }
+        else if(jsb.fileUtils.isFileExist(resPath)) {
             fName = resPath;
-        } else {
+        }
+        else {
             fName = "";
         }
 
-        if (fName) {
+        if(fName) {
             cc.loader.loadTxt(fName, function (error, txt) {
                 if (error != null) {
-                    ToastFloat.makeToast(ToastFloat.SHORT, "Error load " + fName);
-                } else {
+                    ToastFloat.makeToast(ToastFloat.SHORT,"Error load " + fName);
+                }
+                else {
                     var str = txt;
 
                     var jsVersion = cc.sys.localStorage.getItem(LocalizedString.config("KEY_JS_VERSION"));
-                    if (jsVersion === undefined || jsVersion == null || jsVersion == "") jsVersion = "0";
+                    if(jsVersion === undefined || jsVersion == null || jsVersion == "") jsVersion = "0";
 
                     var sNEW = "\"version\" : \"" + cur + "\"";
                     var sOLD = "\"version\" : \"" + jsVersion + "\"";
-                    var sOLD2 = "\"version\": \"" + jsVersion + "\"";
+                    str = StringUtility.replaceAll(str,sOLD,sNEW);
 
-                    str = StringUtility.replaceAll(str, sOLD, sNEW);
-                    str = StringUtility.replaceAll(str, sOLD2, sNEW);
-                    cc.log("sNew: " + sNEW, sOLD, sOLD2, "\n", str);
                     var success = jsb.fileUtils.writeStringToFile(str, downPath);
-                    if (success) {
-                        ToastFloat.makeToast(ToastFloat.SHORT, "Change Version Update Success. Restart game to apply this !");
-                    } else {
-                        ToastFloat.makeToast(ToastFloat.SHORT, "Error change version !");
+                    if(success) {
+                        ToastFloat.makeToast(ToastFloat.SHORT,"Change Version Update Success. Restart game to apply this !");
+                    }
+                    else {
+                        ToastFloat.makeToast(ToastFloat.SHORT,"Error change version !");
                     }
                 }
             });
-        } else {
-            ToastFloat.makeToast(ToastFloat.SHORT, "Cannot Read Manifest !!!");
+        }
+        else {
+            ToastFloat.makeToast(ToastFloat.SHORT,"Cannot Read Manifest !!!");
         }
     },
 
-    visibleFPS: function () {
+    visibleFPS : function () {
         var fName = "project.json";
         var downPath = fr.NativeService.getFolderUpdateAssets() + "/" + fName;
         var resPath = jsb.fileUtils.fullPathForFilename(fName);
 
         var fName = "";
-        if (jsb.fileUtils.isFileExist(downPath)) {
+        if(jsb.fileUtils.isFileExist(downPath)) {
             fName = downPath;
-        } else if (jsb.fileUtils.isFileExist(resPath)) {
+        }
+        else if(jsb.fileUtils.isFileExist(resPath)) {
             fName = resPath;
-        } else {
+        }
+        else {
             fName = "";
         }
 
-        if (fName) {
+        if(fName) {
             cc.loader.loadTxt(fName, function (error, txt) {
                 if (error != null) {
-                    ToastFloat.makeToast(ToastFloat.SHORT, "Can't change FPS" + fName);
-                } else {
+                    ToastFloat.makeToast(ToastFloat.SHORT,"Can't change FPS" + fName);
+                }
+                else {
                     var obj = JSON.parse(txt);
                     obj.showFPS = !obj.showFPS;
 
                     var str = JSON.stringify(obj);
                     var success = jsb.fileUtils.writeStringToFile(str, downPath);
-                    if (success) {
-                        ToastFloat.makeToast(ToastFloat.SHORT, "Show FPS " + obj.showFPS + " ! Restart game to apply this !");
-                    } else {
-                        ToastFloat.makeToast(ToastFloat.SHORT, "Error Show PFS !");
+                    if(success) {
+                        ToastFloat.makeToast(ToastFloat.SHORT,"Show FPS " + obj.showFPS + " ! Restart game to apply this !");
+                    }
+                    else {
+                        ToastFloat.makeToast(ToastFloat.SHORT,"Error Show PFS !");
                     }
                 }
             });
@@ -1689,36 +1672,32 @@ var CheatCenterScene = BaseLayer.extend({
 });
 
 var CheatLogPanel = BaseLayer.extend({
-    ctor: function (pLog) {
+    ctor : function (pLog) {
         this._super("CheatLogPanel");
         this.pLog = pLog;
         this.arLog = [];
 
         this.lastTimeUpdate = 0;
 
-        this.listLog = new cc.TableView(this, this.pLog.getContentSize());
+        this.listLog = new cc.TableView(this,this.pLog.getContentSize());
         this.listLog.setDirection(cc.SCROLLVIEW_DIRECTION_VERTICAL);
         this.listLog.setVerticalFillOrder(0);
         this.pLog.addChild(this.listLog);
         this.listLog.reloadData();
     },
 
-    onLogJS: function (s) {
-        var lbMsg = new ccui.Text();
-        lbMsg.setFontName("fonts/tahoma.ttf");
-        lbMsg.setFontSize(17);
-        lbMsg.ignoreContentAdaptWithSize(true);
-        lbMsg.setString(s);
-        StringUtility.breakLabelToMultiLine(lbMsg, this.pLog.getContentSize().width);
+    onLogJS : function (s) {
+        var fullMsg = ChatMgr.getFullMessage("",s, this.pLog.getContentSize().width, 1);
+        var lbMsg = ChatMgr.createText(fullMsg);
 
         var objLog = {};
-        objLog.msg = lbMsg.getString();
-        objLog.size = cc.size(this.pLog.getContentSize().width, lbMsg.getContentSize().height);
+        objLog.msg = fullMsg;
+        objLog.size = cc.size(this.pLog.getContentSize().width,lbMsg.getContentSize().height);
 
         this.arLog.unshift(objLog);
 
         var cTime = new Date().getTime();
-        if (cTime - this.lastTimeUpdate > 1000) {
+        if(cTime - this.lastTimeUpdate > 1000) {
             this.listLog.reloadData();
             this.lastTimeUpdate = cTime;
         }
@@ -1751,11 +1730,7 @@ var CheatLogItem = cc.TableViewCell.extend({
         this.info = obj;
         this.removeAllChildren();
 
-        var lbMsg = new ccui.Text();
-        lbMsg.setFontName("fonts/tahoma.ttf");
-        lbMsg.setFontSize(17);
-        lbMsg.ignoreContentAdaptWithSize(true);
-        lbMsg.setString(obj.msg);
+        var lbMsg = ChatMgr.createText(obj.msg);
         this.addChild(lbMsg);
         lbMsg.setPositionY(lbMsg.getContentSize().height);
     }
@@ -1860,28 +1835,34 @@ var CardCheat = cc.Node.extend({
 
     touchEvent: function (sender, type) {
         switch (type) {
-            case ccui.Widget.TOUCH_BEGAN: {
+            case ccui.Widget.TOUCH_BEGAN:
+            {
 
                 break;
             }
-            case ccui.Widget.TOUCH_MOVED: {
+            case ccui.Widget.TOUCH_MOVED:
+            {
 
                 break;
             }
 
-            case ccui.Widget.TOUCH_ENDED: {
+            case ccui.Widget.TOUCH_ENDED:
+            {
                 if (this.cardMode == CARD_CHEAT_DECK) {
                     this.cheatCenter.onSelectCardDeck(this);
-                } else {
+                }
+                else {
                     this.cheatCenter.onSelectCardPlayer(this);
                 }
                 break;
             }
-            case ccui.Widget.TOUCH_CANCELED: {
+            case ccui.Widget.TOUCH_CANCELED:
+            {
 
                 break;
             }
-            default: {
+            default:
+            {
 
                 break;
             }
@@ -1913,114 +1894,3 @@ var CardCheat = cc.Node.extend({
         return CheckLogic.getCardResource(this.id);
     }
 });
-
-/* config for game
- *
-
- Config.CHEAT_MAX_PLAYER = 6;
- Config.CHEAT_MAX_CARD = 5;
- Config.CARD_CHEAT_SCALE_DECK = 0.525;
- Config.CARD_CHEAT_SCALE_PLAYER = 0.35;
- Config.CARD_CHEAT_PLAYER_LINE = 1;
-
- CMD.CMD_CHEAT_MONEY  = 9001;
- CMD.CMD_CHEAT_CARD  = 9000;
- CMD.CMD_CHEAT_JACKPOT  = 9002;
- CMD.CMD_CHEAT_EXP  = 9003;
- CMD.CMD_CHEAT_GSTAR  = 6005;
-
- */
-
-/*
- CmdSendCheatMoney = CmdSendCommon.extend({
- ctor: function () {
- this._super();
- this.initData(100);
- this.setControllerId(1);
- this.setCmdId(CMD.CMD_CHEAT_MONEY);
- },
-
- putData: function (money, coin) {
- //pack
- this.packHeader();
- this.putLong(money);
- this.putLong(coin);
-
- //update
- this.updateSize();
- }
- });
-
- CmdSendCheatJackpot = CmdSendCommon.extend({
- ctor: function () {
- this._super();
- this.initData(100);
- this.setControllerId(1);
- this.setCmdId(CMD.CMD_CHEAT_JACKPOT);
- },
-
- putData: function (jp) {
- //pack
- this.packHeader();
- this.putInt(jp);
- //update
- this.updateSize();
- }
- });
-
- CmdSendCheatEXP = CmdSendCommon.extend({
- ctor: function () {
- this._super();
- this.initData(100);
- this.setControllerId(1);
- this.setCmdId(CMD.CMD_CHEAT_EXP);
- },
-
- putData: function (exp) {
- //pack
- this.packHeader();
- this.putLong(exp);
-
- //update
- this.updateSize();
- }
- });
-
- CmdSendCheatGStar = CmdSendCommon.extend({
- ctor: function () {
- this._super();
- this.initData(100);
- this.setControllerId(1);
- this.setCmdId(CMD.CMD_CHEAT_GSTAR);
- },
-
- putData: function (gstar) {
- //pack
- this.packHeader();
- this.putLong(gstar);
-
- //update
- this.updateSize();
- }
- });
-
- CmdSendCheatConfigCard = CmdSendCommon.extend({
- ctor: function () {
- this._super();
- this.initData(100);
- this.setControllerId(1);
- this.setCmdId(CMD.CMD_CHEAT_CARD);
- },
- putData: function (cards) {
- //pack
- this.packHeader();
- this.putShort(cards.length);
- for (var i = 0; i < cards.length; i++) {
- this.putInt(cards[i]);
- }
- //update
- this.updateSize();
- }
- });
-
- */

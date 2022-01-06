@@ -9,7 +9,7 @@ RichTextColor = {
     BLACK:"BLACK",
     WHITE:"WHITE",
     YELLOW:"YELLOW"
-},
+};
 
 RichTextAlignment = {
     LEFT:0,
@@ -19,7 +19,7 @@ RichTextAlignment = {
     TOP:4,
     MIDDLE:5,
     BOTTOM:6
-}
+};
 
 var CustomLabel = cc.Layer.extend({
     ctor:function(size) {
@@ -34,7 +34,6 @@ var CustomLabel = cc.Layer.extend({
         this._color = cc.color.WHITE;
 
         this._richText = new ccui.RichText();
-     //   this._richText.setFontName(SceneMgr.FONT_NORMAL);
         this.addChild(this._richText);
 
         if (size) {
@@ -50,16 +49,8 @@ var CustomLabel = cc.Layer.extend({
         }
     },
 
-    setIgnoreSize:function(val) {
-        this._richText.ignoreContentAdaptWithSize(val);
-    },
-
     setTextContentSize:function(size) {
         this._richText.setContentSize(size);
-    },
-
-    getTextContentSize:function() {
-        this._richText.getContentSize();
     },
 
     setDefaultFont:function(font) {
@@ -106,10 +97,6 @@ var CustomLabel = cc.Layer.extend({
             return;
         }
         this._richText.setAlignmentVertical(val);
-    },
-
-    setTouchListener:function(listener) {
-        this._listener = listener;
     },
 
     appendText:function(text, font, size, color, opacity, enableTouch) {

@@ -3,43 +3,50 @@ var fr = fr || {};
 fr.crashLytics = {
 
     init : function () {
-        cc.log("init crashlytic success");
-        if (gameMgr.checkOldNativeVersion()) return;
+        if (gamedata.checkOldNativeVersion()) return;
+        // reflect jni
+        // var func = jsb.reflection.callStaticMethod;
+        //
+        // jsb.reflection.callStaticMethod = function () {
+        //     fr.crashLytics.log("JSB",JSON.stringify(arguments));
+        //     func.apply(this,arguments);
+        // };
+
         // default log
         fr.crashLytics.logScene(LoginScene.className);
         fr.crashLytics.setString("Version: ", NativeBridge.getVersionString());
     },
 
     logScene : function (scene) {
-        if (gameMgr.checkOldNativeVersion()){
+        if (gamedata.checkOldNativeVersion()){
             return;
         }
         fr.crashLytics.log("OpenScene::" + scene);
     },
 
     logGUI : function (gui) {
-        if (gameMgr.checkOldNativeVersion()){
+        if (gamedata.checkOldNativeVersion()){
             return;
         }
         fr.crashLytics.log("OpenGUI::" + gui);
     },
 
     logPressButton : function (btn) {
-        if (gameMgr.checkOldNativeVersion()){
+        if (gamedata.checkOldNativeVersion()){
             return;
         }
         fr.crashLytics.log("PressButton::" + btn);
     },
 
     logGameClient : function (state) {
-        if (gameMgr.checkOldNativeVersion()){
+        if (gamedata.checkOldNativeVersion()){
             return;
         }
         fr.crashLytics.log("LogGameClient::" + state);
     },
 
     log : function(msg) {
-        if (gameMgr.checkOldNativeVersion()){
+        if (gamedata.checkOldNativeVersion()){
             return;
         }
         cc.log("Crashlytics::log " + msg);
@@ -51,7 +58,7 @@ fr.crashLytics = {
 
     setString : function(key, value) {
 
-        if (gameMgr.checkOldNativeVersion()){
+        if (gamedata.checkOldNativeVersion()){
             return;
         }
         // cc.log("Crashlytics::setString " + key, value);
@@ -63,7 +70,7 @@ fr.crashLytics = {
     },
 
     setBool:function(key, value) {
-        if (gameMgr.checkOldNativeVersion()){
+        if (gamedata.checkOldNativeVersion()){
             return;
         }
         if(fr.platformWrapper.pluginPlatform != null) {
@@ -74,7 +81,7 @@ fr.crashLytics = {
     },
 
     setDouble:function(key, value) {
-        if (gameMgr.checkOldNativeVersion()){
+        if (gamedata.checkOldNativeVersion()){
             return;
         }
         if(fr.platformWrapper.pluginPlatform != null) {
@@ -85,7 +92,7 @@ fr.crashLytics = {
     },
 
     setInt:function(key, value) {
-        if (gameMgr.checkOldNativeVersion()){
+        if (gamedata.checkOldNativeVersion()){
             return;
         }
         if(fr.platformWrapper.pluginPlatform != null) {
@@ -96,7 +103,7 @@ fr.crashLytics = {
     },
 
     setUserIdentifier:function(userId) {
-        if (gameMgr.checkOldNativeVersion()){
+        if (gamedata.checkOldNativeVersion()){
             return;
         }
         if(fr.platformWrapper.pluginPlatform != null) {

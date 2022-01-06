@@ -28,9 +28,7 @@ var PersonalInfoGUI = BaseLayer.extend({
         
         this.infoPhoneNumber = this.getControl("bgPhoneNumber", this.pInfo);
         this.txPhoneNumber = this.createExitBox(this.getControl("content", this.infoPhoneNumber), LocalizedString.to("PERSONAL_PHONE"), PersonalInfoGUI.TF_PHONE);
-        if (cc.sys.isNative){
-            this.txPhoneNumber.setInputMode(cc.EDITBOX_INPUT_MODE_NUMERIC);
-        }
+        this.txPhoneNumber.setInputMode(cc.EDITBOX_INPUT_MODE_NUMERIC);
         this.txPhoneNumber.setMaxLength(100);
         this.infoPhoneNumber.addChild(this.txPhoneNumber);
         
@@ -102,7 +100,7 @@ var PersonalInfoGUI = BaseLayer.extend({
     },
     
     savePersonalInfo: function(){
-        if ((cc.sys.isNative && !this.txName.isTouchEnabled()) || (!cc.sys.isNative && !this.txName._touchEnabled)){
+        if (!this.txName.isTouchEnabled()){
             this.onClose();
             return;
         }
@@ -123,7 +121,10 @@ var PersonalInfoGUI = BaseLayer.extend({
         edb.setFont("fonts/tahoma.ttf", 20);
         edb.setPlaceHolder(placeHolderString);
         edb.setPlaceholderFontName("fonts/tahoma.ttf");
-
+        if (!cc.sys.isNative){
+            edb.setFont("tahoma", 20);
+            edb.setPlaceholderFontName("tahoma");
+        }
         edb.setPlaceholderFontSize(20);
         // edb.setPlaceholderFontColor(cc.color(135, 75, 45));
         edb.setAnchorPoint(cc.p(0, 0.5));
@@ -133,16 +134,6 @@ var PersonalInfoGUI = BaseLayer.extend({
         edb.setDelegate(this);
         edb.setTag(tag);
         edb.setReturnType(cc.KEYBOARD_RETURNTYPE_DONE);
-        if (!cc.sys.isNative){
-            edb.setFont("tahoma", 20);
-            edb.setPlaceholderFontName("tahoma");
-            edb.setAnchorPoint(cc.p(0, 0.6));
-
-            var title = bg.getParent().getChildByName("header");
-            if (title){
-                title.setAnchorPoint(1, 0.6);
-            }
-        }
         return edb;
     },
 
@@ -175,15 +166,7 @@ var PersonalInfoGUI = BaseLayer.extend({
         return ok;
     },
 
-    editBoxEditingDidEnd: function(editBox){
-        cc.log("chay vao day k ta");
-        if (!cc.sys.isNative){
-            this.editBoxReturn(editBox);
-        }
-    },
-
     editBoxReturn: function (editBox) {
-        cc.log("editBoxReturn");
         var tag = parseInt(editBox.getTag());
         if (isNaN(tag)) return;
 

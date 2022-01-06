@@ -23,9 +23,6 @@ var ChooseRoomScene = BaseLayer.extend({
 
         this.tfSearch = null;
 
-        this.notifyChat = null;
-        this.saveChannel = 0;
-
         this._super(ChooseRoomScene.className);
         this.initWithBinaryFile("ChooseRoomGUI.json");
     },
@@ -33,141 +30,31 @@ var ChooseRoomScene = BaseLayer.extend({
     onEnterFinish: function () {
         this.onUpdateGUI();
 
+        cc.log("onEnterFinish: ", gamedata.selectedChanel);
+        // if (gamedata.selectedChanel != gamedata.gameConfig.getCurrentChanel()) {
         if (gamedata.selectedChanel == -1) {
+            cc.log("send lai cai nay")
             var pk = new CmdSendSelectChanel();
             pk.putData(gamedata.gameConfig.getCurrentChanel() + 0);
             GameClient.getInstance().sendPacket(pk);
             pk.clean();
         }
         else {
-            var nChannel = ChanelConfig.instance().getCurChanel();
-            if (nChannel < 0) nChannel = 0;
-            if (gamedata.selectedChanel != nChannel) {
-                var pk = new CmdSendSelectChanel();
-                pk.putData(nChannel);
-                GameClient.getInstance().sendPacket(pk);
-                pk.clean();
-            } else {
-                var pk = new CmdSendRefreshTable();
-                GameClient.getInstance().sendPacket(pk);
-                pk.clean();
-            }
+            var pk = new CmdSendRefreshTable();
+            GameClient.getInstance().sendPacket(pk);
+            pk.clean();
         }
+        // this.sortType = 1;
+        // this.sortGroup = 1;
+        // this.autoSortTable();
 
         CheckLogic.checkCaptureInBoard();
 
         gamedata.checkSupportBean();
-
-        if (Config.ENABLE_JACKPOT) {
-            this.updateJackpotGUI("init");
-        }
-
-        if (!cc.sys.isNative) {
-            this._uiTable.setTouchEnabled(true);
-        }
-    },
-    createAnim: function (control, anim) {
-        cc.log(anim);
-        if (control === undefined || control == null || anim === undefined || anim == "") return null;
-
-        if (control.anim) {
-            control.removeChild(control.anim);
-            control.anim = null;
-        }
-
-        var eff = db.DBCCFactory.getInstance().buildArmatureNode(anim);
-        // cc.log("create ok");
-        if (eff) {
-            control.addChild(eff);
-            eff.setPosition(control.getContentSize().width / 2, control.getContentSize().height / 2);
-            //eff.getAnimation().gotoAndPlay("1", -1, -1, 0);
-            control.anim = eff;
-            // cc.log("has effect");
-        }
-        return eff;
-    },
-    updateJackpotGUI: function (status) {
-        if (!Config.ENABLE_JACKPOT || gamedata.selectedChanel == -1) {
-            return;
-        }
-
-        //UPDATING_JACKPOT = true;
-        var btnjp = ccui.Helper.seekWidgetByName(this._layout, "btnJackpot");
-        var jackpot = ccui.Helper.seekWidgetByName(btnjp, "jackpot");
-        //cc.log("update jackpot now", JSON.stringify(gamedata.jackpot));
-        jackpot.setString("$" + StringUtility.standartNumber(gamedata.jackpot[0][gamedata.selectedChanel]));
-        var introJackpot = ccui.Helper.seekWidgetByName(this._layout, "introJackpot");
-        //introJackpot.runAction(cc.FadeOut(0));
-        if (!status) {
-            return;
-        }
-        btnjp.stopAllActions();
-        if (btnjp.anim != null) {
-            btnjp.removeChild(btnjp.anim);
-            btnjp.anim = null;
-        }
-        btnjp.setVisible(false);
-        introJackpot.stopAllActions();
-        introJackpot.runAction(new cc.FadeIn(0));
-        var config = CheckLogic.getJackpotConfig(gamedata.selectedChanel);
-        //cc.log("null", introJackpot == null);
-        introJackpot.loadTexture(config.intro);
-        introJackpot.setVisible(true);
-        var self = this;
-        introJackpot.runAction(new cc.Sequence(cc.delayTime(0.5), new cc.Spawn(new cc.CallFunc(function () {
-            self.createAnim(this, "TranDiamond");
-            this.anim.gotoAndPlay("1", -1);
-        }, introJackpot), new cc.FadeOut(0.9))));
-        var btn = ccui.Helper.seekWidgetByName(self._layout, "btnJackpot");
-        //btn.setVisible(true);
-        var listDiamond = ccui.Helper.seekWidgetByName(self._layout, "btnJackpot").getChildByName("listDiamond");
-        var dias = listDiamond.getChildren();
-        for (var i = 0; i < dias.length; i++) {
-            dias[i].loadTexture(config.diamond);
-            dias[i].setVisible(false);
-            dias[i].stopAllActions();
-        }
-
-        btn.runAction(new cc.Sequence(new cc.FadeOut(0), cc.delayTime(1), new cc.CallFunc(function () {
-            this.setVisible(true);
-            this.runAction(new cc.Sequence(new cc.FadeIn(1), new cc.CallFunc(function () {
-
-                var jackpot = ccui.Helper.seekWidgetByName(self._layout, "jackpot");
-                jackpot.runAction(new cc.Sequence(new cc.ScaleTo(0.2, 0.27), new cc.ScaleTo(0.2, 0.25)));
-                for (var j = 0; j < gamedata.jackpot[1][gamedata.selectedChanel]; j++) {
-                    var dia = dias[j];
-                    dia.runAction(new cc.Sequence(cc.delayTime(j * 0.32 + 0.4), new cc.CallFunc(function () {
-                        this.setVisible(true);
-                    }, dia), new cc.ScaleTo(0.1, 1.2), new cc.ScaleTo(0.1, 1)));
-                }
-                for (var j = 0; j < dias.length; j++) {
-                    var dia = dias[j];
-                    dia.runAction(new cc.Sequence(cc.delayTime(dias.length * 0.3), new cc.ScaleTo(0.3, 1.2), new cc.CallFunc(function () {
-                        self.createAnim(this, "SmallDiamond");
-                        this.anim.gotoAndPlay("1", -1);
-                        this.anim.setCompleteListener(function () {
-                            this.runAction(new cc.ScaleTo(0.1, 1));
-                        }.bind(this));
-                    }, dia)));
-                }
-
-            }, this)));
-            this.runAction(new cc.Sequence(cc.delayTime(gamedata.jackpot[1][gamedata.selectedChanel] * 0.32 + 2.9), new cc.CallFunc(function () {
-                if (gamedata.jackpot[1][gamedata.selectedChanel] == 4) {
-                    self.createAnim(this, "Bang1");
-                    this.anim.gotoAndPlay("1", -1);
-                } else {
-                    if (this.anim) {
-                        this.removeChild(this.anim);
-                        this.anim = null;
-                    }
-                }
-            }, this)));
-        }, btn)));
-        //UPDATING_JACKPOT = false;
     },
 
-    initGUI: function() {
+    customizeGUI: function () {
+
         var bBot = this.getControl("bgBot");
         var bTop = this.getControl("bgTop");
         var bSub = this.getControl("bgSub");
@@ -183,7 +70,6 @@ var ChooseRoomScene = BaseLayer.extend({
         bSub.setPositionY(bTop.getPositionY() - bTop.getContentSize().height * this._scale - bSubSize / 2);
         bSlide.setPositionY(bTop.getPositionY() - bTop.getContentSize().height * this._scale - bSlide.getContentSize().height * this._scale / 2);
         bListRoom.setPositionY(bSlide.getPositionY() - bSlide.getContentSize().height * this._scale / 2 - this.listRoomHeight);
-
         // Right top
         var pRightTop = this.getControl("pRightTop");
         this.customButton("btnChoingay", ChooseRoomScene.BTN_CHOINGAY, pRightTop);
@@ -200,7 +86,6 @@ var ChooseRoomScene = BaseLayer.extend({
 
         this._uiName = this.getControl("name", pInfo);
         this._uiBean = this.getControl("gold", pInfo);
-        this._uiBean.ignoreContentAdaptWithSize(true);
 
         this.customButton("btnAvatar", ChooseRoomScene.BTN_AVATAR, pInfo).setPressedActionEnabled(false);
         var bgAvatar = this.getControl("bgAvatar", pInfo);
@@ -265,14 +150,13 @@ var ChooseRoomScene = BaseLayer.extend({
         this._uiTable.setDelegate(this);
         this._uiTable.reloadData();
 
-        this.setBackEnable(true);
-    },
-
-    customizeGUI: function () {
         this.switchTab(0);
+        this.setBackEnable(true);
+
     },
 
     onUpdateGUI: function (data) {
+        this._uiTable.setTouchEnabled(true);
         if (this._uiAvatar && this._uiName && this._uiBean) {
             this._uiAvatar.asyncExecuteWithUrl(GameData.getInstance().userData.zName, GameData.getInstance().userData.avatar);
             this.setLabelText(GameData.getInstance().userData.displayName, this._uiName);
@@ -302,7 +186,8 @@ var ChooseRoomScene = BaseLayer.extend({
                 }
             }
         }
-        else {
+        else
+        {
             this.lbNoRoom.setVisible(false);
             if (data.getError() == 0) {
                 if (gamedata.selectedChanel != -1) {
@@ -331,30 +216,6 @@ var ChooseRoomScene = BaseLayer.extend({
                 this.onBack();
                 break;
             }
-            case ChooseRoomScene.BTN_X:
-            {
-                this.tfSearch.setString("");
-                break;
-            }
-            case ChooseRoomScene.BTN_SEARCH:
-            {
-                if (this.tfSearch.getString() == "")
-                    return;
-                var room = parseInt(this.tfSearch.getString());
-                if (isNaN(room)) {
-                    var mess = localized("SEARCH_TABLE_NOT_FOUND");
-                    Toast.makeToast(Toast.LONG, mess);
-                    return;
-                }
-                var pk = new CmdSendSearchTable();
-                pk.putData(room);
-
-                GameClient.getInstance().sendPacket(pk);
-                pk.clean();
-                sceneMgr.addLoading("", false);
-
-                break;
-            }
             case ChooseRoomScene.BTN_REFRESH:
             {
                 var pk = new CmdSendRefreshTable();
@@ -366,7 +227,7 @@ var ChooseRoomScene = BaseLayer.extend({
             }
             case ChooseRoomScene.BTN_TAPSU:
             case ChooseRoomScene.BTN_TADIEN:
-            //case ChooseRoomScene.BTN_DIACHU:
+            case ChooseRoomScene.BTN_DIACHU:
             case ChooseRoomScene.BTN_TRIEUPHU:
             case ChooseRoomScene.BTN_TYPHU:
             {
@@ -382,13 +243,13 @@ var ChooseRoomScene = BaseLayer.extend({
             }
             case ChooseRoomScene.BTN_AVATAR:
             {
-                sceneMgr.openGUI(CheckLogic.getUserInfoClassName(), LobbyScene.GUI_USER_INFO, LobbyScene.GUI_USER_INFO).setInfo(gamedata.userData);
+                sceneMgr.openGUI(UserInfoPanel.className, LobbyScene.GUI_USER_INFO, LobbyScene.GUI_USER_INFO).setInfo(gamedata.userData);
                 break;
             }
             case ChooseRoomScene.BTN_CHOINGAY:
             {
                 if (CheckLogic.checkQuickPlay()) {
-                    var pk = new CmdSendQuickPlayChannel();
+                    var pk = new CmdSendQuickPlay();
                     GameClient.getInstance().sendPacket(pk);
                     pk.clean();
 
@@ -406,7 +267,7 @@ var ChooseRoomScene = BaseLayer.extend({
                             var msg = LocalizedString.to("QUESTION_CHANGE_GOLD");
                             sceneMgr.showChangeGoldDialog(msg, this, function (buttonId) {
                                 if (buttonId == Dialog.BTN_OK) {
-                                    gamedata.openShop(this._id, true);
+                                    gamedata.openShop(this._id,true);
                                 }
                             });
                         }
@@ -433,7 +294,7 @@ var ChooseRoomScene = BaseLayer.extend({
 
                             SceneMgr.getInstance().showChangeGoldDialog(message, this, function (btnID) {
                                 if (btnID == Dialog.BTN_OK) {
-                                    gamedata.openShop(this._id, true);
+                                    gamedata.openShop(this._id,true);
                                 }
                             });
                         }
@@ -449,11 +310,11 @@ var ChooseRoomScene = BaseLayer.extend({
                                 SceneMgr.getInstance().showOKDialog(message);
                             }
                             else {
-                                sceneMgr.openGUI(CreateRoomGUI.className, ChooseRoomScene.CREATE_TABLE, ChooseRoomScene.CREATE_TABLE);
+                                sceneMgr.openGUI(CreateRoomGUI.className,ChooseRoomScene.CREATE_TABLE, ChooseRoomScene.CREATE_TABLE, false);
                             }
                         }
                         else {
-                            sceneMgr.openGUI(CreateRoomGUI.className, ChooseRoomScene.CREATE_TABLE, ChooseRoomScene.CREATE_TABLE);
+                            sceneMgr.openGUI(CreateRoomGUI.className,ChooseRoomScene.CREATE_TABLE, ChooseRoomScene.CREATE_TABLE, false);
                         }
                     }
                 }
@@ -464,9 +325,7 @@ var ChooseRoomScene = BaseLayer.extend({
                 this.btnBan.sort.setVisible(false);
                 this.btnGold.sort.setVisible(false);
                 this.btnNumPlayer.sort.setVisible(false);
-
                 this.btnBan.sort.setVisible(true);
-
                 if (this.btnBan.sortType === undefined) {
                     this.sortType = ChooseRoomScene.SORT_ASC;
                     this.btnBan.sortType = ChooseRoomScene.SORT_ASC;
@@ -486,7 +345,6 @@ var ChooseRoomScene = BaseLayer.extend({
                         this.btnBan.sort.setFlippedY(false);
                     }
                 }
-
                 this.sortGroup = id;
                 this._uiTable.reloadData();
                 break;
@@ -556,11 +414,6 @@ var ChooseRoomScene = BaseLayer.extend({
                 this._uiTable.reloadData();
                 break;
             }
-            case ChooseRoomScene.BTN_JACKPOT:
-            {
-                sceneMgr.openGUI(JackpotGUI.className, GameLayer.JACKPOT, GameLayer.JACKPOT);
-                break;
-            }
         }
     },
 
@@ -590,12 +443,12 @@ var ChooseRoomScene = BaseLayer.extend({
     sortBan: function (type) {
         if (type == ChooseRoomScene.SORT_ASC) {
             this._listRoom.sort(function (a, b) {
-                return a.tableIndex < b.tableIndex;
+                return a.tableIndex - b.tableIndex;
             });
         }
         else {
             this._listRoom.sort(function (a, b) {
-                return a.tableIndex > b.tableIndex;
+                return b.tableIndex - a.tableIndex;
             });
         }
     },
@@ -616,12 +469,12 @@ var ChooseRoomScene = BaseLayer.extend({
     sortNumPlayer: function (type) {
         if (type == ChooseRoomScene.SORT_ASC) {
             this._listRoom.sort(function (a, b) {
-                return b.personCount - a.personCount;
+                return a.personCount - b.personCount;
             });
         }
         else {
             this._listRoom.sort(function (a, b) {
-                return a.personCount - b.personCount;
+                return b.personCount - a.personCount;
             });
         }
     },
@@ -639,7 +492,6 @@ var ChooseRoomScene = BaseLayer.extend({
                 this.tabRooms[i].nonselect.setVisible(true);
             }
         }
-        this.saveChannel = tabIdx;
     },
 
     tableCellSizeForIndex: function (table, idx) {
@@ -659,13 +511,18 @@ var ChooseRoomScene = BaseLayer.extend({
         var idx = cell.getIdx();
         var roomInfo = this._listRoom[idx];
 
+        if (roomInfo.personCount === roomInfo.totalCount){
+            sceneMgr.showOKDialog(localized("JOIN_ROOM_FAIL_FULL"));
+            return;
+        }
+
         if (CheckLogic.checkCreateRoomMinGold()) {
             var message = LocalizedString.to("PLAY_NOT_ENOUGHT_GOLD_JOIN");
             message = StringUtility.replaceAll(message, "%gold", StringUtility.pointNumber(CheckLogic.getMinGoldCreateRoom()));
             if (gamedata.checkEnablePayment()) {
                 SceneMgr.getInstance().showChangeGoldDialog(message, this, function (btnID) {
                     if (btnID == Dialog.BTN_OK) {
-                        gamedata.openShop(this._id, true);
+                        gamedata.openShop(this._id,true);
                     }
                 });
             }
@@ -684,14 +541,14 @@ var ChooseRoomScene = BaseLayer.extend({
                 }
             }
 
-            if (CheckLogic.checkNotifyNotEnoughGold(roomInfo))
+            if(CheckLogic.checkNotifyNotEnoughGold(roomInfo))
                 return;
         }
+        if (!roomInfo)
+            return;
 
         var pk = new CmdSendQuickPlayCustom();
-        cc.log("save channel: " + this.saveChannel);
-        var channel = (this.saveChannel) ? this.saveChannel : gamedata.selectedChanel;
-        pk.putData(channel, roomInfo.bet);
+        pk.putData(gamedata.selectedChanel, roomInfo.bet, roomInfo.type);
         GameClient.getInstance().sendPacket(pk);
         pk.clean();
 
@@ -703,9 +560,18 @@ var ChooseRoomScene = BaseLayer.extend({
     },
 
     onBack: function () {
-        if (sceneMgr.checkBackAvailable()) return;
+        if(sceneMgr.checkBackAvailable()) return;
 
         sceneMgr.openScene(LobbyScene.className);
+    },
+
+    hasBlackList: function(tableId) {
+        for (var i = 0; i < this._listRoom.length; i++) {
+            if (this._listRoom[i].tableID == tableId) {
+                this._listRoom[i].hasBlackList = true;
+            }
+        }
+        this._uiTable.reloadData();
     }
 });
 
@@ -719,9 +585,9 @@ ChooseRoomScene.BTN_REFRESH = 5;
 
 ChooseRoomScene.BTN_TAPSU = 6;
 ChooseRoomScene.BTN_TADIEN = 7;
-//ChooseRoomScene.BTN_DIACHU = 8;
-ChooseRoomScene.BTN_TRIEUPHU = 8;
-ChooseRoomScene.BTN_TYPHU = 9;
+ChooseRoomScene.BTN_DIACHU = 8;
+ChooseRoomScene.BTN_TRIEUPHU = 9;
+ChooseRoomScene.BTN_TYPHU = 10;
 
 ChooseRoomScene.BTN_BAN = 11;
 ChooseRoomScene.BTN_TENBAN = 12;
@@ -733,9 +599,6 @@ ChooseRoomScene.SORT_DESC = 2;
 
 ChooseRoomScene.BTN_X = 15;
 ChooseRoomScene.BTN_SEARCH = 16;
-
-ChooseRoomScene.BTN_CHAT = 17;
-ChooseRoomScene.BTN_JACKPOT = 18;
 
 ChooseRoomScene.CREATE_TABLE = 600;
 ChooseRoomScene.INPUT_PASS = 601;

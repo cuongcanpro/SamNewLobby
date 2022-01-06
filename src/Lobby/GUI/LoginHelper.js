@@ -2,7 +2,7 @@
  * Created by HOANGNGUYEN on 8/5/2015.
  */
 
-var LoginHelper = function(){};
+var LoginHelper = function(){}
 
 LoginHelper.getRequest = function(url,data,timeout,onTimeout,onResponse,onError){
     var xhr = cc.loader.getXMLHttpRequest();
@@ -23,7 +23,7 @@ LoginHelper.getRequest = function(url,data,timeout,onTimeout,onResponse,onError)
     return xhr;
 };
 
-LoginHelper.registerRequest = function (url,timeout,onTimeout,onResponse,onError, isGet) {
+LoginHelper.registerRequest = function (url,timeout,onTimeout,onResponse,onError) {
     var xhr = cc.loader.getXMLHttpRequest();
     if(onResponse)
         xhr.onreadystatechange = onResponse;
@@ -31,8 +31,7 @@ LoginHelper.registerRequest = function (url,timeout,onTimeout,onResponse,onError
     if(onError)
         xhr["onerror"] = onError;
 
-    var method = isGet ? "GET" : "POST";
-    xhr.open(method,url,true);
+    xhr.open("POST",url,true);
     xhr.send();
     return xhr;
 };

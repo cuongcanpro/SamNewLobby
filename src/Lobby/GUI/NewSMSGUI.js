@@ -171,7 +171,7 @@ var NewSMSGUI = BaseLayer.extend({
             sceneMgr.openGUI(GUIMaintainSMS.className, GUIMaintainSMS.TAG, GUIMaintainSMS.TAG);
         }
         else {
-            PaymentUtils.requestSMSSyntax(operator, parseInt(info.cost), parseInt(info.smsType), type);
+            iapHandler.requestSMSSyntax(operator, parseInt(info.cost), parseInt(info.smsType), type);
         }
     },
 

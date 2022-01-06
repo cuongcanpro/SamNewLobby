@@ -1,0 +1,1246 @@
+{
+  "ID": "b96900c2-4aee-40c4-abd7-aa92c838480d",
+  "Version": "2.3.4",
+  "Name": "CreateRoomGUI",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 153,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ChooseRoomGUI/bgSub1.png",
+              "Plist": ""
+            },
+            "Scale9OriginX": 178,
+            "Scale9OriginY": 130,
+            "Scale9Width": 184,
+            "Scale9Height": 135,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 399.2,
+              "Y": 233.616
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.499,
+              "Y": 0.4867
+            },
+            "PreSize": {
+              "X": 0.675,
+              "Y": 0.8229
+            },
+            "HorizontalEdge": "BothEdge",
+            "VerticalEdge": "BothEdge",
+            "LeftMargin": 129.2,
+            "RightMargin": 130.8,
+            "TopMargin": 48.884,
+            "BottomMargin": 36.116,
+            "UserData": "scale",
+            "Tag": 154,
+            "Children": [
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "CreateTableGUI/title_timban.png",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 273.956,
+                  "Y": 361.322
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.5073,
+                  "Y": 0.9147
+                },
+                "PreSize": {
+                  "X": 0.2389,
+                  "Y": 0.1266
+                },
+                "LeftMargin": 209.456,
+                "RightMargin": 201.544,
+                "TopMargin": 8.678,
+                "BottomMargin": 336.322,
+                "Tag": 491,
+                "ActionTag": -297069351,
+                "Size": {
+                  "X": 129.0,
+                  "Y": 50.0
+                },
+                "Name": "taoban_1",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "CreateTableGUI/bgName.png",
+                  "Plist": ""
+                },
+                "Scale9Width": 337,
+                "Scale9Height": 40,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 318.6823,
+                  "Y": 268.3837
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.5902,
+                  "Y": 0.6795
+                },
+                "PreSize": {
+                  "X": 0.6241,
+                  "Y": 0.1013
+                },
+                "LeftMargin": 150.1823,
+                "RightMargin": 52.8177,
+                "TopMargin": 106.6163,
+                "BottomMargin": 248.3837,
+                "Tag": 163,
+                "ActionTag": -238260790,
+                "Size": {
+                  "X": 337.0,
+                  "Y": 40.0
+                },
+                "Name": "bgType",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Normal",
+                  "Path": "CreateTableGUI/GUICreateTableBtnLeft.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "Normal",
+                  "Path": "CreateTableGUI/GUICreateTableBtnLeft.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "CreateTableGUI/GUICreateTableBtnLeft.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 4,
+                "Scale9OriginY": 5,
+                "Scale9Width": 21,
+                "Scale9Height": 22,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 183.4304,
+                  "Y": 268.8836
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.3397,
+                  "Y": 0.6807
+                },
+                "PreSize": {
+                  "X": 0.0537,
+                  "Y": 0.081
+                },
+                "LeftMargin": 168.9304,
+                "RightMargin": 342.0696,
+                "TopMargin": 110.1164,
+                "BottomMargin": 252.8836,
+                "Tag": 164,
+                "ActionTag": -1369790355,
+                "Size": {
+                  "X": 29.0,
+                  "Y": 32.0
+                },
+                "Name": "bLeft",
+                "ctype": "ButtonObjectData"
+              },
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Normal",
+                  "Path": "CreateTableGUI/GUICreateTableBtnLeft.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "Normal",
+                  "Path": "CreateTableGUI/GUICreateTableBtnRight.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "CreateTableGUI/GUICreateTableBtnRight.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 4,
+                "Scale9OriginY": 5,
+                "Scale9Width": 21,
+                "Scale9Height": 22,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 451.43,
+                  "Y": 268.8836
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.836,
+                  "Y": 0.6807
+                },
+                "PreSize": {
+                  "X": 0.0537,
+                  "Y": 0.081
+                },
+                "LeftMargin": 436.93,
+                "RightMargin": 74.07,
+                "TopMargin": 110.1164,
+                "BottomMargin": 252.8836,
+                "Tag": 165,
+                "ActionTag": 21118656,
+                "Size": {
+                  "X": 29.0,
+                  "Y": 32.0
+                },
+                "Name": "bRight",
+                "ctype": "ButtonObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "CreateTableGUI/slide.png",
+                  "Plist": ""
+                },
+                "Scale9Width": 335,
+                "Scale9Height": 41,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 297.1823,
+                  "Y": 170.9993
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.5503,
+                  "Y": 0.4329
+                },
+                "PreSize": {
+                  "X": 0.5444,
+                  "Y": 0.1063
+                },
+                "LeftMargin": 150.1823,
+                "RightMargin": 95.8177,
+                "TopMargin": 203.0007,
+                "BottomMargin": 149.9993,
+                "Tag": 227,
+                "ActionTag": 1239573211,
+                "Size": {
+                  "X": 294.0,
+                  "Y": 42.0
+                },
+                "Name": "slide",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "CreateTableGUI/dot.png",
+                  "Plist": ""
+                },
+                "Scale9Width": 12,
+                "Scale9Height": 11,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 169.9988,
+                  "Y": 187.9984
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.3148,
+                  "Y": 0.4759
+                },
+                "PreSize": {
+                  "X": 0.0222,
+                  "Y": 0.0278
+                },
+                "LeftMargin": 163.9988,
+                "RightMargin": 364.0012,
+                "TopMargin": 201.5016,
+                "BottomMargin": 182.4984,
+                "Tag": 228,
+                "ActionTag": 868718394,
+                "Size": {
+                  "X": 12.0,
+                  "Y": 11.0
+                },
+                "Name": "dot0",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "CreateTableGUI/dot.png",
+                  "Plist": ""
+                },
+                "Scale9Width": 12,
+                "Scale9Height": 11,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 425.9976,
+                  "Y": 186.9983
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.7889,
+                  "Y": 0.4734
+                },
+                "PreSize": {
+                  "X": 0.0222,
+                  "Y": 0.0278
+                },
+                "LeftMargin": 419.9976,
+                "RightMargin": 108.0024,
+                "TopMargin": 202.5017,
+                "BottomMargin": 181.4983,
+                "Tag": 231,
+                "ActionTag": -1256654958,
+                "Size": {
+                  "X": 12.0,
+                  "Y": 11.0
+                },
+                "Name": "dot1",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "ScrollDirectionType": 0,
+                "ClipAble": true,
+                "BackColorAlpha": 102,
+                "SingleColor": {
+                  "R": 150,
+                  "G": 150,
+                  "B": 100
+                },
+                "FirstColor": {
+                  "R": 150,
+                  "G": 150,
+                  "B": 100
+                },
+                "EndColor": {},
+                "ColorVector": {
+                  "ScaleY": 1.0
+                },
+                "Scale9Width": 1,
+                "Scale9Height": 1,
+                "TouchEnable": true,
+                "AnchorPoint": {},
+                "Position": {
+                  "X": 200.0128,
+                  "Y": 251.47
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.3704,
+                  "Y": 0.6366
+                },
+                "PreSize": {
+                  "X": 0.4444,
+                  "Y": 0.0759
+                },
+                "LeftMargin": 200.0128,
+                "RightMargin": 99.9872,
+                "TopMargin": 113.53,
+                "BottomMargin": 251.47,
+                "Tag": 166,
+                "Children": [
+                  {
+                    "ClipAble": false,
+                    "BackColorAlpha": 102,
+                    "SingleColor": {
+                      "R": 150,
+                      "G": 200
+                    },
+                    "FirstColor": {
+                      "R": 150,
+                      "G": 200
+                    },
+                    "EndColor": {},
+                    "ColorVector": {
+                      "ScaleY": 1.0
+                    },
+                    "Scale9Width": 1,
+                    "Scale9Height": 1,
+                    "TouchEnable": true,
+                    "AnchorPoint": {},
+                    "Position": {
+                      "X": 0.0,
+                      "Y": 0.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.0,
+                      "Y": 0.0
+                    },
+                    "PreSize": {
+                      "X": 0.5,
+                      "Y": 1.0
+                    },
+                    "RightMargin": 240.0,
+                    "Tag": 167,
+                    "Children": [
+                      {
+                        "FileData": {
+                          "Type": "Normal",
+                          "Path": "ChooseRoomGUI/violet.png",
+                          "Plist": ""
+                        },
+                        "Scale9OriginX": 6,
+                        "Scale9OriginY": 6,
+                        "Scale9Width": 8,
+                        "Scale9Height": 7,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 63.64,
+                          "Y": 16.7296
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.2652,
+                          "Y": 0.5577
+                        },
+                        "PreSize": {
+                          "X": 0.0833,
+                          "Y": 0.6333
+                        },
+                        "LeftMargin": 53.64,
+                        "RightMargin": 166.36,
+                        "TopMargin": 3.7704,
+                        "BottomMargin": 7.2296,
+                        "Tag": 168,
+                        "ActionTag": 126259586,
+                        "Size": {
+                          "X": 20.0,
+                          "Y": 19.0
+                        },
+                        "Name": "ico",
+                        "ctype": "ImageViewObjectData"
+                      },
+                      {
+                        "FileData": {
+                          "Type": "Normal",
+                          "Path": "CreateTableGUI/taoban_0000_Truy-n-th-ng.png",
+                          "Plist": ""
+                        },
+                        "Scale9OriginX": 38,
+                        "Scale9OriginY": 7,
+                        "Scale9Width": 41,
+                        "Scale9Height": 9,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 133.4445,
+                          "Y": 16.7294
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.556,
+                          "Y": 0.5576
+                        },
+                        "PreSize": {
+                          "X": 0.4875,
+                          "Y": 0.7667
+                        },
+                        "LeftMargin": 74.9445,
+                        "RightMargin": 48.0555,
+                        "TopMargin": 1.7706,
+                        "BottomMargin": 5.2294,
+                        "Tag": 495,
+                        "ActionTag": 1877864908,
+                        "Size": {
+                          "X": 117.0,
+                          "Y": 23.0
+                        },
+                        "Name": "img",
+                        "ctype": "ImageViewObjectData"
+                      }
+                    ],
+                    "ActionTag": -1398466296,
+                    "Size": {
+                      "X": 240.0,
+                      "Y": 30.0
+                    },
+                    "Name": "type1",
+                    "ctype": "PanelObjectData"
+                  },
+                  {
+                    "ClipAble": false,
+                    "BackColorAlpha": 102,
+                    "SingleColor": {
+                      "R": 150,
+                      "G": 200
+                    },
+                    "FirstColor": {
+                      "R": 150,
+                      "G": 200
+                    },
+                    "EndColor": {},
+                    "ColorVector": {
+                      "ScaleY": 1.0
+                    },
+                    "Scale9Width": 1,
+                    "Scale9Height": 1,
+                    "TouchEnable": true,
+                    "AnchorPoint": {},
+                    "Position": {
+                      "X": 240.0,
+                      "Y": 0.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.5,
+                      "Y": 0.0
+                    },
+                    "PreSize": {
+                      "X": 0.5,
+                      "Y": 1.0
+                    },
+                    "LeftMargin": 240.0,
+                    "Tag": 206,
+                    "Children": [
+                      {
+                        "FileData": {
+                          "Type": "Normal",
+                          "Path": "ChooseRoomGUI/blue.png",
+                          "Plist": ""
+                        },
+                        "Scale9OriginX": 7,
+                        "Scale9OriginY": 7,
+                        "Scale9Width": 8,
+                        "Scale9Height": 8,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 75.6402,
+                          "Y": 16.7296
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.3152,
+                          "Y": 0.5577
+                        },
+                        "PreSize": {
+                          "X": 0.0917,
+                          "Y": 0.7333
+                        },
+                        "LeftMargin": 64.6402,
+                        "RightMargin": 153.3598,
+                        "TopMargin": 2.2704,
+                        "BottomMargin": 5.7296,
+                        "Tag": 207,
+                        "ActionTag": -1226275881,
+                        "Size": {
+                          "X": 22.0,
+                          "Y": 22.0
+                        },
+                        "Name": "ico",
+                        "ctype": "ImageViewObjectData"
+                      },
+                      {
+                        "FileData": {
+                          "Type": "Normal",
+                          "Path": "CreateTableGUI/binhat.png",
+                          "Plist": ""
+                        },
+                        "Scale9OriginX": 31,
+                        "Scale9OriginY": 6,
+                        "Scale9Width": 5,
+                        "Scale9Height": 7,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 124.3798,
+                          "Y": 18.7294
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.5182,
+                          "Y": 0.6243
+                        },
+                        "PreSize": {
+                          "X": 0.2792,
+                          "Y": 0.6333
+                        },
+                        "LeftMargin": 90.8798,
+                        "RightMargin": 82.1202,
+                        "TopMargin": 1.7706,
+                        "BottomMargin": 9.2294,
+                        "Tag": 496,
+                        "ActionTag": -1347733884,
+                        "Size": {
+                          "X": 67.0,
+                          "Y": 19.0
+                        },
+                        "Name": "img",
+                        "ctype": "ImageViewObjectData"
+                      }
+                    ],
+                    "ActionTag": -2045185174,
+                    "ZOrder": 1,
+                    "Size": {
+                      "X": 240.0,
+                      "Y": 30.0
+                    },
+                    "Name": "type2",
+                    "ctype": "PanelObjectData"
+                  }
+                ],
+                "ActionTag": 1318097451,
+                "Size": {
+                  "X": 240.0,
+                  "Y": 30.0
+                },
+                "Name": "pageType",
+                "ctype": "PageViewObjectData"
+              },
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Default",
+                  "Path": "Default/Button_Disable.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "Normal",
+                  "Path": "ChooseRoomGUI/btnClose1.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "ChooseRoomGUI/btnClose1.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 16,
+                "Scale9Height": 25,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 512.3568,
+                  "Y": 364.7341
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.9488,
+                  "Y": 0.9234
+                },
+                "PreSize": {
+                  "X": 0.0852,
+                  "Y": 0.119
+                },
+                "LeftMargin": 489.3568,
+                "RightMargin": 4.6432,
+                "TopMargin": 6.7659,
+                "BottomMargin": 341.2341,
+                "Tag": 156,
+                "ActionTag": -386875442,
+                "Size": {
+                  "X": 46.0,
+                  "Y": 47.0
+                },
+                "Name": "close",
+                "ctype": "ButtonObjectData"
+              },
+              {
+                "FontSize": 17,
+                "LabelText": "Loại bàn",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahoma.ttf",
+                  "Plist": ""
+                },
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 76.7324,
+                  "Y": 269.2819
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "R": 132,
+                  "G": 140,
+                  "B": 220
+                },
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.1421,
+                  "Y": 0.6817
+                },
+                "PreSize": {
+                  "X": 0.1185,
+                  "Y": 0.0532
+                },
+                "LeftMargin": 44.7324,
+                "RightMargin": 431.2676,
+                "TopMargin": 115.2181,
+                "BottomMargin": 258.7819,
+                "Tag": 158,
+                "ActionTag": 1773204550,
+                "Size": {
+                  "X": 64.0,
+                  "Y": 21.0
+                },
+                "Name": "lbType",
+                "ctype": "TextObjectData"
+              },
+              {
+                "FontSize": 17,
+                "LabelText": "Mức cược",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahoma.ttf",
+                  "Plist": ""
+                },
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 84.2324,
+                  "Y": 158.8159
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "R": 132,
+                  "G": 140,
+                  "B": 220
+                },
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.156,
+                  "Y": 0.4021
+                },
+                "PreSize": {
+                  "X": 0.1352,
+                  "Y": 0.0532
+                },
+                "LeftMargin": 47.7324,
+                "RightMargin": 419.2676,
+                "TopMargin": 225.6841,
+                "BottomMargin": 148.3159,
+                "Tag": 159,
+                "ActionTag": 101003854,
+                "Size": {
+                  "X": 73.0,
+                  "Y": 21.0
+                },
+                "Name": "lbBet",
+                "ctype": "TextObjectData"
+              },
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Default",
+                  "Path": "Default/Button_Disable.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "Normal",
+                  "Path": "CreateTableGUI/btn_timban.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "CreateTableGUI/btn_timban.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 118,
+                "Scale9Height": 32,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 270.0,
+                  "Y": 44.9996
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.1139
+                },
+                "PreSize": {
+                  "X": 0.2741,
+                  "Y": 0.1367
+                },
+                "LeftMargin": 196.0,
+                "RightMargin": 196.0,
+                "TopMargin": 323.0004,
+                "BottomMargin": 17.9996,
+                "Tag": 226,
+                "ActionTag": -616647086,
+                "Size": {
+                  "X": 148.0,
+                  "Y": 54.0
+                },
+                "Name": "accept",
+                "ctype": "ButtonObjectData"
+              },
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Default",
+                  "Path": "Default/Button_Disable.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "Normal",
+                  "Path": "CreateTableGUI/select.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "CreateTableGUI/select.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 66,
+                "Scale9Height": 24,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 429.1996,
+                  "Y": 156.533
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.7948,
+                  "Y": 0.3963
+                },
+                "PreSize": {
+                  "X": 0.1926,
+                  "Y": 0.1241
+                },
+                "LeftMargin": 377.1996,
+                "RightMargin": 58.8004,
+                "TopMargin": 213.967,
+                "BottomMargin": 132.033,
+                "Tag": 232,
+                "Children": [
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "CreateTableGUI/taoban_0016_Shape-32-copy.png",
+                      "Plist": ""
+                    },
+                    "Scale9Width": 120,
+                    "Scale9Height": 37,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 51.5,
+                      "Y": 64.6347
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.4952,
+                      "Y": 1.3191
+                    },
+                    "PreSize": {
+                      "X": 1.1538,
+                      "Y": 0.7551
+                    },
+                    "LeftMargin": -8.5,
+                    "RightMargin": -7.5,
+                    "TopMargin": -34.1347,
+                    "BottomMargin": 46.1347,
+                    "Tag": 498,
+                    "ActionTag": 152467515,
+                    "Size": {
+                      "X": 120.0,
+                      "Y": 37.0
+                    },
+                    "Name": "bg",
+                    "ctype": "ImageViewObjectData"
+                  },
+                  {
+                    "FontSize": 17,
+                    "LabelText": "999.999.999.999",
+                    "FontResource": {
+                      "Type": "Normal",
+                      "Path": "Font/tahoma.ttf",
+                      "Plist": ""
+                    },
+                    "HorizontalAlignmentType": "HT_Center",
+                    "VerticalAlignmentType": "VT_Center",
+                    "OutlineColor": {
+                      "G": 0,
+                      "B": 0
+                    },
+                    "ShadowColor": {
+                      "R": 110,
+                      "G": 110,
+                      "B": 110
+                    },
+                    "ShadowOffsetX": 2.0,
+                    "ShadowOffsetY": -2.0,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 52.0,
+                      "Y": 71.0001
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {
+                      "R": 251,
+                      "G": 212,
+                      "B": 93
+                    },
+                    "IconVisible": false,
+                    "PositionPercentXEnabled": true,
+                    "PrePosition": {
+                      "X": 0.5,
+                      "Y": 1.449
+                    },
+                    "PreSize": {
+                      "X": 1.2019,
+                      "Y": 0.4286
+                    },
+                    "LeftMargin": -10.5,
+                    "RightMargin": -10.5,
+                    "TopMargin": -32.5001,
+                    "BottomMargin": 60.5001,
+                    "Tag": 233,
+                    "ActionTag": 1750351882,
+                    "Size": {
+                      "X": 125.0,
+                      "Y": 21.0
+                    },
+                    "Name": "lb",
+                    "ctype": "TextObjectData"
+                  }
+                ],
+                "ActionTag": -2051991458,
+                "Size": {
+                  "X": 104.0,
+                  "Y": 49.0
+                },
+                "Name": "btnSlide",
+                "ctype": "ButtonObjectData"
+              }
+            ],
+            "ActionTag": 1515722817,
+            "Size": {
+              "X": 540.0,
+              "Y": 395.0
+            },
+            "Name": "bg",
+            "ctype": "ImageViewObjectData"
+          }
+        ],
+        "Size": {
+          "X": 800.0,
+          "Y": 480.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "ChooseRoomGUI/bgSub1.png",
+        "ChooseRoomGUI/blue.png",
+        "ChooseRoomGUI/btnClose1.png",
+        "ChooseRoomGUI/violet.png",
+        "CreateTableGUI/bgName.png",
+        "CreateTableGUI/binhat.png",
+        "CreateTableGUI/btn_timban.png",
+        "CreateTableGUI/dot.png",
+        "CreateTableGUI/GUICreateTableBtnLeft.png",
+        "CreateTableGUI/GUICreateTableBtnRight.png",
+        "CreateTableGUI/select.png",
+        "CreateTableGUI/slide.png",
+        "CreateTableGUI/taoban_0000_Truy-n-th-ng.png",
+        "CreateTableGUI/taoban_0016_Shape-32-copy.png",
+        "CreateTableGUI/title_timban.png",
+        "Default/Button_Disable.png",
+        "Font/tahoma.ttf"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

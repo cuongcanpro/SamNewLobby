@@ -31,6 +31,9 @@ var Dialog = BaseLayer.extend({
         this._btnClose = this.customButton("btnQuit", Dialog.BTN_QUIT, bg);
 
         this._lb_message = this.getControl("lb_message", bg);
+        if (!cc.sys.isNative){
+            this._lb_message.setColor(cc.color(182, 186, 229));
+        }
 
         this._pLeft = this._btnOK.getPosition();
         this._pRight = this._btnCancel.getPosition();

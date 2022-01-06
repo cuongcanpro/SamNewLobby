@@ -41,12 +41,9 @@ var BaseLayer  = cc.Layer.extend({
 
             this._scale = (this._scale > 1) ? 1 : this._scale;
         }
-        this._scale = 1;
 
         this._scaleRealX = cc.director.getWinSize().width/Constant.WIDTH;
         this._scaleRealY = cc.director.getWinSize().height/Constant.HEIGHT;
-        this._scaleRealX = 1;
-        this._scaleRealY = 1;
 
         this._layerColor = new cc.LayerColor(cc.BLACK);
         this.addChild(this._layerColor);
@@ -79,7 +76,6 @@ var BaseLayer  = cc.Layer.extend({
             onTouchMoved: function(touch,event){},
             onTouchEnded: function(touch,event){}
         });
-
         this.setContentSize(cc.winSize);
         this.setAnchorPoint(0.5,0.5);
 
@@ -179,33 +175,6 @@ var BaseLayer  = cc.Layer.extend({
         cc.log("## Time Init " + json + " : " + (end2 - end));
     },
 
-    initWithBinaryFileAndOtherSize: function (json, designSize) {
-        cc.log("LOAD JSON : " + json);
-        var start = new Date().getTime();
-        var jsonLayout = ccs.load(json);
-        this._layout = jsonLayout.node;
-
-        var scale = 1;
-        var size = cc.director.getWinSize();
-        if (size.height === Constant.HEIGHT) {
-            this._layout.setContentSize(cc.size(designSize.height * size.width / size.height, designSize.height));
-            scale = size.height / designSize.height;
-        } else {
-            this._layout.setContentSize(cc.size(designSize.width, designSize.width * size.height / size.width));
-            scale = size.width / designSize.width;
-        }
-        this._layout.setScale(scale);
-        ccui.Helper.doLayout(this._layout);
-        this.addChild(this._layout);
-
-        var end = new Date().getTime();
-        cc.log("## Time Load " + json + " : " + (end - start));
-
-        this.initGUI();
-        var end2 = new Date().getTime();
-        cc.log("## Time Init " + json + " : " + (end2 - end));
-    },
-
     setAsPopup : function (value,isCache) {
         this._aaPopup = value;
         this._cachePopup = isCache;
@@ -221,7 +190,7 @@ var BaseLayer  = cc.Layer.extend({
         if(!this._layout)
             return;
 
-        var button = null;
+        var button;
         if(parent)
         {
             button = ccui.Helper.seekWidgetByName(parent,name);
@@ -321,22 +290,17 @@ var BaseLayer  = cc.Layer.extend({
             var str = "";
             var row = "";
             var result = "";
-            var label = new ccui.Text();
-            label.setFontName("fonts/tahoma.ttf");
-            label.setFontSize(17);
-            label.ignoreContentAdaptWithSize(true);
             for(var i = 0 ; i < num ; i++)
             {
                 str += text.charAt(i);
                 if(text.charAt(i) == " ")
                 {
                     row += str;
-                    label.setString(row);
-                    if (label.getContentSize().width > s1*0.9){
-                        row = row.substr(0,row.length-str.length-1);
-                        row += "\n";
-                        result += row;
-                        row = str;
+                    if (ChatMgr.createText(row,cc.WHITE,18).width > s1*0.9){
+                        // row = row.substr(0,row.length-str.length-1);
+                        // row += "\n";
+                        // result += row;
+                        // row = str;
                     }
                     str = "";
                 }
@@ -353,8 +317,8 @@ var BaseLayer  = cc.Layer.extend({
     },
 
     getControl : function (cName,parent) {
-        var p = null;
-        var sParent = "";
+        var p;
+        var sParent;
         if(typeof  parent === 'undefined')
         {
             p = this._layout;
@@ -373,18 +337,17 @@ var BaseLayer  = cc.Layer.extend({
 
         if(p == null)
         {
-            cc.log("ERROR : parent getControl " + cName + "/" + sParent );
+            cc.log("ERROR : getControl " + cName + "/" + sParent );
             return null;
         }
         var control = ccui.Helper.seekWidgetByName(p,cName);
-        if (control == null) control = p.getChildByName(cName);
-        if (control == null)
+        if(control == null)
         {
             cc.log("ERROR : getControl " + cName + "/" + sParent );
             return null;
         }
-        this.analyzeCustomControl(control);
         control.defaultPos = control.getPosition();
+        this.analyzeCustomControl(control);
         return control;
     },
 
@@ -452,7 +415,7 @@ var BaseLayer  = cc.Layer.extend({
     },
 
     setFog: function(bool,alpha){
-        if(alpha === undefined) alpha = 205;
+        if(alpha === undefined) alpha = 150;
         this._layerColor.setVisible(true);
         cc.eventManager.addListener(this._listener,this);
         this._layerColor.runAction(cc.fadeTo(0.25,alpha));
@@ -538,8 +501,7 @@ var BaseLayer  = cc.Layer.extend({
     },
 
     onCloseDone : function () {
-        cc.log("REMOVE FROM PARENT ");
-        this.removeFromParent(cc.sys.isNative); // neu la ban web khong remove, vi remove se xoa het eventListener khi cache
+        this.removeFromParent(cc.sys.isNative);  // tranh de mat listener cua editbox
     },
 
     setBackEnable : function (enable) {
@@ -637,10 +599,12 @@ var BaseLayer  = cc.Layer.extend({
         if(this.buttonIgnoreAllSound) return;
 
         //cc.log("--haha");
-        if (settingMgr.sound) {
+        if (gamedata.sound) {
             cc.audioEngine.playEffect(lobby_sounds.click, false);
         }
-    }
+    },
+
+
     //////////////////////////////////////////////////////
 });
 
@@ -668,7 +632,6 @@ BaseLayer.createEditBox = function (tf) {
     ret.setPosition(tf.getPosition());
     ret.setAnchorPoint(tf.getAnchorPoint());
     ret.setReturnType(cc.KEYBOARD_RETURNTYPE_DONE);
-    ret.setMaxLength(100);
     return ret;
 };
 
@@ -816,7 +779,8 @@ var NumberGroupCustom = cc.Node.extend({
         if (type)
             this.type = type;
         else
-            this.type = NumberGroupCustom.TYPE_SYMBOL;
+            this.type = 0;
+        cc.log("DLFJ " + this.pad);
     },
 
     setNumber: function(number) {
@@ -824,19 +788,20 @@ var NumberGroupCustom = cc.Node.extend({
             this.arrayChar[i].removeFromParent();
         }
         this.arrayChar = [];
-        var string = "";
-        if (this.type == NumberGroupCustom.TYPE_SYMBOL)
+        var string;
+        if (this.type == 0)
             string = StringUtility.formatNumberSymbol(number);
         else
             string = StringUtility.pointNumber(number);
+        cc.log("STRING LA " + string);
         for (var i = 0; i < string.length; i++) {
             var image;
             if (string.charAt(i) != '.') {
-                image = new cc.Sprite(this.resource + string.charAt(i) + ".png");
+                image = cc.Sprite.create(this.resource + string.charAt(i) + ".png");
                 cc.log("DU " + i + " " + (this.resource + string.charAt(i) + ".png"));
             }
             else {
-                image = new cc.Sprite(this.resource + "Dot.png");
+                image = cc.Sprite.create(this.resource + "Dot.png");
                 cc.log("DU " + i + " " + (this.resource + "Dot.png"));
                 //this.pad = -image.getContentSize().width * 0.4;
             }
@@ -851,7 +816,7 @@ var NumberGroupCustom = cc.Node.extend({
         var startX = -sum * 0.5;
         for (var i = 0; i < this.arrayChar.length; i++) {
             if (string.charAt(i) == '.')
-                this.arrayChar[i].setPositionY(-this.getContentSize().height * 0.5 + this.arrayChar[i].getContentSize().width * 0.5);
+                this.arrayChar[i].setPositionY(-this.getContentSize().height * 0.5 + this.arrayChar[i].getContentSize().width * 0.8);
             this.arrayChar[i].setPositionX(startX + this.arrayChar[i].getContentSize().width * 0.5);
             startX = startX + this.arrayChar[i].getContentSize().width + this.pad;
         }
@@ -862,8 +827,7 @@ var NumberGroupCustom = cc.Node.extend({
     }
 
 })
-NumberGroupCustom.TYPE_POINT = 1;
-NumberGroupCustom.TYPE_SYMBOL = 0;
+
 
 var BaseImage = cc.Sprite.extend({
     ctor: function (res) {
@@ -891,4 +855,77 @@ var BaseImage = cc.Sprite.extend({
     setPos: function (x, y) {
         this.setPosition(x, y);
     }
-})
+});
+
+var BlurLayer = cc.Layer.extend({
+    ctor: function(view) {
+        this._super();
+        this.srcView = view;
+        this.radiusBlur = 0;
+        this.currRadius = 0;
+        var size = view.getContentSize();
+        this.setContentSize(size);
+        var programGl = cc.GLProgram.createWithFilenames("res/Shader/blurEffect.vsh", "res/Shader/blurEffect.fsh");
+        var programState = cc.GLProgramState.getOrCreateWithGLProgram(programGl);
+        programState.setUniformVec2("PixelSizeHalf", cc.p(0.5 / size.width, 0));
+        var programState2 = programState.clone();
+        programState2.setUniformVec2("PixelSizeHalf", cc.p(0, 0.5 / size.height));
+        this.programSV = programState;
+        this.programSH = programState2;
+        ///cc.Texture2D.PIXEL_FORMAT_RGBA8888, gl.DEPTH24_STENCIL8_OES để làm việc tốt với clipping.
+        var cacheBlur = cc.RenderTexture.create(size.width, size.height, cc.Texture2D.PIXEL_FORMAT_RGBA8888, gl.DEPTH24_STENCIL8_OES);
+        cacheBlur.getSprite().setGLProgramState(this.programSV);
+        cacheBlur.getSprite().setPosition(size.width / 2, size.height / 2);
+        cacheBlur.getSprite().getTexture().setAntiAliasTexParameters();
+        cacheBlur.setVirtualViewport(cc.p(0,0), cc.rect(0, 0, size.width, size.height), cc.rect(0, 0, size.width, size.height));
+        cacheBlur.getSprite().setScale(BlurLayer.FIX_SCALE_VIEWPORT);
+        this.cacheBlur = cacheBlur;
+        this.addChild(cacheBlur);
+        cacheBlur.setVisible(false);
+        var viewBlur = cc.RenderTexture.create(size.width, size.height, cc.Texture2D.PIXEL_FORMAT_RGBA8888, gl.DEPTH24_STENCIL8_OES);
+        viewBlur.getSprite().setGLProgramState(this.programSH);
+        viewBlur.getSprite().setPosition(size.width / 2, size.height / 2);
+        viewBlur.getSprite().getTexture().setAntiAliasTexParameters();
+        viewBlur.getSprite().setScale(BlurLayer.FIX_SCALE_VIEWPORT);
+        // viewBlur.getSprite().setScale(0.9975);
+        this.viewBlur = viewBlur;
+        this.addChild(viewBlur);
+        this.setBlur(3);
+        // this.update();
+        return this;
+    },
+
+
+    setBlur: function(scale) {
+        this.srcView.setVisible(true);
+        // this.cacheBlur.retain();
+        this.cacheBlur.beginWithClear(155, 155, 155, 0);
+        this.srcView.setScale(1 / scale);
+        this.srcView.visit();
+        this.cacheBlur.end();
+        this.viewBlur.beginWithClear(155, 155, 155, 0);
+        this.cacheBlur.setVisible(true);
+        this.cacheBlur.visit();
+        this.cacheBlur.setVisible(false);
+        this.viewBlur.end();
+        this.viewBlur.getSprite().setScale(1 / this.srcView.getScale() * BlurLayer.FIX_SCALE_VIEWPORT);
+        this.srcView.setVisible(false);
+        // this.cacheBlur.saveToFile("cache1.png");
+        // this.viewBlur.saveToFile("cache2.png");
+    },
+
+    onEnterFinish: function() {
+        this.currRadius = 0;
+        // this.srcView.setVisible(false);
+        // this.scheduleUpdate();
+    },
+
+    onClose: function() {
+        this.unscheduleUpdate();
+        this.srcView.setVisible(true);
+        this.srcView.setScale(1);
+    }
+});
+
+//opengl render làm texture bị giãn ra 1 chút, p scale nhỏ lại để khớp.
+BlurLayer.FIX_SCALE_VIEWPORT = 0.9985;

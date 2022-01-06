@@ -17,13 +17,13 @@
           {
             "FileData": {
               "Type": "Normal",
-              "Path": "NewLobbyUserInfoGUI/bgInteract.png",
+              "Path": "Storage/itemBg.png",
               "Plist": ""
             },
             "Scale9OriginX": 38,
             "Scale9OriginY": 38,
-            "Scale9Width": 37,
-            "Scale9Height": 49,
+            "Scale9Width": 41,
+            "Scale9Height": 40,
             "TouchEnable": true,
             "AnchorPoint": {
               "ScaleX": 0.5,
@@ -45,19 +45,19 @@
               "X": 0.5,
               "Y": 0.5
             },
+            "PercentWidthEnable": true,
+            "PercentHeightEnable": true,
+            "PercentWidthEnabled": true,
+            "PercentHeightEnabled": true,
             "PreSize": {
-              "X": 1.0273,
-              "Y": 1.1364
+              "X": 1.0,
+              "Y": 1.0
             },
-            "LeftMargin": -1.5,
-            "RightMargin": -1.5,
-            "TopMargin": -7.5,
-            "BottomMargin": -7.5,
             "Tag": 297,
             "ActionTag": 1793626046,
             "Size": {
-              "X": 113.0,
-              "Y": 125.0
+              "X": 110.0,
+              "Y": 110.0
             },
             "Name": "bg",
             "ctype": "ImageViewObjectData"
@@ -142,7 +142,7 @@
             },
             "Position": {
               "X": 57.0,
-              "Y": 63.0
+              "Y": 53.0
             },
             "Scale": {
               "ScaleX": 0.5,
@@ -156,7 +156,7 @@
             "IconVisible": false,
             "PrePosition": {
               "X": 0.5182,
-              "Y": 0.5727
+              "Y": 0.4818
             },
             "PreSize": {
               "X": 0.4182,
@@ -164,8 +164,8 @@
             },
             "LeftMargin": 34.0,
             "RightMargin": 30.0,
-            "TopMargin": 24.0,
-            "BottomMargin": 40.0,
+            "TopMargin": 34.0,
+            "BottomMargin": 30.0,
             "Tag": 488,
             "ActionTag": 1616730394,
             "Size": {
@@ -190,7 +190,7 @@
             },
             "Position": {
               "X": 55.0,
-              "Y": 65.0
+              "Y": 55.0
             },
             "Scale": {
               "ScaleX": 0.5,
@@ -198,10 +198,9 @@
             },
             "CColor": {},
             "IconVisible": false,
-            "PositionPercentXEnabled": true,
             "PrePosition": {
               "X": 0.5,
-              "Y": 0.5909
+              "Y": 0.5
             },
             "PreSize": {
               "X": 0.4182,
@@ -209,8 +208,8 @@
             },
             "LeftMargin": 32.0,
             "RightMargin": 32.0,
-            "TopMargin": 22.0,
-            "BottomMargin": 42.0,
+            "TopMargin": 32.0,
+            "BottomMargin": 32.0,
             "Tag": 487,
             "ActionTag": -401945650,
             "Size": {
@@ -231,10 +230,11 @@
             "HorizontalAlignmentType": "HT_Right",
             "OutlineSize": 2,
             "OutlineColor": {
-              "R": 220,
-              "G": 186,
-              "B": 147
+              "R": 98,
+              "G": 68,
+              "B": 175
             },
+            "OutlineEnabled": true,
             "ShadowColor": {
               "R": 110,
               "G": 110,
@@ -243,46 +243,41 @@
             "ShadowOffsetX": 2.0,
             "ShadowOffsetY": -2.0,
             "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
+              "ScaleX": 1.0
             },
             "Position": {
-              "X": 55.0,
-              "Y": 15.0
+              "X": 104.01,
+              "Y": 3.995
             },
             "Scale": {
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
-            "CColor": {
-              "R": 220,
-              "G": 186,
-              "B": 147
-            },
+            "CColor": {},
             "IconVisible": false,
-            "PositionPercentXEnabled": true,
             "PrePosition": {
-              "X": 0.5,
-              "Y": 0.1364
+              "X": 0.9455,
+              "Y": 0.0363
             },
             "PercentWidthEnable": true,
             "PercentHeightEnable": true,
             "PercentWidthEnabled": true,
             "PercentHeightEnabled": true,
             "PreSize": {
-              "X": 0.6909,
-              "Y": 0.2
+              "X": 0.7091,
+              "Y": 0.2364
             },
+            "HorizontalEdge": "RightEdge",
             "VerticalEdge": "BottomEdge",
-            "LeftMargin": 17.0,
-            "RightMargin": 17.0,
-            "TopMargin": 84.0,
-            "BottomMargin": 4.0,
+            "LeftMargin": 26.01,
+            "RightMargin": 5.99,
+            "TopMargin": 80.005,
+            "BottomMargin": 3.995,
             "Tag": 356,
             "ActionTag": -1345246372,
             "Size": {
-              "X": 76.0,
-              "Y": 22.0
+              "X": 78.0,
+              "Y": 26.0
             },
             "Name": "num",
             "ctype": "TextObjectData"
@@ -349,7 +344,7 @@
       "UsedResources": [
         "Default/ImageFile.png",
         "Font/tahomabd.ttf",
-        "NewLobbyUserInfoGUI/bgInteract.png",
+        "Storage/itemBg.png",
         "Storage/labelUsing.png"
       ],
       "ctype": "GameFileData"

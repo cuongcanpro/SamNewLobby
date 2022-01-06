@@ -1,0 +1,395 @@
+{
+  "ID": "6d132bc2-8cbf-408c-9b1a-c02f1f73f1c8",
+  "Version": "2.3.4",
+  "Name": "GUIShopGoldSuccess",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 119,
+        "Children": [
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 102,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 400.0,
+              "Y": 243.12
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PositionPercentYEnabled": true,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.5065
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 0.9104
+            },
+            "TopMargin": 18.38,
+            "BottomMargin": 24.62,
+            "Tag": 174,
+            "Children": [
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "ShopIAP/ShopSuccess/titleCongrat.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 38,
+                "Scale9OriginY": 29,
+                "Scale9Width": 147,
+                "Scale9Height": 2,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 400.0,
+                  "Y": 382.3048
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.8748
+                },
+                "PreSize": {
+                  "X": 0.2788,
+                  "Y": 0.1373
+                },
+                "LeftMargin": 288.5,
+                "RightMargin": 288.5,
+                "TopMargin": 24.6952,
+                "BottomMargin": 352.3048,
+                "Tag": 128,
+                "ActionTag": -839031859,
+                "Size": {
+                  "X": 223.0,
+                  "Y": 60.0
+                },
+                "Name": "imgCongrat",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "ShopIAP/ShopSuccess/bgTitle.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 249,
+                "Scale9OriginY": 16,
+                "Scale9Width": 8,
+                "Scale9Height": 2,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 400.0,
+                  "Y": 332.7261
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.7614
+                },
+                "PreSize": {
+                  "X": 0.6325,
+                  "Y": 0.0778
+                },
+                "LeftMargin": 147.0,
+                "RightMargin": 147.0,
+                "TopMargin": 87.2739,
+                "BottomMargin": 315.7261,
+                "Tag": 127,
+                "Children": [
+                  {
+                    "FontSize": 15,
+                    "LabelText": "Text Label flsjflsdj fsdlfjsdl flsdjflsjd lfjsd lsjdf lskdjfsljfsdl fsdlfj sdl fsdlf sldjf lsd",
+                    "FontResource": {
+                      "Type": "Normal",
+                      "Path": "Font/tahomabd.ttf",
+                      "Plist": ""
+                    },
+                    "HorizontalAlignmentType": "HT_Center",
+                    "OutlineColor": {
+                      "G": 0,
+                      "B": 0
+                    },
+                    "ShadowColor": {
+                      "R": 110,
+                      "G": 110,
+                      "B": 110
+                    },
+                    "ShadowOffsetX": 2.0,
+                    "ShadowOffsetY": -2.0,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 253.0,
+                      "Y": 17.934
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PositionPercentXEnabled": true,
+                    "PrePosition": {
+                      "X": 0.5,
+                      "Y": 0.5275
+                    },
+                    "PreSize": {
+                      "X": 1.2075,
+                      "Y": 0.5882
+                    },
+                    "LeftMargin": -52.5,
+                    "RightMargin": -52.5,
+                    "TopMargin": 6.066,
+                    "BottomMargin": 7.934,
+                    "Tag": 175,
+                    "ActionTag": 1967450356,
+                    "Size": {
+                      "X": 611.0,
+                      "Y": 20.0
+                    },
+                    "Name": "lbSource",
+                    "ctype": "TextObjectData"
+                  }
+                ],
+                "ActionTag": 394545880,
+                "Size": {
+                  "X": 506.0,
+                  "Y": 34.0
+                },
+                "Name": "bgText",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Default",
+                  "Path": "Default/Button_Disable.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "Normal",
+                  "Path": "Offer/btniapgoogle.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "Offer/btniapgoogle.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 137,
+                "Scale9Height": 41,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 400.5966,
+                  "Y": 22.3472
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.5007,
+                  "Y": 0.0511
+                },
+                "PreSize": {
+                  "X": 0.2087,
+                  "Y": 0.1442
+                },
+                "LeftMargin": 317.0966,
+                "RightMargin": 315.9034,
+                "TopMargin": 383.1528,
+                "BottomMargin": -9.1528,
+                "Tag": 122,
+                "ActionTag": -384877785,
+                "Size": {
+                  "X": 167.0,
+                  "Y": 63.0
+                },
+                "VisibleForFrame": false,
+                "Name": "btnBuy",
+                "ctype": "ButtonObjectData"
+              },
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Default",
+                  "Path": "Default/Button_Disable.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "Normal",
+                  "Path": "ShopIAP/ShopSuccess/btnReceive.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "ShopIAP/ShopSuccess/btnReceive.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 114,
+                "Scale9Height": 29,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 400.0,
+                  "Y": 92.4692
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.2116
+                },
+                "PreSize": {
+                  "X": 0.18,
+                  "Y": 0.1167
+                },
+                "LeftMargin": 328.0,
+                "RightMargin": 328.0,
+                "TopMargin": 319.0308,
+                "BottomMargin": 66.9692,
+                "Tag": 118,
+                "ActionTag": 157919464,
+                "Size": {
+                  "X": 144.0,
+                  "Y": 51.0
+                },
+                "Name": "btn",
+                "ctype": "ButtonObjectData"
+              }
+            ],
+            "ActionTag": -92172249,
+            "Size": {
+              "X": 800.0,
+              "Y": 437.0
+            },
+            "Name": "bg",
+            "ctype": "PanelObjectData"
+          }
+        ],
+        "Size": {
+          "X": 800.0,
+          "Y": 480.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "Default/Button_Disable.png",
+        "Font/tahomabd.ttf",
+        "Offer/btniapgoogle.png",
+        "ShopIAP/ShopSuccess/bgTitle.png",
+        "ShopIAP/ShopSuccess/btnReceive.png",
+        "ShopIAP/ShopSuccess/titleCongrat.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

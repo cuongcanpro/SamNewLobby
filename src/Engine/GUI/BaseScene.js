@@ -26,6 +26,7 @@ var BaseScene = cc.Scene.extend({
         this.setContentSize(cc.winSize);
         this.setAnchorPoint(cc.p(0.5,0.5));
 
+        cc.log("add EffectTouchLayer");
         var decoLayer = EffectTouchLayer.getInstance();
         decoLayer.retain();
         decoLayer.removeFromParent(false);

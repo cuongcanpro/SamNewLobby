@@ -9,8 +9,6 @@ var CustomSkeleton = cc.Node.extend({
             var s = (new Error()).stack;
             cc.log("ERROR " + s);
         }
-        this.path = path;
-        this.key = key;
         /**
          * Doi voi ban cu thi chi Load anh mac dinh, khi co Animtion la Spine thi phai di kem mot anh sprite.png trong folder cua Animation
          */
@@ -33,16 +31,12 @@ var CustomSkeleton = cc.Node.extend({
         this.setCascadeOpacityEnabled(true);
     },
 
-    setAnimation: function (trackIndex, animation, loop, mode, resource) {
+    setAnimation: function (trackIndex, animation, loop, mode) {
         this.loop = loop;
         if (this.type == CustomSkeleton.NORMAL) {
             this.skeleton.setAnimation(trackIndex, animation, loop);
         }
         else {
-            var s = this.path + "/" + this.key + "_static" + resource + ".png";
-            if (jsb.fileUtils.isFileExist(s)) {
-                this.sprite.setTexture(s);
-            }
             if (mode !== undefined) this.animationMode = mode;
             this.doAction();
         }
@@ -111,9 +105,9 @@ var CustomSkeleton = cc.Node.extend({
         }
     },
 
-    getDuration: function(name) {
+    getDuration: function() {
         if (this.type == CustomSkeleton.NORMAL)
-            return this.skeleton.findAnimation(name? name : "animation").duration;
+            return this.skeleton.findAnimation("animation").duration;
         else{
             switch(this.animationMode){
                 case CustomSkeleton.FADE_ACTION:

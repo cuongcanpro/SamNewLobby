@@ -60,6 +60,7 @@ var SceneMgr = cc.Class.extend({
 
         var loading = new Loading(text, fog);
         this.layerGUI.addChild(loading);
+
         loading.setLocalZOrder(LOADING_TAG);
         loading.setTag(LOADING_TAG);
         return loading;
@@ -186,9 +187,19 @@ var SceneMgr = cc.Class.extend({
 
     openScene: function (layer, callback, direct) {
         cc.log("_________OPEN__SCENE___" + layer + "/" + this.curGui);
-
-        CheckLogic.updateDesignSolution(layer);
         popUpManager.resetPopUp();
+        CheckLogic.updateDesignSolution(layer);
+
+        // if (layer === MaubinhLayer.className){
+        //     Constant.WIDTH = 800;
+        //     Constant.HEIGHT = 480;
+        // } else {
+        //     Constant.WIDTH = 1200;
+        //     Constant.HEIGHT = 700;
+        // }
+        //
+        // cc.view.setDesignResolutionSize(Constant.WIDTH,Constant.HEIGHT, cc.ResolutionPolicy.FIXED_HEIGHT);
+
         var isCallback = true;
         if (layer == LoginScene.className) {
             isCallback = false;
@@ -199,7 +210,7 @@ var SceneMgr = cc.Class.extend({
         }
 
         if (this.layerGUI !== undefined && this.layerGUI && this.layerGUI.getParent()) {
-            this.layerGUI.removeAllChildren(cc.sys.isNative);  // voi ban web neu clean up thi se bi mat listener của editbox
+            this.layerGUI.removeAllChildren();
             this.layerGUI.retain();
         }
 
@@ -218,6 +229,7 @@ var SceneMgr = cc.Class.extend({
             }
 
             if (this._isWaitingCallBack && !direct) {
+                cc.log("VO DAY " + this._waitingScene);
                 layer = this._waitingScene;
 
                 this._isWaitingCallBack = false;
@@ -280,7 +292,7 @@ var SceneMgr = cc.Class.extend({
 
         if (slayer === undefined || slayer == "") return null;
 
-        if(slayer == Dialog.className) {
+        if(slayer === Dialog.className) {
             sceneMgr.detectDialog();
         }
 
@@ -319,6 +331,7 @@ var SceneMgr = cc.Class.extend({
             layer.setAsPopup(true, isCache);
             this.layerGUI.addChild(layer, zoder, tag);
         }
+
         fr.crashLytics.logGUI(slayer);
         return layer;
     },
@@ -369,16 +382,17 @@ var SceneMgr = cc.Class.extend({
         this.getRunningScene().addChild(this.layerGUI, BaseScene.TAG_GUI, BaseScene.TAG_GUI);
         this.getRunningScene().addChild(this.layerSystem, BaseScene.TAG_GUI + 1, BaseScene.TAG_GUI + 1);
 
-        gameMgr.onEnterScene();
+        gamedata.onEnterScene();
     },
 
     updateScene: function (dt) {
         effectMgr.updateEffect(dt);
-        gameMgr.onUpdateScene(dt);
+        gamedata.onUpdateScene(dt);
     },
 
     checkBackAvailable: function (ignores) {
         if (ignores === undefined) ignores = [];
+
         for (var s in this.arPopups) {
             var check = true;
             for (var i = 0; i < ignores.length; i++) {
@@ -453,8 +467,8 @@ var SceneMgr = cc.Class.extend({
 
 SceneMgr.sharedInstance = null;
 
-SceneMgr.FONT_NORMAL = cc.sys.isNative ? "fonts/tahoma.ttf" : "tahoma";
-SceneMgr.FONT_BOLD = cc.sys.isNative ? "fonts/tahomabd.ttf" : "tahoma";
+SceneMgr.FONT_NORMAL = "fonts/tahoma.ttf";
+SceneMgr.FONT_BOLD = "fonts/tahomabd.ttf";
 SceneMgr.FONT_SIZE_DEFAULT = 17;
 
 SceneMgr.convertPosToParent = function (parent, target) {
@@ -506,16 +520,6 @@ var Loading = cc.Layer.extend({
         var winSize = cc.director.getWinSize();
         var scale = winSize.width / 800;
         scale = (scale > 1) ? 1 : scale;
-
-        //this.spIcon = new cc.Sprite("icon_loading.png");
-        //this.spLoading = new cc.Sprite("loading.png");
-        //this.spIcon.setPosition(winSize.width/2,winSize.height/2 + 50);
-        //this.spLoading.setPosition(winSize.width/2,winSize.height/2 + 50);
-        //this.spLoading.runAction(cc.repeatForever(cc.rotateBy(1.5,360)));
-        //this.spIcon.setScale(0.75);
-        //this.spLoading.setScale(0.75);
-        //this.addChild(this.spIcon);
-        //this.addChild(this.spLoading);
 
         var eff = db.DBCCFactory.getInstance().buildArmatureNode("loadingZP");
         if (eff) {
@@ -747,7 +751,7 @@ var LoadingFloat = cc.Node.extend({
         this.funcTimeOut = null;
 
         // init
-        this.img = new cc.Sprite("common/circlewait.png");
+        this.img = cc.Sprite.create("common/circlewait.png");
         this.img.setPositionY(this.img.getContentSize().height / 2);
         this.addChild(this.img);
 
@@ -878,7 +882,7 @@ var BubbleToast = cc.Node.extend({
         this.bg = new cc.Scale9Sprite("res/common/9patch.png");
         this.addChild(this.bg);
 
-        this.arrow = new cc.Sprite("res/common/arrow.png");
+        this.arrow = cc.Sprite.create("res/common/arrow.png");
         this.addChild(this.arrow);
 
         this._scale = cc.director.getWinSize().width / Constant.WIDTH;
@@ -1085,14 +1089,12 @@ var TooltipFloat = cc.Node.extend({
         this.isRunningDelay = true;
     },
 
-    setTooltip: function (txt, time, pos, type, fontSize, anchor) {
+    setTooltip: function (txt, time, pos, type) {
         if (txt) {
             this.lb = BaseLayer.createLabelText(txt);
             this.lb.setTextHorizontalAlignment(cc.TEXT_ALIGNMENT_CENTER);
             this.lb.setTextVerticalAlignment(cc.TEXT_ALIGNMENT_CENTER);
             this.lb.ignoreContentAdaptWithSize(false);
-            if (fontSize) this.lb.setFontSize(fontSize);
-            if (anchor) this.panel.setAnchorPoint(anchor);
             // this.lb.setAnchorPoint(0, 0);
             // this.lb.setPosition(0, 0);
             this.panel.addChild(this.lb);
@@ -1168,7 +1170,7 @@ var TooltipFloat = cc.Node.extend({
     }
 });
 
-TooltipFloat.makeTooltip = function (time, text, pos, type, fontSize, anchor) {
+TooltipFloat.makeTooltip = function (time, text, pos, type) {
     var oldTooltip = sceneMgr.layerGUI.getChildByTag(TOOLTIP_FLOAT_TAG);
     var timeWait = 0;
     if (oldTooltip){
@@ -1181,7 +1183,7 @@ TooltipFloat.makeTooltip = function (time, text, pos, type, fontSize, anchor) {
 
     setTimeout(function () {
         var tooltip = new TooltipFloat();
-        tooltip.setTooltip(text, time, pos, type, fontSize, anchor);
+        tooltip.setTooltip(text, time, pos, type);
 
         sceneMgr.layerGUI.addChild(tooltip, TOOLTIP_FLOAT_TAG, TOOLTIP_FLOAT_TAG);
     }, timeWait * 1000);
@@ -1211,10 +1213,10 @@ var EffectMgr = cc.Class.extend({
         this.arLbPoints = [];   // array of label effect change value point
     },
 
-    runLabelPoint: function (label, cur, des, delayTime, numChange, isFormat) {
+    runLabelPoint: function (label, cur, des, delayTime, numChange, type) {
         numChange = numChange || 50;
         delayTime = delayTime || 0;
-        isFormat = isFormat || false;
+        type = type || EffectMgr.LABEL_RUN_POINT;
         var lb = null;
         var isNew = true;
         for (var i = 0, size = this.arLbPoints.length; i < size; i++) {
@@ -1228,15 +1230,18 @@ var EffectMgr = cc.Class.extend({
         if(isNew) {
             lb = label;
         }
-
+        lb.type = type;
         lb.cur = cur;
         lb.des = des;
         lb.delta = parseInt((des - cur) / numChange);
         lb.delay = delayTime;
-        lb.isFormat = isFormat;
-        lb.setString(isFormat ? StringUtility.formatNumberSymbol(lb.cur) : StringUtility.pointNumber(lb.cur));
-        if(isNew)
+        if (type == EffectMgr.LABEL_RUN_POINT)
+            lb.setString(StringUtility.pointNumber(lb.cur));
+        else
+            lb.setString(StringUtility.formatNumberSymbol(lb.cur));
+        if(isNew) {
             this.arLbPoints.push(lb);
+        }
     },
 
     flyCoinEffect: function (parent, gold, ratio, pStart, pEnd, fGoldDone, checkTime) {
@@ -1280,7 +1285,7 @@ var EffectMgr = cc.Class.extend({
             var posCenter = cc.p(pCX, pCY);
 
             var actShow = new cc.EaseBackOut(cc.scaleTo(timeShow, 0.4));
-            var actMove = new cc.EaseSineOut(cc.BezierTo.create(timeMove, [posStart, posCenter, pEnd]));
+            var actMove = new cc.EaseSineOut(cc.bezierTo(timeMove, [posStart, posCenter, pEnd]));
             var actHide = cc.spawn(new cc.EaseBackIn(cc.scaleTo(timeHide, 0)), cc.fadeOut(timeHide));
             sp.setPosition(posStart);
             sp.setRotation(rndRotate);
@@ -1291,32 +1296,15 @@ var EffectMgr = cc.Class.extend({
                 actShow,
                 cc.spawn(actMove,
                     cc.sequence(cc.delayTime(1.5 * Math.random()), cc.callFunc(function () {
-                        //if (gamedata.sound) {
-                        //    if (this % 3 === 0){
-                        //        var rnd = parseInt(Math.random() * 10) % 3 + 1;
-                        //        cc.audioEngine.playEffect(lobby_sounds["coin" + rnd], false);
-                        //    }
-                        //}
-                    }.bind(i)))), cc.callFunc(function () {
+                        if (gamedata.sound) {
+                            var rnd = parseInt(Math.random() * 10) % 3 + 1;
+                            cc.audioEngine.playEffect(lobby_sounds["coin" + rnd], false);
+                        }
+                    }))), cc.callFunc(function () {
                     if (fGoldDone) fGoldDone.apply(this, arguments);
                 }.bind(this, goldReturn)), actHide));
         }
         return (timeMove + timeHide + dTime + timeShow);
-    },
-
-    dropCoinEffect: function (parent, gold, pos, type, func) {
-        pos = pos || cc.p(cc.winSize.width / 2, cc.winSize.height / 2);
-        type = type || CoinEffect.TYPE_FLOW;
-
-        //var scale = cc.director.getWinSize().width/Constant.WIDTH;
-        //scale = (scale > 1) ? 1 : scale;
-
-        var eff = new CoinEffectLayer();
-        eff.setPositionCoin(pos);
-        eff.startEffect(gold, type);
-        eff.setCallbackFinish(func);
-        //eff.setScale(scale);
-        parent.addChild(eff);
     },
 
     flyCoinEffect2: function (parent, gold, pStart, pEnd, timeDelay, checkTime) {
@@ -1376,7 +1364,8 @@ var EffectMgr = cc.Class.extend({
         return (timeMove + timeHide + dTime * num - 0.5 + timeShow);
     },
 
-    flyItemEffect: function(parent, spriteName, itemCount, pStart, pEnd, delay, isVpoint, checkTime) {
+    flyItemEffect: function(parent, spriteName, itemCount, pStart, pEnd, delay, isVpoint, checkTime, showNow) {
+        cc.log("SPRITE NAME " + spriteName);
         if (!parent) return 0;
 
         var num = 2 + Math.floor(Math.random() * 2);
@@ -1403,7 +1392,8 @@ var EffectMgr = cc.Class.extend({
             var actMove = new cc.BezierTo(timeMove, [pStart, posCenter, pEnd]).easing(cc.easeIn(2.0));
             var actHide = cc.spawn(new cc.EaseBackIn(cc.scaleTo(timeHide, 0)), cc.fadeOut(timeHide));
             sp.setPosition(pStart);
-            sp.setVisible(false);
+            if (!showNow)
+                sp.setVisible(false);
             parent.addChild(sp, 102);
             var data = {par : parent, num: i};
             var actHightlight = cc.callFunc(function () {
@@ -1431,22 +1421,37 @@ var EffectMgr = cc.Class.extend({
         return (timeShow  + timeMove);
     },
 
+    dropCoinEffect: function (parent, gold, pos, type, func) {
+        pos = pos || cc.p(cc.winSize.width / 2, cc.winSize.height / 2);
+        type = type || CoinEffect.TYPE_FLOW;
+
+        //var scale = cc.director.getWinSize().width/Constant.WIDTH;
+        //scale = (scale > 1) ? 1 : scale;
+
+        var eff = new CoinEffectLayer();
+        eff.setPositionCoin(pos);
+        eff.startEffect(gold, type);
+        eff.setCallbackFinish(func);
+        //eff.setScale(scale);
+        parent.addChild(eff);
+    },
+
     runVipProgress: function(bgProgress, progress, txtExp, imgVpoint, imgCurrVip, imgNextVip, totalVpoint, delay, checkTime, vipLevel, curVpoint){
         var nextLevel = vipLevel;
         var listUpVpoint = [];
         var newLevel = vipLevel + 1;
         var isUpLevel = false;
         var vPointNeed;
-        if (vipLevel >= VipManager.NUMBER_VIP){
-            vPointNeed = VipManager.getInstance().getVpointNeed(nextLevel);
-            listUpVpoint.push({startPoint: curVpoint, endPoint: curVpoint + totalVpoint, levelVip: VipManager.NUMBER_VIP});
+        if (vipLevel >= NewVipManager.NUMBER_VIP){
+            vPointNeed = NewVipManager.getInstance().getVpointNeed(nextLevel);
+            listUpVpoint.push({startPoint: curVpoint, endPoint: curVpoint + totalVpoint, levelVip: NewVipManager.NUMBER_VIP});
         }
-        while (totalVpoint > 0 && vipLevel < VipManager.NUMBER_VIP){
-            if (nextLevel >= VipManager.NUMBER_VIP){
-                listUpVpoint.push({startPoint: 0, endPoint: totalVpoint, levelVip: VipManager.NUMBER_VIP});
+        while (totalVpoint > 0 && vipLevel < NewVipManager.NUMBER_VIP){
+            if (nextLevel >= NewVipManager.NUMBER_VIP){
+                listUpVpoint.push({startPoint: 0, endPoint: totalVpoint, levelVip: NewVipManager.NUMBER_VIP});
                 break;
             }
-            vPointNeed = VipManager.getInstance().getVpointNeed(nextLevel);
+            vPointNeed = NewVipManager.getInstance().getVpointNeed(nextLevel);
             if (!isUpLevel){
                 if (curVpoint + totalVpoint >= vPointNeed){
                     isUpLevel = true;
@@ -1469,9 +1474,7 @@ var EffectMgr = cc.Class.extend({
             }
             nextLevel++;
         }
-
-        // cc.log("runVipProgress: ", isUpLevel, JSON.stringify(listUpVpoint));
-
+        
         var timeRun = 0.8 + 0.3 * (listUpVpoint.length - 1);
         if (checkTime){
             return timeRun;
@@ -1482,7 +1485,7 @@ var EffectMgr = cc.Class.extend({
         for (var i = 0; i < listUpVpoint.length; i++){
             var data = listUpVpoint[i];
             var action = cc.callFunc(function () {
-                VipScene.runEffectProgressVip(bgProgress, progress, txtExp, imgVpoint,  timeRun / listUpVpoint.length, this.startPoint, this.endPoint, this.levelVip, imgCurrVip, imgNextVip);
+                NewVipScene.runEffectProgressVip(bgProgress, progress, txtExp, imgVpoint,  timeRun / listUpVpoint.length, this.startPoint, this.endPoint, this.levelVip, imgCurrVip, imgNextVip);
             }.bind(data));
             actions.push(action);
             actions.push(cc.delayTime(timeRunEachAction));
@@ -1491,33 +1494,6 @@ var EffectMgr = cc.Class.extend({
         bgProgress.getParent().stopAllActions();
         bgProgress.getParent().runAction(cc.sequence(actions));
         return timeRun;
-    },
-
-    countdownLabelEffect: function (label, time, delay, startCountTime) {
-        label.stopAllActions();
-        label.setScale(0);
-        label._time = time;
-        label._startCountTime = startCountTime;
-        label.setString(startCountTime);
-        label.runAction(cc.sequence(
-            cc.delayTime(delay),
-            cc.sequence(
-                cc.callFunc(function () {
-                    if (this._time <= this._startCountTime) {
-                        this.runAction(cc.sequence(
-                            cc.scaleTo(0.1, 1),
-                            cc.delayTime(0.7),
-                            cc.scaleTo(0.1, 0),
-                            cc.callFunc(function () {
-                                this.setString(Math.floor(this._time));
-                            }.bind(this))
-                        ));
-                    }
-                    this._time--;
-                }.bind(label)),
-                cc.delayTime(1)
-            ).repeat(Math.floor(time + 1))
-        ));
     },
 
     updateEffect: function (dt) {
@@ -1530,9 +1506,15 @@ var EffectMgr = cc.Class.extend({
                 }
 
                 lb.cur += lb.delta;
-                lb.setString(lb.isFormat ? StringUtility.formatNumberSymbol(lb.cur) : StringUtility.pointNumber(lb.cur));
+                if (lb.type == EffectMgr.LABEL_RUN_POINT)
+                    lb.setString(StringUtility.pointNumber(lb.cur));
+                else
+                    lb.setString(StringUtility.formatNumberSymbol(lb.cur));
                 if (lb.cur > lb.des) {
-                    lb.setString(lb.isFormat ? StringUtility.formatNumberSymbol(lb.des) : StringUtility.pointNumber(lb.des));
+                    if (lb.type == EffectMgr.LABEL_RUN_POINT)
+                        lb.setString(StringUtility.pointNumber(lb.des));
+                    else
+                        lb.setString(StringUtility.formatNumberSymbol(lb.des));
                     this.arLbPoints.splice(i, 1);
                 }
             }
@@ -1543,6 +1525,8 @@ var EffectMgr = cc.Class.extend({
     },
 });
 
+EffectMgr.LABEL_RUN_POINT = 0;
+EffectMgr.LABEL_RUN_NUMBER = 1;
 EffectMgr._inst = null;
 
 EffectMgr.getInstance = function () {
@@ -1820,12 +1804,48 @@ CoinEffectLayer.TYPE_FLOW = 0;
 CoinEffectLayer.TYPE_RAIN = 1;
 CoinEffectLayer.DELAY_PLAY_SOUND = 0.3;
 
+
+var CoinEffect2 = cc.Sprite.extend({
+    ctor: function () {
+        this._super();
+        var animation = cc.animationCache.getAnimation(CoinEffect2.NAME_ANIMATION);
+        if (!animation) {
+            var arr = [];
+            var cache = cc.spriteFrameCache;
+            var aniFrame;
+            for (var i = 0; i < 6; i++) {
+                aniFrame = new cc.AnimationFrame(cache.getSpriteFrame("coinNew" + i + ".png"), CoinEffect2.TIME_ANIMATION);
+                arr.push(aniFrame);
+            }
+            animation = new cc.Animation(arr, CoinEffect2.TIME_ANIMATION);
+            cc.animationCache.addAnimation(animation, CoinEffect2.NAME_ANIMATION);
+        }
+        this.anim = animation;
+        this.setVisible(false);
+    },
+
+    start: function () {
+        this.setVisible(true);
+        var ani = cc.animate(this.anim);
+        //ani.setSpeed(Math.random() * 0.5 + 0.5);
+        this.runAction(ani.repeatForever());
+    },
+
+    stop: function () {
+        this.setVisible(false);
+        this.stopAllActions();
+    }
+});
+
+CoinEffect2.NAME_ANIMATION = "coinNew";
+CoinEffect2.TIME_ANIMATION = 0.25;
+
 var EffectTouchLayer = cc.Layer.extend({
     ctor: function () {
         this._super();
         this.setContentSize(cc.winSize);
 
-        this.iconTouch = new cc.Sprite();
+        this.iconTouch = cc.Sprite.create();
         this.iconTouch.setVisible(false);
         this.addChild(this.iconTouch);
         this.sttIcon = 0;
@@ -1833,10 +1853,10 @@ var EffectTouchLayer = cc.Layer.extend({
         var NUM_DECO = 3;
         this.arrayDeco = [];
         for(var i = 0; i < NUM_DECO; i++){
-            var deco = new cc.Sprite("Lobby/Common/touchDeco.png");
+            var deco = cc.Sprite.create("Lobby/Common/touchDeco.png");
             deco.setBlendFunc(cc.DST_COLOR, cc.ONE);
             this.addChild(deco);
-            var square = new cc.Sprite("Lobby/Common/touchSquare.png");
+            var square = cc.Sprite.create("Lobby/Common/touchSquare.png");
             deco.addChild(square);
             deco.square = square;
             square.setBlendFunc(cc.DST_COLOR, cc.ONE);
@@ -1918,7 +1938,6 @@ var EffectTouchLayer = cc.Layer.extend({
     onTouchBegan: function(touch,event){
         var pos = touch.getLocation();
         event.getCurrentTarget().effectTouch(pos);
-        this.lastShowTime = new Date().getTime();
         return true;
     }
 });
@@ -1932,239 +1951,6 @@ EffectTouchLayer.getInstance = function () {
 
     return EffectTouchLayer.instance;
 };
-
-var CoinEffect2 = cc.Sprite.extend({
-    ctor: function () {
-        this._super();
-        var animation = cc.animationCache.getAnimation(CoinEffect2.NAME_ANIMATION);
-        if (!animation) {
-            var arr = [];
-            var cache = cc.spriteFrameCache;
-            var aniFrame;
-            for (var i = 0; i < 6; i++) {
-                aniFrame = new cc.AnimationFrame(cache.getSpriteFrame("coinNew" + i + ".png"), CoinEffect2.TIME_ANIMATION);
-                arr.push(aniFrame);
-            }
-            animation = new cc.Animation(arr, CoinEffect2.TIME_ANIMATION);
-            cc.animationCache.addAnimation(animation, CoinEffect2.NAME_ANIMATION);
-        }
-        this.anim = animation;
-        this.setVisible(false);
-    },
-
-    start: function () {
-        this.setVisible(true);
-        var ani = cc.animate(this.anim);
-        //ani.setSpeed(Math.random() * 0.5 + 0.5);
-        this.runAction(ani.repeatForever());
-    },
-
-    stop: function () {
-        this.setVisible(false);
-        this.stopAllActions();
-    }
-});
-
-CoinEffect2.NAME_ANIMATION = "coinNew";
-CoinEffect2.TIME_ANIMATION = 0.25;
-
-// Tooltip
-//var TooltipFloat = cc.Node.extend({
-//
-//    ctor: function () {
-//        this._super();
-//
-//        this.timeDelay = -1;
-//        this.isRunningDelay = false;
-//
-//        this.lb = null;
-//        this.bg = null;
-//
-//        this.panel = new ccui.Layout();
-//        this.panel.setContentSize(100, 100);
-//        this.panel.setClippingEnabled(true);
-//        this.panel.setTouchEnabled(true);
-//
-//
-//        this.panel.setAnchorPoint(0.5, 0.5);
-//        this.addChild(this.panel);
-//
-//        this.bg = new cc.Scale9Sprite("res/common/9patch.png");
-//        this.panel.addChild(this.bg);
-//        // this.bg.setAnchorPoint(0, 0);
-//        // this.bg.setPosition(0, 0);
-//
-//        this._scale = cc.director.getWinSize().width / Constant.WIDTH;
-//        this._scale = (this._scale > 1) ? 1 : this._scale;
-//        this.setScale(this._scale);
-//    },
-//
-//    onEnter: function () {
-//        cc.Layer.prototype.onEnter.call(this);
-//
-//        // this.bg.setOpacity(0);
-//        // this.lb.setOpacity(0);
-//        //
-//        // this.bg.runAction(cc.fadeIn(0.5));
-//        // this.lb.runAction(cc.fadeIn(0.5));
-//        //
-//        // this.runAction(cc.sequence(cc.delayTime(0.5), cc.callFunc(this.finishEffect.bind(this))));
-//    },
-//
-//    /**
-//     * hien thi theo cac cach
-//     * @param type: 0: tu tren xuong duoi, text xuat hien tu trai qua phai
-//     * 1: tu trai qua phai, text xuat hien tu tren xuong duoi
-//     * 2: tu duoi len tren, text xuat hien tu trai qua phai
-//     * 3: tu phai qua trai, text xhuat hien tu tren xuong duoi
-//     */
-//    showUpByType: function(type){
-//        this.showUpType = type;
-//        var contentSize = this.bg.getContentSize();
-//        var timeRunBg = TooltipFloat.TIME_RUN_BG;
-//        var timeRunLb = TooltipFloat.TIME_RUN_LB;
-//
-//        this.bg.setOpacity(0);
-//        if (type === TooltipFloat.SHOW_UP_TYPE_0 || type === TooltipFloat.SHOW_UP_TYPE_2){
-//            var directionY = (type === TooltipFloat.SHOW_UP_TYPE_0) ? contentSize.height : - contentSize.height;
-//            this.panel.setPosition(0, directionY);
-//            this.bg.setPosition(this.bg.defaultPos.x, this.bg.defaultPos.y - directionY);
-//            this.lb.setPosition(this.lb.defaultPos.x - contentSize.width, this.lb.defaultPos.y);
-//        } else if (type === TooltipFloat.SHOW_UP_TYPE_1 || type === TooltipFloat.SHOW_UP_TYPE_3){
-//            var directionX = (type === TooltipFloat.SHOW_UP_TYPE_1) ? -contentSize.width : contentSize.width;
-//            this.panel.setPosition(directionX, 0);
-//            this.bg.setPosition(this.bg.defaultPos.x - directionX, this.bg.defaultPos.y);
-//            this.lb.setPosition(this.lb.defaultPos.x, this.lb.defaultPos.y + contentSize.height);
-//        }
-//
-//        var actionMove1 = cc.moveTo(timeRunBg, cc.p(this.panel.defaultPos));
-//        var actionMove2 = cc.moveTo(timeRunBg, cc.p(this.bg.defaultPos));
-//        var actionMove3 = cc.moveTo(timeRunLb, cc.p(this.lb.defaultPos));
-//        this.panel.runAction(actionMove1);
-//        this.bg.runAction(cc.spawn(actionMove2, cc.fadeTo(timeRunBg, 200)));
-//        this.lb.runAction(cc.sequence(cc.delayTime(timeRunBg), actionMove3, cc.callFunc(this.finishEffect.bind(this))));
-//    },
-//
-//    finishEffect: function () {
-//        this.isRunningDelay = true;
-//    },
-//
-//    setTooltip: function (txt, time, pos, type) {
-//        if (txt) {
-//            this.lb = BaseLayer.createLabelText(txt);
-//            this.lb.setTextHorizontalAlignment(cc.TEXT_ALIGNMENT_CENTER);
-//            this.lb.setTextVerticalAlignment(cc.TEXT_ALIGNMENT_CENTER);
-//            this.lb.ignoreContentAdaptWithSize(false);
-//            // this.lb.setAnchorPoint(0, 0);
-//            // this.lb.setPosition(0, 0);
-//            this.panel.addChild(this.lb);
-//            var winSize = cc.director.getWinSize();
-//
-//            var lbSize = this.lb.getContentSize();
-//            var deltaWidth = winSize.width * TooltipFloat.DELTA_WIDTH;
-//            var numRow = 1;
-//            while (deltaWidth * numRow < lbSize.width){
-//                numRow++;
-//            }
-//            this.lb.setContentSize(cc.size(deltaWidth, lbSize.height * numRow));
-//
-//            this.bg.setContentSize(this.lb.getContentSize().width + ToastFloat.PAD_SIZE, this.lb.getContentSize().height + TooltipFloat.PAD_SIZE);
-//            var conentSize = this.bg.getContentSize();
-//            this.bg.setPosition(conentSize.width / 2, conentSize.height/2);
-//            this.lb.setPosition(conentSize.width / 2, conentSize.height/2);
-//            this.panel.setContentSize(this.bg.getContentSize());
-//
-//            this.bg.defaultPos = this.bg.getPosition();
-//            this.lb.defaultPos = this.bg.defaultPos;
-//        }
-//
-//        if (time === undefined || time == null) time = TooltipFloat.SHORT;
-//        this.timeDelay = time;
-//        this.setPosition(pos);
-//        this.showUpByType(type);
-//        this.scheduleUpdate();
-//    },
-//
-//    setColor: function(color) {
-//        this.bg.setColor(color);
-//    },
-//
-//    clearTooltip: function () {
-//        var contentSize = this.bg.getContentSize();
-//        var timeRunBg = TooltipFloat.TIME_RUN_BG;
-//        var timeRunLb = TooltipFloat.TIME_RUN_LB;
-//        this.panel.stopAllActions();
-//        this.bg.stopAllActions();
-//        this.lb.stopAllActions();
-//
-//        var type = this.showUpType;
-//        var actionMove1, actionMove2;
-//        if (type === TooltipFloat.SHOW_UP_TYPE_0 || type === TooltipFloat.SHOW_UP_TYPE_2){
-//            var directionY = (type === TooltipFloat.SHOW_UP_TYPE_0) ? -contentSize.height : contentSize.height;
-//            actionMove1 = cc.moveBy(timeRunBg, 0, -directionY);
-//
-//
-//            actionMove2 = cc.moveTo(timeRunLb, this.lb.defaultPos.x  - contentSize.width, this.lb.defaultPos.y);
-//            this.lb.runAction(actionMove2);
-//        } else if (type === TooltipFloat.SHOW_UP_TYPE_1 || type === TooltipFloat.SHOW_UP_TYPE_3){
-//            var directionX = (type === TooltipFloat.SHOW_UP_TYPE_1) ? contentSize.width : -contentSize.width;
-//            actionMove1 = cc.moveBy(timeRunBg, -directionX, 0);
-//
-//            actionMove2 = cc.moveTo(timeRunLb, this.lb.defaultPos.x, this.lb.defaultPos.y + contentSize.height);
-//            this.lb.runAction(actionMove2);
-//        }
-//
-//        this.panel.runAction(cc.sequence(cc.delayTime(timeRunLb), actionMove1, cc.callFunc(this.removeFromParent.bind(this))));
-//        this.bg.runAction(cc.sequence(cc.delayTime(timeRunLb),cc.spawn(actionMove1.reverse(), cc.fadeOut(timeRunBg))));
-//
-//        // this.runAction(cc.sequence(cc.delayTime(0.5), cc.callFunc(this.removeFromParent.bind(this))));
-//    },
-//
-//    update: function (dt) {
-//        if (this.timeDelay > 0 && this.isRunningDelay) {
-//            this.timeDelay -= dt;
-//            if (this.timeDelay <= 0) {
-//                this.clearTooltip();
-//            }
-//        }
-//    }
-//});
-//
-//TooltipFloat.makeTooltip = function (time, text, pos, type) {
-//    var oldTooltip = sceneMgr.layerGUI.getChildByTag(TOOLTIP_FLOAT_TAG);
-//    var timeWait = 0;
-//    if (oldTooltip){
-//        if (oldTooltip.lb.getString() === text){
-//            return;
-//        }
-//        timeWait = TooltipFloat.TIME_RUN_LB + TooltipFloat.TIME_RUN_BG;
-//        oldTooltip.clearTooltip();
-//    }
-//
-//    setTimeout(function () {
-//        var tooltip = new TooltipFloat();
-//        tooltip.setTooltip(text, time, pos, type);
-//
-//        sceneMgr.layerGUI.addChild(tooltip, TOOLTIP_FLOAT_TAG, TOOLTIP_FLOAT_TAG);
-//    }, timeWait * 1000);
-//
-//};
-//
-//TooltipFloat.SHORT = 1.0;
-//TooltipFloat.LONG = 3.0;
-//TooltipFloat.MEDIUM = 2.0;
-//
-//TooltipFloat.TIME_RUN_LB = 0.2;
-//TooltipFloat.TIME_RUN_BG = 0.25;
-//
-//TooltipFloat.POSITION_Y = 1 / 3;
-//TooltipFloat.DELTA_WIDTH = 0.3;
-//TooltipFloat.PAD_SIZE = 20;
-//
-//TooltipFloat.SHOW_UP_TYPE_0 = 0; // tu tren xuong duoi, text xuat hien tu trai qua phai
-//TooltipFloat.SHOW_UP_TYPE_1 = 1; // tu trai qua phai, text xuat hien tu tren xuong duoi
-//TooltipFloat.SHOW_UP_TYPE_2 = 2; // tu duoi len tren, text xuat hien tu trai qua phai
-//TooltipFloat.SHOW_UP_TYPE_3 = 3; // tu phai qua trai, text xhuat hien tu tren xuong duoi
 
 
 // Coin Effect

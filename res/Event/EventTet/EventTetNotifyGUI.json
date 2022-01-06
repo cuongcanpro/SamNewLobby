@@ -1,0 +1,488 @@
+{
+  "ID": "6436b2dc-7f17-4da3-ba77-3849286bd5cd",
+  "Version": "2.3.4",
+  "Name": "EventTetNotifyGUI",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 130,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "EventTetUI/PopUp/bgWeek1.png",
+              "Plist": ""
+            },
+            "Scale9OriginX": 108,
+            "Scale9OriginY": 149,
+            "Scale9Width": 583,
+            "Scale9Height": 178,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 400.0,
+              "Y": 235.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.4896
+            },
+            "PreSize": {
+              "X": 0.9987,
+              "Y": 0.9917
+            },
+            "VerticalEdge": "BottomEdge",
+            "LeftMargin": 0.5,
+            "RightMargin": 0.5,
+            "TopMargin": 7.0,
+            "BottomMargin": -3.0,
+            "UserData": "scale",
+            "Tag": 131,
+            "Children": [
+              {
+                "FileData": {
+                  "Type": "Default",
+                  "Path": "Default/ImageFile.png",
+                  "Plist": ""
+                },
+                "Scale9Width": 46,
+                "Scale9Height": 46,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 399.5,
+                  "Y": 238.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 0.0013,
+                  "Y": 0.0021
+                },
+                "LeftMargin": 399.0,
+                "RightMargin": 399.0,
+                "TopMargin": 237.5,
+                "BottomMargin": 237.5,
+                "Tag": 99,
+                "ActionTag": -614127346,
+                "Size": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "Name": "nodeAnimation",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Default",
+                  "Path": "Default/Button_Disable.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "Normal",
+                  "Path": "EventTetUI/PopUp/btnClose.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "EventTetUI/PopUp/btnClose.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 8,
+                "Scale9Height": 16,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 716.7833,
+                  "Y": 313.035
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.8971,
+                  "Y": 0.6576
+                },
+                "PreSize": {
+                  "X": 0.0476,
+                  "Y": 0.0798
+                },
+                "LeftMargin": 697.7833,
+                "RightMargin": 63.2167,
+                "TopMargin": 143.965,
+                "BottomMargin": 294.035,
+                "Tag": 132,
+                "ActionTag": 222732184,
+                "Size": {
+                  "X": 38.0,
+                  "Y": 38.0
+                },
+                "Name": "close",
+                "ctype": "ButtonObjectData"
+              },
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Default",
+                  "Path": "Default/Button_Disable.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "Normal",
+                  "Path": "EventTetUI/PopUp/btnJoin.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "EventTetUI/PopUp/btnJoin.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 211,
+                "Scale9Height": 49,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 399.8373,
+                  "Y": 77.7063
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.5004,
+                  "Y": 0.1632
+                },
+                "PreSize": {
+                  "X": 0.3016,
+                  "Y": 0.1492
+                },
+                "LeftMargin": 279.3373,
+                "RightMargin": 278.6627,
+                "TopMargin": 362.7937,
+                "BottomMargin": 42.2063,
+                "Tag": 133,
+                "ActionTag": 150192225,
+                "Size": {
+                  "X": 241.0,
+                  "Y": 71.0
+                },
+                "Name": "join",
+                "ctype": "ButtonObjectData"
+              },
+              {
+                "ClipAble": false,
+                "BackColorAlpha": 102,
+                "SingleColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "FirstColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "EndColor": {},
+                "ColorVector": {
+                  "ScaleY": 1.0
+                },
+                "Scale9Width": 1,
+                "Scale9Height": 1,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 262.7379,
+                  "Y": 311.9583
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "RotationSkewX": 5.0002,
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.3288,
+                  "Y": 0.6554
+                },
+                "PreSize": {
+                  "X": 0.1252,
+                  "Y": 0.042
+                },
+                "LeftMargin": 212.7379,
+                "RightMargin": 486.2621,
+                "TopMargin": 154.0417,
+                "BottomMargin": 301.9583,
+                "Tag": 93,
+                "ActionTag": -358487864,
+                "Size": {
+                  "X": 100.0,
+                  "Y": 20.0
+                },
+                "Name": "time",
+                "ctype": "PanelObjectData"
+              },
+              {
+                "FontSize": 16,
+                "LabelText": "lfjslfjsldjfdsjlfsdfsdfd",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahomabd.ttf",
+                  "Plist": ""
+                },
+                "HorizontalAlignmentType": "HT_Center",
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 396.0,
+                  "Y": 197.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "R": 215,
+                  "G": 104,
+                  "B": 37
+                },
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.4956,
+                  "Y": 0.4139
+                },
+                "PreSize": {
+                  "X": 0.2103,
+                  "Y": 0.0462
+                },
+                "LeftMargin": 312.0,
+                "RightMargin": 319.0,
+                "TopMargin": 268.0,
+                "BottomMargin": 186.0,
+                "Tag": 101,
+                "ActionTag": 1214248177,
+                "Size": {
+                  "X": 168.0,
+                  "Y": 22.0
+                },
+                "VisibleForFrame": false,
+                "Name": "labelTime",
+                "ctype": "TextObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "EventTetUI/PopUp/tag1.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 29,
+                "Scale9OriginY": 29,
+                "Scale9Width": 32,
+                "Scale9Height": 31,
+                "AnchorPoint": {
+                  "ScaleX": 0.4664,
+                  "ScaleY": 0.8175
+                },
+                "Position": {
+                  "X": 637.6386,
+                  "Y": 366.8388
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.798,
+                  "Y": 0.7707
+                },
+                "PreSize": {
+                  "X": 0.1126,
+                  "Y": 0.187
+                },
+                "LeftMargin": 595.6663,
+                "RightMargin": 113.3337,
+                "TopMargin": 92.9162,
+                "BottomMargin": 294.0838,
+                "Tag": 405,
+                "ActionTag": 858505630,
+                "Size": {
+                  "X": 90.0,
+                  "Y": 89.0
+                },
+                "Name": "tag",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "EventTetUI/PopUp/iconRope.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 17,
+                "Scale9OriginY": 13,
+                "Scale9Width": 18,
+                "Scale9Height": 16,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 619.6914,
+                  "Y": 379.7052
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.7756,
+                  "Y": 0.7977
+                },
+                "PreSize": {
+                  "X": 0.0651,
+                  "Y": 0.0882
+                },
+                "LeftMargin": 593.6914,
+                "RightMargin": 153.3086,
+                "TopMargin": 75.2948,
+                "BottomMargin": 358.7052,
+                "Tag": 404,
+                "ActionTag": -1344349001,
+                "Size": {
+                  "X": 52.0,
+                  "Y": 42.0
+                },
+                "Name": "Image_1",
+                "ctype": "ImageViewObjectData"
+              }
+            ],
+            "ActionTag": -61592611,
+            "Size": {
+              "X": 799.0,
+              "Y": 476.0
+            },
+            "Name": "bg",
+            "ctype": "ImageViewObjectData"
+          }
+        ],
+        "Size": {
+          "X": 800.0,
+          "Y": 480.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "Default/Button_Disable.png",
+        "Default/ImageFile.png",
+        "EventTetUI/PopUp/bgWeek1.png",
+        "EventTetUI/PopUp/btnClose.png",
+        "EventTetUI/PopUp/btnJoin.png",
+        "EventTetUI/PopUp/iconRope.png",
+        "EventTetUI/PopUp/tag1.png",
+        "Font/tahomabd.ttf"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

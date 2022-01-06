@@ -206,8 +206,8 @@ var GiftCodeScene = BaseLayer.extend({
             var pk = new CmdSendUseGiftCode();
             var type = this.isCodeUser(code) ? 1 : 2;
             cc.log("onUsingGiftCode: ", this.isCodeUser(code), type);
-            gamedata.inputGiftCode = code;
             pk.putData(code, type);
+            gamedata.inputGiftCode = code;
             GameClient.getInstance().sendPacket(pk);
         }
     },
@@ -330,6 +330,7 @@ GiftCodeScene.showResultUseGiftCode = function (data){
         }
         case 12:{
             string = LocalizedString.to("GIFTCODE_TOTAL_USE_TIME_EXCEEDED");
+
             break;
         }
         case 13:{
@@ -342,7 +343,7 @@ GiftCodeScene.showResultUseGiftCode = function (data){
             break;
     }
     string = StringUtility.replaceAll(string, "%giftcode", gamedata.inputGiftCode);
-    if (Config.ENABLE_NEW_VIP){
+    if (LocalizedString.config("GAME") === "binh"){
         sceneMgr.showOkDialogWithAction(string, null, function () {
             var vipLevel = NewVipManager.getInstance().getVipLevel();
             var newLevel = NewVipManager.getInstance().getRealVipLevel();
@@ -362,8 +363,9 @@ GiftCodeScene.showResultUseGiftCode = function (data){
     } else {
         sceneMgr.showOKDialog(string);
     }
+
     receivedGiftCode.clean();
-};
+}
 
 CMD.CMD_GET_LIST_CODE_NEW = 13003;
 CMD.CMD_USE_CODE = 13001;

@@ -362,74 +362,6 @@ fr.platformWrapper = {
         return "";
     },
 
-    logJSError: function(fName, line, msg, jsVersion) {
-        // jsb.reflection.callStaticMethod("com.gsn.tracker.GSNTracker", "logJSError", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V",
-        //     fName + "", line + "", msg + "", jsVersion);
-        if (this.pluginPlatform != null) {
-            var data = {
-                Param1: fName,
-                Param2: line,
-                Param3: msg,
-                Param4: jsVersion
-            };
-
-            this.pluginPlatform.callFuncWithParam("logJSError",
-                new plugin.PluginParam(plugin.PluginParam.ParamType.TypeStringMap, data));
-        } else {
-            cc.error("logJSError-pluginPlatform is null");
-        }
-    },
-
-    crashlyticsLog:function(msg) {
-        if(this.pluginPlatform != null) {
-            this.pluginPlatform.callFuncWithParam("crashlyticsLog",
-                new plugin.PluginParam(plugin.PluginParam.ParamType.TypeString, msg));
-        }
-    },
-    crashlyticsSetString:function(key, value) {
-        if(this.pluginPlatform != null) {
-            var data = {key:key, value:value};
-            this.pluginPlatform.callFuncWithParam("crashlyticsSetString",
-                new plugin.PluginParam(plugin.PluginParam.ParamType.TypeString, JSON.stringify(data)));
-        }
-    },
-    crashlyticsSetBool:function(key, value) {
-        if(this.pluginPlatform != null) {
-            var data = {key:key, value:value};
-            this.pluginPlatform.callFuncWithParam("crashlyticsSetBool",
-                new plugin.PluginParam(plugin.PluginParam.ParamType.TypeString, JSON.stringify(data)));
-        }
-    },
-    crashlyticsSetDouble:function(key, value) {
-        if(this.pluginPlatform != null) {
-            var data = {key:key, value:value};
-            this.pluginPlatform.callFuncWithParam("crashlyticsSetDouble",
-                new plugin.PluginParam(plugin.PluginParam.ParamType.TypeString, JSON.stringify(data)));
-        }
-    },
-    crashlyticsSetInt:function(key, value) {
-        if(this.pluginPlatform != null) {
-            var data = {key:key, value:value};
-            this.pluginPlatform.callFuncWithParam("crashlyticsSetInt",
-                new plugin.PluginParam(plugin.PluginParam.ParamType.TypeString, JSON.stringify(data)));
-        }
-    },
-    crashlyticsSetUserIdentifier:function(userId) {
-        if(this.pluginPlatform != null) {
-            this.pluginPlatform.callFuncWithParam("crashlyticsSetUserIdentifier",
-                new plugin.PluginParam(plugin.PluginParam.ParamType.TypeString, userId));
-        }
-    },
-    testCrashlytics:function()
-    {
-        fr.platformWrapper.crashlyticsSetString("last_UI_action", "logged_in" /* string value */);
-        fr.platformWrapper.crashlyticsSetBool("is_vip", true /* boolean value */);
-        fr.platformWrapper.crashlyticsSetDouble("Gold", 100000.0 /* double value */);
-        fr.platformWrapper.crashlyticsSetInt("current_level", 1 /* int value */);
-        fr.platformWrapper.crashlyticsLog("test");
-        fr.platformWrapper.crashlyticsSetUserIdentifier("demo");
-    },
-
     // x86
     isX86Device : function () {
         if (this.pluginPlatform != null) {
@@ -448,6 +380,24 @@ fr.platformWrapper = {
         }
     },
 
+    logJSError: function(fName, line, msg, jsVersion) {
+        // jsb.reflection.callStaticMethod("com.gsn.tracker.GSNTracker", "logJSError", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V",
+        //     fName + "", line + "", msg + "", jsVersion);
+        if (this.pluginPlatform != null) {
+            var data = {
+                "Param1": fName,
+                "Param2": line,
+                "Param3": msg,
+                "Param4": jsVersion
+            };
+
+            this.pluginPlatform.callFuncWithParam("logJSError",
+                new plugin.PluginParam(plugin.PluginParam.ParamType.TypeStringMap, data));
+        } else {
+            cc.error("logJSError-pluginPlatform is null");
+        }
+    },
+
     checkInstallApp: function (packageName) {
         try {
             var isInstall = fr.tracker.isPackageExisted(packageName);
@@ -456,6 +406,15 @@ fr.platformWrapper = {
         catch (e) {
             return 0;
         }
+    },
+
+    getDeepLink:function()
+    {
+        if(this.pluginPlatform)
+        {
+            return this.pluginPlatform.callStringFuncWithParam("getDeepLink");
+        }
+        return "";
     }
 };
 

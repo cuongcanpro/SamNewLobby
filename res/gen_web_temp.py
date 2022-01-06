@@ -11,7 +11,7 @@ import glob
 import hashlib
 
 g_data_code_folder = os.path.join('../src/Game')
-g_list_ignore = ['.obj', '.py', '.js', '.json']
+g_list_ignore = ['.obj', '.py', '.js', '.mp3', '.json']
 
 class AssetItem:
     def __init__(self):
@@ -60,13 +60,13 @@ def export_list_file_for_web():
     list_assets = []
     list_json = []
     list_assets_md5 = {}
-    for data in g_list_assets:
+    for data in g_list_json_assets:
         if data.path.find('.svn') >= 0:
             continue
         list_assets.append(data.path)
         list_assets_md5[data.path] = data.md5
-		
-    for data in g_list_json_assets:
+
+    for data in g_list_assets:
         if data.path.find('.svn') >= 0:
             continue
         list_assets.append(data.path)
