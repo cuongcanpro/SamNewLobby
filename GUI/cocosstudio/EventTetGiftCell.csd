@@ -16,13 +16,13 @@
             <PreSize X="1.3652" Y="0.5182" />
             <FileData Type="Default" Path="Default/ImageFile.png" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="name_0" ActionTag="-1946976227" Tag="46" IconVisible="False" LeftMargin="-45.8782" RightMargin="-39.1218" TopMargin="142.3344" BottomMargin="167.6656" IsCustomSize="True" FontSize="14" LabelText="Text Label" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+          <AbstractNodeData Name="name_0" ActionTag="-1946976227" Tag="46" IconVisible="False" LeftMargin="-45.8782" RightMargin="-39.1218" TopMargin="136.3344" BottomMargin="173.6656" IsCustomSize="True" FontSize="14" LabelText="Text Label" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
             <Size X="200.0000" Y="20.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="54.1218" Y="177.6656" />
+            <Position X="54.1218" Y="183.6656" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.4706" Y="0.5384" />
+            <PrePosition X="0.4706" Y="0.5566" />
             <PreSize X="1.7391" Y="0.0606" />
             <FontResource Type="Normal" Path="Font/tahomabd.ttf" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
@@ -73,13 +73,13 @@
             <PreSize X="1.3652" Y="0.5182" />
             <FileData Type="Default" Path="Default/ImageFile.png" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="name_1" ActionTag="-1516763680" Tag="51" IconVisible="False" LeftMargin="-45.8782" RightMargin="-39.1218" TopMargin="301.5378" BottomMargin="8.4622" IsCustomSize="True" FontSize="14" LabelText="Text Label" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+          <AbstractNodeData Name="name_1" ActionTag="-1516763680" Tag="51" IconVisible="False" LeftMargin="-45.8782" RightMargin="-39.1218" TopMargin="292.5378" BottomMargin="17.4622" IsCustomSize="True" FontSize="14" LabelText="Text Label" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
             <Size X="200.0000" Y="20.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="54.1218" Y="18.4622" />
+            <Position X="54.1218" Y="27.4622" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.4706" Y="0.0559" />
+            <PrePosition X="0.4706" Y="0.0832" />
             <PreSize X="1.7391" Y="0.0606" />
             <FontResource Type="Normal" Path="Font/tahomabd.ttf" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
@@ -120,25 +120,25 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="labelTicket_0" ActionTag="-850606033" Tag="77" RotationSkewX="10.0000" IconVisible="False" LeftMargin="-44.8782" RightMargin="-40.1218" TopMargin="128.3344" BottomMargin="181.6656" IsCustomSize="True" FontSize="13" LabelText="Lượt bốc" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+          <AbstractNodeData Name="labelTicket_0" ActionTag="-850606033" Tag="77" IconVisible="False" LeftMargin="-44.8782" RightMargin="-40.1218" TopMargin="135.3344" BottomMargin="174.6656" IsCustomSize="True" FontSize="14" LabelText="Lì xì" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
             <Size X="200.0000" Y="20.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="55.1218" Y="191.6656" />
+            <Position X="55.1218" Y="184.6656" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.4793" Y="0.5808" />
+            <PrePosition X="0.4793" Y="0.5596" />
             <PreSize X="1.7391" Y="0.0606" />
             <FontResource Type="Normal" Path="Font/tahomabd.ttf" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="labelTicket_1" ActionTag="976570686" Tag="78" RotationSkewX="9.9999" IconVisible="False" LeftMargin="-44.1800" RightMargin="-40.8200" TopMargin="288.3080" BottomMargin="21.6920" IsCustomSize="True" FontSize="13" LabelText="Lượt bốc" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+          <AbstractNodeData Name="labelTicket_1" CanEdit="False" ActionTag="976570686" Tag="78" RotationSkewY="0.0001" IconVisible="False" LeftMargin="-44.1800" RightMargin="-40.8200" TopMargin="295.3080" BottomMargin="14.6920" IsCustomSize="True" FontSize="14" LabelText="Lì xì" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
             <Size X="200.0000" Y="20.0000" />
             <AnchorPoint ScaleX="0.4959" ScaleY="0.4154" />
-            <Position X="55.0000" Y="30.0000" />
+            <Position X="55.0000" Y="23.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.4783" Y="0.0909" />
+            <PrePosition X="0.4783" Y="0.0697" />
             <PreSize X="1.7391" Y="0.0606" />
             <FontResource Type="Normal" Path="Font/tahomabd.ttf" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />

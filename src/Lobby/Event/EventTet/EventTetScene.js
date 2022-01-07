@@ -569,7 +569,7 @@ var EventTetScene = BaseLayer.extend({
         var dataTop = eventTet.getIsTop();
         if (dataTop.x >= 0) {
             // truoc do da nam trong Top roi
-            var s = localized("EVENT_TET_HAD_RANK");
+            var s = localized("EVENT_TET_HAVE_RANK_OLD_WEEK");
             s = StringUtility.replaceAll(s, "@rank", dataTop.x);
             s = StringUtility.replaceAll(s, "@week", dataTop.y);
             this.lbRank.setString(s);
@@ -577,11 +577,11 @@ var EventTetScene = BaseLayer.extend({
         else {
             var data = eventTet.getMyRankData(eventTet.eventTime);
             if (data) {
-                this.lbRank.setString(data.myRank);
+                this.lbRank.setString(localized("EVENT_TET_RANK") + " " +data.myRank);
             }
         }
         var time = "(" + eventTet.eventWeeks[eventTet.eventTime - 1] + "-" + eventTet.getEndWeek(eventTet.eventWeeks[eventTet.eventTime - 1]) + ")";
-        this.lbWeek.setString(localized("WEEK") + " " + eventTet.eventTime + " " + time);
+        this.lbWeek.setString(localized("EVENT_TET_WEEK") + " " + eventTet.eventTime + " " + time);
         this.lbNum.setString(eventTet.numToken);
     },
 
@@ -1148,7 +1148,7 @@ var EventTetOpenLixiGUI = BaseLayer.extend({
     },
 
     initGUI: function () {
-
+        this.pFirework = this.getControl("pFirework");
         this.panelLeft = this.getControl("panelLeft");
         this.btnBack = this.customButton("btnClose", EventTetOpenLixiGUI.BTN_BACK, this.panelLeft);
         this.btnReset = this.customButton("btnReset", EventTetOpenLixiGUI.BTN_RESET, this._layout);
@@ -1215,6 +1215,8 @@ var EventTetOpenLixiGUI = BaseLayer.extend({
         this.schedule(this.update, 0.04);
         this.imgGift.setVisible(false);
         this.setInfoMap();
+        this.pFirework.removeAllChildren();
+        this.arrayFirework = [];
     },
 
     updateEventInfo: function () {
@@ -1384,12 +1386,12 @@ var EventTetOpenLixiGUI = BaseLayer.extend({
             }
             if (i == this.arrayFirework.length) {
                 firework = db.DBCCFactory.getInstance().buildArmatureNode("phaohoa1");
-                this.addChild(firework);
+                this.pFirework.addChild(firework);
                 this.arrayFirework.push(firework);
             }
             firework.setVisible(true);
             firework.getAnimation().gotoAndPlay("run", -1, -1, 1);
-            firework.setPosition(Math.random() * 800, cc.winSize.height - Math.random() * 70);
+            firework.setPosition(Math.random() * 800, Math.random() * this.pFirework.getContentSize().height * 0.8);
             //this.arrayFirework.setCompleteListener();
             firework.setCompleteListener(this.onFinishEffectFirework.bind(this, firework));
             var random = 0.4 + Math.random() * 0.2;
@@ -1535,7 +1537,8 @@ var EventTetButtonLixi = ccui.Button.extend({
         else {
             this.setOpacity(255);
             this.iconSelect.setVisible(false);
-            this.loadTextures("EventTet/EventTetUI/Lixi/lixiOpen10.png", "EventTet/EventTetUI/Lixi/lixiOpen10.png", "");
+            //this.loadTextures("EventTet/EventTetUI/Lixi/lixiOpen10.png", "EventTet/EventTetUI/Lixi/lixiOpen10.png", "");
+            this.loadTextures(eventTet.getPieceImage(eventTet.indexLixi), eventTet.getPieceImage(eventTet.indexLixi));
         }
         this.setPosition(this.pos);
         this.setScale(1, 1);
@@ -1567,7 +1570,8 @@ var EventTetButtonLixi = ccui.Button.extend({
     closeLixi: function (timeDelay) {
         this.runAction(cc.sequence(cc.delayTime(timeDelay), cc.scaleTo(0.1, 0, 1),
             cc.callFunc(function (sender) {
-                sender.loadTextures("EventTet/EventTetUI/Lixi/lixiOpen10.png", "EventTet/EventTetUI/Lixi/lixiOpen10.png", "");
+               // sender.loadTextures("EventTet/EventTetUI/Lixi/lixiOpen10.png", "EventTet/EventTetUI/Lixi/lixiOpen10.png", "");
+                sender.loadTextures(eventTet.getPieceImage(eventTet.indexLixi), eventTet.getPieceImage(eventTet.indexLixi));
                 sender.label.setVisible(false);
             }.bind(this)), cc.scaleTo(0.3, 1, 1)));
     },
@@ -1609,7 +1613,8 @@ var EventTetButtonLixi = ccui.Button.extend({
         this.setPosition(this.pos.x, this.pos.y + cc.winSize.height * 2);
         this.runAction(new cc.EaseSineOut(cc.moveTo(0.6, this.pos)));
         this.runAction(cc.sequence(cc.delayTime(0.2), cc.fadeIn(0.4)));
-        this.loadTextures("EventTet/EventTetUI/Lixi/lixiOpen10.png", "EventTet/EventTetUI/Lixi/lixiOpen10.png", "");
+        //this.loadTextures("EventTet/EventTetUI/Lixi/lixiOpen10.png", "EventTet/EventTetUI/Lixi/lixiOpen10.png", "");
+        this.loadTextures(eventTet.getPieceImage(eventTet.indexLixi), eventTet.getPieceImage(eventTet.indexLixi));
     }
 })
 
@@ -3686,7 +3691,7 @@ var EventTetNotifyGUI = BaseLayer.extend({
         this._bg = this.getControl("bg");
         this.iconTag = this.getControl("tag", this._bg);
         this.customButton("close", EventTetNotifyGUI.BTN_CLOSE, this._bg);
-        this.customButton("join", EventTetNotifyGUI.BTN_JOIN, this._bg);
+        this.btnJoin = this.customButton("join", EventTetNotifyGUI.BTN_JOIN, this._bg);
 
         var pTime = this.getControl("time");
         //
@@ -3739,6 +3744,11 @@ var EventTetNotifyGUI = BaseLayer.extend({
             new cc.EaseBackOut(cc.rotateBy(0.4, 10))
         ));
         this.setShowHideAnimate(this._bg, true);
+        this.btnJoin.stopAllActions();
+        this.btnJoin.runAction(cc.repeatForever(cc.sequence(
+            cc.scaleTo(0.3, 1.1),
+            cc.scaleTo(0.3, 1.0)
+        )));
     },
 
     onButtonRelease: function (btn, id) {
@@ -3804,7 +3814,7 @@ var EventTetGiftCell = cc.TableViewCell.extend({
                     var str = eventTet.getItemName(inf.id);
                     // str = StringUtility.replaceAll(str,"Samsung","");
                     item.name.setString(str);
-                    item.labelTicket.setVisible(true);
+                    item.labelTicket.setVisible(false);
                 }
                 else
                 {
@@ -3874,7 +3884,7 @@ var EventTetResultGift = cc.Node.extend({
             var str = eventTet.getItemName(inf.id);
             str = StringUtility.replaceAll(str,"Samsung","");
             this.name.setString(str);
-            this.labelTicket.setVisible(true);
+           this.labelTicket.setVisible(false);
         }
         else if (inf.id == EventTet.GOLD_ID) {
             this.name.setString(StringUtility.formatNumberSymbol(inf.value));
@@ -4960,6 +4970,7 @@ var EventTetRankGUI = BaseLayer.extend({
     },
 
     updateRemainTime: function() {
+
         if (eventTet.isEndEvent()){
             return;
         }

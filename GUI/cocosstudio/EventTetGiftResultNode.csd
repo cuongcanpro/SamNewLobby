@@ -29,10 +29,10 @@
             <EndColor A="255" R="255" G="255" B="255" />
             <ColorVector ScaleY="1.0000" />
           </AbstractNodeData>
-          <AbstractNodeData Name="labelTicket" ActionTag="-1533181022" Tag="276" RotationSkewX="10.0000" IconVisible="False" LeftMargin="-30.1693" RightMargin="-30.8307" TopMargin="59.9300" BottomMargin="-77.9300" FontSize="13" LabelText="Lượt bốc" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-            <Size X="61.0000" Y="18.0000" />
+          <AbstractNodeData Name="labelTicket" ActionTag="-1533181022" Tag="276" IconVisible="False" LeftMargin="-15.1693" RightMargin="-15.8307" TopMargin="69.4300" BottomMargin="-88.4300" FontSize="14" LabelText="Lì xì" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+            <Size X="31.0000" Y="19.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="0.3307" Y="-68.9300" />
+            <Position X="0.3307" Y="-78.9300" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
@@ -41,10 +41,10 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="name" ActionTag="-1686853248" Tag="73" IconVisible="False" LeftMargin="-100.2339" RightMargin="-99.7661" TopMargin="76.8389" BottomMargin="-96.8389" IsCustomSize="True" FontSize="14" LabelText="Text Label" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+          <AbstractNodeData Name="name" ActionTag="-1686853248" Tag="73" IconVisible="False" LeftMargin="-100.2339" RightMargin="-99.7661" TopMargin="69.8389" BottomMargin="-89.8389" IsCustomSize="True" FontSize="14" LabelText="Text Label" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
             <Size X="200.0000" Y="20.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="-0.2339" Y="-86.8389" />
+            <Position X="-0.2339" Y="-79.8389" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />

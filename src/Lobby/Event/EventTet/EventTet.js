@@ -1006,6 +1006,7 @@ var EventTet = cc.Class.extend({
 
         //if (cmd.week === this.eventTime){
         this.remainedTime = cmd.remainedTime;
+        this.endTime = (cmd.remainedTime + new Date().getTime());
         var gui = sceneMgr.getGUIByClassName(EventTetRankGUI.className);
         if (gui){
             gui.updateListTop(weekInfo.week);
@@ -1101,7 +1102,7 @@ var EventTet = cc.Class.extend({
 
         cc.log("SHOW NOTIFY " + this.isInEvent() + " " + this.eventTime);
         if (this.isInEvent()) {
-           this.showEventButton();
+            this.showEventButton();
             if (this.checkNewDay() && this.isFinishDownload) {
                 sceneMgr.openGUI(EventTetNotifyGUI.className, EventTet.GUI_NOTIFY, EventTet.GUI_NOTIFY, false);
             }
@@ -1298,7 +1299,7 @@ var EventTet = cc.Class.extend({
     },
 
     getTimeRemainString: function(){
-        var timeRemain = this.remainedTime;
+        var timeRemain = this.endTime - new Date().getTime();
         var totalSeconds = Math.floor(timeRemain / 1000);
         var numSeconds = totalSeconds % 60;
         var totalMinutes = Math.floor(totalSeconds / 60);

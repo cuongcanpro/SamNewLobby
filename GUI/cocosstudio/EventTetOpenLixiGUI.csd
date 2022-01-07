@@ -16,6 +16,19 @@
             <PreSize X="1.0000" Y="1.0000" />
             <FileData Type="Normal" Path="EventTetUI/bg.jpg" Plist="" />
           </AbstractNodeData>
+          <AbstractNodeData Name="pFirework" ActionTag="1242742672" Tag="40" IconVisible="False" PercentWidthEnable="True" PercentWidthEnabled="True" LeftMargin="-2.0000" RightMargin="2.0000" TopMargin="3.0000" BottomMargin="377.0000" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" ctype="PanelObjectData">
+            <Size X="800.0000" Y="100.0000" />
+            <AnchorPoint ScaleY="1.0000" />
+            <Position X="-2.0000" Y="477.0000" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="-0.0025" Y="0.9937" />
+            <PreSize X="1.0000" Y="0.2083" />
+            <SingleColor A="255" R="150" G="200" B="255" />
+            <FirstColor A="255" R="150" G="200" B="255" />
+            <EndColor A="255" R="255" G="255" B="255" />
+            <ColorVector ScaleY="1.0000" />
+          </AbstractNodeData>
           <AbstractNodeData Name="bg" ActionTag="-561386338" UserData="scale" Tag="528" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="10.0000" RightMargin="26.0000" TopMargin="11.5004" BottomMargin="15.4996" LeftEage="252" RightEage="252" TopEage="149" BottomEage="149" Scale9OriginX="252" Scale9OriginY="149" Scale9Width="260" Scale9Height="155" ctype="ImageViewObjectData">
             <Size X="764.0000" Y="453.0000" />
             <Children>

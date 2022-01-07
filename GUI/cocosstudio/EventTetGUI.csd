@@ -550,14 +550,14 @@
           <AbstractNodeData Name="panelLeftBottom" ActionTag="-1505746502" UserData="scale" Tag="92" IconVisible="False" HorizontalEdge="LeftEdge" VerticalEdge="BottomEdge" RightMargin="735.0000" TopMargin="180.0000" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
             <Size X="65.0000" Y="300.0000" />
             <Children>
-              <AbstractNodeData Name="Image_12" ActionTag="1966597749" Tag="105" IconVisible="False" LeftMargin="4.1157" RightMargin="-6.1157" TopMargin="3.3437" BottomMargin="8.6563" LeftEage="22" RightEage="22" TopEage="136" BottomEage="136" Scale9OriginX="22" Scale9OriginY="136" Scale9Width="23" Scale9Height="16" ctype="ImageViewObjectData">
-                <Size X="67.0000" Y="288.0000" />
+              <AbstractNodeData Name="Image_12" ActionTag="1966597749" Tag="105" IconVisible="False" LeftMargin="-2.3843" RightMargin="-12.6157" TopMargin="3.3437" BottomMargin="8.6563" LeftEage="22" RightEage="22" TopEage="136" BottomEage="136" Scale9OriginX="22" Scale9OriginY="136" Scale9Width="36" Scale9Height="16" ctype="ImageViewObjectData">
+                <Size X="80.0000" Y="288.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="37.6157" Y="152.6563" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.5787" Y="0.5089" />
-                <PreSize X="1.0308" Y="0.9600" />
+                <PreSize X="1.2308" Y="0.9600" />
                 <FileData Type="Normal" Path="EventTetUI/bgItem.png" Plist="" />
               </AbstractNodeData>
               <AbstractNodeData Name="list" ActionTag="951428571" Tag="291" IconVisible="False" LeftMargin="7.4053" RightMargin="-2.4053" TopMargin="6.9307" BottomMargin="13.0693" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
@@ -922,7 +922,7 @@
           <AbstractNodeData Name="panelCenterRight" ActionTag="-921102943" UserData="scale" Tag="240" IconVisible="False" PositionPercentYEnabled="True" HorizontalEdge="RightEdge" LeftMargin="599.7400" RightMargin="0.2600" TopMargin="125.9840" BottomMargin="154.0160" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
             <Size X="200.0000" Y="200.0000" />
             <Children>
-              <AbstractNodeData Name="btnTop" ActionTag="200432585" Tag="248" IconVisible="False" LeftMargin="-44.7390" RightMargin="44.7390" TopMargin="-1.8476" BottomMargin="1.8476" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="5" BottomEage="5" Scale9OriginX="15" Scale9OriginY="5" Scale9Width="11" Scale9Height="6" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+              <AbstractNodeData Name="btnTop" ActionTag="200432585" Tag="248" IconVisible="False" LeftMargin="-44.7390" RightMargin="44.7390" TopMargin="-1.8476" BottomMargin="1.8476" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="5" BottomEage="5" Scale9OriginX="-15" Scale9OriginY="-5" Scale9Width="30" Scale9Height="10" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                 <Size X="200.0000" Y="200.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="55.2610" Y="101.8476" />
@@ -973,47 +973,47 @@
                     <PreSize X="0.1985" Y="1.0612" />
                     <FileData Type="Normal" Path="EventTetUI/borderAvatar.png" Plist="" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="lbName" ActionTag="677379767" Tag="245" IconVisible="False" LeftMargin="48.9529" RightMargin="132.0471" TopMargin="3.7770" BottomMargin="26.2230" FontSize="14" LabelText="lbNameaaa" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                    <Size X="81.0000" Y="19.0000" />
+                  <AbstractNodeData Name="lbName" ActionTag="677379767" Tag="245" IconVisible="False" LeftMargin="48.9529" RightMargin="28.0471" TopMargin="2.7770" BottomMargin="27.2230" FontSize="14" LabelText="lbNameaaaaaaaaaaaaaaaa" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                    <Size X="185.0000" Y="19.0000" />
                     <AnchorPoint ScaleY="0.5000" />
-                    <Position X="48.9529" Y="35.7230" />
+                    <Position X="48.9529" Y="36.7230" />
                     <Scale ScaleX="1.0000" ScaleY="1.0000" />
                     <CColor A="255" R="88" G="207" B="170" />
-                    <PrePosition X="0.1868" Y="0.7290" />
-                    <PreSize X="0.3092" Y="0.3878" />
+                    <PrePosition X="0.1868" Y="0.7494" />
+                    <PreSize X="0.7061" Y="0.3878" />
                     <FontResource Type="Normal" Path="Font/tahomabd.ttf" Plist="" />
                     <OutlineColor A="255" R="255" G="0" B="0" />
                     <ShadowColor A="255" R="110" G="110" B="110" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="lbRank" ActionTag="966079932" Tag="246" IconVisible="False" LeftMargin="48.5474" RightMargin="145.4526" TopMargin="23.5833" BottomMargin="6.4167" FontSize="14" LabelText="Hang 100" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                  <AbstractNodeData Name="lbRank" ActionTag="966079932" Tag="246" IconVisible="False" LeftMargin="48.5474" RightMargin="145.4526" TopMargin="24.5833" BottomMargin="5.4167" FontSize="14" LabelText="Hang 100" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                     <Size X="68.0000" Y="19.0000" />
                     <AnchorPoint ScaleY="0.5000" />
-                    <Position X="48.5474" Y="15.9167" />
+                    <Position X="48.5474" Y="14.9167" />
                     <Scale ScaleX="1.0000" ScaleY="1.0000" />
                     <CColor A="255" R="88" G="207" B="170" />
-                    <PrePosition X="0.1853" Y="0.3248" />
+                    <PrePosition X="0.1853" Y="0.3044" />
                     <PreSize X="0.2595" Y="0.3878" />
                     <FontResource Type="Normal" Path="Font/tahomabd.ttf" Plist="" />
                     <OutlineColor A="255" R="255" G="0" B="0" />
                     <ShadowColor A="255" R="110" G="110" B="110" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="iconZingCoin" ActionTag="-1739331382" Tag="247" IconVisible="False" LeftMargin="219.2493" RightMargin="7.7507" TopMargin="7.2837" BottomMargin="8.7163" LeftEage="11" RightEage="11" TopEage="10" BottomEage="10" Scale9OriginX="11" Scale9OriginY="10" Scale9Width="13" Scale9Height="13" ctype="ImageViewObjectData">
+                  <AbstractNodeData Name="iconZingCoin" ActionTag="-1739331382" Tag="247" IconVisible="False" LeftMargin="219.2494" RightMargin="7.7506" TopMargin="8.2837" BottomMargin="7.7163" LeftEage="11" RightEage="11" TopEage="10" BottomEage="10" Scale9OriginX="11" Scale9OriginY="10" Scale9Width="13" Scale9Height="13" ctype="ImageViewObjectData">
                     <Size X="35.0000" Y="33.0000" />
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                    <Position X="236.7493" Y="25.2163" />
+                    <Position X="236.7494" Y="24.2163" />
                     <Scale ScaleX="1.0000" ScaleY="1.0000" />
                     <CColor A="255" R="255" G="255" B="255" />
-                    <PrePosition X="0.9036" Y="0.5146" />
+                    <PrePosition X="0.9036" Y="0.4942" />
                     <PreSize X="0.1336" Y="0.6735" />
                     <FileData Type="Normal" Path="EventTetUI/iconZingCoin.png" Plist="" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="lbNum" ActionTag="-225701981" Tag="248" IconVisible="False" LeftMargin="146.5047" RightMargin="47.4953" TopMargin="14.2702" BottomMargin="15.7298" FontSize="14" LabelText="Hang 100" HorizontalAlignmentType="HT_Right" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                  <AbstractNodeData Name="lbNum" ActionTag="-225701981" Tag="248" IconVisible="False" LeftMargin="146.5047" RightMargin="47.4953" TopMargin="15.2702" BottomMargin="14.7298" FontSize="14" LabelText="Hang 100" HorizontalAlignmentType="HT_Right" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                     <Size X="68.0000" Y="19.0000" />
                     <AnchorPoint ScaleX="1.0000" ScaleY="0.5000" />
-                    <Position X="214.5047" Y="25.2298" />
+                    <Position X="214.5047" Y="24.2298" />
                     <Scale ScaleX="1.0000" ScaleY="1.0000" />
                     <CColor A="255" R="246" G="243" B="123" />
-                    <PrePosition X="0.8187" Y="0.5149" />
+                    <PrePosition X="0.8187" Y="0.4945" />
                     <PreSize X="0.2595" Y="0.3878" />
                     <FontResource Type="Normal" Path="Font/tahomabd.ttf" Plist="" />
                     <OutlineColor A="255" R="255" G="0" B="0" />
