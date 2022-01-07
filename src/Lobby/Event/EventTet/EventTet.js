@@ -1340,7 +1340,7 @@ var EventTet = cc.Class.extend({
         }
 
         if (remainTimeStr === ""){
-            remainTimeStr = localized("EVENT_TET_EVENT_TIMEOUT");
+            remainTimeStr = localized("EVENT_TET_TIMEOUT");
         }
 
         return remainTimeStr;

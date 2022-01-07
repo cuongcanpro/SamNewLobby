@@ -577,7 +577,7 @@ var EventTetScene = BaseLayer.extend({
         else {
             var data = eventTet.getMyRankData(eventTet.eventTime);
             if (data) {
-                this.lbRank.setString(localized("EVENT_TET_RANK") + " " +data.myRank);
+                this.lbRank.setString(localized("EVENT_TET_RANK") + " " + (data.myRank == 0 ? "--" : data.myRank));
             }
         }
         var time = "(" + eventTet.eventWeeks[eventTet.eventTime - 1] + "-" + eventTet.getEndWeek(eventTet.eventWeeks[eventTet.eventTime - 1]) + ")";
@@ -1301,6 +1301,9 @@ var EventTetOpenLixiGUI = BaseLayer.extend({
         if (cmd.result == 0) {
             this.idGift = cmd.receivedGiftId;
             this.typeGift = cmd.receivedGiftType;
+            if (this.typeGift == EventTet.TYPE_TOKEN) {
+                eventTet.sendGetMyRank(eventTet.eventTime);
+            }
             this.savePosition = cmd.position;
             this.arrayLixi[cmd.position].setVisible(false);
             this.spriteLixi.setPosition(this.panelCenter.convertToWorldSpace(this.arrayLixi[cmd.position].getPosition()));

@@ -974,13 +974,13 @@ var LobbyScene = BaseLayer.extend({
                 break;
             }
             case LobbyScene.BTN_CHONBAN: {
-                if (Config.ENABLE_CHEAT) {
-                    eventTet.sendReset();
-                }
                 sceneMgr.openScene(ChooseRoomScene.className);
                 break;
             }
             case LobbyScene.BTN_AVATAR: {
+                if (Config.ENABLE_CHEAT) {
+                    eventTet.sendReset();
+                }
                 sceneMgr.openGUI(UserInfoPanel.className, LobbyScene.GUI_USER_INFO, LobbyScene.GUI_USER_INFO).setInfo(gamedata.userData);
                 break;
             }
