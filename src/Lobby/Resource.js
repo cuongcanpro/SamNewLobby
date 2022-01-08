@@ -28,5 +28,5 @@ var lobby_sounds = {
     coin1:"res/Lobby/Common/coin_01.mp3",
     coin2:"res/Lobby/Common/coin_02.mp3",
     coin3:"res/Lobby/Common/coin_03.mp3",
-    click:"res/sounds/mobile/click.mp3"
+    click:"res/sounds/mobile/click.mp3" 
 };
