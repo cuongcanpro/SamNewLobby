@@ -159,7 +159,7 @@
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.2615" Y="0.5137" />
                 <PreSize X="0.1460" Y="0.2519" />
-                <FileData Type="Normal" Path="EventTetUI/label0.png" Plist="" />
+                <FileData Type="Default" Path="Default/ImageFile.png" Plist="" />
               </AbstractNodeData>
               <AbstractNodeData Name="text1" ActionTag="-1823091990" Tag="66" IconVisible="False" LeftMargin="165.1809" RightMargin="220.8191" TopMargin="98.7247" BottomMargin="97.2753" LeftEage="15" RightEage="15" TopEage="10" BottomEage="10" Scale9OriginX="15" Scale9OriginY="10" Scale9Width="44" Scale9Height="52" ctype="ImageViewObjectData">
                 <Size X="66.0000" Y="66.0000" />
@@ -193,7 +193,7 @@
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.4385" Y="0.4972" />
                 <PreSize X="0.1460" Y="0.2519" />
-                <FileData Type="Normal" Path="EventTetUI/label1.png" Plist="" />
+                <FileData Type="Default" Path="Default/ImageFile.png" Plist="" />
               </AbstractNodeData>
               <AbstractNodeData Name="text2" ActionTag="358941579" Tag="67" IconVisible="False" LeftMargin="240.2965" RightMargin="145.7035" TopMargin="98.1467" BottomMargin="96.8533" LeftEage="15" RightEage="15" TopEage="10" BottomEage="10" Scale9OriginX="15" Scale9OriginY="10" Scale9Width="44" Scale9Height="52" ctype="ImageViewObjectData">
                 <Size X="66.0000" Y="67.0000" />
@@ -227,7 +227,7 @@
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.6046" Y="0.4975" />
                 <PreSize X="0.1460" Y="0.2557" />
-                <FileData Type="Normal" Path="EventTetUI/label2.png" Plist="" />
+                <FileData Type="Default" Path="Default/ImageFile.png" Plist="" />
               </AbstractNodeData>
               <AbstractNodeData Name="text3" ActionTag="1170060264" Tag="68" IconVisible="False" LeftMargin="325.4114" RightMargin="60.5886" TopMargin="95.2544" BottomMargin="98.7456" LeftEage="15" RightEage="15" TopEage="10" BottomEage="10" Scale9OriginX="15" Scale9OriginY="10" Scale9Width="44" Scale9Height="53" ctype="ImageViewObjectData">
                 <Size X="66.0000" Y="68.0000" />
@@ -261,7 +261,7 @@
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.7929" Y="0.5067" />
                 <PreSize X="0.1460" Y="0.2595" />
-                <FileData Type="Normal" Path="EventTetUI/label3.png" Plist="" />
+                <FileData Type="Default" Path="Default/ImageFile.png" Plist="" />
               </AbstractNodeData>
               <AbstractNodeData Name="labelPrice1" ActionTag="-82098034" Tag="69" IconVisible="False" LeftMargin="137.7570" RightMargin="89.2430" TopMargin="211.5223" BottomMargin="28.4777" FontSize="16" LabelText="Không hiện lại thông báo này" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                 <Size X="225.0000" Y="22.0000" />

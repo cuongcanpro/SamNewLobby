@@ -14,7 +14,7 @@
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.5000" Y="0.5000" />
             <PreSize X="1.0000" Y="1.0000" />
-            <FileData Type="Normal" Path="EventTetUI/bg.jpg" Plist="" />
+            <FileData Type="Normal" Path="EventTetUI/MainScene/bg.jpg" Plist="" />
           </AbstractNodeData>
           <AbstractNodeData Name="panelFirework" ActionTag="180862625" Tag="347" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="TopEdge" LeftMargin="65.6000" RightMargin="234.4000" TopMargin="14.0642" BottomMargin="315.9358" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
             <Size X="500.0000" Y="150.0000" />
@@ -45,15 +45,15 @@
                 <EndColor A="255" R="255" G="255" B="255" />
                 <ColorVector ScaleY="1.0000" />
               </AbstractNodeData>
-              <AbstractNodeData Name="iconBottom" ActionTag="-1850108185" Tag="89" IconVisible="False" LeftMargin="-44.8908" RightMargin="-15.1092" TopMargin="-89.2638" BottomMargin="-13.7362" LeftEage="173" RightEage="173" TopEage="39" BottomEage="39" Scale9OriginX="173" Scale9OriginY="39" Scale9Width="214" Scale9Height="375" ctype="ImageViewObjectData">
+              <AbstractNodeData Name="iconBottom" CanEdit="False" ActionTag="-1850108185" Tag="89" IconVisible="False" LeftMargin="-44.8908" RightMargin="-15.1092" TopMargin="-90.2638" BottomMargin="-12.7362" LeftEage="173" RightEage="173" TopEage="39" BottomEage="39" Scale9OriginX="173" Scale9OriginY="39" Scale9Width="214" Scale9Height="375" ctype="ImageViewObjectData">
                 <Size X="560.0000" Y="453.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="235.1092" Y="212.7638" />
+                <Position X="235.1092" Y="213.7638" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.4702" Y="0.6079" />
+                <PrePosition X="0.4702" Y="0.6108" />
                 <PreSize X="1.1200" Y="1.2943" />
-                <FileData Type="Normal" Path="EventTetUI/bottom.png" Plist="" />
+                <FileData Type="Normal" Path="EventTetUI/MainScene/bottom.png" Plist="" />
               </AbstractNodeData>
               <AbstractNodeData Name="imgDeco" ActionTag="-707635298" Tag="246" IconVisible="False" LeftMargin="-7.1511" RightMargin="367.1511" TopMargin="193.3994" BottomMargin="40.6006" LeftEage="46" RightEage="46" TopEage="38" BottomEage="38" Scale9OriginX="46" Scale9OriginY="38" Scale9Width="48" Scale9Height="40" ctype="ImageViewObjectData">
                 <Size X="140.0000" Y="116.0000" />
@@ -63,7 +63,7 @@
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.1257" Y="0.2817" />
                 <PreSize X="0.2800" Y="0.3314" />
-                <FileData Type="Normal" Path="EventTetUI/imgDeco.png" Plist="" />
+                <FileData Type="Normal" Path="EventTetUI/MainScene/imgDeco.png" Plist="" />
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="1.0000" />
@@ -88,7 +88,7 @@
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.4408" Y="0.4946" />
                 <PreSize X="1.1250" Y="0.9800" />
-                <FileData Type="Normal" Path="EventTetUI/bgMenu.png" Plist="" />
+                <FileData Type="Normal" Path="EventTetUI/MainScene/bgMenu.png" Plist="" />
               </AbstractNodeData>
               <AbstractNodeData Name="btnGold" ActionTag="-42577504" Tag="96" IconVisible="False" LeftMargin="283.6548" RightMargin="-2.6548" TopMargin="9.5056" BottomMargin="9.4944" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="89" Scale9Height="9" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                 <Size X="119.0000" Y="31.0000" />
@@ -111,7 +111,7 @@
                     <CColor A="255" R="255" G="255" B="255" />
                     <PrePosition X="0.8699" Y="0.5089" />
                     <PreSize X="0.2269" Y="0.8710" />
-                    <FileData Type="Normal" Path="EventTetUI/btnAddGold.png" Plist="" />
+                    <FileData Type="Normal" Path="EventTetUI/MainScene/btnAddGold.png" Plist="" />
                   </AbstractNodeData>
                   <AbstractNodeData Name="labelGold" ActionTag="1744437042" Tag="104" IconVisible="False" LeftMargin="24.6046" RightMargin="27.3954" TopMargin="6.5550" BottomMargin="5.4450" FontSize="14" LabelText="10000000" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                     <Size X="67.0000" Y="19.0000" />
@@ -134,23 +134,23 @@
                 <PreSize X="0.2975" Y="0.6200" />
                 <TextColor A="255" R="65" G="65" B="70" />
                 <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
-                <PressedFileData Type="Normal" Path="EventTetUI/bgGold.png" Plist="" />
-                <NormalFileData Type="Normal" Path="EventTetUI/bgGold.png" Plist="" />
+                <PressedFileData Type="Normal" Path="EventTetUI/MainScene/bgGold.png" Plist="" />
+                <NormalFileData Type="Normal" Path="EventTetUI/MainScene/bgGold.png" Plist="" />
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="btnPaper" ActionTag="-1631056103" Tag="97" IconVisible="False" LeftMargin="160.6520" RightMargin="120.3480" TopMargin="8.8282" BottomMargin="10.1718" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="89" Scale9Height="9" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+              <AbstractNodeData Name="btnPaper" ActionTag="-1631056103" Tag="97" IconVisible="False" LeftMargin="159.6520" RightMargin="121.3480" TopMargin="8.8282" BottomMargin="10.1718" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="89" Scale9Height="9" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                 <Size X="119.0000" Y="31.0000" />
                 <Children>
-                  <AbstractNodeData Name="Image_11" ActionTag="-288199476" Tag="103" IconVisible="False" LeftMargin="94.1143" RightMargin="-2.1143" TopMargin="2.0054" BottomMargin="1.9946" LeftEage="8" RightEage="8" TopEage="8" BottomEage="8" Scale9OriginX="8" Scale9OriginY="8" Scale9Width="11" Scale9Height="11" ctype="ImageViewObjectData">
+                  <AbstractNodeData Name="Image_11" ActionTag="-288199476" Tag="103" IconVisible="False" LeftMargin="94.1148" RightMargin="-2.1148" TopMargin="2.0065" BottomMargin="1.9935" LeftEage="8" RightEage="8" TopEage="8" BottomEage="8" Scale9OriginX="8" Scale9OriginY="8" Scale9Width="11" Scale9Height="11" ctype="ImageViewObjectData">
                     <Size X="27.0000" Y="27.0000" />
-                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                    <Position X="107.6143" Y="15.4946" />
+                    <AnchorPoint ScaleX="0.6666" ScaleY="0.4915" />
+                    <Position X="112.1130" Y="15.2640" />
                     <Scale ScaleX="1.0000" ScaleY="1.0000" />
                     <CColor A="255" R="255" G="255" B="255" />
-                    <PrePosition X="0.9043" Y="0.4998" />
+                    <PrePosition X="0.9421" Y="0.4924" />
                     <PreSize X="0.2269" Y="0.8710" />
-                    <FileData Type="Normal" Path="EventTetUI/btnAddGold.png" Plist="" />
+                    <FileData Type="Normal" Path="EventTetUI/MainScene/btnAddGold.png" Plist="" />
                   </AbstractNodeData>
                   <AbstractNodeData Name="Image_10" ActionTag="-659971681" Tag="102" IconVisible="False" LeftMargin="0.2195" RightMargin="89.7805" TopMargin="3.5055" BottomMargin="3.4945" LeftEage="6" RightEage="6" TopEage="6" BottomEage="6" Scale9OriginX="6" Scale9OriginY="6" Scale9Width="17" Scale9Height="12" ctype="ImageViewObjectData">
                     <Size X="29.0000" Y="24.0000" />
@@ -176,27 +176,27 @@
                   </AbstractNodeData>
                 </Children>
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="220.1520" Y="25.6718" />
+                <Position X="219.1520" Y="25.6718" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.5504" Y="0.5134" />
+                <PrePosition X="0.5479" Y="0.5134" />
                 <PreSize X="0.2975" Y="0.6200" />
                 <TextColor A="255" R="65" G="65" B="70" />
                 <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
-                <PressedFileData Type="Normal" Path="EventTetUI/bgGold.png" Plist="" />
-                <NormalFileData Type="Normal" Path="EventTetUI/bgGold.png" Plist="" />
+                <PressedFileData Type="Normal" Path="EventTetUI/MainScene/bgGold.png" Plist="" />
+                <NormalFileData Type="Normal" Path="EventTetUI/MainScene/bgGold.png" Plist="" />
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="bgExp" ActionTag="1536684038" Tag="98" IconVisible="False" LeftMargin="-9.6790" RightMargin="249.6790" TopMargin="12.4608" BottomMargin="15.5392" LeftEage="45" RightEage="45" TopEage="8" BottomEage="8" Scale9OriginX="45" Scale9OriginY="8" Scale9Width="70" Scale9Height="6" ctype="ImageViewObjectData">
+              <AbstractNodeData Name="bgExp" ActionTag="1536684038" Tag="98" IconVisible="False" LeftMargin="-10.6790" RightMargin="250.6790" TopMargin="12.4608" BottomMargin="15.5392" LeftEage="45" RightEage="45" TopEage="8" BottomEage="8" Scale9OriginX="45" Scale9OriginY="8" Scale9Width="70" Scale9Height="6" ctype="ImageViewObjectData">
                 <Size X="160.0000" Y="22.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="70.3210" Y="26.5392" />
+                <Position X="69.3210" Y="26.5392" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.1758" Y="0.5308" />
+                <PrePosition X="0.1733" Y="0.5308" />
                 <PreSize X="0.4000" Y="0.4400" />
-                <FileData Type="Normal" Path="EventTetUI/bgExp.png" Plist="" />
+                <FileData Type="Normal" Path="EventTetUI/MainScene/bgExp.png" Plist="" />
               </AbstractNodeData>
               <AbstractNodeData Name="Image_26" ActionTag="1776717134" Tag="135" IconVisible="False" LeftMargin="128.6986" RightMargin="246.3014" TopMargin="11.6783" BottomMargin="12.3217" LeftEage="8" RightEage="8" TopEage="8" BottomEage="8" Scale9OriginX="8" Scale9OriginY="8" Scale9Width="10" Scale9Height="11" ctype="ImageViewObjectData">
                 <Size X="25.0000" Y="26.0000" />
@@ -381,7 +381,7 @@
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.2935" Y="1.2749" />
                 <PreSize X="0.1320" Y="0.6600" />
-                <FileData Type="Normal" Path="EventTetUI/label0.png" Plist="" />
+                <FileData Type="Normal" Path="EventTetUI/MainScene/label0.png" Plist="" />
               </AbstractNodeData>
               <AbstractNodeData Name="icon1" ActionTag="1664378866" Tag="111" IconVisible="False" LeftMargin="182.8483" RightMargin="251.1517" TopMargin="-60.4386" BottomMargin="94.4386" LeftEage="21" RightEage="21" TopEage="21" BottomEage="21" Scale9OriginX="21" Scale9OriginY="21" Scale9Width="32" Scale9Height="30" ctype="ImageViewObjectData">
                 <Size X="66.0000" Y="66.0000" />
@@ -417,12 +417,12 @@
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.4317" Y="1.2744" />
                 <PreSize X="0.1320" Y="0.6600" />
-                <FileData Type="Normal" Path="EventTetUI/label1.png" Plist="" />
+                <FileData Type="Normal" Path="EventTetUI/MainScene/label1.png" Plist="" />
               </AbstractNodeData>
-              <AbstractNodeData Name="icon2" ActionTag="-2015761636" Tag="112" IconVisible="False" LeftMargin="252.5930" RightMargin="181.4070" TopMargin="-60.9840" BottomMargin="93.9840" LeftEage="21" RightEage="21" TopEage="22" BottomEage="22" Scale9OriginX="21" Scale9OriginY="22" Scale9Width="32" Scale9Height="28" ctype="ImageViewObjectData">
-                <Size X="66.0000" Y="67.0000" />
+              <AbstractNodeData Name="icon2" ActionTag="-2015761636" Tag="112" IconVisible="False" LeftMargin="251.5930" RightMargin="182.4070" TopMargin="-60.4840" BottomMargin="94.4840" LeftEage="21" RightEage="21" TopEage="22" BottomEage="22" Scale9OriginX="21" Scale9OriginY="22" Scale9Width="32" Scale9Height="28" ctype="ImageViewObjectData">
+                <Size X="66.0000" Y="66.0000" />
                 <Children>
-                  <AbstractNodeData Name="bg" ActionTag="879427003" Tag="102" IconVisible="False" LeftMargin="13.1995" RightMargin="30.8005" TopMargin="1.2498" BottomMargin="43.7502" LeftEage="7" RightEage="7" TopEage="7" BottomEage="7" Scale9OriginX="7" Scale9OriginY="7" Scale9Width="17" Scale9Height="17" ctype="ImageViewObjectData">
+                  <AbstractNodeData Name="bg" ActionTag="879427003" Tag="102" IconVisible="False" LeftMargin="13.1995" RightMargin="30.8005" TopMargin="0.2498" BottomMargin="43.7502" LeftEage="7" RightEage="7" TopEage="7" BottomEage="7" Scale9OriginX="7" Scale9OriginY="7" Scale9Width="17" Scale9Height="17" ctype="ImageViewObjectData">
                     <Size X="22.0000" Y="22.0000" />
                     <Children>
                       <AbstractNodeData Name="label" ActionTag="-1035020551" Tag="103" IconVisible="False" LeftMargin="2.0346" RightMargin="2.9654" TopMargin="1.7319" BottomMargin="2.2681" FontSize="13" LabelText="50" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
@@ -442,23 +442,23 @@
                     <Position X="24.1995" Y="54.7502" />
                     <Scale ScaleX="1.0000" ScaleY="1.0000" />
                     <CColor A="255" R="255" G="255" B="255" />
-                    <PrePosition X="0.3667" Y="0.8172" />
-                    <PreSize X="0.3333" Y="0.3284" />
+                    <PrePosition X="0.3667" Y="0.8295" />
+                    <PreSize X="0.3333" Y="0.3333" />
                     <FileData Type="Normal" Path="EventTetUI/bgNumLabel.png" Plist="" />
                   </AbstractNodeData>
                 </Children>
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="285.5930" Y="127.4840" />
+                <Position X="284.5930" Y="127.4840" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.5712" Y="1.2748" />
-                <PreSize X="0.1320" Y="0.6700" />
-                <FileData Type="Normal" Path="EventTetUI/label2.png" Plist="" />
+                <PrePosition X="0.5692" Y="1.2748" />
+                <PreSize X="0.1320" Y="0.6600" />
+                <FileData Type="Normal" Path="EventTetUI/MainScene/label2.png" Plist="" />
               </AbstractNodeData>
-              <AbstractNodeData Name="icon3" ActionTag="1650802958" Tag="113" IconVisible="False" LeftMargin="322.3764" RightMargin="111.6236" TopMargin="-61.1576" BottomMargin="93.1576" LeftEage="21" RightEage="21" TopEage="22" BottomEage="22" Scale9OriginX="21" Scale9OriginY="22" Scale9Width="32" Scale9Height="29" ctype="ImageViewObjectData">
-                <Size X="66.0000" Y="68.0000" />
+              <AbstractNodeData Name="icon3" ActionTag="1650802958" Tag="113" IconVisible="False" LeftMargin="322.3764" RightMargin="111.6236" TopMargin="-60.1576" BottomMargin="94.1576" LeftEage="21" RightEage="21" TopEage="22" BottomEage="22" Scale9OriginX="21" Scale9OriginY="22" Scale9Width="32" Scale9Height="29" ctype="ImageViewObjectData">
+                <Size X="66.0000" Y="66.0000" />
                 <Children>
-                  <AbstractNodeData Name="bg" ActionTag="1535066559" Tag="104" IconVisible="False" LeftMargin="13.0947" RightMargin="30.9053" TopMargin="0.1846" BottomMargin="45.8154" LeftEage="7" RightEage="7" TopEage="7" BottomEage="7" Scale9OriginX="7" Scale9OriginY="7" Scale9Width="17" Scale9Height="17" ctype="ImageViewObjectData">
+                  <AbstractNodeData Name="bg" ActionTag="1535066559" Tag="104" IconVisible="False" LeftMargin="13.0947" RightMargin="30.9053" TopMargin="-1.8154" BottomMargin="45.8154" LeftEage="7" RightEage="7" TopEage="7" BottomEage="7" Scale9OriginX="7" Scale9OriginY="7" Scale9Width="17" Scale9Height="17" ctype="ImageViewObjectData">
                     <Size X="22.0000" Y="22.0000" />
                     <Children>
                       <AbstractNodeData Name="label" ActionTag="1330598618" Tag="105" IconVisible="False" LeftMargin="2.0346" RightMargin="2.9654" TopMargin="1.7319" BottomMargin="2.2681" FontSize="13" LabelText="50" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
@@ -478,8 +478,8 @@
                     <Position X="24.0947" Y="56.8154" />
                     <Scale ScaleX="1.0000" ScaleY="1.0000" />
                     <CColor A="255" R="255" G="255" B="255" />
-                    <PrePosition X="0.3651" Y="0.8355" />
-                    <PreSize X="0.3333" Y="0.3235" />
+                    <PrePosition X="0.3651" Y="0.8608" />
+                    <PreSize X="0.3333" Y="0.3333" />
                     <FileData Type="Normal" Path="EventTetUI/bgNumLabel.png" Plist="" />
                   </AbstractNodeData>
                 </Children>
@@ -488,8 +488,8 @@
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.7108" Y="1.2716" />
-                <PreSize X="0.1320" Y="0.6800" />
-                <FileData Type="Normal" Path="EventTetUI/label3.png" Plist="" />
+                <PreSize X="0.1320" Y="0.6600" />
+                <FileData Type="Normal" Path="EventTetUI/MainScene/label3.png" Plist="" />
               </AbstractNodeData>
               <AbstractNodeData Name="rope" Visible="False" ActionTag="-662973229" Tag="109" IconVisible="False" LeftMargin="-37.5270" RightMargin="50.5270" TopMargin="-73.7313" BottomMargin="50.7313" LeftEage="160" RightEage="160" TopEage="40" BottomEage="40" Scale9OriginX="160" Scale9OriginY="40" Scale9Width="167" Scale9Height="43" ctype="ImageViewObjectData">
                 <Size X="487.0000" Y="123.0000" />
@@ -501,7 +501,7 @@
                 <PreSize X="0.9740" Y="1.2300" />
                 <FileData Type="Normal" Path="EventTetUI/rope.png" Plist="" />
               </AbstractNodeData>
-              <AbstractNodeData Name="rope2" CanEdit="False" ActionTag="1470853736" Tag="167" IconVisible="False" LeftMargin="-37.5947" RightMargin="50.5947" TopMargin="-74.5444" BottomMargin="48.5444" LeftEage="160" RightEage="160" TopEage="41" BottomEage="41" Scale9OriginX="160" Scale9OriginY="41" Scale9Width="167" Scale9Height="44" ctype="ImageViewObjectData">
+              <AbstractNodeData Name="rope2" ActionTag="1470853736" Tag="167" IconVisible="False" LeftMargin="-37.5947" RightMargin="50.5947" TopMargin="-74.5444" BottomMargin="48.5444" LeftEage="160" RightEage="160" TopEage="41" BottomEage="41" Scale9OriginX="160" Scale9OriginY="41" Scale9Width="167" Scale9Height="44" ctype="ImageViewObjectData">
                 <Size X="487.0000" Y="126.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="205.9053" Y="111.5444" />
@@ -558,7 +558,7 @@
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.5787" Y="0.5089" />
                 <PreSize X="1.2308" Y="0.9600" />
-                <FileData Type="Normal" Path="EventTetUI/bgItem.png" Plist="" />
+                <FileData Type="Normal" Path="EventTetUI/MainScene/bgItem.png" Plist="" />
               </AbstractNodeData>
               <AbstractNodeData Name="list" ActionTag="951428571" Tag="291" IconVisible="False" LeftMargin="7.4053" RightMargin="-2.4053" TopMargin="6.9307" BottomMargin="13.0693" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
                 <Size X="60.0000" Y="280.0000" />
@@ -596,7 +596,7 @@
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.6401" Y="0.6596" />
                 <PreSize X="0.6300" Y="0.5700" />
-                <FileData Type="Normal" Path="EventTetUI/iconTitle.png" Plist="" />
+                <FileData Type="Normal" Path="EventTetUI/MainScene/iconTitle.png" Plist="" />
               </AbstractNodeData>
               <AbstractNodeData Name="btnBack" ActionTag="435370172" Tag="181" IconVisible="False" LeftMargin="5.7103" RightMargin="147.2897" TopMargin="7.5580" BottomMargin="44.4420" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="17" Scale9Height="26" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                 <Size X="47.0000" Y="48.0000" />
@@ -608,8 +608,8 @@
                 <PreSize X="0.2350" Y="0.4800" />
                 <TextColor A="255" R="65" G="65" B="70" />
                 <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
-                <PressedFileData Type="Normal" Path="EventTetUI/btnBack.png" Plist="" />
-                <NormalFileData Type="Normal" Path="EventTetUI/btnBack.png" Plist="" />
+                <PressedFileData Type="Normal" Path="EventTetUI/MainScene/btnBack.png" Plist="" />
+                <NormalFileData Type="Normal" Path="EventTetUI/MainScene/btnBack.png" Plist="" />
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
@@ -623,23 +623,23 @@
                 <PreSize X="0.2350" Y="0.4800" />
                 <TextColor A="255" R="65" G="65" B="70" />
                 <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
-                <PressedFileData Type="Normal" Path="EventTetUI/btnHelp.png" Plist="" />
-                <NormalFileData Type="Normal" Path="EventTetUI/btnHelp.png" Plist="" />
+                <PressedFileData Type="Normal" Path="EventTetUI/MainScene/btnHelp.png" Plist="" />
+                <NormalFileData Type="Normal" Path="EventTetUI/MainScene/btnHelp.png" Plist="" />
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="btnTop" ActionTag="-32445832" Tag="184" IconVisible="False" LeftMargin="6.7103" RightMargin="146.2897" TopMargin="113.3097" BottomMargin="-61.3097" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="17" Scale9Height="26" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+              <AbstractNodeData Name="btnTop" ActionTag="-32445832" Tag="184" IconVisible="False" LeftMargin="6.7107" RightMargin="146.2893" TopMargin="113.3083" BottomMargin="-61.3083" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="17" Scale9Height="26" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                 <Size X="47.0000" Y="48.0000" />
-                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="30.2103" Y="-37.3097" />
+                <AnchorPoint ScaleX="0.6002" ScaleY="0.6750" />
+                <Position X="34.9201" Y="-28.9083" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.1511" Y="-0.3731" />
+                <PrePosition X="0.1746" Y="-0.2891" />
                 <PreSize X="0.2350" Y="0.4800" />
                 <TextColor A="255" R="65" G="65" B="70" />
                 <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
-                <PressedFileData Type="Normal" Path="EventTetUI/btnCup.png" Plist="" />
-                <NormalFileData Type="Normal" Path="EventTetUI/btnCup.png" Plist="" />
+                <PressedFileData Type="Normal" Path="EventTetUI/MainScene/btnCup.png" Plist="" />
+                <NormalFileData Type="Normal" Path="EventTetUI/MainScene/btnCup.png" Plist="" />
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
@@ -943,7 +943,7 @@
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="1.0287" Y="-0.2871" />
                 <PreSize X="1.4350" Y="1.6600" />
-                <FileData Type="Normal" Path="EventTetUI/imgGift1.png" Plist="" />
+                <FileData Type="Normal" Path="EventTetUI/MainScene/imgGift1.png" Plist="" />
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="1.0000" ScaleY="0.5000" />
@@ -971,7 +971,7 @@
                     <CColor A="255" R="255" G="255" B="255" />
                     <PrePosition X="0.0721" Y="0.4816" />
                     <PreSize X="0.1985" Y="1.0612" />
-                    <FileData Type="Normal" Path="EventTetUI/borderAvatar.png" Plist="" />
+                    <FileData Type="Normal" Path="EventTetUI/MainScene/borderAvatar.png" Plist="" />
                   </AbstractNodeData>
                   <AbstractNodeData Name="lbName" ActionTag="677379767" Tag="245" IconVisible="False" LeftMargin="48.9529" RightMargin="28.0471" TopMargin="2.7770" BottomMargin="27.2230" FontSize="14" LabelText="lbNameaaaaaaaaaaaaaaaa" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                     <Size X="185.0000" Y="19.0000" />
@@ -1038,7 +1038,7 @@
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.5065" Y="0.4522" />
                 <PreSize X="0.9704" Y="0.4900" />
-                <FileData Type="Normal" Path="EventTetUI/bgInfo.png" Plist="" />
+                <FileData Type="Normal" Path="EventTetUI/MainScene/bgInfo.png" Plist="" />
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="1.0000" />

@@ -213,8 +213,10 @@ var EventTet = cc.Class.extend({
         db.DBCCFactory.getInstance().loadDragonBonesData("res/Event/EventTet/EventTetRes/CoinTet/skeleton.xml", "CoinTet");
         db.DBCCFactory.getInstance().loadTextureAtlas("res/Event/EventTet/EventTetRes/CoinTet/texture.plist", "CoinTet");
 
-        db.DBCCFactory.getInstance().loadDragonBonesData("res/Event/EventTet/EventTetRes/Molixi/skeleton.xml", "Molixi");
-        db.DBCCFactory.getInstance().loadTextureAtlas("res/Event/EventTet/EventTetRes/Molixi/texture.plist", "Molixi");
+        for (var i = 1; i <= 3; i++) {
+            db.DBCCFactory.getInstance().loadDragonBonesData("res/Event/EventTet/EventTetRes/Molixi1010" + i+ "/skeleton.xml", "Molixi1010" + i);
+            db.DBCCFactory.getInstance().loadTextureAtlas("res/Event/EventTet/EventTetRes/Molixi1010" + i + "/texture.plist", "Molixi1010" + i);
+        }
 
         db.DBCCFactory.getInstance().loadDragonBonesData("res/Event/EventTet/EventTetRes/phaohoa1/skeleton.xml", "phaohoa1");
         db.DBCCFactory.getInstance().loadTextureAtlas("res/Event/EventTet/EventTetRes/phaohoa1/texture.plist", "phaohoa1");
@@ -1128,11 +1130,10 @@ var EventTet = cc.Class.extend({
         this.buttonLobby.setVisible(true);
         this.buttonLobby.anim.removeAllChildren();
         this.buttonLobby.button.setContentSize(300, 300);
-        this.buttonLobby.anim.eff = db.DBCCFactory.getInstance().buildArmatureNode("iconEvent");
-        this.buttonLobby.anim.eff.gotoAndPlay("1", -1, -1, -1);
+        this.buttonLobby.anim.eff = new EventTetButton();
         this.buttonLobby.anim.addChild(this.buttonLobby.anim.eff);
-        this.buttonLobby.anim.eff.setPosition(0, 5);
-        this.buttonLobby.anim.eff.setScale(0.8);
+        this.buttonLobby.anim.eff.setPosition(0, -25);
+        //this.buttonLobby.anim.eff.setScale(0.8);
         this.buttonLobby.notify.setVisible(this.notifyEvent);
         this.buttonLobby.time.setFontSize(16);
         this.buttonLobby.time.setColor(cc.color(162, 153, 202));

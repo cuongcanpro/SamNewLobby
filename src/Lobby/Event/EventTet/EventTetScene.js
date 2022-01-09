@@ -81,7 +81,7 @@ var EventTetScene = BaseLayer.extend({
         // ADD PROGRESS EXP
         this.bgProgress = this.getControl("bgExp", this.panelMenu);
         this.labelExp = this.getControl("labelExp", this.panelMenu)
-        var batchNode_scaled_with_insets = new cc.SpriteBatchNode(EventTet.DEFAUT_UI + "progress.png");
+        var batchNode_scaled_with_insets = new cc.SpriteBatchNode(EventTet.DEFAUT_UI + "MainScene/progress.png");
         this.progress = new cc.Scale9Sprite();
         this.progress.updateWithBatchNode(batchNode_scaled_with_insets, cc.rect(0, 0, 24, 21), false, cc.rect(10, 10, 4, 1));
         this.bgProgress.addChild(this.progress);
@@ -89,7 +89,7 @@ var EventTetScene = BaseLayer.extend({
         this.progress.setContentSize(cc.size(100, 22));
         this.progress.setAnchorPoint(cc.p(0, 0.5));
 
-        var bgProgress = cc.Sprite.create(EventTet.DEFAUT_UI + "bgExp.png");
+        var bgProgress = cc.Sprite.create(EventTet.DEFAUT_UI + "MainScene/bgExp.png");
         this._uiTimer = new cc.ProgressTimer(bgProgress);
         this._uiTimer.setType(cc.ProgressTimer.TYPE_BAR);
         this.bgProgress.addChild(this._uiTimer);
@@ -207,26 +207,28 @@ var EventTetScene = BaseLayer.extend({
         var game = LocalizedString.config("GAME");
 
         if (eventTet.eventTime < EventTet.WEEK_END) {
-            this.imgGift.loadTexture(EventTet.DEFAUT_UI + "imgGift" + eventTet.eventTime + ".png");
+            this.imgGift.loadTexture(EventTet.DEFAUT_UI + "MainScene/imgGift" + eventTet.eventTime + ".png");
         }
         else {
             if (game.indexOf("sam") >= 0) {
-                this.imgGift.loadTexture(EventTet.DEFAUT_UI + "imgGiftSam.png");
+                this.imgGift.loadTexture(EventTet.DEFAUT_UI + "MainScene/imgGiftSam.png");
             }
             else {
-                this.imgGift.loadTexture(EventTet.DEFAUT_UI + "imgGift" + eventTet.eventTime + ".png");
+                this.imgGift.loadTexture(EventTet.DEFAUT_UI + "MainScene/imgGift" + eventTet.eventTime + ".png");
             }
         }
+        this.imgGift.stopAllActions();
+        this.addEffect();
     },
 
     initEffect: function() {
         this.arrayIconEffect = [];
         this.arrayLabelEffect = [];
         for (var i = 0; i < this.arrayIcon.length; i++) {
-            var icon = cc.Sprite.create(EventTet.DEFAUT_UI + "label" + i + ".png");
+            var icon = cc.Sprite.create(EventTet.DEFAUT_UI + "MainScene/label" + i + ".png");
             this.panelBottom.addChild(icon);
             icon.setPosition(this.arrayIcon[i].getPosition());
-            var bgNum = cc.Sprite.create(EventTet.DEFAUT_UI + "bgNumLabel.png");
+            var bgNum = cc.Sprite.create(EventTet.DEFAUT_UI + "MainScene/bgNumLabel.png");
             icon.addChild(bgNum);
             bgNum.setPosition(23, 58);
             var label = BaseLayer.createLabelText("0", cc.color(245, 237, 184));
@@ -240,6 +242,24 @@ var EventTetScene = BaseLayer.extend({
 
         this.iconEffectPaper = this.getControl("iconEffectPaper", this.panelBottom);
         this.labelEffectPaper = this.getControl("labelEffectPaper", this.iconEffectPaper);
+    },
+
+    addEffect: function () {
+        var sprite = new cc.Sprite("res/Event/EventTet/EventTetUI/star.png");
+        var pX = this.imgGift.getContentSize().width * (0.8 - 0.6 * Math.random());
+        var pY = this.imgGift.getContentSize().height * (0.8 - 0.4 * Math.random());
+        sprite.setPosition(pX, pY);
+        sprite.setOpacity(0);
+        sprite.setScale(0);
+        var scale = Math.random() * 0.7 + 0.4;
+        sprite.runAction(cc.sequence(cc.fadeIn(0.1), cc.delayTime(0.7), cc.fadeOut(0.3)));
+        sprite.runAction(cc.sequence(cc.scaleTo(0.2, scale), cc.delayTime(0.7), cc.scaleTo(0.3, 0.2)));
+        sprite.runAction(cc.rotateBy(1.6, 350));
+        sprite.runAction(cc.moveBy(1.5, 0, 100));
+        this.imgGift.addChild(sprite);
+
+        var time = Math.random() * 0.4 + 0.2;
+        this.imgGift.runAction(cc.sequence(cc.delayTime(time), cc.callFunc(this.addEffect.bind(this))));
     },
 
     onBack: function () {
@@ -581,7 +601,7 @@ var EventTetScene = BaseLayer.extend({
             }
         }
         var time = "(" + eventTet.eventWeeks[eventTet.eventTime - 1] + "-" + eventTet.getEndWeek(eventTet.eventWeeks[eventTet.eventTime - 1]) + ")";
-        this.lbWeek.setString(localized("EVENT_TET_WEEK") + " " + eventTet.eventTime + " " + time);
+        this.lbWeek.setString(localized("EVENT_TET_WEEK") + eventTet.eventTime + " " + time);
         this.lbNum.setString(eventTet.numToken);
     },
 
@@ -1306,6 +1326,7 @@ var EventTetOpenLixiGUI = BaseLayer.extend({
             }
             this.savePosition = cmd.position;
             this.arrayLixi[cmd.position].setVisible(false);
+            this.spriteLixi.setTexture(eventTet.getPieceImage(eventTet.indexLixi));
             this.spriteLixi.setPosition(this.panelCenter.convertToWorldSpace(this.arrayLixi[cmd.position].getPosition()));
             this.spriteLixi.setVisible(true);
             this.spriteLixi.setScale(1);
@@ -1316,7 +1337,7 @@ var EventTetOpenLixiGUI = BaseLayer.extend({
                     if (this.effectLixi) {
                         this.effectLixi.removeFromParent();
                     }
-                    this.effectLixi = db.DBCCFactory.getInstance().buildArmatureNode("Molixi");
+                    this.effectLixi = db.DBCCFactory.getInstance().buildArmatureNode("Molixi" + eventTet.indexLixi);
                     this.effectLixi.getAnimation().gotoAndPlay("1");
                     this.effectLixi.setPosition(cc.winSize.width * 0.5, cc.winSize.height * 0.5);
                     this.addChild(this.effectLixi);
@@ -5235,3 +5256,36 @@ var EventTetRankItem = cc.TableViewCell.extend({
         }
     },
 });
+
+var EventTetButton = cc.Node.extend({
+    ctor: function () {
+        this._super();
+
+        this.effect = new CustomSkeleton("res/Event/EventTet/EventTetRes/Icon_Tet_2022", "Icon_Tet_2022", 1);
+        this.addChild(this.effect, 1);
+        this.effect.setAnimation(0, "animation", -1, CustomSkeleton.SCALE_ACTION);
+        this.countTime = 0;
+        this.saveRand = 1;
+        this.scheduleUpdate();
+    },
+
+    update: function (dt) {
+        this.countTime = this.countTime - dt;
+        if (this.countTime <= 0) {
+            var week = (eventTet.eventTime > 4 || eventTet.eventTime < 1) ? 0 : eventTet.eventTime - 1;
+            var rand = this.saveRand;
+            while (rand == this.saveRand) {
+                rand = Math.floor(Math.random() * EventTet.NUM_GIFT_TOP) + 1 + EventTet.NUM_GIFT_TOP * week;
+            }
+            this.saveRand = rand;
+            rand = (rand < 10) ? "0" + rand : rand;
+            var img = new cc.Sprite("res/Event/EventTet/EventTetUI/GiftTop/giftTop100" + rand + ".png");
+            this.addChild(img);
+            img.setScale(0.3);
+            img.setPosition(Math.random() * 100 - 50, 50);
+            img.runAction(new cc.EaseExponentialOut(cc.moveBy(1.2, 0, 120)));
+            img.runAction(cc.sequence(cc.delayTime(0.9), cc.fadeOut(0.3), cc.removeSelf()));
+            this.countTime = Math.random() * 0.1 + 0.8;
+        }
+    }
+})

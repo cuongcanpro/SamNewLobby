@@ -1,0 +1,151 @@
+{
+"skeleton": { "hash": "ddR6T0U9JCY9QAbB0eZQ8GBHSe0", "spine": "3.6.53", "width": 217.88, "height": 165.25, "images": "./Odat/" },
+"bones": [
+	{ "name": "root" },
+	{ "name": "Nuoc2/nuoc2__00000", "parent": "root", "scaleX": 1.18, "scaleY": 1.18 },
+	{
+		"name": "nuocban/nuocban1__00000",
+		"parent": "root",
+		"length": 18.94,
+		"rotation": 82.09,
+		"x": 55.43,
+		"y": -16.65,
+		"scaleX": 1.233,
+		"scaleY": 1.233
+	},
+	{
+		"name": "nuocban/nuocban1__0",
+		"parent": "root",
+		"length": 18.94,
+		"rotation": -84.84,
+		"x": -55.08,
+		"y": -22.83,
+		"scaleX": -1.23,
+		"scaleY": 1.233
+	},
+	{ "name": "odat", "parent": "root" }
+],
+"slots": [
+	{ "name": "nuocban/nuocban1__00000", "bone": "nuocban/nuocban1__00000", "attachment": "nuocban/nuocban1__00008" },
+	{ "name": "nuocban/nuocban1__0", "bone": "nuocban/nuocban1__0", "attachment": "nuocban/nuocban1__00008" },
+	{ "name": "odat", "bone": "odat", "attachment": "odat" },
+	{ "name": "Nuoc2/nuoc2__00000", "bone": "Nuoc2/nuoc2__00000", "attachment": "Nuoc2/nuoc2__00008" }
+],
+"skins": {
+	"default": {
+		"Nuoc2/nuoc2__00000": {
+			"Nuoc2/nuoc2__00000": { "rotation": 90, "width": 140, "height": 140 },
+			"Nuoc2/nuoc2__00002": { "width": 140, "height": 140 },
+			"Nuoc2/nuoc2__00004": { "width": 140, "height": 140 },
+			"Nuoc2/nuoc2__00006": { "width": 140, "height": 140 },
+			"Nuoc2/nuoc2__00008": { "width": 140, "height": 140 },
+			"Nuoc2/nuoc2__00010": { "width": 140, "height": 140 },
+			"Nuoc2/nuoc2__00012": { "width": 140, "height": 140 }
+		},
+		"nuocban/nuocban1__0": {
+			"nuocban/nuocban1__00000": { "x": 27.38, "y": -1.7, "rotation": -90, "width": 70, "height": 70 },
+			"nuocban/nuocban1__00002": { "x": 27.38, "y": -1.7, "rotation": -90, "width": 70, "height": 70 },
+			"nuocban/nuocban1__00004": { "x": 27.38, "y": -1.7, "rotation": -90, "width": 70, "height": 70 },
+			"nuocban/nuocban1__00006": { "x": 27.38, "y": -1.7, "rotation": -90, "width": 70, "height": 70 },
+			"nuocban/nuocban1__00008": { "x": 27.38, "y": -1.7, "rotation": -90, "width": 70, "height": 70 },
+			"nuocban/nuocban1__00010": { "x": 27.38, "y": -1.7, "rotation": -90, "width": 70, "height": 70 },
+			"nuocban/nuocban1__00012": { "x": 27.38, "y": -1.7, "rotation": -90, "width": 70, "height": 70 }
+		},
+		"nuocban/nuocban1__00000": {
+			"nuocban/nuocban1__00000": { "x": 27.38, "y": -1.7, "rotation": -90, "width": 70, "height": 70 },
+			"nuocban/nuocban1__00002": { "x": 27.38, "y": -1.7, "rotation": -90, "width": 70, "height": 70 },
+			"nuocban/nuocban1__00004": { "x": 27.38, "y": -1.7, "rotation": -90, "width": 70, "height": 70 },
+			"nuocban/nuocban1__00006": { "x": 27.38, "y": -1.7, "rotation": -90, "width": 70, "height": 70 },
+			"nuocban/nuocban1__00008": { "x": 27.38, "y": -1.7, "rotation": -90, "width": 70, "height": 70 },
+			"nuocban/nuocban1__00010": { "x": 27.38, "y": -1.7, "rotation": -90, "width": 70, "height": 70 },
+			"nuocban/nuocban1__00012": { "x": 27.38, "y": -1.7, "rotation": -90, "width": 70, "height": 70 }
+		},
+		"odat": {
+			"odat": { "x": 1.02, "y": -2.94, "width": 98, "height": 106 }
+		}
+	}
+},
+"animations": {
+	"animation": {
+		"slots": {
+			"Nuoc2/nuoc2__00000": {
+				"attachment": [
+					{ "time": 0, "name": null },
+					{ "time": 0.1667, "name": "Nuoc2/nuoc2__00000" },
+					{ "time": 0.2333, "name": "Nuoc2/nuoc2__00002" },
+					{ "time": 0.3, "name": "Nuoc2/nuoc2__00004" },
+					{ "time": 0.3667, "name": "Nuoc2/nuoc2__00006" },
+					{ "time": 0.4333, "name": "Nuoc2/nuoc2__00008" },
+					{ "time": 0.5, "name": "Nuoc2/nuoc2__00010" },
+					{ "time": 0.5667, "name": "Nuoc2/nuoc2__00012" },
+					{ "time": 0.6333, "name": null }
+				]
+			},
+			"nuocban/nuocban1__00000": {
+				"attachment": [
+					{ "time": 0, "name": null },
+					{ "time": 0.2, "name": "nuocban/nuocban1__00000" },
+					{ "time": 0.2667, "name": "nuocban/nuocban1__00002" },
+					{ "time": 0.3333, "name": "nuocban/nuocban1__00004" },
+					{ "time": 0.4, "name": "nuocban/nuocban1__00006" },
+					{ "time": 0.4667, "name": "nuocban/nuocban1__00008" },
+					{ "time": 0.5333, "name": "nuocban/nuocban1__00010" },
+					{ "time": 0.6, "name": "nuocban/nuocban1__00012" },
+					{ "time": 0.6667, "name": null }
+				]
+			},
+			"nuocban/nuocban1__0": {
+				"attachment": [
+					{ "time": 0, "name": null },
+					{ "time": 0.2, "name": "nuocban/nuocban1__00000" },
+					{ "time": 0.2667, "name": "nuocban/nuocban1__00002" },
+					{ "time": 0.3333, "name": "nuocban/nuocban1__00004" },
+					{ "time": 0.4, "name": "nuocban/nuocban1__00006" },
+					{ "time": 0.4667, "name": "nuocban/nuocban1__00008" },
+					{ "time": 0.5333, "name": "nuocban/nuocban1__00010" },
+					{ "time": 0.6, "name": "nuocban/nuocban1__00012" },
+					{ "time": 0.6667, "name": null }
+				]
+			},
+			"odat": {
+				"color": [
+					{ "time": 0, "color": "ffffff00" },
+					{ "time": 0.1667, "color": "ffffffff" }
+				]
+			}
+		},
+		"bones": {
+			"odat": {
+				"scale": [
+					{
+						"time": 0,
+						"x": 0,
+						"y": 0,
+						"curve": [ 0.25, 0, 0.75, 1 ]
+					},
+					{
+						"time": 0.1667,
+						"x": 1.047,
+						"y": 1.047,
+						"curve": [ 0.25, 0, 0.75, 1 ]
+					},
+					{
+						"time": 0.2667,
+						"x": 0.982,
+						"y": 0.982,
+						"curve": [ 0.25, 0, 0.75, 1 ]
+					},
+					{
+						"time": 0.3667,
+						"x": 1.017,
+						"y": 1.017,
+						"curve": [ 0.25, 0, 0.75, 1 ]
+					},
+					{ "time": 0.4667, "x": 1, "y": 1, "curve": "stepped" },
+					{ "time": 0.8333, "x": 1, "y": 1 }
+				]
+			}
+		}
+	}
+}
+}
