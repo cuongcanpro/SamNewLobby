@@ -41,8 +41,6 @@ var LobbyScene = BaseLayer.extend({
     },
 
     onEnterFinish: function () {
-
-
         this.setBackEnable(true);
 
         // open billing

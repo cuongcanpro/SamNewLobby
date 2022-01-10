@@ -14,9 +14,9 @@
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.5000" Y="0.5000" />
             <PreSize X="1.0000" Y="1.0000" />
-            <FileData Type="Default" Path="Default/ImageFile.png" Plist="" />
+            <FileData Type="Normal" Path="EventTetUI/MainScene/bg.jpg" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="pFirework" ActionTag="1242742672" Tag="40" IconVisible="False" PercentWidthEnable="True" PercentWidthEnabled="True" LeftMargin="-2.0000" RightMargin="2.0000" TopMargin="3.0000" BottomMargin="377.0000" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" ctype="PanelObjectData">
+          <AbstractNodeData Name="pFirework" ActionTag="1242742672" Tag="40" IconVisible="False" PercentWidthEnable="True" PercentWidthEnabled="True" LeftMargin="-2.0000" RightMargin="2.0000" TopMargin="3.0000" BottomMargin="377.0000" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
             <Size X="800.0000" Y="100.0000" />
             <AnchorPoint ScaleY="1.0000" />
             <Position X="-2.0000" Y="477.0000" />
@@ -94,8 +94,8 @@
                 <PreSize X="0.2350" Y="0.9600" />
                 <TextColor A="255" R="65" G="65" B="70" />
                 <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
-                <PressedFileData Type="Default" Path="Default/Button_Press.png" Plist="" />
-                <NormalFileData Type="Default" Path="Default/Button_Normal.png" Plist="" />
+                <PressedFileData Type="Normal" Path="EventTetUI/MainScene/btnBack.png" Plist="" />
+                <NormalFileData Type="Normal" Path="EventTetUI/MainScene/btnBack.png" Plist="" />
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
@@ -148,8 +148,8 @@
                 <PreSize X="0.3953" Y="0.6327" />
                 <TextColor A="255" R="65" G="65" B="70" />
                 <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
-                <PressedFileData Type="Default" Path="Default/Button_Press.png" Plist="" />
-                <NormalFileData Type="Default" Path="Default/Button_Normal.png" Plist="" />
+                <PressedFileData Type="Normal" Path="EventTetUI/MainScene/bgGold.png" Plist="" />
+                <NormalFileData Type="Normal" Path="EventTetUI/MainScene/bgGold.png" Plist="" />
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
@@ -187,8 +187,8 @@
                 <PreSize X="0.3953" Y="0.6327" />
                 <TextColor A="255" R="65" G="65" B="70" />
                 <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
-                <PressedFileData Type="Default" Path="Default/Button_Press.png" Plist="" />
-                <NormalFileData Type="Default" Path="Default/Button_Normal.png" Plist="" />
+                <PressedFileData Type="Normal" Path="EventTetUI/MainScene/bgGold.png" Plist="" />
+                <NormalFileData Type="Normal" Path="EventTetUI/MainScene/bgGold.png" Plist="" />
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>

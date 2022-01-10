@@ -797,7 +797,7 @@ CmdReceiveEventTetVibrate.ERROR_NEW_DAY = 6;
 
 CmdReceiveEventTetVibrate.ONE = 1;
 CmdReceiveEventTetVibrate.TEN = 2;
-CmdReceiveEventTetVibrate.HUNDRED = 4;
+CmdReceiveEventTetVibrate.HUNDRED = 3;
 
 CmdReceiveEventTetShopText = CmdReceivedCommon.extend({
 
