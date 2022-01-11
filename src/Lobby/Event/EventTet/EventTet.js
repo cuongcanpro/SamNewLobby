@@ -832,7 +832,7 @@ var EventTet = cc.Class.extend({
         this.isRegisterSuccess = cmd.isRegisterSuccess;
         this.eventWeeks = cmd.eventWeeks;
         this.eventDayFrom = cmd.eventDayFrom;
-        this.eventDayTo = cmd.eventDayTo + "/2021";
+        this.eventDayTo = cmd.eventDayTo + "/2022";
         this.showX2G = cmd.showX2G;
         //this.showX2G = true;
         this.eventLinkNews = cmd.urlNews;
@@ -1138,7 +1138,7 @@ var EventTet = cc.Class.extend({
         this.buttonLobby.time.setFontSize(16);
         this.buttonLobby.time.setColor(cc.color(162, 153, 202));
         // this.buttonLobby.time.enableOutline(cc.color(162, 153, 202), 0);
-        this.buttonLobby.time.setPositionY(this.buttonLobby.time.getPositionY() - 15);
+        this.buttonLobby.time.setPositionY(this.buttonLobby.time.getPositionY() - 5);
         this.buttonLobby.notify.setPosition(this.buttonLobby.notify.x + 0, this.buttonLobby.notify.y + 20);
     },
 
@@ -1493,10 +1493,12 @@ var EventTet = cc.Class.extend({
                     if (rCoinBonus.option == 1) { // mua Gold
                         str = LocalizedString.to("EVENT_TET_KEYCOIN_BONUS");
                         str = StringUtility.replaceAll(str, "@coin", rCoinBonus.keyCoin);
+                        return
                     }
                     else if (rCoinBonus.option == 5) { // mua truc tiep
                         str = LocalizedString.to("EVENT_TET_KEYCOIN_BUY");
                         str = StringUtility.replaceAll(str, "@coin", rCoinBonus.keyCoin);
+                        return;
                     }
                     else if (rCoinBonus.option == 14) { // mua Offer
                         return;
@@ -1626,18 +1628,17 @@ var EventTet = cc.Class.extend({
                 cc.log("CMD_REGISTER: " + JSON.stringify(rAward));
                 if (rAward.result == 1) {
                     if (this.isGoldDiamond(rAward.idGift)) {
-                        sceneMgr.showOKDialog(LocalizedString.to("EVENT_TET_REGISTER_SUCCESS"));
-                        eventTet.isRegisterSuccess = true;
-
-                        var gui = sceneMgr.getGUI(EventTet.GUI_REGISTER);
-                        if (gui && gui instanceof  EventTetRegisterInformationGUI) {
-                            gui.onRegisterSuccess();
-                        }
-                    }
-                    else {
                         var guiOpenGift = sceneMgr.getGUIByClassName(EventTetReceiveOpenGiftGUI.className);
                         if (guiOpenGift && guiOpenGift.isShow) {
                             guiOpenGift.onGiftSuccess();
+                        }
+                    }
+                    else {
+                        sceneMgr.showOKDialog(LocalizedString.to("EVENT_TET_REGISTER_SUCCESS"));
+                        eventTet.isRegisterSuccess = true;
+                        var gui = sceneMgr.getGUI(EventTet.GUI_REGISTER);
+                        if (gui && gui instanceof  EventTetRegisterInformationGUI) {
+                            gui.onRegisterSuccess();
                         }
                     }
                     // Event nay khong co nhan nhieu qua cung luc
@@ -1735,7 +1736,7 @@ EventTet.CMD_OPEN_EVENT = 15353;
 EventTet.GET_SHOP_INFO = 15355;
 EventTet.CMD_GET_MAP = 15361;
 EventTet.CMD_OPEN_LIXI = 15362;
-EventTet.CMD_KEYCOIN_BONUS = 15209;
+EventTet.CMD_KEYCOIN_BONUS = 15359;
 EventTet.CMD_CHEAT_TEXT = 15365;
 EventTet.CMD_CHEAT_LIXI = 15368 ;
 EventTet.CMD_GET_FREE = 15360;

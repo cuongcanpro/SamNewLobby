@@ -93,61 +93,61 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="text0" ActionTag="129328067" Tag="65" IconVisible="False" LeftMargin="85.2199" RightMargin="300.7801" TopMargin="80.4112" BottomMargin="115.5888" LeftEage="15" RightEage="15" TopEage="10" BottomEage="10" Scale9OriginX="15" Scale9OriginY="10" Scale9Width="44" Scale9Height="52" ctype="ImageViewObjectData">
-                <Size X="66.0000" Y="66.0000" />
+              <AbstractNodeData Name="text0" ActionTag="129328067" Tag="65" IconVisible="False" LeftMargin="81.2199" RightMargin="296.7801" TopMargin="79.7249" BottomMargin="110.2751" LeftEage="15" RightEage="15" TopEage="10" BottomEage="10" Scale9OriginX="15" Scale9OriginY="10" Scale9Width="44" Scale9Height="52" ctype="ImageViewObjectData">
+                <Size X="74.0000" Y="72.0000" />
                 <Children>
-                  <AbstractNodeData Name="Image_6" ActionTag="-243254835" Tag="138" IconVisible="False" LeftMargin="10.1133" RightMargin="33.8867" TopMargin="-1.1216" BottomMargin="45.1216" LeftEage="7" RightEage="7" TopEage="7" BottomEage="7" Scale9OriginX="7" Scale9OriginY="7" Scale9Width="17" Scale9Height="17" ctype="ImageViewObjectData">
+                  <AbstractNodeData Name="Image_6" ActionTag="-243254835" Tag="138" IconVisible="False" LeftMargin="10.1133" RightMargin="41.8867" TopMargin="4.8784" BottomMargin="45.1216" LeftEage="7" RightEage="7" TopEage="7" BottomEage="7" Scale9OriginX="7" Scale9OriginY="7" Scale9Width="17" Scale9Height="17" ctype="ImageViewObjectData">
                     <Size X="22.0000" Y="22.0000" />
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                     <Position X="21.1133" Y="56.1216" />
                     <Scale ScaleX="1.3000" ScaleY="1.3000" />
                     <CColor A="255" R="255" G="255" B="255" />
-                    <PrePosition X="0.3199" Y="0.8503" />
-                    <PreSize X="0.3333" Y="0.3333" />
+                    <PrePosition X="0.2853" Y="0.7795" />
+                    <PreSize X="0.2973" Y="0.3056" />
                     <FileData Type="Normal" Path="EventTetUI/bgNumLabel.png" Plist="" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="label" ActionTag="-287060089" Tag="134" IconVisible="False" LeftMargin="10.2553" RightMargin="36.7447" TopMargin="0.2918" BottomMargin="46.7082" FontSize="14" LabelText="10" HorizontalAlignmentType="HT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                  <AbstractNodeData Name="label" ActionTag="-287060089" Tag="134" IconVisible="False" LeftMargin="10.2553" RightMargin="44.7447" TopMargin="6.2918" BottomMargin="46.7082" FontSize="14" LabelText="10" HorizontalAlignmentType="HT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                     <Size X="19.0000" Y="19.0000" />
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                     <Position X="19.7553" Y="56.2082" />
                     <Scale ScaleX="1.0000" ScaleY="1.0000" />
                     <CColor A="255" R="245" G="237" B="184" />
-                    <PrePosition X="0.2993" Y="0.8516" />
-                    <PreSize X="0.2879" Y="0.2879" />
+                    <PrePosition X="0.2670" Y="0.7807" />
+                    <PreSize X="0.2568" Y="0.2639" />
                     <FontResource Type="Normal" Path="Font/tahoma.ttf" Plist="" />
                     <OutlineColor A="255" R="255" G="0" B="0" />
                     <ShadowColor A="255" R="110" G="110" B="110" />
                   </AbstractNodeData>
                 </Children>
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="118.2199" Y="148.5888" />
+                <Position X="118.2199" Y="146.2751" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.2615" Y="0.5671" />
-                <PreSize X="0.1460" Y="0.2519" />
-                <FileData Type="Default" Path="Default/ImageFile.png" Plist="" />
+                <PrePosition X="0.2615" Y="0.5583" />
+                <PreSize X="0.1637" Y="0.2748" />
+                <FileData Type="Normal" Path="EventTetUI/MainScene/label0.png" Plist="" />
               </AbstractNodeData>
-              <AbstractNodeData Name="text1" ActionTag="-1823091990" Tag="66" IconVisible="False" LeftMargin="165.1808" RightMargin="220.8192" TopMargin="82.7249" BottomMargin="113.2751" LeftEage="15" RightEage="15" TopEage="10" BottomEage="10" Scale9OriginX="15" Scale9OriginY="10" Scale9Width="44" Scale9Height="52" ctype="ImageViewObjectData">
-                <Size X="66.0000" Y="66.0000" />
+              <AbstractNodeData Name="text1" ActionTag="-1823091990" Tag="66" IconVisible="False" LeftMargin="161.1808" RightMargin="216.8192" TopMargin="79.7249" BottomMargin="110.2751" LeftEage="15" RightEage="15" TopEage="10" BottomEage="10" Scale9OriginX="15" Scale9OriginY="10" Scale9Width="44" Scale9Height="52" ctype="ImageViewObjectData">
+                <Size X="74.0000" Y="72.0000" />
                 <Children>
-                  <AbstractNodeData Name="Image_6_0" ActionTag="448903328" Tag="139" IconVisible="False" LeftMargin="10.3338" RightMargin="33.6662" TopMargin="-1.1233" BottomMargin="45.1233" LeftEage="7" RightEage="7" TopEage="7" BottomEage="7" Scale9OriginX="7" Scale9OriginY="7" Scale9Width="17" Scale9Height="17" ctype="ImageViewObjectData">
+                  <AbstractNodeData Name="Image_6_0" ActionTag="448903328" Tag="139" IconVisible="False" LeftMargin="10.3338" RightMargin="41.6662" TopMargin="4.8767" BottomMargin="45.1233" LeftEage="7" RightEage="7" TopEage="7" BottomEage="7" Scale9OriginX="7" Scale9OriginY="7" Scale9Width="17" Scale9Height="17" ctype="ImageViewObjectData">
                     <Size X="22.0000" Y="22.0000" />
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                     <Position X="21.3338" Y="56.1233" />
                     <Scale ScaleX="1.3000" ScaleY="1.3000" />
                     <CColor A="255" R="255" G="255" B="255" />
-                    <PrePosition X="0.3232" Y="0.8504" />
-                    <PreSize X="0.3333" Y="0.3333" />
+                    <PrePosition X="0.2883" Y="0.7795" />
+                    <PreSize X="0.2973" Y="0.3056" />
                     <FileData Type="Normal" Path="EventTetUI/bgNumLabel.png" Plist="" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="label" ActionTag="925600148" Tag="135" IconVisible="False" LeftMargin="11.2543" RightMargin="35.7457" TopMargin="-0.0432" BottomMargin="47.0432" FontSize="14" LabelText="10" HorizontalAlignmentType="HT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                  <AbstractNodeData Name="label" ActionTag="925600148" Tag="135" IconVisible="False" LeftMargin="11.2543" RightMargin="43.7457" TopMargin="5.9568" BottomMargin="47.0432" FontSize="14" LabelText="10" HorizontalAlignmentType="HT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                     <Size X="19.0000" Y="19.0000" />
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                     <Position X="20.7543" Y="56.5432" />
                     <Scale ScaleX="1.0000" ScaleY="1.0000" />
                     <CColor A="255" R="245" G="237" B="184" />
-                    <PrePosition X="0.3145" Y="0.8567" />
-                    <PreSize X="0.2879" Y="0.2879" />
+                    <PrePosition X="0.2805" Y="0.7853" />
+                    <PreSize X="0.2568" Y="0.2639" />
                     <FontResource Type="Normal" Path="Font/tahoma.ttf" Plist="" />
                     <OutlineColor A="255" R="255" G="0" B="0" />
                     <ShadowColor A="255" R="110" G="110" B="110" />
@@ -158,76 +158,76 @@
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.4385" Y="0.5583" />
-                <PreSize X="0.1460" Y="0.2519" />
-                <FileData Type="Default" Path="Default/ImageFile.png" Plist="" />
+                <PreSize X="0.1637" Y="0.2748" />
+                <FileData Type="Normal" Path="EventTetUI/MainScene/label1.png" Plist="" />
               </AbstractNodeData>
-              <AbstractNodeData Name="text2" ActionTag="358941579" Tag="67" IconVisible="False" LeftMargin="240.2964" RightMargin="145.7036" TopMargin="82.1468" BottomMargin="112.8532" LeftEage="15" RightEage="15" TopEage="10" BottomEage="10" Scale9OriginX="15" Scale9OriginY="10" Scale9Width="44" Scale9Height="52" ctype="ImageViewObjectData">
-                <Size X="66.0000" Y="67.0000" />
+              <AbstractNodeData Name="text2" ActionTag="358941579" Tag="67" IconVisible="False" LeftMargin="236.2964" RightMargin="141.7036" TopMargin="79.7249" BottomMargin="110.2751" LeftEage="15" RightEage="15" TopEage="10" BottomEage="10" Scale9OriginX="15" Scale9OriginY="10" Scale9Width="44" Scale9Height="52" ctype="ImageViewObjectData">
+                <Size X="74.0000" Y="72.0000" />
                 <Children>
-                  <AbstractNodeData Name="Image_6_0_0" ActionTag="278081250" Tag="140" IconVisible="False" LeftMargin="10.9987" RightMargin="33.0013" TopMargin="-0.5694" BottomMargin="45.5694" LeftEage="7" RightEage="7" TopEage="7" BottomEage="7" Scale9OriginX="7" Scale9OriginY="7" Scale9Width="17" Scale9Height="17" ctype="ImageViewObjectData">
+                  <AbstractNodeData Name="Image_6_0_0" ActionTag="278081250" Tag="140" IconVisible="False" LeftMargin="10.9987" RightMargin="41.0013" TopMargin="4.4306" BottomMargin="45.5694" LeftEage="7" RightEage="7" TopEage="7" BottomEage="7" Scale9OriginX="7" Scale9OriginY="7" Scale9Width="17" Scale9Height="17" ctype="ImageViewObjectData">
                     <Size X="22.0000" Y="22.0000" />
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                     <Position X="21.9987" Y="56.5694" />
                     <Scale ScaleX="1.3000" ScaleY="1.3000" />
                     <CColor A="255" R="255" G="255" B="255" />
-                    <PrePosition X="0.3333" Y="0.8443" />
-                    <PreSize X="0.3333" Y="0.3284" />
+                    <PrePosition X="0.2973" Y="0.7857" />
+                    <PreSize X="0.2973" Y="0.3056" />
                     <FileData Type="Normal" Path="EventTetUI/bgNumLabel.png" Plist="" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="label" ActionTag="369730455" Tag="136" IconVisible="False" LeftMargin="11.9195" RightMargin="35.0805" TopMargin="0.8435" BottomMargin="47.1565" FontSize="14" LabelText="10" HorizontalAlignmentType="HT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                  <AbstractNodeData Name="label" ActionTag="369730455" Tag="136" IconVisible="False" LeftMargin="11.9195" RightMargin="43.0805" TopMargin="5.8435" BottomMargin="47.1565" FontSize="14" LabelText="10" HorizontalAlignmentType="HT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                     <Size X="19.0000" Y="19.0000" />
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                     <Position X="21.4195" Y="56.6565" />
                     <Scale ScaleX="1.0000" ScaleY="1.0000" />
                     <CColor A="255" R="245" G="237" B="184" />
-                    <PrePosition X="0.3245" Y="0.8456" />
-                    <PreSize X="0.2879" Y="0.2836" />
+                    <PrePosition X="0.2895" Y="0.7869" />
+                    <PreSize X="0.2568" Y="0.2639" />
                     <FontResource Type="Normal" Path="Font/tahoma.ttf" Plist="" />
                     <OutlineColor A="255" R="255" G="0" B="0" />
                     <ShadowColor A="255" R="110" G="110" B="110" />
                   </AbstractNodeData>
                 </Children>
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="273.2964" Y="146.3532" />
+                <Position X="273.2964" Y="146.2751" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.6046" Y="0.5586" />
-                <PreSize X="0.1460" Y="0.2557" />
-                <FileData Type="Default" Path="Default/ImageFile.png" Plist="" />
+                <PrePosition X="0.6046" Y="0.5583" />
+                <PreSize X="0.1637" Y="0.2748" />
+                <FileData Type="Normal" Path="EventTetUI/MainScene/label2.png" Plist="" />
               </AbstractNodeData>
-              <AbstractNodeData Name="text3" ActionTag="1170060264" Tag="68" IconVisible="False" LeftMargin="325.4113" RightMargin="60.5887" TopMargin="79.2545" BottomMargin="114.7455" LeftEage="15" RightEage="15" TopEage="10" BottomEage="10" Scale9OriginX="15" Scale9OriginY="10" Scale9Width="44" Scale9Height="53" ctype="ImageViewObjectData">
-                <Size X="66.0000" Y="68.0000" />
+              <AbstractNodeData Name="text3" ActionTag="1170060264" Tag="68" IconVisible="False" LeftMargin="321.4113" RightMargin="56.5887" TopMargin="78.7249" BottomMargin="110.2751" LeftEage="15" RightEage="15" TopEage="10" BottomEage="10" Scale9OriginX="15" Scale9OriginY="10" Scale9Width="44" Scale9Height="53" ctype="ImageViewObjectData">
+                <Size X="74.0000" Y="73.0000" />
                 <Children>
-                  <AbstractNodeData Name="Image_6_0_0_0" ActionTag="-1831022214" Tag="141" IconVisible="False" LeftMargin="10.5524" RightMargin="33.4476" TopMargin="-0.2384" BottomMargin="46.2384" LeftEage="7" RightEage="7" TopEage="7" BottomEage="7" Scale9OriginX="7" Scale9OriginY="7" Scale9Width="17" Scale9Height="17" ctype="ImageViewObjectData">
+                  <AbstractNodeData Name="Image_6_0_0_0" ActionTag="-1831022214" Tag="141" IconVisible="False" LeftMargin="10.5524" RightMargin="41.4476" TopMargin="4.7616" BottomMargin="46.2384" LeftEage="7" RightEage="7" TopEage="7" BottomEage="7" Scale9OriginX="7" Scale9OriginY="7" Scale9Width="17" Scale9Height="17" ctype="ImageViewObjectData">
                     <Size X="22.0000" Y="22.0000" />
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                     <Position X="21.5524" Y="57.2384" />
                     <Scale ScaleX="1.3000" ScaleY="1.3000" />
                     <CColor A="255" R="255" G="255" B="255" />
-                    <PrePosition X="0.3266" Y="0.8417" />
-                    <PreSize X="0.3333" Y="0.3235" />
+                    <PrePosition X="0.2912" Y="0.7841" />
+                    <PreSize X="0.2973" Y="0.3014" />
                     <FileData Type="Normal" Path="EventTetUI/bgNumLabel.png" Plist="" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="label" ActionTag="-597953546" Tag="137" IconVisible="False" LeftMargin="11.3623" RightMargin="35.6377" TopMargin="0.7300" BottomMargin="48.2700" FontSize="14" LabelText="10" HorizontalAlignmentType="HT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                  <AbstractNodeData Name="label" ActionTag="-597953546" Tag="137" IconVisible="False" LeftMargin="11.3623" RightMargin="43.6377" TopMargin="5.7300" BottomMargin="48.2700" FontSize="14" LabelText="10" HorizontalAlignmentType="HT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                     <Size X="19.0000" Y="19.0000" />
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                     <Position X="20.8623" Y="57.7700" />
                     <Scale ScaleX="1.0000" ScaleY="1.0000" />
                     <CColor A="255" R="245" G="237" B="184" />
-                    <PrePosition X="0.3161" Y="0.8496" />
-                    <PreSize X="0.2879" Y="0.2794" />
+                    <PrePosition X="0.2819" Y="0.7914" />
+                    <PreSize X="0.2568" Y="0.2603" />
                     <FontResource Type="Normal" Path="Font/tahoma.ttf" Plist="" />
                     <OutlineColor A="255" R="255" G="0" B="0" />
                     <ShadowColor A="255" R="110" G="110" B="110" />
                   </AbstractNodeData>
                 </Children>
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="358.4113" Y="148.7455" />
+                <Position X="358.4113" Y="146.7751" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.7929" Y="0.5677" />
-                <PreSize X="0.1460" Y="0.2595" />
-                <FileData Type="Default" Path="Default/ImageFile.png" Plist="" />
+                <PrePosition X="0.7929" Y="0.5602" />
+                <PreSize X="0.1637" Y="0.2786" />
+                <FileData Type="Normal" Path="EventTetUI/MainScene/label3.png" Plist="" />
               </AbstractNodeData>
               <AbstractNodeData Name="lb_message_0" ActionTag="1814940908" Tag="131" IconVisible="False" LeftMargin="173.5167" RightMargin="181.4833" TopMargin="15.7955" BottomMargin="221.2045" FontSize="18" LabelText="Thông báo" HorizontalAlignmentType="HT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                 <Size X="97.0000" Y="25.0000" />

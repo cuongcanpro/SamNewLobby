@@ -1318,8 +1318,8 @@ var EventTetOpenLixiGUI = BaseLayer.extend({
     onReceiveResult: function (cmd) {
         this.updateNumLixi();
         if (cmd.result == 0) {
-            this.idGift = cmd.receivedGiftId;
-            this.typeGift = cmd.receivedGiftType;
+            this.idGift = cmd.receivedGiftId[0];
+            this.typeGift = cmd.receivedGiftType[0];
             if (this.typeGift == EventTet.TYPE_TOKEN) {
                 eventTet.sendGetMyRank(eventTet.eventTime);
             }
@@ -2990,6 +2990,7 @@ var EventTetReceiveOpenGiftGUI = BaseLayer.extend({
             this.gift.runAction(cc.sequence(cc.fadeOut(1.0), cc.callFunc(this.onBack.bind(this))));
         }
         // this.runAction(cc.sequence(cc.delayTime(1.0), cc.callFunc(this.onBack.bind(this))));
+        gamedata.updateUserInfoNow();
     },
 
     onButtonRelease: function (button, id) {
@@ -3024,6 +3025,7 @@ var EventTetReceiveOpenGiftGUI = BaseLayer.extend({
             else {
                 this.onGiftSuccess();
             }
+
         }
         else {
             this.onCapture();
@@ -5024,8 +5026,8 @@ var EventTetRankGUI = BaseLayer.extend({
     },
 
     updateMyRank: function(week){
-        week = week || this.currentTab + 1;
-
+      //  week = week || this.currentTab + 1;
+        var week = this.currentTab + 1;
         var data = eventTet.getMyRankData(week);
         if (data){
             this.myRank.setVisible(true);

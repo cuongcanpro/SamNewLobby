@@ -740,8 +740,8 @@ CmdReceiveEventTetOpenLixi = CmdReceivedCommon.extend({
     readData: function () {
         this.result = this.getByte();
         this.giftId = this.getInt();
-        this.receivedGiftType = this.getString();
-        this.receivedGiftId = this.getDouble();
+        this.receivedGiftType = this.getStrings();
+        this.receivedGiftId = this.getLongs();
         this.position = this.getByte();
         this.mapLixi = this.getStrings();
         this.arrayData = [];

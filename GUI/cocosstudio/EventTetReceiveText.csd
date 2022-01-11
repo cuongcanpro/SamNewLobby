@@ -6,7 +6,7 @@
       <ObjectData Name="Scene" Tag="248" ctype="GameNodeObjectData">
         <Size X="800.0000" Y="480.0000" />
         <Children>
-          <AbstractNodeData Name="bg" ActionTag="1645141152" UserData="scale" Tag="249" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="118.0000" RightMargin="164.0000" TopMargin="27.5000" BottomMargin="69.5000" LeftEage="208" RightEage="208" TopEage="87" BottomEage="87" Scale9OriginX="208" Scale9OriginY="87" Scale9Width="102" Scale9Height="209" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="bg" ActionTag="1645141152" UserData="scale" Tag="249" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="117.9600" RightMargin="164.0400" TopMargin="27.5240" BottomMargin="69.4760" LeftEage="208" RightEage="208" TopEage="87" BottomEage="87" Scale9OriginX="208" Scale9OriginY="87" Scale9Width="102" Scale9Height="209" ctype="ImageViewObjectData">
             <Size X="518.0000" Y="383.0000" />
             <Children>
               <AbstractNodeData Name="btnOk" ActionTag="-1392947177" Tag="250" IconVisible="False" LeftMargin="208.3730" RightMargin="179.6270" TopMargin="374.6038" BottomMargin="-42.6038" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="100" Scale9Height="29" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
@@ -76,7 +76,7 @@
                 <PreSize X="0.3417" Y="0.3864" />
                 <FileData Type="Normal" Path="EventTetUI/iconKeyCoinLarge.png" Plist="" />
               </AbstractNodeData>
-              <AbstractNodeData Name="Text_1" ActionTag="433082504" Tag="207" IconVisible="False" LeftMargin="81.9972" RightMargin="36.0028" TopMargin="293.0009" BottomMargin="29.9991" IsCustomSize="True" FontSize="20" LabelText="Bạn đã nhận được vật phẩm trong sự kiện Tết Đầy Đón Xuân" HorizontalAlignmentType="HT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+              <AbstractNodeData Name="Text_1" ActionTag="433082504" Tag="207" IconVisible="False" LeftMargin="81.9972" RightMargin="36.0028" TopMargin="293.0009" BottomMargin="29.9991" IsCustomSize="True" FontSize="20" LabelText="Bạn đã nhận được vật phẩm trong sự kiện Nhâm Dần Tài Lộc" HorizontalAlignmentType="HT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                 <Size X="400.0000" Y="60.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="281.9972" Y="59.9991" />
@@ -114,7 +114,7 @@
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="377.0000" Y="261.0000" />
+            <Position X="376.9600" Y="260.9760" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.4712" Y="0.5437" />

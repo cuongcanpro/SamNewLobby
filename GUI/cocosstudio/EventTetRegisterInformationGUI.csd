@@ -171,13 +171,13 @@
                 <PreSize X="0.6127" Y="0.0682" />
                 <FileData Type="Normal" Path="EventTetUI/textField.png" Plist="" />
               </AbstractNodeData>
-              <AbstractNodeData Name="Text_1" ActionTag="313616096" Tag="346" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="186.5000" RightMargin="186.5000" TopMargin="19.9129" BottomMargin="339.0871" FontSize="16" LabelText="Đăng kí nhận thưởng" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+              <AbstractNodeData Name="Text_1" ActionTag="313616096" Tag="346" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="188.5000" RightMargin="184.5000" TopMargin="19.9129" BottomMargin="339.0871" FontSize="16" LabelText="Đăng kí nhận thưởng" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                 <Size X="177.0000" Y="22.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="275.0000" Y="350.0871" />
+                <Position X="277.0000" Y="350.0871" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.5000" Y="0.9189" />
+                <PrePosition X="0.5036" Y="0.9189" />
                 <PreSize X="0.3218" Y="0.0577" />
                 <FontResource Type="Normal" Path="Font/tahomabd.ttf" Plist="" />
                 <OutlineColor A="255" R="255" G="0" B="0" />
@@ -234,19 +234,19 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="notice_0_0" ActionTag="1262071620" Tag="139" IconVisible="False" LeftMargin="26.9255" RightMargin="51.0745" TopMargin="296.6488" BottomMargin="65.3512" FontSize="14" LabelText="Nhận thưởng sự kiện Tết Đầy Đón Xuân- [Quà trúng] - [Ngày trúng]" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                <Size X="472.0000" Y="19.0000" />
+              <AbstractNodeData Name="notice_0_0" ActionTag="1262071620" Tag="139" IconVisible="False" LeftMargin="25.9255" RightMargin="50.0745" TopMargin="296.6488" BottomMargin="65.3512" FontSize="14" LabelText="Nhận thưởng sự kiện Nhâm Dần Tài Lộc- [Quà trúng] - [Ngày trúng]" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                <Size X="474.0000" Y="19.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="262.9255" Y="74.8512" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="141" G="197" B="244" />
                 <PrePosition X="0.4780" Y="0.1965" />
-                <PreSize X="0.8582" Y="0.0499" />
+                <PreSize X="0.8618" Y="0.0499" />
                 <FontResource Type="Normal" Path="Font/tahomabd.ttf" Plist="" />
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="notice_2" ActionTag="1021865022" Tag="138" IconVisible="False" LeftMargin="21.4810" RightMargin="8.5190" TopMargin="309.5739" BottomMargin="21.4261" IsCustomSize="True" FontSize="14" LabelText="Ngày 3/3 là hạn chót điền thông tin nhận thưởng. Giải thưởng sẽ bị &#xA;hủy nếu thông tin nhận thưởng không được cụng cấp đầy đủ và đúng hạn" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+              <AbstractNodeData Name="notice_2" ActionTag="1021865022" Tag="138" IconVisible="False" LeftMargin="21.4810" RightMargin="8.5190" TopMargin="309.5739" BottomMargin="21.4261" IsCustomSize="True" FontSize="14" LabelText="Ngày 23/2 là hạn chót điền thông tin nhận thưởng. Giải thưởng sẽ bị &#xA;hủy nếu thông tin nhận thưởng không được cụng cấp đầy đủ và đúng hạn" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                 <Size X="520.0000" Y="50.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="281.4810" Y="46.4261" />
@@ -258,7 +258,7 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="btnSendCMND" ActionTag="959127912" Tag="429" IconVisible="False" LeftMargin="430.3681" RightMargin="22.6318" TopMargin="385.3367" BottomMargin="-42.3367" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="67" Scale9Height="16" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+              <AbstractNodeData Name="btnSendCMND" ActionTag="959127912" Tag="429" IconVisible="False" LeftMargin="430.3681" RightMargin="22.6319" TopMargin="385.3367" BottomMargin="-42.3367" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="67" Scale9Height="16" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                 <Size X="97.0000" Y="38.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="478.8681" Y="-23.3367" />
