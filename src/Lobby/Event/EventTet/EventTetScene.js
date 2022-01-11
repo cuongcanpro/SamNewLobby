@@ -1275,7 +1275,6 @@ var EventTetOpenLixiGUI = BaseLayer.extend({
         var lixi = eventTet.getLixiFromId(eventTet.indexLixi);
         var s = localized("EVENT_TET_NUM_AVAILABLE") + lixi.num;
         this.labelNum.setString(s);
-        this.updateButtonReset();
     },
 
     openLixi: function() {
@@ -1387,6 +1386,7 @@ var EventTetOpenLixiGUI = BaseLayer.extend({
             this.waitCloseLixi = false;
             this.setInfoMap();
         }
+        this.updateButtonReset();
     },
 
     resetMap: function () {
@@ -2815,7 +2815,8 @@ var EventTetReceiveOpenGiftGUI = BaseLayer.extend({
         this.bg = this.getControl("bg");
 
         this.panel = this.getControl("panel");
-
+        this.deco = this.getControl("deco");
+        this.deco.pos = this.deco.getPosition();
         this.pEffect = this.getControl("effect");
 
         this.lbNotice = this.getControl("lb", this.panel);
@@ -2862,8 +2863,8 @@ var EventTetReceiveOpenGiftGUI = BaseLayer.extend({
         var time = 0;
         var tDrop = 0.3;
 
+        this.deco.setVisible(true);
         this.btn.setVisible(true);
-
         this.circle.setVisible(true);
         this.particle.setVisible(true);
 
@@ -2872,6 +2873,9 @@ var EventTetReceiveOpenGiftGUI = BaseLayer.extend({
         this.lbNotice.setVisible(true);
 
         time += 0.15;
+        this.deco.setPositionY(this.deco.pos.y + 500);
+        this.deco.runAction(new cc.EaseBackOut(cc.moveTo(tDrop, this.deco.pos)));
+
         this.title.setPositionY(this.title.pos.y + 500);
         this.title.runAction(new cc.EaseBackOut(cc.moveTo(tDrop, this.title.pos)));
 
@@ -2910,6 +2914,7 @@ var EventTetReceiveOpenGiftGUI = BaseLayer.extend({
 
         this.title.setPosition(this.title.pos);
         this.title.runAction(new cc.EaseBackIn(cc.moveTo(tDrop, cc.p(this.title.pos.x, this.title.pos.y + 500))));
+        this.deco.runAction(new cc.EaseBackIn(cc.moveTo(tDrop, cc.p(this.deco.pos.x, this.deco.pos.y + 500))));
 
         this.lbNotice.setPosition(this.lbNotice.pos);
         this.lbNotice.runAction(new cc.EaseBackIn(cc.moveTo(tDrop, cc.p(this.lbNotice.pos.x, this.lbNotice.pos.y + 500))));
