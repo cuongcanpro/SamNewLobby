@@ -1348,6 +1348,7 @@ var EventTet = cc.Class.extend({
     },
 
     getEndWeek: function(startWeekDate){
+        cc.log("startWeekDate " + startWeekDate);
         var temp = startWeekDate.split("/");
         var day = temp[0], month = temp[1];
         var today = new Date();

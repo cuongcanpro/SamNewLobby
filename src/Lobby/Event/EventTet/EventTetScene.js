@@ -5069,6 +5069,7 @@ var EventTetRankGUI = BaseLayer.extend({
             this.pJumpMyWeek.setVisible(true);
             this.pJumpMyWeek.btnJump.setVisible(false);
             this.pJumpMyWeek.txtNote.setString(localized("EVENT_TET_HAVE_NO_INFO"));
+
         }
     },
 
@@ -5087,6 +5088,9 @@ var EventTetRankGUI = BaseLayer.extend({
         } else {
             cc.log("VO DAY NE 1");
             this.pRank.txtNoInfo.setVisible(true);
+            var time = "(" + eventTet.eventWeeks[week - 1] + "-" + eventTet.getEndWeek(eventTet.eventWeeks[week -1]) + ")";
+            var s = "Dien ra tu " + time;
+            this.pRank.txtNoInfo.setString(localized(s));
             this.uiTopRank.setVisible(false);
         }
 
