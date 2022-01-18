@@ -1040,6 +1040,19 @@
                 <PreSize X="0.9704" Y="0.4900" />
                 <FileData Type="Normal" Path="EventTetUI/MainScene/bgInfo.png" Plist="" />
               </AbstractNodeData>
+              <AbstractNodeData Name="btnTop" ActionTag="-1552432444" Tag="153" IconVisible="False" LeftMargin="17.0000" RightMargin="3.0000" TopMargin="22.0000" BottomMargin="18.0000" TouchEnable="True" FontSize="14" ButtonText="Button" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="5" BottomEage="5" Scale9OriginX="15" Scale9OriginY="5" Scale9Width="11" Scale9Height="6" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+                <Size X="250.0000" Y="60.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="142.0000" Y="48.0000" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition X="0.5259" Y="0.4800" />
+                <PreSize X="0.9259" Y="0.6000" />
+                <TextColor A="255" R="65" G="65" B="70" />
+                <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
+                <OutlineColor A="255" R="255" G="0" B="0" />
+                <ShadowColor A="255" R="110" G="110" B="110" />
+              </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="1.0000" />
             <Position X="801.8981" />

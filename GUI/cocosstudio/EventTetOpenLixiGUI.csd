@@ -45,7 +45,7 @@
                 <EndColor A="255" R="255" G="255" B="255" />
                 <ColorVector ScaleY="1.0000" />
               </AbstractNodeData>
-              <AbstractNodeData Name="labelNum" ActionTag="-863714437" Tag="361" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BottomEdge" LeftMargin="256.7520" RightMargin="229.2480" TopMargin="402.3463" BottomMargin="25.6537" FontSize="18" LabelText="So luot con lai la 100000000000" HorizontalAlignmentType="HT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+              <AbstractNodeData Name="labelNum" ActionTag="-863714437" Tag="361" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BottomEdge" LeftMargin="256.7520" RightMargin="229.2480" TopMargin="402.3463" BottomMargin="25.6537" FontSize="18" LabelText="So luot con lai la 100000000000" HorizontalAlignmentType="HT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="2.0000" ctype="TextObjectData">
                 <Size X="278.0000" Y="25.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="395.7520" Y="38.1537" />
@@ -146,6 +146,7 @@
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.3464" Y="0.5123" />
                 <PreSize X="0.3953" Y="0.6327" />
+                <FontResource Type="Default" Path="" Plist="" />
                 <TextColor A="255" R="65" G="65" B="70" />
                 <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
                 <PressedFileData Type="Normal" Path="EventTetUI/MainScene/bgGold.png" Plist="" />

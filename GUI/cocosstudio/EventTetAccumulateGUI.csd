@@ -194,7 +194,7 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="icon0" Visible="False" ActionTag="319964943" Tag="101" IconVisible="False" LeftMargin="58.0342" RightMargin="188.9658" TopMargin="135.7244" BottomMargin="0.2756" LeftEage="9" RightEage="9" TopEage="9" BottomEage="9" Scale9OriginX="9" Scale9OriginY="9" Scale9Width="28" Scale9Height="28" ctype="ImageViewObjectData">
+              <AbstractNodeData Name="icon0" Visible="False" ActionTag="319964943" Tag="101" IconVisible="False" LeftMargin="58.0342" RightMargin="188.9658" TopMargin="135.7244" BottomMargin="0.2756" LeftEage="9" RightEage="9" TopEage="9" BottomEage="9" Scale9OriginX="9" Scale9OriginY="9" Scale9Width="56" Scale9Height="54" ctype="ImageViewObjectData">
                 <Size X="67.0000" Y="65.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="91.5342" Y="32.7756" />
@@ -202,9 +202,9 @@
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.2915" Y="0.1631" />
                 <PreSize X="0.2134" Y="0.3234" />
-                <FileData Type="Default" Path="Default/ImageFile.png" Plist="" />
+                <FileData Type="Normal" Path="EventTetUI/MainScene/label0.png" Plist="" />
               </AbstractNodeData>
-              <AbstractNodeData Name="icon1" Visible="False" ActionTag="-1237037291" Tag="102" IconVisible="False" LeftMargin="101.3091" RightMargin="145.6909" TopMargin="134.7246" BottomMargin="1.2754" LeftEage="9" RightEage="9" TopEage="9" BottomEage="9" Scale9OriginX="9" Scale9OriginY="9" Scale9Width="28" Scale9Height="28" ctype="ImageViewObjectData">
+              <AbstractNodeData Name="icon1" Visible="False" ActionTag="-1237037291" Tag="102" IconVisible="False" LeftMargin="101.3091" RightMargin="145.6909" TopMargin="134.7246" BottomMargin="1.2754" LeftEage="9" RightEage="9" TopEage="9" BottomEage="9" Scale9OriginX="9" Scale9OriginY="9" Scale9Width="56" Scale9Height="54" ctype="ImageViewObjectData">
                 <Size X="67.0000" Y="65.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="134.8091" Y="33.7754" />
@@ -212,9 +212,9 @@
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.4293" Y="0.1680" />
                 <PreSize X="0.2134" Y="0.3234" />
-                <FileData Type="Default" Path="Default/ImageFile.png" Plist="" />
+                <FileData Type="Normal" Path="EventTetUI/MainScene/label1.png" Plist="" />
               </AbstractNodeData>
-              <AbstractNodeData Name="icon2" Visible="False" ActionTag="652164054" Tag="103" IconVisible="False" LeftMargin="143.2705" RightMargin="103.7295" TopMargin="134.8031" BottomMargin="1.1969" LeftEage="9" RightEage="9" TopEage="9" BottomEage="9" Scale9OriginX="9" Scale9OriginY="9" Scale9Width="28" Scale9Height="28" ctype="ImageViewObjectData">
+              <AbstractNodeData Name="icon2" Visible="False" ActionTag="652164054" Tag="103" IconVisible="False" LeftMargin="143.2705" RightMargin="103.7295" TopMargin="134.8031" BottomMargin="1.1969" LeftEage="9" RightEage="9" TopEage="9" BottomEage="9" Scale9OriginX="9" Scale9OriginY="9" Scale9Width="56" Scale9Height="54" ctype="ImageViewObjectData">
                 <Size X="67.0000" Y="65.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="176.7705" Y="33.6969" />
@@ -222,9 +222,9 @@
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.5630" Y="0.1676" />
                 <PreSize X="0.2134" Y="0.3234" />
-                <FileData Type="Default" Path="Default/ImageFile.png" Plist="" />
+                <FileData Type="Normal" Path="EventTetUI/MainScene/label2.png" Plist="" />
               </AbstractNodeData>
-              <AbstractNodeData Name="icon3" Visible="False" ActionTag="939196545" Tag="104" IconVisible="False" LeftMargin="187.3906" RightMargin="59.6094" TopMargin="134.4895" BottomMargin="1.5105" LeftEage="9" RightEage="9" TopEage="9" BottomEage="9" Scale9OriginX="9" Scale9OriginY="9" Scale9Width="28" Scale9Height="28" ctype="ImageViewObjectData">
+              <AbstractNodeData Name="icon3" Visible="False" ActionTag="939196545" Tag="104" IconVisible="False" LeftMargin="187.3906" RightMargin="59.6094" TopMargin="134.4895" BottomMargin="1.5105" LeftEage="9" RightEage="9" TopEage="9" BottomEage="9" Scale9OriginX="9" Scale9OriginY="9" Scale9Width="56" Scale9Height="55" ctype="ImageViewObjectData">
                 <Size X="67.0000" Y="65.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="220.8906" Y="34.0105" />
@@ -232,7 +232,7 @@
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.7035" Y="0.1692" />
                 <PreSize X="0.2134" Y="0.3234" />
-                <FileData Type="Default" Path="Default/ImageFile.png" Plist="" />
+                <FileData Type="Normal" Path="EventTetUI/MainScene/label3.png" Plist="" />
               </AbstractNodeData>
               <AbstractNodeData Name="bonus" ActionTag="-1968883592" Tag="327" IconVisible="False" LeftMargin="-33.0475" RightMargin="243.0475" TopMargin="111.7746" BottomMargin="64.2254" FontSize="17" LabelText="+999900000" VerticalAlignmentType="VT_Center" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                 <Size X="104.0000" Y="25.0000" />
