@@ -19,7 +19,7 @@
             <EndColor A="255" R="255" G="255" B="255" />
             <ColorVector ScaleY="1.0000" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Image_1" ActionTag="-762439581" Tag="86" IconVisible="False" VerticalEdge="TopEdge" LeftMargin="-0.0031" RightMargin="0.0031" TopMargin="-1.9965" BottomMargin="345.9965" StretchWidthEnable="True" LeftEage="264" RightEage="264" TopEage="44" BottomEage="44" Scale9OriginX="264" Scale9OriginY="44" Scale9Width="272" Scale9Height="48" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="imgDeco" ActionTag="-762439581" Tag="86" IconVisible="False" VerticalEdge="TopEdge" LeftMargin="-0.0031" RightMargin="0.0031" TopMargin="-1.9965" BottomMargin="345.9965" StretchWidthEnable="True" LeftEage="264" RightEage="264" TopEage="44" BottomEage="44" Scale9OriginX="264" Scale9OriginY="44" Scale9Width="272" Scale9Height="48" ctype="ImageViewObjectData">
             <Size X="800.0000" Y="136.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="399.9969" Y="413.9965" />
@@ -29,10 +29,10 @@
             <PreSize X="1.0000" Y="0.2833" />
             <FileData Type="Normal" Path="EventTetUI/deco.png" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="pTop" ActionTag="265112788" UserData="scale" Tag="97" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="TopEdge" BottomMargin="415.0000" ClipAble="False" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
+          <AbstractNodeData Name="pTop" ActionTag="265112788" UserData="scale" Tag="97" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="TopEdge" TopMargin="-1.0000" BottomMargin="416.0000" ClipAble="False" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
             <Size X="800.0000" Y="65.0000" />
             <Children>
-              <AbstractNodeData Name="congrat" ActionTag="-1519720451" Tag="111" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="204.9998" RightMargin="199.0002" TopMargin="-0.5394" BottomMargin="-37.4606" LeftEage="91" RightEage="91" TopEage="24" BottomEage="24" Scale9OriginX="91" Scale9OriginY="24" Scale9Width="214" Scale9Height="55" ctype="ImageViewObjectData">
+              <AbstractNodeData Name="congrat" ActionTag="-1519720451" Tag="111" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="204.9600" RightMargin="199.0400" TopMargin="-0.5395" BottomMargin="-37.4605" LeftEage="91" RightEage="91" TopEage="24" BottomEage="24" Scale9OriginX="91" Scale9OriginY="24" Scale9Width="214" Scale9Height="55" ctype="ImageViewObjectData">
                 <Size X="396.0000" Y="103.0000" />
                 <Children>
                   <AbstractNodeData Name="Text_4" ActionTag="420070618" Tag="324" IconVisible="False" LeftMargin="78.5939" RightMargin="79.4061" TopMargin="83.1385" BottomMargin="-2.1385" FontSize="16" LabelText="Bạn nhận được phần thưởng" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
@@ -49,7 +49,7 @@
                   </AbstractNodeData>
                 </Children>
                 <AnchorPoint ScaleX="0.5000" ScaleY="1.0000" />
-                <Position X="402.9998" Y="65.5394" />
+                <Position X="402.9600" Y="65.5395" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.5037" Y="1.0083" />
@@ -58,10 +58,10 @@
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="1.0000" />
-            <Position X="400.0000" Y="480.0000" />
+            <Position X="400.0000" Y="481.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.5000" Y="1.0000" />
+            <PrePosition X="0.5000" Y="1.0021" />
             <PreSize X="1.0000" Y="0.1354" />
             <SingleColor A="255" R="0" G="0" B="0" />
             <FirstColor A="255" R="150" G="200" B="255" />
@@ -74,10 +74,10 @@
               <AbstractNodeData Name="btnGet" ActionTag="435362306" Tag="79" IconVisible="False" PositionPercentXEnabled="True" PercentWidthEnable="True" PercentWidthEnabled="True" LeftMargin="335.0000" RightMargin="335.0000" TopMargin="-2.7167" BottomMargin="16.7167" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="100" Scale9Height="29" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                 <Size X="130.0000" Y="51.0000" />
                 <Children>
-                  <AbstractNodeData Name="lbAuto" ActionTag="-1101566150" Tag="82" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="-82.6507" RightMargin="-85.3493" TopMargin="45.8127" BottomMargin="-14.8127" FontSize="15" LabelText="Tự động đóng sau 3sfsdfdsfsdfdgdgfdgdfd" HorizontalAlignmentType="HT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                  <AbstractNodeData Name="lbAuto" ActionTag="-1101566150" Tag="82" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="-82.6480" RightMargin="-85.3520" TopMargin="45.8127" BottomMargin="-14.8127" FontSize="15" LabelText="Tự động đóng sau 3sfsdfdsfsdfdgdgfdgdfd" HorizontalAlignmentType="HT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                     <Size X="298.0000" Y="20.0000" />
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                    <Position X="66.3493" Y="-4.8127" />
+                    <Position X="66.3520" Y="-4.8127" />
                     <Scale ScaleX="1.0000" ScaleY="1.0000" />
                     <CColor A="255" R="206" G="206" B="206" />
                     <PrePosition X="0.5104" Y="-0.0944" />
