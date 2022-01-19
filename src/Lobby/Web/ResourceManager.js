@@ -31,7 +31,7 @@ var ResourceManager = cc.Class.extend({
     openGUI: function (guiName, callback, target) {
         callback();
     }
-})
+});
 
 
 ResourceManager.firstInit = true;

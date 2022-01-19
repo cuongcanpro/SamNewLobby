@@ -39,7 +39,6 @@ var EmulatorDetector = cc.Class.extend({
         this.accelerationNumNoChange = 0;
         this.startTimeCheck = Date.now();
         if( 'accelerometer' in cc.sys.capabilities){
-            cc.log("EmulatorDetector start detect accelerometer");
             this.accelerationListener = cc.eventManager.addListener({
                 event: cc.EventListener.ACCELERATION,
                 callback: function (accelEvent, event) {

@@ -1,0 +1,27 @@
+var SettingMgr = BaseMgr.extend({
+    ctor: function () {
+        this._super();
+        this.sound = true;
+        this.music = true;
+        this.vibrate = true;
+        this.acceptFriend = true;
+        this.acceptInvite = true;
+    },
+
+    onReceived: function (cmd, pk) {
+        return false;
+    },
+
+    openSettingGUI: function () {
+        sceneMgr.openGUI(SettingGUI.className, LobbyScene.GUI_SETTING, LobbyScene.GUI_SETTING);
+    }
+})
+
+SettingMgr.instance = null;
+SettingMgr.getInstance = function () {
+    if (!SettingMgr.instance) {
+        SettingMgr.instance = new SettingMgr();
+    }
+    return SettingMgr.instance;
+};
+var settingMgr = SettingMgr.getInstance();

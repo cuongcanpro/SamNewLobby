@@ -5,8 +5,8 @@ var B64_TABLE = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+
 var URL_SERVICES = "https://login.service.zingplay.com/?service_name=get_config_iap&environment=false&os=_OS_&package_name=_PACK_";
 
 var IAP_GAME_CONFIG = {
-    package_name : "gsn.game.zingplaynew2",
-    license_key :"MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAjHtB2l+zG8vAMZAw9a8afdu577b57PhMbZYX7X30MXDIcjLvljVd9UGonr1+L0cN3nFkJQ8tkGIqstiK/4D6CB2jjGXVQVMru9+crlmU3P82Ca/LdY0kE6KFe67aom4+9R/toZn+3GlMrJQcCDZFUDSAcUPe/PsEQqRMX9wrvKDoBmmosRs0hkV/ptfC5VHw9t9vplcshORvnBKwYCahOlPSXzUOCTCHHSJ4kaKcMPvVke3ILau+PT3vLVNMeDS579mVH5/S7qunYbKdQeqzWCCU/dJmt+yBiuzUf3416yAG7v9sm+yU9MzyFuAwUoQDm4caENm4HwVnbH2EW5x4MwIDAQAB",
+    package_name : "gsn.game.sam",
+    license_key :"MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAj4Y/nt+XCQcgW3WZADCohUMyB1XW9MuL2mwTtq5KasPMzalEqPN6CaoUvtWKSfh51CeZCS9jWzvVSGwaJXYys9FihVACDK+wL7lKn2wzItqzw5idN9d0e5ZuM3uYLO3qp/9lY9eH+TZzEj8KRVueJQv4iIP4ZLfzt8tSec0c1GaPVjgqfvnCvPFWqR0YeqWsgBLb+9LKk5xzSlJVj+dscFECUSTllBncm1mfH+IVRspvbgRU+Rh/NDz3gqOXcuomTXkcDxT9vlpMoMdWZrGBwZD8/Fh+6fbAaTc2RNnam2d4A3zic78d8KWdKTLd7AdpBVabrD/HPkNATbpFLRB2MQIDAQAB",
     packages : {
         "1A":"pack_1",
         "2B":"pack_12",
@@ -162,7 +162,7 @@ fr.paymentInfo = {
         var packages;
         if (this.config)
             packages = this.config.packages;
-        //cc.log("getProductID packages: " + JSON.stringify(packages));
+        cc.log("getProductID packages: " + JSON.stringify(packages));
         if (this.config && packages && pkgKey in packages) {
             return packages[pkgKey];
         }

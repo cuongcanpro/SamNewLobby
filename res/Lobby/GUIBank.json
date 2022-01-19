@@ -1,5 +1,5 @@
 {
-  "ID": "1fdbffcc-7b17-4a8f-b727-e6442b431305",
+  "ID": "d2941e93-c5cd-45da-b694-7e91fe7a848e",
   "Version": "2.3.4",
   "Name": "GUIBank",
   "Content": {
@@ -17,20 +17,20 @@
           {
             "FileData": {
               "Type": "Normal",
-              "Path": "ShopIAP/bgGUIBank.png",
+              "Path": "Common/bgDialog.png",
               "Plist": ""
             },
             "Scale9OriginX": 178,
             "Scale9OriginY": 123,
-            "Scale9Width": 174,
-            "Scale9Height": 184,
+            "Scale9Width": 504,
+            "Scale9Height": 391,
             "AnchorPoint": {
               "ScaleX": 0.5,
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 400.0,
-              "Y": 240.0
+              "X": 600.0,
+              "Y": 360.0
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -38,24 +38,24 @@
             },
             "CColor": {},
             "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PositionPercentYEnabled": true,
             "PrePosition": {
               "X": 0.5,
               "Y": 0.5
             },
             "PreSize": {
-              "X": 0.6625,
-              "Y": 0.8958
+              "X": 0.7167,
+              "Y": 0.8847
             },
-            "HorizontalEdge": "BothEdge",
-            "VerticalEdge": "BothEdge",
-            "LeftMargin": 135.0,
-            "RightMargin": 135.0,
-            "TopMargin": 25.0,
-            "BottomMargin": 25.0,
+            "LeftMargin": 170.0,
+            "RightMargin": 170.0,
+            "TopMargin": 41.5,
+            "BottomMargin": 41.5,
             "Tag": 120,
             "Children": [
               {
-                "FontSize": 18,
+                "FontSize": 22,
                 "LabelText": "Vui lòng chọn ngân hàng của bạn:",
                 "FontResource": {
                   "Type": "Normal",
@@ -78,36 +78,35 @@
                   "ScaleY": 0.5
                 },
                 "Position": {
-                  "X": 268.6792,
-                  "Y": 378.1456
+                  "X": 430.0,
+                  "Y": 597.234
                 },
                 "Scale": {
                   "ScaleX": 1.0,
                   "ScaleY": 1.0
                 },
                 "CColor": {
-                  "R": 236,
-                  "G": 195,
-                  "B": 244
+                  "B": 240
                 },
                 "IconVisible": false,
+                "PositionPercentXEnabled": true,
                 "PrePosition": {
-                  "X": 0.5069,
-                  "Y": 0.8794
+                  "X": 0.5,
+                  "Y": 0.9376
                 },
                 "PreSize": {
-                  "X": 0.5509,
-                  "Y": 0.0581
+                  "X": 0.4198,
+                  "Y": 0.0471
                 },
-                "LeftMargin": 122.6792,
-                "RightMargin": 115.3208,
-                "TopMargin": 39.3544,
-                "BottomMargin": 365.6456,
+                "LeftMargin": 249.5,
+                "RightMargin": 249.5,
+                "TopMargin": 24.766,
+                "BottomMargin": 582.234,
                 "Tag": 121,
                 "ActionTag": -728571672,
                 "Size": {
-                  "X": 292.0,
-                  "Y": 25.0
+                  "X": 361.0,
+                  "Y": 30.0
                 },
                 "Name": "Text_1",
                 "ctype": "TextObjectData"
@@ -138,8 +137,8 @@
                 "Scale9Enable": true,
                 "Scale9OriginX": 15,
                 "Scale9OriginY": 11,
-                "Scale9Width": 16,
-                "Scale9Height": 25,
+                "Scale9Width": 5,
+                "Scale9Height": 13,
                 "OutlineColor": {
                   "G": 0,
                   "B": 0
@@ -157,8 +156,8 @@
                   "ScaleY": 0.5
                 },
                 "Position": {
-                  "X": 504.2598,
-                  "Y": 402.6373
+                  "X": 814.2422,
+                  "Y": 593.4239
                 },
                 "Scale": {
                   "ScaleX": 1.0,
@@ -167,22 +166,22 @@
                 "CColor": {},
                 "IconVisible": false,
                 "PrePosition": {
-                  "X": 0.9514,
-                  "Y": 0.9364
+                  "X": 0.9468,
+                  "Y": 0.9316
                 },
                 "PreSize": {
-                  "X": 0.0868,
-                  "Y": 0.1093
+                  "X": 0.0407,
+                  "Y": 0.0549
                 },
-                "LeftMargin": 481.2598,
-                "RightMargin": 2.7402,
-                "TopMargin": 3.8627,
-                "BottomMargin": 379.1373,
+                "LeftMargin": 796.7422,
+                "RightMargin": 28.2578,
+                "TopMargin": 26.0761,
+                "BottomMargin": 575.9239,
                 "Tag": 122,
                 "ActionTag": -384877785,
                 "Size": {
-                  "X": 46.0,
-                  "Y": 47.0
+                  "X": 35.0,
+                  "Y": 35.0
                 },
                 "Name": "btnClose",
                 "ctype": "ButtonObjectData"
@@ -207,8 +206,8 @@
                 "TouchEnable": true,
                 "AnchorPoint": {},
                 "Position": {
-                  "X": 16.7058,
-                  "Y": 22.6465
+                  "X": 29.138,
+                  "Y": 36.63
                 },
                 "Scale": {
                   "ScaleX": 1.0,
@@ -217,22 +216,22 @@
                 "CColor": {},
                 "IconVisible": false,
                 "PrePosition": {
-                  "X": 0.0315,
-                  "Y": 0.0527
+                  "X": 0.0339,
+                  "Y": 0.0575
                 },
                 "PreSize": {
-                  "X": 1.0,
-                  "Y": 0.7442
+                  "X": 0.9302,
+                  "Y": 0.8163
                 },
-                "LeftMargin": 16.7058,
-                "RightMargin": -16.7058,
-                "TopMargin": 87.3535,
-                "BottomMargin": 22.6465,
+                "LeftMargin": 29.138,
+                "RightMargin": 30.862,
+                "TopMargin": 80.37,
+                "BottomMargin": 36.63,
                 "Tag": 123,
                 "ActionTag": 1770315018,
                 "Size": {
-                  "X": 530.0,
-                  "Y": 320.0
+                  "X": 800.0,
+                  "Y": 520.0
                 },
                 "Name": "panelCenter",
                 "ctype": "PanelObjectData"
@@ -240,25 +239,25 @@
             ],
             "ActionTag": 805278040,
             "Size": {
-              "X": 530.0,
-              "Y": 430.0
+              "X": 860.0,
+              "Y": 637.0
             },
             "Name": "bg",
             "ctype": "ImageViewObjectData"
           }
         ],
         "Size": {
-          "X": 800.0,
-          "Y": 480.0
+          "X": 1200.0,
+          "Y": 720.0
         },
         "Name": "Scene",
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
+        "Common/bgDialog.png",
         "Common/btnClose.png",
         "Default/Button_Disable.png",
-        "Font/tahoma.ttf",
-        "ShopIAP/bgGUIBank.png"
+        "Font/tahoma.ttf"
       ],
       "ctype": "GameFileData"
     }

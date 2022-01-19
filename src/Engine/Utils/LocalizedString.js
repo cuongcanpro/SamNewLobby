@@ -13,11 +13,6 @@ var LocalizedString = cc.Class.extend({
         this._gameConfigs = {};
     },
 
-    preloadLocalized : function () {
-        this.loadLocalized();
-        this.gameConfig();
-    },
-
     preloadLocalized : function (onFinishFunc) {
         // this.loadLocalized();
         // this.gameConfig();
@@ -174,7 +169,7 @@ var LocalizedString = cc.Class.extend({
                     subStr = subStr.slice(0,this.findLastNotOf(subStr,"\"") +1);
 
                     //replace line feed with \n
-                    subStr = subStr.replace(/\\n/g,"\n");
+                    subStr.replace(/\\n/g,"\n");
 
                     this._gameConfigs[keyStr] = subStr;
                 }
@@ -258,7 +253,7 @@ LocalizedString.preload = function (callFunc) {
         g_localization = new LocalizedString();
     }
     return g_localization.preloadLocalized(callFunc);
-};
+},
 
 LocalizedString.add = function (fname) {
     if(g_localization == null)

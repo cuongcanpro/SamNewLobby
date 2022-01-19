@@ -4,8 +4,11 @@
 
 var audioEngine = cc.audioEngine;
 
-var gameSound = function(){}
-gamedata.sound = true;
+var gameSound = function () {
+};
+
+gameSound.on = settingMgr.sound;
+
 
 gameSound.getRandomSound = function(path,number,duoi)
 {
@@ -17,286 +20,284 @@ gameSound.getRandomSound = function(path,number,duoi)
     ret += ".";
     ret += duoi;
 
-    if(cc.sys.os == cc.sys.OS_WINDOWS || cc.sys.os == cc.sys.OS_WP8 || cc.sys.os == cc.sys.OS_WINRT)
+    if( cc.sys.os == cc.sys.OS_WP8 || cc.sys.os == cc.sys.OS_WINRT)
     {
         ret = "res/" + StringUtility.replaceAll(ret,"mp3","wav");
+    } else {
+        ret = "res/" + ret;
     }
 
     return ret;
-}
+};
+
+gameSound.playChatAnTien = function(){
+    if(gameSound.on)
+        audioEngine.playEffect(g_sounds.chatantien,false);
+};
+
+gameSound.playChat = function(){
+    if(gameSound.on)
+        audioEngine.playEffect(g_sounds.chat,false);
+};
+
+gameSound.clickQuanbai = function(){
+    if(gameSound.on)
+
+        audioEngine.playEffect(g_sounds.chonquanbai,false);
+};
 
 gameSound.playChiaBai = function(){
-    if(gamedata.sound)
+    if(gameSound.on)
 
         audioEngine.playEffect(g_sounds.chiabai,false);
-}
+};
+
+gameSound.playDkThoat = function(){
+    if(gameSound.on)
+
+        audioEngine.playEffect(g_sounds.dkthoat,false);
+};
+
+gameSound.playChonQuanbai = function(){
+    if(gameSound.on)
+
+        audioEngine.playEffect(g_sounds.chonquanbai,false);
+};
+
+gameSound.playDanhBai = function(){
+    if(gameSound.on)
+
+        audioEngine.playEffect(g_sounds.danhbai,false);
+};
 
 gameSound.playFire1 = function(){
-    if(gamedata.sound)
+    if(gameSound.on)
 
         audioEngine.playEffect(g_sounds.fire1,false);
-}
+};
+
+gameSound.playFire2 = function(){
+    if(gameSound.on)
+
+        audioEngine.playEffect(g_sounds.fire2,false);
+};
+
+gameSound.playJackpot = function(){
+    if(gameSound.on)
+
+        audioEngine.playEffect(g_sounds.jackpot,false);
+};
+gameSound.playThua = function(){
+    if(gameSound.on)
+    {
+        audioEngine.playEffect(g_sounds.thua,false);
+        gameSound.playThuaNoi();
+    }
+};
+
+gameSound.playChupanh = function(){
+    if(gameSound.on && cc.sys.isNative)
+
+        audioEngine.playEffect(g_sounds.chupanh,false);
+};
+
+gameSound.playStart1 = function(){
+    if(gameSound.on)
+
+        audioEngine.playEffect(g_sounds.start1,false);
+};
+
+gameSound.playStart2 = function(){
+    if (gameSound.on)
+        audioEngine.playEffect(g_sounds.start2,false);
+};
+
+gameSound.playTimer = function(){
+    if(gameSound.on)
+
+        audioEngine.playEffect(g_sounds.timer,false);
+};
+
+gameSound.playThang = function(){
+    if(gameSound.on)
+    {
+        audioEngine.playEffect(g_sounds.thang,false);
+        gameSound.playThangNoi();
+    }
+};
+
+gameSound.playHuyThoat = function(){
+    if(gameSound.on)
+
+        audioEngine.playEffect(g_sounds.huythoat,false);
+};
+
+gameSound.playEnemySanhToicot = function(){
+    if (gameSound.on)
+        audioEngine.playEffect(g_sounds.enemysanhtoicot,false);
+};
+
+gameSound.playNguoikhacvaoban = function(){
+    //if(gameSound.on)
+    // audioEngine.playEffect(g_sounds.nguoikhacvaoban,false);
+};
+
+gameSound.playNhacbai = function(){
+    if(gameSound.on)
+
+        audioEngine.playEffect(g_sounds.nhacbai,false);
+};
+
+gameSound.playSanhtoicot = function(){
+    if(gameSound.on)
+
+        audioEngine.playEffect(g_sounds.sanhtoicot,false);
+};
+
+gameSound.playThoatban = function(){
+    if(gameSound.on)
+
+        audioEngine.playEffect(g_sounds.thoatban,false);
+};
+
+gameSound.playTrutien = function(){
+    if(gameSound.on)
+
+        audioEngine.playEffect(g_sounds.trutien,false);
+};
+
+gameSound.playVaoban = function(){
+    //if(gameSound.on)
+
+    //audioEngine.playEffect(g_sounds.vaoban,false);
+};
+
+gameSound.playPopUp  = function(){
+    if(gameSound.on)
+
+        audioEngine.playEffect(g_sounds.popup,false);
+};
+
+gameSound.playResult = function()
+{
+    if(gameSound.on)
+
+        audioEngine.playEffect(g_sounds.result,false);
+};
+
+gameSound.playClick =  function()
+{
+    if(gameSound.on)
+        audioEngine.playEffect(g_sounds.click,false);
+};
+
+gameSound.playXepbai =  function()
+{
+    if(gameSound.on)
+        audioEngine.playEffect(g_sounds.xepbai,false);
+};
 
 // Nguoi noi
+gameSound.playThangNoi =  function()
+{
+    if(gameSound.on)
+    {
+        audioEngine.playEffect(gameSound.getRandomSound("sounds/mp3/thang",5,"mp3"),false);
+    }
+};
 
-gameSound.playSoundbaobinh_12caydongmau = function()
+gameSound.playChatbai =  function()
 {
-    if(gamedata.sound)
-        audioEngine.playEffect(g_sounds.baobinh_12caydongmau, false);
-}
-gameSound.playSoundbaobinh_12caydongmau = function()
-{
-    if(gamedata.sound)
-        audioEngine.playEffect(g_sounds.baobinh_12caydongmau, false);
-}
-gameSound.playSoundbaobinh_13caydongmau = function()
-{
-    if(gamedata.sound)
-        audioEngine.playEffect(g_sounds.baobinh_13caydongmau, false);
-}
-gameSound.playSoundbaobinh_3caisanh = function()
-{
-    if(gamedata.sound)
-        audioEngine.playEffect(g_sounds.baobinh_3caisanh, false);
-}
-gameSound.playSoundbaobinh_3caithung = function()
-{
-    if(gamedata.sound)
-        audioEngine.playEffect(g_sounds.baobinh_3caithung, false);
-}
-gameSound.playSoundbaobinh_lucphebon = function()
-{
-    if(gamedata.sound)
-        audioEngine.playEffect(g_sounds.baobinh_lucphebon, false);
-}
-gameSound.playSoundbaobinh_sanhrong = function()
-{
-    if(gamedata.sound)
-        audioEngine.playEffect(g_sounds.baobinh_sanhrong, false);
-}
-gameSound.playSoundbatsapnay = function()
-{
-    if(gamedata.sound)
-        audioEngine.playEffect(g_sounds.batsapnay, false);
-}
-gameSound.playSoundBinhLung = function()
-{
-    if(gamedata.sound)
-        audioEngine.playEffect(g_sounds.BinhLung, false);
-}
-gameSound.playSoundchaomung_1 = function()
-{
-    if(gamedata.sound)
-        audioEngine.playEffect(g_sounds.chaomung_1, false);
-}
-gameSound.playSoundchaomung_2 = function()
-{
-    if(gamedata.sound)
-        audioEngine.playEffect(g_sounds.chaomung_2, false);
-}
-gameSound.playSounde_OutCan = function()
-{
-    if(gamedata.sound)
-        audioEngine.playEffect(g_sounds.e_OutCan, false);
-}
-gameSound.playSounde_OutVol = function()
-{
-    if(gamedata.sound)
-        audioEngine.playEffect(g_sounds.e_OutVol, false);
-}
-gameSound.playSoundfinishgroupcard = function()
-{
-    if(gamedata.sound)
-        audioEngine.playEffect(g_sounds.finishgroupcard, false);
-}
-gameSound.playSoundMauBinh = function()
-{
-    if(gamedata.sound)
-        audioEngine.playEffect(g_sounds.MauBinh, false);
-}
-gameSound.playSoundmaubinh_12caydongmau = function()
-{
-    if(gamedata.sound)
-        audioEngine.playEffect(g_sounds.maubinh_12caydongmau, false);
-}
-gameSound.playSoundmaubinh_13caydongmau = function()
-{
-    if(gamedata.sound)
-        audioEngine.playEffect(g_sounds.maubinh_13caydongmau, false);
-}
-gameSound.playSoundmaubinh_3caisanh = function()
-{
-    if(gamedata.sound)
-        audioEngine.playEffect(g_sounds.maubinh_3caisanh, false);
-}
-gameSound.playSoundmaubinh_3caithung = function()
-{
-    if(gamedata.sound)
-        audioEngine.playEffect(g_sounds.maubinh_3caithung, false);
-}
-gameSound.playSoundmaubinh_lucphebon = function()
-{
-    if(gamedata.sound)
-        audioEngine.playEffect(g_sounds.maubinh_lucphebon, false);
-}
-gameSound.playSoundmaubinh_sanhrong = function()
-{
-    if(gamedata.sound)
-        audioEngine.playEffect(g_sounds.maubinh_sanhrong, false);
-}
-gameSound.playSoundrematch_1 = function()
-{
-    if(gamedata.sound)
-        audioEngine.playEffect(g_sounds.rematch_1, false);
-}
-gameSound.playSoundrematch_2 = function()
-{
-    if(gamedata.sound)
-        audioEngine.playEffect(g_sounds.rematch_2, false);
-}
-gameSound.playSoundrematch_3 = function()
-{
-    if(gamedata.sound)
-        audioEngine.playEffect(g_sounds.rematch_3, false);
-}
-gameSound.playSoundsaproi = function()
-{
-    if(gamedata.sound)
-        audioEngine.playEffect(g_sounds.saproi, false);
-}
-gameSound.playSoundsobai_00 = function()
-{
-    if(gamedata.sound)
-        audioEngine.playEffect(g_sounds.sobai_00, false);
-}
-gameSound.playSoundstart_1 = function()
-{
-    if(gamedata.sound)
-        audioEngine.playEffect(g_sounds.start_1, false);
-}
-gameSound.playSounds_lose = function()
-{
-    if(gamedata.sound)
-        audioEngine.playEffect(g_sounds.s_lose, false);
-}
-gameSound.playSounds_win = function()
-{
-    if(gamedata.sound)
-        audioEngine.playEffect(g_sounds.s_win, false);
-}
-gameSound.playSoundThang = function()
-{
-    if(gamedata.sound)
-        audioEngine.playEffect(g_sounds.Thang, false);
-}
-gameSound.playSoundthang_culu = function()
-{
-    if(gamedata.sound)
-        audioEngine.playEffect(g_sounds.thang_culu, false);
-}
-gameSound.playSoundthang_doi = function()
-{
-    if(gamedata.sound)
-        audioEngine.playEffect(g_sounds.thang_doi, false);
-}
-gameSound.playSoundthang_mauthau = function()
-{
-    if(gamedata.sound)
-        audioEngine.playEffect(g_sounds.thang_mauthau, false);
-}
-gameSound.playSoundthang_samchicuoi = function()
-{
-    if(gamedata.sound)
-        audioEngine.playEffect(g_sounds.thang_samchicuoi, false);
-}
-gameSound.playSoundthang_sanh = function()
-{
-    if(gamedata.sound)
-        audioEngine.playEffect(g_sounds.thang_sanh, false);
-}
-gameSound.playSoundthang_thu = function()
-{
-    if(gamedata.sound)
-        audioEngine.playEffect(g_sounds.thang_thu, false);
-}
-gameSound.playSoundthang_thung = function()
-{
-    if(gamedata.sound)
-        audioEngine.playEffect(g_sounds.thang_thung, false);
-}
-gameSound.playSoundthang_thungphasanh = function()
-{
-    if(gamedata.sound)
-        audioEngine.playEffect(g_sounds.thang_thungphasanh, false);
-}
-gameSound.playSoundthang_tuquy = function()
-{
-    if(gamedata.sound)
-        audioEngine.playEffect(g_sounds.thang_tuquy, false);
-}
-gameSound.playSoundThua = function()
-{
-    if(gamedata.sound)
-        audioEngine.playEffect(g_sounds.Thua, false);
-}
-gameSound.playSoundwin_1 = function()
-{
-    if(gamedata.sound)
-        audioEngine.playEffect(g_sounds.win_1, false);
-}
-gameSound.playSoundwin_2 = function()
-{
-    if(gamedata.sound)
-        audioEngine.playEffect(g_sounds.win_2, false);
-}
-gameSound.playSoundwin_3 = function()
-{
-    if(gamedata.sound)
-        audioEngine.playEffect(g_sounds.win_3, false);
-}
-gameSound.playSoundxepbai_culu = function()
-{
-    if(gamedata.sound)
-        audioEngine.playEffect(g_sounds.xepbai_culu, false);
-}
-gameSound.playSoundxepbai_doi = function()
-{
-    if(gamedata.sound)
-        audioEngine.playEffect(g_sounds.xepbai_doi, false);
-}
-gameSound.playSoundxepbai_mauthau = function()
-{
-    if(gamedata.sound)
-        audioEngine.playEffect(g_sounds.xepbai_mauthau, false);
-}
-gameSound.playSoundxepbai_samchi = function()
-{
-    if(gamedata.sound)
-        audioEngine.playEffect(g_sounds.xepbai_samchi, false);
+    if(gameSound.on)
+        audioEngine.playEffect(gameSound.getRandomSound("sounds/mp3/chatbai",6,"mp3"),false);
+};
 
-}
-gameSound.playSoundxepbai_sanh = function()
+gameSound.playThuaNoi =  function()
 {
-    if(gamedata.sound)
-        audioEngine.playEffect(g_sounds.xepbai_sanh, false);
-}
-gameSound.playSoundxepbai_thu = function()
+    if(gameSound.on)
+        audioEngine.playEffect(gameSound.getRandomSound("sounds/mp3/thua",5,"mp3"),false);
+};
+
+gameSound.playMoisam =  function()
 {
-    if(gamedata.sound)
-        audioEngine.playEffect(g_sounds.xepbai_thu, false);
-}
-gameSound.playSoundxepbai_thung = function()
+    if(gameSound.on)
+        audioEngine.playEffect(gameSound.getRandomSound("sounds/mp3/moisam",3,"mp3"),false);
+};
+
+gameSound.playVaobanNoi =  function()
 {
-    if(gamedata.sound)
-        audioEngine.playEffect(g_sounds.xepbai_thung, false);
-}
-gameSound.playSoundxepbai_thungphasanh = function()
+    if(gameSound.on)
+        audioEngine.playEffect(gameSound.getRandomSound("sounds/mp3/vaoban",4,"mp3"),false);
+};
+
+gameSound.playHuysam =  function()
 {
-    if(gamedata.sound)
-        audioEngine.playEffect(g_sounds.xepbai_thungphasanh, false);
-}
-gameSound.playSoundxepbai_tuquy = function()
+    if(gameSound.on)
+        audioEngine.playEffect(gameSound.getRandomSound("sounds/mp3/huysam",4,"mp3"),false);
+};
+
+gameSound.playChiabaiNoi =  function()
 {
-    if(gamedata.sound)
-        audioEngine.playEffect(g_sounds.xepbai_tuquy, false);
-}
+    if(gameSound.on)
+        audioEngine.playEffect(gameSound.getRandomSound("sounds/mp3/chiabainoi",4,"mp3"),false);
+};
+
+gameSound.playThoatbanNoi =  function()
+{
+    if(gameSound.on)
+        audioEngine.playEffect(gameSound.getRandomSound("sounds/mp3/thoatban",4,"mp3"),false);
+};
+
+
+
+gameSound.playBoluot =  function()
+{
+    if(gameSound.on)
+        audioEngine.playEffect(gameSound.getRandomSound("sounds/mp3/boluot",4,"mp3"),false);
+};
+
+gameSound.playLuotdau =  function()
+{
+    if(gameSound.on)
+        audioEngine.playEffect(gameSound.getRandomSound("sounds/mp3/luotdau",3,"mp3"),false);
+};
+
+gameSound.playBobaitodautien =  function()      // nguoi nao do danh bo bai to
+{
+    if(gameSound.on)
+        audioEngine.playEffect(gameSound.getRandomSound("sounds/mp3/dacbiet",4,"mp3"),false);
+};
+
+gameSound.playMinhdanhbaitovabibat =  function()      // minh danh bo bai dac biet bi bat
+{
+    if(gameSound.on)
+        audioEngine.playEffect(gameSound.getRandomSound("sounds/mp3/dacbiet_minbibat",3,"mp3"),false);
+};
+
+gameSound.playMinhchatduocbobaito =  function()      // minh chat duoc 1 bo bai to
+{
+    if(gameSound.on)
+        audioEngine.playEffect(gameSound.getRandomSound("sounds/mp3/minhchatduoc",4,"mp3"),false);
+};
+
+gameSound.playMinhkhongchatduocbobaito =  function()      // minh ko chat duoc 1 bo bai to
+{
+    if(gameSound.on)
+        audioEngine.playEffect(gameSound.getRandomSound("sounds/mp3/minhboluot",3,"mp3"),false);
+};
+
+gameSound.playCardPlay = function () {
+    if (gameSound.on)
+        audioEngine.playEffect(gameSound.getRandomSound("sounds/board/play",4,"mp3"),false);
+};
+
+gameSound.playCardDrop = function (isMulti) {
+    if (gameSound.on)
+        if (!isMulti)
+            audioEngine.playEffect(gameSound.getRandomSound("sounds/board/drop",3,"mp3"),false);
+};
+
+gameSound.playCardSlide = function () {
+    if (gameSound.on)
+        audioEngine.playEffect(gameSound.getRandomSound("sounds/board/dropMulti",4,"mp3"),false);
+};

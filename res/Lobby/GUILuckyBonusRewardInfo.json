@@ -1,0 +1,2729 @@
+{
+  "ID": "daca9e98-1dd0-4f73-91b6-a6a0aa96ba10",
+  "Version": "2.3.4",
+  "Name": "GUILuckyBonusRewardInfo",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 67,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "GUILuckyBonus/popup/1.png",
+              "Plist": ""
+            },
+            "Scale9OriginX": 185,
+            "Scale9OriginY": 124,
+            "Scale9Width": 192,
+            "Scale9Height": 128,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 400.0,
+              "Y": 240.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PositionPercentYEnabled": true,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.5
+            },
+            "PreSize": {
+              "X": 0.7025,
+              "Y": 0.7833
+            },
+            "LeftMargin": 119.0,
+            "RightMargin": 119.0,
+            "TopMargin": 52.0,
+            "BottomMargin": 52.0,
+            "Tag": 680,
+            "Children": [
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "GUILuckyBonus/popup/3.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 40,
+                "Scale9OriginY": 8,
+                "Scale9Width": 43,
+                "Scale9Height": 10,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 281.0,
+                  "Y": 349.68
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.93
+                },
+                "PreSize": {
+                  "X": 0.2189,
+                  "Y": 0.0691
+                },
+                "LeftMargin": 219.5,
+                "RightMargin": 219.5,
+                "TopMargin": 13.32,
+                "BottomMargin": 336.68,
+                "Tag": 692,
+                "ActionTag": -458235562,
+                "Size": {
+                  "X": 123.0,
+                  "Y": 26.0
+                },
+                "Name": "prizeLabel",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "GUILuckyBonus/popup/5.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 173,
+                "Scale9OriginY": 11,
+                "Scale9Width": 179,
+                "Scale9Height": 13,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 280.0,
+                  "Y": 300.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.4982,
+                  "Y": 0.7979
+                },
+                "PreSize": {
+                  "X": 0.9342,
+                  "Y": 0.0931
+                },
+                "LeftMargin": 17.5,
+                "RightMargin": 19.5,
+                "TopMargin": 58.5,
+                "BottomMargin": 282.5,
+                "Tag": 694,
+                "Children": [
+                  {
+                    "FontSize": 16,
+                    "LabelText": "Bộ trúng thưởng",
+                    "FontResource": {
+                      "Type": "Normal",
+                      "Path": "GUILuckyBonus/tahomabd.ttf",
+                      "Plist": ""
+                    },
+                    "OutlineColor": {
+                      "G": 0,
+                      "B": 0
+                    },
+                    "ShadowColor": {
+                      "R": 110,
+                      "G": 110,
+                      "B": 110
+                    },
+                    "ShadowOffsetX": 2.0,
+                    "ShadowOffsetY": -2.0,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 90.0,
+                      "Y": 20.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {
+                      "R": 231,
+                      "G": 181,
+                      "B": 111
+                    },
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.1714,
+                      "Y": 0.5714
+                    },
+                    "PreSize": {
+                      "X": 0.2648,
+                      "Y": 0.6286
+                    },
+                    "LeftMargin": 20.5,
+                    "RightMargin": 365.5,
+                    "TopMargin": 4.0,
+                    "BottomMargin": 9.0,
+                    "Tag": 695,
+                    "ActionTag": 957130753,
+                    "Size": {
+                      "X": 139.0,
+                      "Y": 22.0
+                    },
+                    "Name": "combinationLabel",
+                    "ctype": "TextObjectData"
+                  },
+                  {
+                    "FontSize": 16,
+                    "LabelText": "Quay miễn phí",
+                    "FontResource": {
+                      "Type": "Normal",
+                      "Path": "GUILuckyBonus/tahomabd.ttf",
+                      "Plist": ""
+                    },
+                    "OutlineColor": {
+                      "G": 0,
+                      "B": 0
+                    },
+                    "ShadowColor": {
+                      "R": 110,
+                      "G": 110,
+                      "B": 110
+                    },
+                    "ShadowOffsetX": 2.0,
+                    "ShadowOffsetY": -2.0,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 265.0,
+                      "Y": 20.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {
+                      "R": 209,
+                      "B": 113
+                    },
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.5048,
+                      "Y": 0.5714
+                    },
+                    "PreSize": {
+                      "X": 0.2343,
+                      "Y": 0.6286
+                    },
+                    "LeftMargin": 203.5,
+                    "RightMargin": 198.5,
+                    "TopMargin": 4.0,
+                    "BottomMargin": 9.0,
+                    "Tag": 696,
+                    "ActionTag": -1658539755,
+                    "Size": {
+                      "X": 123.0,
+                      "Y": 22.0
+                    },
+                    "Name": "prizeFreeLabel",
+                    "ctype": "TextObjectData"
+                  },
+                  {
+                    "FontSize": 16,
+                    "LabelText": "Quay 20",
+                    "FontResource": {
+                      "Type": "Normal",
+                      "Path": "GUILuckyBonus/tahomabd.ttf",
+                      "Plist": ""
+                    },
+                    "OutlineColor": {
+                      "G": 0,
+                      "B": 0
+                    },
+                    "ShadowColor": {
+                      "R": 110,
+                      "G": 110,
+                      "B": 110
+                    },
+                    "ShadowOffsetX": 2.0,
+                    "ShadowOffsetY": -2.0,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 415.0,
+                      "Y": 20.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {
+                      "R": 204,
+                      "G": 246
+                    },
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.7905,
+                      "Y": 0.5714
+                    },
+                    "PreSize": {
+                      "X": 0.1295,
+                      "Y": 0.6286
+                    },
+                    "LeftMargin": 381.0,
+                    "RightMargin": 76.0,
+                    "TopMargin": 4.0,
+                    "BottomMargin": 9.0,
+                    "Tag": 697,
+                    "Children": [
+                      {
+                        "FileData": {
+                          "Type": "Normal",
+                          "Path": "GUILuckyBonus/6.png",
+                          "Plist": ""
+                        },
+                        "Scale9OriginX": 7,
+                        "Scale9OriginY": 7,
+                        "Scale9Width": 10,
+                        "Scale9Height": 10,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 83.0,
+                          "Y": 11.0
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 1.2206,
+                          "Y": 0.5
+                        },
+                        "PreSize": {
+                          "X": 0.3529,
+                          "Y": 1.0909
+                        },
+                        "LeftMargin": 71.0,
+                        "RightMargin": -27.0,
+                        "TopMargin": -1.0,
+                        "BottomMargin": -1.0,
+                        "Tag": 698,
+                        "ActionTag": -1534979028,
+                        "Size": {
+                          "X": 24.0,
+                          "Y": 24.0
+                        },
+                        "Name": "gIcon",
+                        "ctype": "ImageViewObjectData"
+                      }
+                    ],
+                    "ActionTag": 1183495439,
+                    "Size": {
+                      "X": 68.0,
+                      "Y": 22.0
+                    },
+                    "Name": "prizeGLabel",
+                    "ctype": "TextObjectData"
+                  }
+                ],
+                "ActionTag": 1468315103,
+                "Size": {
+                  "X": 525.0,
+                  "Y": 35.0
+                },
+                "Name": "menu",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "GUILuckyBonus/popup/2.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 20,
+                "Scale9Height": 34,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 537.0,
+                  "Y": 310.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.9555,
+                  "Y": 0.8245
+                },
+                "PreSize": {
+                  "X": 0.089,
+                  "Y": 0.1489
+                },
+                "LeftMargin": 512.0,
+                "TopMargin": 38.0,
+                "BottomMargin": 282.0,
+                "Tag": 699,
+                "ActionTag": 1408515874,
+                "Size": {
+                  "X": 50.0,
+                  "Y": 56.0
+                },
+                "Name": "closeBtn",
+                "ctype": "ButtonObjectData"
+              },
+              {
+                "ClipAble": true,
+                "BackColorAlpha": 0,
+                "ComboBoxIndex": 1,
+                "SingleColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "FirstColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "EndColor": {},
+                "ColorVector": {
+                  "ScaleY": 1.0
+                },
+                "Scale9Width": 1,
+                "Scale9Height": 1,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 280.0,
+                  "Y": 150.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.4982,
+                  "Y": 0.3989
+                },
+                "PreSize": {
+                  "X": 0.9342,
+                  "Y": 0.6649
+                },
+                "LeftMargin": 17.5,
+                "RightMargin": 19.5,
+                "TopMargin": 101.0,
+                "BottomMargin": 25.0,
+                "Tag": 700,
+                "Children": [
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "GUILuckyBonus/popup/6.png",
+                      "Plist": ""
+                    },
+                    "Scale9OriginX": 173,
+                    "Scale9OriginY": 18,
+                    "Scale9Width": 179,
+                    "Scale9Height": 21,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 262.5,
+                      "Y": 220.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.5,
+                      "Y": 0.88
+                    },
+                    "PreSize": {
+                      "X": 1.0,
+                      "Y": 0.228
+                    },
+                    "TopMargin": 1.5,
+                    "BottomMargin": 191.5,
+                    "Tag": 759,
+                    "Children": [
+                      {
+                        "ClipAble": false,
+                        "BackColorAlpha": 0,
+                        "ComboBoxIndex": 1,
+                        "SingleColor": {
+                          "R": 150,
+                          "G": 200
+                        },
+                        "FirstColor": {
+                          "R": 150,
+                          "G": 200
+                        },
+                        "EndColor": {},
+                        "ColorVector": {
+                          "ScaleY": 1.0
+                        },
+                        "Scale9Width": 1,
+                        "Scale9Height": 1,
+                        "TouchEnable": true,
+                        "AnchorPoint": {},
+                        "Position": {
+                          "X": 5.0,
+                          "Y": 5.0
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.0095,
+                          "Y": 0.0877
+                        },
+                        "PreSize": {
+                          "X": 0.3333,
+                          "Y": 0.8246
+                        },
+                        "LeftMargin": 5.0,
+                        "RightMargin": 345.0,
+                        "TopMargin": 5.0,
+                        "BottomMargin": 5.0,
+                        "Tag": 760,
+                        "Children": [
+                          {
+                            "FileData": {
+                              "Type": "Normal",
+                              "Path": "GUILuckyBonus/token/1.png",
+                              "Plist": ""
+                            },
+                            "Scale9OriginX": 25,
+                            "Scale9OriginY": 25,
+                            "Scale9Width": 26,
+                            "Scale9Height": 28,
+                            "AnchorPoint": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
+                            },
+                            "Position": {
+                              "X": 25.0,
+                              "Y": 25.0
+                            },
+                            "Scale": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
+                            },
+                            "CColor": {},
+                            "IconVisible": false,
+                            "PrePosition": {
+                              "X": 0.1429,
+                              "Y": 0.5319
+                            },
+                            "PreSize": {
+                              "X": 0.5714,
+                              "Y": 2.1277
+                            },
+                            "LeftMargin": -25.0,
+                            "RightMargin": 100.0,
+                            "TopMargin": -28.0,
+                            "BottomMargin": -25.0,
+                            "Tag": 761,
+                            "ActionTag": -45050849,
+                            "Size": {
+                              "X": 100.0,
+                              "Y": 100.0
+                            },
+                            "Name": "token_1",
+                            "ctype": "ImageViewObjectData"
+                          },
+                          {
+                            "FileData": {
+                              "Type": "Normal",
+                              "Path": "GUILuckyBonus/token/3.png",
+                              "Plist": ""
+                            },
+                            "Scale9OriginX": 25,
+                            "Scale9OriginY": 12,
+                            "Scale9Width": 36,
+                            "Scale9Height": 76,
+                            "AnchorPoint": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
+                            },
+                            "Position": {
+                              "X": 85.0,
+                              "Y": 25.0
+                            },
+                            "Scale": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
+                            },
+                            "CColor": {},
+                            "IconVisible": false,
+                            "PrePosition": {
+                              "X": 0.4857,
+                              "Y": 0.5319
+                            },
+                            "PreSize": {
+                              "X": 0.5714,
+                              "Y": 2.1277
+                            },
+                            "LeftMargin": 35.0,
+                            "RightMargin": 40.0,
+                            "TopMargin": -28.0,
+                            "BottomMargin": -25.0,
+                            "Tag": 763,
+                            "ActionTag": 811076390,
+                            "Size": {
+                              "X": 100.0,
+                              "Y": 100.0
+                            },
+                            "Name": "token_3",
+                            "ctype": "ImageViewObjectData"
+                          },
+                          {
+                            "FileData": {
+                              "Type": "Normal",
+                              "Path": "GUILuckyBonus/token/1.png",
+                              "Plist": ""
+                            },
+                            "Scale9OriginX": 25,
+                            "Scale9OriginY": 25,
+                            "Scale9Width": 26,
+                            "Scale9Height": 28,
+                            "AnchorPoint": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
+                            },
+                            "Position": {
+                              "X": 132.5,
+                              "Y": 37.5
+                            },
+                            "Scale": {
+                              "ScaleX": 0.2,
+                              "ScaleY": 0.2
+                            },
+                            "CColor": {},
+                            "IconVisible": false,
+                            "PrePosition": {
+                              "X": 0.7571,
+                              "Y": 0.7979
+                            },
+                            "PreSize": {
+                              "X": 0.5714,
+                              "Y": 2.1277
+                            },
+                            "LeftMargin": 82.5,
+                            "RightMargin": -7.5,
+                            "TopMargin": -40.5,
+                            "BottomMargin": -12.5,
+                            "Tag": 762,
+                            "ActionTag": 820783311,
+                            "Size": {
+                              "X": 100.0,
+                              "Y": 100.0
+                            },
+                            "Name": "token_2",
+                            "ctype": "ImageViewObjectData"
+                          },
+                          {
+                            "FileData": {
+                              "Type": "Normal",
+                              "Path": "GUILuckyBonus/token/3.png",
+                              "Plist": ""
+                            },
+                            "Scale9OriginX": 25,
+                            "Scale9OriginY": 25,
+                            "Scale9Width": 36,
+                            "Scale9Height": 50,
+                            "AnchorPoint": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
+                            },
+                            "Position": {
+                              "X": 157.5,
+                              "Y": 37.5
+                            },
+                            "Scale": {
+                              "ScaleX": 0.2,
+                              "ScaleY": 0.2
+                            },
+                            "CColor": {},
+                            "IconVisible": false,
+                            "PrePosition": {
+                              "X": 0.9,
+                              "Y": 0.7979
+                            },
+                            "PreSize": {
+                              "X": 0.4914,
+                              "Y": 2.1277
+                            },
+                            "LeftMargin": 114.5,
+                            "RightMargin": -25.5,
+                            "TopMargin": -40.5,
+                            "BottomMargin": -12.5,
+                            "Tag": 777,
+                            "ActionTag": -1658879846,
+                            "Size": {
+                              "X": 86.0,
+                              "Y": 100.0
+                            },
+                            "Name": "token_2_0",
+                            "ctype": "ImageViewObjectData"
+                          },
+                          {
+                            "FileData": {
+                              "Type": "Normal",
+                              "Path": "GUILuckyBonus/token/2.png",
+                              "Plist": ""
+                            },
+                            "Scale9OriginX": 25,
+                            "Scale9OriginY": 12,
+                            "Scale9Width": 36,
+                            "Scale9Height": 14,
+                            "AnchorPoint": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
+                            },
+                            "Position": {
+                              "X": 132.5,
+                              "Y": 12.5
+                            },
+                            "Scale": {
+                              "ScaleX": 0.2,
+                              "ScaleY": 0.2
+                            },
+                            "CColor": {},
+                            "IconVisible": false,
+                            "PrePosition": {
+                              "X": 0.7571,
+                              "Y": 0.266
+                            },
+                            "PreSize": {
+                              "X": 0.4914,
+                              "Y": 0.8085
+                            },
+                            "LeftMargin": 89.5,
+                            "RightMargin": -0.5,
+                            "TopMargin": 15.5,
+                            "BottomMargin": -6.5,
+                            "Tag": 778,
+                            "ActionTag": 695030687,
+                            "Size": {
+                              "X": 86.0,
+                              "Y": 38.0
+                            },
+                            "Name": "token_2_1",
+                            "ctype": "ImageViewObjectData"
+                          },
+                          {
+                            "FileData": {
+                              "Type": "Normal",
+                              "Path": "GUILuckyBonus/token/8.png",
+                              "Plist": ""
+                            },
+                            "Scale9OriginX": 25,
+                            "Scale9OriginY": 25,
+                            "Scale9Width": 30,
+                            "Scale9Height": 33,
+                            "AnchorPoint": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
+                            },
+                            "Position": {
+                              "X": 157.5,
+                              "Y": 12.5
+                            },
+                            "Scale": {
+                              "ScaleX": 0.2,
+                              "ScaleY": 0.2
+                            },
+                            "CColor": {},
+                            "IconVisible": false,
+                            "PrePosition": {
+                              "X": 0.9,
+                              "Y": 0.266
+                            },
+                            "PreSize": {
+                              "X": 0.4571,
+                              "Y": 1.766
+                            },
+                            "LeftMargin": 117.5,
+                            "RightMargin": -22.5,
+                            "TopMargin": -7.0,
+                            "BottomMargin": -29.0,
+                            "Tag": 779,
+                            "ActionTag": -845124656,
+                            "Size": {
+                              "X": 80.0,
+                              "Y": 83.0
+                            },
+                            "Name": "token_2_2",
+                            "ctype": "ImageViewObjectData"
+                          }
+                        ],
+                        "ActionTag": -2099232490,
+                        "Size": {
+                          "X": 175.0,
+                          "Y": 47.0
+                        },
+                        "Name": "combination",
+                        "ctype": "PanelObjectData"
+                      },
+                      {
+                        "FileData": {
+                          "Type": "Normal",
+                          "Path": "GUILuckyBonus/5.png",
+                          "Plist": ""
+                        },
+                        "Scale9OriginX": 7,
+                        "Scale9OriginY": 7,
+                        "Scale9Width": 10,
+                        "Scale9Height": 10,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 205.0,
+                          "Y": 30.0
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.3905,
+                          "Y": 0.5263
+                        },
+                        "PreSize": {
+                          "X": 0.0457,
+                          "Y": 0.4211
+                        },
+                        "LeftMargin": 193.0,
+                        "RightMargin": 308.0,
+                        "TopMargin": 15.0,
+                        "BottomMargin": 18.0,
+                        "Tag": 764,
+                        "Children": [
+                          {
+                            "LabelText": "1.500.000$",
+                            "LabelBMFontFile_CNB": {
+                              "Type": "Normal",
+                              "Path": "GUILuckyBonus/LBFont.fnt",
+                              "Plist": ""
+                            },
+                            "AnchorPoint": {
+                              "ScaleY": 0.5
+                            },
+                            "Position": {
+                              "X": 27.6,
+                              "Y": 13.0
+                            },
+                            "Scale": {
+                              "ScaleX": 0.4,
+                              "ScaleY": 0.4
+                            },
+                            "CColor": {},
+                            "IconVisible": false,
+                            "PrePosition": {
+                              "X": 1.15,
+                              "Y": 0.5417
+                            },
+                            "PreSize": {
+                              "X": 11.9583,
+                              "Y": 2.0833
+                            },
+                            "LeftMargin": 27.6,
+                            "RightMargin": -290.6,
+                            "TopMargin": -14.0,
+                            "BottomMargin": -12.0,
+                            "Tag": 765,
+                            "ActionTag": 145036346,
+                            "Size": {
+                              "X": 287.0,
+                              "Y": 50.0
+                            },
+                            "Name": "value",
+                            "ctype": "TextBMFontObjectData"
+                          }
+                        ],
+                        "ActionTag": 2043007041,
+                        "Size": {
+                          "X": 24.0,
+                          "Y": 24.0
+                        },
+                        "Name": "prizeFree",
+                        "ctype": "ImageViewObjectData"
+                      },
+                      {
+                        "FileData": {
+                          "Type": "Normal",
+                          "Path": "GUILuckyBonus/5.png",
+                          "Plist": ""
+                        },
+                        "Scale9OriginX": 7,
+                        "Scale9OriginY": 7,
+                        "Scale9Width": 10,
+                        "Scale9Height": 10,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 365.0,
+                          "Y": 30.0
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.6952,
+                          "Y": 0.5263
+                        },
+                        "PreSize": {
+                          "X": 0.0457,
+                          "Y": 0.4211
+                        },
+                        "LeftMargin": 353.0,
+                        "RightMargin": 148.0,
+                        "TopMargin": 15.0,
+                        "BottomMargin": 18.0,
+                        "Tag": 766,
+                        "Children": [
+                          {
+                            "LabelText": "30.000.000$",
+                            "LabelBMFontFile_CNB": {
+                              "Type": "Normal",
+                              "Path": "GUILuckyBonus/LBFont.fnt",
+                              "Plist": ""
+                            },
+                            "AnchorPoint": {
+                              "ScaleY": 0.5
+                            },
+                            "Position": {
+                              "X": 28.6,
+                              "Y": 13.0
+                            },
+                            "Scale": {
+                              "ScaleX": 0.4,
+                              "ScaleY": 0.4
+                            },
+                            "CColor": {},
+                            "IconVisible": false,
+                            "PrePosition": {
+                              "X": 1.1917,
+                              "Y": 0.5417
+                            },
+                            "PreSize": {
+                              "X": 13.8333,
+                              "Y": 2.0833
+                            },
+                            "LeftMargin": 28.6,
+                            "RightMargin": -336.6,
+                            "TopMargin": -14.0,
+                            "BottomMargin": -12.0,
+                            "Tag": 767,
+                            "ActionTag": -1185943248,
+                            "Size": {
+                              "X": 332.0,
+                              "Y": 50.0
+                            },
+                            "Name": "value",
+                            "ctype": "TextBMFontObjectData"
+                          }
+                        ],
+                        "ActionTag": -1260752909,
+                        "Size": {
+                          "X": 24.0,
+                          "Y": 24.0
+                        },
+                        "Name": "prizeG",
+                        "ctype": "ImageViewObjectData"
+                      }
+                    ],
+                    "ActionTag": -719544620,
+                    "Size": {
+                      "X": 525.0,
+                      "Y": 57.0
+                    },
+                    "VisibleForFrame": false,
+                    "Name": "row1",
+                    "ctype": "ImageViewObjectData"
+                  },
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "GUILuckyBonus/popup/6.png",
+                      "Plist": ""
+                    },
+                    "Scale9OriginX": 173,
+                    "Scale9OriginY": 18,
+                    "Scale9Width": 179,
+                    "Scale9Height": 21,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 262.5,
+                      "Y": 160.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.5,
+                      "Y": 0.64
+                    },
+                    "PreSize": {
+                      "X": 1.0,
+                      "Y": 0.228
+                    },
+                    "TopMargin": 61.5,
+                    "BottomMargin": 131.5,
+                    "Tag": 720,
+                    "Children": [
+                      {
+                        "ClipAble": false,
+                        "BackColorAlpha": 0,
+                        "ComboBoxIndex": 1,
+                        "SingleColor": {
+                          "R": 150,
+                          "G": 200
+                        },
+                        "FirstColor": {
+                          "R": 150,
+                          "G": 200
+                        },
+                        "EndColor": {},
+                        "ColorVector": {
+                          "ScaleY": 1.0
+                        },
+                        "Scale9Width": 1,
+                        "Scale9Height": 1,
+                        "TouchEnable": true,
+                        "AnchorPoint": {},
+                        "Position": {
+                          "X": 5.0,
+                          "Y": 5.0
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.0095,
+                          "Y": 0.0877
+                        },
+                        "PreSize": {
+                          "X": 0.3333,
+                          "Y": 0.8246
+                        },
+                        "LeftMargin": 5.0,
+                        "RightMargin": 345.0,
+                        "TopMargin": 5.0,
+                        "BottomMargin": 5.0,
+                        "Tag": 721,
+                        "Children": [
+                          {
+                            "FileData": {
+                              "Type": "Normal",
+                              "Path": "GUILuckyBonus/token/1.png",
+                              "Plist": ""
+                            },
+                            "Scale9OriginX": 25,
+                            "Scale9OriginY": 25,
+                            "Scale9Width": 26,
+                            "Scale9Height": 28,
+                            "AnchorPoint": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
+                            },
+                            "Position": {
+                              "X": 25.0,
+                              "Y": 25.0
+                            },
+                            "Scale": {
+                              "ScaleX": 0.6,
+                              "ScaleY": 0.6
+                            },
+                            "CColor": {},
+                            "IconVisible": false,
+                            "PrePosition": {
+                              "X": 0.1429,
+                              "Y": 0.5319
+                            },
+                            "PreSize": {
+                              "X": 0.4343,
+                              "Y": 1.6596
+                            },
+                            "LeftMargin": -13.0,
+                            "RightMargin": 112.0,
+                            "TopMargin": -17.0,
+                            "BottomMargin": -14.0,
+                            "Tag": 722,
+                            "ActionTag": -1303538066,
+                            "Size": {
+                              "X": 76.0,
+                              "Y": 78.0
+                            },
+                            "Name": "token_1",
+                            "ctype": "ImageViewObjectData"
+                          },
+                          {
+                            "FileData": {
+                              "Type": "Normal",
+                              "Path": "GUILuckyBonus/token/1.png",
+                              "Plist": ""
+                            },
+                            "Scale9OriginX": 25,
+                            "Scale9OriginY": 25,
+                            "Scale9Width": 26,
+                            "Scale9Height": 28,
+                            "AnchorPoint": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
+                            },
+                            "Position": {
+                              "X": 145.0,
+                              "Y": 25.0
+                            },
+                            "Scale": {
+                              "ScaleX": 0.6,
+                              "ScaleY": 0.6
+                            },
+                            "CColor": {},
+                            "IconVisible": false,
+                            "PrePosition": {
+                              "X": 0.8286,
+                              "Y": 0.5319
+                            },
+                            "PreSize": {
+                              "X": 0.4343,
+                              "Y": 1.6596
+                            },
+                            "LeftMargin": 107.0,
+                            "RightMargin": -8.0,
+                            "TopMargin": -17.0,
+                            "BottomMargin": -14.0,
+                            "Tag": 723,
+                            "ActionTag": 628391174,
+                            "Size": {
+                              "X": 76.0,
+                              "Y": 78.0
+                            },
+                            "Name": "token_2",
+                            "ctype": "ImageViewObjectData"
+                          },
+                          {
+                            "FileData": {
+                              "Type": "Normal",
+                              "Path": "GUILuckyBonus/token/1.png",
+                              "Plist": ""
+                            },
+                            "Scale9OriginX": 25,
+                            "Scale9OriginY": 25,
+                            "Scale9Width": 26,
+                            "Scale9Height": 28,
+                            "AnchorPoint": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
+                            },
+                            "Position": {
+                              "X": 85.0,
+                              "Y": 25.0
+                            },
+                            "Scale": {
+                              "ScaleX": 0.6,
+                              "ScaleY": 0.6
+                            },
+                            "CColor": {},
+                            "IconVisible": false,
+                            "PrePosition": {
+                              "X": 0.4857,
+                              "Y": 0.5319
+                            },
+                            "PreSize": {
+                              "X": 0.4343,
+                              "Y": 1.6596
+                            },
+                            "LeftMargin": 47.0,
+                            "RightMargin": 52.0,
+                            "TopMargin": -17.0,
+                            "BottomMargin": -14.0,
+                            "Tag": 724,
+                            "ActionTag": -1847298088,
+                            "Size": {
+                              "X": 76.0,
+                              "Y": 78.0
+                            },
+                            "Name": "token_3",
+                            "ctype": "ImageViewObjectData"
+                          }
+                        ],
+                        "ActionTag": 389006187,
+                        "Size": {
+                          "X": 175.0,
+                          "Y": 47.0
+                        },
+                        "Name": "combination",
+                        "ctype": "PanelObjectData"
+                      },
+                      {
+                        "FileData": {
+                          "Type": "Normal",
+                          "Path": "GUILuckyBonus/5.png",
+                          "Plist": ""
+                        },
+                        "Scale9OriginX": 7,
+                        "Scale9OriginY": 7,
+                        "Scale9Width": 10,
+                        "Scale9Height": 10,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 205.0,
+                          "Y": 30.0
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.3905,
+                          "Y": 0.5263
+                        },
+                        "PreSize": {
+                          "X": 0.0457,
+                          "Y": 0.4211
+                        },
+                        "LeftMargin": 193.0,
+                        "RightMargin": 308.0,
+                        "TopMargin": 15.0,
+                        "BottomMargin": 18.0,
+                        "Tag": 725,
+                        "Children": [
+                          {
+                            "LabelText": "1.500.000$",
+                            "LabelBMFontFile_CNB": {
+                              "Type": "Normal",
+                              "Path": "GUILuckyBonus/LBFont.fnt",
+                              "Plist": ""
+                            },
+                            "AnchorPoint": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
+                            },
+                            "Position": {
+                              "X": 85.0,
+                              "Y": 13.0
+                            },
+                            "Scale": {
+                              "ScaleX": 0.4,
+                              "ScaleY": 0.4
+                            },
+                            "CColor": {},
+                            "IconVisible": false,
+                            "PrePosition": {
+                              "X": 3.5417,
+                              "Y": 0.5417
+                            },
+                            "PreSize": {
+                              "X": 11.9583,
+                              "Y": 2.0833
+                            },
+                            "LeftMargin": -58.5,
+                            "RightMargin": -204.5,
+                            "TopMargin": -14.0,
+                            "BottomMargin": -12.0,
+                            "Tag": 726,
+                            "ActionTag": 1611440433,
+                            "Size": {
+                              "X": 287.0,
+                              "Y": 50.0
+                            },
+                            "Name": "value",
+                            "ctype": "TextBMFontObjectData"
+                          }
+                        ],
+                        "ActionTag": 34917004,
+                        "Size": {
+                          "X": 24.0,
+                          "Y": 24.0
+                        },
+                        "Name": "prizeFree",
+                        "ctype": "ImageViewObjectData"
+                      },
+                      {
+                        "FileData": {
+                          "Type": "Normal",
+                          "Path": "GUILuckyBonus/5.png",
+                          "Plist": ""
+                        },
+                        "Scale9OriginX": 7,
+                        "Scale9OriginY": 7,
+                        "Scale9Width": 10,
+                        "Scale9Height": 10,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 365.0,
+                          "Y": 30.0
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.6952,
+                          "Y": 0.5263
+                        },
+                        "PreSize": {
+                          "X": 0.0457,
+                          "Y": 0.4211
+                        },
+                        "LeftMargin": 353.0,
+                        "RightMargin": 148.0,
+                        "TopMargin": 15.0,
+                        "BottomMargin": 18.0,
+                        "Tag": 727,
+                        "Children": [
+                          {
+                            "LabelText": "30.000.000$",
+                            "LabelBMFontFile_CNB": {
+                              "Type": "Normal",
+                              "Path": "GUILuckyBonus/LBFont.fnt",
+                              "Plist": ""
+                            },
+                            "AnchorPoint": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
+                            },
+                            "Position": {
+                              "X": 95.0,
+                              "Y": 13.0
+                            },
+                            "Scale": {
+                              "ScaleX": 0.4,
+                              "ScaleY": 0.4
+                            },
+                            "CColor": {},
+                            "IconVisible": false,
+                            "PrePosition": {
+                              "X": 3.9583,
+                              "Y": 0.5417
+                            },
+                            "PreSize": {
+                              "X": 13.8333,
+                              "Y": 2.0833
+                            },
+                            "LeftMargin": -71.0,
+                            "RightMargin": -237.0,
+                            "TopMargin": -14.0,
+                            "BottomMargin": -12.0,
+                            "Tag": 728,
+                            "ActionTag": -822437465,
+                            "Size": {
+                              "X": 332.0,
+                              "Y": 50.0
+                            },
+                            "Name": "value",
+                            "ctype": "TextBMFontObjectData"
+                          }
+                        ],
+                        "ActionTag": -403918257,
+                        "Size": {
+                          "X": 24.0,
+                          "Y": 24.0
+                        },
+                        "Name": "prizeG",
+                        "ctype": "ImageViewObjectData"
+                      }
+                    ],
+                    "ActionTag": -1693545216,
+                    "Size": {
+                      "X": 525.0,
+                      "Y": 57.0
+                    },
+                    "VisibleForFrame": false,
+                    "Name": "row2",
+                    "ctype": "ImageViewObjectData"
+                  },
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "GUILuckyBonus/popup/6.png",
+                      "Plist": ""
+                    },
+                    "Scale9OriginX": 173,
+                    "Scale9OriginY": 18,
+                    "Scale9Width": 179,
+                    "Scale9Height": 21,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 262.5,
+                      "Y": 100.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.5,
+                      "Y": 0.4
+                    },
+                    "PreSize": {
+                      "X": 1.0,
+                      "Y": 0.228
+                    },
+                    "TopMargin": 121.5,
+                    "BottomMargin": 71.5,
+                    "Tag": 729,
+                    "Children": [
+                      {
+                        "ClipAble": false,
+                        "BackColorAlpha": 0,
+                        "ComboBoxIndex": 1,
+                        "SingleColor": {
+                          "R": 150,
+                          "G": 200
+                        },
+                        "FirstColor": {
+                          "R": 150,
+                          "G": 200
+                        },
+                        "EndColor": {},
+                        "ColorVector": {
+                          "ScaleY": 1.0
+                        },
+                        "Scale9Width": 1,
+                        "Scale9Height": 1,
+                        "TouchEnable": true,
+                        "AnchorPoint": {},
+                        "Position": {
+                          "X": 5.0,
+                          "Y": 5.0
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.0095,
+                          "Y": 0.0877
+                        },
+                        "PreSize": {
+                          "X": 0.3333,
+                          "Y": 0.8246
+                        },
+                        "LeftMargin": 5.0,
+                        "RightMargin": 345.0,
+                        "TopMargin": 5.0,
+                        "BottomMargin": 5.0,
+                        "Tag": 730,
+                        "Children": [
+                          {
+                            "FileData": {
+                              "Type": "Normal",
+                              "Path": "GUILuckyBonus/token/1.png",
+                              "Plist": ""
+                            },
+                            "Scale9OriginX": 25,
+                            "Scale9OriginY": 25,
+                            "Scale9Width": 26,
+                            "Scale9Height": 28,
+                            "AnchorPoint": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
+                            },
+                            "Position": {
+                              "X": 25.0,
+                              "Y": 25.0
+                            },
+                            "Scale": {
+                              "ScaleX": 0.6,
+                              "ScaleY": 0.6
+                            },
+                            "CColor": {},
+                            "IconVisible": false,
+                            "PrePosition": {
+                              "X": 0.1429,
+                              "Y": 0.5319
+                            },
+                            "PreSize": {
+                              "X": 0.4343,
+                              "Y": 1.6596
+                            },
+                            "LeftMargin": -13.0,
+                            "RightMargin": 112.0,
+                            "TopMargin": -17.0,
+                            "BottomMargin": -14.0,
+                            "Tag": 731,
+                            "ActionTag": -1275315581,
+                            "Size": {
+                              "X": 76.0,
+                              "Y": 78.0
+                            },
+                            "Name": "token_1",
+                            "ctype": "ImageViewObjectData"
+                          },
+                          {
+                            "FileData": {
+                              "Type": "Normal",
+                              "Path": "GUILuckyBonus/token/1.png",
+                              "Plist": ""
+                            },
+                            "Scale9OriginX": 25,
+                            "Scale9OriginY": 25,
+                            "Scale9Width": 26,
+                            "Scale9Height": 28,
+                            "AnchorPoint": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
+                            },
+                            "Position": {
+                              "X": 145.0,
+                              "Y": 25.0
+                            },
+                            "Scale": {
+                              "ScaleX": 0.6,
+                              "ScaleY": 0.6
+                            },
+                            "CColor": {},
+                            "IconVisible": false,
+                            "PrePosition": {
+                              "X": 0.8286,
+                              "Y": 0.5319
+                            },
+                            "PreSize": {
+                              "X": 0.4343,
+                              "Y": 1.6596
+                            },
+                            "LeftMargin": 107.0,
+                            "RightMargin": -8.0,
+                            "TopMargin": -17.0,
+                            "BottomMargin": -14.0,
+                            "Tag": 732,
+                            "ActionTag": -852280498,
+                            "Size": {
+                              "X": 76.0,
+                              "Y": 78.0
+                            },
+                            "Name": "token_2",
+                            "ctype": "ImageViewObjectData"
+                          },
+                          {
+                            "FileData": {
+                              "Type": "Normal",
+                              "Path": "GUILuckyBonus/token/1.png",
+                              "Plist": ""
+                            },
+                            "Scale9OriginX": 25,
+                            "Scale9OriginY": 25,
+                            "Scale9Width": 26,
+                            "Scale9Height": 28,
+                            "AnchorPoint": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
+                            },
+                            "Position": {
+                              "X": 85.0,
+                              "Y": 25.0
+                            },
+                            "Scale": {
+                              "ScaleX": 0.6,
+                              "ScaleY": 0.6
+                            },
+                            "CColor": {},
+                            "IconVisible": false,
+                            "PrePosition": {
+                              "X": 0.4857,
+                              "Y": 0.5319
+                            },
+                            "PreSize": {
+                              "X": 0.4343,
+                              "Y": 1.6596
+                            },
+                            "LeftMargin": 47.0,
+                            "RightMargin": 52.0,
+                            "TopMargin": -17.0,
+                            "BottomMargin": -14.0,
+                            "Tag": 733,
+                            "ActionTag": 37313744,
+                            "Size": {
+                              "X": 76.0,
+                              "Y": 78.0
+                            },
+                            "Name": "token_3",
+                            "ctype": "ImageViewObjectData"
+                          }
+                        ],
+                        "ActionTag": 917592399,
+                        "Size": {
+                          "X": 175.0,
+                          "Y": 47.0
+                        },
+                        "Name": "combination",
+                        "ctype": "PanelObjectData"
+                      },
+                      {
+                        "FileData": {
+                          "Type": "Normal",
+                          "Path": "GUILuckyBonus/5.png",
+                          "Plist": ""
+                        },
+                        "Scale9OriginX": 7,
+                        "Scale9OriginY": 7,
+                        "Scale9Width": 10,
+                        "Scale9Height": 10,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 205.0,
+                          "Y": 30.0
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.3905,
+                          "Y": 0.5263
+                        },
+                        "PreSize": {
+                          "X": 0.0457,
+                          "Y": 0.4211
+                        },
+                        "LeftMargin": 193.0,
+                        "RightMargin": 308.0,
+                        "TopMargin": 15.0,
+                        "BottomMargin": 18.0,
+                        "Tag": 734,
+                        "Children": [
+                          {
+                            "LabelText": "1.500.000$",
+                            "LabelBMFontFile_CNB": {
+                              "Type": "Normal",
+                              "Path": "GUILuckyBonus/LBFont.fnt",
+                              "Plist": ""
+                            },
+                            "AnchorPoint": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
+                            },
+                            "Position": {
+                              "X": 85.0,
+                              "Y": 13.0
+                            },
+                            "Scale": {
+                              "ScaleX": 0.4,
+                              "ScaleY": 0.4
+                            },
+                            "CColor": {},
+                            "IconVisible": false,
+                            "PrePosition": {
+                              "X": 3.5417,
+                              "Y": 0.5417
+                            },
+                            "PreSize": {
+                              "X": 11.9583,
+                              "Y": 2.0833
+                            },
+                            "LeftMargin": -58.5,
+                            "RightMargin": -204.5,
+                            "TopMargin": -14.0,
+                            "BottomMargin": -12.0,
+                            "Tag": 735,
+                            "ActionTag": 1464472188,
+                            "Size": {
+                              "X": 287.0,
+                              "Y": 50.0
+                            },
+                            "Name": "value",
+                            "ctype": "TextBMFontObjectData"
+                          }
+                        ],
+                        "ActionTag": -497366023,
+                        "Size": {
+                          "X": 24.0,
+                          "Y": 24.0
+                        },
+                        "Name": "prizeFree",
+                        "ctype": "ImageViewObjectData"
+                      },
+                      {
+                        "FileData": {
+                          "Type": "Normal",
+                          "Path": "GUILuckyBonus/5.png",
+                          "Plist": ""
+                        },
+                        "Scale9OriginX": 7,
+                        "Scale9OriginY": 7,
+                        "Scale9Width": 10,
+                        "Scale9Height": 10,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 365.0,
+                          "Y": 30.0
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.6952,
+                          "Y": 0.5263
+                        },
+                        "PreSize": {
+                          "X": 0.0457,
+                          "Y": 0.4211
+                        },
+                        "LeftMargin": 353.0,
+                        "RightMargin": 148.0,
+                        "TopMargin": 15.0,
+                        "BottomMargin": 18.0,
+                        "Tag": 736,
+                        "Children": [
+                          {
+                            "LabelText": "30.000.000$",
+                            "LabelBMFontFile_CNB": {
+                              "Type": "Normal",
+                              "Path": "GUILuckyBonus/LBFont.fnt",
+                              "Plist": ""
+                            },
+                            "AnchorPoint": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
+                            },
+                            "Position": {
+                              "X": 95.0,
+                              "Y": 13.0
+                            },
+                            "Scale": {
+                              "ScaleX": 0.4,
+                              "ScaleY": 0.4
+                            },
+                            "CColor": {},
+                            "IconVisible": false,
+                            "PrePosition": {
+                              "X": 3.9583,
+                              "Y": 0.5417
+                            },
+                            "PreSize": {
+                              "X": 13.8333,
+                              "Y": 2.0833
+                            },
+                            "LeftMargin": -71.0,
+                            "RightMargin": -237.0,
+                            "TopMargin": -14.0,
+                            "BottomMargin": -12.0,
+                            "Tag": 737,
+                            "ActionTag": 760909391,
+                            "Size": {
+                              "X": 332.0,
+                              "Y": 50.0
+                            },
+                            "Name": "value",
+                            "ctype": "TextBMFontObjectData"
+                          }
+                        ],
+                        "ActionTag": 2103086639,
+                        "Size": {
+                          "X": 24.0,
+                          "Y": 24.0
+                        },
+                        "Name": "prizeG",
+                        "ctype": "ImageViewObjectData"
+                      }
+                    ],
+                    "ActionTag": -986431923,
+                    "Size": {
+                      "X": 525.0,
+                      "Y": 57.0
+                    },
+                    "VisibleForFrame": false,
+                    "Name": "row3",
+                    "ctype": "ImageViewObjectData"
+                  },
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "GUILuckyBonus/popup/6.png",
+                      "Plist": ""
+                    },
+                    "Scale9OriginX": 173,
+                    "Scale9OriginY": 18,
+                    "Scale9Width": 179,
+                    "Scale9Height": 21,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 262.5,
+                      "Y": 40.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.5,
+                      "Y": 0.16
+                    },
+                    "PreSize": {
+                      "X": 1.0,
+                      "Y": 0.228
+                    },
+                    "TopMargin": 181.5,
+                    "BottomMargin": 11.5,
+                    "Tag": 768,
+                    "Children": [
+                      {
+                        "ClipAble": false,
+                        "BackColorAlpha": 0,
+                        "ComboBoxIndex": 1,
+                        "SingleColor": {
+                          "R": 150,
+                          "G": 200
+                        },
+                        "FirstColor": {
+                          "R": 150,
+                          "G": 200
+                        },
+                        "EndColor": {},
+                        "ColorVector": {
+                          "ScaleY": 1.0
+                        },
+                        "Scale9Width": 1,
+                        "Scale9Height": 1,
+                        "TouchEnable": true,
+                        "AnchorPoint": {},
+                        "Position": {
+                          "X": 5.0,
+                          "Y": 5.0
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.0095,
+                          "Y": 0.0877
+                        },
+                        "PreSize": {
+                          "X": 0.3333,
+                          "Y": 0.8246
+                        },
+                        "LeftMargin": 5.0,
+                        "RightMargin": 345.0,
+                        "TopMargin": 5.0,
+                        "BottomMargin": 5.0,
+                        "Tag": 769,
+                        "Children": [
+                          {
+                            "FileData": {
+                              "Type": "Normal",
+                              "Path": "GUILuckyBonus/token/1.png",
+                              "Plist": ""
+                            },
+                            "Scale9OriginX": 25,
+                            "Scale9OriginY": 25,
+                            "Scale9Width": 26,
+                            "Scale9Height": 28,
+                            "AnchorPoint": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
+                            },
+                            "Position": {
+                              "X": 25.0,
+                              "Y": 25.0
+                            },
+                            "Scale": {
+                              "ScaleX": 0.6,
+                              "ScaleY": 0.6
+                            },
+                            "CColor": {},
+                            "IconVisible": false,
+                            "PrePosition": {
+                              "X": 0.1429,
+                              "Y": 0.5319
+                            },
+                            "PreSize": {
+                              "X": 0.4343,
+                              "Y": 1.6596
+                            },
+                            "LeftMargin": -13.0,
+                            "RightMargin": 112.0,
+                            "TopMargin": -17.0,
+                            "BottomMargin": -14.0,
+                            "Tag": 770,
+                            "ActionTag": -14400358,
+                            "Size": {
+                              "X": 76.0,
+                              "Y": 78.0
+                            },
+                            "Name": "token_1",
+                            "ctype": "ImageViewObjectData"
+                          },
+                          {
+                            "FileData": {
+                              "Type": "Normal",
+                              "Path": "GUILuckyBonus/token/1.png",
+                              "Plist": ""
+                            },
+                            "Scale9OriginX": 25,
+                            "Scale9OriginY": 25,
+                            "Scale9Width": 26,
+                            "Scale9Height": 28,
+                            "AnchorPoint": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
+                            },
+                            "Position": {
+                              "X": 85.0,
+                              "Y": 25.0
+                            },
+                            "Scale": {
+                              "ScaleX": 0.6,
+                              "ScaleY": 0.6
+                            },
+                            "CColor": {},
+                            "IconVisible": false,
+                            "PrePosition": {
+                              "X": 0.4857,
+                              "Y": 0.5319
+                            },
+                            "PreSize": {
+                              "X": 0.4343,
+                              "Y": 1.6596
+                            },
+                            "LeftMargin": 47.0,
+                            "RightMargin": 52.0,
+                            "TopMargin": -17.0,
+                            "BottomMargin": -14.0,
+                            "Tag": 772,
+                            "ActionTag": 808739650,
+                            "Size": {
+                              "X": 76.0,
+                              "Y": 78.0
+                            },
+                            "Name": "token_3",
+                            "ctype": "ImageViewObjectData"
+                          },
+                          {
+                            "FontSize": 20,
+                            "LabelText": "ANY",
+                            "FontResource": {
+                              "Type": "Normal",
+                              "Path": "GUILuckyBonus/tahomabd.ttf",
+                              "Plist": ""
+                            },
+                            "OutlineColor": {
+                              "G": 0,
+                              "B": 0
+                            },
+                            "ShadowColor": {
+                              "R": 110,
+                              "G": 110,
+                              "B": 110
+                            },
+                            "ShadowOffsetX": 2.0,
+                            "ShadowOffsetY": -2.0,
+                            "AnchorPoint": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
+                            },
+                            "Position": {
+                              "X": 140.6279,
+                              "Y": 23.5653
+                            },
+                            "Scale": {
+                              "ScaleX": 1.0,
+                              "ScaleY": 1.0
+                            },
+                            "CColor": {},
+                            "IconVisible": false,
+                            "PrePosition": {
+                              "X": 0.8036,
+                              "Y": 0.5014
+                            },
+                            "PreSize": {
+                              "X": 0.2571,
+                              "Y": 0.5745
+                            },
+                            "LeftMargin": 118.1279,
+                            "RightMargin": 11.8721,
+                            "TopMargin": 9.9347,
+                            "BottomMargin": 10.0653,
+                            "Tag": 780,
+                            "ActionTag": 1990287756,
+                            "Size": {
+                              "X": 45.0,
+                              "Y": 27.0
+                            },
+                            "Name": "Text_7",
+                            "ctype": "TextObjectData"
+                          }
+                        ],
+                        "ActionTag": 2055676430,
+                        "Size": {
+                          "X": 175.0,
+                          "Y": 47.0
+                        },
+                        "Name": "combination",
+                        "ctype": "PanelObjectData"
+                      },
+                      {
+                        "FileData": {
+                          "Type": "Normal",
+                          "Path": "GUILuckyBonus/5.png",
+                          "Plist": ""
+                        },
+                        "Scale9OriginX": 7,
+                        "Scale9OriginY": 7,
+                        "Scale9Width": 10,
+                        "Scale9Height": 10,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 205.0,
+                          "Y": 30.0
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.3905,
+                          "Y": 0.5263
+                        },
+                        "PreSize": {
+                          "X": 0.0457,
+                          "Y": 0.4211
+                        },
+                        "LeftMargin": 193.0,
+                        "RightMargin": 308.0,
+                        "TopMargin": 15.0,
+                        "BottomMargin": 18.0,
+                        "Tag": 773,
+                        "Children": [
+                          {
+                            "LabelText": "1.500.000$",
+                            "LabelBMFontFile_CNB": {
+                              "Type": "Normal",
+                              "Path": "GUILuckyBonus/LBFont.fnt",
+                              "Plist": ""
+                            },
+                            "AnchorPoint": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
+                            },
+                            "Position": {
+                              "X": 85.0,
+                              "Y": 13.0
+                            },
+                            "Scale": {
+                              "ScaleX": 0.4,
+                              "ScaleY": 0.4
+                            },
+                            "CColor": {},
+                            "IconVisible": false,
+                            "PrePosition": {
+                              "X": 3.5417,
+                              "Y": 0.5417
+                            },
+                            "PreSize": {
+                              "X": 11.9583,
+                              "Y": 2.0833
+                            },
+                            "LeftMargin": -58.5,
+                            "RightMargin": -204.5,
+                            "TopMargin": -14.0,
+                            "BottomMargin": -12.0,
+                            "Tag": 774,
+                            "ActionTag": 272337320,
+                            "Size": {
+                              "X": 287.0,
+                              "Y": 50.0
+                            },
+                            "Name": "value",
+                            "ctype": "TextBMFontObjectData"
+                          }
+                        ],
+                        "ActionTag": -1694906523,
+                        "Size": {
+                          "X": 24.0,
+                          "Y": 24.0
+                        },
+                        "Name": "prizeFree",
+                        "ctype": "ImageViewObjectData"
+                      },
+                      {
+                        "FileData": {
+                          "Type": "Normal",
+                          "Path": "GUILuckyBonus/5.png",
+                          "Plist": ""
+                        },
+                        "Scale9OriginX": 7,
+                        "Scale9OriginY": 7,
+                        "Scale9Width": 10,
+                        "Scale9Height": 10,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 365.0,
+                          "Y": 30.0
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.6952,
+                          "Y": 0.5263
+                        },
+                        "PreSize": {
+                          "X": 0.0457,
+                          "Y": 0.4211
+                        },
+                        "LeftMargin": 353.0,
+                        "RightMargin": 148.0,
+                        "TopMargin": 15.0,
+                        "BottomMargin": 18.0,
+                        "Tag": 775,
+                        "Children": [
+                          {
+                            "LabelText": "30.000.000$",
+                            "LabelBMFontFile_CNB": {
+                              "Type": "Normal",
+                              "Path": "GUILuckyBonus/LBFont.fnt",
+                              "Plist": ""
+                            },
+                            "AnchorPoint": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
+                            },
+                            "Position": {
+                              "X": 95.0,
+                              "Y": 13.0
+                            },
+                            "Scale": {
+                              "ScaleX": 0.4,
+                              "ScaleY": 0.4
+                            },
+                            "CColor": {},
+                            "IconVisible": false,
+                            "PrePosition": {
+                              "X": 3.9583,
+                              "Y": 0.5417
+                            },
+                            "PreSize": {
+                              "X": 13.8333,
+                              "Y": 2.0833
+                            },
+                            "LeftMargin": -71.0,
+                            "RightMargin": -237.0,
+                            "TopMargin": -14.0,
+                            "BottomMargin": -12.0,
+                            "Tag": 776,
+                            "ActionTag": 1191358775,
+                            "Size": {
+                              "X": 332.0,
+                              "Y": 50.0
+                            },
+                            "Name": "value",
+                            "ctype": "TextBMFontObjectData"
+                          }
+                        ],
+                        "ActionTag": 1822169127,
+                        "Size": {
+                          "X": 24.0,
+                          "Y": 24.0
+                        },
+                        "Name": "prizeG",
+                        "ctype": "ImageViewObjectData"
+                      }
+                    ],
+                    "ActionTag": 829261180,
+                    "Size": {
+                      "X": 525.0,
+                      "Y": 57.0
+                    },
+                    "VisibleForFrame": false,
+                    "Name": "row4",
+                    "ctype": "ImageViewObjectData"
+                  },
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "GUILuckyBonus/popup/6.png",
+                      "Plist": ""
+                    },
+                    "Scale9OriginX": 173,
+                    "Scale9OriginY": 18,
+                    "Scale9Width": 179,
+                    "Scale9Height": 21,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 262.5,
+                      "Y": -20.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.5,
+                      "Y": -0.08
+                    },
+                    "PreSize": {
+                      "X": 1.0,
+                      "Y": 0.228
+                    },
+                    "TopMargin": 241.5,
+                    "BottomMargin": -48.5,
+                    "Tag": 747,
+                    "Children": [
+                      {
+                        "ClipAble": false,
+                        "BackColorAlpha": 0,
+                        "ComboBoxIndex": 1,
+                        "SingleColor": {
+                          "R": 150,
+                          "G": 200
+                        },
+                        "FirstColor": {
+                          "R": 150,
+                          "G": 200
+                        },
+                        "EndColor": {},
+                        "ColorVector": {
+                          "ScaleY": 1.0
+                        },
+                        "Scale9Width": 1,
+                        "Scale9Height": 1,
+                        "TouchEnable": true,
+                        "AnchorPoint": {},
+                        "Position": {
+                          "X": 5.0,
+                          "Y": 5.0
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.0095,
+                          "Y": 0.0877
+                        },
+                        "PreSize": {
+                          "X": 0.3333,
+                          "Y": 0.8246
+                        },
+                        "LeftMargin": 5.0,
+                        "RightMargin": 345.0,
+                        "TopMargin": 5.0,
+                        "BottomMargin": 5.0,
+                        "Tag": 748,
+                        "Children": [
+                          {
+                            "FileData": {
+                              "Type": "Normal",
+                              "Path": "GUILuckyBonus/token/1.png",
+                              "Plist": ""
+                            },
+                            "Scale9OriginX": 25,
+                            "Scale9OriginY": 25,
+                            "Scale9Width": 26,
+                            "Scale9Height": 28,
+                            "AnchorPoint": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
+                            },
+                            "Position": {
+                              "X": 25.0,
+                              "Y": 25.0
+                            },
+                            "Scale": {
+                              "ScaleX": 0.6,
+                              "ScaleY": 0.6
+                            },
+                            "CColor": {},
+                            "IconVisible": false,
+                            "PrePosition": {
+                              "X": 0.1429,
+                              "Y": 0.5319
+                            },
+                            "PreSize": {
+                              "X": 0.4343,
+                              "Y": 1.6596
+                            },
+                            "LeftMargin": -13.0,
+                            "RightMargin": 112.0,
+                            "TopMargin": -17.0,
+                            "BottomMargin": -14.0,
+                            "Tag": 749,
+                            "ActionTag": -464802799,
+                            "Size": {
+                              "X": 76.0,
+                              "Y": 78.0
+                            },
+                            "Name": "token_1",
+                            "ctype": "ImageViewObjectData"
+                          },
+                          {
+                            "FileData": {
+                              "Type": "Normal",
+                              "Path": "GUILuckyBonus/token/1.png",
+                              "Plist": ""
+                            },
+                            "Scale9OriginX": 25,
+                            "Scale9OriginY": 25,
+                            "Scale9Width": 26,
+                            "Scale9Height": 28,
+                            "AnchorPoint": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
+                            },
+                            "Position": {
+                              "X": 145.0,
+                              "Y": 25.0
+                            },
+                            "Scale": {
+                              "ScaleX": 0.6,
+                              "ScaleY": 0.6
+                            },
+                            "CColor": {},
+                            "IconVisible": false,
+                            "PrePosition": {
+                              "X": 0.8286,
+                              "Y": 0.5319
+                            },
+                            "PreSize": {
+                              "X": 0.4343,
+                              "Y": 1.6596
+                            },
+                            "LeftMargin": 107.0,
+                            "RightMargin": -8.0,
+                            "TopMargin": -17.0,
+                            "BottomMargin": -14.0,
+                            "Tag": 750,
+                            "ActionTag": 304563438,
+                            "Size": {
+                              "X": 76.0,
+                              "Y": 78.0
+                            },
+                            "Name": "token_2",
+                            "ctype": "ImageViewObjectData"
+                          },
+                          {
+                            "FileData": {
+                              "Type": "Normal",
+                              "Path": "GUILuckyBonus/token/1.png",
+                              "Plist": ""
+                            },
+                            "Scale9OriginX": 25,
+                            "Scale9OriginY": 25,
+                            "Scale9Width": 26,
+                            "Scale9Height": 28,
+                            "AnchorPoint": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
+                            },
+                            "Position": {
+                              "X": 85.0,
+                              "Y": 25.0
+                            },
+                            "Scale": {
+                              "ScaleX": 0.6,
+                              "ScaleY": 0.6
+                            },
+                            "CColor": {},
+                            "IconVisible": false,
+                            "PrePosition": {
+                              "X": 0.4857,
+                              "Y": 0.5319
+                            },
+                            "PreSize": {
+                              "X": 0.4343,
+                              "Y": 1.6596
+                            },
+                            "LeftMargin": 47.0,
+                            "RightMargin": 52.0,
+                            "TopMargin": -17.0,
+                            "BottomMargin": -14.0,
+                            "Tag": 751,
+                            "ActionTag": -713811979,
+                            "Size": {
+                              "X": 76.0,
+                              "Y": 78.0
+                            },
+                            "Name": "token_3",
+                            "ctype": "ImageViewObjectData"
+                          }
+                        ],
+                        "ActionTag": 1164430963,
+                        "Size": {
+                          "X": 175.0,
+                          "Y": 47.0
+                        },
+                        "Name": "combination",
+                        "ctype": "PanelObjectData"
+                      },
+                      {
+                        "FileData": {
+                          "Type": "Normal",
+                          "Path": "GUILuckyBonus/5.png",
+                          "Plist": ""
+                        },
+                        "Scale9OriginX": 7,
+                        "Scale9OriginY": 7,
+                        "Scale9Width": 10,
+                        "Scale9Height": 10,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 205.0,
+                          "Y": 30.0
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.3905,
+                          "Y": 0.5263
+                        },
+                        "PreSize": {
+                          "X": 0.0457,
+                          "Y": 0.4211
+                        },
+                        "LeftMargin": 193.0,
+                        "RightMargin": 308.0,
+                        "TopMargin": 15.0,
+                        "BottomMargin": 18.0,
+                        "Tag": 752,
+                        "Children": [
+                          {
+                            "LabelText": "1.500.000$",
+                            "LabelBMFontFile_CNB": {
+                              "Type": "Normal",
+                              "Path": "GUILuckyBonus/LBFont.fnt",
+                              "Plist": ""
+                            },
+                            "AnchorPoint": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
+                            },
+                            "Position": {
+                              "X": 85.0,
+                              "Y": 13.0
+                            },
+                            "Scale": {
+                              "ScaleX": 0.4,
+                              "ScaleY": 0.4
+                            },
+                            "CColor": {},
+                            "IconVisible": false,
+                            "PrePosition": {
+                              "X": 3.5417,
+                              "Y": 0.5417
+                            },
+                            "PreSize": {
+                              "X": 11.9583,
+                              "Y": 2.0833
+                            },
+                            "LeftMargin": -58.5,
+                            "RightMargin": -204.5,
+                            "TopMargin": -14.0,
+                            "BottomMargin": -12.0,
+                            "Tag": 753,
+                            "ActionTag": 1489840327,
+                            "Size": {
+                              "X": 287.0,
+                              "Y": 50.0
+                            },
+                            "Name": "value",
+                            "ctype": "TextBMFontObjectData"
+                          }
+                        ],
+                        "ActionTag": -2008562032,
+                        "Size": {
+                          "X": 24.0,
+                          "Y": 24.0
+                        },
+                        "Name": "prizeFree",
+                        "ctype": "ImageViewObjectData"
+                      },
+                      {
+                        "FileData": {
+                          "Type": "Normal",
+                          "Path": "GUILuckyBonus/5.png",
+                          "Plist": ""
+                        },
+                        "Scale9OriginX": 7,
+                        "Scale9OriginY": 7,
+                        "Scale9Width": 10,
+                        "Scale9Height": 10,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 365.0,
+                          "Y": 30.0
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.6952,
+                          "Y": 0.5263
+                        },
+                        "PreSize": {
+                          "X": 0.0457,
+                          "Y": 0.4211
+                        },
+                        "LeftMargin": 353.0,
+                        "RightMargin": 148.0,
+                        "TopMargin": 15.0,
+                        "BottomMargin": 18.0,
+                        "Tag": 754,
+                        "Children": [
+                          {
+                            "LabelText": "30.000.000$",
+                            "LabelBMFontFile_CNB": {
+                              "Type": "Normal",
+                              "Path": "GUILuckyBonus/LBFont.fnt",
+                              "Plist": ""
+                            },
+                            "AnchorPoint": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
+                            },
+                            "Position": {
+                              "X": 95.0,
+                              "Y": 13.0
+                            },
+                            "Scale": {
+                              "ScaleX": 0.4,
+                              "ScaleY": 0.4
+                            },
+                            "CColor": {},
+                            "IconVisible": false,
+                            "PrePosition": {
+                              "X": 3.9583,
+                              "Y": 0.5417
+                            },
+                            "PreSize": {
+                              "X": 13.8333,
+                              "Y": 2.0833
+                            },
+                            "LeftMargin": -71.0,
+                            "RightMargin": -237.0,
+                            "TopMargin": -14.0,
+                            "BottomMargin": -12.0,
+                            "Tag": 755,
+                            "ActionTag": 1477950235,
+                            "Size": {
+                              "X": 332.0,
+                              "Y": 50.0
+                            },
+                            "Name": "value",
+                            "ctype": "TextBMFontObjectData"
+                          }
+                        ],
+                        "ActionTag": 8396152,
+                        "Size": {
+                          "X": 24.0,
+                          "Y": 24.0
+                        },
+                        "Name": "prizeG",
+                        "ctype": "ImageViewObjectData"
+                      }
+                    ],
+                    "ActionTag": -801799733,
+                    "Size": {
+                      "X": 525.0,
+                      "Y": 57.0
+                    },
+                    "VisibleForFrame": false,
+                    "Name": "row5",
+                    "ctype": "ImageViewObjectData"
+                  }
+                ],
+                "ActionTag": -1671689172,
+                "Size": {
+                  "X": 525.0,
+                  "Y": 250.0
+                },
+                "Name": "prizeDetail",
+                "ctype": "PanelObjectData"
+              }
+            ],
+            "ActionTag": 213534895,
+            "Size": {
+              "X": 562.0,
+              "Y": 376.0
+            },
+            "Name": "bg",
+            "ctype": "ImageViewObjectData"
+          }
+        ],
+        "Size": {
+          "X": 800.0,
+          "Y": 480.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "GUILuckyBonus/5.png",
+        "GUILuckyBonus/6.png",
+        "GUILuckyBonus/LBFont.fnt",
+        "GUILuckyBonus/LBFont.png",
+        "GUILuckyBonus/popup/1.png",
+        "GUILuckyBonus/popup/2.png",
+        "GUILuckyBonus/popup/3.png",
+        "GUILuckyBonus/popup/5.png",
+        "GUILuckyBonus/popup/6.png",
+        "GUILuckyBonus/tahomabd.ttf",
+        "GUILuckyBonus/token/1.png",
+        "GUILuckyBonus/token/2.png",
+        "GUILuckyBonus/token/3.png",
+        "GUILuckyBonus/token/8.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

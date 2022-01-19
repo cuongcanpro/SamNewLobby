@@ -89,7 +89,7 @@ fr.googleIap = {
 
     getProductLocalCurrencyById: function (productKey) {
         var productId = fr.paymentInfo.getProductID(productKey);
-       // cc.log("DEBUG PRODUCT", productId, productKey);
+        cc.log("DEBUG PRODUCT", productId, productKey);
         if (this.plugin) {
             return this.plugin.callStringFuncWithParam("getProductLocalCurrencyById",
                 plugin.PluginParam(plugin.PluginParam.ParamType.TypeString, productId));

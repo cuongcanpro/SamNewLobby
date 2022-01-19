@@ -1,0 +1,588 @@
+{
+  "ID": "948fbd97-9009-4c5c-bf0d-abf44dda05c9",
+  "Version": "2.3.4",
+  "Name": "BaoSamLayer",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 67,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Demos/02.png",
+              "Plist": ""
+            },
+            "Scale9OriginX": 396,
+            "Scale9OriginY": 237,
+            "Scale9Width": 408,
+            "Scale9Height": 246,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 600.0,
+              "Y": 360.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PositionPercentYEnabled": true,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.5
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "Tag": 1036,
+            "ActionTag": 1682987168,
+            "Size": {
+              "X": 1200.0,
+              "Y": 720.0
+            },
+            "Name": "demo",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 0,
+              "G": 0,
+              "B": 0
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 600.0,
+              "Y": 360.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PositionPercentYEnabled": true,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.5
+            },
+            "PercentWidthEnable": true,
+            "PercentHeightEnable": true,
+            "PercentWidthEnabled": true,
+            "PercentHeightEnabled": true,
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "Tag": 1529,
+            "ActionTag": -1325142783,
+            "Size": {
+              "X": 1200.0,
+              "Y": 720.0
+            },
+            "Name": "fog",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 102,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 600.0,
+              "Y": 360.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PositionPercentYEnabled": true,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.5
+            },
+            "PercentWidthEnable": true,
+            "PercentHeightEnable": true,
+            "PercentWidthEnabled": true,
+            "PercentHeightEnabled": true,
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "Tag": 727,
+            "Children": [
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Default",
+                  "Path": "Default/Button_Disable.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "Normal",
+                  "Path": "GameGUI/Tachfile/_0010_Brightness_Contrast-1.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "GameGUI/Tachfile/_0010_Brightness_Contrast-1.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 270,
+                "Scale9Height": 257,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 600.0,
+                  "Y": 462.6
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.6425
+                },
+                "PreSize": {
+                  "X": 0.25,
+                  "Y": 0.3875
+                },
+                "LeftMargin": 450.0,
+                "RightMargin": 450.0,
+                "TopMargin": 117.9,
+                "BottomMargin": 323.1,
+                "Tag": 68,
+                "Children": [
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "GameGUI/Tachfile/title.png",
+                      "Plist": ""
+                    },
+                    "Scale9OriginX": 99,
+                    "Scale9OriginY": 21,
+                    "Scale9Width": 102,
+                    "Scale9Height": 24,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 150.0,
+                      "Y": 100.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PositionPercentXEnabled": true,
+                    "PrePosition": {
+                      "X": 0.5,
+                      "Y": 0.3584
+                    },
+                    "PreSize": {
+                      "X": 1.0,
+                      "Y": 0.2366
+                    },
+                    "TopMargin": 146.0,
+                    "BottomMargin": 67.0,
+                    "Tag": 851,
+                    "ActionTag": -1293122408,
+                    "Size": {
+                      "X": 300.0,
+                      "Y": 66.0
+                    },
+                    "Name": "title",
+                    "ctype": "ImageViewObjectData"
+                  }
+                ],
+                "ActionTag": 1225562083,
+                "Size": {
+                  "X": 300.0,
+                  "Y": 279.0
+                },
+                "Name": "btnBaoSam",
+                "ctype": "ButtonObjectData"
+              },
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Default",
+                  "Path": "Default/Button_Disable.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "Normal",
+                  "Path": "GameGUI/new/btnBaoCancel.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "GameGUI/new/btnBaoCancel.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 218,
+                "Scale9Height": 80,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 600.0,
+                  "Y": 221.544
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.3077
+                },
+                "PreSize": {
+                  "X": 0.2067,
+                  "Y": 0.1417
+                },
+                "VerticalEdge": "TopEdge",
+                "LeftMargin": 476.0,
+                "RightMargin": 476.0,
+                "TopMargin": 447.456,
+                "BottomMargin": 170.544,
+                "Tag": 69,
+                "ActionTag": 374781619,
+                "Size": {
+                  "X": 248.0,
+                  "Y": 102.0
+                },
+                "Name": "btnHuy",
+                "ctype": "ButtonObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "GameGUI/gui_game/processBg.png",
+                  "Plist": ""
+                },
+                "Scale9Width": 393,
+                "Scale9Height": 29,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 600.0,
+                  "Y": 301.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.4181
+                },
+                "PreSize": {
+                  "X": 0.3275,
+                  "Y": 0.0403
+                },
+                "LeftMargin": 403.5,
+                "RightMargin": 403.5,
+                "TopMargin": 404.5,
+                "BottomMargin": 286.5,
+                "Tag": 99,
+                "Children": [
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "GameGUI/gui_game/process.png",
+                      "Plist": ""
+                    },
+                    "Scale9Enable": true,
+                    "Scale9OriginX": 8,
+                    "Scale9Width": 369,
+                    "Scale9Height": 18,
+                    "AnchorPoint": {
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 4.0086,
+                      "Y": 17.5005
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.0102,
+                      "Y": 0.6035
+                    },
+                    "PreSize": {
+                      "X": 0.9796,
+                      "Y": 0.6207
+                    },
+                    "LeftMargin": 4.0086,
+                    "RightMargin": 3.9914,
+                    "TopMargin": 2.4995,
+                    "BottomMargin": 8.5005,
+                    "Tag": 250,
+                    "ActionTag": -498713094,
+                    "Size": {
+                      "X": 385.0,
+                      "Y": 18.0
+                    },
+                    "Name": "timer",
+                    "ctype": "ImageViewObjectData"
+                  }
+                ],
+                "ActionTag": -425417009,
+                "Size": {
+                  "X": 393.0,
+                  "Y": 29.0
+                },
+                "Name": "bg",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "Common/9patch.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 15,
+                "Scale9Width": 18,
+                "Scale9Height": 18,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 600.0,
+                  "Y": 644.0719
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.8945
+                },
+                "PreSize": {
+                  "X": 0.6417,
+                  "Y": 0.0556
+                },
+                "VerticalEdge": "TopEdge",
+                "LeftMargin": 215.0,
+                "RightMargin": 215.0,
+                "TopMargin": 55.9281,
+                "BottomMargin": 624.0719,
+                "Tag": 286,
+                "Children": [
+                  {
+                    "FontSize": 16,
+                    "LabelText": "Theo vòng abc sâm trước, mời đánh !............................................                                                .........................................",
+                    "FontResource": {
+                      "Type": "Normal",
+                      "Path": "Font/tahoma.ttf",
+                      "Plist": ""
+                    },
+                    "HorizontalAlignmentType": "HT_Center",
+                    "OutlineColor": {
+                      "G": 0,
+                      "B": 0
+                    },
+                    "ShadowColor": {
+                      "R": 110,
+                      "G": 110,
+                      "B": 110
+                    },
+                    "ShadowOffsetX": 2.0,
+                    "ShadowOffsetY": -2.0,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 385.462,
+                      "Y": 21.4946
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.5006,
+                      "Y": 0.5374
+                    },
+                    "PreSize": {
+                      "X": 1.0584,
+                      "Y": 0.55
+                    },
+                    "HorizontalEdge": "BothEdge",
+                    "LeftMargin": -22.038,
+                    "RightMargin": -22.962,
+                    "TopMargin": 7.5054,
+                    "BottomMargin": 10.4946,
+                    "Tag": 287,
+                    "ActionTag": 1089120568,
+                    "Size": {
+                      "X": 815.0,
+                      "Y": 22.0
+                    },
+                    "Name": "text",
+                    "ctype": "TextObjectData"
+                  }
+                ],
+                "ActionTag": 693859838,
+                "Size": {
+                  "X": 770.0,
+                  "Y": 40.0
+                },
+                "VisibleForFrame": false,
+                "Name": "bg2",
+                "ctype": "ImageViewObjectData"
+              }
+            ],
+            "ActionTag": 1739348638,
+            "Size": {
+              "X": 1200.0,
+              "Y": 720.0
+            },
+            "Name": "bgScene",
+            "ctype": "PanelObjectData"
+          }
+        ],
+        "Size": {
+          "X": 1200.0,
+          "Y": 720.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "Common/9patch.png",
+        "Default/Button_Disable.png",
+        "Demos/02.png",
+        "Font/tahoma.ttf",
+        "GameGUI/gui_game/process.png",
+        "GameGUI/gui_game/processBg.png",
+        "GameGUI/new/btnBaoCancel.png",
+        "GameGUI/Tachfile/_0010_Brightness_Contrast-1.png",
+        "GameGUI/Tachfile/title.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}

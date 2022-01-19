@@ -228,8 +228,8 @@
               },
               {
                 "FileData": {
-                  "Type": "Default",
-                  "Path": "Default/ImageFile.png",
+                  "Type": "Normal",
+                  "Path": "ShopIAP/zingcard_0.png",
                   "Plist": ""
                 },
                 "Scale9OriginX": 31,
@@ -449,6 +449,11 @@
                   "G": 65,
                   "B": 70
                 },
+                "DisabledFileData": {
+                  "Type": "Normal",
+                  "Path": "ShopIAP/btn_sms_zingcard_viettel.png",
+                  "Plist": ""
+                },
                 "PressedFileData": {
                   "Type": "Normal",
                   "Path": "ShopIAP/btn_sms_zingcard_viettel.png",
@@ -649,11 +654,11 @@
         "ctype": "LayerObjectData"
       },
       "UsedResources": [
-        "Default/ImageFile.png",
         "Font/tahoma.ttf",
         "Font/tahomabd.ttf",
         "ShopIAP/bgItemZingCardViettel.png",
-        "ShopIAP/btn_sms_zingcard_viettel.png"
+        "ShopIAP/btn_sms_zingcard_viettel.png",
+        "ShopIAP/zingcard_0.png"
       ],
       "ctype": "GameFileData"
     }

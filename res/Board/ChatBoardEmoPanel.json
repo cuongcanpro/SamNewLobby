@@ -1,0 +1,133 @@
+{
+  "ID": "996e4db7-273f-4e92-97d2-5d80ef99d5b6",
+  "Version": "2.3.4",
+  "Name": "ChatBoardEmoPanel",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 293,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ChatNew/bgEmo.png",
+              "Plist": ""
+            },
+            "Scale9OriginX": 167,
+            "Scale9OriginY": 28,
+            "Scale9Width": 174,
+            "Scale9Height": 30,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PositionPercentYEnabled": true,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -254.0,
+            "RightMargin": -254.0,
+            "TopMargin": -43.0,
+            "BottomMargin": -43.0,
+            "UserData": "scale",
+            "Tag": 294,
+            "Children": [
+              {
+                "ClipAble": false,
+                "BackColorAlpha": 102,
+                "SingleColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "FirstColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "EndColor": {},
+                "ColorVector": {
+                  "ScaleY": 1.0
+                },
+                "Scale9Width": 1,
+                "Scale9Height": 1,
+                "AnchorPoint": {},
+                "Position": {
+                  "X": 24.85,
+                  "Y": 8.8752
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.0489,
+                  "Y": 0.1032
+                },
+                "PreSize": {
+                  "X": 0.8858,
+                  "Y": 0.814
+                },
+                "LeftMargin": 24.85,
+                "RightMargin": 33.15,
+                "TopMargin": 7.1248,
+                "BottomMargin": 8.8752,
+                "Tag": 295,
+                "ActionTag": 1826958677,
+                "Size": {
+                  "X": 450.0,
+                  "Y": 70.0
+                },
+                "Name": "panel",
+                "ctype": "PanelObjectData"
+              }
+            ],
+            "ActionTag": 2037264663,
+            "Size": {
+              "X": 508.0,
+              "Y": 86.0
+            },
+            "Name": "bg",
+            "ctype": "ImageViewObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Node",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "ChatNew/bgEmo.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Node"
+}

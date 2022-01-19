@@ -17,20 +17,20 @@
           {
             "FileData": {
               "Type": "Normal",
-              "Path": "ShopItem/itemBg.png",
+              "Path": "ShopIAP/ShopItem/itemBg.png",
               "Plist": ""
             },
             "Scale9OriginX": 37,
             "Scale9OriginY": 36,
-            "Scale9Width": 40,
-            "Scale9Height": 40,
+            "Scale9Width": 139,
+            "Scale9Height": 237,
             "AnchorPoint": {
               "ScaleX": 0.5,
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 55.0,
-              "Y": 55.0
+              "X": 106.5,
+              "Y": 154.5
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -45,18 +45,14 @@
               "Y": 0.5
             },
             "PreSize": {
-              "X": 1.0364,
-              "Y": 1.0182
+              "X": 1.0,
+              "Y": 1.0
             },
-            "LeftMargin": -2.0,
-            "RightMargin": -2.0,
-            "TopMargin": -1.0,
-            "BottomMargin": -1.0,
             "Tag": 853,
             "ActionTag": 1496712357,
             "Size": {
-              "X": 114.0,
-              "Y": 112.0
+              "X": 213.0,
+              "Y": 309.0
             },
             "Name": "bg",
             "ctype": "ImageViewObjectData"
@@ -74,56 +70,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 57.0,
-              "Y": 53.0
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {
-              "R": 0,
-              "G": 0,
-              "B": 0
-            },
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.5182,
-              "Y": 0.4818
-            },
-            "PreSize": {
-              "X": 0.4182,
-              "Y": 0.4182
-            },
-            "LeftMargin": 34.0,
-            "RightMargin": 30.0,
-            "TopMargin": 34.0,
-            "BottomMargin": 30.0,
-            "Tag": 857,
-            "ActionTag": 219440123,
-            "Size": {
-              "X": 46.0,
-              "Y": 46.0
-            },
-            "Alpha": 76,
-            "Name": "shadow",
-            "ctype": "ImageViewObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "Default",
-              "Path": "Default/ImageFile.png",
-              "Plist": ""
-            },
-            "Scale9Width": 46,
-            "Scale9Height": 46,
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 55.0,
-              "Y": 55.0
+              "X": 109.025,
+              "Y": 178.1002
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -132,17 +80,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.5,
-              "Y": 0.5
+              "X": 0.5119,
+              "Y": 0.5764
             },
             "PreSize": {
-              "X": 0.4182,
-              "Y": 0.4182
+              "X": 0.216,
+              "Y": 0.1489
             },
-            "LeftMargin": 32.0,
-            "RightMargin": 32.0,
-            "TopMargin": 32.0,
-            "BottomMargin": 32.0,
+            "LeftMargin": 86.025,
+            "RightMargin": 80.975,
+            "TopMargin": 107.8998,
+            "BottomMargin": 155.1002,
             "Tag": 856,
             "ActionTag": 1556947211,
             "Size": {
@@ -153,9 +101,68 @@
             "ctype": "ImageViewObjectData"
           },
           {
+            "FontSize": 20,
+            "LabelText": "Text Label",
+            "FontResource": {
+              "Type": "Normal",
+              "Path": "Font/tahoma.ttf",
+              "Plist": ""
+            },
+            "HorizontalAlignmentType": "HT_Center",
+            "VerticalAlignmentType": "VT_Center",
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 104.5515,
+              "Y": 281.9069
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 203,
+              "G": 205
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4909,
+              "Y": 0.9123
+            },
+            "PreSize": {
+              "X": 0.4507,
+              "Y": 0.0874
+            },
+            "LeftMargin": 56.5515,
+            "RightMargin": 60.4485,
+            "TopMargin": 13.5931,
+            "BottomMargin": 268.4069,
+            "Tag": 107,
+            "ActionTag": -758350643,
+            "Size": {
+              "X": 96.0,
+              "Y": 27.0
+            },
+            "Name": "lbName",
+            "ctype": "TextObjectData"
+          },
+          {
             "FileData": {
               "Type": "Normal",
-              "Path": "ShopItem/promoBg.png",
+              "Path": "ShopIAP/ShopItem/promoBg.png",
               "Plist": ""
             },
             "Scale9OriginX": 18,
@@ -166,8 +173,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": -2.0,
-              "Y": 95.0001
+              "X": 3.7511,
+              "Y": 287.7669
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -176,17 +183,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": -0.0182,
-              "Y": 0.8636
+              "X": 0.0176,
+              "Y": 0.9313
             },
             "PreSize": {
-              "X": 0.5,
-              "Y": 0.3636
+              "X": 0.2582,
+              "Y": 0.1294
             },
-            "LeftMargin": -2.0,
-            "RightMargin": 57.0,
-            "TopMargin": -5.0001,
-            "BottomMargin": 75.0001,
+            "LeftMargin": 3.7511,
+            "RightMargin": 154.2489,
+            "TopMargin": 1.2331,
+            "BottomMargin": 267.7669,
             "Tag": 855,
             "Children": [
               {
@@ -198,6 +205,7 @@
                   "Plist": ""
                 },
                 "HorizontalAlignmentType": "HT_Center",
+                "VerticalAlignmentType": "VT_Center",
                 "OutlineColor": {
                   "G": 0,
                   "B": 0
@@ -258,7 +266,7 @@
           {
             "FileData": {
               "Type": "Normal",
-              "Path": "ShopItem/tagLimitItem.png",
+              "Path": "ShopIAP/ShopItem/tagLimitItem.png",
               "Plist": ""
             },
             "Scale9OriginX": 8,
@@ -270,8 +278,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 100.0,
-              "Y": 95.0
+              "X": 193.0092,
+              "Y": 287.8573
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -280,17 +288,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.9091,
-              "Y": 0.8636
+              "X": 0.9061,
+              "Y": 0.9316
             },
             "PreSize": {
-              "X": 0.4091,
-              "Y": 0.4091
+              "X": 0.2113,
+              "Y": 0.1456
             },
-            "LeftMargin": 77.5,
-            "RightMargin": -12.5,
-            "TopMargin": -7.5,
-            "BottomMargin": 72.5,
+            "LeftMargin": 170.5092,
+            "RightMargin": -2.5092,
+            "TopMargin": -1.3573,
+            "BottomMargin": 265.3573,
             "Tag": 26,
             "ActionTag": 521142903,
             "Size": {
@@ -303,19 +311,19 @@
           {
             "FileData": {
               "Type": "Normal",
-              "Path": "ShopItem/priceBg.png",
+              "Path": "ShopIAP/ShopItem/priceBg.png",
               "Plist": ""
             },
             "Scale9OriginX": 37,
             "Scale9OriginY": 10,
-            "Scale9Width": 40,
-            "Scale9Height": 12,
+            "Scale9Width": 131,
+            "Scale9Height": 46,
             "AnchorPoint": {
               "ScaleX": 0.5
             },
             "Position": {
-              "X": 55.0,
-              "Y": 0.0
+              "X": 107.8632,
+              "Y": 6.8388
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -325,21 +333,22 @@
             "IconVisible": false,
             "PositionPercentXEnabled": true,
             "PrePosition": {
-              "X": 0.5,
-              "Y": 0.0
+              "X": 0.5064,
+              "Y": 0.0221
             },
             "PreSize": {
-              "X": 1.0364,
-              "Y": 0.2909
+              "X": 0.9624,
+              "Y": 0.2136
             },
-            "LeftMargin": -2.0,
-            "RightMargin": -2.0,
-            "TopMargin": 78.0,
+            "LeftMargin": 5.3632,
+            "RightMargin": 2.6368,
+            "TopMargin": 236.1612,
+            "BottomMargin": 6.8388,
             "Tag": 854,
             "ActionTag": -689157939,
             "Size": {
-              "X": 114.0,
-              "Y": 32.0
+              "X": 205.0,
+              "Y": 66.0
             },
             "Name": "priceBg",
             "ctype": "ImageViewObjectData"
@@ -352,15 +361,15 @@
             },
             "Scale9OriginX": 6,
             "Scale9OriginY": 6,
-            "Scale9Width": 9,
-            "Scale9Height": 7,
+            "Scale9Width": 22,
+            "Scale9Height": 18,
             "AnchorPoint": {
               "ScaleX": 0.5,
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 36.75,
-              "Y": 16.0
+              "X": 91.9111,
+              "Y": 33.1827
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -369,27 +378,28 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.3341,
-              "Y": 0.1455
+              "X": 0.4315,
+              "Y": 0.1074
             },
             "PreSize": {
-              "X": 0.1909,
-              "Y": 0.1727
+              "X": 0.1596,
+              "Y": 0.0971
             },
-            "LeftMargin": 26.25,
-            "RightMargin": 62.75,
-            "TopMargin": 84.5,
-            "BottomMargin": 6.5,
+            "LeftMargin": 74.9111,
+            "RightMargin": 104.0889,
+            "TopMargin": 260.8173,
+            "BottomMargin": 18.1827,
             "Tag": 858,
             "Children": [
               {
-                "FontSize": 16,
+                "FontSize": 30,
                 "LabelText": "60",
                 "FontResource": {
                   "Type": "Normal",
-                  "Path": "Font/tahoma.ttf",
+                  "Path": "Font/tahomabd.ttf",
                   "Plist": ""
                 },
+                "VerticalAlignmentType": "VT_Center",
                 "OutlineColor": {
                   "R": 98,
                   "G": 68,
@@ -406,8 +416,8 @@
                   "ScaleY": 0.5
                 },
                 "Position": {
-                  "X": 25.0,
-                  "Y": 9.5
+                  "X": 35.7099,
+                  "Y": 18.2954
                 },
                 "Scale": {
                   "ScaleX": 1.0,
@@ -417,22 +427,22 @@
                 "IconVisible": false,
                 "PositionPercentYEnabled": true,
                 "PrePosition": {
-                  "X": 1.1905,
-                  "Y": 0.5
+                  "X": 1.0503,
+                  "Y": 0.6098
                 },
                 "PreSize": {
-                  "X": 1.0,
-                  "Y": 1.1579
+                  "X": 1.0588,
+                  "Y": 1.3667
                 },
-                "LeftMargin": 25.0,
-                "RightMargin": -25.0,
-                "TopMargin": -1.5,
-                "BottomMargin": -1.5,
+                "LeftMargin": 35.7099,
+                "RightMargin": -37.7099,
+                "TopMargin": -8.7954,
+                "BottomMargin": -2.2046,
                 "Tag": 861,
                 "ActionTag": 1938995687,
                 "Size": {
-                  "X": 21.0,
-                  "Y": 22.0
+                  "X": 36.0,
+                  "Y": 41.0
                 },
                 "Name": "diamond",
                 "ctype": "TextObjectData"
@@ -440,8 +450,8 @@
             ],
             "ActionTag": -1793648145,
             "Size": {
-              "X": 21.0,
-              "Y": 19.0
+              "X": 34.0,
+              "Y": 30.0
             },
             "Name": "iconDiamond",
             "ctype": "ImageViewObjectData"
@@ -449,20 +459,20 @@
           {
             "FileData": {
               "Type": "Normal",
-              "Path": "ShopItem/iconLock.png",
+              "Path": "ShopIAP/ShopItem/lock.png",
               "Plist": ""
             },
             "Scale9OriginX": 3,
             "Scale9OriginY": 4,
-            "Scale9Width": 5,
-            "Scale9Height": 5,
+            "Scale9Width": 24,
+            "Scale9Height": 32,
             "AnchorPoint": {
               "ScaleX": 0.5,
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 24.0,
-              "Y": 16.0
+              "X": 68.9693,
+              "Y": 47.3802
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -471,17 +481,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.2182,
-              "Y": 0.1455
+              "X": 0.3238,
+              "Y": 0.1533
             },
             "PreSize": {
-              "X": 0.1,
-              "Y": 0.1182
+              "X": 0.1408,
+              "Y": 0.1294
             },
-            "LeftMargin": 18.5,
-            "RightMargin": 80.5,
-            "TopMargin": 87.5,
-            "BottomMargin": 9.5,
+            "LeftMargin": 53.9693,
+            "RightMargin": 129.0307,
+            "TopMargin": 241.6198,
+            "BottomMargin": 27.3802,
             "Tag": 859,
             "Children": [
               {
@@ -492,6 +502,7 @@
                   "Path": "Font/tahoma.ttf",
                   "Plist": ""
                 },
+                "VerticalAlignmentType": "VT_Center",
                 "OutlineColor": {
                   "R": 98,
                   "G": 68,
@@ -508,8 +519,8 @@
                   "ScaleY": 0.5
                 },
                 "Position": {
-                  "X": 15.0,
-                  "Y": 6.5
+                  "X": 44.9365,
+                  "Y": 14.376
                 },
                 "Scale": {
                   "ScaleX": 1.0,
@@ -519,17 +530,17 @@
                 "IconVisible": false,
                 "PositionPercentYEnabled": true,
                 "PrePosition": {
-                  "X": 1.3636,
-                  "Y": 0.5
+                  "X": 1.4979,
+                  "Y": 0.3594
                 },
                 "PreSize": {
-                  "X": 5.7273,
-                  "Y": 1.6923
+                  "X": 2.1,
+                  "Y": 0.55
                 },
-                "LeftMargin": 15.0,
-                "RightMargin": -67.0,
-                "TopMargin": -4.5,
-                "BottomMargin": -4.5,
+                "LeftMargin": 44.9365,
+                "RightMargin": -77.9365,
+                "TopMargin": 14.624,
+                "BottomMargin": 3.376,
                 "Tag": 860,
                 "ActionTag": 531106834,
                 "Size": {
@@ -542,16 +553,16 @@
             ],
             "ActionTag": 775177620,
             "Size": {
-              "X": 11.0,
-              "Y": 13.0
+              "X": 30.0,
+              "Y": 40.0
             },
             "Name": "iconLock",
             "ctype": "ImageViewObjectData"
           }
         ],
         "Size": {
-          "X": 110.0,
-          "Y": 110.0
+          "X": 213.0,
+          "Y": 309.0
         },
         "Name": "Layer",
         "ctype": "LayerObjectData"
@@ -561,11 +572,11 @@
         "Font/tahoma.ttf",
         "Font/tahomabd.ttf",
         "LobbyGUI/iconDiamond.png",
-        "ShopItem/iconLock.png",
-        "ShopItem/itemBg.png",
-        "ShopItem/priceBg.png",
-        "ShopItem/promoBg.png",
-        "ShopItem/tagLimitItem.png"
+        "ShopIAP/ShopItem/itemBg.png",
+        "ShopIAP/ShopItem/lock.png",
+        "ShopIAP/ShopItem/priceBg.png",
+        "ShopIAP/ShopItem/promoBg.png",
+        "ShopIAP/ShopItem/tagLimitItem.png"
       ],
       "ctype": "GameFileData"
     }
