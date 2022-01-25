@@ -81,7 +81,7 @@
             <PreSize X="0.9550" Y="0.9438" />
             <FileData Type="Normal" Path="EventTetUI/bgOpenLixi.png" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="panelLeft" ActionTag="-580933059" Tag="277" IconVisible="False" HorizontalEdge="LeftEdge" VerticalEdge="TopEdge" LeftMargin="1.2295" RightMargin="598.7705" TopMargin="2.6092" BottomMargin="427.3908" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ComboBoxIndex="1" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
+          <AbstractNodeData Name="panelLeft" ActionTag="-580933059" Tag="277" IconVisible="False" HorizontalEdge="LeftEdge" VerticalEdge="TopEdge" LeftMargin="1.2295" RightMargin="598.7705" TopMargin="2.6092" BottomMargin="427.3908" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
             <Size X="200.0000" Y="50.0000" />
             <Children>
               <AbstractNodeData Name="btnClose" ActionTag="1639252106" UserData="scale" Tag="61" IconVisible="False" LeftMargin="5.1696" RightMargin="147.8304" TopMargin="2.5115" BottomMargin="-0.5115" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="17" Scale9Height="26" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
