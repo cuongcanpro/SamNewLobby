@@ -14,6 +14,7 @@ var SamCard = cc.Sprite.extend({
     },
 
     addEfxBan: function () {
+        if (this.efxBan) return;
         this.efxBan = new cc.Sprite("cards/efxBan.png");
         this.efxBan.setPosition(this.width / 2, this.height / 2);
         this.efxBan.setVisible(false);
@@ -22,28 +23,18 @@ var SamCard = cc.Sprite.extend({
 
     showEfxBan: function () {
         if (!this.efxBan) return;
-        this.efxBan.stopAllActions();
         this.efxBan.setVisible(true);
-        if (this.efxBan.getOpacity() !== 255)
-            this.efxBan.runAction(cc.sequence(
-                cc.fadeIn(0.25)
-            ));
     },
 
     hideEfxBan: function () {
         if (!this.efxBan) return;
-        this.efxBan.stopAllActions();
-        if (this.efxBan.isVisible())
-            this.efxBan.runAction(cc.sequence(
-                cc.fadeOut(0.25),
-                cc.hide()
-            ));
+        this.efxBan.setVisible(false);
     },
 
     addEfxFire: function () {
         this.efxFire = new CustomSkeleton("Animation/fire", "skeleton", 0.9);
         this.efxFire.setPosition(this.width / 2 - 2, this.height);
-        this.efxFire.skeleton.setTimeScale(1.5);
+        this.efxFire.setTimeScale(1.5);
         this.efxFire.setAnimation(1, "animation", -1);
         this.efxFire.setLocalZOrder(-1);
         this.efxFire.setVisible(false);
@@ -85,10 +76,7 @@ var SamCard = cc.Sprite.extend({
     upDown: function () {
         cc.log("CARD ACTION: upDown");
         this.stopAllActions();
-        this.runAction(cc.moveTo(
-            0.25,
-            cc.p(this.getPositionX(), this._startY + (this._up? 0 : 15))).easing(cc.easeBackOut()
-        ));
+        this.setPosition(cc.p(this.getPositionX(), this._startY + (this._up? 0 : 15)));
         this._up = !this._up;
         if (!this._up) this.hideEfxFire();
     },
@@ -97,23 +85,20 @@ var SamCard = cc.Sprite.extend({
         cc.log("CARD ACTION: up");
         if (!this._up) {
             this.stopAllActions();
-            this.runAction(cc.moveTo(
-                0.25,
-                cc.p(this.getPositionX(), this._startY + 15)).easing(cc.easeBackOut()
-            ));
+            this.setPosition(cc.p(this.getPositionX(), this._startY + 15));
             this._up = true;
         }
     },
 
     forceUP: function () {
-        cc.log("CARD ACTION: forceUP");
+        // cc.log("CARD ACTION: forceUP");
         this.stopAllActions();
         this.setPositionY(this._startY + 15);
         this._up = true;
     },
 
     forceDOWN: function () {
-        cc.log("CARD ACTION: forceDOWN");
+        // cc.log("CARD ACTION: forceDOWN");
         this.stopAllActions();
         this.setPositionY(this._startY);
         this._up = false;
@@ -152,7 +137,9 @@ var SamCard = cc.Sprite.extend({
 
         return newPos;
     }
-})
+});
+SamCard.ORG_WIDTH = 141;
+SamCard.ORG_HEIGHT = 180;
 
 SamCard.getCardResource = function (id, isSmall) {
     var _card = "res/common/cards/labai_";

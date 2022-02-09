@@ -2,7 +2,7 @@
  * Created by HunterPC on 1/5/2016.
  */
 
-CmdReceivedUserJoinRoom = CmdReceivedCommon.extend({
+var CmdReceivedUserJoinRoom = CmdReceivedCommon.extend({
     ctor: function (pkg) {
         this._super(pkg);
         this.readData();
@@ -27,15 +27,14 @@ CmdReceivedUserJoinRoom = CmdReceivedCommon.extend({
         this.info["level"] = this.getInt();
         this.info["levelExp"] = Number(this.getLong());
 
-        if(Config.ENABLE_DECORATE_ITEM) {
+        if (Config.ENABLE_DECORATE_ITEM) {
             cc.log("--WC::UserJoin--");
             this.wcItem = this.getInt();
         }
     }
 });
 
-
-CmdReceivedRegQuitRoom = CmdReceivedCommon.extend({
+var CmdReceivedRegQuitRoom = CmdReceivedCommon.extend({
     ctor: function (pkg) {
         this._super(pkg);
         this.readData();
@@ -45,8 +44,7 @@ CmdReceivedRegQuitRoom = CmdReceivedCommon.extend({
     }
 });
 
-
-CmdReceivedAutoStart = CmdReceivedCommon.extend({
+var CmdReceivedAutoStart = CmdReceivedCommon.extend({
     ctor: function (pkg) {
         this._super(pkg);
         this.readData();
@@ -58,7 +56,7 @@ CmdReceivedAutoStart = CmdReceivedCommon.extend({
     }
 });
 
-CmdReceivedFirstTurn = CmdReceivedCommon.extend({
+var CmdReceivedFirstTurn = CmdReceivedCommon.extend({
     ctor: function (pkg) {
         this._super(pkg);
         this.readData();
@@ -79,7 +77,7 @@ CmdReceivedFirstTurn = CmdReceivedCommon.extend({
     }
 });
 
-CmdReceivedChiaBai = CmdReceivedCommon.extend({
+var CmdReceivedChiaBai = CmdReceivedCommon.extend({
     ctor: function (pkg) {
         this._super(pkg);
         this.readData();
@@ -99,14 +97,12 @@ CmdReceivedChiaBai = CmdReceivedCommon.extend({
     }
 });
 
-
-CmdReceivedDanhBai = CmdReceivedCommon.extend({
+var CmdReceivedDanhBai = CmdReceivedCommon.extend({
     ctor: function (pkg) {
         this._super(pkg);
         this.readData();
     },
     readData: function () {
-
         this.chair = this.getByte();
         var size = this.getShort();
         this.cards = [];
@@ -114,15 +110,15 @@ CmdReceivedDanhBai = CmdReceivedCommon.extend({
         for (var i = 0; i < size; i++) {
             var id = this.getByte();
             var id1 = Card.convertCardID(id);
-
             this.cards.push(id1);
         }
 
         this.numberCard = this.getByte();
+        this.isAuto = this.getByte();
     }
 });
 
-CmdReceivedChatChong = CmdReceivedCommon.extend({
+var CmdReceivedChatChong = CmdReceivedCommon.extend({
     ctor: function (pkg) {
         this._super(pkg);
         this.readData();
@@ -137,7 +133,7 @@ CmdReceivedChatChong = CmdReceivedCommon.extend({
     }
 });
 
-CmdReceivedChangeTurn = CmdReceivedCommon.extend({
+var CmdReceivedChangeTurn = CmdReceivedCommon.extend({
     ctor: function (pkg) {
         this._super(pkg);
         this.readData();
@@ -151,7 +147,7 @@ CmdReceivedChangeTurn = CmdReceivedCommon.extend({
     }
 });
 
-CmdReceivedQuyetDinhSam = CmdReceivedCommon.extend({
+var CmdReceivedQuyetDinhSam = CmdReceivedCommon.extend({
     ctor: function (pkg) {
         this._super(pkg);
         this.readData();
@@ -164,7 +160,29 @@ CmdReceivedQuyetDinhSam = CmdReceivedCommon.extend({
     }
 });
 
-CmdReceivedBoluot = CmdReceivedCommon.extend({
+var CmdReceivedBoluot = CmdReceivedCommon.extend({
+    ctor: function (pkg) {
+        this._super(pkg);
+        this.readData();
+    },
+    readData: function () {
+        this.chair = this.getByte();
+        this.isAuto = this.getByte();
+    }
+});
+
+var CmdReceivedBaoSam = CmdReceivedCommon.extend({
+    ctor: function (pkg) {
+        this._super(pkg);
+        this.readData();
+    },
+    readData: function () {
+
+        this.chair = this.getByte();
+    }
+});
+
+var CmdReceivedHuyBaoSam = CmdReceivedCommon.extend({
     ctor: function (pkg) {
         this._super(pkg);
         this.readData();
@@ -176,30 +194,7 @@ CmdReceivedBoluot = CmdReceivedCommon.extend({
     }
 });
 
-CmdReceivedBaoSam = CmdReceivedCommon.extend({
-    ctor: function (pkg) {
-        this._super(pkg);
-        this.readData();
-    },
-    readData: function () {
-
-        this.chair = this.getByte();
-    }
-});
-
-CmdReceivedHuyBaoSam = CmdReceivedCommon.extend({
-    ctor: function (pkg) {
-        this._super(pkg);
-        this.readData();
-    },
-    readData: function () {
-
-        this.chair = this.getByte();
-
-    }
-});
-
-CmdReceivedUserExitRoom = CmdReceivedCommon.extend({
+var CmdReceivedUserExitRoom = CmdReceivedCommon.extend({
     ctor: function (pkg) {
         this._super(pkg);
         this.readData();
@@ -211,7 +206,7 @@ CmdReceivedUserExitRoom = CmdReceivedCommon.extend({
     }
 });
 
-CmdReceivedEndGame = CmdReceivedCommon.extend({
+var CmdReceivedEndGame = CmdReceivedCommon.extend({
     ctor: function (pkg) {
         this._super(pkg);
         this.readData();
@@ -244,7 +239,7 @@ CmdReceivedEndGame = CmdReceivedCommon.extend({
     }
 });
 
-CmdReceivedJackpot = CmdReceivedCommon.extend({
+var CmdReceivedJackpot = CmdReceivedCommon.extend({
     ctor: function (pkg) {
         this._super(pkg);
         this.readData();
@@ -255,7 +250,7 @@ CmdReceivedJackpot = CmdReceivedCommon.extend({
     }
 });
 
-CmdJackpotInfo = CmdReceivedCommon.extend({
+var CmdJackpotInfo = CmdReceivedCommon.extend({
     ctor: function (pkg) {
         this._super(pkg);
         this.readData();
@@ -273,7 +268,7 @@ CmdJackpotInfo = CmdReceivedCommon.extend({
     }
 });
 
-CmdGetJackpot = CmdReceivedCommon.extend({
+var CmdGetJackpot = CmdReceivedCommon.extend({
     ctor: function (pkg) {
         this._super(pkg);
         this.readData();
@@ -285,8 +280,7 @@ CmdGetJackpot = CmdReceivedCommon.extend({
     }
 });
 
-
-CmdNotifyGetGem = CmdReceivedCommon.extend({
+var CmdNotifyGetGem = CmdReceivedCommon.extend({
     ctor: function (pkg) {
         this._super(pkg);
         this.readData();
@@ -297,7 +291,7 @@ CmdNotifyGetGem = CmdReceivedCommon.extend({
     }
 });
 
-CmdNotifyGetJackpot = CmdReceivedCommon.extend({
+var CmdNotifyGetJackpot = CmdReceivedCommon.extend({
     ctor: function (pkg) {
         this._super(pkg);
         this.readData();
@@ -309,8 +303,7 @@ CmdNotifyGetJackpot = CmdReceivedCommon.extend({
     }
 });
 
-
-CmdReceivedUpdateMath = CmdReceivedCommon.extend({
+var CmdReceivedUpdateMath = CmdReceivedCommon.extend({
     ctor: function (pkg) {
         this._super(pkg);
         this.readData();
@@ -354,30 +347,7 @@ CmdReceivedUpdateMath = CmdReceivedCommon.extend({
     }
 });
 
-CmdReceivedGetPlayers = CmdReceivedCommon.extend({
-    ctor: function (pkg) {
-        this._super(pkg);
-        this.readData();
-    },
-    readData: function () {
-
-        this.list = [];
-        var size = this.getShort();
-        for (var i = 0; i < size; i++) {
-            var friends = {};
-            friends["avatar"] = this.getString();
-            friends["uID"] = this.getInt();
-            friends["name"] = this.getString();
-            friends["bean"] = this.getDouble();
-            friends["invite"] = false;
-
-            this.list.push(friends);
-        }
-
-    }
-});
-
-CmdReceivedQuitroomReason = CmdReceivedCommon.extend({
+var CmdReceivedQuitroomReason = CmdReceivedCommon.extend({
     ctor: function (pkg) {
         this._super(pkg);
         this.readData();
@@ -387,8 +357,7 @@ CmdReceivedQuitroomReason = CmdReceivedCommon.extend({
     }
 });
 
-
-CmdReceivedJoinRoomSuccess = CmdReceivedCommon.extend({
+var CmdReceivedJoinRoomSuccess = CmdReceivedCommon.extend({
     ctor: function (pkg) {
         this._super(pkg);
         this.readData();
@@ -461,7 +430,7 @@ CmdReceivedJoinRoomSuccess = CmdReceivedCommon.extend({
     }
 });
 
-CmdReceivedGameInfo = CmdReceivedCommon.extend({
+var CmdReceivedGameInfo = CmdReceivedCommon.extend({
     ctor: function (pkg) {
         this._super(pkg);
         this.readData();
@@ -540,7 +509,6 @@ CmdReceivedGameInfo = CmdReceivedCommon.extend({
                 info["usingItem"] = this.getInt();
                 this.getString();
                 info["vip"] = this.getInt();
-
             }
             this.playerInfo.push(info);
         }
@@ -560,19 +528,7 @@ CmdReceivedGameInfo = CmdReceivedCommon.extend({
     }
 });
 
-CmdReceivedJoinRoomFail = CmdReceivedCommon.extend({
-    ctor: function (pkg) {
-        this._super(pkg);
-        this.readData();
-    },
-    readData: function () {
-
-        this.reason = this.getByte();
-        cc.log("REASON :    " + this.reason);
-    }
-});
-
-CmdReceivedUpdateOwnerRoom = CmdReceivedCommon.extend({
+var CmdReceivedUpdateOwnerRoom = CmdReceivedCommon.extend({
     ctor: function (pkg) {
         this._super(pkg);
         this.readData();
@@ -580,6 +536,18 @@ CmdReceivedUpdateOwnerRoom = CmdReceivedCommon.extend({
     readData: function () {
 
         this.chair = this.getByte();
+    }
+});
+
+var CmdReceivedInBoardAvatar = CmdReceivedCommon.extend({
+    ctor: function (pkg) {
+        this._super(pkg);
+        this.readData();
+    },
+    readData: function () {
+        this.uID = this.getInt();
+        this.chair = this.getByte();
+        this.avatar = this.getString();
     }
 });
 

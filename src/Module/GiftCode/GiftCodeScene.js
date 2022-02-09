@@ -119,7 +119,7 @@ var GiftCodeScene = BaseLayer.extend({
 
         this._panelGet = ccui.Helper.seekWidgetByName(bg,"panelGift");
         this._panelInput = ccui.Helper.seekWidgetByName(bg,"panelInput");
-        this.customizeButton("btnOK",GiftCodeScene.BTN_OK,this._panelInput);
+        this.btnOk = this.customizeButton("btnOK",GiftCodeScene.BTN_OK,this._panelInput);
 
         this._lG = ccui.Helper.seekWidgetByName(this._panelGet,"listGift");
         this._listGift = new cc.TableView(this,this._lG.getContentSize());
@@ -187,7 +187,7 @@ var GiftCodeScene = BaseLayer.extend({
     onUsingGiftCode2: function(code){
         var pk = new CmdSendUseGiftCode();
         pk.putData(code, 1);
-        gamedata.inputGiftCode = code;
+        giftCodeMgr.inputGiftCode = code;
         GameClient.getInstance().sendPacket(pk);
         this.onClose();
     },
@@ -206,7 +206,7 @@ var GiftCodeScene = BaseLayer.extend({
             var pk = new CmdSendUseGiftCode();
             var type = this.isCodeUser(code) ? 1 : 2;
             cc.log("onUsingGiftCode: ", this.isCodeUser(code), type);
-            gamedata.inputGiftCode = code;
+            giftCodeMgr.inputGiftCode = code;
             pk.putData(code, type);
             GameClient.getInstance().sendPacket(pk);
         }
@@ -341,7 +341,7 @@ GiftCodeScene.showResultUseGiftCode = function (data){
             string = (LocalizedString.to("GIFT_CODE_FAIL"));
             break;
     }
-    string = StringUtility.replaceAll(string, "%giftcode", gamedata.inputGiftCode);
+    string = StringUtility.replaceAll(string, "%giftcode", giftCodeMgr.inputGiftCode);
     sceneMgr.showOkDialogWithAction(string, null, function () {
         var vipLevel = VipManager.getInstance().getVipLevel();
         var newLevel = VipManager.getInstance().getRealVipLevel();

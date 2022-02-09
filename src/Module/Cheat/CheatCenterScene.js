@@ -164,7 +164,7 @@ CheatCenter.checkOpenCheat = function (s) {
     */
 
     //if (s == CheatCenter.CODE_OPEN_CHEAT) {
-    if (generateOTP(gamedata.userData.zName) == s) {
+    if (generateOTP(userMgr.getUserName()) == s) {
         cc.sys.localStorage.setItem(CHEAT_OPEN, CHEAT_CODE_CHECK_OPEN);
         cc.sys.localStorage.setItem(CHEAT_OPEN_EXPIRED, Date.now());
         ToastFloat.makeToast(ToastFloat.SHORT, "Open CheatCenter success !!!!!! Restart game to apply this !");

@@ -91,16 +91,7 @@ var BoardListener = cc.Class.extend({
                 var join = new CmdReceivedJoinRoomSuccess(p);
                 gamedata.gameLogic = new GameLogic();
                 gamedata.gameLogic.initWith(join);
-
-                //var gameLayer = new GameLayer();
-                //gameLayer._lastGUI = sceneMgr.getRunningScene().getMainLayer()._id;
-                //sceneMgr.openScene(GameLayer.className);
-
-                //var isIpad = (cc.winSize.width / cc.winSize.height) <= 4/3 && (cc.winSize.width > 480) && (cc.sys.isNative);
-                //if(isIpad)
-                //{
-                //    cc.view.setDesignResolutionSize(Constant.WIDTH, Constant.HEIGHT, cc.ResolutionPolicy.FIXED_WIDTH);
-                //}
+                cc.log("CMD_JOIN_ROOM_SUCCESS: ", JSON.stringify(join));
 
                 var curGui = sceneMgr.getRunningScene().getMainLayer();
                 if (cc.sys.isNative) {
@@ -129,10 +120,10 @@ var BoardListener = cc.Class.extend({
 
                     sceneMgr.showOkCancelDialog("Thông báo", "Kết nối lại bàn chơi thất bại", null, function () {
                         sceneMgr.getRunningScene().getMainLayer().quitGame();
-                    }).setOKButton();
+                    });
                 }
                 else {
-                    sceneMgr.showOkCancelDialog("Thông báo", "Bạn không thể vào bàn chơi này", null, null).setOKButton();
+                    sceneMgr.showOkCancelDialog("Thông báo", "Bạn không thể vào bàn chơi này", null, null);
                 }
 
                 break;
@@ -153,19 +144,12 @@ var BoardListener = cc.Class.extend({
             }
             case CMD.CMD_UPDATEGAMEINFO:
             {
-                //var isIpad = (cc.winSize.width / cc.winSize.height) <= 4/3 && (cc.winSize.width > 480) && (cc.sys.isNative);
-                //if(isIpad)
-                //{
-                //    cc.view.setDesignResolutionSize(Constant.WIDTH, Constant.HEIGHT, cc.ResolutionPolicy.FIXED_WIDTH);
-                //}
-
                 var continuePlay = new CmdReceivedGameInfo(p);
                 gamedata.gameLogic = new GameLogic();
                 gamedata.gameLogic.continueWith(continuePlay);
 
 
                 var gameLayer = new GameLayer();
-                gameLayer._lastGUI = "LobbyScene";
                 if (GameClient.connectLai) {
                     Toast.makeToast(2.5, "Kết nối lại hệ thống thành công", gameLayer);
                     GameClient.connectLai = false;
@@ -205,6 +189,7 @@ var BoardListener = cc.Class.extend({
             {
                 var auto = new CmdReceivedAutoStart(p);
                 gamedata.gameLogic.autoStart(auto);
+                cc.log("CMD.CMD_AUTO_START", JSON.stringify(auto));
 
                 sceneMgr.updateCurrentGUI(auto);
                 auto.clean();
@@ -275,18 +260,7 @@ var BoardListener = cc.Class.extend({
             case CMD.CMD_QUIT_ROOM_SUCCESS:
             {
                 gamedata.gameLogic.quitRoom();
-                sceneMgr.updateCurrentGUI(pk);
-                break;
-            }
-            case CMD.CMD_CREATE_ROOM:
-            {
-                sceneMgr.clearLoading();
-                if (packet.getError() == 4) {
-                    sceneMgr.showOKDialog("Thông báo", "Mỗi lần tạo bàn phải cách nhau 10 giây nhé...", null, null);
-                }
-                else if (packet.getError() == 1) {
-                    sceneMgr.showYesNoDialog("Thông báo", "Tạo bàn lỗi --- tiền của bạn quá nhỏ", null, null).setOKButton();
-                }
+                sceneMgr.updateCurrentGUI();
                 break;
             }
             case CMD.CMD_QUYETDINHSAM:
@@ -328,10 +302,12 @@ var BoardListener = cc.Class.extend({
             case CMD.CMD_ENDGAME:
             {
                 var pk = new CmdReceivedEndGame(p);
-                gamedata.gameLogic.endgame(pk);
                 cc.log("CMD_ENDGAME:", JSON.stringify(pk));
 
-                sceneMgr.updateCurrentGUI(pk);
+                setTimeout(function () {
+                    gamedata.gameLogic.endgame();
+                    sceneMgr.updateCurrentGUI(pk);
+                }, 1000 * PlayerView.TIME_DELAY_ENDGAME_PACKET);
                 pk.clean();
                 break;
             }
@@ -339,6 +315,7 @@ var BoardListener = cc.Class.extend({
             {
                 var pk = new CmdReceivedUpdateMath(p);
                 gamedata.gameLogic.updateMath(pk);
+                cc.log("CMD.CMD_UPDATEMATH", JSON.stringify(pk));
 
                 sceneMgr.updateCurrentGUI(pk);
                 pk.clean();
@@ -358,16 +335,6 @@ var BoardListener = cc.Class.extend({
                 var pk = new CmdReceivedGetPlayers(p);
                 sceneMgr.updateCurrentGUI(pk);
                 pk.clean();
-                break;
-            }
-            case CMD.CMD_SEND_MESSAGE:
-            {
-                var pkMsg = new CmdReceiveMessage(p);
-                fr.crashLytics.log("CMD_SEND_MESSAGE: " + JSON.stringify(pkMsg));
-                if (this.inBoardLayer()) {
-                    board.onReceiveChatMessage(pkMsg);
-                }
-                pkMsg.clean();
                 break;
             }
         }

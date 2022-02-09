@@ -30,6 +30,8 @@ var Dialog = BaseLayer.extend({
         this._btnCancel = this.customButton("btnCancel", Dialog.BTN_CANCEL, bg);
         this._btnClose = this.customButton("btnQuit", Dialog.BTN_QUIT, bg);
 
+        this.lbOk = this.getControl("lbOk", this._btnOK);
+        this.lbCancel = this.getControl("lbCancel", this._btnClose);
         this._lb_message = this.getControl("lb_message", bg);
 
         this._pLeft = this._btnOK.getPosition();
@@ -72,7 +74,9 @@ var Dialog = BaseLayer.extend({
         this._target = target;
         this._callback = selector;
 
-        this._btnOK.loadTextures("Common/buttonOK.png", "Common/buttonOK.png", "");
+        this._btnOK.loadTextures("Common/btnYellow.png", "Common/btnYellow.png");
+        this.lbOk.setString(localized("AGREE"));
+        this.lbOk.setString(localized("CANCEL"));
 
         this._btnOK.setPosition(this._pLeft);
         this._btnCancel.setPosition(this._pRight);
@@ -85,7 +89,8 @@ var Dialog = BaseLayer.extend({
         this._target = target;
         this._callback = selector;
 
-        this._btnOK.loadTextures("Common/buttonOK.png", "Common/buttonOK.png", "");
+        this._btnOK.loadTextures("Common/btnYellow.png", "Common/btnYellow.png");
+        this.lbOk.setString(localized("AGREE"));
         this._btnOK.setVisible(true);
         this._btnOK.setPosition(this._pCenter);
 
@@ -96,7 +101,8 @@ var Dialog = BaseLayer.extend({
     setOKNotify: function (message) {
         this.setMessage(message);
 
-        this._btnOK.loadTextures("Common/buttonOK.png", "Common/buttonOK.png", "");
+        this._btnOK.loadTextures("Common/btnYellow.png", "Common/btnYellow.png");
+        this.lbOk.setString(localized("AGREE"));
         this._btnOK.setVisible(true);
         this._btnOK.setPosition(this._pCenter);
 
@@ -108,7 +114,8 @@ var Dialog = BaseLayer.extend({
         this._target = target;
         this._callback = selector;
 
-        this._btnOK.loadTextures("Dialog/btnGold.png", "Dialog/btnGold.png", "");
+        this._btnOK.loadTextures("Common/btnYellow.png", "Common/btnYellow.png");
+        this.lbOk.setString(localized("AGREE"));
         this._btnOK.setVisible(true);
         this._btnOK.setPosition(this._pLeft);
 
@@ -121,7 +128,8 @@ var Dialog = BaseLayer.extend({
         this._target = target;
         this._callback = selector;
 
-        this._btnOK.loadTextures("Dialog/btnG.png", "Dialog/btnG.png", "");
+        this._btnOK.loadTextures("Common/btnGreen.png", "Common/btnGreen.png");
+        this.lbOk.setString(localized("NAP_G"));
         this._btnOK.setVisible(true);
         this._btnOK.setPosition(this._pLeft);
 
@@ -134,7 +142,8 @@ var Dialog = BaseLayer.extend({
         this._target = target;
         this._callback = selector;
 
-        this._btnOK.loadTextures("Common/btnPlayNow.png", "Common/btnPlayNow.png", "");
+        this._btnOK.loadTextures("Common/btnYellow.png", "Common/btnYellow.png");
+        this.lbOk.setString(localized("PLAY_NOW"));
         this._btnOK.setVisible(true);
         this._btnOK.setPosition(this._pLeft);
 

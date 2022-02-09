@@ -15,6 +15,79 @@
         "Tag": 94,
         "Children": [
           {
+            "FontSize": 14,
+            "ButtonText": "",
+            "TextColor": {
+              "R": 65,
+              "G": 65,
+              "B": 70
+            },
+            "DisabledFileData": {
+              "Type": "Default",
+              "Path": "Default/Button_Disable.png",
+              "Plist": ""
+            },
+            "PressedFileData": {
+              "Type": "Default",
+              "Path": "Default/Button_Press.png",
+              "Plist": ""
+            },
+            "NormalFileData": {
+              "Type": "Default",
+              "Path": "Default/Button_Normal.png",
+              "Plist": ""
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 16,
+            "Scale9Height": 14,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PercentWidthEnable": true,
+            "PercentHeightEnable": true,
+            "PercentWidthEnabled": true,
+            "PercentHeightEnabled": true,
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "Tag": 405,
+            "ActionTag": -910646089,
+            "Size": {
+              "X": 1200.0,
+              "Y": 720.0
+            },
+            "Alpha": 0,
+            "Name": "btnClose",
+            "ctype": "ButtonObjectData"
+          },
+          {
             "FileData": {
               "Type": "Normal",
               "Path": "Interact/emo_panel/bg.png",
@@ -263,11 +336,9 @@
                     },
                     "Scale9Width": 1,
                     "Scale9Height": 1,
-                    "AnchorPoint": {
-                      "ScaleX": 1.0
-                    },
+                    "AnchorPoint": {},
                     "Position": {
-                      "X": 384.3,
+                      "X": 0.0005,
                       "Y": 0.0
                     },
                     "Scale": {
@@ -277,7 +348,7 @@
                     "CColor": {},
                     "IconVisible": false,
                     "PrePosition": {
-                      "X": 1.0,
+                      "X": 0.0,
                       "Y": 0.0
                     },
                     "PercentWidthEnable": true,
@@ -290,6 +361,8 @@
                     },
                     "HorizontalEdge": "RightEdge",
                     "VerticalEdge": "BottomEdge",
+                    "LeftMargin": 0.0005,
+                    "RightMargin": -0.0005,
                     "UserData": "scale",
                     "Tag": 103,
                     "ActionTag": 1377177277,
@@ -297,7 +370,7 @@
                       "X": 384.3,
                       "Y": 555.0
                     },
-                    "Name": "pLeft",
+                    "Name": "pRight",
                     "ctype": "PanelObjectData"
                   }
                 ],
@@ -371,11 +444,11 @@
                     "Scale9Height": 1,
                     "AnchorPoint": {
                       "ScaleX": 0.5,
-                      "ScaleY": 0.5
+                      "ScaleY": 1.0
                     },
                     "Position": {
                       "X": 192.15,
-                      "Y": 273.0
+                      "Y": 546.0
                     },
                     "Scale": {
                       "ScaleX": 1.0,
@@ -387,16 +460,15 @@
                     "PositionPercentYEnabled": true,
                     "PrePosition": {
                       "X": 0.5,
-                      "Y": 0.5
-                    },
-                    "PercentWidthEnable": true,
-                    "PercentHeightEnable": true,
-                    "PercentWidthEnabled": true,
-                    "PercentHeightEnabled": true,
-                    "PreSize": {
-                      "X": 1.0,
                       "Y": 1.0
                     },
+                    "PercentWidthEnable": true,
+                    "PercentWidthEnabled": true,
+                    "PreSize": {
+                      "X": 1.0,
+                      "Y": 0.0916
+                    },
+                    "BottomMargin": 496.0,
                     "UserData": "scale",
                     "Tag": 104,
                     "Children": [
@@ -415,12 +487,12 @@
                         },
                         "PressedFileData": {
                           "Type": "Normal",
-                          "Path": "ChatNew/btnTab.png",
+                          "Path": "ChatNew/bgTabChatChosen.png",
                           "Plist": ""
                         },
                         "NormalFileData": {
                           "Type": "Normal",
-                          "Path": "ChatNew/btnTab.png",
+                          "Path": "ChatNew/bgTabChatChosen.png",
                           "Plist": ""
                         },
                         "Scale9Enable": true,
@@ -446,7 +518,7 @@
                         },
                         "Position": {
                           "X": 59.2545,
-                          "Y": 520.8051
+                          "Y": 25.0
                         },
                         "Scale": {
                           "ScaleX": 1.0,
@@ -456,16 +528,16 @@
                         "IconVisible": false,
                         "PrePosition": {
                           "X": 0.1542,
-                          "Y": 0.9539
+                          "Y": 0.5
                         },
                         "PreSize": {
                           "X": 0.2654,
-                          "Y": 0.0714
+                          "Y": 0.78
                         },
                         "LeftMargin": 8.2545,
                         "RightMargin": 274.0455,
-                        "TopMargin": 5.6949,
-                        "BottomMargin": 501.3051,
+                        "TopMargin": 5.5,
+                        "BottomMargin": 5.5,
                         "Tag": 105,
                         "Children": [
                           {
@@ -528,14 +600,14 @@
                           },
                           {
                             "FileData": {
-                              "Type": "Normal",
-                              "Path": "ChatNew/icoDown.png",
+                              "Type": "Default",
+                              "Path": "Default/ImageFile.png",
                               "Plist": ""
                             },
                             "Scale9OriginX": 3,
                             "Scale9OriginY": 1,
-                            "Scale9Width": 5,
-                            "Scale9Height": 4,
+                            "Scale9Width": 40,
+                            "Scale9Height": 44,
                             "AnchorPoint": {
                               "ScaleX": 0.5,
                               "ScaleY": 0.5
@@ -572,6 +644,53 @@
                             "VisibleForFrame": false,
                             "Name": "ico",
                             "ctype": "ImageViewObjectData"
+                          },
+                          {
+                            "FileData": {
+                              "Type": "Default",
+                              "Path": "Default/ImageFile.png",
+                              "Plist": ""
+                            },
+                            "Scale9OriginX": 3,
+                            "Scale9OriginY": 1,
+                            "Scale9Width": 40,
+                            "Scale9Height": 44,
+                            "AnchorPoint": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
+                            },
+                            "Position": {
+                              "X": 117.924,
+                              "Y": 4.5747
+                            },
+                            "Scale": {
+                              "ScaleX": 1.0,
+                              "ScaleY": 1.0
+                            },
+                            "CColor": {},
+                            "IconVisible": false,
+                            "PositionPercentYEnabled": true,
+                            "PrePosition": {
+                              "X": 1.1561,
+                              "Y": 0.1173
+                            },
+                            "PreSize": {
+                              "X": 0.1078,
+                              "Y": 0.1538
+                            },
+                            "LeftMargin": 112.424,
+                            "RightMargin": -21.424,
+                            "TopMargin": 31.4253,
+                            "BottomMargin": 1.5747,
+                            "Tag": 406,
+                            "ActionTag": -327376027,
+                            "Size": {
+                              "X": 11.0,
+                              "Y": 6.0
+                            },
+                            "VisibleForFrame": false,
+                            "Name": "notify",
+                            "ctype": "ImageViewObjectData"
                           }
                         ],
                         "ActionTag": -2046832998,
@@ -603,7 +722,7 @@
                         "AnchorPoint": {},
                         "Position": {
                           "X": 8.0002,
-                          "Y": 492.6811
+                          "Y": 0.0
                         },
                         "Scale": {
                           "ScaleX": 1.0,
@@ -613,147 +732,200 @@
                         "IconVisible": false,
                         "PrePosition": {
                           "X": 0.0208,
-                          "Y": 0.9023
+                          "Y": 0.0
                         },
                         "PreSize": {
                           "X": 0.9636,
-                          "Y": 0.0916
+                          "Y": 1.0
                         },
                         "LeftMargin": 8.0002,
                         "RightMargin": 5.9998,
-                        "TopMargin": 3.3189,
-                        "BottomMargin": 492.6811,
                         "Tag": 108,
+                        "Children": [
+                          {
+                            "ClipAble": false,
+                            "BackColorAlpha": 102,
+                            "SingleColor": {
+                              "R": 150,
+                              "G": 200
+                            },
+                            "FirstColor": {
+                              "R": 150,
+                              "G": 200
+                            },
+                            "EndColor": {},
+                            "ColorVector": {
+                              "ScaleY": 1.0
+                            },
+                            "Scale9Width": 1,
+                            "Scale9Height": 1,
+                            "TouchEnable": true,
+                            "AnchorPoint": {},
+                            "Position": {
+                              "X": 0.0,
+                              "Y": 0.0
+                            },
+                            "Scale": {
+                              "ScaleX": 1.0,
+                              "ScaleY": 1.0
+                            },
+                            "CColor": {},
+                            "IconVisible": false,
+                            "PrePosition": {
+                              "X": 0.0,
+                              "Y": 0.0
+                            },
+                            "PercentWidthEnable": true,
+                            "PercentHeightEnable": true,
+                            "PercentWidthEnabled": true,
+                            "PercentHeightEnabled": true,
+                            "PreSize": {
+                              "X": 1.0,
+                              "Y": 1.0
+                            },
+                            "Tag": 407,
+                            "Children": [
+                              {
+                                "FileData": {
+                                  "Type": "Normal",
+                                  "Path": "ChatNew/bgTabChatChosen.png",
+                                  "Plist": ""
+                                },
+                                "Scale9OriginX": 33,
+                                "Scale9OriginY": 12,
+                                "Scale9Width": 36,
+                                "Scale9Height": 15,
+                                "AnchorPoint": {
+                                  "ScaleX": 0.5,
+                                  "ScaleY": 0.5
+                                },
+                                "Position": {
+                                  "X": 53.4796,
+                                  "Y": 25.0
+                                },
+                                "Scale": {
+                                  "ScaleX": 1.0,
+                                  "ScaleY": 1.0
+                                },
+                                "CColor": {},
+                                "IconVisible": false,
+                                "PositionPercentYEnabled": true,
+                                "PrePosition": {
+                                  "X": 0.1444,
+                                  "Y": 0.5
+                                },
+                                "PreSize": {
+                                  "X": 0.2755,
+                                  "Y": 0.78
+                                },
+                                "LeftMargin": 2.4796,
+                                "RightMargin": 265.8204,
+                                "TopMargin": 5.5,
+                                "BottomMargin": 5.5,
+                                "Tag": 408,
+                                "ActionTag": 127220503,
+                                "Size": {
+                                  "X": 102.0,
+                                  "Y": 39.0
+                                },
+                                "VisibleForFrame": false,
+                                "Name": "bottom",
+                                "ctype": "ImageViewObjectData"
+                              },
+                              {
+                                "VerticalType": "Align_VerticalCenter",
+                                "ScrollDirectionType": 0,
+                                "ClipAble": false,
+                                "BackColorAlpha": 102,
+                                "SingleColor": {
+                                  "R": 0,
+                                  "G": 128,
+                                  "B": 0
+                                },
+                                "FirstColor": {
+                                  "R": 150,
+                                  "G": 150
+                                },
+                                "EndColor": {},
+                                "ColorVector": {
+                                  "ScaleY": 1.0
+                                },
+                                "Scale9Width": 1,
+                                "Scale9Height": 1,
+                                "TouchEnable": true,
+                                "AnchorPoint": {},
+                                "Position": {
+                                  "X": 0.0,
+                                  "Y": 0.0
+                                },
+                                "Scale": {
+                                  "ScaleX": 1.0,
+                                  "ScaleY": 1.0
+                                },
+                                "CColor": {},
+                                "IconVisible": false,
+                                "PrePosition": {
+                                  "X": 0.0,
+                                  "Y": 0.0
+                                },
+                                "PercentWidthEnable": true,
+                                "PercentHeightEnable": true,
+                                "PercentWidthEnabled": true,
+                                "PercentHeightEnabled": true,
+                                "PreSize": {
+                                  "X": 1.0,
+                                  "Y": 1.0
+                                },
+                                "Tag": 410,
+                                "ActionTag": -312627168,
+                                "Size": {
+                                  "X": 370.3,
+                                  "Y": 50.0
+                                },
+                                "Name": "lv",
+                                "ctype": "ListViewObjectData"
+                              }
+                            ],
+                            "ActionTag": -181974205,
+                            "Size": {
+                              "X": 370.3,
+                              "Y": 50.0
+                            },
+                            "Name": "tab",
+                            "ctype": "PanelObjectData"
+                          }
+                        ],
                         "ActionTag": -211062707,
                         "Size": {
                           "X": 370.3,
                           "Y": 50.0
                         },
-                        "Name": "tab",
+                        "Name": "tabWarp",
                         "ctype": "PanelObjectData"
-                      },
-                      {
-                        "FileData": {
-                          "Type": "Normal",
-                          "Path": "ChatNew/bgTextField.png",
-                          "Plist": ""
-                        },
-                        "Scale9OriginX": 86,
-                        "Scale9OriginY": 18,
-                        "Scale9Width": 89,
-                        "Scale9Height": 19,
-                        "AnchorPoint": {},
-                        "Position": {
-                          "X": 7.0,
-                          "Y": 5.0
-                        },
-                        "Scale": {
-                          "ScaleX": 1.0,
-                          "ScaleY": 1.0
-                        },
-                        "CColor": {},
-                        "IconVisible": false,
-                        "PrePosition": {
-                          "X": 0.0182,
-                          "Y": 0.0092
-                        },
-                        "PreSize": {
-                          "X": 0.6792,
-                          "Y": 0.1007
-                        },
-                        "HorizontalEdge": "LeftEdge",
-                        "VerticalEdge": "BottomEdge",
-                        "LeftMargin": 7.0,
-                        "RightMargin": 116.3,
-                        "TopMargin": 486.0,
-                        "BottomMargin": 5.0,
-                        "Tag": 91,
-                        "ActionTag": 434730197,
-                        "Size": {
-                          "X": 261.0,
-                          "Y": 55.0
-                        },
-                        "Name": "bgTf",
-                        "ctype": "ImageViewObjectData"
-                      },
-                      {
-                        "FontResource": {
-                          "Type": "Normal",
-                          "Path": "Font/tahoma.ttf",
-                          "Plist": ""
-                        },
-                        "FontSize": 17,
-                        "IsCustomSize": true,
-                        "LabelText": "",
-                        "PlaceHolderText": "Nhập nội dung chat tại đây ...",
-                        "MaxLengthText": 10,
-                        "AnchorPoint": {
-                          "ScaleX": 0.5,
-                          "ScaleY": 0.5
-                        },
-                        "Position": {
-                          "X": 135.5,
-                          "Y": 32.5
-                        },
-                        "Scale": {
-                          "ScaleX": 1.0,
-                          "ScaleY": 1.0
-                        },
-                        "CColor": {},
-                        "IconVisible": false,
-                        "PrePosition": {
-                          "X": 0.3526,
-                          "Y": 0.0595
-                        },
-                        "PreSize": {
-                          "X": 0.6505,
-                          "Y": 0.0421
-                        },
-                        "LeftMargin": 10.5,
-                        "RightMargin": 123.8,
-                        "TopMargin": 502.0,
-                        "BottomMargin": 21.0,
-                        "Tag": 360,
-                        "ActionTag": -1584123846,
-                        "Size": {
-                          "X": 250.0,
-                          "Y": 23.0
-                        },
-                        "Name": "tf",
-                        "ctype": "TextFieldObjectData"
                       }
                     ],
                     "ActionTag": -449372746,
                     "Size": {
                       "X": 384.3,
-                      "Y": 546.0
+                      "Y": 50.0
                     },
                     "Name": "pTab",
                     "ctype": "PanelObjectData"
                   },
                   {
-                    "ClipAble": false,
-                    "BackColorAlpha": 102,
-                    "SingleColor": {
-                      "R": 150,
-                      "G": 200
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "ChatNew/bgTextField.png",
+                      "Plist": ""
                     },
-                    "FirstColor": {
-                      "R": 150,
-                      "G": 200
-                    },
-                    "EndColor": {},
-                    "ColorVector": {
-                      "ScaleY": 1.0
-                    },
-                    "Scale9Width": 1,
-                    "Scale9Height": 1,
-                    "AnchorPoint": {
-                      "ScaleX": 0.9959
-                    },
+                    "Scale9OriginX": 86,
+                    "Scale9OriginY": 18,
+                    "Scale9Width": 89,
+                    "Scale9Height": 19,
+                    "AnchorPoint": {},
                     "Position": {
-                      "X": 384.3,
-                      "Y": 0.0
+                      "X": 7.0,
+                      "Y": 5.0
                     },
                     "Scale": {
                       "ScaleX": 1.0,
@@ -761,307 +933,158 @@
                     },
                     "CColor": {},
                     "IconVisible": false,
-                    "PositionPercentXEnabled": true,
-                    "PositionPercentYEnabled": true,
                     "PrePosition": {
-                      "X": 1.0,
-                      "Y": 0.0
+                      "X": 0.0182,
+                      "Y": 0.0092
                     },
                     "PreSize": {
-                      "X": 0.2602,
-                      "Y": 0.0916
+                      "X": 0.6792,
+                      "Y": 0.1007
                     },
-                    "LeftMargin": 284.71,
-                    "RightMargin": -0.41,
-                    "TopMargin": 496.0,
-                    "UserData": "scale",
-                    "Tag": 98,
-                    "Children": [
-                      {
-                        "FontSize": 14,
-                        "ButtonText": "",
-                        "TextColor": {
-                          "R": 65,
-                          "G": 65,
-                          "B": 70
-                        },
-                        "DisabledFileData": {
-                          "Type": "Default",
-                          "Path": "Default/Button_Disable.png",
-                          "Plist": ""
-                        },
-                        "PressedFileData": {
-                          "Type": "Normal",
-                          "Path": "ChatNew/btnSend.png",
-                          "Plist": ""
-                        },
-                        "NormalFileData": {
-                          "Type": "Normal",
-                          "Path": "ChatNew/btnSend.png",
-                          "Plist": ""
-                        },
-                        "Scale9Enable": true,
-                        "Scale9OriginX": 15,
-                        "Scale9OriginY": 11,
-                        "Scale9Width": 71,
-                        "Scale9Height": 33,
-                        "OutlineColor": {
-                          "G": 0,
-                          "B": 0
-                        },
-                        "ShadowColor": {
-                          "R": 110,
-                          "G": 110,
-                          "B": 110
-                        },
-                        "ShadowOffsetX": 2.0,
-                        "ShadowOffsetY": -2.0,
-                        "TouchEnable": true,
-                        "AnchorPoint": {
-                          "ScaleX": 1.0
-                        },
-                        "Position": {
-                          "X": 93.0,
-                          "Y": 5.0
-                        },
-                        "Scale": {
-                          "ScaleX": 1.0,
-                          "ScaleY": 1.0
-                        },
-                        "CColor": {},
-                        "IconVisible": false,
-                        "PrePosition": {
-                          "X": 0.93,
-                          "Y": 0.1
-                        },
-                        "PreSize": {
-                          "X": 1.01,
-                          "Y": 1.1
-                        },
-                        "HorizontalEdge": "RightEdge",
-                        "VerticalEdge": "BottomEdge",
-                        "LeftMargin": -8.0,
-                        "RightMargin": 7.0,
-                        "TopMargin": -10.0,
-                        "BottomMargin": 5.0,
-                        "Tag": 96,
-                        "ActionTag": -1487974055,
-                        "Size": {
-                          "X": 101.0,
-                          "Y": 55.0
-                        },
-                        "Name": "btnSend",
-                        "ctype": "ButtonObjectData"
-                      },
-                      {
-                        "FontSize": 14,
-                        "ButtonText": "",
-                        "TextColor": {
-                          "R": 65,
-                          "G": 65,
-                          "B": 70
-                        },
-                        "DisabledFileData": {
-                          "Type": "Default",
-                          "Path": "Default/Button_Disable.png",
-                          "Plist": ""
-                        },
-                        "PressedFileData": {
-                          "Type": "Normal",
-                          "Path": "ChatNew/btnEmo.png",
-                          "Plist": ""
-                        },
-                        "NormalFileData": {
-                          "Type": "Normal",
-                          "Path": "ChatNew/btnEmo.png",
-                          "Plist": ""
-                        },
-                        "Scale9Enable": true,
-                        "Scale9OriginX": 15,
-                        "Scale9OriginY": 11,
-                        "Scale9Width": 13,
-                        "Scale9Height": 21,
-                        "OutlineColor": {
-                          "G": 0,
-                          "B": 0
-                        },
-                        "ShadowColor": {
-                          "R": 110,
-                          "G": 110,
-                          "B": 110
-                        },
-                        "ShadowOffsetX": 2.0,
-                        "ShadowOffsetY": -2.0,
-                        "AnchorPoint": {
-                          "ScaleX": 0.5,
-                          "ScaleY": 0.5
-                        },
-                        "Position": {
-                          "X": 111.9649,
-                          "Y": 26.0
-                        },
-                        "Scale": {
-                          "ScaleX": 1.0,
-                          "ScaleY": 1.0
-                        },
-                        "CColor": {},
-                        "IconVisible": false,
-                        "PositionPercentYEnabled": true,
-                        "PrePosition": {
-                          "X": 1.1196,
-                          "Y": 0.52
-                        },
-                        "PreSize": {
-                          "X": 0.43,
-                          "Y": 0.86
-                        },
-                        "LeftMargin": 90.4649,
-                        "RightMargin": -33.4649,
-                        "TopMargin": 2.5,
-                        "BottomMargin": 4.5,
-                        "Tag": 99,
-                        "ActionTag": 1402281386,
-                        "Size": {
-                          "X": 43.0,
-                          "Y": 43.0
-                        },
-                        "Name": "btnEmo",
-                        "ctype": "ButtonObjectData"
-                      },
-                      {
-                        "FontSize": 14,
-                        "ButtonText": "",
-                        "TextColor": {
-                          "R": 65,
-                          "G": 65,
-                          "B": 70
-                        },
-                        "DisabledFileData": {
-                          "Type": "Default",
-                          "Path": "Default/Button_Disable.png",
-                          "Plist": ""
-                        },
-                        "PressedFileData": {
-                          "Type": "Normal",
-                          "Path": "ChatNew/btnChat.png",
-                          "Plist": ""
-                        },
-                        "NormalFileData": {
-                          "Type": "Normal",
-                          "Path": "ChatNew/btnChat.png",
-                          "Plist": ""
-                        },
-                        "Scale9Enable": true,
-                        "Scale9OriginX": 15,
-                        "Scale9OriginY": 11,
-                        "Scale9Width": 14,
-                        "Scale9Height": 16,
-                        "OutlineColor": {
-                          "G": 0,
-                          "B": 0
-                        },
-                        "ShadowColor": {
-                          "R": 110,
-                          "G": 110,
-                          "B": 110
-                        },
-                        "ShadowOffsetX": 2.0,
-                        "ShadowOffsetY": -2.0,
-                        "AnchorPoint": {
-                          "ScaleX": 0.5,
-                          "ScaleY": 0.5
-                        },
-                        "Position": {
-                          "X": 169.9638,
-                          "Y": 25.0
-                        },
-                        "Scale": {
-                          "ScaleX": 1.0,
-                          "ScaleY": 1.0
-                        },
-                        "CColor": {},
-                        "IconVisible": false,
-                        "PositionPercentYEnabled": true,
-                        "PrePosition": {
-                          "X": 1.6996,
-                          "Y": 0.5
-                        },
-                        "PreSize": {
-                          "X": 0.44,
-                          "Y": 0.76
-                        },
-                        "LeftMargin": 147.9638,
-                        "RightMargin": -91.9638,
-                        "TopMargin": 6.0,
-                        "BottomMargin": 6.0,
-                        "Tag": 100,
-                        "ActionTag": -1008127646,
-                        "Size": {
-                          "X": 44.0,
-                          "Y": 38.0
-                        },
-                        "Name": "btnChat",
-                        "ctype": "ButtonObjectData"
-                      },
-                      {
-                        "FileData": {
-                          "Type": "Normal",
-                          "Path": "ChatNew/arrow_active.png",
-                          "Plist": ""
-                        },
-                        "Scale9OriginX": 2,
-                        "Scale9OriginY": 1,
-                        "Scale9Width": 4,
-                        "Scale9Height": 2,
-                        "AnchorPoint": {
-                          "ScaleX": 0.5,
-                          "ScaleY": 0.5
-                        },
-                        "Position": {
-                          "X": 112.9987,
-                          "Y": 2.0
-                        },
-                        "Scale": {
-                          "ScaleX": 1.0,
-                          "ScaleY": 1.0
-                        },
-                        "CColor": {},
-                        "IconVisible": false,
-                        "PrePosition": {
-                          "X": 1.13,
-                          "Y": 0.04
-                        },
-                        "PreSize": {
-                          "X": 0.08,
-                          "Y": 0.08
-                        },
-                        "LeftMargin": 108.9987,
-                        "RightMargin": -16.9987,
-                        "TopMargin": 46.0,
-                        "Tag": 15,
-                        "ActionTag": -1854375978,
-                        "Size": {
-                          "X": 8.0,
-                          "Y": 4.0
-                        },
-                        "Name": "active",
-                        "ctype": "ImageViewObjectData"
-                      }
-                    ],
-                    "ActionTag": -1622488813,
+                    "HorizontalEdge": "LeftEdge",
+                    "VerticalEdge": "BottomEdge",
+                    "LeftMargin": 7.0,
+                    "RightMargin": 116.3,
+                    "TopMargin": 486.0,
+                    "BottomMargin": 5.0,
+                    "Tag": 91,
+                    "ActionTag": 434730197,
                     "Size": {
-                      "X": 100.0,
-                      "Y": 50.0
+                      "X": 261.0,
+                      "Y": 55.0
                     },
-                    "Name": "pButton",
-                    "ctype": "PanelObjectData"
+                    "Name": "bgTf",
+                    "ctype": "ImageViewObjectData"
+                  },
+                  {
+                    "FontResource": {
+                      "Type": "Normal",
+                      "Path": "Font/tahoma.ttf",
+                      "Plist": ""
+                    },
+                    "FontSize": 17,
+                    "IsCustomSize": true,
+                    "LabelText": "",
+                    "PlaceHolderText": "Nhập nội dung chat tại đây ...",
+                    "MaxLengthText": 10,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 135.5,
+                      "Y": 32.5
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.3526,
+                      "Y": 0.0595
+                    },
+                    "PreSize": {
+                      "X": 0.6505,
+                      "Y": 0.1007
+                    },
+                    "LeftMargin": 10.5,
+                    "RightMargin": 123.8,
+                    "TopMargin": 486.0,
+                    "BottomMargin": 5.0,
+                    "Tag": 360,
+                    "ActionTag": -1584123846,
+                    "Size": {
+                      "X": 250.0,
+                      "Y": 55.0
+                    },
+                    "Name": "tf",
+                    "ctype": "TextFieldObjectData"
+                  },
+                  {
+                    "FontSize": 14,
+                    "ButtonText": "",
+                    "TextColor": {
+                      "R": 65,
+                      "G": 65,
+                      "B": 70
+                    },
+                    "DisabledFileData": {
+                      "Type": "Default",
+                      "Path": "Default/Button_Disable.png",
+                      "Plist": ""
+                    },
+                    "PressedFileData": {
+                      "Type": "Normal",
+                      "Path": "ChatNew/btnSend.png",
+                      "Plist": ""
+                    },
+                    "NormalFileData": {
+                      "Type": "Normal",
+                      "Path": "ChatNew/btnSend.png",
+                      "Plist": ""
+                    },
+                    "Scale9Enable": true,
+                    "Scale9OriginX": 15,
+                    "Scale9OriginY": 11,
+                    "Scale9Width": 71,
+                    "Scale9Height": 33,
+                    "OutlineColor": {
+                      "G": 0,
+                      "B": 0
+                    },
+                    "ShadowColor": {
+                      "R": 110,
+                      "G": 110,
+                      "B": 110
+                    },
+                    "ShadowOffsetX": 2.0,
+                    "ShadowOffsetY": -2.0,
+                    "TouchEnable": true,
+                    "AnchorPoint": {
+                      "ScaleX": 1.0
+                    },
+                    "Position": {
+                      "X": 377.3,
+                      "Y": 5.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.9818,
+                      "Y": 0.0092
+                    },
+                    "PreSize": {
+                      "X": 0.2628,
+                      "Y": 0.1007
+                    },
+                    "HorizontalEdge": "RightEdge",
+                    "VerticalEdge": "BottomEdge",
+                    "LeftMargin": 276.3,
+                    "RightMargin": 7.0,
+                    "TopMargin": 486.0,
+                    "BottomMargin": 5.0,
+                    "Tag": 96,
+                    "ActionTag": -1487974055,
+                    "Size": {
+                      "X": 101.0,
+                      "Y": 55.0
+                    },
+                    "Name": "btnSend",
+                    "ctype": "ButtonObjectData"
                   },
                   {
                     "ClipAble": false,
                     "BackColorAlpha": 102,
                     "SingleColor": {
-                      "R": 150,
-                      "G": 200
+                      "R": 144,
+                      "G": 238,
+                      "B": 144
                     },
                     "FirstColor": {
                       "R": 150,
@@ -1104,7 +1127,7 @@
                       "X": 384.3,
                       "Y": 415.0
                     },
-                    "Name": "pRight",
+                    "Name": "pLeft",
                     "ctype": "PanelObjectData"
                   }
                 ],
@@ -1383,16 +1406,15 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
-        "ChatNew/arrow_active.png",
+        "ChatNew/bgTabChatChosen.png",
         "ChatNew/bgTextField.png",
-        "ChatNew/btnChat.png",
-        "ChatNew/btnEmo.png",
         "ChatNew/btnSend.png",
-        "ChatNew/btnTab.png",
-        "ChatNew/icoDown.png",
         "ChatNew/iconChat.png",
         "ChatNew/iconQuickChatInactive.png",
         "Default/Button_Disable.png",
+        "Default/Button_Normal.png",
+        "Default/Button_Press.png",
+        "Default/ImageFile.png",
         "Font/tahoma.ttf",
         "Interact/emo_panel/activeChat.png",
         "Interact/emo_panel/activeEmote.png",

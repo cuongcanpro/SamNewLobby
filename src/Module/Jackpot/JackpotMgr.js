@@ -199,6 +199,10 @@ var JackpotMgr = BaseMgr.extend({
         }
         return eff;
     },
+
+    getJackpotConfig: function (id) {
+        return this.jackpotJson[id];
+    }
 })
 
 JackpotMgr.instance = null;

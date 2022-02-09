@@ -7,7 +7,7 @@ var GameHelper = function(){}
 
 var kSort_TangDan = 0;
 var kSort_Group = 1;
-var kSort_Unkown = 2;
+var kSort_Unknown = 2;
 
 
 GameHelper.kiemtraDanh = function(group){
@@ -67,7 +67,8 @@ GameHelper.recommend = function(cards,cardHandon,cardselect){               // T
                     quanbai_.push(cardHandon[i]);
                 }
             }
-            quanbai_.sort(function(a,b){return a < b;});
+            quanbai_.sort(function(a,b){return a > b;});
+            cc.log("GAME HELP RECOMMENDED BO", JSON.stringify(quanbai_));
             var idx = 0;
             for(var i=0;i<quanbai_.length;i++)
             {
@@ -249,177 +250,166 @@ GameHelper.kiemtraChatQuan = function(a,b)
     }
 }
 
-GameHelper.sapxepQuanBai = function(card,sort){
-    if (sort == kSort_TangDan)
-    {
-        card.sort(function(a, b){return a._id- b._id});
+GameHelper.sapxepQuanBai = function(card, sort) {
+    if (sort === kSort_TangDan) {
+        cc.log("SORT Tang dan");
+        card.sort(function(a, b) {
+            var valueA = (a._quanbai + 11) % 14;
+            var valueB = (b._quanbai + 11) % 14;
+            return valueA - valueB;
+        });
         return card;
     }
-    else if(sort == kSort_Group)
-    {
-        var _tmp = card.slice();
-        var cards = [];
-        _tmp.sort(function(a, b){return a._id- b._id});
 
-        if (_tmp.length >= 4)
-        {
-            // check tu quy
-            var size = _tmp.length-1;
-            var count = 0;
-            while (size > 0)
-            {
-                if (_tmp[size]._quanbai == _tmp[size-1]._quanbai)
-                {
+    if (sort === kSort_Group) {
+        var cards = [];
+        var _tmp = card.slice();
+        _tmp.sort(function(a, b) {
+            var valueA = (a._quanbai + 11) % 14;
+            var valueB = (b._quanbai + 11) % 14;
+            return valueB - valueA;
+        });
+        cc.log("SORT Group", JSON.stringify(_tmp));
+
+        var size = _tmp.length - 1;
+        var count = 0;
+        //check FourOfAKind
+        if (size + 1 >= 4) {
+            count = 0;
+            while (size > 0) {
+                if (_tmp[size]._quanbai === _tmp[size - 1]._quanbai) {
                     count++;
-                    if (count == 3)		// co tu quy tu` (size-1) -> size + 2
-                    {
-                        cards.push(_tmp[size-1]);cards.push(_tmp[size]);cards.push(_tmp[size+1]);cards.push(_tmp[size+2]);
-                        _tmp.splice(size-1,4);
-                        size-=4;
-                        count =0;
-                    }
-                    else
-                    {
+                    if (count === 3) {
+                        //FourOfAKind(size - 1) -> (size + 2)
+                        cards.push(_tmp[size - 1]);
+                        cards.push(_tmp[size]);
+                        cards.push(_tmp[size + 1]);
+                        cards.push(_tmp[size + 2]);
+                        _tmp.splice(size - 1, 4);
+                        size -= 2;
+                        count = 0;
+                    } else {
                         size--;
                     }
-                }
-                else
-                {
+                } else {
                     count = 0;
                     size--;
                 }
-
             }
         }
 
-        if (_tmp.length >= 3)
-        {
-            // Check sanh doc
-            while (true)
-            {
-                var idx = [];					// Loai bo cac quan bai bang nhau khac chat (de xet cac sanh) , no bao gom chi so cua cac quan bai trong vector tmp
-                idx.push(0);
-                for (var i = 1;i<_tmp.length;i++)
-                {
-                    if (_tmp[i]._quanbai > _tmp[i-1]._quanbai)
-                    {
+        if (_tmp.length >= 3) {
+            // Check Straight
+            _tmp.sort(function(a, b) {
+                return a._quanbai - b._quanbai;
+            });
+            while (true) {
+                // Loai bo cac quan bai bang nhau khac chat (de xet cac sanh) , no bao gom chi so cua cac quan bai trong vector tmp
+                var idx = [0];
+                for (var i = 1; i < _tmp.length; i++) {
+                    if (_tmp[i]._quanbai > _tmp[i - 1]._quanbai) {
                         idx.push(i);
                     }
                 }
-                if (idx.length < 3)
-                {
+                if (idx.length < 3) {
                     break;
                 }
+
                 var sanhIdxs = [];				// Chi so cac quan bai tao sanh doc trong vector tmp
                 var cosanhdoc = false;
-                var iter = idx.length-1;
-                while (iter > 0)
-                {
+                var iter = idx.length - 1;
+                while (iter > 0) {
                     var end = false;
-                    if (_tmp[idx[iter]]._quanbai == (_tmp[idx[iter-1]]._quanbai+1))
-                    {
-                        if (sanhIdxs.length == 0)
-                        {
+                    if (_tmp[idx[iter]]._quanbai === (_tmp[idx[iter - 1]]._quanbai + 1)) {
+                        if (sanhIdxs.length === 0) {
                             sanhIdxs.push(idx[iter]);
                         }
                         sanhIdxs.push(idx[iter-1]);
-                        if (iter == 1)
-                        {
+                        if (iter === 1) {
                             end = true;
                         }
                     }
-                    if(_tmp[idx[iter]]._quanbai != (_tmp[idx[iter-1]]._quanbai+1) || end)
-                    {
-                        if (sanhIdxs.length >= 3)
-                        {
-                            for (var j=sanhIdxs.length-1;j>=0;j--)
-                            {
+
+                    if(_tmp[idx[iter]]._quanbai !== (_tmp[idx[iter - 1]]._quanbai + 1) || end) {
+                        if (sanhIdxs.length >= 3) {
+                            for (var j = sanhIdxs.length - 1; j >= 0; j--) {
                                 cards.push(_tmp[sanhIdxs[j]]);
                             }
                             cosanhdoc = true;
-                            for (var j=0;j<sanhIdxs.length;j++)
-                            {
-                                _tmp.splice(sanhIdxs[j],1);
+                            for (var j = 0; j < sanhIdxs.length; j++) {
+                                _tmp.splice(sanhIdxs[j], 1);
                             }
                             sanhIdxs = [];
-
                             break;
                         }
                         sanhIdxs = [];
                     }
                     iter--;
                 }
-                if (!cosanhdoc)
-                {
+
+                if (!cosanhdoc) {
                     break;
                 }
             }
 
-            // Check ba la
-            var size = _tmp.length-1;
-            var count = 0;
-            while (size > 0)
-            {
-                if (_tmp[size]._quanbai == _tmp[size-1]._quanbai)
-                {
-                    count++;
-                    if (count == 2)		// co tu quy tu` (size-1) -> size + 1
-                    {
-                        cards.push(_tmp[size-1]);cards.push(_tmp[size]);cards.push(_tmp[size+1]);
-                        _tmp.splice(size-1,3);
-                        size -= 3;
+            cc.log("SORTING ThreeOfAKind", _tmp.length, JSON.stringify(_tmp));
+            _tmp.sort(function(a, b) {
+                var valueA = (a._quanbai + 11) % 14;
+                var valueB = (b._quanbai + 11) % 14;
+                return valueB - valueA;
+            });
+            cc.log("SORTING ThreeOfAKind", _tmp.length, JSON.stringify(_tmp));
+            //check ThreeOfAKind
+            size = _tmp.length - 1;
+            if (size + 1 >= 3) {
+                count = 0;
+                while (size > 0) {
+                    if (_tmp[size]._quanbai === _tmp[size - 1]._quanbai) {
+                        count++;
+                        if (count === 2) {
+                            //FourOfAKind(size - 1) -> (size + 1)
+                            cards.push(_tmp[size - 1]);
+                            cards.push(_tmp[size]);
+                            cards.push(_tmp[size + 1]);
+                            _tmp.splice(size - 1, 3);
+                            size -= 2;
+                            count = 0;
+                        } else {
+                            size--;
+                        }
+                    } else {
                         count = 0;
-
-                    }
-                    else
-                    {
                         size--;
                     }
                 }
-                else
-                {
-                    count = 0;
+            }
+        }
+
+        //check Pair
+        cc.log("SORTING PAIR", _tmp.length, JSON.stringify(_tmp));
+        if (_tmp.length >= 2) {
+            size = _tmp.length - 1;
+            while (size > 0) {
+                cc.log("SORTING", size, _tmp[size]._quanbai);
+                if (_tmp[size]._quanbai === _tmp[size - 1]._quanbai) {
+                    //Pair (size - 1) -> (size)
+                    cards.push(_tmp[size - 1]);
+                    cards.push(_tmp[size]);
+                    _tmp.splice(size - 1, 2);
+                    size -= 2;
+                } else {
                     size--;
                 }
-
-            }
-
-        }
-
-
-        if (_tmp.length >= 2)
-        {
-            // Check doi
-            var size_ = _tmp.length-1;
-            var count = 0;
-            while (size_ > 0)
-            {
-                if (_tmp[size_]._quanbai == _tmp[size_-1]._quanbai)
-                {
-                    count++;
-                    if (count == 1)		// co tu quy tu` (size-1) -> size
-                    {
-                        cards.push(_tmp[size_-1]);cards.push(_tmp[size_]);
-                        _tmp.splice(size_-1,2);
-                        size_ -= 2;
-                        count = 0;
-
-                    }
-                    else
-                    {
-                        size_--;
-                    }
-                }
-                else
-                {
-                    count = 0;
-                    size_--;
-                }
             }
         }
-        // add not phan rac'
-        for (var i=0;i<_tmp.length;i++)
-        {
+
+        //Leftover trash cards
+        _tmp.sort(function(a, b) {
+            var valueA = (a._quanbai + 11) % 14;
+            var valueB = (b._quanbai + 11) % 14;
+            return valueA - valueB;
+        });
+        for (var i = 0; i < _tmp.length; i++) {
             cards.push(_tmp[i]);
         }
 
@@ -1142,17 +1132,21 @@ GameHelper.kiemtraChatduockhong = function(a,b)  // kiem tra trong bo bai` b co 
 }
 
 // Kiem banCard
-GameHelper.checkBanCards = function(a, b)  // kiem tra trong bo bai` b co the chat dc a khong (a la group)  true: khong phai bo luot , false : bo luot
+GameHelper.checkBanCards = function(a, b)  //check if the cards is playable
 {
     var playable = [];
     var length = 0;
     b = b._cards.slice();
     b.sort(function(a, b) {
+        if (Math.floor(a._id / 4) === 2) return 1;
+        if (Math.floor(b._id / 4) === 2) return -1;
         return a._id - b._id;
     });
     var typeGroup = a._typeGroup;
     a = a._cards.slice();
     a.sort(function(a, b) {
+        if (Math.floor(a._id / 4) === 2) return 1;
+        if (Math.floor(b._id / 4) === 2) return -1;
         return a._id - b._id;
     });
     cc.log("checkBanCards", JSON.stringify(b),  JSON.stringify(a), typeGroup);
@@ -1277,6 +1271,7 @@ GameHelper.checkBanCards = function(a, b)  // kiem tra trong bo bai` b co the ch
                 length = a.length;
                 cc.log("checkBanCards GroupCard.kType_SANHDOC", difCards.length, length);
                 cc.log("checkBanCards GroupCard.kType_SANHDOC", JSON.stringify(difCards));
+                var lastPushDifCard = -1;
                 if (difCards.length >= length) {
                     // check sanh
                     for (var i = 0; i < difCards.length - (length - 1); i++)
@@ -1284,10 +1279,13 @@ GameHelper.checkBanCards = function(a, b)  // kiem tra trong bo bai` b co the ch
                             difCards[i]._quanbai > a[0]._quanbai) {
                             for (var j = 0; j < length; j++) {
                                 if (playable.length === 0 || difCards[i + j]._quanbai !== playable[playable.length - 1]._quanbai) {
-                                    playable.push(difCards[i + j]._id);
-                                    for (var k = 0; k < b.length; k++)
-                                        if (difCards[i + j]._quanbai === b[k]._quanbai && difCards[i + j]._id !== b[k]._id)
-                                            playable.push(b[k]._id);
+                                    if (lastPushDifCard < i + j) {
+                                        lastPushDifCard = i + j;
+                                        playable.push(difCards[i + j]._id);
+                                        for (var k = 0; k < b.length; k++)
+                                            if (difCards[i + j]._quanbai === b[k]._quanbai && difCards[i + j]._id !== b[k]._id)
+                                                playable.push(b[k]._id);
+                                    }
                                 }
                             }
                         }

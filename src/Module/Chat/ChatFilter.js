@@ -9631,43 +9631,13 @@ ChatFilter.filters = [
 ];
 
 ChatFilter.filterString = function (msg) {
+    if(msg.length > ChatMgr.MESSAGE_MAX_LENGTH)
+        msg = msg.slice(0, ChatMgr.MESSAGE_MAX_LENGTH);
 
-    // FILTER 1 - 1
-    /*
-    var arStr = msg.split(" ");
-    var nArr = arStr.length;
-    var nFilter = ChatFilter.filters.length;
-
-    for(var j = 0 ; j < nArr ; j++)
-    {
-        var sAr = arStr[j];
-
-        for(var i = 0 ; i < nFilter ; i++)
-        {
-            var sFilter = ChatFilter.filters[i];
-            //arStr[j] = StringUtility.replaceAll(sAr,sFilter,"***");
-            if(sAr == sFilter)
-            {
-                arStr[j] = "***";
-                break;
-            }
-        }
-    }
-
-    return arStr.join(" ");
-    */
-
-    if(msg.length > ChatMgr.MAX_LENGHT_AVAILABLE)
-    {
-        msg = msg.slice(0,ChatMgr.MAX_LENGHT_AVAILABLE);
-    }
-
-    // FILTER ALL - 1
-    var nFilter = ChatFilter.filters.length;
-    for(var i = 0 ; i < nFilter ; i++)
+    for(var i = 0 ; i < ChatFilter.filters.length ; i++)
     {
         var sFilter = ChatFilter.filters[i].toLowerCase();
-        msg = StringUtility.replaceAll(msg.toLowerCase(),sFilter,"***");
+        msg = StringUtility.replaceAll(msg.toLowerCase(), sFilter , "***");
     }
     return msg;
 };

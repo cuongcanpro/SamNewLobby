@@ -274,6 +274,11 @@ var ChannelMgr = BaseMgr.extend({
         return false;
     },
 
+    checkCanPlay: function (idBet) {
+        var listBet = this.getListBet();
+        return userMgr.getGold() >= this.betTime * listBet[idBet];
+    },
+
     getMinGoldCreateRoom: function () {
         return this.chanelConfig[this.selectedChanel].minGold;
     },
@@ -296,6 +301,32 @@ var ChannelMgr = BaseMgr.extend({
 
     getBetAdvance: function (id) {
         return this.chanelConfig[this.selectedChanel].betAdvance[id];
+    },
+
+    getMaxGoldCanPlayInChannel: function () {
+        for (var i = this.chanelConfig.length - 1; i >= 0; i--) {
+            for (var j = 0; j < this.chanelConfig[i].canPlay.length; j++)
+                if (this.chanelConfig[i].canPlay[j] == this.selectedChanel) {
+                    return this.chanelConfig[i].maxGold + 1;
+                }
+        }
+        return 0;
+    },
+
+    getMinGoldInChannel: function (idChannel) {
+        return this.chanelConfig[idChannel].minGold;
+    },
+
+    getMaxGoldInChannel: function (idChannel) {
+        return this.chanelConfig[idChannel].maxGold;
+    },
+
+    getListBet: function () {
+        return this.chanelConfig[this.selectedChanel].bet;
+    },
+
+    getSelectedChannel: function () {
+        return this.selectedChanel;
     },
 
     /**
@@ -372,24 +403,7 @@ var ChannelMgr = BaseMgr.extend({
         return false;
     },
 
-    getMaxGoldCanPlayInChannel: function () {
-        for (var i = this.chanelConfig.length - 1; i >= 0; i--) {
-            for (var j = 0; j < this.chanelConfig[i].canPlay.length; j++)
-                if (this.chanelConfig[i].canPlay[j] == this.selectedChanel) {
-                    return this.chanelConfig[i].maxGold + 1;
-                }
 
-        }
-        return 0;
-    },
-
-    getMinGoldInChannel: function (idChannel) {
-        return this.chanelConfig[idChannel].minGold;
-    },
-
-    getMaxGoldInChannel: function (idChannel) {
-        return this.chanelConfig[idChannel].maxGold;
-    },
 
     onEnterChannel: function () {
         if (this.selectedChanel == -1) {

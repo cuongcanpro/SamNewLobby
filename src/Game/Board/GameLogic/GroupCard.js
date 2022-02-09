@@ -99,6 +99,7 @@ var GroupCard = cc.Class.extend({
                 this._cards.splice(0,0,a);
                 this._typeGroup = GroupCard.kType_SANHDOC;
             }
+
         }
     }
 });

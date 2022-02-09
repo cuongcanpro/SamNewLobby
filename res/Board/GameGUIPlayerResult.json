@@ -1,0 +1,1021 @@
+{
+  "ID": "166daa9a-7db6-467c-9dc2-c107ecb744ba",
+  "Version": "2.3.4",
+  "Name": "GameGUIPlayerResult",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 810,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "PlistSubImage",
+              "Path": "result/resultBg_lose.png",
+              "Plist": "GameGUI/GameGUI.plist"
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 120,
+            "Scale9OriginY": 12,
+            "Scale9Width": 291,
+            "Scale9Height": 59,
+            "AnchorPoint": {
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -61.8313,
+              "Y": -31.3516
+            },
+            "Scale": {
+              "ScaleX": -1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -61.8313,
+            "RightMargin": -361.1687,
+            "TopMargin": -13.1484,
+            "BottomMargin": -75.8516,
+            "Tag": 812,
+            "Children": [
+              {
+                "ClipAble": false,
+                "BackColorAlpha": 102,
+                "SingleColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "FirstColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "EndColor": {},
+                "ColorVector": {
+                  "ScaleY": 1.0
+                },
+                "Scale9Width": 1,
+                "Scale9Height": 1,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 262.4807,
+                  "Y": 48.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.6205,
+                  "Y": 0.5393
+                },
+                "PreSize": {
+                  "X": 0.5887,
+                  "Y": 0.0
+                },
+                "LeftMargin": 137.9807,
+                "RightMargin": 36.0193,
+                "TopMargin": 41.0,
+                "BottomMargin": 48.0,
+                "Tag": 813,
+                "Children": [
+                  {
+                    "FileData": {
+                      "Type": "PlistSubImage",
+                      "Path": "cardSprite/cardSmall.png",
+                      "Plist": "GameGUI/GameGUI.plist"
+                    },
+                    "Scale9OriginX": 19,
+                    "Scale9OriginY": 24,
+                    "Scale9Width": 20,
+                    "Scale9Height": 26,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 0.0,
+                      "Y": 0.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PositionPercentXEnabled": true,
+                    "PrePosition": {
+                      "X": 0.0,
+                      "Y": 0.0
+                    },
+                    "PreSize": {
+                      "X": 0.2329,
+                      "Y": 0.0
+                    },
+                    "LeftMargin": -29.0,
+                    "RightMargin": 220.0,
+                    "TopMargin": -37.0,
+                    "BottomMargin": -37.0,
+                    "Tag": 814,
+                    "ActionTag": 33851623,
+                    "Size": {
+                      "X": 58.0,
+                      "Y": 74.0
+                    },
+                    "Name": "card_0",
+                    "ctype": "ImageViewObjectData"
+                  },
+                  {
+                    "FileData": {
+                      "Type": "PlistSubImage",
+                      "Path": "cardSprite/cardSmall.png",
+                      "Plist": "GameGUI/GameGUI.plist"
+                    },
+                    "Scale9OriginX": 19,
+                    "Scale9OriginY": 24,
+                    "Scale9Width": 20,
+                    "Scale9Height": 26,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 27.6639,
+                      "Y": 0.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PositionPercentXEnabled": true,
+                    "PrePosition": {
+                      "X": 0.1111,
+                      "Y": 0.0
+                    },
+                    "PreSize": {
+                      "X": 0.2329,
+                      "Y": 0.0
+                    },
+                    "LeftMargin": -1.3361,
+                    "RightMargin": 192.3361,
+                    "TopMargin": -37.0,
+                    "BottomMargin": -37.0,
+                    "Tag": 815,
+                    "ActionTag": -2096600763,
+                    "Size": {
+                      "X": 58.0,
+                      "Y": 74.0
+                    },
+                    "Name": "card_1",
+                    "ctype": "ImageViewObjectData"
+                  },
+                  {
+                    "FileData": {
+                      "Type": "PlistSubImage",
+                      "Path": "cardSprite/cardSmall.png",
+                      "Plist": "GameGUI/GameGUI.plist"
+                    },
+                    "Scale9OriginX": 19,
+                    "Scale9OriginY": 24,
+                    "Scale9Width": 20,
+                    "Scale9Height": 26,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 55.3278,
+                      "Y": 0.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PositionPercentXEnabled": true,
+                    "PrePosition": {
+                      "X": 0.2222,
+                      "Y": 0.0
+                    },
+                    "PreSize": {
+                      "X": 0.2329,
+                      "Y": 0.0
+                    },
+                    "LeftMargin": 26.3278,
+                    "RightMargin": 164.6722,
+                    "TopMargin": -37.0,
+                    "BottomMargin": -37.0,
+                    "Tag": 816,
+                    "ActionTag": 1214196039,
+                    "Size": {
+                      "X": 58.0,
+                      "Y": 74.0
+                    },
+                    "Name": "card_2",
+                    "ctype": "ImageViewObjectData"
+                  },
+                  {
+                    "FileData": {
+                      "Type": "PlistSubImage",
+                      "Path": "cardSprite/cardSmall.png",
+                      "Plist": "GameGUI/GameGUI.plist"
+                    },
+                    "Scale9OriginX": 19,
+                    "Scale9OriginY": 24,
+                    "Scale9Width": 20,
+                    "Scale9Height": 26,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 82.9917,
+                      "Y": 0.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PositionPercentXEnabled": true,
+                    "PrePosition": {
+                      "X": 0.3333,
+                      "Y": 0.0
+                    },
+                    "PreSize": {
+                      "X": 0.2329,
+                      "Y": 0.0
+                    },
+                    "LeftMargin": 53.9917,
+                    "RightMargin": 137.0083,
+                    "TopMargin": -37.0,
+                    "BottomMargin": -37.0,
+                    "Tag": 817,
+                    "ActionTag": -1025267093,
+                    "Size": {
+                      "X": 58.0,
+                      "Y": 74.0
+                    },
+                    "Name": "card_3",
+                    "ctype": "ImageViewObjectData"
+                  },
+                  {
+                    "FileData": {
+                      "Type": "PlistSubImage",
+                      "Path": "cardSprite/cardSmall.png",
+                      "Plist": "GameGUI/GameGUI.plist"
+                    },
+                    "Scale9OriginX": 19,
+                    "Scale9OriginY": 24,
+                    "Scale9Width": 20,
+                    "Scale9Height": 26,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 110.6556,
+                      "Y": 0.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PositionPercentXEnabled": true,
+                    "PrePosition": {
+                      "X": 0.4444,
+                      "Y": 0.0
+                    },
+                    "PreSize": {
+                      "X": 0.2329,
+                      "Y": 0.0
+                    },
+                    "LeftMargin": 81.6556,
+                    "RightMargin": 109.3444,
+                    "TopMargin": -37.0,
+                    "BottomMargin": -37.0,
+                    "Tag": 818,
+                    "ActionTag": 2122556965,
+                    "Size": {
+                      "X": 58.0,
+                      "Y": 74.0
+                    },
+                    "Name": "card_4",
+                    "ctype": "ImageViewObjectData"
+                  },
+                  {
+                    "FileData": {
+                      "Type": "PlistSubImage",
+                      "Path": "cardSprite/cardSmall.png",
+                      "Plist": "GameGUI/GameGUI.plist"
+                    },
+                    "Scale9OriginX": 19,
+                    "Scale9OriginY": 24,
+                    "Scale9Width": 20,
+                    "Scale9Height": 26,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 138.3195,
+                      "Y": 0.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PositionPercentXEnabled": true,
+                    "PrePosition": {
+                      "X": 0.5555,
+                      "Y": 0.0
+                    },
+                    "PreSize": {
+                      "X": 0.2329,
+                      "Y": 0.0
+                    },
+                    "LeftMargin": 109.3195,
+                    "RightMargin": 81.6805,
+                    "TopMargin": -37.0,
+                    "BottomMargin": -37.0,
+                    "Tag": 819,
+                    "ActionTag": 920178148,
+                    "Size": {
+                      "X": 58.0,
+                      "Y": 74.0
+                    },
+                    "Name": "card_5",
+                    "ctype": "ImageViewObjectData"
+                  },
+                  {
+                    "FileData": {
+                      "Type": "PlistSubImage",
+                      "Path": "cardSprite/cardSmall.png",
+                      "Plist": "GameGUI/GameGUI.plist"
+                    },
+                    "Scale9OriginX": 19,
+                    "Scale9OriginY": 24,
+                    "Scale9Width": 20,
+                    "Scale9Height": 26,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 165.9834,
+                      "Y": 0.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PositionPercentXEnabled": true,
+                    "PrePosition": {
+                      "X": 0.6666,
+                      "Y": 0.0
+                    },
+                    "PreSize": {
+                      "X": 0.2329,
+                      "Y": 0.0
+                    },
+                    "LeftMargin": 136.9834,
+                    "RightMargin": 54.0166,
+                    "TopMargin": -37.0,
+                    "BottomMargin": -37.0,
+                    "Tag": 820,
+                    "ActionTag": 1690205792,
+                    "Size": {
+                      "X": 58.0,
+                      "Y": 74.0
+                    },
+                    "Name": "card_6",
+                    "ctype": "ImageViewObjectData"
+                  },
+                  {
+                    "FileData": {
+                      "Type": "PlistSubImage",
+                      "Path": "cardSprite/cardSmall.png",
+                      "Plist": "GameGUI/GameGUI.plist"
+                    },
+                    "Scale9OriginX": 19,
+                    "Scale9OriginY": 24,
+                    "Scale9Width": 20,
+                    "Scale9Height": 26,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 193.6473,
+                      "Y": 0.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PositionPercentXEnabled": true,
+                    "PrePosition": {
+                      "X": 0.7777,
+                      "Y": 0.0
+                    },
+                    "PreSize": {
+                      "X": 0.2329,
+                      "Y": 0.0
+                    },
+                    "LeftMargin": 164.6473,
+                    "RightMargin": 26.3527,
+                    "TopMargin": -37.0,
+                    "BottomMargin": -37.0,
+                    "Tag": 821,
+                    "ActionTag": 572564438,
+                    "Size": {
+                      "X": 58.0,
+                      "Y": 74.0
+                    },
+                    "Name": "card_7",
+                    "ctype": "ImageViewObjectData"
+                  },
+                  {
+                    "FileData": {
+                      "Type": "PlistSubImage",
+                      "Path": "cardSprite/cardSmall.png",
+                      "Plist": "GameGUI/GameGUI.plist"
+                    },
+                    "Scale9OriginX": 19,
+                    "Scale9OriginY": 24,
+                    "Scale9Width": 20,
+                    "Scale9Height": 26,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 221.3112,
+                      "Y": 0.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PositionPercentXEnabled": true,
+                    "PrePosition": {
+                      "X": 0.8888,
+                      "Y": 0.0
+                    },
+                    "PreSize": {
+                      "X": 0.2329,
+                      "Y": 0.0
+                    },
+                    "LeftMargin": 192.3112,
+                    "RightMargin": -1.3112,
+                    "TopMargin": -37.0,
+                    "BottomMargin": -37.0,
+                    "Tag": 822,
+                    "ActionTag": -2132088580,
+                    "Size": {
+                      "X": 58.0,
+                      "Y": 74.0
+                    },
+                    "Name": "card_8",
+                    "ctype": "ImageViewObjectData"
+                  },
+                  {
+                    "FileData": {
+                      "Type": "PlistSubImage",
+                      "Path": "cardSprite/cardSmall.png",
+                      "Plist": "GameGUI/GameGUI.plist"
+                    },
+                    "Scale9OriginX": 19,
+                    "Scale9OriginY": 24,
+                    "Scale9Width": 20,
+                    "Scale9Height": 26,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 249.0,
+                      "Y": 0.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PositionPercentXEnabled": true,
+                    "PrePosition": {
+                      "X": 1.0,
+                      "Y": 0.0
+                    },
+                    "PreSize": {
+                      "X": 0.2329,
+                      "Y": 0.0
+                    },
+                    "LeftMargin": 220.0,
+                    "RightMargin": -29.0,
+                    "TopMargin": -37.0,
+                    "BottomMargin": -37.0,
+                    "Tag": 823,
+                    "ActionTag": -1790911038,
+                    "Size": {
+                      "X": 58.0,
+                      "Y": 74.0
+                    },
+                    "Name": "card_9",
+                    "ctype": "ImageViewObjectData"
+                  }
+                ],
+                "ActionTag": 589305279,
+                "Size": {
+                  "X": 249.0,
+                  "Y": 0.0
+                },
+                "Name": "cards",
+                "ctype": "PanelObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "PlistSubImage",
+                  "Path": "result/resultLabel_lose.png",
+                  "Plist": "GameGUI/GameGUI.plist"
+                },
+                "Scale9OriginX": 30,
+                "Scale9OriginY": 8,
+                "Scale9Width": 31,
+                "Scale9Height": 10,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 57.4683,
+                  "Y": 48.5681
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.1359,
+                  "Y": 0.5457
+                },
+                "PreSize": {
+                  "X": 0.2151,
+                  "Y": 0.2921
+                },
+                "LeftMargin": 11.9683,
+                "RightMargin": 320.0317,
+                "TopMargin": 27.4319,
+                "BottomMargin": 35.5681,
+                "Tag": 824,
+                "ActionTag": 890248387,
+                "Size": {
+                  "X": 91.0,
+                  "Y": 26.0
+                },
+                "Name": "label",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "PlistSubImage",
+                  "Path": "result/resultLabel_winToiTrang.png",
+                  "Plist": "GameGUI/GameGUI.plist"
+                },
+                "Scale9OriginX": 30,
+                "Scale9OriginY": 8,
+                "Scale9Width": 45,
+                "Scale9Height": 55,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 57.47,
+                  "Y": 48.57
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.1359,
+                  "Y": 0.5457
+                },
+                "PreSize": {
+                  "X": 0.2482,
+                  "Y": 0.7978
+                },
+                "LeftMargin": 4.97,
+                "RightMargin": 313.03,
+                "TopMargin": 4.93,
+                "BottomMargin": 13.07,
+                "Tag": 121,
+                "ActionTag": -1881243892,
+                "Size": {
+                  "X": 105.0,
+                  "Y": 71.0
+                },
+                "Name": "labelToiTrang",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "LabelText": "-1.000",
+                "LabelBMFontFile_CNB": {
+                  "Type": "Normal",
+                  "Path": "Font/silver.fnt",
+                  "Plist": ""
+                },
+                "AnchorPoint": {
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 9.3297,
+                  "Y": 116.5
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0221,
+                  "Y": 1.309
+                },
+                "PreSize": {
+                  "X": 0.253,
+                  "Y": 0.4494
+                },
+                "LeftMargin": 9.3297,
+                "RightMargin": 306.6703,
+                "TopMargin": -47.5,
+                "BottomMargin": 96.5,
+                "Tag": 825,
+                "ActionTag": 667969175,
+                "Size": {
+                  "X": 107.0,
+                  "Y": 40.0
+                },
+                "Name": "lbGold",
+                "ctype": "TextBMFontObjectData"
+              },
+              {
+                "LabelText": "+1.000",
+                "LabelBMFontFile_CNB": {
+                  "Type": "Normal",
+                  "Path": "Font/gold.fnt",
+                  "Plist": ""
+                },
+                "AnchorPoint": {
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 9.33,
+                  "Y": 116.5
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0221,
+                  "Y": 1.309
+                },
+                "PreSize": {
+                  "X": 0.2671,
+                  "Y": 0.4494
+                },
+                "LeftMargin": 9.33,
+                "RightMargin": 300.67,
+                "TopMargin": -47.5,
+                "BottomMargin": 96.5,
+                "Tag": 73,
+                "ActionTag": -858916122,
+                "Size": {
+                  "X": 113.0,
+                  "Y": 40.0
+                },
+                "Name": "lbGoldToiTrang",
+                "ctype": "TextBMFontObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "PlistSubImage",
+                  "Path": "result/resultStamp.png",
+                  "Plist": "GameGUI/GameGUI.plist"
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 42,
+                "Scale9OriginY": 10,
+                "Scale9Width": 46,
+                "Scale9Height": 12,
+                "AnchorPoint": {},
+                "Position": {
+                  "X": 107.8064,
+                  "Y": 10.5
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.2549,
+                  "Y": 0.118
+                },
+                "PreSize": {
+                  "X": 0.3428,
+                  "Y": 0.3596
+                },
+                "LeftMargin": 107.8064,
+                "RightMargin": 170.1936,
+                "TopMargin": 46.5,
+                "BottomMargin": 10.5,
+                "Tag": 826,
+                "Children": [
+                  {
+                    "IsCustomSize": true,
+                    "FontSize": 18,
+                    "LabelText": "Treo",
+                    "FontResource": {
+                      "Type": "Normal",
+                      "Path": "Font/robotoBold.ttf",
+                      "Plist": ""
+                    },
+                    "HorizontalAlignmentType": "HT_Center",
+                    "VerticalAlignmentType": "VT_Center",
+                    "OutlineColor": {
+                      "R": 66,
+                      "G": 39,
+                      "B": 95
+                    },
+                    "OutlineEnabled": true,
+                    "ShadowColor": {
+                      "R": 110,
+                      "G": 110,
+                      "B": 110
+                    },
+                    "ShadowOffsetX": 2.0,
+                    "ShadowOffsetY": -2.0,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 59.0,
+                      "Y": 13.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.4069,
+                      "Y": 0.4063
+                    },
+                    "PreSize": {
+                      "X": 0.8138,
+                      "Y": 0.875
+                    },
+                    "RightMargin": 27.0,
+                    "TopMargin": 5.0,
+                    "BottomMargin": -1.0,
+                    "Tag": 827,
+                    "ActionTag": -984024000,
+                    "Size": {
+                      "X": 118.0,
+                      "Y": 28.0
+                    },
+                    "Name": "label",
+                    "ctype": "TextObjectData"
+                  }
+                ],
+                "ActionTag": 1087803789,
+                "Size": {
+                  "X": 145.0,
+                  "Y": 32.0
+                },
+                "Name": "stamp",
+                "ctype": "ImageViewObjectData"
+              }
+            ],
+            "ActionTag": -1370237041,
+            "Size": {
+              "X": 423.0,
+              "Y": 89.0
+            },
+            "Name": "bgLose",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 102,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -61.83,
+              "Y": -75.85
+            },
+            "Scale": {
+              "ScaleX": -1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -61.83,
+            "RightMargin": 61.83,
+            "TopMargin": 75.85,
+            "BottomMargin": -75.85,
+            "Tag": 828,
+            "Children": [
+              {
+                "LabelText": "+1.000",
+                "LabelBMFontFile_CNB": {
+                  "Type": "Normal",
+                  "Path": "Font/gold.fnt",
+                  "Plist": ""
+                },
+                "AnchorPoint": {
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 9.33,
+                  "Y": 116.5
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "PreSize": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "LeftMargin": 9.33,
+                "RightMargin": -122.33,
+                "TopMargin": -136.5,
+                "BottomMargin": 96.5,
+                "Tag": 829,
+                "ActionTag": -678329431,
+                "Size": {
+                  "X": 113.0,
+                  "Y": 40.0
+                },
+                "Name": "lbGold",
+                "ctype": "TextBMFontObjectData"
+              },
+              {
+                "ClipAble": false,
+                "BackColorAlpha": 102,
+                "SingleColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "FirstColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "EndColor": {},
+                "ColorVector": {
+                  "ScaleY": 1.0
+                },
+                "Scale9Width": 1,
+                "Scale9Height": 1,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 71.11,
+                  "Y": 47.9
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "PreSize": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "LeftMargin": -0.39,
+                "RightMargin": -142.61,
+                "TopMargin": -112.9,
+                "BottomMargin": -17.1,
+                "Tag": 830,
+                "ActionTag": -796195455,
+                "Size": {
+                  "X": 143.0,
+                  "Y": 130.0
+                },
+                "Name": "label",
+                "ctype": "PanelObjectData"
+              }
+            ],
+            "ActionTag": -1709895212,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "bgWin",
+            "ctype": "PanelObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Node",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "Font/gold.fnt",
+        "Font/gold.png",
+        "Font/robotoBold.ttf",
+        "Font/silver.fnt",
+        "Font/silver.png",
+        "GameGUI/GameGUI.plist",
+        "GameGUI/GameGUI.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Node"
+}

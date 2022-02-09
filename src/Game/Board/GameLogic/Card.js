@@ -11,13 +11,11 @@ var Card = cc.Class.extend({
     ctor: function(id){
        this._id= 0;             // ID cua card ( 8 -> 60)
         this._quanbai= 0;        // quan bai cua card
-        this._chat= 0;           // chat cua card
         this.initWithID(id);
     },
     initWithID: function(id){
         this._id = id;
         this._quanbai = Math.floor(id / 4);
-        this._chat = id % 4;
     }
 });
 

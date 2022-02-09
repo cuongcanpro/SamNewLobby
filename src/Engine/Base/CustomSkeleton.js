@@ -1,13 +1,14 @@
 var CustomSkeleton = cc.Node.extend({
-    ctor: function (path, key, scale) {
+    ctor: function (path, key, scale, atlas) {
         this._super();
         if (!scale) scale = 1;
+        if (!atlas) atlas = key;
         this.type = CustomSkeleton.OLD_VERSION;
         this.animationMode = CustomSkeleton.SCALE_ACTION;
 
         if (!jsb.fileUtils.isFileExist(path + "/" + key + "_static.png")) {
-            var s = (new Error()).stack;
-            cc.log("ERROR " + s);
+            // var s = (new Error()).stack;
+            // cc.log("ERROR " + s);
         }
         this.path = path;
         this.key = key;
@@ -16,7 +17,7 @@ var CustomSkeleton = cc.Node.extend({
          */
         try {
             // if (!Config.ENABLE_SPINE) throw new Error("Spine not enable");
-            this.skeleton =  new sp.SkeletonAnimation(path + "/" + key + ".json", path + "/" + key + ".atlas", scale);
+            this.skeleton =  new sp.SkeletonAnimation(path + "/" + key + ".json", path + "/" + atlas + ".atlas", scale);
             this.addChild(this.skeleton);
             this.type = CustomSkeleton.NORMAL;
         }
@@ -24,8 +25,9 @@ var CustomSkeleton = cc.Node.extend({
             if (jsb.fileUtils.isFileExist(path + "/" + key + "_static.png")) {
                 this.sprite = new cc.Sprite(path + "/" + key + "_static.png");
                 this.addChild(this.sprite);
-            }
-            else {
+            } else {
+                this.sprite = new cc.Sprite();
+                this.addChild(this.sprite);
                 cc.log("ERROR: Not Sprite " + e.stack);
             }
         }
@@ -45,6 +47,20 @@ var CustomSkeleton = cc.Node.extend({
             }
             if (mode !== undefined) this.animationMode = mode;
             this.doAction();
+        }
+    },
+
+    setTimeScale: function (timeScale) {
+        if (this.type == CustomSkeleton.NORMAL) {
+            this.skeleton.setTimeScale(timeScale);
+        }
+    },
+
+    findAnimation: function (animationName) {
+        if (this.type == CustomSkeleton.NORMAL) {
+            return this.skeleton.findAnimation(animationName);
+        } else {
+            return 0;
         }
     },
 

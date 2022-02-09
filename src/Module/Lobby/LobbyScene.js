@@ -85,11 +85,15 @@ var LobbyScene = BaseLayer.extend({
         dispatcherMgr.dispatchEvent(LobbyMgr.EVENT_ON_ENTER_FINISH);
 
         //init lucky bonus
+        this.btnCamera.setVisible(false);
         if (this.btnCamera.isVisible())
             this.btnLuckyBonus.setPosition(this.btnCamera.getPositionX() - 70, this.btnCamera.getPositionY());
         else
             this.btnLuckyBonus.setPosition(this.btnSupport.getPositionX() - 70, this.btnCamera.getPositionY());
+        this.btnFortuneCat.setPosition(this.btnLuckyBonus.getPositionX() - 70, this.btnLuckyBonus.getPositionY());
         LuckyBonusManager.getInstance().checkShowNotify(this.btnLuckyBonus);
+        //init fortune cat
+        FortuneCatManager.getInstance().checkShowNotify();
     },
 
 
@@ -183,7 +187,10 @@ var LobbyScene = BaseLayer.extend({
 
         this.btnLuckyBonus = new LuckyBonusButton();
         pRightButton.addChild(this.btnLuckyBonus);
-        //pRightButton.setPositionX(pRightButton.getPositionX() - (cc.winSize.width - Constant.WIDTH) * 0.15);
+
+        this.btnFortuneCat = new FortuneCatIcon(false);
+        FortuneCatManager.getInstance().lobbyIcon = this.btnFortuneCat;
+        pRightButton.addChild(this.btnFortuneCat);
 
         this.btnQuickPlay = this.customButton("btnChoingay", LobbyScene.BTN_CHOINGAY, pRightButton);
         this.btnChooseRoom = this.customButton("btnChonban", LobbyScene.BTN_CHONBAN, pRightButton);
@@ -742,7 +749,9 @@ var LobbyScene = BaseLayer.extend({
                 break;
             }
             case LobbyScene.BTN_AVATAR: {
-                sceneMgr.openGUI(CheckLogic.getUserInfoClassName(), LobbyScene.GUI_USER_INFO, LobbyScene.GUI_USER_INFO).setInfo(gamedata.userData);
+                sceneMgr.openGUI(ChatPanelGUI.className, ChatPanelGUI.TAG, ChatPanelGUI.TAG);
+                return;
+                sceneMgr.openGUI(CheckLogic.getUserInfoClassName(), LobbyScene.GUI_USER_INFO, LobbyScene.GUI_USER_INFO).setInfo(userMgr.userInfo);
                 break;
             }
             case LobbyScene.BTN_CHOINGAY: {

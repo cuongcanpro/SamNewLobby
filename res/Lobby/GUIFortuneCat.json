@@ -1,0 +1,4562 @@
+{
+  "ID": "163ecdf4-e648-4d47-b186-bb764cd13219",
+  "Version": "2.3.4",
+  "Name": "GUIFortuneCat",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 534,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "res/Lobby/FortuneCat/bg.png",
+              "Plist": ""
+            },
+            "Scale9OriginX": 251,
+            "Scale9OriginY": 129,
+            "Scale9Width": 260,
+            "Scale9Height": 135,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 400.0,
+              "Y": 240.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PositionPercentYEnabled": true,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.5
+            },
+            "PreSize": {
+              "X": 0.9525,
+              "Y": 0.8188
+            },
+            "LeftMargin": 19.0,
+            "RightMargin": 19.0,
+            "TopMargin": 43.5,
+            "BottomMargin": 43.5,
+            "Tag": 811,
+            "Children": [
+              {
+                "ClipAble": false,
+                "BackColorAlpha": 0,
+                "ComboBoxIndex": 1,
+                "SingleColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "FirstColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "EndColor": {},
+                "ColorVector": {
+                  "ScaleY": 1.0
+                },
+                "Scale9Width": 1,
+                "Scale9Height": 1,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 381.0,
+                  "Y": 196.5
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "Tag": 998,
+                "Children": [
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "res/Lobby/FortuneCat/sun_1.png",
+                      "Plist": ""
+                    },
+                    "Scale9OriginX": 83,
+                    "Scale9OriginY": 66,
+                    "Scale9Width": 87,
+                    "Scale9Height": 68,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 197.0,
+                      "Y": 206.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.2585,
+                      "Y": 0.5242
+                    },
+                    "PreSize": {
+                      "X": 0.332,
+                      "Y": 0.5089
+                    },
+                    "LeftMargin": 70.5,
+                    "RightMargin": 438.5,
+                    "TopMargin": 87.0,
+                    "BottomMargin": 106.0,
+                    "Tag": 815,
+                    "ActionTag": -2120685154,
+                    "Size": {
+                      "X": 253.0,
+                      "Y": 200.0
+                    },
+                    "Name": "sun_1",
+                    "ctype": "ImageViewObjectData"
+                  },
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "res/Lobby/FortuneCat/sun_2.png",
+                      "Plist": ""
+                    },
+                    "Scale9OriginX": 108,
+                    "Scale9OriginY": 81,
+                    "Scale9Width": 114,
+                    "Scale9Height": 86,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 374.0,
+                      "Y": 285.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.4908,
+                      "Y": 0.7252
+                    },
+                    "PreSize": {
+                      "X": 0.4331,
+                      "Y": 0.631
+                    },
+                    "LeftMargin": 209.0,
+                    "RightMargin": 223.0,
+                    "TopMargin": -16.0,
+                    "BottomMargin": 161.0,
+                    "Tag": 816,
+                    "ActionTag": 1410435303,
+                    "Size": {
+                      "X": 330.0,
+                      "Y": 248.0
+                    },
+                    "Name": "sun_2",
+                    "ctype": "ImageViewObjectData"
+                  },
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "res/Lobby/FortuneCat/sun_3.png",
+                      "Plist": ""
+                    },
+                    "Scale9OriginX": 56,
+                    "Scale9OriginY": 52,
+                    "Scale9Width": 58,
+                    "Scale9Height": 56,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 496.0,
+                      "Y": 272.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.6509,
+                      "Y": 0.6921
+                    },
+                    "PreSize": {
+                      "X": 0.2231,
+                      "Y": 0.4071
+                    },
+                    "LeftMargin": 411.0,
+                    "RightMargin": 181.0,
+                    "TopMargin": 41.0,
+                    "BottomMargin": 192.0,
+                    "Tag": 817,
+                    "ActionTag": 532711928,
+                    "Size": {
+                      "X": 170.0,
+                      "Y": 160.0
+                    },
+                    "Name": "sun_3",
+                    "ctype": "ImageViewObjectData"
+                  },
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "res/Lobby/FortuneCat/sun_4.png",
+                      "Plist": ""
+                    },
+                    "Scale9OriginX": 83,
+                    "Scale9OriginY": 71,
+                    "Scale9Width": 87,
+                    "Scale9Height": 76,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 568.0,
+                      "Y": 193.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.7454,
+                      "Y": 0.4911
+                    },
+                    "PreSize": {
+                      "X": 0.332,
+                      "Y": 0.5547
+                    },
+                    "LeftMargin": 441.5,
+                    "RightMargin": 67.5,
+                    "TopMargin": 91.0,
+                    "BottomMargin": 84.0,
+                    "Tag": 818,
+                    "ActionTag": 1343729869,
+                    "Size": {
+                      "X": 253.0,
+                      "Y": 218.0
+                    },
+                    "Name": "sun_4",
+                    "ctype": "ImageViewObjectData"
+                  },
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "res/Lobby/FortuneCat/firework_1.png",
+                      "Plist": ""
+                    },
+                    "Scale9OriginX": 55,
+                    "Scale9OriginY": 49,
+                    "Scale9Width": 58,
+                    "Scale9Height": 51,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 127.0,
+                      "Y": 321.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.1667,
+                      "Y": 0.8168
+                    },
+                    "PreSize": {
+                      "X": 0.2205,
+                      "Y": 0.3791
+                    },
+                    "LeftMargin": 43.0,
+                    "RightMargin": 551.0,
+                    "TopMargin": -2.5,
+                    "BottomMargin": 246.5,
+                    "Tag": 820,
+                    "ActionTag": -1940313129,
+                    "Size": {
+                      "X": 168.0,
+                      "Y": 149.0
+                    },
+                    "Name": "firework_1",
+                    "ctype": "ImageViewObjectData"
+                  },
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "res/Lobby/FortuneCat/firework_2.png",
+                      "Plist": ""
+                    },
+                    "Scale9OriginX": 35,
+                    "Scale9OriginY": 33,
+                    "Scale9Width": 39,
+                    "Scale9Height": 34,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 264.7344,
+                      "Y": 226.8588
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.3474,
+                      "Y": 0.5772
+                    },
+                    "PreSize": {
+                      "X": 0.143,
+                      "Y": 0.2545
+                    },
+                    "LeftMargin": 210.2344,
+                    "RightMargin": 442.7656,
+                    "TopMargin": 116.1412,
+                    "BottomMargin": 176.8588,
+                    "Tag": 821,
+                    "ActionTag": -1404419023,
+                    "Size": {
+                      "X": 109.0,
+                      "Y": 100.0
+                    },
+                    "Name": "firework_2",
+                    "ctype": "ImageViewObjectData"
+                  },
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "res/Lobby/FortuneCat/label_title.png",
+                      "Plist": ""
+                    },
+                    "BlendFunc": {
+                      "Src": 1,
+                      "Dst": 771
+                    },
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 198.7658,
+                      "Y": 270.5336
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.2608,
+                      "Y": 0.6884
+                    },
+                    "PreSize": {
+                      "X": 0.1325,
+                      "Y": 0.458
+                    },
+                    "LeftMargin": 148.2658,
+                    "RightMargin": 512.7342,
+                    "TopMargin": 32.4664,
+                    "BottomMargin": 180.5336,
+                    "Tag": 997,
+                    "ActionTag": 1794257795,
+                    "Size": {
+                      "X": 101.0,
+                      "Y": 180.0
+                    },
+                    "Name": "title",
+                    "ctype": "SpriteObjectData"
+                  }
+                ],
+                "ActionTag": 696460465,
+                "Size": {
+                  "X": 762.0,
+                  "Y": 393.0
+                },
+                "Name": "decoration",
+                "ctype": "PanelObjectData"
+              },
+              {
+                "ClipAble": false,
+                "BackColorAlpha": 0,
+                "ComboBoxIndex": 1,
+                "SingleColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "FirstColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "EndColor": {},
+                "ColorVector": {
+                  "ScaleY": 1.0
+                },
+                "Scale9Width": 1,
+                "Scale9Height": 1,
+                "TouchEnable": true,
+                "AnchorPoint": {},
+                "Position": {
+                  "X": 650.0,
+                  "Y": 290.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.853,
+                  "Y": 0.7379
+                },
+                "PreSize": {
+                  "X": 0.0656,
+                  "Y": 0.2545
+                },
+                "LeftMargin": 650.0,
+                "RightMargin": 62.0,
+                "TopMargin": 3.0,
+                "BottomMargin": 290.0,
+                "Tag": 994,
+                "Children": [
+                  {
+                    "FontSize": 14,
+                    "ButtonText": "",
+                    "TextColor": {
+                      "R": 65,
+                      "G": 65,
+                      "B": 70
+                    },
+                    "DisabledFileData": {
+                      "Type": "Normal",
+                      "Path": "res/Lobby/FortuneCat/btn_close.png",
+                      "Plist": ""
+                    },
+                    "PressedFileData": {
+                      "Type": "Normal",
+                      "Path": "res/Lobby/FortuneCat/btn_close.png",
+                      "Plist": ""
+                    },
+                    "NormalFileData": {
+                      "Type": "Normal",
+                      "Path": "res/Lobby/FortuneCat/btn_close.png",
+                      "Plist": ""
+                    },
+                    "Scale9Enable": true,
+                    "Scale9OriginX": 8,
+                    "Scale9OriginY": 11,
+                    "Scale9Width": 9,
+                    "Scale9Height": 3,
+                    "OutlineColor": {
+                      "G": 0,
+                      "B": 0
+                    },
+                    "ShadowColor": {
+                      "R": 110,
+                      "G": 110,
+                      "B": 110
+                    },
+                    "ShadowOffsetX": 2.0,
+                    "ShadowOffsetY": -2.0,
+                    "TouchEnable": true,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 18.0,
+                      "Y": 80.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.36,
+                      "Y": 0.8
+                    },
+                    "PreSize": {
+                      "X": 0.5,
+                      "Y": 0.25
+                    },
+                    "LeftMargin": 5.5,
+                    "RightMargin": 19.5,
+                    "TopMargin": 7.5,
+                    "BottomMargin": 67.5,
+                    "Tag": 1041,
+                    "ActionTag": 1326399348,
+                    "Size": {
+                      "X": 25.0,
+                      "Y": 25.0
+                    },
+                    "Name": "btnClose",
+                    "ctype": "ButtonObjectData"
+                  },
+                  {
+                    "FontSize": 14,
+                    "ButtonText": "",
+                    "TextColor": {
+                      "R": 65,
+                      "G": 65,
+                      "B": 70
+                    },
+                    "DisabledFileData": {
+                      "Type": "Normal",
+                      "Path": "res/Lobby/FortuneCat/btn_guide.png",
+                      "Plist": ""
+                    },
+                    "PressedFileData": {
+                      "Type": "Normal",
+                      "Path": "res/Lobby/FortuneCat/btn_guide.png",
+                      "Plist": ""
+                    },
+                    "NormalFileData": {
+                      "Type": "Normal",
+                      "Path": "res/Lobby/FortuneCat/btn_guide.png",
+                      "Plist": ""
+                    },
+                    "Scale9Enable": true,
+                    "Scale9OriginX": 6,
+                    "Scale9OriginY": 11,
+                    "Scale9Width": 8,
+                    "Scale9Height": 9,
+                    "OutlineColor": {
+                      "G": 0,
+                      "B": 0
+                    },
+                    "ShadowColor": {
+                      "R": 110,
+                      "G": 110,
+                      "B": 110
+                    },
+                    "ShadowOffsetX": 2.0,
+                    "ShadowOffsetY": -2.0,
+                    "TouchEnable": true,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 18.0,
+                      "Y": 40.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.36,
+                      "Y": 0.4
+                    },
+                    "PreSize": {
+                      "X": 0.4,
+                      "Y": 0.31
+                    },
+                    "LeftMargin": 8.0,
+                    "RightMargin": 22.0,
+                    "TopMargin": 44.5,
+                    "BottomMargin": 24.5,
+                    "Tag": 1042,
+                    "ActionTag": -270344274,
+                    "Size": {
+                      "X": 20.0,
+                      "Y": 31.0
+                    },
+                    "Name": "btnGuide",
+                    "ctype": "ButtonObjectData"
+                  }
+                ],
+                "ActionTag": -126848524,
+                "Size": {
+                  "X": 50.0,
+                  "Y": 100.0
+                },
+                "Name": "pTopRight",
+                "ctype": "PanelObjectData"
+              },
+              {
+                "ClipAble": false,
+                "BackColorAlpha": 0,
+                "ComboBoxIndex": 1,
+                "SingleColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "FirstColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "EndColor": {},
+                "ColorVector": {
+                  "ScaleY": 1.0
+                },
+                "Scale9Width": 1,
+                "Scale9Height": 1,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 380.0,
+                  "Y": 210.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.4987,
+                  "Y": 0.5344
+                },
+                "PreSize": {
+                  "X": 0.3543,
+                  "Y": 0.7634
+                },
+                "LeftMargin": 245.0,
+                "RightMargin": 247.0,
+                "TopMargin": 33.0,
+                "BottomMargin": 60.0,
+                "Tag": 1024,
+                "Children": [
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "res/Lobby/FortuneCat/silhouette_cat_1.png",
+                      "Plist": ""
+                    },
+                    "Scale9OriginX": 99,
+                    "Scale9OriginY": 98,
+                    "Scale9Width": 104,
+                    "Scale9Height": 103,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 132.5,
+                      "Y": 148.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.4907,
+                      "Y": 0.4933
+                    },
+                    "PreSize": {
+                      "X": 1.1185,
+                      "Y": 0.9967
+                    },
+                    "LeftMargin": -18.5,
+                    "RightMargin": -13.5,
+                    "TopMargin": 2.5,
+                    "BottomMargin": -1.5,
+                    "Tag": 1026,
+                    "Children": [
+                      {
+                        "FileData": {
+                          "Type": "Normal",
+                          "Path": "res/Lobby/FortuneCat/tooltip_no_cat.png",
+                          "Plist": ""
+                        },
+                        "Scale9OriginX": 45,
+                        "Scale9OriginY": 12,
+                        "Scale9Width": 47,
+                        "Scale9Height": 15,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 155.0,
+                          "Y": 130.0
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.5132,
+                          "Y": 0.4348
+                        },
+                        "PreSize": {
+                          "X": 0.4536,
+                          "Y": 0.1304
+                        },
+                        "LeftMargin": 86.5,
+                        "RightMargin": 78.5,
+                        "TopMargin": 149.5,
+                        "BottomMargin": 110.5,
+                        "Tag": 1027,
+                        "ActionTag": 1886666684,
+                        "Size": {
+                          "X": 137.0,
+                          "Y": 39.0
+                        },
+                        "Name": "tooltip",
+                        "ctype": "ImageViewObjectData"
+                      },
+                      {
+                        "FontSize": 14,
+                        "ButtonText": "",
+                        "TextColor": {
+                          "R": 65,
+                          "G": 65,
+                          "B": 70
+                        },
+                        "DisabledFileData": {
+                          "Type": "Normal",
+                          "Path": "res/Lobby/FortuneCat/btn_play.png",
+                          "Plist": ""
+                        },
+                        "PressedFileData": {
+                          "Type": "Normal",
+                          "Path": "res/Lobby/FortuneCat/btn_play.png",
+                          "Plist": ""
+                        },
+                        "NormalFileData": {
+                          "Type": "Normal",
+                          "Path": "res/Lobby/FortuneCat/btn_play.png",
+                          "Plist": ""
+                        },
+                        "Scale9Enable": true,
+                        "Scale9OriginX": 15,
+                        "Scale9OriginY": 11,
+                        "Scale9Width": 108,
+                        "Scale9Height": 20,
+                        "OutlineColor": {
+                          "G": 0,
+                          "B": 0
+                        },
+                        "ShadowColor": {
+                          "R": 110,
+                          "G": 110,
+                          "B": 110
+                        },
+                        "ShadowOffsetX": 2.0,
+                        "ShadowOffsetY": -2.0,
+                        "TouchEnable": true,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 155.0,
+                          "Y": 80.0
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.5132,
+                          "Y": 0.2676
+                        },
+                        "PreSize": {
+                          "X": 0.457,
+                          "Y": 0.1405
+                        },
+                        "LeftMargin": 86.0,
+                        "RightMargin": 78.0,
+                        "TopMargin": 198.0,
+                        "BottomMargin": 59.0,
+                        "Tag": 1039,
+                        "ActionTag": 1979703559,
+                        "Size": {
+                          "X": 138.0,
+                          "Y": 42.0
+                        },
+                        "Name": "btnPlay",
+                        "ctype": "ButtonObjectData"
+                      }
+                    ],
+                    "ActionTag": -1954704251,
+                    "Size": {
+                      "X": 302.0,
+                      "Y": 299.0
+                    },
+                    "Name": "silhouette",
+                    "ctype": "ImageViewObjectData"
+                  },
+                  {
+                    "ClipAble": false,
+                    "BackColorAlpha": 0,
+                    "ComboBoxIndex": 1,
+                    "SingleColor": {
+                      "R": 150,
+                      "G": 200
+                    },
+                    "FirstColor": {
+                      "R": 150,
+                      "G": 200
+                    },
+                    "EndColor": {},
+                    "ColorVector": {
+                      "ScaleY": 1.0
+                    },
+                    "Scale9Width": 1,
+                    "Scale9Height": 1,
+                    "TouchEnable": true,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 132.5,
+                      "Y": 148.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.4907,
+                      "Y": 0.4933
+                    },
+                    "PreSize": {
+                      "X": 1.1185,
+                      "Y": 0.9967
+                    },
+                    "LeftMargin": -18.5,
+                    "RightMargin": -13.5,
+                    "TopMargin": 2.5,
+                    "BottomMargin": -1.5,
+                    "Tag": 72,
+                    "Children": [
+                      {
+                        "ClipAble": false,
+                        "BackColorAlpha": 0,
+                        "ComboBoxIndex": 1,
+                        "SingleColor": {
+                          "R": 150,
+                          "G": 200
+                        },
+                        "FirstColor": {
+                          "R": 150,
+                          "G": 200
+                        },
+                        "EndColor": {},
+                        "ColorVector": {
+                          "ScaleY": 1.0
+                        },
+                        "Scale9Width": 1,
+                        "Scale9Height": 1,
+                        "TouchEnable": true,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 151.0,
+                          "Y": 149.5
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.5,
+                          "Y": 0.5
+                        },
+                        "PreSize": {
+                          "X": 1.0,
+                          "Y": 1.0
+                        },
+                        "Tag": 73,
+                        "ActionTag": 2048365284,
+                        "Size": {
+                          "X": 302.0,
+                          "Y": 299.0
+                        },
+                        "Name": "catImg",
+                        "ctype": "PanelObjectData"
+                      },
+                      {
+                        "FileData": {
+                          "Type": "Normal",
+                          "Path": "res/Lobby/FortuneCat/clock.png",
+                          "Plist": ""
+                        },
+                        "Scale9OriginX": 45,
+                        "Scale9OriginY": 13,
+                        "Scale9Width": 48,
+                        "Scale9Height": 16,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 154.0,
+                          "Y": 78.0
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.5099,
+                          "Y": 0.2609
+                        },
+                        "PreSize": {
+                          "X": 0.457,
+                          "Y": 0.1405
+                        },
+                        "LeftMargin": 85.0,
+                        "RightMargin": 79.0,
+                        "TopMargin": 200.0,
+                        "BottomMargin": 57.0,
+                        "Tag": 1033,
+                        "Children": [
+                          {
+                            "FileData": {
+                              "Type": "Normal",
+                              "Path": "res/Lobby/FortuneCat/sandclock.png",
+                              "Plist": ""
+                            },
+                            "Scale9OriginX": 4,
+                            "Scale9OriginY": 5,
+                            "Scale9Width": 5,
+                            "Scale9Height": 6,
+                            "AnchorPoint": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
+                            },
+                            "Position": {
+                              "X": 22.0,
+                              "Y": 20.0
+                            },
+                            "Scale": {
+                              "ScaleX": 1.0,
+                              "ScaleY": 1.0
+                            },
+                            "CColor": {},
+                            "IconVisible": false,
+                            "PrePosition": {
+                              "X": 0.1594,
+                              "Y": 0.4762
+                            },
+                            "PreSize": {
+                              "X": 0.0942,
+                              "Y": 0.381
+                            },
+                            "LeftMargin": 15.5,
+                            "RightMargin": 109.5,
+                            "TopMargin": 14.0,
+                            "BottomMargin": 12.0,
+                            "Tag": 1034,
+                            "ActionTag": 692687155,
+                            "Size": {
+                              "X": 13.0,
+                              "Y": 16.0
+                            },
+                            "Name": "icon",
+                            "ctype": "ImageViewObjectData"
+                          },
+                          {
+                            "FileData": {
+                              "Type": "Normal",
+                              "Path": "res/Lobby/FortuneCat/tooltip_countdown.png",
+                              "Plist": ""
+                            },
+                            "Scale9OriginX": 48,
+                            "Scale9OriginY": 6,
+                            "Scale9Width": 51,
+                            "Scale9Height": 7,
+                            "AnchorPoint": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
+                            },
+                            "Position": {
+                              "X": 69.0,
+                              "Y": 50.0
+                            },
+                            "Scale": {
+                              "ScaleX": 1.0,
+                              "ScaleY": 1.0
+                            },
+                            "CColor": {},
+                            "IconVisible": false,
+                            "PrePosition": {
+                              "X": 0.5,
+                              "Y": 1.1905
+                            },
+                            "PreSize": {
+                              "X": 1.0652,
+                              "Y": 0.4524
+                            },
+                            "LeftMargin": -4.5,
+                            "RightMargin": -4.5,
+                            "TopMargin": -17.5,
+                            "BottomMargin": 40.5,
+                            "Tag": 1032,
+                            "ActionTag": 1724931941,
+                            "Size": {
+                              "X": 147.0,
+                              "Y": 19.0
+                            },
+                            "Name": "tooltip",
+                            "ctype": "ImageViewObjectData"
+                          },
+                          {
+                            "FontSize": 20,
+                            "LabelText": "00",
+                            "FontResource": {
+                              "Type": "Normal",
+                              "Path": "res/fonts/tahomabd.ttf",
+                              "Plist": ""
+                            },
+                            "HorizontalAlignmentType": "HT_Center",
+                            "OutlineColor": {
+                              "G": 0,
+                              "B": 0
+                            },
+                            "ShadowColor": {
+                              "R": 110,
+                              "G": 110,
+                              "B": 110
+                            },
+                            "ShadowOffsetX": 2.0,
+                            "ShadowOffsetY": -2.0,
+                            "AnchorPoint": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
+                            },
+                            "Position": {
+                              "X": 45.0,
+                              "Y": 20.0
+                            },
+                            "Scale": {
+                              "ScaleX": 1.0,
+                              "ScaleY": 1.0
+                            },
+                            "CColor": {},
+                            "IconVisible": false,
+                            "PrePosition": {
+                              "X": 0.3261,
+                              "Y": 0.4762
+                            },
+                            "PreSize": {
+                              "X": 0.1812,
+                              "Y": 0.6429
+                            },
+                            "LeftMargin": 32.5,
+                            "RightMargin": 80.5,
+                            "TopMargin": 8.5,
+                            "BottomMargin": 6.5,
+                            "Tag": 1043,
+                            "ActionTag": -124500886,
+                            "Size": {
+                              "X": 25.0,
+                              "Y": 27.0
+                            },
+                            "Name": "hour",
+                            "ctype": "TextObjectData"
+                          },
+                          {
+                            "FontSize": 20,
+                            "LabelText": "00",
+                            "FontResource": {
+                              "Type": "Normal",
+                              "Path": "res/fonts/tahomabd.ttf",
+                              "Plist": ""
+                            },
+                            "HorizontalAlignmentType": "HT_Center",
+                            "OutlineColor": {
+                              "G": 0,
+                              "B": 0
+                            },
+                            "ShadowColor": {
+                              "R": 110,
+                              "G": 110,
+                              "B": 110
+                            },
+                            "ShadowOffsetX": 2.0,
+                            "ShadowOffsetY": -2.0,
+                            "AnchorPoint": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
+                            },
+                            "Position": {
+                              "X": 78.0,
+                              "Y": 20.0
+                            },
+                            "Scale": {
+                              "ScaleX": 1.0,
+                              "ScaleY": 1.0
+                            },
+                            "CColor": {},
+                            "IconVisible": false,
+                            "PrePosition": {
+                              "X": 0.5652,
+                              "Y": 0.4762
+                            },
+                            "PreSize": {
+                              "X": 0.1812,
+                              "Y": 0.6429
+                            },
+                            "LeftMargin": 65.5,
+                            "RightMargin": 47.5,
+                            "TopMargin": 8.5,
+                            "BottomMargin": 6.5,
+                            "Tag": 1046,
+                            "ActionTag": -1461652394,
+                            "Size": {
+                              "X": 25.0,
+                              "Y": 27.0
+                            },
+                            "Name": "minute",
+                            "ctype": "TextObjectData"
+                          },
+                          {
+                            "FontSize": 20,
+                            "LabelText": "00",
+                            "FontResource": {
+                              "Type": "Normal",
+                              "Path": "res/fonts/tahomabd.ttf",
+                              "Plist": ""
+                            },
+                            "HorizontalAlignmentType": "HT_Center",
+                            "OutlineColor": {
+                              "G": 0,
+                              "B": 0
+                            },
+                            "ShadowColor": {
+                              "R": 110,
+                              "G": 110,
+                              "B": 110
+                            },
+                            "ShadowOffsetX": 2.0,
+                            "ShadowOffsetY": -2.0,
+                            "AnchorPoint": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
+                            },
+                            "Position": {
+                              "X": 111.0,
+                              "Y": 20.0002
+                            },
+                            "Scale": {
+                              "ScaleX": 1.0,
+                              "ScaleY": 1.0
+                            },
+                            "CColor": {},
+                            "IconVisible": false,
+                            "PrePosition": {
+                              "X": 0.8043,
+                              "Y": 0.4762
+                            },
+                            "PreSize": {
+                              "X": 0.1812,
+                              "Y": 0.6429
+                            },
+                            "LeftMargin": 98.5,
+                            "RightMargin": 14.5,
+                            "TopMargin": 8.4998,
+                            "BottomMargin": 6.5002,
+                            "Tag": 1047,
+                            "ActionTag": 103894375,
+                            "Size": {
+                              "X": 25.0,
+                              "Y": 27.0
+                            },
+                            "Name": "second",
+                            "ctype": "TextObjectData"
+                          }
+                        ],
+                        "ActionTag": -1828313969,
+                        "Size": {
+                          "X": 138.0,
+                          "Y": 42.0
+                        },
+                        "Name": "clock",
+                        "ctype": "ImageViewObjectData"
+                      },
+                      {
+                        "FontSize": 14,
+                        "ButtonText": "",
+                        "TextColor": {
+                          "R": 65,
+                          "G": 65,
+                          "B": 70
+                        },
+                        "DisabledFileData": {
+                          "Type": "Normal",
+                          "Path": "res/Lobby/FortuneCat/btn_receive_reward.png",
+                          "Plist": ""
+                        },
+                        "PressedFileData": {
+                          "Type": "Normal",
+                          "Path": "res/Lobby/FortuneCat/btn_receive_reward.png",
+                          "Plist": ""
+                        },
+                        "NormalFileData": {
+                          "Type": "Normal",
+                          "Path": "res/Lobby/FortuneCat/btn_receive_reward.png",
+                          "Plist": ""
+                        },
+                        "Scale9Enable": true,
+                        "Scale9OriginX": 15,
+                        "Scale9OriginY": 11,
+                        "Scale9Width": 108,
+                        "Scale9Height": 20,
+                        "OutlineColor": {
+                          "G": 0,
+                          "B": 0
+                        },
+                        "ShadowColor": {
+                          "R": 110,
+                          "G": 110,
+                          "B": 110
+                        },
+                        "ShadowOffsetX": 2.0,
+                        "ShadowOffsetY": -2.0,
+                        "TouchEnable": true,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 154.0,
+                          "Y": 78.0
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.5099,
+                          "Y": 0.2609
+                        },
+                        "PreSize": {
+                          "X": 0.457,
+                          "Y": 0.1405
+                        },
+                        "LeftMargin": 85.0,
+                        "RightMargin": 79.0,
+                        "TopMargin": 200.0,
+                        "BottomMargin": 57.0,
+                        "Tag": 1038,
+                        "ActionTag": 245702638,
+                        "Size": {
+                          "X": 138.0,
+                          "Y": 42.0
+                        },
+                        "Name": "btnReceiveReward",
+                        "ctype": "ButtonObjectData"
+                      },
+                      {
+                        "FileData": {
+                          "Type": "Normal",
+                          "Path": "res/Lobby/FortuneCat/cat_title_1.png",
+                          "Plist": ""
+                        },
+                        "Scale9OriginX": 57,
+                        "Scale9OriginY": 16,
+                        "Scale9Width": 60,
+                        "Scale9Height": 18,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 154.0,
+                          "Y": 28.0
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.5099,
+                          "Y": 0.0936
+                        },
+                        "PreSize": {
+                          "X": 0.5762,
+                          "Y": 0.1672
+                        },
+                        "LeftMargin": 67.0,
+                        "RightMargin": 61.0,
+                        "TopMargin": 246.0,
+                        "BottomMargin": 3.0,
+                        "Tag": 1035,
+                        "ActionTag": -658188813,
+                        "Size": {
+                          "X": 174.0,
+                          "Y": 50.0
+                        },
+                        "Name": "title",
+                        "ctype": "ImageViewObjectData"
+                      },
+                      {
+                        "FileData": {
+                          "Type": "Normal",
+                          "Path": "res/Lobby/FortuneCat/bg_prize.png",
+                          "Plist": ""
+                        },
+                        "Scale9OriginX": 76,
+                        "Scale9OriginY": 31,
+                        "Scale9Width": 80,
+                        "Scale9Height": 32,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": -25.0418,
+                          "Y": 58.8633
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": -0.0829,
+                          "Y": 0.1969
+                        },
+                        "PreSize": {
+                          "X": 0.7682,
+                          "Y": 0.3144
+                        },
+                        "LeftMargin": -141.0418,
+                        "RightMargin": 211.0418,
+                        "TopMargin": 193.1367,
+                        "BottomMargin": 11.8633,
+                        "Tag": 1036,
+                        "Children": [
+                          {
+                            "FontSize": 24,
+                            "LabelText": "500.000",
+                            "FontResource": {
+                              "Type": "Normal",
+                              "Path": "res/fonts/tahomabd.ttf",
+                              "Plist": ""
+                            },
+                            "HorizontalAlignmentType": "HT_Center",
+                            "OutlineColor": {
+                              "G": 0,
+                              "B": 0
+                            },
+                            "ShadowColor": {
+                              "R": 110,
+                              "G": 110,
+                              "B": 110
+                            },
+                            "ShadowOffsetX": 2.0,
+                            "ShadowOffsetY": -2.0,
+                            "AnchorPoint": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
+                            },
+                            "Position": {
+                              "X": 75.0,
+                              "Y": 60.0
+                            },
+                            "Scale": {
+                              "ScaleX": 1.0,
+                              "ScaleY": 1.0
+                            },
+                            "CColor": {
+                              "R": 130,
+                              "G": 50,
+                              "B": 16
+                            },
+                            "IconVisible": false,
+                            "PrePosition": {
+                              "X": 0.3233,
+                              "Y": 0.6383
+                            },
+                            "PreSize": {
+                              "X": 0.4052,
+                              "Y": 0.3511
+                            },
+                            "LeftMargin": 28.0,
+                            "RightMargin": 110.0,
+                            "TopMargin": 17.5,
+                            "BottomMargin": 43.5,
+                            "Tag": 1040,
+                            "ActionTag": 931475120,
+                            "Size": {
+                              "X": 94.0,
+                              "Y": 33.0
+                            },
+                            "Name": "gold",
+                            "ctype": "TextObjectData"
+                          }
+                        ],
+                        "ActionTag": -435585545,
+                        "Size": {
+                          "X": 232.0,
+                          "Y": 94.0
+                        },
+                        "Name": "rewardDetail",
+                        "ctype": "ImageViewObjectData"
+                      }
+                    ],
+                    "ActionTag": -1135929537,
+                    "Size": {
+                      "X": 302.0,
+                      "Y": 299.0
+                    },
+                    "Name": "cat",
+                    "ctype": "PanelObjectData"
+                  }
+                ],
+                "ActionTag": -356984299,
+                "Size": {
+                  "X": 270.0,
+                  "Y": 300.0
+                },
+                "Name": "mainCat",
+                "ctype": "PanelObjectData"
+              },
+              {
+                "ClipAble": false,
+                "BackColorAlpha": 0,
+                "ComboBoxIndex": 1,
+                "SingleColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "FirstColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "EndColor": {},
+                "ColorVector": {
+                  "ScaleY": 1.0
+                },
+                "Scale9Width": 1,
+                "Scale9Height": 1,
+                "TouchEnable": true,
+                "AnchorPoint": {},
+                "Position": {
+                  "X": 535.0,
+                  "Y": 60.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.7021,
+                  "Y": 0.1527
+                },
+                "PreSize": {
+                  "X": 0.1129,
+                  "Y": 0.7634
+                },
+                "LeftMargin": 535.0,
+                "RightMargin": 141.0,
+                "TopMargin": 33.0,
+                "BottomMargin": 60.0,
+                "Tag": 999,
+                "Children": [
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "res/Lobby/FortuneCat/bg_slot.png",
+                      "Plist": ""
+                    },
+                    "Scale9OriginX": 28,
+                    "Scale9OriginY": 28,
+                    "Scale9Width": 30,
+                    "Scale9Height": 30,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 43.0,
+                      "Y": 270.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.5,
+                      "Y": 0.9
+                    },
+                    "PreSize": {
+                      "X": 1.0,
+                      "Y": 0.2867
+                    },
+                    "TopMargin": -13.0,
+                    "BottomMargin": 227.0,
+                    "Tag": 1000,
+                    "Children": [
+                      {
+                        "FileData": {
+                          "Type": "Normal",
+                          "Path": "res/Lobby/FortuneCat/silhouette_slot_1.png",
+                          "Plist": ""
+                        },
+                        "Scale9OriginX": 21,
+                        "Scale9OriginY": 22,
+                        "Scale9Width": 24,
+                        "Scale9Height": 24,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 43.0,
+                          "Y": 43.0
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.5,
+                          "Y": 0.5
+                        },
+                        "PreSize": {
+                          "X": 0.7674,
+                          "Y": 0.7907
+                        },
+                        "LeftMargin": 10.0,
+                        "RightMargin": 10.0,
+                        "TopMargin": 9.0,
+                        "BottomMargin": 9.0,
+                        "Tag": 1006,
+                        "ActionTag": -1647336251,
+                        "Size": {
+                          "X": 66.0,
+                          "Y": 68.0
+                        },
+                        "Name": "silhouette",
+                        "ctype": "ImageViewObjectData"
+                      },
+                      {
+                        "FileData": {
+                          "Type": "Normal",
+                          "Path": "res/Lobby/FortuneCat/cat_1_locked.png",
+                          "Plist": ""
+                        },
+                        "Scale9OriginX": 21,
+                        "Scale9OriginY": 22,
+                        "Scale9Width": 24,
+                        "Scale9Height": 24,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 43.0,
+                          "Y": 43.0
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.5,
+                          "Y": 0.5
+                        },
+                        "PreSize": {
+                          "X": 0.7674,
+                          "Y": 0.7907
+                        },
+                        "LeftMargin": 10.0,
+                        "RightMargin": 10.0,
+                        "TopMargin": 9.0,
+                        "BottomMargin": 9.0,
+                        "Tag": 1003,
+                        "ActionTag": 1682374149,
+                        "Size": {
+                          "X": 66.0,
+                          "Y": 68.0
+                        },
+                        "VisibleForFrame": false,
+                        "Name": "cat",
+                        "ctype": "ImageViewObjectData"
+                      },
+                      {
+                        "FileData": {
+                          "Type": "Normal",
+                          "Path": "res/Lobby/FortuneCat/bg_gold.png",
+                          "Plist": ""
+                        },
+                        "Scale9OriginX": 27,
+                        "Scale9OriginY": 6,
+                        "Scale9Width": 30,
+                        "Scale9Height": 9,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 43.0,
+                          "Y": 11.0
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.5,
+                          "Y": 0.1279
+                        },
+                        "PreSize": {
+                          "X": 0.9767,
+                          "Y": 0.2442
+                        },
+                        "LeftMargin": 1.0,
+                        "RightMargin": 1.0,
+                        "TopMargin": 64.5,
+                        "BottomMargin": 0.5,
+                        "Tag": 1012,
+                        "Children": [
+                          {
+                            "FontSize": 12,
+                            "LabelText": "100.000",
+                            "FontResource": {
+                              "Type": "Normal",
+                              "Path": "res/fonts/tahomabd.ttf",
+                              "Plist": ""
+                            },
+                            "HorizontalAlignmentType": "HT_Center",
+                            "OutlineColor": {
+                              "G": 0,
+                              "B": 0
+                            },
+                            "ShadowColor": {
+                              "R": 110,
+                              "G": 110,
+                              "B": 110
+                            },
+                            "ShadowOffsetX": 2.0,
+                            "ShadowOffsetY": -2.0,
+                            "AnchorPoint": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
+                            },
+                            "Position": {
+                              "X": 43.0,
+                              "Y": 11.0
+                            },
+                            "Scale": {
+                              "ScaleX": 1.0,
+                              "ScaleY": 1.0
+                            },
+                            "CColor": {
+                              "R": 237,
+                              "G": 222,
+                              "B": 120
+                            },
+                            "IconVisible": false,
+                            "PrePosition": {
+                              "X": 0.5119,
+                              "Y": 0.5238
+                            },
+                            "PreSize": {
+                              "X": 0.5714,
+                              "Y": 0.7619
+                            },
+                            "LeftMargin": 19.0,
+                            "RightMargin": 17.0,
+                            "TopMargin": 2.0,
+                            "BottomMargin": 3.0,
+                            "Tag": 1013,
+                            "ActionTag": 1755922990,
+                            "Size": {
+                              "X": 48.0,
+                              "Y": 16.0
+                            },
+                            "Name": "time",
+                            "ctype": "TextObjectData"
+                          }
+                        ],
+                        "ActionTag": -824975223,
+                        "Size": {
+                          "X": 84.0,
+                          "Y": 21.0
+                        },
+                        "VisibleForFrame": false,
+                        "Name": "bgTime",
+                        "ctype": "ImageViewObjectData"
+                      }
+                    ],
+                    "ActionTag": -1177159447,
+                    "Size": {
+                      "X": 86.0,
+                      "Y": 86.0
+                    },
+                    "Name": "slot_1",
+                    "ctype": "ImageViewObjectData"
+                  },
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "res/Lobby/FortuneCat/bg_slot.png",
+                      "Plist": ""
+                    },
+                    "Scale9OriginX": 28,
+                    "Scale9OriginY": 28,
+                    "Scale9Width": 30,
+                    "Scale9Height": 30,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 43.0,
+                      "Y": 175.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.5,
+                      "Y": 0.5833
+                    },
+                    "PreSize": {
+                      "X": 1.0,
+                      "Y": 0.2867
+                    },
+                    "TopMargin": 82.0,
+                    "BottomMargin": 132.0,
+                    "Tag": 1014,
+                    "Children": [
+                      {
+                        "FileData": {
+                          "Type": "Normal",
+                          "Path": "res/Lobby/FortuneCat/silhouette_slot_1.png",
+                          "Plist": ""
+                        },
+                        "Scale9OriginX": 21,
+                        "Scale9OriginY": 22,
+                        "Scale9Width": 24,
+                        "Scale9Height": 24,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 43.0,
+                          "Y": 43.0
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.5,
+                          "Y": 0.5
+                        },
+                        "PreSize": {
+                          "X": 0.7674,
+                          "Y": 0.7907
+                        },
+                        "LeftMargin": 10.0,
+                        "RightMargin": 10.0,
+                        "TopMargin": 9.0,
+                        "BottomMargin": 9.0,
+                        "Tag": 1015,
+                        "ActionTag": -1471934979,
+                        "Size": {
+                          "X": 66.0,
+                          "Y": 68.0
+                        },
+                        "Name": "silhouette",
+                        "ctype": "ImageViewObjectData"
+                      },
+                      {
+                        "FileData": {
+                          "Type": "Normal",
+                          "Path": "res/Lobby/FortuneCat/cat_1_locked.png",
+                          "Plist": ""
+                        },
+                        "Scale9OriginX": 21,
+                        "Scale9OriginY": 22,
+                        "Scale9Width": 24,
+                        "Scale9Height": 24,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 43.0,
+                          "Y": 43.0
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.5,
+                          "Y": 0.5
+                        },
+                        "PreSize": {
+                          "X": 0.7674,
+                          "Y": 0.7907
+                        },
+                        "LeftMargin": 10.0,
+                        "RightMargin": 10.0,
+                        "TopMargin": 9.0,
+                        "BottomMargin": 9.0,
+                        "Tag": 1016,
+                        "ActionTag": 2093954645,
+                        "Size": {
+                          "X": 66.0,
+                          "Y": 68.0
+                        },
+                        "VisibleForFrame": false,
+                        "Name": "cat",
+                        "ctype": "ImageViewObjectData"
+                      },
+                      {
+                        "FileData": {
+                          "Type": "Normal",
+                          "Path": "res/Lobby/FortuneCat/bg_gold.png",
+                          "Plist": ""
+                        },
+                        "Scale9OriginX": 27,
+                        "Scale9OriginY": 6,
+                        "Scale9Width": 30,
+                        "Scale9Height": 9,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 43.0,
+                          "Y": 11.0
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.5,
+                          "Y": 0.1279
+                        },
+                        "PreSize": {
+                          "X": 0.9767,
+                          "Y": 0.2442
+                        },
+                        "LeftMargin": 1.0,
+                        "RightMargin": 1.0,
+                        "TopMargin": 64.5,
+                        "BottomMargin": 0.5,
+                        "Tag": 1017,
+                        "Children": [
+                          {
+                            "FontSize": 12,
+                            "LabelText": "100.000",
+                            "FontResource": {
+                              "Type": "Normal",
+                              "Path": "res/fonts/tahomabd.ttf",
+                              "Plist": ""
+                            },
+                            "HorizontalAlignmentType": "HT_Center",
+                            "OutlineColor": {
+                              "G": 0,
+                              "B": 0
+                            },
+                            "ShadowColor": {
+                              "R": 110,
+                              "G": 110,
+                              "B": 110
+                            },
+                            "ShadowOffsetX": 2.0,
+                            "ShadowOffsetY": -2.0,
+                            "AnchorPoint": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
+                            },
+                            "Position": {
+                              "X": 43.0,
+                              "Y": 11.0
+                            },
+                            "Scale": {
+                              "ScaleX": 1.0,
+                              "ScaleY": 1.0
+                            },
+                            "CColor": {
+                              "R": 237,
+                              "G": 222,
+                              "B": 120
+                            },
+                            "IconVisible": false,
+                            "PrePosition": {
+                              "X": 0.5119,
+                              "Y": 0.5238
+                            },
+                            "PreSize": {
+                              "X": 0.5714,
+                              "Y": 0.7619
+                            },
+                            "LeftMargin": 19.0,
+                            "RightMargin": 17.0,
+                            "TopMargin": 2.0,
+                            "BottomMargin": 3.0,
+                            "Tag": 1018,
+                            "ActionTag": -1697299377,
+                            "Size": {
+                              "X": 48.0,
+                              "Y": 16.0
+                            },
+                            "Name": "time",
+                            "ctype": "TextObjectData"
+                          }
+                        ],
+                        "ActionTag": 895270108,
+                        "Size": {
+                          "X": 84.0,
+                          "Y": 21.0
+                        },
+                        "VisibleForFrame": false,
+                        "Name": "bgTime",
+                        "ctype": "ImageViewObjectData"
+                      }
+                    ],
+                    "ActionTag": 1828534934,
+                    "Size": {
+                      "X": 86.0,
+                      "Y": 86.0
+                    },
+                    "Name": "slot_2",
+                    "ctype": "ImageViewObjectData"
+                  },
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "res/Lobby/FortuneCat/bg_slot.png",
+                      "Plist": ""
+                    },
+                    "Scale9OriginX": 28,
+                    "Scale9OriginY": 28,
+                    "Scale9Width": 30,
+                    "Scale9Height": 30,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 43.0,
+                      "Y": 80.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.5,
+                      "Y": 0.2667
+                    },
+                    "PreSize": {
+                      "X": 1.0,
+                      "Y": 0.2867
+                    },
+                    "TopMargin": 177.0,
+                    "BottomMargin": 37.0,
+                    "Tag": 1019,
+                    "Children": [
+                      {
+                        "FileData": {
+                          "Type": "Normal",
+                          "Path": "res/Lobby/FortuneCat/silhouette_slot_1.png",
+                          "Plist": ""
+                        },
+                        "Scale9OriginX": 21,
+                        "Scale9OriginY": 22,
+                        "Scale9Width": 24,
+                        "Scale9Height": 24,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 43.0,
+                          "Y": 43.0
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.5,
+                          "Y": 0.5
+                        },
+                        "PreSize": {
+                          "X": 0.7674,
+                          "Y": 0.7907
+                        },
+                        "LeftMargin": 10.0,
+                        "RightMargin": 10.0,
+                        "TopMargin": 9.0,
+                        "BottomMargin": 9.0,
+                        "Tag": 1020,
+                        "ActionTag": 957906273,
+                        "Size": {
+                          "X": 66.0,
+                          "Y": 68.0
+                        },
+                        "Name": "silhouette",
+                        "ctype": "ImageViewObjectData"
+                      },
+                      {
+                        "FileData": {
+                          "Type": "Normal",
+                          "Path": "res/Lobby/FortuneCat/cat_1_locked.png",
+                          "Plist": ""
+                        },
+                        "Scale9OriginX": 21,
+                        "Scale9OriginY": 22,
+                        "Scale9Width": 24,
+                        "Scale9Height": 24,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 43.0,
+                          "Y": 43.0
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.5,
+                          "Y": 0.5
+                        },
+                        "PreSize": {
+                          "X": 0.7674,
+                          "Y": 0.7907
+                        },
+                        "LeftMargin": 10.0,
+                        "RightMargin": 10.0,
+                        "TopMargin": 9.0,
+                        "BottomMargin": 9.0,
+                        "Tag": 1021,
+                        "ActionTag": -620884984,
+                        "Size": {
+                          "X": 66.0,
+                          "Y": 68.0
+                        },
+                        "VisibleForFrame": false,
+                        "Name": "cat",
+                        "ctype": "ImageViewObjectData"
+                      },
+                      {
+                        "FileData": {
+                          "Type": "Normal",
+                          "Path": "res/Lobby/FortuneCat/bg_gold.png",
+                          "Plist": ""
+                        },
+                        "Scale9OriginX": 27,
+                        "Scale9OriginY": 6,
+                        "Scale9Width": 30,
+                        "Scale9Height": 9,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 43.0,
+                          "Y": 11.0
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.5,
+                          "Y": 0.1279
+                        },
+                        "PreSize": {
+                          "X": 0.9767,
+                          "Y": 0.2442
+                        },
+                        "LeftMargin": 1.0,
+                        "RightMargin": 1.0,
+                        "TopMargin": 64.5,
+                        "BottomMargin": 0.5,
+                        "Tag": 1022,
+                        "Children": [
+                          {
+                            "FontSize": 12,
+                            "LabelText": "100.000",
+                            "FontResource": {
+                              "Type": "Normal",
+                              "Path": "res/fonts/tahomabd.ttf",
+                              "Plist": ""
+                            },
+                            "HorizontalAlignmentType": "HT_Center",
+                            "OutlineColor": {
+                              "G": 0,
+                              "B": 0
+                            },
+                            "ShadowColor": {
+                              "R": 110,
+                              "G": 110,
+                              "B": 110
+                            },
+                            "ShadowOffsetX": 2.0,
+                            "ShadowOffsetY": -2.0,
+                            "AnchorPoint": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
+                            },
+                            "Position": {
+                              "X": 43.0,
+                              "Y": 11.0
+                            },
+                            "Scale": {
+                              "ScaleX": 1.0,
+                              "ScaleY": 1.0
+                            },
+                            "CColor": {
+                              "R": 237,
+                              "G": 222,
+                              "B": 120
+                            },
+                            "IconVisible": false,
+                            "PrePosition": {
+                              "X": 0.5119,
+                              "Y": 0.5238
+                            },
+                            "PreSize": {
+                              "X": 0.5714,
+                              "Y": 0.7619
+                            },
+                            "LeftMargin": 19.0,
+                            "RightMargin": 17.0,
+                            "TopMargin": 2.0,
+                            "BottomMargin": 3.0,
+                            "Tag": 1023,
+                            "ActionTag": 2087195779,
+                            "Size": {
+                              "X": 48.0,
+                              "Y": 16.0
+                            },
+                            "Name": "time",
+                            "ctype": "TextObjectData"
+                          }
+                        ],
+                        "ActionTag": -1522393031,
+                        "Size": {
+                          "X": 84.0,
+                          "Y": 21.0
+                        },
+                        "VisibleForFrame": false,
+                        "Name": "bgTime",
+                        "ctype": "ImageViewObjectData"
+                      }
+                    ],
+                    "ActionTag": 2118795529,
+                    "Size": {
+                      "X": 86.0,
+                      "Y": 86.0
+                    },
+                    "Name": "slot_3",
+                    "ctype": "ImageViewObjectData"
+                  }
+                ],
+                "ActionTag": -243974152,
+                "Size": {
+                  "X": 86.0,
+                  "Y": 300.0
+                },
+                "Name": "catSlots",
+                "ctype": "PanelObjectData"
+              },
+              {
+                "ClipAble": false,
+                "BackColorAlpha": 0,
+                "ComboBoxIndex": 1,
+                "SingleColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "FirstColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "EndColor": {},
+                "ColorVector": {
+                  "ScaleY": 1.0
+                },
+                "Scale9Width": 1,
+                "Scale9Height": 1,
+                "TouchEnable": true,
+                "AnchorPoint": {},
+                "Position": {
+                  "X": 403.1349,
+                  "Y": 270.3062
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.529,
+                  "Y": 0.6878
+                },
+                "PreSize": {
+                  "X": 0.2625,
+                  "Y": 0.2545
+                },
+                "LeftMargin": 403.1349,
+                "RightMargin": 158.8651,
+                "TopMargin": 22.6938,
+                "BottomMargin": 270.3062,
+                "Tag": 67,
+                "Children": [
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "res/Lobby/FortuneCat/finger.png",
+                      "Plist": ""
+                    },
+                    "Scale9OriginX": 17,
+                    "Scale9OriginY": 20,
+                    "Scale9Width": 18,
+                    "Scale9Height": 22,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 180.0,
+                      "Y": 15.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "RotationSkewX": 30.0,
+                    "RotationSkewY": 30.0,
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.9,
+                      "Y": 0.15
+                    },
+                    "PreSize": {
+                      "X": 0.26,
+                      "Y": 0.62
+                    },
+                    "LeftMargin": 154.0,
+                    "RightMargin": -6.0,
+                    "TopMargin": 54.0,
+                    "BottomMargin": -16.0,
+                    "Tag": 69,
+                    "ActionTag": -1827467056,
+                    "Size": {
+                      "X": 52.0,
+                      "Y": 62.0
+                    },
+                    "Name": "finger",
+                    "ctype": "ImageViewObjectData"
+                  },
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "res/Lobby/FortuneCat/finger_trait.png",
+                      "Plist": ""
+                    },
+                    "Scale9OriginX": 52,
+                    "Scale9OriginY": 22,
+                    "Scale9Width": 56,
+                    "Scale9Height": 24,
+                    "AnchorPoint": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "Position": {
+                      "X": 177.0,
+                      "Y": 70.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.885,
+                      "Y": 0.7
+                    },
+                    "PreSize": {
+                      "X": 0.8,
+                      "Y": 0.68
+                    },
+                    "LeftMargin": 17.0,
+                    "RightMargin": 23.0,
+                    "TopMargin": 30.0,
+                    "BottomMargin": 2.0,
+                    "Tag": 71,
+                    "ActionTag": -303397605,
+                    "Size": {
+                      "X": 160.0,
+                      "Y": 68.0
+                    },
+                    "Name": "fingerTrait",
+                    "ctype": "ImageViewObjectData"
+                  }
+                ],
+                "ActionTag": 387321387,
+                "Size": {
+                  "X": 200.0,
+                  "Y": 100.0
+                },
+                "Name": "fingerTooltip",
+                "ctype": "PanelObjectData"
+              },
+              {
+                "ClipAble": false,
+                "BackColorAlpha": 0,
+                "ComboBoxIndex": 1,
+                "SingleColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "FirstColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "EndColor": {},
+                "ColorVector": {
+                  "ScaleY": 1.0
+                },
+                "Scale9Width": 1,
+                "Scale9Height": 1,
+                "TouchEnable": true,
+                "AnchorPoint": {},
+                "Position": {
+                  "X": 500.0,
+                  "Y": 65.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.6562,
+                  "Y": 0.1654
+                },
+                "PreSize": {
+                  "X": 0.1969,
+                  "Y": 0.2545
+                },
+                "LeftMargin": 500.0,
+                "RightMargin": 112.0,
+                "TopMargin": 228.0,
+                "BottomMargin": 65.0,
+                "Tag": 83,
+                "Children": [
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "res/Lobby/FortuneCat/bg_progress.png",
+                      "Plist": ""
+                    },
+                    "Scale9OriginX": 27,
+                    "Scale9OriginY": 8,
+                    "Scale9Width": 28,
+                    "Scale9Height": 10,
+                    "AnchorPoint": {},
+                    "Position": {
+                      "X": 39.0,
+                      "Y": -3.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.26,
+                      "Y": -0.03
+                    },
+                    "PreSize": {
+                      "X": 0.5467,
+                      "Y": 0.26
+                    },
+                    "LeftMargin": 39.0,
+                    "RightMargin": 29.0,
+                    "TopMargin": 77.0,
+                    "BottomMargin": -3.0,
+                    "Tag": 84,
+                    "Children": [
+                      {
+                        "FontSize": 16,
+                        "LabelText": "0 / 5",
+                        "FontResource": {
+                          "Type": "Normal",
+                          "Path": "res/fonts/tahoma.ttf",
+                          "Plist": ""
+                        },
+                        "OutlineColor": {
+                          "G": 0,
+                          "B": 0
+                        },
+                        "ShadowColor": {
+                          "R": 110,
+                          "G": 110,
+                          "B": 110
+                        },
+                        "ShadowOffsetX": 2.0,
+                        "ShadowOffsetY": -2.0,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 48.0,
+                          "Y": 14.0
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {
+                          "R": 146,
+                          "G": 172,
+                          "B": 170
+                        },
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.5854,
+                          "Y": 0.5385
+                        },
+                        "PreSize": {
+                          "X": 0.4268,
+                          "Y": 0.8462
+                        },
+                        "LeftMargin": 30.5,
+                        "RightMargin": 16.5,
+                        "TopMargin": 1.0,
+                        "BottomMargin": 3.0,
+                        "Tag": 85,
+                        "ActionTag": -751744232,
+                        "Size": {
+                          "X": 35.0,
+                          "Y": 22.0
+                        },
+                        "Name": "progress",
+                        "ctype": "TextObjectData"
+                      }
+                    ],
+                    "ActionTag": -1838116633,
+                    "Size": {
+                      "X": 82.0,
+                      "Y": 26.0
+                    },
+                    "Name": "bg",
+                    "ctype": "ImageViewObjectData"
+                  },
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "res/Lobby/FortuneCat/tooltip_progress.png",
+                      "Plist": ""
+                    },
+                    "Scale9OriginX": 45,
+                    "Scale9OriginY": 21,
+                    "Scale9Width": 49,
+                    "Scale9Height": 24,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 85.0,
+                      "Y": 59.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.5667,
+                      "Y": 0.59
+                    },
+                    "PreSize": {
+                      "X": 0.9267,
+                      "Y": 0.66
+                    },
+                    "LeftMargin": 15.5,
+                    "RightMargin": -4.5,
+                    "TopMargin": 8.0,
+                    "BottomMargin": 26.0,
+                    "Tag": 86,
+                    "ActionTag": -1910070267,
+                    "Size": {
+                      "X": 139.0,
+                      "Y": 66.0
+                    },
+                    "VisibleForFrame": false,
+                    "Name": "tooltip",
+                    "ctype": "ImageViewObjectData"
+                  }
+                ],
+                "ActionTag": 1109723292,
+                "Size": {
+                  "X": 150.0,
+                  "Y": 100.0
+                },
+                "Name": "progressTooltip",
+                "ctype": "PanelObjectData"
+              },
+              {
+                "ClipAble": false,
+                "BackColorAlpha": 0,
+                "ComboBoxIndex": 1,
+                "SingleColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "FirstColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "EndColor": {},
+                "ColorVector": {
+                  "ScaleY": 1.0
+                },
+                "Scale9Width": 1,
+                "Scale9Height": 1,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 445.0,
+                  "Y": 230.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.584,
+                  "Y": 0.5852
+                },
+                "PreSize": {
+                  "X": 0.5184,
+                  "Y": 0.8422
+                },
+                "LeftMargin": 247.5,
+                "RightMargin": 119.5,
+                "TopMargin": -2.5,
+                "BottomMargin": 64.5,
+                "Tag": 1048,
+                "Children": [
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "res/Lobby/FortuneCat/bg_guide.png",
+                      "Plist": ""
+                    },
+                    "Scale9OriginX": 130,
+                    "Scale9OriginY": 109,
+                    "Scale9Width": 135,
+                    "Scale9Height": 113,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 197.5,
+                      "Y": 165.5
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PositionPercentXEnabled": true,
+                    "PositionPercentYEnabled": true,
+                    "PrePosition": {
+                      "X": 0.5,
+                      "Y": 0.5
+                    },
+                    "PreSize": {
+                      "X": 1.0,
+                      "Y": 1.0
+                    },
+                    "Tag": 1049,
+                    "ActionTag": 2040903579,
+                    "Size": {
+                      "X": 395.0,
+                      "Y": 331.0
+                    },
+                    "Name": "bg",
+                    "ctype": "ImageViewObjectData"
+                  },
+                  {
+                    "FontSize": 14,
+                    "ButtonText": "",
+                    "TextColor": {
+                      "R": 65,
+                      "G": 65,
+                      "B": 70
+                    },
+                    "DisabledFileData": {
+                      "Type": "Normal",
+                      "Path": "res/Lobby/FortuneCat/btn_close_guide.png",
+                      "Plist": ""
+                    },
+                    "PressedFileData": {
+                      "Type": "Normal",
+                      "Path": "res/Lobby/FortuneCat/btn_close_guide.png",
+                      "Plist": ""
+                    },
+                    "NormalFileData": {
+                      "Type": "Normal",
+                      "Path": "res/Lobby/FortuneCat/btn_close_guide.png",
+                      "Plist": ""
+                    },
+                    "Scale9Enable": true,
+                    "Scale9OriginX": 4,
+                    "Scale9OriginY": 4,
+                    "Scale9Width": 7,
+                    "Scale9Height": 7,
+                    "OutlineColor": {
+                      "G": 0,
+                      "B": 0
+                    },
+                    "ShadowColor": {
+                      "R": 110,
+                      "G": 110,
+                      "B": 110
+                    },
+                    "ShadowOffsetX": 2.0,
+                    "ShadowOffsetY": -2.0,
+                    "TouchEnable": true,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 360.0,
+                      "Y": 290.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.9114,
+                      "Y": 0.8761
+                    },
+                    "PreSize": {
+                      "X": 0.038,
+                      "Y": 0.0453
+                    },
+                    "LeftMargin": 352.5,
+                    "RightMargin": 27.5,
+                    "TopMargin": 33.5,
+                    "BottomMargin": 282.5,
+                    "Tag": 1050,
+                    "ActionTag": -1494690703,
+                    "Size": {
+                      "X": 15.0,
+                      "Y": 15.0
+                    },
+                    "Name": "btnCloseGuide",
+                    "ctype": "ButtonObjectData"
+                  },
+                  {
+                    "FontSize": 16,
+                    "LabelText": "Hướng dẫn",
+                    "FontResource": {
+                      "Type": "Normal",
+                      "Path": "res/fonts/tahomabd.ttf",
+                      "Plist": ""
+                    },
+                    "OutlineColor": {
+                      "G": 0,
+                      "B": 0
+                    },
+                    "ShadowColor": {
+                      "R": 110,
+                      "G": 110,
+                      "B": 110
+                    },
+                    "ShadowOffsetX": 2.0,
+                    "ShadowOffsetY": -2.0,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 197.4998,
+                      "Y": 285.9288
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {
+                      "R": 130,
+                      "G": 50,
+                      "B": 16
+                    },
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.5,
+                      "Y": 0.8638
+                    },
+                    "PreSize": {
+                      "X": 0.2354,
+                      "Y": 0.0665
+                    },
+                    "LeftMargin": 150.9998,
+                    "RightMargin": 151.0002,
+                    "TopMargin": 34.0712,
+                    "BottomMargin": 274.9288,
+                    "Tag": 1051,
+                    "ActionTag": -468607019,
+                    "Size": {
+                      "X": 93.0,
+                      "Y": 22.0
+                    },
+                    "Name": "title",
+                    "ctype": "TextObjectData"
+                  },
+                  {
+                    "InnerNodeSize": {
+                      "Width": 350,
+                      "Height": 450
+                    },
+                    "ScrollDirectionType": "Vertical",
+                    "ClipAble": true,
+                    "BackColorAlpha": 0,
+                    "ComboBoxIndex": 1,
+                    "SingleColor": {
+                      "G": 150,
+                      "B": 100
+                    },
+                    "FirstColor": {
+                      "G": 150,
+                      "B": 100
+                    },
+                    "EndColor": {},
+                    "ColorVector": {
+                      "ScaleY": 1.0
+                    },
+                    "Scale9Width": 1,
+                    "Scale9Height": 1,
+                    "TouchEnable": true,
+                    "AnchorPoint": {},
+                    "Position": {
+                      "X": 26.0,
+                      "Y": 25.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.0658,
+                      "Y": 0.0755
+                    },
+                    "PreSize": {
+                      "X": 0.8861,
+                      "Y": 0.7553
+                    },
+                    "LeftMargin": 26.0,
+                    "RightMargin": 19.0,
+                    "TopMargin": 56.0,
+                    "BottomMargin": 25.0,
+                    "Tag": 155,
+                    "Children": [
+                      {
+                        "FileData": {
+                          "Type": "Normal",
+                          "Path": "res/Lobby/FortuneCat/guide.png",
+                          "Plist": ""
+                        },
+                        "Scale9OriginX": 171,
+                        "Scale9OriginY": 69,
+                        "Scale9Width": 177,
+                        "Scale9Height": 72,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 175.0,
+                          "Y": 380.0
+                        },
+                        "Scale": {
+                          "ScaleX": 0.65,
+                          "ScaleY": 0.65
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.5,
+                          "Y": 0.8444
+                        },
+                        "PreSize": {
+                          "X": 1.4829,
+                          "Y": 0.4667
+                        },
+                        "LeftMargin": -84.5,
+                        "RightMargin": -84.5,
+                        "TopMargin": -35.0,
+                        "BottomMargin": 275.0,
+                        "Tag": 156,
+                        "ActionTag": 1469489005,
+                        "Size": {
+                          "X": 519.0,
+                          "Y": 210.0
+                        },
+                        "Name": "imageGuide",
+                        "ctype": "ImageViewObjectData"
+                      },
+                      {
+                        "ClipAble": false,
+                        "BackColorAlpha": 0,
+                        "ComboBoxIndex": 1,
+                        "SingleColor": {
+                          "R": 150,
+                          "G": 200
+                        },
+                        "FirstColor": {
+                          "R": 150,
+                          "G": 200
+                        },
+                        "EndColor": {},
+                        "ColorVector": {
+                          "ScaleY": 1.0
+                        },
+                        "Scale9Width": 1,
+                        "Scale9Height": 1,
+                        "TouchEnable": true,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 175.0,
+                          "Y": 190.0
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.5,
+                          "Y": 0.4222
+                        },
+                        "PreSize": {
+                          "X": 1.0,
+                          "Y": 0.5556
+                        },
+                        "TopMargin": 135.0,
+                        "BottomMargin": 65.0,
+                        "Tag": 1052,
+                        "Children": [
+                          {
+                            "FontSize": 16,
+                            "LabelText": "Cách thu thập",
+                            "FontResource": {
+                              "Type": "Normal",
+                              "Path": "res/fonts/tahomabd.ttf",
+                              "Plist": ""
+                            },
+                            "OutlineColor": {
+                              "G": 0,
+                              "B": 0
+                            },
+                            "ShadowColor": {
+                              "R": 110,
+                              "G": 110,
+                              "B": 110
+                            },
+                            "ShadowOffsetX": 2.0,
+                            "ShadowOffsetY": -2.0,
+                            "AnchorPoint": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
+                            },
+                            "Position": {
+                              "X": 175.0,
+                              "Y": 230.0
+                            },
+                            "Scale": {
+                              "ScaleX": 1.0,
+                              "ScaleY": 1.0
+                            },
+                            "CColor": {
+                              "R": 130,
+                              "G": 50,
+                              "B": 16
+                            },
+                            "IconVisible": false,
+                            "PrePosition": {
+                              "X": 0.5,
+                              "Y": 0.92
+                            },
+                            "PreSize": {
+                              "X": 0.3343,
+                              "Y": 0.088
+                            },
+                            "LeftMargin": 116.5,
+                            "RightMargin": 116.5,
+                            "TopMargin": 9.0,
+                            "BottomMargin": 219.0,
+                            "Tag": 82,
+                            "ActionTag": 341784030,
+                            "Size": {
+                              "X": 117.0,
+                              "Y": 22.0
+                            },
+                            "Name": "title_0",
+                            "ctype": "TextObjectData"
+                          },
+                          {
+                            "ClipAble": false,
+                            "BackColorAlpha": 0,
+                            "ComboBoxIndex": 1,
+                            "SingleColor": {
+                              "R": 150,
+                              "G": 200
+                            },
+                            "FirstColor": {
+                              "R": 150,
+                              "G": 200
+                            },
+                            "EndColor": {},
+                            "ColorVector": {
+                              "ScaleY": 1.0
+                            },
+                            "Scale9Width": 1,
+                            "Scale9Height": 1,
+                            "TouchEnable": true,
+                            "AnchorPoint": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 1.0
+                            },
+                            "Position": {
+                              "X": 175.0,
+                              "Y": 220.0
+                            },
+                            "Scale": {
+                              "ScaleX": 1.0,
+                              "ScaleY": 1.0
+                            },
+                            "CColor": {},
+                            "IconVisible": false,
+                            "PrePosition": {
+                              "X": 0.5,
+                              "Y": 0.88
+                            },
+                            "PreSize": {
+                              "X": 1.0,
+                              "Y": 0.2
+                            },
+                            "TopMargin": 30.0,
+                            "BottomMargin": 170.0,
+                            "Tag": 1053,
+                            "Children": [
+                              {
+                                "FileData": {
+                                  "Type": "Normal",
+                                  "Path": "res/Lobby/FortuneCat/bell.png",
+                                  "Plist": ""
+                                },
+                                "Scale9OriginX": 5,
+                                "Scale9OriginY": 5,
+                                "Scale9Width": 8,
+                                "Scale9Height": 8,
+                                "AnchorPoint": {
+                                  "ScaleX": 0.5,
+                                  "ScaleY": 0.5
+                                },
+                                "Position": {
+                                  "X": 15.0,
+                                  "Y": 35.0
+                                },
+                                "Scale": {
+                                  "ScaleX": 1.0,
+                                  "ScaleY": 1.0
+                                },
+                                "CColor": {},
+                                "IconVisible": false,
+                                "PrePosition": {
+                                  "X": 0.0429,
+                                  "Y": 0.7
+                                },
+                                "PreSize": {
+                                  "X": 0.0514,
+                                  "Y": 0.36
+                                },
+                                "LeftMargin": 6.0,
+                                "RightMargin": 326.0,
+                                "TopMargin": 6.0,
+                                "BottomMargin": 26.0,
+                                "Tag": 1054,
+                                "ActionTag": -186839833,
+                                "Size": {
+                                  "X": 18.0,
+                                  "Y": 18.0
+                                },
+                                "Name": "bell",
+                                "ctype": "ImageViewObjectData"
+                              },
+                              {
+                                "FontSize": 12,
+                                "LabelText": "Người chơi thu thập đủ 5 Lúc lắc để nhận được Mèo may \nmắn ngẫu nhiên ở trong Bàn chơi từ 4 người trở lên.",
+                                "FontResource": {
+                                  "Type": "Normal",
+                                  "Path": "res/fonts/tahoma.ttf",
+                                  "Plist": ""
+                                },
+                                "OutlineColor": {
+                                  "R": 0,
+                                  "G": 0,
+                                  "B": 0
+                                },
+                                "ShadowColor": {
+                                  "R": 110,
+                                  "G": 110,
+                                  "B": 110
+                                },
+                                "ShadowOffsetX": 2.0,
+                                "ShadowOffsetY": -2.0,
+                                "AnchorPoint": {
+                                  "ScaleY": 1.0
+                                },
+                                "Position": {
+                                  "X": 27.0,
+                                  "Y": 46.0
+                                },
+                                "Scale": {
+                                  "ScaleX": 1.0,
+                                  "ScaleY": 1.0
+                                },
+                                "CColor": {
+                                  "R": 130,
+                                  "G": 50,
+                                  "B": 16
+                                },
+                                "IconVisible": false,
+                                "PrePosition": {
+                                  "X": 0.0771,
+                                  "Y": 0.92
+                                },
+                                "PreSize": {
+                                  "X": 0.8971,
+                                  "Y": 0.64
+                                },
+                                "LeftMargin": 27.0,
+                                "RightMargin": 9.0,
+                                "TopMargin": 4.0,
+                                "BottomMargin": 14.0,
+                                "Tag": 1055,
+                                "ActionTag": 915779546,
+                                "Size": {
+                                  "X": 314.0,
+                                  "Y": 32.0
+                                },
+                                "Name": "message",
+                                "ctype": "TextObjectData"
+                              }
+                            ],
+                            "ActionTag": -1875269886,
+                            "Size": {
+                              "X": 350.0,
+                              "Y": 50.0
+                            },
+                            "Name": "paragraph_1",
+                            "ctype": "PanelObjectData"
+                          },
+                          {
+                            "ClipAble": false,
+                            "BackColorAlpha": 0,
+                            "ComboBoxIndex": 1,
+                            "SingleColor": {
+                              "R": 150,
+                              "G": 200
+                            },
+                            "FirstColor": {
+                              "R": 150,
+                              "G": 200
+                            },
+                            "EndColor": {},
+                            "ColorVector": {
+                              "ScaleY": 1.0
+                            },
+                            "Scale9Width": 1,
+                            "Scale9Height": 1,
+                            "TouchEnable": true,
+                            "AnchorPoint": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 1.0
+                            },
+                            "Position": {
+                              "X": 175.0,
+                              "Y": 185.0
+                            },
+                            "Scale": {
+                              "ScaleX": 1.0,
+                              "ScaleY": 1.0
+                            },
+                            "CColor": {},
+                            "IconVisible": false,
+                            "PrePosition": {
+                              "X": 0.5,
+                              "Y": 0.74
+                            },
+                            "PreSize": {
+                              "X": 1.0,
+                              "Y": 0.3
+                            },
+                            "TopMargin": 65.0,
+                            "BottomMargin": 110.0,
+                            "Tag": 1056,
+                            "Children": [
+                              {
+                                "FileData": {
+                                  "Type": "Normal",
+                                  "Path": "res/Lobby/FortuneCat/bell.png",
+                                  "Plist": ""
+                                },
+                                "Scale9OriginX": 5,
+                                "Scale9OriginY": 5,
+                                "Scale9Width": 8,
+                                "Scale9Height": 8,
+                                "AnchorPoint": {
+                                  "ScaleX": 0.5,
+                                  "ScaleY": 0.5
+                                },
+                                "Position": {
+                                  "X": 15.0,
+                                  "Y": 60.0
+                                },
+                                "Scale": {
+                                  "ScaleX": 1.0,
+                                  "ScaleY": 1.0
+                                },
+                                "CColor": {},
+                                "IconVisible": false,
+                                "PrePosition": {
+                                  "X": 0.0429,
+                                  "Y": 0.8
+                                },
+                                "PreSize": {
+                                  "X": 0.0514,
+                                  "Y": 0.24
+                                },
+                                "LeftMargin": 6.0,
+                                "RightMargin": 326.0,
+                                "TopMargin": 6.0,
+                                "BottomMargin": 51.0,
+                                "Tag": 1057,
+                                "ActionTag": 371871853,
+                                "Size": {
+                                  "X": 18.0,
+                                  "Y": 18.0
+                                },
+                                "Name": "bell",
+                                "ctype": "ImageViewObjectData"
+                              },
+                              {
+                                "FontSize": 12,
+                                "LabelText": "Có thể chứa tối đa 3 Mèo may mắn, sau khi đã có 3\nMèo trong kho, người chơi sẽ không thể nhận thêm Mèo\nmay mắn được nữa.",
+                                "FontResource": {
+                                  "Type": "Normal",
+                                  "Path": "res/fonts/tahoma.ttf",
+                                  "Plist": ""
+                                },
+                                "OutlineColor": {
+                                  "R": 0,
+                                  "G": 0,
+                                  "B": 0
+                                },
+                                "ShadowColor": {
+                                  "R": 110,
+                                  "G": 110,
+                                  "B": 110
+                                },
+                                "ShadowOffsetX": 2.0,
+                                "ShadowOffsetY": -2.0,
+                                "AnchorPoint": {
+                                  "ScaleY": 1.0
+                                },
+                                "Position": {
+                                  "X": 27.0,
+                                  "Y": 71.0
+                                },
+                                "Scale": {
+                                  "ScaleX": 1.0,
+                                  "ScaleY": 1.0
+                                },
+                                "CColor": {
+                                  "R": 130,
+                                  "G": 50,
+                                  "B": 16
+                                },
+                                "IconVisible": false,
+                                "PrePosition": {
+                                  "X": 0.0771,
+                                  "Y": 0.9467
+                                },
+                                "PreSize": {
+                                  "X": 0.8943,
+                                  "Y": 0.64
+                                },
+                                "LeftMargin": 27.0,
+                                "RightMargin": 10.0,
+                                "TopMargin": 4.0,
+                                "BottomMargin": 23.0,
+                                "Tag": 1058,
+                                "ActionTag": 1701535247,
+                                "Size": {
+                                  "X": 313.0,
+                                  "Y": 48.0
+                                },
+                                "Name": "message",
+                                "ctype": "TextObjectData"
+                              }
+                            ],
+                            "ActionTag": 784567714,
+                            "Size": {
+                              "X": 350.0,
+                              "Y": 75.0
+                            },
+                            "Name": "paragraph_2",
+                            "ctype": "PanelObjectData"
+                          },
+                          {
+                            "FontSize": 16,
+                            "LabelText": "Thao tác thực hiện",
+                            "FontResource": {
+                              "Type": "Normal",
+                              "Path": "res/fonts/tahomabd.ttf",
+                              "Plist": ""
+                            },
+                            "OutlineColor": {
+                              "G": 0,
+                              "B": 0
+                            },
+                            "ShadowColor": {
+                              "R": 110,
+                              "G": 110,
+                              "B": 110
+                            },
+                            "ShadowOffsetX": 2.0,
+                            "ShadowOffsetY": -2.0,
+                            "AnchorPoint": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
+                            },
+                            "Position": {
+                              "X": 175.0,
+                              "Y": 120.0
+                            },
+                            "Scale": {
+                              "ScaleX": 1.0,
+                              "ScaleY": 1.0
+                            },
+                            "CColor": {
+                              "R": 130,
+                              "G": 50,
+                              "B": 16
+                            },
+                            "IconVisible": false,
+                            "PrePosition": {
+                              "X": 0.5,
+                              "Y": 0.48
+                            },
+                            "PreSize": {
+                              "X": 0.4371,
+                              "Y": 0.088
+                            },
+                            "LeftMargin": 98.5,
+                            "RightMargin": 98.5,
+                            "TopMargin": 119.0,
+                            "BottomMargin": 109.0,
+                            "Tag": 83,
+                            "ActionTag": 656921537,
+                            "Size": {
+                              "X": 153.0,
+                              "Y": 22.0
+                            },
+                            "Name": "title_1",
+                            "ctype": "TextObjectData"
+                          },
+                          {
+                            "ClipAble": false,
+                            "BackColorAlpha": 0,
+                            "ComboBoxIndex": 1,
+                            "SingleColor": {
+                              "R": 150,
+                              "G": 200
+                            },
+                            "FirstColor": {
+                              "R": 150,
+                              "G": 200
+                            },
+                            "EndColor": {},
+                            "ColorVector": {
+                              "ScaleY": 1.0
+                            },
+                            "Scale9Width": 1,
+                            "Scale9Height": 1,
+                            "TouchEnable": true,
+                            "AnchorPoint": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 1.0
+                            },
+                            "Position": {
+                              "X": 175.0,
+                              "Y": 110.0
+                            },
+                            "Scale": {
+                              "ScaleX": 1.0,
+                              "ScaleY": 1.0
+                            },
+                            "CColor": {},
+                            "IconVisible": false,
+                            "PrePosition": {
+                              "X": 0.5,
+                              "Y": 0.44
+                            },
+                            "PreSize": {
+                              "X": 1.0,
+                              "Y": 0.3
+                            },
+                            "TopMargin": 140.0,
+                            "BottomMargin": 35.0,
+                            "Tag": 1059,
+                            "Children": [
+                              {
+                                "FileData": {
+                                  "Type": "Normal",
+                                  "Path": "res/Lobby/FortuneCat/bell.png",
+                                  "Plist": ""
+                                },
+                                "Scale9OriginX": 5,
+                                "Scale9OriginY": 5,
+                                "Scale9Width": 8,
+                                "Scale9Height": 8,
+                                "AnchorPoint": {
+                                  "ScaleX": 0.5,
+                                  "ScaleY": 0.5
+                                },
+                                "Position": {
+                                  "X": 15.0,
+                                  "Y": 60.0
+                                },
+                                "Scale": {
+                                  "ScaleX": 1.0,
+                                  "ScaleY": 1.0
+                                },
+                                "CColor": {},
+                                "IconVisible": false,
+                                "PrePosition": {
+                                  "X": 0.0429,
+                                  "Y": 0.8
+                                },
+                                "PreSize": {
+                                  "X": 0.0514,
+                                  "Y": 0.24
+                                },
+                                "LeftMargin": 6.0,
+                                "RightMargin": 326.0,
+                                "TopMargin": 6.0,
+                                "BottomMargin": 51.0,
+                                "Tag": 1060,
+                                "ActionTag": 544125713,
+                                "Size": {
+                                  "X": 18.0,
+                                  "Y": 18.0
+                                },
+                                "Name": "bell",
+                                "ctype": "ImageViewObjectData"
+                              },
+                              {
+                                "FontSize": 12,
+                                "LabelText": "Người chơi kéo Mèo may mắn từ kho vào giữa giao diện\nđể thực hiện quá trình mở Mèo may mắn, sau một\nkhoảng thời gian, người chơi sẽ nhận được lượng Gold\ntương ứng.",
+                                "FontResource": {
+                                  "Type": "Normal",
+                                  "Path": "res/fonts/tahoma.ttf",
+                                  "Plist": ""
+                                },
+                                "OutlineColor": {
+                                  "R": 0,
+                                  "G": 0,
+                                  "B": 0
+                                },
+                                "ShadowColor": {
+                                  "R": 110,
+                                  "G": 110,
+                                  "B": 110
+                                },
+                                "ShadowOffsetX": 2.0,
+                                "ShadowOffsetY": -2.0,
+                                "AnchorPoint": {
+                                  "ScaleY": 1.0
+                                },
+                                "Position": {
+                                  "X": 27.0,
+                                  "Y": 71.0
+                                },
+                                "Scale": {
+                                  "ScaleX": 1.0,
+                                  "ScaleY": 1.0
+                                },
+                                "CColor": {
+                                  "R": 130,
+                                  "G": 50,
+                                  "B": 16
+                                },
+                                "IconVisible": false,
+                                "PrePosition": {
+                                  "X": 0.0771,
+                                  "Y": 0.9467
+                                },
+                                "PreSize": {
+                                  "X": 0.8914,
+                                  "Y": 0.8533
+                                },
+                                "LeftMargin": 27.0,
+                                "RightMargin": 11.0,
+                                "TopMargin": 4.0,
+                                "BottomMargin": 7.0,
+                                "Tag": 1061,
+                                "ActionTag": -86259422,
+                                "Size": {
+                                  "X": 312.0,
+                                  "Y": 64.0
+                                },
+                                "Name": "message",
+                                "ctype": "TextObjectData"
+                              }
+                            ],
+                            "ActionTag": -685238844,
+                            "Size": {
+                              "X": 350.0,
+                              "Y": 75.0
+                            },
+                            "Name": "paragraph_3",
+                            "ctype": "PanelObjectData"
+                          },
+                          {
+                            "ClipAble": false,
+                            "BackColorAlpha": 0,
+                            "ComboBoxIndex": 1,
+                            "SingleColor": {
+                              "R": 150,
+                              "G": 200
+                            },
+                            "FirstColor": {
+                              "R": 150,
+                              "G": 200
+                            },
+                            "EndColor": {},
+                            "ColorVector": {
+                              "ScaleY": 1.0
+                            },
+                            "Scale9Width": 1,
+                            "Scale9Height": 1,
+                            "TouchEnable": true,
+                            "AnchorPoint": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 1.0
+                            },
+                            "Position": {
+                              "X": 175.0,
+                              "Y": 40.0
+                            },
+                            "Scale": {
+                              "ScaleX": 1.0,
+                              "ScaleY": 1.0
+                            },
+                            "CColor": {},
+                            "IconVisible": false,
+                            "PrePosition": {
+                              "X": 0.5,
+                              "Y": 0.16
+                            },
+                            "PreSize": {
+                              "X": 1.0,
+                              "Y": 0.2
+                            },
+                            "TopMargin": 210.0,
+                            "BottomMargin": -10.0,
+                            "Tag": 1062,
+                            "Children": [
+                              {
+                                "FileData": {
+                                  "Type": "Normal",
+                                  "Path": "res/Lobby/FortuneCat/bell.png",
+                                  "Plist": ""
+                                },
+                                "Scale9OriginX": 5,
+                                "Scale9OriginY": 5,
+                                "Scale9Width": 8,
+                                "Scale9Height": 8,
+                                "AnchorPoint": {
+                                  "ScaleX": 0.5,
+                                  "ScaleY": 0.5
+                                },
+                                "Position": {
+                                  "X": 15.0,
+                                  "Y": 35.0
+                                },
+                                "Scale": {
+                                  "ScaleX": 1.0,
+                                  "ScaleY": 1.0
+                                },
+                                "CColor": {},
+                                "IconVisible": false,
+                                "PrePosition": {
+                                  "X": 0.0429,
+                                  "Y": 0.7
+                                },
+                                "PreSize": {
+                                  "X": 0.0514,
+                                  "Y": 0.36
+                                },
+                                "LeftMargin": 6.0,
+                                "RightMargin": 326.0,
+                                "TopMargin": 6.0,
+                                "BottomMargin": 26.0,
+                                "Tag": 1063,
+                                "ActionTag": 800190940,
+                                "Size": {
+                                  "X": 18.0,
+                                  "Y": 18.0
+                                },
+                                "Name": "bell",
+                                "ctype": "ImageViewObjectData"
+                              },
+                              {
+                                "FontSize": 12,
+                                "LabelText": "Khi thời gian đếm ngược hoàn tất, người chơi vào giao\ndiện của tính năng để mở Mèo may mắn nhận quà.",
+                                "FontResource": {
+                                  "Type": "Normal",
+                                  "Path": "res/fonts/tahoma.ttf",
+                                  "Plist": ""
+                                },
+                                "OutlineColor": {
+                                  "R": 0,
+                                  "G": 0,
+                                  "B": 0
+                                },
+                                "ShadowColor": {
+                                  "R": 110,
+                                  "G": 110,
+                                  "B": 110
+                                },
+                                "ShadowOffsetX": 2.0,
+                                "ShadowOffsetY": -2.0,
+                                "AnchorPoint": {
+                                  "ScaleY": 1.0
+                                },
+                                "Position": {
+                                  "X": 27.0,
+                                  "Y": 46.0
+                                },
+                                "Scale": {
+                                  "ScaleX": 1.0,
+                                  "ScaleY": 1.0
+                                },
+                                "CColor": {
+                                  "R": 130,
+                                  "G": 50,
+                                  "B": 16
+                                },
+                                "IconVisible": false,
+                                "PrePosition": {
+                                  "X": 0.0771,
+                                  "Y": 0.92
+                                },
+                                "PreSize": {
+                                  "X": 0.8571,
+                                  "Y": 0.64
+                                },
+                                "LeftMargin": 27.0,
+                                "RightMargin": 23.0,
+                                "TopMargin": 4.0,
+                                "BottomMargin": 14.0,
+                                "Tag": 1064,
+                                "ActionTag": 1508609787,
+                                "Size": {
+                                  "X": 300.0,
+                                  "Y": 32.0
+                                },
+                                "Name": "message",
+                                "ctype": "TextObjectData"
+                              }
+                            ],
+                            "ActionTag": -1154087671,
+                            "Size": {
+                              "X": 350.0,
+                              "Y": 50.0
+                            },
+                            "Name": "paragraph_4",
+                            "ctype": "PanelObjectData"
+                          },
+                          {
+                            "ClipAble": false,
+                            "BackColorAlpha": 0,
+                            "ComboBoxIndex": 1,
+                            "SingleColor": {
+                              "R": 150,
+                              "G": 200
+                            },
+                            "FirstColor": {
+                              "R": 150,
+                              "G": 200
+                            },
+                            "EndColor": {},
+                            "ColorVector": {
+                              "ScaleY": 1.0
+                            },
+                            "Scale9Width": 1,
+                            "Scale9Height": 1,
+                            "TouchEnable": true,
+                            "AnchorPoint": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 1.0
+                            },
+                            "Position": {
+                              "X": 175.0,
+                              "Y": 5.0
+                            },
+                            "Scale": {
+                              "ScaleX": 1.0,
+                              "ScaleY": 1.0
+                            },
+                            "CColor": {},
+                            "IconVisible": false,
+                            "PrePosition": {
+                              "X": 0.5,
+                              "Y": 0.02
+                            },
+                            "PreSize": {
+                              "X": 1.0,
+                              "Y": 0.3
+                            },
+                            "TopMargin": 245.0,
+                            "BottomMargin": -70.0,
+                            "Tag": 1065,
+                            "Children": [
+                              {
+                                "FileData": {
+                                  "Type": "Normal",
+                                  "Path": "res/Lobby/FortuneCat/bell.png",
+                                  "Plist": ""
+                                },
+                                "Scale9OriginX": 5,
+                                "Scale9OriginY": 5,
+                                "Scale9Width": 8,
+                                "Scale9Height": 8,
+                                "AnchorPoint": {
+                                  "ScaleX": 0.5,
+                                  "ScaleY": 0.5
+                                },
+                                "Position": {
+                                  "X": 15.0,
+                                  "Y": 60.0
+                                },
+                                "Scale": {
+                                  "ScaleX": 1.0,
+                                  "ScaleY": 1.0
+                                },
+                                "CColor": {},
+                                "IconVisible": false,
+                                "PrePosition": {
+                                  "X": 0.0429,
+                                  "Y": 0.8
+                                },
+                                "PreSize": {
+                                  "X": 0.0514,
+                                  "Y": 0.24
+                                },
+                                "LeftMargin": 6.0,
+                                "RightMargin": 326.0,
+                                "TopMargin": 6.0,
+                                "BottomMargin": 51.0,
+                                "Tag": 1066,
+                                "ActionTag": 824051921,
+                                "Size": {
+                                  "X": 18.0,
+                                  "Y": 18.0
+                                },
+                                "Name": "bell",
+                                "ctype": "ImageViewObjectData"
+                              },
+                              {
+                                "FontSize": 12,
+                                "LabelText": "Sau khi tính năng kết thúc, các phần thưởng có thể thu\nthập được (đã hoàn thành thời gian đếm ngược nhưng\nchưa nhận) sẽ được tự động nhận, các Mèo May Mắn\nchưa mở sẽ tự động xóa khỏi hệ thống.",
+                                "FontResource": {
+                                  "Type": "Normal",
+                                  "Path": "res/fonts/tahoma.ttf",
+                                  "Plist": ""
+                                },
+                                "OutlineColor": {
+                                  "R": 0,
+                                  "G": 0,
+                                  "B": 0
+                                },
+                                "ShadowColor": {
+                                  "R": 110,
+                                  "G": 110,
+                                  "B": 110
+                                },
+                                "ShadowOffsetX": 2.0,
+                                "ShadowOffsetY": -2.0,
+                                "AnchorPoint": {
+                                  "ScaleY": 1.0
+                                },
+                                "Position": {
+                                  "X": 27.0,
+                                  "Y": 71.0
+                                },
+                                "Scale": {
+                                  "ScaleX": 1.0,
+                                  "ScaleY": 1.0
+                                },
+                                "CColor": {
+                                  "R": 130,
+                                  "G": 50,
+                                  "B": 16
+                                },
+                                "IconVisible": false,
+                                "PrePosition": {
+                                  "X": 0.0771,
+                                  "Y": 0.9467
+                                },
+                                "PreSize": {
+                                  "X": 0.8629,
+                                  "Y": 0.8533
+                                },
+                                "LeftMargin": 27.0,
+                                "RightMargin": 21.0,
+                                "TopMargin": 4.0,
+                                "BottomMargin": 7.0,
+                                "Tag": 1067,
+                                "ActionTag": -185898793,
+                                "Size": {
+                                  "X": 302.0,
+                                  "Y": 64.0
+                                },
+                                "Name": "message",
+                                "ctype": "TextObjectData"
+                              }
+                            ],
+                            "ActionTag": -1281137773,
+                            "Size": {
+                              "X": 350.0,
+                              "Y": 75.0
+                            },
+                            "Name": "paragraph_5",
+                            "ctype": "PanelObjectData"
+                          }
+                        ],
+                        "ActionTag": 1307342812,
+                        "Size": {
+                          "X": 350.0,
+                          "Y": 250.0
+                        },
+                        "Name": "content",
+                        "ctype": "PanelObjectData"
+                      }
+                    ],
+                    "ActionTag": -251045478,
+                    "Size": {
+                      "X": 350.0,
+                      "Y": 250.0
+                    },
+                    "Name": "scrollView",
+                    "ctype": "ScrollViewObjectData"
+                  }
+                ],
+                "ActionTag": -1461368392,
+                "Size": {
+                  "X": 395.0,
+                  "Y": 331.0
+                },
+                "VisibleForFrame": false,
+                "Name": "guide",
+                "ctype": "PanelObjectData"
+              },
+              {
+                "FontSize": 14,
+                "ButtonText": "Cheat",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Default",
+                  "Path": "Default/Button_Disable.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "Default",
+                  "Path": "Default/Button_Press.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Default",
+                  "Path": "Default/Button_Normal.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 16,
+                "Scale9Height": 14,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 45.0,
+                  "Y": 40.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0591,
+                  "Y": 0.1018
+                },
+                "PreSize": {
+                  "X": 0.1312,
+                  "Y": 0.0916
+                },
+                "LeftMargin": -5.0,
+                "RightMargin": 667.0,
+                "TopMargin": 335.0,
+                "BottomMargin": 22.0,
+                "Tag": 81,
+                "ActionTag": -1565395527,
+                "Size": {
+                  "X": 100.0,
+                  "Y": 36.0
+                },
+                "Name": "btnCheat",
+                "ctype": "ButtonObjectData"
+              },
+              {
+                "ClipAble": false,
+                "BackColorAlpha": 106,
+                "ComboBoxIndex": 1,
+                "SingleColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "FirstColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "EndColor": {},
+                "ColorVector": {
+                  "ScaleY": 1.0
+                },
+                "Scale9Width": 1,
+                "Scale9Height": 1,
+                "TouchEnable": true,
+                "AnchorPoint": {},
+                "Position": {
+                  "X": 630.0,
+                  "Y": -45.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.8268,
+                  "Y": -0.1145
+                },
+                "PreSize": {
+                  "X": 0.1969,
+                  "Y": 1.2214
+                },
+                "HorizontalEdge": "RightEdge",
+                "VerticalEdge": "TopEdge",
+                "LeftMargin": 630.0,
+                "RightMargin": -18.0,
+                "TopMargin": -42.0,
+                "BottomMargin": -45.0,
+                "Tag": 425,
+                "Children": [
+                  {
+                    "ClipAble": false,
+                    "BackColorAlpha": 102,
+                    "ComboBoxIndex": 1,
+                    "SingleColor": {
+                      "R": 150,
+                      "G": 200
+                    },
+                    "FirstColor": {
+                      "R": 150,
+                      "G": 200
+                    },
+                    "EndColor": {},
+                    "ColorVector": {
+                      "ScaleY": 1.0
+                    },
+                    "Scale9Width": 1,
+                    "Scale9Height": 1,
+                    "TouchEnable": true,
+                    "AnchorPoint": {},
+                    "Position": {
+                      "X": 0.0,
+                      "Y": 0.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.0,
+                      "Y": 0.0
+                    },
+                    "PreSize": {
+                      "X": 1.0,
+                      "Y": 0.3333
+                    },
+                    "TopMargin": 320.0,
+                    "Tag": 74,
+                    "Children": [
+                      {
+                        "FontSize": 14,
+                        "ButtonText": "Cheat unlock",
+                        "TextColor": {
+                          "R": 65,
+                          "G": 65,
+                          "B": 70
+                        },
+                        "DisabledFileData": {
+                          "Type": "Default",
+                          "Path": "Default/Button_Disable.png",
+                          "Plist": ""
+                        },
+                        "PressedFileData": {
+                          "Type": "Default",
+                          "Path": "Default/Button_Press.png",
+                          "Plist": ""
+                        },
+                        "NormalFileData": {
+                          "Type": "Default",
+                          "Path": "Default/Button_Normal.png",
+                          "Plist": ""
+                        },
+                        "Scale9Enable": true,
+                        "Scale9OriginX": 15,
+                        "Scale9OriginY": 11,
+                        "Scale9Width": 16,
+                        "Scale9Height": 14,
+                        "OutlineColor": {
+                          "G": 0,
+                          "B": 0
+                        },
+                        "ShadowColor": {
+                          "R": 110,
+                          "G": 110,
+                          "B": 110
+                        },
+                        "ShadowOffsetX": 2.0,
+                        "ShadowOffsetY": -2.0,
+                        "TouchEnable": true,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 65.0,
+                          "Y": 80.0
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.4333,
+                          "Y": 0.5
+                        },
+                        "PreSize": {
+                          "X": 0.6667,
+                          "Y": 0.225
+                        },
+                        "LeftMargin": 15.0,
+                        "RightMargin": 35.0,
+                        "TopMargin": 62.0,
+                        "BottomMargin": 62.0,
+                        "Tag": 424,
+                        "ActionTag": -1257746533,
+                        "Size": {
+                          "X": 100.0,
+                          "Y": 36.0
+                        },
+                        "Name": "btnCheatUnlock",
+                        "ctype": "ButtonObjectData"
+                      }
+                    ],
+                    "ActionTag": 505817455,
+                    "Size": {
+                      "X": 150.0,
+                      "Y": 160.0
+                    },
+                    "Name": "cheatUnlock",
+                    "ctype": "PanelObjectData"
+                  },
+                  {
+                    "ClipAble": false,
+                    "BackColorAlpha": 102,
+                    "ComboBoxIndex": 1,
+                    "SingleColor": {
+                      "R": 150,
+                      "G": 200
+                    },
+                    "FirstColor": {
+                      "R": 150,
+                      "G": 200
+                    },
+                    "EndColor": {},
+                    "ColorVector": {
+                      "ScaleY": 1.0
+                    },
+                    "Scale9Width": 1,
+                    "Scale9Height": 1,
+                    "TouchEnable": true,
+                    "AnchorPoint": {},
+                    "Position": {
+                      "X": 0.0,
+                      "Y": 321.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.0,
+                      "Y": 0.6687
+                    },
+                    "PreSize": {
+                      "X": 1.0,
+                      "Y": 0.3333
+                    },
+                    "TopMargin": -1.0,
+                    "BottomMargin": 321.0,
+                    "Tag": 75,
+                    "Children": [
+                      {
+                        "FontSize": 20,
+                        "IsCustomSize": true,
+                        "LabelText": "",
+                        "PlaceHolderText": "num bell",
+                        "MaxLengthText": 10,
+                        "TouchEnable": true,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 60.0,
+                          "Y": 130.0
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {
+                          "R": 127,
+                          "G": 127,
+                          "B": 127
+                        },
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.4,
+                          "Y": 0.8125
+                        },
+                        "PreSize": {
+                          "X": 0.56,
+                          "Y": 0.1437
+                        },
+                        "LeftMargin": 18.0,
+                        "RightMargin": 48.0,
+                        "TopMargin": 18.5,
+                        "BottomMargin": 118.5,
+                        "Tag": 77,
+                        "ActionTag": 1633758701,
+                        "Size": {
+                          "X": 84.0,
+                          "Y": 23.0
+                        },
+                        "Name": "numBell",
+                        "ctype": "TextFieldObjectData"
+                      },
+                      {
+                        "FontSize": 14,
+                        "ButtonText": "Cheat bell",
+                        "TextColor": {
+                          "R": 65,
+                          "G": 65,
+                          "B": 70
+                        },
+                        "DisabledFileData": {
+                          "Type": "Default",
+                          "Path": "Default/Button_Disable.png",
+                          "Plist": ""
+                        },
+                        "PressedFileData": {
+                          "Type": "Default",
+                          "Path": "Default/Button_Press.png",
+                          "Plist": ""
+                        },
+                        "NormalFileData": {
+                          "Type": "Default",
+                          "Path": "Default/Button_Normal.png",
+                          "Plist": ""
+                        },
+                        "Scale9Enable": true,
+                        "Scale9OriginX": 15,
+                        "Scale9OriginY": 11,
+                        "Scale9Width": 16,
+                        "Scale9Height": 14,
+                        "OutlineColor": {
+                          "G": 0,
+                          "B": 0
+                        },
+                        "ShadowColor": {
+                          "R": 110,
+                          "G": 110,
+                          "B": 110
+                        },
+                        "ShadowOffsetX": 2.0,
+                        "ShadowOffsetY": -2.0,
+                        "TouchEnable": true,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 65.0,
+                          "Y": 80.0
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.4333,
+                          "Y": 0.5
+                        },
+                        "PreSize": {
+                          "X": 0.6667,
+                          "Y": 0.225
+                        },
+                        "LeftMargin": 15.0,
+                        "RightMargin": 35.0,
+                        "TopMargin": 62.0,
+                        "BottomMargin": 62.0,
+                        "Tag": 78,
+                        "ActionTag": -1788434565,
+                        "Size": {
+                          "X": 100.0,
+                          "Y": 36.0
+                        },
+                        "Name": "btnCheatBell",
+                        "ctype": "ButtonObjectData"
+                      }
+                    ],
+                    "ActionTag": 487731908,
+                    "Size": {
+                      "X": 150.0,
+                      "Y": 160.0
+                    },
+                    "Name": "cheatBell",
+                    "ctype": "PanelObjectData"
+                  },
+                  {
+                    "ClipAble": false,
+                    "BackColorAlpha": 102,
+                    "ComboBoxIndex": 1,
+                    "SingleColor": {
+                      "R": 150,
+                      "G": 200
+                    },
+                    "FirstColor": {
+                      "R": 150,
+                      "G": 200
+                    },
+                    "EndColor": {},
+                    "ColorVector": {
+                      "ScaleY": 1.0
+                    },
+                    "Scale9Width": 1,
+                    "Scale9Height": 1,
+                    "TouchEnable": true,
+                    "AnchorPoint": {},
+                    "Position": {
+                      "X": 0.0,
+                      "Y": 160.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.0,
+                      "Y": 0.3333
+                    },
+                    "PreSize": {
+                      "X": 1.0,
+                      "Y": 0.3333
+                    },
+                    "TopMargin": 160.0,
+                    "BottomMargin": 160.0,
+                    "Tag": 76,
+                    "Children": [
+                      {
+                        "FontSize": 20,
+                        "IsCustomSize": true,
+                        "LabelText": "",
+                        "PlaceHolderText": "cat id list",
+                        "MaxLengthText": 10,
+                        "TouchEnable": true,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 60.0,
+                          "Y": 130.0
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {
+                          "R": 127,
+                          "G": 127,
+                          "B": 127
+                        },
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.4,
+                          "Y": 0.8125
+                        },
+                        "PreSize": {
+                          "X": 0.56,
+                          "Y": 0.1437
+                        },
+                        "LeftMargin": 18.0,
+                        "RightMargin": 48.0,
+                        "TopMargin": 18.5,
+                        "BottomMargin": 118.5,
+                        "Tag": 80,
+                        "ActionTag": 1698527097,
+                        "Size": {
+                          "X": 84.0,
+                          "Y": 23.0
+                        },
+                        "Name": "catIdList",
+                        "ctype": "TextFieldObjectData"
+                      },
+                      {
+                        "FontSize": 14,
+                        "ButtonText": "Cheat cat",
+                        "TextColor": {
+                          "R": 65,
+                          "G": 65,
+                          "B": 70
+                        },
+                        "DisabledFileData": {
+                          "Type": "Default",
+                          "Path": "Default/Button_Disable.png",
+                          "Plist": ""
+                        },
+                        "PressedFileData": {
+                          "Type": "Default",
+                          "Path": "Default/Button_Press.png",
+                          "Plist": ""
+                        },
+                        "NormalFileData": {
+                          "Type": "Default",
+                          "Path": "Default/Button_Normal.png",
+                          "Plist": ""
+                        },
+                        "Scale9Enable": true,
+                        "Scale9OriginX": 15,
+                        "Scale9OriginY": 11,
+                        "Scale9Width": 16,
+                        "Scale9Height": 14,
+                        "OutlineColor": {
+                          "G": 0,
+                          "B": 0
+                        },
+                        "ShadowColor": {
+                          "R": 110,
+                          "G": 110,
+                          "B": 110
+                        },
+                        "ShadowOffsetX": 2.0,
+                        "ShadowOffsetY": -2.0,
+                        "TouchEnable": true,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 65.0,
+                          "Y": 80.0
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.4333,
+                          "Y": 0.5
+                        },
+                        "PreSize": {
+                          "X": 0.6667,
+                          "Y": 0.225
+                        },
+                        "LeftMargin": 15.0,
+                        "RightMargin": 35.0,
+                        "TopMargin": 62.0,
+                        "BottomMargin": 62.0,
+                        "Tag": 79,
+                        "ActionTag": -358389704,
+                        "Size": {
+                          "X": 100.0,
+                          "Y": 36.0
+                        },
+                        "Name": "btnCheatCat",
+                        "ctype": "ButtonObjectData"
+                      }
+                    ],
+                    "ActionTag": -1055858660,
+                    "Size": {
+                      "X": 150.0,
+                      "Y": 160.0
+                    },
+                    "Name": "cheatCat",
+                    "ctype": "PanelObjectData"
+                  }
+                ],
+                "ActionTag": -458791545,
+                "Size": {
+                  "X": 150.0,
+                  "Y": 480.0
+                },
+                "VisibleForFrame": false,
+                "Name": "pCheat",
+                "ctype": "PanelObjectData"
+              }
+            ],
+            "ActionTag": 599753716,
+            "Size": {
+              "X": 762.0,
+              "Y": 393.0
+            },
+            "Name": "bg",
+            "ctype": "ImageViewObjectData"
+          }
+        ],
+        "Size": {
+          "X": 800.0,
+          "Y": 480.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "../../Default/Button_Disable.png",
+        "../../Default/Button_Normal.png",
+        "../../Default/Button_Press.png",
+        "../fonts/tahoma.ttf",
+        "../fonts/tahomabd.ttf",
+        "FortuneCat/bell.png",
+        "FortuneCat/bg.png",
+        "FortuneCat/bg_gold.png",
+        "FortuneCat/bg_guide.png",
+        "FortuneCat/bg_prize.png",
+        "FortuneCat/bg_progress.png",
+        "FortuneCat/bg_slot.png",
+        "FortuneCat/btn_close.png",
+        "FortuneCat/btn_close_guide.png",
+        "FortuneCat/btn_guide.png",
+        "FortuneCat/btn_play.png",
+        "FortuneCat/btn_receive_reward.png",
+        "FortuneCat/cat_1_locked.png",
+        "FortuneCat/cat_title_1.png",
+        "FortuneCat/clock.png",
+        "FortuneCat/finger.png",
+        "FortuneCat/finger_trait.png",
+        "FortuneCat/firework_1.png",
+        "FortuneCat/firework_2.png",
+        "FortuneCat/guide.png",
+        "FortuneCat/label_title.png",
+        "FortuneCat/sandclock.png",
+        "FortuneCat/silhouette_cat_1.png",
+        "FortuneCat/silhouette_slot_1.png",
+        "FortuneCat/sun_1.png",
+        "FortuneCat/sun_2.png",
+        "FortuneCat/sun_3.png",
+        "FortuneCat/sun_4.png",
+        "FortuneCat/tooltip_countdown.png",
+        "FortuneCat/tooltip_no_cat.png",
+        "FortuneCat/tooltip_progress.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

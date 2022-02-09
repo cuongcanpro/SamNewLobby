@@ -12,13 +12,7 @@ var GameLogic = cc.Class.extend({
         this._roomOwner = 0;    // ghe' cua chu romm
         this._roomOwnerID = 0;  // uID cua chu room
         this._myChair = -1;     // ghe cua minh` tren server
-        this._roomLock = false;
-        this._roomJackpot = 0;
         this._roomIndex = 0;
-        this._roomID = 0;
-        this._roomType = 0;
-        this._rCuoclon = 0;
-        this._zoneID = 0;
 
         // Game play data
         this._players = [];
@@ -26,7 +20,6 @@ var GameLogic = cc.Class.extend({
         this._timeAutoStart =  0;       // khi can` update autostart
         this._cardFirstTurn=  [];       // card khi quyet dinh ng di dau`
         this._timeBaoSam = 0;
-        this._typeToiTrang = 0;
         this._cardChiabai = [];         // card cua minh` khi chia bai
         this._cardDanhbai = [];         // card danh bai
         this._activeLocalChair = 0;     // chair cua nguoi` dang thuc hien 1 hanh dong (vi van dau theo luot)
@@ -48,11 +41,9 @@ var GameLogic = cc.Class.extend({
         this._gameState = GameState.JOINROOM;
         this._bet = pk.roomBet;
         this._roomOwner = pk.roomOwner;
-        this._roomID = pk.roomID;
         this._roomIndex = pk.roomIndex;
         this._myChair = pk.uChair;
         this._roomOwnerID = pk.roomOwnerID;
-        this._roomJackpot = pk.roomJackpot;
         this.gameAction = pk.gameAction;
         this.activeTimeRemain = pk.remainTime;
         this._activeLocalChair = this.convertChair(pk.currentChair);
@@ -87,8 +78,6 @@ var GameLogic = cc.Class.extend({
         this._bet = pk.roomBet;
         this._roomOwner = pk.roomOwner;
         this._roomIndex = pk.roomIndex;
-        this._roomJackpot = pk.roomJackpot;
-        this._roomID = pk.roomID;
         this._myChair = pk.uChair;
         this._cardChiabai = pk.myCard;
         this._cardRecent = pk.recentCadrs;
@@ -252,22 +241,6 @@ var GameLogic = cc.Class.extend({
     },
     userLeave: function(pkg){
         var chairLocal = this.convertChair(pkg.chair);
-
-        if((chairLocal >=0) && (chairLocal <= 4)) {
-            var currentTime = new Date().getTime();
-            var s = "LEAVEROOM ID " + chairLocal + " CHAIR IN SERVER " + pkg.chair + " my chair " + this.myChair + "My UID " + gamedata.userData.uID + " Join Time " + this.joinTime
-                    + " LeaveTime " + currentTime + " Is Deal " + this.isDealCard + " Send Quit Room " + this.sendQuitRoom;
-            s = s + "\n" + (new Error()).stack;
-            cc.log(s);
-            if (chairLocal == 0) {
-
-                    // cc.log("KICK Ghe cua minh nhung khac UID ");
-                NativeBridge.logJSManual("assets/src/Game/Board/GameLogic.js", "123456", s, NativeBridge.getVersionString());
-                    // return;
-            }
-        }
-
-
         if((chairLocal >=0) && (chairLocal <= 4)) {
             this._players[chairLocal]._ingame = false;
             this._activeLocalChair = chairLocal;
@@ -277,7 +250,6 @@ var GameLogic = cc.Class.extend({
     endgame: function(pk)
     {
         this._gameState = GameState.ENDGAME;
-        this._roomJackpot = pk.roomJackpot;
 
     },
     updateMath: function(pk){
@@ -307,8 +279,17 @@ var GameLogic = cc.Class.extend({
         }
 
         event.onEndGame();
-    }
+    },
 
+    changeAvatar: function (pk) {
+        this._gameState = GameState.NONE;
+        for (var i = 0; i <  this._players.length; i++)
+            if (this._players[i]._info["uID"] === pk.uID) {
+                this._players[i]._info["avatar"] = pk.avatar;
+                this._players[i]._active = true;
+                break;
+            }
+    }
 });
 
 

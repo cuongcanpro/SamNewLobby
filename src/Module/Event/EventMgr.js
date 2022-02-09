@@ -573,6 +573,26 @@ var EventMgr = BaseMgr.extend({
             this.checkedDeepLink = true;
         }
     },
+
+    setupButtonInGame: function (gameScene) {
+        for (var i = 0; i < this.arrayEvent.length; i++) {
+            if (this.isInEvent(this.arrayEvent[i].dataEvent.idEvent)) {
+                if (this.arrayEvent[i].addAccumulateGUI) {
+                    this.arrayEvent[i].addAccumulateGUI();
+                    if (!this.arrayEvent[i].isSpecialAccumulate || !this.arrayEvent[i].isSpecialAccumulate()) {
+                        gameScene.updateButtonEvent(
+                            this.arrayEvent[i].isFinishDownload,
+                            this.arrayEvent[i].keyCoin,
+                            (this.arrayEvent[i].curLevelExp / this.arrayEvent[i].nextLevelExp) * 100,
+                            this.arrayEvent[i].getTicketTexture(),
+                            this.arrayEvent[i]
+                        );
+                    }
+                    break;
+                }
+            }
+        }
+    },
 });
 
 EventMgr.LUCKY_CARD = "halloween";

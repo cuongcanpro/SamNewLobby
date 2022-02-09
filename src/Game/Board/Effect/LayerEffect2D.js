@@ -8,96 +8,214 @@ var LayerEffect2D = cc.Layer.extend({
         this._gameScene = gameScene;
         this.effects = [];
         this.cardDanh = [];
+        this.cardPool = [];
+        this.cardDealPool = [];
+
+        this.orgNode = new cc.Node();
+        this.orgNode.setTag(LayerEffect2D.KEEPING_NODE);
+        this.addChild(this.orgNode);
+    },
+
+    getCard: function (id) {
+        var card;
+        if (this.cardPool.length > 0) {
+            card = this.cardPool[0];
+            card.setID(id);
+            this.cardPool.shift();
+        } else {
+            card = new SamCard(id);
+            card.retain();
+            this.addChild(card);
+        }
+        card.setOpacity(255);
+        card.setVisible(true);
+        card.setColor(cc.color("#ffffff"));
+        try {
+            card.setRotation3D(vec3(0, 0, 0));
+        } catch (e) {
+            card.setRotation(0);
+        }
+        return card;
+    },
+
+    returnCard: function (card) {
+        card.setVisible(false);
+        this.cardPool.push(card);
+    },
+
+    returnCardToiTrang: function (card) {
+        card.setVisible(false);
+        card.retain();
+        card.setAnchorPoint(cc.p(0.5, 0.5));
+        try {
+            card.removeFromParent();
+            this.addChild(card);
+        } catch (e) {}
+        this.cardPool.push(card);
+    },
+
+    getCardDeal: function () {
+        var cardDeal;
+        if (this.cardDealPool.length > 0) {
+            cardDeal = this.cardDealPool.shift();
+        } else {
+            cardDeal = new cc.Sprite(LayerEffect2D.CARD_BACK);
+            cardDeal.setTag(LayerEffect2D.KEEPING_NODE);
+            this.addChild(cardDeal);
+        }
+        return cardDeal;
+    },
+
+    removeCardDeal: function (cardDeal) {
+        cardDeal.setVisible(false);
+        this.cardDealPool.push(cardDeal);
     },
 
     chiabai: function (player, startNode) {
-        var offset = 0;
-        var time = 0;
-        var posY = 15;
-        var timedelay = (56/24) + 0.25;
+        if (this._gameScene.shuffleTime === -1) this._gameScene.shuffleCard();
+
+        cc.log("CALCULATE TIME:", this._gameScene.shuffleTime);
+        var passTime = ((new Date().getTime()) - this._gameScene.shuffleTime) / 1000;
+        cc.log("CALCULATE TIME:", passTime);
+        var timeDelay = Math.max(0, (56/24) - passTime) + 0.25;
         var timeMove = .5;
-        var timeFlip = .2;
+        var timeFlip = 0.2;
         var timeEachCard = .125;
 
-        this._gameScene.shuffleCard();
-        var sceneScale = this._gameScene._layout.getScaleX();
+        if (player._index !== 0) {
+            player._card._tmpCount = 0;
+        }
 
         for (var i = 0; i < 10; i++) {
-            var sprite = new cc.Sprite(LayerEffect2D.CARD_BACK);
-            this.addChild(sprite);
-            sprite.setPosition(startNode.convertToWorldSpaceAR(cc.p(0, 0)));
-            sprite.setRotation3D(startNode.getRotation3D());
-            sprite.setLocalZOrder(1);
-            sprite.setScaleX(startNode.getScaleX());
-            sprite.setScaleY(startNode.getScaleY());
-            sprite.setVisible(false);
+            this.runAction(cc.sequence(
+                cc.delayTime(timeDelay + (player._index === 0? 0 : player._index * timeEachCard * 0.5)),
+                cc.callFunc(this.dealCardOne.bind(this, player, startNode, i))
+            ));
 
             if (player._index === 0) {
-                var pos = player._handOnCards[i].convertToWorldSpaceAR(cc.p(0, 0));
-                var scaleWidth = player._handOnCards[i].getContentSize().width / sprite.getContentSize().width;
-                scaleWidth *= sceneScale;
-                var actionSpawn = cc.spawn(
-                    cc.moveTo(timeMove, pos).easing(cc.easeBackOut()),
-                    cc.scaleTo(timeMove, scaleWidth).easing(cc.easeBackOut()),
-                    cc.rotateTo(timeMove, vec3(0, 0, 0)).easing(cc.easeBackOut())
-                );
-                sprite.runAction(cc.sequence(
-                    cc.delayTime(timedelay),
-                    cc.show(),
-                    actionSpawn,
-                    cc.scaleTo(timeFlip, 0, scaleWidth),
-                    cc.removeSelf()
-                ));
-
                 player._handOnCards[i].setVisible(true);
                 player._handOnCards[i].setScaleX(0);
                 player._handOnCards[i].runAction(cc.sequence(
-                    cc.delayTime(timeMove + timeFlip + timedelay),
-                    cc.scaleTo(.1, 1, 1)
-                ));
-            } else {
-                var pos = player._card.convertToWorldSpaceAR(cc.p(0, 0));
-                player._card.setVisible(false);
-                player._card._tmpCount = 0;
-                var func = function (sender, target) {
-                    target._tmpCount++;
-                    target.setVisible(true);
-                    ccui.Helper.seekWidgetByName(target, "num").setString("" + target._tmpCount);
-                }
-
-                var scaleTarget = (player._card.width / sprite.getContentSize().width) * sceneScale;
-                sprite.runAction(cc.sequence(
-                    cc.delayTime(timedelay + player._index * timeEachCard * 0.5),
-                    cc.show(),
-                    cc.spawn(
-                        cc.scaleTo(timeMove, scaleTarget),
-                        cc.moveTo(timeMove, pos),
-                        cc.rotateTo(timeMove, vec3(0, 0, 0)).easing(cc.easeBackOut())
-                    ),
-                    cc.callFunc(func, sprite, player._card),
-                    cc.removeSelf()
+                    cc.delayTime(timeDelay + timeMove + timeFlip),
+                    cc.scaleTo(timeFlip, 1, 1).easing(cc.easeBackOut())
                 ));
             }
-
-            timedelay += timeEachCard;
+            timeDelay += timeEachCard;
         }
 
-        timedelay -= timeEachCard;
-        this._gameScene.deckCard.runAction(cc.sequence(
-            cc.delayTime(timedelay),
-            cc.hide()
-        ));
+        timeDelay -= timeEachCard;
+        return timeDelay;
     },
 
-    firstTurn: function (player) {
+    dealCardOne: function (player, startNode, i) {
+        var sceneScale = this._gameScene._layout.getScaleX();
+        var timeMove = .5;
+        var timeFlip = .2;
+
+        var sprite = this.getCardDeal();
+        sprite.setPosition(startNode.convertToWorldSpaceAR(cc.p(0, 0)));
+        try {
+            sprite.setRotation3D(vec3(startNode.getRotation3D()));
+        } catch (e) {
+            sprite.setRotation(startNode.getRotation());
+        }
+        sprite.setLocalZOrder(50 - (i * 5 + player._index));
+        sprite.setScaleX(startNode.getScaleX());
+        sprite.setScaleY(startNode.getScaleY());
+        sprite.setVisible(false);
+
+        if (player._index === 0) {
+            var pos = player._handOnCards[i].convertToWorldSpaceAR(cc.p(0, 0));
+            var scaleWidth = player._handOnCards[i].getContentSize().width / sprite.getContentSize().width;
+            scaleWidth *= sceneScale;
+            var overMove = cc.p((pos.x - sprite.x) * 0.1, -25);
+            try {
+                var rotateAct = cc.rotateTo(timeMove, vec3(0, 0, 0));
+            } catch (e) {
+                var rotateAct = cc.rotateTo(timeMove, 0);
+            }
+            var actionSpawn = cc.spawn(
+                cc.moveTo(timeMove, cc.p(pos.x + overMove.x, pos.y + overMove.y)).easing(cc.easeIn(2)),
+                cc.scaleTo(timeMove, scaleWidth),
+                rotateAct
+            );
+            sprite.runAction(cc.sequence(
+                cc.show(),
+                actionSpawn,
+                cc.spawn(
+                    cc.scaleTo(timeFlip, 0, scaleWidth).easing(cc.easeIn(2)),
+                    cc.moveTo(timeFlip, pos).easing(cc.easeOut(2))
+                ),
+                cc.callFunc(function (cardDeal) {
+                    this.removeCardDeal(cardDeal);
+                }.bind(this, sprite))
+            ));
+        } else {
+            var pos = player._card.convertToWorldSpaceAR(cc.p(0, 0));
+            player._card.setVisible(false);
+            var func = function (sender, target) {
+                target._tmpCount++;
+                target.setVisible(true);
+                ccui.Helper.seekWidgetByName(target, "num").setString("" + target._tmpCount);
+            }
+
+            var scaleTarget = (player._card.width / sprite.getContentSize().width) * sceneScale;
+            try {
+                var r1 = cc.rotateTo(timeMove / 2, vec3(0, 0, 90));
+                var r2 = cc.rotateTo(timeMove / 2, vec3(0, 0, 0)).easing(cc.easeBackOut());
+            } catch (e) {
+                var r1 = cc.rotateTo(timeMove / 2, 90);
+                var r2 = cc.rotateTo(timeMove / 2, 0).easing(cc.easeBackOut());
+            }
+            sprite.runAction(cc.sequence(
+                cc.show(),
+                cc.spawn(
+                    cc.scaleTo(timeMove, scaleTarget),
+                    cc.moveTo(timeMove, pos),
+                    cc.sequence(
+                        r1,
+                        r2.easing(cc.easeBackOut())
+                    )
+                ),
+                cc.callFunc(func, sprite, player._card),
+                cc.removeSelf()
+            ));
+        }
+    },
+
+    firstTurn: function (player, startNode, isFirst) {
         if (player._index !== -1) {
-            var sprite = new cc.Sprite(LayerEffect2D.CARD_BACK);
-            sprite.setPosition(cc.p(cc.winSize.width / 2, cc.winSize.height / 2));
-            this.addChild(sprite);
+            player._cardFirstTurn.stopAllActions();
+            var bigScale = 1.5;
+            var moveUp = 0;
+            if (player._index === 0) {
+                bigScale = 1.3;
+                moveUp = player._cardFirstTurn.height * (bigScale - 1) * 0.5;
+                player._cardFirstTurn.setPosition(cc.p(player._cardPanel.width / 2, player._cardPanel.height / 2));
+            }
+
+            player._cardFirstTurn.setVisible(true);
+            player._cardFirstTurn.setScale(1);
+            player._cardFirstTurn.setScaleX(0);
+            player._cardFirstTurn.setOpacity(255);
+            player._cardFirstTurn.setColor(cc.color("#ffffff"));
+
+            var sprite = this.getCardDeal();
+            sprite.stopAllActions();
+            sprite.setPosition(startNode.convertToWorldSpaceAR(cc.p(0, 0)));
+
+            try {
+                sprite.setRotation3D(vec3(startNode.getRotation3D()));
+            } catch (e) {
+                sprite.setRotation(startNode.getRotation());
+            }
+            sprite.setVisible(false);
+            sprite.setScaleX(startNode.getScaleX());
+            sprite.setScaleY(startNode.getScaleY());
 
             var scale = (player._cardFirstTurn.getContentSize().width * player._cardFirstTurn.getScaleY())
                 / sprite.getContentSize().width;
-            if (scale !== 0) scale /= 1.5;
+            scale *= this._gameScene._layout.getScaleX();
 
             cc.log("FIRST TURN CARD SCALE", player._index, scale);
             cc.log("FIRST TURN CARD WIDTH",
@@ -106,39 +224,70 @@ var LayerEffect2D = cc.Layer.extend({
                 sprite.getContentSize().width
             );
 
-            var moveTime = 0.35;
-            var flipTime = 0.25;
+            var multiplier = 1;
+            var moveTime = 0.35 * multiplier;
+            var flipTime = 0.25 * multiplier;
+            var delayTime = 0.05 * player._index;
             var pos = player._cardFirstTurn.convertToWorldSpaceAR(cc.p(0, 0));
+            try {
+                var rotateAct = cc.rotateTo(moveTime, vec3(0, 0, 0));
+            } catch (e) {
+                var rotateAct = cc.rotateTo(moveTime, 0);
+            }
             var actionSpawn = cc.spawn(
-                cc.moveTo(moveTime, pos),
-                cc.scaleTo(moveTime, scale)
+                cc.show(),
+                cc.moveTo(moveTime, pos).easing(cc.easeOut(2)),
+                cc.scaleTo(moveTime, scale),
+                rotateAct
             );
             sprite.runAction(cc.sequence(
+                cc.delayTime(delayTime),
                 actionSpawn,
                 cc.scaleTo(flipTime, 0, scale),
-                cc.removeSelf()
+                cc.callFunc(function (cardDeal) {
+                    this.removeCardDeal(cardDeal);
+                }.bind(this, sprite))
             ));
 
-            player._cardFirstTurn.setVisible(true);
-            player._cardFirstTurn.setScaleX(0);
             player._cardFirstTurn.runAction(cc.sequence(
-                cc.delayTime(moveTime + flipTime),
-                cc.scaleTo(flipTime, player._cardFirstTurn.getScaleY())
+                cc.delayTime(moveTime + delayTime + flipTime),
+                cc.scaleTo(flipTime, player._cardFirstTurn.getScaleY()).easing(cc.easeOut(2)),
+                cc.delayTime(0.5),
+                cc.spawn(
+                    cc.tintTo(0.1, isFirst? cc.color("#ffffff") : cc.color("#696969")),
+                    cc.scaleTo(0.25, player._cardFirstTurn.getScaleY() * (isFirst? bigScale : 1)).easing(cc.easeBackOut()),
+                    cc.moveBy(0.25, cc.p(0, (isFirst? moveUp : 0))).easing(cc.easeBackOut())
+                )
             ));
+            return moveTime + flipTime * 1.5;
         }
+        return 0;
     },
 
     playCards: function (cards) {
         cards.sort(function (a, b) {
             return a.id - b.id;
         });
+
+        if (cards.length >= 3) {
+            var lastCard = new Card(cards[cards.length - 1].id);
+            var closeCard = new Card(cards[cards.length - 2].id);
+            if (lastCard._quanbai === 14 && closeCard._quanbai !== 13) {
+                cards.sort(function (a, b) {
+                    if (Math.floor(a.id / 4) === 14) return -1;
+                    if (Math.floor(b.id / 4) === 14) return 1;
+                    return a.id - b.id;
+                });
+            }
+        }
+
         var poss = this.generatePos(cards);
 
         var deltaX = (0.5 - Math.random()) * 15;
         var deltaY = (0.5 - Math.random()) * 15;
         var rotation = (0.5 - Math.random()) * 10;
 
-        var timeMove = 0.4;
+        var timeMove = 0.3;
         var timeDelay = 0.15;
         var scale = this._gameScene._layout.getScaleX();
         var scaleBig = 1.25;
@@ -146,21 +295,21 @@ var LayerEffect2D = cc.Layer.extend({
         var cardId = [];
         for (var i = 0; i < cards.length; i ++) cardId.push(cards[i].id);
         var strongCards = cards.length > 2 || GameHelper.checkAPig(cardId);
-        var isMulti = cards.length > 3;
+        var isMulti = false;
 
         var firstEase;
         var secondEase;
         if (strongCards) {
-            firstEase = cc.easeBackOut();
+            firstEase = cc.easeOut(1);
             secondEase = cc.easeIn(3);
             scaleBig = 1.8;
         } else {
-            firstEase = cc.easeIn(2);
-            secondEase = cc.easeOut(2);
+            firstEase = cc.easeOut(1);
+            secondEase = cc.easeIn(1);
         }
 
         for (var i = 0; i < poss.length; i++) {
-            var sam = new SamCard(cards[i].id);
+            var sam = this.getCard(cards[i].id);
             sam.setPosition(cc.p(cards[i].x, cards[i].y));
             sam.setScale(scale * cards[i].scale);
             var actionArray = [];
@@ -168,6 +317,7 @@ var LayerEffect2D = cc.Layer.extend({
             var posFinal;
             var firstRotation;
             var secondRotation;
+            var rotateAct;
 
             if (strongCards) {
                 posMid = cc.p(poss[i].x, poss[i].y - 25);
@@ -181,8 +331,8 @@ var LayerEffect2D = cc.Layer.extend({
                 posFinal = cc.p(poss[i].x, poss[i].y);
             } else {
                 firstRotation = poss[i].alpha;
-                secondRotation = poss[0].alpha + rotation;
-                posFinal = cc.p(poss[0].x + deltaX, poss[0].y + deltaY);
+                secondRotation = poss[Math.round(poss.length / 2)].alpha + rotation;
+                posFinal = cc.p(poss[Math.round(poss.length / 2)].x + deltaX, poss[Math.round(poss.length / 2)].y + deltaY);
             }
 
             //Move cards
@@ -191,29 +341,39 @@ var LayerEffect2D = cc.Layer.extend({
                 cc.scaleTo(timeMove / 2, scale * scaleBig).easing(cc.easeBackOut()),
                 cc.rotateTo(timeMove / 2, firstRotation)
             ];
-            if (i === 0) arrMove.push(
+            if (i === 0) actionArray.push(
                 cc.callFunc(function () {
-                    gameSound.playCardPlay();
+                    // gameSound.playCardPlay();
                 })
             );
             actionArray.push(cc.spawn(arrMove));
 
             //Drop cards
             if (strongCards) actionArray.push(cc.delayTime(timeDelay));
+            try {
+                rotateAct = cc.rotateTo(timeMove / 2, vec3(45 + rotation, 0, secondRotation));
+            } catch (e) {
+                rotateAct = cc.rotateTo(timeMove / 2, secondRotation);
+            }
             var arrDrop = [
                 cc.moveTo(timeMove / 2, posFinal).easing(secondEase),
                 cc.scaleTo(timeMove / 2, scale).easing(cc.easeIn(3)),
-                cc.rotateTo(timeMove / 2, vec3(45 + rotation, 0, secondRotation))
+                rotateAct
             ]
             actionArray.push(cc.spawn(arrDrop));
 
             //Card bouncing
+            try {
+                rotateAct = cc.rotateTo(0.05, vec3(0, 0, secondRotation)).easing(cc.easeOut(2));
+            } catch (e) {
+                rotateAct = cc.rotateTo(0.05, secondRotation).easing(cc.easeOut(2));
+            }
             var arrBounce = [
                 cc.scaleTo(0.1, scale * 1.05).easing(cc.easeOut(2)),
-                cc.rotateTo(0.05, vec3(0, 0, secondRotation)).easing(cc.easeOut(2)),
-                cc.moveTo(0.1, posFinal.x + deltaX, posFinal.y + deltaY).easing(cc.easeOut(2)),
+                rotateAct,
+                cc.moveTo(0.1, posFinal.x + deltaX, posFinal.y + deltaY).easing(cc.easeOut(2))
             ];
-            if (i === 0) arrBounce.push(
+            if (i === 0) actionArray.push(
                 cc.callFunc(function () {
                     gameSound.playCardDrop(this.length > 3);
                 }.bind(cards))
@@ -230,7 +390,7 @@ var LayerEffect2D = cc.Layer.extend({
                     cc.moveTo(i * timeCardMove, poss[i].x + deltaX, poss[i].y + deltaY).easing(cc.easeBackOut()),
                     cc.rotateTo(i * timeCardMove, poss[i].alpha + rotation).easing(cc.easeBackOut()),
                 ];
-                if (i === 0) arrSlide.push(
+                if (i === 0) actionArray.push(
                     cc.callFunc(function () {
                         gameSound.playCardSlide();
                     })
@@ -239,23 +399,21 @@ var LayerEffect2D = cc.Layer.extend({
             }
 
             sam.runAction(cc.sequence(actionArray));
+            sam.setLocalZOrder(this.cardDanh.length + 1);
             this.cardDanh.push(sam);
-            this.addChild(sam);
         }
     },
 
     addRecentBai: function (cards) {
         var poss = this.generatePos(cards);
+        var scale = this._gameScene._layout.getScaleX();
         this.cardDanh = [];
         for (var i = 0; i < poss.length; i++) {
-            var sam = new SamCard(cards[i]);
+            var sam = this.getCard(cards[i]);
             sam.setPosition(cc.p(poss[i].x, poss[i].y));
             sam.setRotation(poss[i].alpha);
-            //var action = cc.spawn(cc.moveTo(.25,cc.p(poss[i].x,poss[i].y)),cc.rotateTo(.25,poss[i].alpha));
-            //var action2 = cc.sequence(cc.scaleTo(.125,1.35),cc.scaleTo(.125,1));
-            //sam.runAction(cc.sequence(cc.delayTime(i *.075),cc.spawn(new cc.EaseOut(action,1.5),action2)));
+            sam.setScale(scale);
             this.cardDanh.push(sam);
-            this.addChild(sam);
         }
     },
 
@@ -268,7 +426,7 @@ var LayerEffect2D = cc.Layer.extend({
                         this.cardDanh[i].runAction(
                             cc.sequence(
                                 cc.fadeOut(.1),
-                                cc.removeSelf()
+                                cc.callFunc(this.returnCard.bind(this, this.cardDanh[i]))
                             ));
                     }
                 } catch (e) {
@@ -280,15 +438,17 @@ var LayerEffect2D = cc.Layer.extend({
     },
 
     darkenPlayedCards: function () {
-        var color = cc.color(200, 200, 200);
+        var color = cc.color("#bebebe");
         if (this.cardDanh && this.cardDanh.length) {
-            for (var i = 0; i < this.cardDanh.length; i++) {
+            for (var i = this.cardDanh.length; i >= 0; i--) {
                 try {
                     if (this.cardDanh[i]) {
                         if (this.cardDanh[i].getColor() !== color) {
                             this.cardDanh[i].runAction(
-                                cc.tintTo(.1, color)
+                                cc.tintTo(.25, color)
                             );
+                        } else {
+                            break;
                         }
                     }
                 } catch (e) {
@@ -305,6 +465,19 @@ var LayerEffect2D = cc.Layer.extend({
         this.effects = [];
     },
 
+    clearAll: function () {
+        this.clearEffect();
+
+        var all = this.getChildren();
+        for (var i = 0; i < all.length; i++) {
+            if (!all[i] instanceof SamCard && all[i].getTag() !== LayerEffect2D.KEEPING_NODE) {
+                all[i].removeFromParent(true);
+            } else {
+                all[i].setVisible(false);
+            }
+        }
+
+    },
 
     generatePos: function (cards) {
         var length = cards.length;
@@ -314,27 +487,30 @@ var LayerEffect2D = cc.Layer.extend({
         var deltaAlpha = 10;
 
         var startX = cc.winSize.width / 2 - deltaX * ((length - 1) / 2.25);
-        var startY = cc.winSize.height / 2 + 60;
+        var startY = cc.winSize.height / 2 + 50 - (cards.length - 1) * 2;
         var startAlpha = -deltaAlpha * ((length - 1) / 1.7);
         var result = [];
 
-        var orgNode = new cc.Node();
+        var orgNode = this.orgNode;
         orgNode.setPosition(cc.p(startX, startY));
         orgNode.setRotation(startAlpha);
-        this.addChild(orgNode);
         var tmp = {
             x: orgNode.x,
             y: orgNode.y,
-            alpha: orgNode.getRotation()
+            alpha: startAlpha
         }
         result.push(tmp);
 
         var lastNode = orgNode;
         for (var i = 1; i < length; i++) {
-            var tempNode = new cc.Node();
+            var tempNode = lastNode.getChildByTag(LayerEffect2D.KEEPING_NODE);
+            if (!tempNode) {
+                tempNode = new cc.Node();
+                lastNode.addChild(tempNode);
+            }
+            tempNode.setTag(LayerEffect2D.KEEPING_NODE);
             tempNode.setPosition(cc.p(deltaX, -deltaY));
             tempNode.setRotation(deltaAlpha);
-            lastNode.addChild(tempNode);
 
             var position = lastNode.convertToWorldSpace(tempNode.getPosition());
             tmp = {
@@ -348,37 +524,6 @@ var LayerEffect2D = cc.Layer.extend({
         }
         cc.log("RESULT", JSON.stringify(result));
         return result;
-
-        // if (length % 2 === 0) {
-        //     for (var i = (length / 2 - 1); i >= 0; i--) {
-        //         var tmp = {
-        //             x: (startX - deltaX / 2 - i * deltaX),
-        //             y: (startY - deltaY / 2 - deltaY * i),
-        //             alpha: (startAlpha - deltaAlpha / 2 - deltaAlpha * i)
-        //         }
-        //         result.push(tmp);
-        //     }
-        //     for (var i = 0; i < (length / 2); i++) {
-        //         var tmp = {
-        //             x: (startX + deltaX / 2 + i * deltaX),
-        //             y: (startY - deltaY / 2 - deltaY * i),
-        //             alpha: (startAlpha + deltaAlpha / 2 + deltaAlpha * i)
-        //         }
-        //         result.push(tmp);
-        //     }
-        //     return result;
-        // } else {
-        //     for (var i = (Math.floor(length / 2)); i >= 1; i--) {
-        //         var tmp = {x: (startX - i * deltaX), y: (startY - deltaY * i), alpha: (startAlpha - deltaAlpha * i)}
-        //         result.push(tmp);
-        //     }
-        //     result.push({x: startX, y: startY - deltaY / 2, alpha: 0})
-        //     for (var i = 1; i <= (Math.floor(length / 2)); i++) {
-        //         var tmp = {x: (startX + i * deltaX), y: (startY - deltaY * i), alpha: (startAlpha + deltaAlpha * i)}
-        //         result.push(tmp);
-        //     }
-        //     return result;
-        // }
     },
 
     sapxepForPlayer: function (player) {
@@ -393,7 +538,6 @@ var LayerEffect2D = cc.Layer.extend({
 
         var sceneScale = this._gameScene._layout.getScaleX();
         var originalCards = player.sapxep();
-        this._gameScene.updateBanCards(!this._gameScene.btnPass.isVisible());
         var sortedCards = [];
         for (var i = 0; i < player._handOnCards.length; i++) {
             player._handOnCards[i].forceDOWN();
@@ -403,12 +547,11 @@ var LayerEffect2D = cc.Layer.extend({
 
         var _2dCards = [];
         for (var i = 0; i < originalCards.length; i++) {
-            var card = new SamCard(originalCards[i]._id);
+            var card = this.getCard(originalCards[i]._id);
             var pos = player._handOnCards[i].convertToWorldSpaceAR(cc.p(0, 0));
             card.setPosition(this.convertToNodeSpace(pos));
             card.setLocalZOrder(i);
             card.setScale(sceneScale);
-            this.addChild(card);
             _2dCards.push(card);
         }
 
@@ -442,32 +585,33 @@ var LayerEffect2D = cc.Layer.extend({
             theOldSam.removeFromParent(true);
         }
 
-        var samResult = new CustomSkeleton("Animation/resultSam", "skeleton", 1);
+        var samResult = new CustomSkeleton("Animation/resultSam", "skeleton");
         samResult.setScale(this._gameScene._layout.getScaleX());
         samResult.setPosition(cc.p(cc.winSize.width / 2, cc.winSize.height * (1 / 3)));
         samResult.setTag(LayerEffect2D.SAM_EFFECT_TAG);
         samResult.setVisible(false);
+        samResult.setLocalZOrder(100);
         samResult.idle = idle;
         samResult.action = action;
         this.addChild(samResult);
 
         samResult.runAction(cc.sequence(
-            cc.delayTime(samResult.getDuration(action) + 2),
-            cc.callFunc(function () {
-                samResult.setAnimation(0, samResult.idle, -1);
-            }.bind(samResult)),
+            cc.delayTime(PlayerView.TIME_RESULT_LASTCARD),
             cc.callFunc(function () {
                 this._gameScene._effect2D.clearBaiDanh();
-            }.bind(this))
-        ).repeatForever());
-
-        samResult.runAction(cc.sequence(
-            cc.delayTime(2),
+            }.bind(this)),
             cc.callFunc(function () {
                 samResult.setVisible(true);
                 samResult.setAnimation(0, samResult.action, -1);
             }.bind(samResult)),
-            cc.delayTime(1),
+            cc.delayTime(samResult.getDuration(action)),
+            cc.callFunc(function () {
+                samResult.setAnimation(0, samResult.idle, -1);
+            }.bind(samResult))
+        ).repeatForever());
+
+        samResult.runAction(cc.sequence(
+            cc.delayTime(PlayerView.TIME_RESULT_ANIMATION),
             cc.spawn(
                 cc.scaleTo(0.5, 0).easing(cc.easeBackIn()),
                 cc.fadeOut(0.5)
@@ -514,67 +658,7 @@ var LayerEffect2D = cc.Layer.extend({
         return effect;
     },
 
-    toitrang: function (type, pos, handOnCards, enemy, enemyCards) {
-        var center = cc.p(cc.winSize.width / 2, cc.winSize.height / 2);
-        this.rect = cc.rect(center.x - 185, center.y + 20, 300, 200);
-        var time = 0;
-
-        if (!enemy) {
-            for (var i = 0; i < handOnCards.length; i++) {
-                var card = new SamCard(handOnCards[i]._id);
-                this.addChild(card);
-                card.setPosition(handOnCards[i].convertToWorldSpaceAR(cc.p(.5, .5)));
-                card.runAction(cc.sequence(cc.delayTime(time += .065), new cc.EaseExponentialOut(cc.spawn(cc.scaleTo(.25, .75), cc.moveTo(.25, cc.p(center.x - 110 + 25 * i, pos.y + 10))))));
-
-                handOnCards[i].runAction(cc.sequence(cc.delayTime(time), cc.hide()));
-            }
-
-        } else {
-            for (var i = 0; i < enemyCards.length; i++) {
-                var card = new SamCard(enemyCards[i]);
-                this.addChild(card);
-                card.setPosition(enemy.convertToWorldSpaceAR(cc.p(.5, .5)));
-                card.setScale(.75);
-                card.runAction(cc.sequence(cc.delayTime(time += .065), new cc.EaseExponentialOut(cc.spawn(cc.scaleTo(.25, .75), cc.moveTo(.25, cc.p(center.x - 110 + 25 * i, pos.y + 10))))));
-                enemy.setVisible(false);
-            }
-
-        }
-
-
-        this.runAction(cc.sequence(cc.delayTime(.75), cc.callFunc(function () {
-            var effect = null;
-            switch (type) {
-                case 1: {
-                    effect = this.createAnimation("Samdinh");
-                    break;
-                }
-                case 2: {
-                    effect = this.createAnimation("Tuquyheo");
-                    break;
-                }
-                case 3: {
-                    effect = this.createAnimation("5Doi");
-                    break;
-                }
-                case 4: {
-                    effect = this.createAnimation("Dongmau");
-                    break;
-                }
-            }
-            if (!effect) return;
-            this.addChild(effect);
-            effect.setPosition(cc.p(pos.x, pos.y + 80));
-            effect.getAnimation().gotoAndPlay("1", -1, -1, 1);
-
-            this.runAction(cc.sequence(cc.delayTime(.35), cc.callFunc(function () {
-                this.addPhaohoa(this.rect);
-                gameSound.playFire1();
-            }.bind(this))).repeat(15));
-        }.bind(this))));
-    },
-
-    tuquy: function () {
+    tuquy: function (isDouble) {
         var effect = new CustomSkeleton("Animation/fourOfAKind", "skeleton", 0.8);
         if (!effect) return;
 
@@ -582,12 +666,12 @@ var LayerEffect2D = cc.Layer.extend({
         effect.setPosition(cc.p(cc.winSize.width / 2, cc.winSize.height * 0.8));
         effect.setVisible(false);
         effect.setLocalZOrder(10);
-        effect.skeleton.setTimeScale(1.5);
-
+        effect.setTimeScale(1.5);
+        effect.animationName = + isDouble? "doituquy" : "tuquy";
         effect.runAction(cc.sequence(
             cc.delayTime(0.75),
             cc.callFunc(function () {
-                this.setAnimation(1, "animation", 0);
+                this.setAnimation(1, this.animationName, 0);
             }.bind(effect)),
             cc.show(),
             cc.delayTime(5),
@@ -612,25 +696,27 @@ var LayerEffect2D = cc.Layer.extend({
         );
         cc.log("SHAKE EFX", JSON.stringify(scale), JSON.stringify(posMorph), JSON.stringify(controller.defaultPos), JSON.stringify(cc.winSize));
 
-        controller.runAction(cc.sequence(
-            cc.delayTime(0.75),
-            cc.spawn(
-                cc.scaleTo(0.25, scaleMorph).easing(cc.easeOut(5)),
-                cc.rotateTo(0.25,
-                    vec3(
-                        (1 - 2 * Math.random()) * rotVar,
-                        (1 - 2 * Math.random()) * rotVar,
-                        0
-                    )
-                ).easing(cc.easeOut(5)),
-                cc.moveTo(0.25, posMorph).easing(cc.easeOut(5))
-            ),
-            cc.spawn(
-                cc.scaleTo(0.5, 1).easing(cc.easeBounceOut()),
-                cc.rotateTo(0.5, vec3(0, 0, 0)).easing(cc.easeBounceOut()),
-                cc.moveTo(0.5, controller.defaultPos).easing(cc.easeBounceOut())
-            )
-        ));
+        try {
+            controller.runAction(cc.sequence(
+                cc.delayTime(0.75),
+                cc.spawn(
+                    cc.scaleTo(0.25, scaleMorph).easing(cc.easeOut(5)),
+                    cc.rotateTo(0.25,
+                        vec3(
+                            (1 - 2 * Math.random()) * rotVar,
+                            (1 - 2 * Math.random()) * rotVar,
+                            0
+                        )
+                    ).easing(cc.easeOut(5)),
+                    cc.moveTo(0.25, posMorph).easing(cc.easeOut(5))
+                ),
+                cc.spawn(
+                    cc.scaleTo(0.5, 1).easing(cc.easeBounceOut()),
+                    cc.rotateTo(0.5, vec3(0, 0, 0)).easing(cc.easeBounceOut()),
+                    cc.moveTo(0.5, controller.defaultPos).easing(cc.easeBounceOut())
+                )
+            ));
+        } catch (e) {}
     },
 
     multiPlayEffect: function (type) {
@@ -640,7 +726,7 @@ var LayerEffect2D = cc.Layer.extend({
         var nodeEfx = new cc.Node();
         nodeEfx.setPosition(cc.p(cc.winSize.width / 2, cc.winSize.height * 0.81));
         nodeEfx.setScale(0.9);
-        this.addChild(nodeEfx);
+        this.addChild(nodeEfx, 1);
 
         nodeEfx.runAction(cc.sequence(
             cc.delayTime(timeMove * 4 + delayTime),
@@ -743,6 +829,7 @@ var LayerEffect2D = cc.Layer.extend({
 
         this.effects.push(effect);
     },
+
     addPhaohoa: function (rect) {
         var rdeffect = Math.floor(Math.random() * 3) + 1;
         if (rdeffect >= 4) rdeffect = 3;
@@ -759,6 +846,7 @@ var LayerEffect2D = cc.Layer.extend({
         target.setVisible(visible);
         target.runAction(cc.sequence(cc.delayTime(delay), cc.show(), new cc.EaseExponentialOut(cc.bezierTo(time, config)), cc.delayTime(1), cc.removeSelf()));
     },
+
     moneyFly: function (posSrc, posDst, time, delay, visible) {
         var rdChip = Math.floor(Math.random() * 6 + 1);
         if (rdChip > 6) rdChip = 6;
@@ -778,6 +866,7 @@ var LayerEffect2D = cc.Layer.extend({
         var moveTime = 0.2;
         var deltaTime = 0.01;
         var showTime = 0.4;
+        var fadeOutTime = 0.25;
 
         var scale = this._gameScene._layout.getScaleX();
 
@@ -786,15 +875,15 @@ var LayerEffect2D = cc.Layer.extend({
         this.addChild(efxNode);
         this.effects.push(efxNode);
         efxNode.runAction(cc.sequence(
-            cc.delayTime(3.5),
-            cc.fadeOut(0.25)
+            cc.delayTime(PlayerView.TIME_RESULT_ANIMATION),
+            cc.fadeOut(fadeOutTime)
         ));
 
         var name = type === GameLayer.END_TYPE_WIN_SAM_DINH? "royalFlush" : "others";
 
-        var animBg = new sp.SkeletonAnimation("Animation/toiTrang/" + name + ".json", "Animation/toiTrang/skeleton.atlas");
+        var animBg = new CustomSkeleton("Animation/toiTrang", name, 1, "skeleton");
         animBg.setVisible(false);
-        animBg.setLocalZOrder(-1);
+        animBg.setLocalZOrder(0);
         animBg.setScale(scale);
         animBg.setPosition(cc.p(cc.winSize.width / 2, cc.winSize.height / 2 - 50));
         efxNode.addChild(animBg);
@@ -804,15 +893,15 @@ var LayerEffect2D = cc.Layer.extend({
                 anim.setVisible(true);
                 anim.setAnimation(1, "animation_back", 0);
             }, animBg),
-            cc.delayTime(animBg.findAnimation("animation_back").duration),
+            cc.delayTime(animBg.getDuration("animation_back")),
             cc.callFunc(function (anim) {
                 anim.setAnimation(1, "idle_back", -1);
             }, animBg)
         ));
 
-        var animTop = new sp.SkeletonAnimation("Animation/toiTrang/" + name + ".json", "Animation/toiTrang/skeleton.atlas");
+        var animTop = new CustomSkeleton("Animation/toiTrang", name, 1, "skeleton");
         animTop.setVisible(false);
-        animTop.setLocalZOrder(1);
+        animTop.setLocalZOrder(cards.length + 1);
         animTop.setScale(scale);
         animTop.setPosition(cc.p(cc.winSize.width / 2, cc.winSize.height / 2 - 50));
         efxNode.addChild(animTop);
@@ -822,7 +911,7 @@ var LayerEffect2D = cc.Layer.extend({
                 anim.setVisible(true);
                 anim.setAnimation(1, "animation_top_" + type, 0);
             }, animTop, type),
-            cc.delayTime(animTop.findAnimation("animation_top_" + type).duration),
+            cc.delayTime(animTop.getDuration("animation_top_" + type)),
             cc.callFunc(function (anim, type) {
                 anim.setAnimation(1, "idle_top_" + type, -1);
             }, animTop, type)
@@ -832,14 +921,18 @@ var LayerEffect2D = cc.Layer.extend({
             return a.id - b.id;
         });
         var pos = this.generatePos(cards);
+        var scaleLeave = cc.scaleTo(moveTime, 0, scale);
 
         for (var i = 0; i < pos.length; i++) {
-            var sam = new SamCard(cards[i].id);
+            var sam = this.getCard(cards[i].id);
             sam.setPosition(cc.p(cards[i].x, cards[i].y));
             sam.setScale(scale);
+            sam.retain();
+            sam.removeFromParent();
+            sam.setLocalZOrder(i + 1);
             efxNode.addChild(sam);
 
-            pos[i].y -= 50;
+            pos[i].y -= 25;
 
             var actionArray = [];
             actionArray.push(cc.delayTime(i * deltaTime));
@@ -847,18 +940,18 @@ var LayerEffect2D = cc.Layer.extend({
             if (isMe) {
                 var aLeaveHand = cc.spawn(
                     cc.moveTo(moveTime, cc.p(cards[i].x, cards[i].y - sam.height * scale)).easing(cc.easeBackIn()),
-                    cc.scaleTo(moveTime, 0, scale)
+                    scaleLeave.clone()
                 );
                 actionArray.push(aLeaveHand);
             } else {
                 sam.setVisible(false);
             }
 
-            var aHide = cc.spawn(
-                cc.moveTo(0, cc.p(pos[i].x, pos[i].y)).easing(cc.easeBackOut()),
-                cc.scaleTo(0, 0),
-                cc.rotateTo(0, pos[i].alpha)
-            );
+            var aHide = cc.callFunc(function (pos) {
+                this.setPosition(cc.p(pos.x, pos.y));
+                this.setScale(0);
+                this.setRotation(pos.alpha);
+            }.bind(sam, pos[i]));
             actionArray.push(aHide);
 
             var aChange = cc.callFunc(function () {
@@ -872,8 +965,96 @@ var LayerEffect2D = cc.Layer.extend({
             actionArray.push(aShow);
 
             sam.runAction(cc.sequence(actionArray));
+            sam.runAction(cc.sequence(
+                cc.delayTime(PlayerView.TIME_RESULT_ANIMATION + fadeOutTime),
+                cc.callFunc(this.returnCardToiTrang.bind(this, sam))
+            ));
         }
     },
+
+    effectPigs: function () {
+        var delayTime = 0.4;
+
+        var efxNode = cc.Node();
+        efxNode.setCascadeOpacityEnabled(true);
+        efxNode.setLocalZOrder(this.cardDanh.length);
+        this.addChild(efxNode);
+        this.effects.push(efxNode);
+
+        var scale = this._gameScene._layout.getScaleX();
+        var pos = cc.p(cc.winSize.width / 2, cc.winSize.height / 2 + 50);
+        var action = cc.sequence(
+            cc.delayTime(delayTime),
+            cc.spawn(
+                cc.fadeIn(0.1),
+                cc.scaleTo(0.1, scale)
+            ),
+            cc.spawn(
+                cc.fadeOut(0.75).easing(cc.easeIn(2)),
+                cc.scaleTo(0.5, scale * 0.85).easing(cc.easeIn(2)),
+                cc.rotateBy(0.75, Math.random() < 0.5? 1.5 : -1.5)
+            )
+        );
+
+        var glow_harsh = new cc.Sprite("Animation/pig/glow_harsh.png");
+        glow_harsh.setBlendFunc(cc.DST_COLOR, cc.ONE);
+        glow_harsh.setPosition(pos);
+        glow_harsh.setScale(scale * 0.5);
+        glow_harsh.setOpacity(0);
+        glow_harsh.setRotation(Math.random() * 360);
+        glow_harsh.runAction(action.clone());
+
+        var explosion = new cc.Sprite("Animation/pig/explosion.png");
+        explosion.setPosition(pos);
+        explosion.setScale(scale * 0.5);
+        explosion.setOpacity(0);
+        explosion.setRotation(Math.random() * 360);
+        explosion.runAction(action.clone());
+
+        //The dot
+        var listParticle = [];
+        var number = 10;
+        for (var i = 0; i < number; i++) {
+            var dot = new cc.Sprite("Animation/pig/dot.png");
+            dot.setScale(0.75 + Math.random() * 0.75);
+            dot.setColor(cc.color("#ffffff"));
+            dot.setBlendFunc(cc.ONE, cc.ONE_MINUS_SRC_ALPHA);
+            listParticle.push(dot);
+            efxNode.addChild(dot);
+        }
+
+        for (var i = 0; i < listParticle.length; i++) {
+            var time = 0.7 + Math.random() * 0.2;
+            var img = listParticle[i];
+            var destination = cc.p(
+                (Math.random() < 0.5? 1 : -1) * (Math.random() * 200),
+                (Math.random() < 0.5? 1 : -1) * (Math.random() * 200)
+            );
+            var distance = Math.sqrt(destination.x * destination.x + destination.y * destination.y);
+            var multiplier = (75 + Math.random() * 50) / distance;
+            img.setPosition(pos);
+            img.setRotation(Math.random() * 360);
+            img.setOpacity(0);
+            img.runAction(cc.sequence(
+                cc.tintTo(0.2 + Math.random() * 0.05, cc.color("#737373")).easing(cc.easeIn(5)),
+                cc.tintTo(0.2 + Math.random() * 0.05, cc.color("#ffffff")).easing(cc.easeOut(25))
+            ).repeatForever());
+            img.runAction(cc.sequence(
+                cc.delayTime(delayTime),
+                cc.fadeIn(0.1),
+                cc.spawn(
+                    cc.moveBy(time / multiplier, destination.x * multiplier, destination.y * multiplier).easing(cc.easeOut(25)),
+                    cc.fadeOut(Math.min(1, time / multiplier)),
+                    cc.scaleTo(Math.min(1, time / multiplier), 0.01),
+                    cc.rotateBy(time / multiplier, Math.random() < 0.5? 90 : -90).easing(cc.easeOut(25))
+                )
+            ));
+        }
+
+        efxNode.addChild(glow_harsh);
+        efxNode.addChild(explosion);
+    }
 });
-LayerEffect2D.CARD_BACK = "GameGUI/cardBack.png";
+LayerEffect2D.CARD_BACK = "#cardBack.png";
 LayerEffect2D.SAM_EFFECT_TAG = 115;
+LayerEffect2D.KEEPING_NODE = 116;

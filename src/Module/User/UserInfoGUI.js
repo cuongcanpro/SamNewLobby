@@ -395,27 +395,23 @@ var UserInfoPanel = BaseLayer.extend({
     setInfo: function(inf) {
         cc.log("SET USER INFO", JSON.stringify(inf));
         this._user = inf;
-        if (!this._user.zName)
-            this._user.zName = this._user.displayName;
-        if (!this._user.uID)
-            this._user.uID = this._user.uId;
 
         try{
-            this.avatar.asyncExecuteWithUrl(this._user.uID, this._user.avatar);
-            this.displayName.setString(this._user.displayName);
-            this.zName.setString(this._user.zName);
-            this.uID.setString(this._user.uID);
-            this.bean.setString(StringUtility.pointNumber(this._user.bean) + "$");
+            this.avatar.asyncExecuteWithUrl(this._user.getUID(), this._user.getAvatar());
+            this.displayName.setString(this._user.getDisplayName());
+            this.zName.setString(this._user.getUserName());
+            this.uID.setString(this._user.getUID());
+            this.bean.setString(StringUtility.pointNumber(this._user.getGold()) + "$");
 
-            this.winCount.setString(StringUtility.pointNumber(this._user.winCount));
-            this.lostCount.setString(StringUtility.pointNumber(this._user.lostCount));
+            this.winCount.setString(StringUtility.pointNumber(this._user.getWinCount()));
+            this.lostCount.setString(StringUtility.pointNumber(this._user.getLostCount()));
 
             this.tabs[UserInfoPanel.BTN_TAB_INFO].setVisible(true);
             var avatarFramePath = null;
-            if (this._user.uID == userMgr.getUID()) {
+            if (this._user.getUID() == userMgr.getUID()) {
                 cc.log("MY INFO");
                 this.bgImage.setAnchorPoint(cc.p(0.5, 0.5));
-                this.level.setString(levelMgr.getLevelString(this._user.level, this._user.levelExp));
+                this.level.setString(levelMgr.getLevelString(this._user.getLevel(), this._user.getLevelExp()));
                 this.btnAddFriend.setVisible(false);
                 this.btnRemoveFriend.setVisible(false);
                 this.btnSendMessage.setVisible(false);
@@ -428,7 +424,7 @@ var UserInfoPanel = BaseLayer.extend({
                 cc.log("OTHERS INFO");
                 this.bgImage.setAnchorPoint(cc.p(0.69, 0.5));
                 this.level.setString(this._user.level);
-                var isFriend = chatMgr.checkIsFriend(this._user.uID);
+                var isFriend = chatMgr.checkIsFriend(this._user.getUID());
                 this.btnAddFriend.setVisible(!isFriend);
                 this.btnRemoveFriend.setVisible(isFriend);
                 var scene = sceneMgr.getMainLayer();
@@ -438,8 +434,8 @@ var UserInfoPanel = BaseLayer.extend({
                 this.tabs[UserInfoPanel.BTN_TAB_INTERACT].setVisible(true);
                 this.btnClose.setVisible(false);
 
-                if (StorageManager.getInstance().cacheOtherAvatarId[this._user.uID] != null)
-                    avatarFramePath = StorageManager.getAvatarFramePath(StorageManager.getInstance().cacheOtherAvatarId[this._user.uID]);
+                if (StorageManager.getInstance().cacheOtherAvatarId[this._user.getUID()] != null)
+                    avatarFramePath = StorageManager.getAvatarFramePath(StorageManager.getInstance().cacheOtherAvatarId[this._user.getUID()]);
                 else
                     avatarFramePath = ""
             }
@@ -467,7 +463,7 @@ var UserInfoPanel = BaseLayer.extend({
 
         //load interact data
         this.loadInteractData();
-        this.btnTabInteract.setVisible(this._user.uID != userMgr.getUID());
+        this.btnTabInteract.setVisible(this._user.getUID() != userMgr.getUID());
         this.tbInteract.reloadData();
         //this.selectTab(this._user.uID == gamedata.userData.uID ? UserInfoPanel.BTN_TAB_INFO : UserInfoPanel.BTN_TAB_INTERACT);
     },
@@ -478,7 +474,7 @@ var UserInfoPanel = BaseLayer.extend({
         this.txtRank.setVisible(canJoinRank);
         this.pMedal.setVisible(canJoinRank);
         this.imgRank.setColor((canJoinRank) ? cc.color("#ffffff") : cc.color("#000000"));
-        var conditionKey = (this._user.uID === userMgr.getUID()) ? "NEW_RANK_MY_CONDITION" : "NEW_RANK_OTHER_CONDITION";
+        var conditionKey = (this._user.getUID() === userMgr.getUID()) ? "NEW_RANK_MY_CONDITION" : "NEW_RANK_OTHER_CONDITION";
         if (Config.ENABLE_TESTING_NEW_RANK || !Config.ENABLE_NEW_RANK) conditionKey = "NEW_RANK_COMING_SOON";
         var conditionStr = StringUtility.replaceAll(localized(conditionKey), "@number", NewRankData.MIN_LEVEL_JOIN_RANK);
         this.rankNotice.setString(conditionStr);

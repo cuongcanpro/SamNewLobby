@@ -18,32 +18,20 @@ var PlayerView = cc.Node.extend({
         this._moveCard = null;            // Card di chuyen effect
         this._cardFirstTurn = null;       // Card nhan khi quyet dinh turn di dau
         this._listener = null;
-        this._touchEnable = false;
-        this._touched = false;
 
         // infomation of player
         this._uiAvatar = null;               // avatar for player
         this.uID = "";
-        this.avatarURL = "";
         this._avatarTmp = null;               // avatar fix share image
         this._uiName = null;                  // name for player
         this._uiGold = null;                  // gold
         this._uiTimer = null;                 // timer progress
         this._type = 1;                       // 1-> enemy
-        this._sortedCards = kSort_Unkown;
+        this._sortedCards = kSort_Unknown;
 
         this._gameScene = gameScene;
-        this._enableTouch = true;
 
         this._levelResult = null;
-
-        this._listener = cc.EventListener.create({
-            event: cc.EventListener.TOUCH_ONE_BY_ONE,
-            swallowTouches: true,
-            onTouchBegan: this.onTouchBegan,
-            onTouchMoved: this.onTouchMoved,
-            onTouchEnded: this.onTouchEnded
-        });
     },
 
     setPanel: function (panel) {
@@ -53,16 +41,17 @@ var PlayerView = cc.Node.extend({
         this._panel.y += this._panel.height / 2;
         this._panel.defaultPos = this._panel.getPosition();
 
-        var avatar = new AvatarUI("Common/defaultAvatar.png", "GameGUI/bgAvatar.png", "");
-        panel.addChild(avatar);
-        avatar.setPosition(ccui.Helper.seekWidgetByName(panel, "btn").getPosition());
-        avatar.setLocalZOrder(1);
-        avatar.setScale(1.089);
-
         var mask = panel.getChildByName("mask");
-        var size = mask.getContentSize();
         this.mask = mask;
         this.mask.setLocalZOrder(2);
+
+        var avatar = new AvatarUI("Common/defaultAvatar_ingame.png", "GameGUI/player/bgAvatar.png", "");
+        mask.addChild(avatar);
+        avatar.setPosition(cc.p(this.mask.width / 2, this.mask.height / 2));
+        avatar.setLocalZOrder(-1);
+        avatar.setScale(1.05);
+        this._uiAvatar = avatar;
+        this._gameScene.logForIOS("DONE AVATAR");
 
         var vip = panel.getChildByName("vip");
         vip.ignoreContentAdaptWithSize(true);
@@ -79,6 +68,7 @@ var PlayerView = cc.Node.extend({
         this.vipParticle.setPosition(cc.p(this.vip.width / 2, this.vip.height / 2));
         this.vipParticle.setLocalZOrder(-1);
         this.vip.addChild(this.vipParticle);
+        this._gameScene.logForIOS("DONE VIP");
 
         this.avatarFrame = mask.getChildByName("frame");
         this.avatarFrame.setLocalZOrder(0);
@@ -88,8 +78,6 @@ var PlayerView = cc.Node.extend({
         this.view = mask.getChildByName("view");
 
         this._bg = panel.getChildByName("bg");
-
-        this._uiAvatar = avatar;
         this._uiName = ccui.Helper.seekWidgetByName(panel, "name");
         this._uiGold = ccui.Helper.seekWidgetByName(panel, "gold");
 
@@ -97,11 +85,6 @@ var PlayerView = cc.Node.extend({
         this.timer.orgPos = this.timer.getPosition();
         this.timerLabel = this.timer.getChildByName("label");
         this.timer.setVisible(false);
-        this.timer.eff = new CustomSkeleton("Animation/clock", "skeleton", 1);
-        this.timer.eff.setLocalZOrder(-1);
-        this.timer.eff.setScale(0.7);
-        this.timer.eff.setPosition(cc.p(this.timer.width / 2, this.timer.height / 2));
-        this.timer.addChild(this.timer.eff);
 
         this.passPanel = panel.getChildByName("passPanel");
         this.passPanel.setVisible(false);
@@ -114,17 +97,44 @@ var PlayerView = cc.Node.extend({
         this.baoPanel.setVisible(false);
         this.baoPanel.bao = this.baoPanel.getChildByName("bao");
         this.baoPanel.baoCancel = this.baoPanel.getChildByName("baoCancel");
-        this.baoPanel.baoCancelClear = this.baoPanel.getChildByName("baoCancelClear");
-
-        panel.getChildByName("demo").setVisible(false);
+        this.baoPanel.orgPos = this.baoPanel.bao.getPosition();
+        this.baoPanel.pos = this.baoPanel.getPosition();
+        this.baoPanelEfx = [];
 
         this.pEmo = ccui.Helper.seekWidgetByName(panel, "pEmo");
+        this.pDeco = this.pEmo;
 
-        this.result = panel.getChildByName("result");
+        this.lbExp = panel.getChildByName("lbExp");
+        this.lbExp.orgPos = this.lbExp.getPosition();
+        this.lbExp.setVisible(false);
+
+        this._card = panel.getChildByName("card");
+        this.baoOne = panel.getChildByName("baoOne");
+        this.baoOne.setVisible(true);
+        this.baoOne.orgPos = this.baoOne.getPosition();
+
+        this.darken = this.mask.getChildByName("darken");
+        this.darken.setVisible(false);
+        this.auto = this.mask.getChildByName("auto");
+        this.auto.eyes0 = this.auto.getChildByName("eyes0");
+        this.auto.eyes1 = this.auto.getChildByName("eyes1");
+        this.auto.setVisible(false);
+    },
+
+    initResult: function () {
+        cc.log("INITING RESULT", this._index);
+        var position = this._panel.getChildByName("result");
+        this.result = ccs.load("GameGUIPlayerResult.json").node;
+        this.result.setPosition(position.getPosition());
+        this.result.setScaleX(-1);
+        this._panel.addChild(this.result);
         this.resultLose = this.result.getChildByName("bgLose");
         this.resultLose.label = this.resultLose.getChildByName("label");
+        this.resultLose.labelToiTrang = this.resultLose.getChildByName("labelToiTrang");
         this.resultLose.lbGold = this.resultLose.getChildByName("lbGold");
         this.resultLose.lbGoldPos = this.resultLose.lbGold.getPosition();
+        this.resultLose.lbGoldToiTrang = this.resultLose.getChildByName("lbGoldToiTrang");
+        this.resultLose.lbGoldToiTrangPos = this.resultLose.lbGoldToiTrang.getPosition();
         this.resultLose.pCards = this.resultLose.getChildByName("cards");
         this.resultLose.cards = [];
         for (var i = 0; i < 10; i++)
@@ -134,39 +144,43 @@ var PlayerView = cc.Node.extend({
 
         this.resultWin = this.result.getChildByName("bgWin");
         this.resultWin.label = this.resultWin.getChildByName("label");
-        this.resultWin.eff = new CustomSkeleton("Animation/win", "skeleton", 1);
-        this.resultWin.eff.setScale(0.7);
-        this.resultWin.eff.setPosition(cc.p(this.resultWin.label.width / 2, this.resultWin.label.height / 2));
-        this.resultWin.label.addChild(this.resultWin.eff);
         this.resultWin.lbGold = this.resultWin.getChildByName("lbGold");
         this.resultWin.lbGoldPos = this.resultWin.lbGold.getPosition();
-        this.resultWin.fox = new CustomSkeleton("Animation/resultSam", "skeleton", 1);
-        this.resultWin.fox.setScale(0.45);
-        this.resultWin.fox.setPosition(cc.p(this.resultWin.label.x + this.resultWin.label.width, this.resultWin.label.y - 25));
-        this.resultWin.fox.setLocalZOrder(-1);
-        this.resultWin.addChild(this.resultWin.fox);
 
-        this.resultBlock = new CustomSkeleton("Animation/resultSam", "skeleton", 1);
+        this.resultWin.setVisible(false);
+        this.resultLose.setVisible(false);
+
+        if (this.isSwapped()) {
+            this.swapResultGUI();
+        }
+    },
+
+    initEffectResultBlock: function () {
+        if (!this.result) {
+            this.initResult();
+        }
+
+        this.resultBlock = new CustomSkeleton("Animation/resultSam", "skeleton");
         this.resultBlock.setScale(0.45);
+        this.resultBlock.setScaleX(-0.45);
         this.resultBlock.setPosition(cc.p(-165, 0));
         this.resultBlock.setLocalZOrder(-1);
         this.result.addChild(this.resultBlock);
 
-        this.lbExp = panel.getChildByName("lbExp");
-        this.lbExp.orgPos = this.lbExp.getPosition();
-
         this.resultBlock.setVisible(false);
-        this.resultWin.setVisible(false);
-        this.resultLose.setVisible(false);
-        this.lbExp.setVisible(false);
+    },
 
-        this._card = panel.getChildByName("card");
-        this.baoOne = panel.getChildByName("baoOne");
-        this.baoOne.setVisible(true);
-        this.baoOne.orgPos = this.baoOne.getPosition();
-        this.baoOne.eff = new CustomSkeleton("Animation/bao", "skeleton", 1);
-        this.baoOne.eff.setPosition(cc.p(this.baoOne.width / 2, 25));
-        this.baoOne.addChild(this.baoOne.eff);
+    initEffectResultWin: function () {
+        this.resultWin.eff = new CustomSkeleton("Animation/win", "skeleton");
+        this.resultWin.eff.setScale(0.7);
+        this.resultWin.eff.setPosition(cc.p(this.resultWin.label.width / 2, this.resultWin.label.height / 2));
+        this.resultWin.label.addChild(this.resultWin.eff);
+
+        this.resultWin.fox = new CustomSkeleton("Animation/resultSam", "skeleton");
+        this.resultWin.fox.setScale(0.45);
+        this.resultWin.fox.setPosition(cc.p(this.resultWin.label.x + this.resultWin.label.width, this.resultWin.label.y - 25));
+        this.resultWin.fox.setLocalZOrder(-1);
+        this.resultWin.addChild(this.resultWin.fox);
     },
 
     swapSide: function (control) {
@@ -178,160 +192,77 @@ var PlayerView = cc.Node.extend({
         this.result.setScaleX(- this.result.getScaleX());
 
         this.resultLose.label.setScaleX(-1);
+        this.resultLose.labelToiTrang.setScaleX(-1);
         this.resultLose.pCards.setScaleX(-1);
         this.resultLose.lbStamp.setScaleX(-1);
 
-        var lb = this.resultLose.lbGold;
+        this.swapLabel(this.resultLose.lbGold);
+        this.swapLabel(this.resultLose.lbGoldToiTrang);
+
+        this.resultWin.label.setScaleX(-1);
+        this.swapLabel(this.resultWin.lbGold);
+    },
+
+    swapLabel: function (lb) {
         var posX = lb.getPositionX();
         lb.setScaleX(-1);
         lb.setAnchorPoint(cc.p(1, 0.5));
         lb.setPositionX(posX);
+    },
 
-        this.resultWin.label.setScaleX(-1);
-
-        lb = this.resultWin.lbGold;
-        posX = lb.getPositionX();
-        lb.setScaleX(-1);
-        lb.setAnchorPoint(cc.p(1, 0.5));
-        lb.setPositionX(posX);
-        this.lbExp.setAnchorPoint(cc.p(1, 0.5));
-        this.lbExp.setTextHorizontalAlignment(cc.TEXT_ALIGNMENT_RIGHT);
-        this.swapSide(this.lbExp);
-        this.lbExp.orgPos = this.lbExp.getPosition();
+    swapBaoGUI: function () {
+        this.baoPanel.setScaleX(-1);
+        this.baoPanel.bao.getChildByName("lb").setScaleX(1);
+        this.baoPanel.baoCancel.getChildByName("lb").setScaleX(1);
     },
 
     isSwapped: function () {
         return (this._index === 1 || this._index === 2);
     },
 
-    initCards: function (cards) {
-        cc.log("INIT CARD " + JSON.stringify(cards));
-
-        var height = this._cardPanel.getContentSize().height;
-        for (var i = 0; i < cards.length; i++) {
-            var card = new SamCard(cards[i]);
-            card.addEfxBan();
-            card.setLocalZOrder(i);
-            card._startY = height / 2;
-            this._cardPanel.addChild(card);
-            this._handOnCards.push(card);
-        }
-
-        this.fixPositionHandOnCardForMy(true);
-    },
-
-    /* init for myPlayer */
-    initForMy: function (gameScene) {
-        if (!this._cardPanel) {
-            return;
-        }
-
-        this.setPosition(this._cardPanel.getPosition().x, this._cardPanel.getPosition().y);
-        this._cardPanel.setVisible(false);
-        this._index = 0;
-        cc.eventManager.addListener(this._listener, this);
-        this._touchEnable = true;
-        if (!this._moveCard) {
-            this._moveCard = new SamCard(60);
-            this._moveCard.setVisible(false);
-            this._moveCard.setOpacity(100);
-            this._moveCard.setLocalZOrder(20);
-            this._cardPanel.addChild(this._moveCard);
-        }
-        this._type = 0;
-
-        var width = this._cardPanel.getContentSize().width;
-        var height = this._cardPanel.getContentSize().height;
-        this._cardFirstTurn = new SamCard(60);
+    resetAction: function () {
+        this.removeResult(0, true);
+        this.removeBao1();
+        this.isBao = false;
+        this.clearBao(false, true);
+        this.clearBoluot();
+        this.stopEffectTime();
+        this.clearSmile();
+        this.autoing();
         this._cardFirstTurn.setVisible(false);
-        this._cardFirstTurn.setPosition(cc.p(width / 2, height / 2));
-        this._cardPanel.addChild(this._cardFirstTurn);
-
-        this.resultLose = this.result.getChildByName("bgLose");
-        this.resultLose.lbGold = this.resultLose.getChildByName("gold");
-        this.resultLose.label = this.resultLose.getChildByName("label");
-        this.resultLose.setVisible(false);
-
-        this.resultWin = this.result.getChildByName("bgWin");
-        this.resultWin.lbGold = this.resultWin.getChildByName("gold");
-        this.resultWin.lbGold.setLocalZOrder(1);
-        this.resultWin.label = this.resultWin.getChildByName("label");
-        this.resultWin.label.setLocalZOrder(1);
-        this.resultWin.eff = new CustomSkeleton("Animation/light", "skeleton", 1);
-        this.resultWin.eff.setPosition(this.resultWin.width / 2, this.resultWin.height / 2 + 5);
-        this.resultWin.eff.setScale(1.25);
-        this.resultWin.eff.skeleton.setTimeScale(1.5);
-        this.resultWin.addChild(this.resultWin.eff);
-        this.resultWin.setVisible(false);
-
-        this.timer = gameScene.getControl("timer");
-        this.timer.orgPos = this.timer.getPosition();
-        this.timerLabel = this.timer.getChildByName("label");
-        this.timer.setVisible(false);
-        this.timer.eff = new CustomSkeleton("Animation/clock", "skeleton", 1);
-        this.timer.eff.setLocalZOrder(-1);
-        this.timer.eff.setScale(1);
-        this.timer.eff.setPosition(cc.p(this.timer.width / 2, this.timer.height / 2));
-        this.timer.addChild(this.timer.eff);
-
-        this.vip.setAnchorPoint(cc.p(0, 0.5));
-        this.swapSide(this.vip);
-        this.vip.setPositionY(this._panel.getChildByName("card").getPositionY());
-
-        this.lbExp.orgPos.y += 25;
+        this.pLevel.setVisible(false);
     },
 
-    enableTouch: function (enable) {
-        this._enableTouch = enable;
-    },
+    initWithScene: function (gameScene, index) {
+        this._numCard = ccui.Helper.seekWidgetByName(this._card, "num");
+        this._type = Player.ENEMY;
+        this._index = index;
 
-    /* myPlayer ; fix position cards khi danh quan bai */
-    fixPositionHandOnCardForMy: function (immediately) {
-        if (this._handOnCards.length === 0)
-            return;
-
-        this._cardPanel.setVisible(true);
-        var width = this._cardPanel.getContentSize().width;
-        var height = this._cardPanel.getContentSize().height;
-        //this.setContentSize(cc.size(width, height));
-
-        var cardW = this._handOnCards[0].getContentSize().width;
-
-        var xx = (width - cardW) / 9;       // khoang cach giua 2 card
-
-        if ((this._handOnCards.length % 2) === 0) {
-            var idx = this._handOnCards.length / 2 - 1;
-            for (var i = idx; i >= 0; i--) {
-                this.cardToPosition(this._handOnCards[i], cc.p(width / 2 - xx / 2 - (idx - i) * xx, height / 2), immediately);
-            }
-            for (var i = idx + 1; i < this._handOnCards.length; i++) {
-                this.cardToPosition(this._handOnCards[i], cc.p(width / 2 + xx / 2 + (i - idx - 1) * xx, height / 2), immediately);
-            }
-        } else {
-            var idx = Math.floor(this._handOnCards.length / 2);
-            for (var i = idx; i >= 0; i--) {
-                this.cardToPosition(this._handOnCards[i], cc.p(width / 2 - (idx - i) * xx, height / 2), immediately);
-            }
-            for (var i = idx; i < this._handOnCards.length; i++) {
-                this.cardToPosition(this._handOnCards[i], cc.p(width / 2 + (i - idx) * xx, height / 2), immediately);
-            }
+        if (this.isSwapped()) {
+            this.swapSide(this._card);
+            this.vip.setAnchorPoint(cc.p(0, 0.5));
+            this.swapSide(this.vip);
+            this.swapSide(this.vip2);
+            this.swapSide(this.passPanel);
+            this.swapSide(this.timer);
+            this.swapSide(this.baoOne);
+            this.swapBaoGUI();
         }
-    },
+        this._gameScene.logForIOS("DONE SWAP");
 
-    cardToPosition: function (control, position, immediately) {
-        control.stopAllActions();
-        if
-            (immediately) control.setPosition(position);
-        else
-            control.runAction(cc.moveTo(0.25, position).easing(cc.easeBackOut()));
-    },
+        this._cardFirstTurn = new cc.Sprite(SamCard.getCardResource(52, true));
+        this._cardFirstTurn.setPosition(this._card.getPosition());
+        this._cardFirstTurn.setVisible(false);
+        this._panel.addChild(this._cardFirstTurn);
 
-    /* myPlayer ; fix position cards khi danh quan bai */
+        this.pLevel = this._panel.getChildByName("pLevel");
+        this.pLevel.removeAllChildren();
+        this._gameScene.logForIOS("DONE initWithScene");
+    },
 
     _chooseCard: null,
     _cardMoveTo: null,
     _firstOrEnd: false,
-    _needMove: false,
     _startPoint: cc.p(-1, -1),
     rect: function () {
         if (this._handOnCards.length == 0)
@@ -347,242 +278,6 @@ var PlayerView = cc.Node.extend({
         return cc.rect(pos.x, pos.y, width, height);
     },
 
-    onTouchBegan: function (touch, event) {
-        this.forceAllCardDown = false;
-        var target = event.getCurrentTarget();
-        var needTouch = true;
-        if (!cc.sys.isNative && touch.getID() === undefined) {
-            touch._id = 0;
-        }
-        for (var i = 0; i < target._handOnCards.length; i++) {
-            if (!target._handOnCards[i].isVisible()) {
-                needTouch = false;
-                break;
-            }
-        }
-
-        if (touch.getID() != 0 || !target._touchEnable || !needTouch) {
-            return false;
-        }
-
-        target._touched = true;
-        target._needMove = false;
-        target._chooseCard = null;
-        target._cardMoveTo = null;
-
-        for (var i = target._handOnCards.length - 1; i >= 0; i--) {
-            if (target._handOnCards[i].containTouchPoint(touch.getLocation())) {
-                target._startPoint = touch.getLocation();
-                target._chooseCard = target._handOnCards[i];
-                target._chooseCardIdx = i;
-                target._moveCard.setID(target._chooseCard._id);
-
-                var anchor = target._chooseCard.calculateAnchorPoint(touch.getLocation());
-                target._moveCard.setAnchorPoint(anchor);
-                return true;
-            }
-        }
-
-        for (var i = target._handOnCards.length - 1; i >= 0; i--) {
-            if (target._handOnCards[i]._up) target._handOnCards[i].upDown();
-        }
-        return false;
-    },
-
-    onTouchMoved: function (touch, event) {
-        var target = event.getCurrentTarget();
-        if (touch.getID() != 0 || !target._touchEnable || !target._touched)
-            return;
-
-        if (target._startPoint.x == -1 || !target._chooseCard)
-            return;
-        var distance = cc.pSub(touch.getLocation(), target._startPoint);
-        var length = distance.x * distance.x + distance.y * distance.y;
-        if (!target._needMove && (length >= 15 * 15)) {
-            target._needMove = true;
-        }
-        if (!target._needMove)
-            return;
-
-        target._firstOrEnd = false;
-        target._moveCard.setVisible(true);
-        try {
-            target._chooseCard.setVisible(false);
-        } catch (e) {
-
-        }
-
-        target._moveCard.setOpacity(255);
-        target._moveCard.setLocalZOrder(20);
-        target._moveCard.setPosition(target._cardPanel.convertToNodeSpace(touch.getLocation()));
-
-        if (!this.forceAllCardDown) {
-            this.forceAllCardDown = true;
-
-            target._cardEfx = [];
-            for (var i = 0; i < target._handOnCards.length; i++) {
-                target._handOnCards[i].forceDOWN();
-                target._handOnCards[i].setVisible(false);
-
-                var cardEffect = new SamCard(target._handOnCards[i]._id);
-                cardEffect.setLocalZOrder(target._handOnCards[i].getLocalZOrder());
-                cardEffect.setPosition(target._handOnCards[i].getPosition());
-                cardEffect.setVisible(i !== target._chooseCardIdx);
-
-                target._cardPanel.addChild(cardEffect);
-                target._cardEfx.push(cardEffect);
-            }
-        }
-
-        var x = touch.getLocation().x;
-        //No longer move
-        if (target._handOnCards.length === 1) {
-            target._cardMoveTo = target._handOnCards[0];
-            return;
-        }
-
-        for (var i = target._handOnCards.length - 1; i >= 0; i--) {
-            var anchor1 = target._handOnCards[i].convertToWorldSpace(cc.p(0, 0)).x;
-            var anchor2 = anchor1 + target._handOnCards[i].getContentSize().width;
-            if (i === target._handOnCards.length - 1) {
-                if (x >= anchor1) {
-                    target.moveCardASide(i);
-                    if (x >= anchor2) {
-                        target._firstOrEnd = true;
-                    }
-                    break;
-                }
-            } else if (i == 0) {
-                if (x < target._handOnCards[i + 1].convertToWorldSpace(cc.p(0, 0)).x) {
-                    target.moveCardASide(i);
-                    if (x < anchor1) {
-                        target._firstOrEnd = true;
-                    }
-                    break;
-                }
-            } else {
-                var anchor3 = target._handOnCards[i + 1].convertToWorldSpace(cc.p(0, 0)).x;
-                var anchor = Math.max(anchor3, anchor1);
-                if (x >= anchor1 && x < anchor) {
-                    target.moveCardASide(i);
-                    break;
-                }
-            }
-        }
-    },
-
-    moveCardASide: function (index) {
-        if (this._cardMoveTo !== null && this._cardMoveTo !== this._handOnCards[index]) {
-            //this._cardMoveTo.setColor(cc.WHITE);
-            //this._handOnCards[index].setColor(cc.color(100, 100, 100));
-
-            for (var i = 0; i < this._cardEfx.length; i++) {
-                //cc.log("CARD MOVE", index, this._chooseCardIdx, i, this._chooseCard);
-                var targetIndex = i;
-                if (this._chooseCardIdx < index) {
-                    if (i > this._chooseCardIdx && i <= index) {
-                        targetIndex = i - 1;
-                    }
-                } else {
-                    if (i >= index && i < this._chooseCardIdx) {
-                        targetIndex = i + 1;
-                    }
-                }
-                this._cardEfx[i].stopAllActions();
-                if (this._cardEfx[i].getPosition() !== this._handOnCards[targetIndex].getPosition()) {
-                    this._cardEfx[i].runAction(
-                        cc.moveTo(0.15, this._handOnCards[targetIndex].getPosition()).easing(cc.easeBackOut())
-                    );
-                }
-                this._cardEfx[i].setLocalZOrder(this._handOnCards[targetIndex].getLocalZOrder());
-            }
-        }
-        this._cardMoveTo = this._handOnCards[index];
-        this._moveCard.setLocalZOrder(this._handOnCards[index].getLocalZOrder());
-    },
-
-    onTouchEnded: function (touch, event) {
-        var target = event.getCurrentTarget();
-        if (touch.getID() != 0 || !target._touchEnable) return;
-
-        target._touched = false;
-        if (!target._needMove) {
-            gameSound.clickQuanbai();
-            for (var i = target._handOnCards.length - 1; i >= 0; i--) {
-                if (target._handOnCards[i].containTouchPoint(touch.getLocation()) && target._handOnCards[i].isVisible()) {
-                    target._handOnCards[i].upDown();
-                    if (target._handOnCards[i]._up) target._gameScene.oneCardCheck(target._handOnCards[i]._id);
-                    target._gameScene.kiemtraDanhbai(target._handOnCards[i]._up);
-                    return;
-                }
-            }
-        }
-
-        //Card dragging
-        if (target._cardMoveTo && target._chooseCard) {
-            //Getting card indexes
-            var idxChooseCard = target._chooseCardIdx;
-            var idxCardMoveTo = -1;
-            for (var i = target._handOnCards.length - 1; i >= 0; i--) {
-                if (target._cardMoveTo._id === target._handOnCards[i]._id) {
-                    idxCardMoveTo = i;
-                }
-            }
-            if (idxCardMoveTo === -1 || idxChooseCard === -1) return;
-
-            var moveTime = 0.25;
-
-            for (var i = 0; i < target._cardEfx.length; i++) {
-                target._cardEfx[i].runAction(cc.sequence(
-                    cc.delayTime(moveTime),
-                    cc.removeSelf()
-                ));
-
-                target._handOnCards[i].runAction(cc.sequence(
-                    cc.delayTime(moveTime),
-                    cc.show()
-                ));
-            }
-
-            var idCardChoose = target._handOnCards[idxChooseCard]._id;
-
-            if (idxChooseCard < idxCardMoveTo) {
-                for (var i = 0; i < target._handOnCards.length; i++) {
-                    if (i >= idxChooseCard && i < idxCardMoveTo) {
-                        target._handOnCards[i].setID(target._handOnCards[i + 1]._id);
-                    }
-                }
-            } else if (idxChooseCard > idxCardMoveTo) {
-                for (var i = target._handOnCards.length - 1; i >= 0; i--) {
-                    if (i > idxCardMoveTo && i <= idxChooseCard) {
-                        target._handOnCards[i].setID(target._handOnCards[i - 1]._id);
-                    }
-                }
-            }
-            target._handOnCards[idxCardMoveTo].setID(idCardChoose);
-            target._gameScene.updateBanCards(!target._gameScene.btnPass.isVisible());
-
-            var newAnchorPos = target._moveCard.calculateNewPositionWithNewAnchor(cc.p(.5, .5));
-            target._moveCard.setAnchorPoint(cc.p(.5, .5));
-            target._moveCard.setPosition(newAnchorPos);
-            target._moveCard.setLocalZOrder(target._cardMoveTo.getLocalZOrder());
-            target._moveCard.runAction(cc.sequence(
-                cc.moveTo(moveTime, target._cardMoveTo.getPosition()).easing(cc.easeBackOut()),
-                cc.callFunc(function (sender, pTarget) {
-                    pTarget._touchEnable = true;
-                }, target, target),
-                cc.hide()
-            ));
-        }
-
-        //Reset attribute
-        target._cardMoveTo = null;
-        target._needMove = false;
-        target._firstOrEnd = false;
-        target._startPoint = cc.p(-1, -1);
-        target._chooseCard = null;
-    },
-
     updateWithPlayer: function (player) {
         cc.log("UPDATE WITH PLAYER", this.isLeaving, JSON.stringify(player));
         if (!player._ingame) {
@@ -595,14 +290,29 @@ var PlayerView = cc.Node.extend({
 
         this._panel.setPosition(this._panel.defaultPos);
         this._panel.setScale(1);
-        this._panel.setRotation3D(vec3(0, 0, 0));
+        try {
+            this._panel.setRotation3D(vec3(0, 0, 0));
+        } catch (e) {
+            this._panel.setRotation(0);
+        }
 
         this.info = player._info;
         this.setVisible(true);
-        this._uiName.setString(StringUtility.subStringTextLength(player._info["uName"], 10));
-        this._uiAvatar.asyncExecuteWithUrl(player._info["uID"], player._info["avatar"]);
+
+        if (Config.ENABLE_CHEAT && player._info["uName"].indexOf("bot_") !== -1) {
+            var nameArr = ["Hoàng Ngọc", "Tuấn Anh", "Hùng Hưng", "Linh Linh", "Châu Ngọc", ""];
+            this._uiName.setString(StringUtility.subStringTextLength(nameArr[this._index], 10));
+            var avatArr = ["avatar_1.png", "avatar_2.png", "avatar_3.png", "avatar_4.png", "avatar_5.png", "avatar_6.png"];
+            this._uiAvatar.asyncExecuteWithUrl(
+                player._info["uID"],
+                "https://static.service.zingplay.com/tienlen/avatar/" + avatArr[this._index]
+            );
+        } else {
+            this._uiName.setString(StringUtility.subStringTextLength(player._info["uName"], 10));
+            this._uiAvatar.asyncExecuteWithUrl(player._info["uID"], player._info["avatar"]);
+        }
+
         this.uID = player._info["uID"];
-        this.avatarURL = player._info["uID"], player._info["avatar"];
         this._uiGold.setString(this.convertGoldString(player._info["bean"]) + "$");
 
         this.vip.setVisible(player._info["vip"] > 0);
@@ -627,31 +337,30 @@ var PlayerView = cc.Node.extend({
             }
         }
 
-        if (player._info["uID"] === gamedata.getUserId()) {
+        if (player._info["uID"] === userMgr.getUID()) {
             var state = (VipManager.getInstance().getRemainTime() > 0) ? 0 : 1;
             this.vip.setState(state);
         }
         this.addVipEffect();
 
 
-        if (player._status == 1)     // dang xem
+        if (player._status === 1)     // dang xem
         {
             this.viewing(true);
-            if (this._index != 0)
-                this._card.setVisible(false);
-        } else if (player._status == 0) {
+            if (this._index !== 0) this._card.setVisible(false);
+        } else if (player._status === 0) {
             this.setVisible(false);
-            if (this._index != 0)
-                this._card.setVisible(false);
+            if (this._index !== 0) this._card.setVisible(false);
         } else {
             this.viewing(false);
-
         }
 
         player._active = false;
     },
 
     efxPlayerIn: function () {
+        this.resetAction();
+
         this._panel.stopAllActions();
         this._panel.setOpacity(0);
         this._panel.setPosition(this._panel.defaultPos);
@@ -660,6 +369,7 @@ var PlayerView = cc.Node.extend({
             cc.moveTo(0.25, this._panel.defaultPos).easing(cc.easeBackOut()),
             cc.fadeIn(0.25)
         ));
+        this.clearSmile();
 
         this.vip.setScale(1.5);
         this.vip.setOpacity(0);
@@ -705,7 +415,8 @@ var PlayerView = cc.Node.extend({
                 //TOOLTIP
                 this._gameScene.pTooltip.stopAllActions();
                 this._gameScene.pTooltip.setVisible(true);
-                this._gameScene.pTooltip.lb.setString(localized("TIP_" + Math.floor(Math.random() * 11 + 1)))
+                this._gameScene.pTooltip.lb.setString(localized("TIP_" + Math.floor(Math.random() * 11 + 1)));
+                this._gameScene.effectTooltip(this._gameScene.pTooltip);
                 this._gameScene.pTooltip.runAction(cc.sequence(
                     cc.delayTime(15),
                     cc.callFunc(function () {
@@ -721,6 +432,70 @@ var PlayerView = cc.Node.extend({
             }
         }
     },
+
+    autoing: function (isAuto) {
+        if (isAuto === 1) {
+            this.darken.setVisible(true);
+            if (!this.auto.isVisible()) {
+                this.auto.stopAllActions();
+                this.auto.setScale(0);
+                this.auto.setRotation(-45);
+                this.auto.setVisible(true);
+                this.auto.eyes0.setVisible(true);
+                this.auto.eyes1.setVisible(false);
+                this.auto.runAction(cc.sequence(
+                    cc.spawn(
+                        cc.rotateTo(0.5, 2.5).easing(cc.easeBackOut()),
+                        cc.scaleTo(0.5, 1).easing(cc.easeBackOut())
+                    ),
+                    cc.callFunc(function () {
+                        this.runAction(cc.sequence(
+                            cc.rotateTo(1, -2.5).easing(cc.easeInOut(10)),
+                            cc.rotateTo(1, 2.5).easing(cc.easeInOut(10))
+                        ).repeatForever())
+                    }.bind(this.auto))
+                ));
+
+                if (this._index === 0) {
+                    cc.log("SHOW TOOL TIP");
+                    this._gameScene.pTooltip.stopAllActions();
+                    this._gameScene.pTooltip.setVisible(true);
+                    this._gameScene.pTooltip.setOpacity(0);
+                    this._gameScene.pTooltip.lb.setString(localized("TIP_AFK"));
+                    this._gameScene.pTooltip.runAction(cc.fadeIn(0.25));
+                    this._gameScene.effectTooltip(this._gameScene.pTooltip, 0.25);
+                }
+            }
+        } else {
+            this.auto.stopAllActions();
+            this.auto.setVisible(false);
+            this.darken.setVisible(false);
+            if (this._index === 0) {
+                cc.log("HIDE TOOL TIP");
+                this._gameScene.pTooltip.stopAllActions();
+                this._gameScene.pTooltip.setVisible(false);
+            }
+        }
+    },
+
+    autoPlayCard: function (delay = 0) {
+        if (!this.auto.isVisible()) return;
+        this.auto.runAction(cc.sequence(
+            cc.delayTime(delay),
+            cc.scaleTo(0.25, 1.2).easing(cc.easeBackIn()),
+            cc.callFunc(function () {
+                this.eyes0.setVisible(false);
+                this.eyes1.setVisible(true);
+            }.bind(this.auto)),
+            cc.delayTime(0.5),
+            cc.scaleTo(0.25, 1).easing(cc.easeBackIn()),
+            cc.callFunc(function () {
+                this.eyes0.setVisible(true);
+                this.eyes1.setVisible(false);
+            }.bind(this.auto))
+        ))
+    },
+
     addVipEffect: function () {
         if (!this.info) return;
 
@@ -733,51 +508,23 @@ var PlayerView = cc.Node.extend({
             this.vipParticle.setVisible(false);
         }
     },
+
     setVisible: function (visible) {
         cc.Node.prototype.setVisible.call(this, visible);
         this._panel.setVisible(visible);
     },
+
     danhbai: function (cards) {
         var ret = []
-        if (this._type == Player.MY) {
-            for (var j = 0; j < this._handOnCards.length; j++) {
-                this._handOnCards[j].forceDOWN();
-                this._handOnCards[j].setVisible(true);
-            }
-
-            var check = [];
-            for (var i = 0; i < cards.length; i++) {
-                for (var j = 0; j < this._handOnCards.length; j++) {
-                    if (this._handOnCards[j]._id == cards[i]) {
-                        ret.push({
-                            id: this._handOnCards[j]._id,
-                            x: this._handOnCards[j].convertToWorldSpaceAR(cc.p(0, 0)).x,
-                            y: this._handOnCards[j].convertToWorldSpaceAR(cc.p(0, 0)).y,
-                            scale: 1
-                        });
-                        check.push(j);
-                        break;
-                    }
-                }
-            }
-
-            check.sort(function (a, b) { return a - b;});
-            for (var i = check.length - 1; i >= 0; i--) {
-                this._handOnCards[check[i]].removeFromParent(true);
-                this._handOnCards.splice(check[i], 1);
-            }
-            this.fixPositionHandOnCardForMy();
-        } else {
-            var sam = new SamCard();
-            var scale = this._card.width / sam.getContentSize().width;
-            for (var i = 0; i < cards.length; i++) {
-                ret.push({
-                    id: cards[i],
-                    x: this._card.convertToWorldSpaceAR(cc.p(0, 0)).x,
-                    y: this._card.convertToWorldSpaceAR(cc.p(0, 0)).y,
-                    scale: scale
-                });
-            }
+        var scale = this._card.width / SamCard.ORG_WIDTH;
+        var pos = this._card.convertToWorldSpaceAR(cc.p(0, 0));
+        for (var i = 0; i < cards.length; i++) {
+            ret.push({
+                id: cards[i],
+                x: pos.x,
+                y: pos.y,
+                scale: scale
+            });
         }
         return ret;
     },
@@ -787,6 +534,14 @@ var PlayerView = cc.Node.extend({
         if (timeRemain) {
             percent = timeRemain / time;
             time = timeRemain;
+        }
+
+        if (!this.timer.eff) {
+            this.timer.eff = new CustomSkeleton("Animation/clock", "skeleton", 1);
+            this.timer.eff.setLocalZOrder(-1);
+            this.timer.eff.setScale(0.7);
+            this.timer.eff.setPosition(cc.p(this.timer.width / 2, this.timer.height / 2));
+            this.timer.addChild(this.timer.eff);
         }
 
         //Running time circle
@@ -824,9 +579,7 @@ var PlayerView = cc.Node.extend({
 
         //Zoom in out
         this.mask.stopAllActions();
-        this.mask.runAction(cc.scaleTo(0.5, 1.2).easing(cc.easeBackOut()));
-        this._uiAvatar.stopAllActions();
-        this._uiAvatar.runAction(cc.scaleTo(0.5, 1.2).easing(cc.easeBackOut()));
+        this.mask.runAction(cc.scaleTo(0.5, 1.1).easing(cc.easeBackOut()));
     },
 
     stopEffectTime: function () {
@@ -839,9 +592,7 @@ var PlayerView = cc.Node.extend({
 
         //Zoom back
         this.mask.stopAllActions();
-        this.mask.runAction(cc.scaleTo(0.25, 1));
-        this._uiAvatar.stopAllActions();
-        this._uiAvatar.runAction(cc.scaleTo(0.25, 1));
+        this.mask.runAction(cc.scaleTo(0.25, 0.9));
     },
 
     sapxep: function () {
@@ -853,28 +604,13 @@ var PlayerView = cc.Node.extend({
             tmpCards.push(new Card(this._handOnCards[i]._id));
         }
 
-        if (this._sortedCards === kSort_Unkown) {
-            ret = GameHelper.sapxepQuanBai(tmpCards, kSort_TangDan);
-            this._sortedCards = kSort_TangDan;
-        } else if (this._sortedCards === kSort_TangDan) {
-            ret = GameHelper.sapxepQuanBai(tmpCards, kSort_Group);
-            this._sortedCards = kSort_Group;
-        } else if (this._sortedCards === kSort_Group) {
-            ret = GameHelper.sapxepQuanBai(tmpCards, kSort_TangDan);
-            this._sortedCards = kSort_TangDan;
-        }
+        this._sortedCards = (this._sortedCards + 1) % kSort_Unknown;
+        ret = GameHelper.sapxepQuanBai(tmpCards, this._sortedCards);
 
         for (var i = 0; i < this._handOnCards.length; i++) {
             this._handOnCards[i].setID(ret[i]._id);
         }
         return cards;
-    },
-
-    clearBai: function () {
-        for (var i = 0; i < this._handOnCards.length; i++) {
-            this._handOnCards[i].removeFromParent();
-        }
-        this._handOnCards = [];
     },
 
     firstTurn: function (id) {
@@ -889,194 +625,6 @@ var PlayerView = cc.Node.extend({
             }
         }
         return this._cardFirstTurn;
-    },
-
-    clearBaiEndGame: function () {
-        for (var i = 0; i < this._baiEndGame.length; i++) {
-            this._baiEndGame[i].runAction(cc.sequence(cc.fadeOut(.4), cc.removeSelf()));
-        }
-        this._baiEndGame = [];
-    },
-
-    addBaiEndGame: function (cards, delayTime) {
-        switch (this._index) {
-            case 1:
-            case 4: {
-                var centerPos = this._card.convertToWorldSpaceAR(cc.p(0, 0));
-                var deltaY = 22;
-                var startY = centerPos.y + deltaY * Math.floor(cards.length / 2);
-
-                var _time = 0;
-                if (delayTime) _time += delayTime;
-                for (var i = 0; i < cards.length; i++) {
-                    var sam = new SamCard(cards[i]);
-                    sam.setScale(.72);
-                    this.addChild(sam);
-                    this._baiEndGame.push(sam);
-                    sam.setPosition(cc.p(centerPos.x, startY - deltaY * i));
-                    sam.setOpacity(0);
-                    sam.runAction(cc.sequence(cc.delayTime(_time), cc.fadeIn(.45)));
-                    _time += .05;
-                }
-
-                break;
-            }
-            case 2: {
-                var centerPos = this._card.convertToWorldSpaceAR(cc.p(0, 0));
-                var deltaY = 40;
-                var startY = 0;
-                if (cards.length <= 5) {
-                    var _time = 0;
-                    if (delayTime) _time += delayTime;
-                    startY = centerPos.y;
-                    for (var i = 0; i < cards.length; i++) {
-                        var sam = new SamCard(cards[i]);
-                        sam.setScale(.72);
-                        this.addChild(sam);
-                        this._baiEndGame.push(sam);
-                        sam.setPosition(cc.p(centerPos.x, startY - deltaY * i));
-                        sam.setOpacity(0);
-                        sam.runAction(cc.sequence(cc.delayTime(_time), cc.fadeIn(.45)));
-                        _time += .05;
-                    }
-                } else {
-                    startY = centerPos.y;
-                    var _time = 0;
-                    if (delayTime) _time += delayTime;
-                    for (var i = 5; i < cards.length; i++) {
-                        var sam = new SamCard(cards[i]);
-                        sam.setScale(.72);
-                        this.addChild(sam);
-                        this._baiEndGame.push(sam);
-                        sam.setPosition(cc.p(centerPos.x, startY - deltaY * (i - 5)));
-                        sam.setOpacity(0);
-                        sam.runAction(cc.sequence(cc.delayTime(_time), cc.fadeIn(.45)));
-                        _time += .05;
-                    }
-
-                    for (var i = 0; i < 5; i++) {
-                        var sam = new SamCard(cards[i]);
-                        sam.setScale(.72);
-                        this.addChild(sam);
-                        this._baiEndGame.push(sam);
-                        sam.setPosition(cc.p(centerPos.x + 27, startY - deltaY * i));
-                        sam.setOpacity(0);
-                        sam.runAction(cc.sequence(cc.delayTime(_time), cc.fadeIn(.45)));
-                        _time += .05;
-                    }
-                }
-                break;
-            }
-            case 3: {
-                var centerPos = this._card.convertToWorldSpaceAR(cc.p(0, 0));
-                var deltaY = 40;
-                var startY = 0;
-                var _time = 0;
-                if (delayTime) _time += delayTime;
-                if (cards.length <= 5) {
-                    startY = centerPos.y;
-                    for (var i = 0; i < cards.length; i++) {
-                        var sam = new SamCard(cards[i]);
-                        sam.setScale(.72);
-                        this.addChild(sam);
-                        this._baiEndGame.push(sam);
-                        sam.setPosition(cc.p(centerPos.x, startY - deltaY * i));
-                        sam.setOpacity(0);
-                        sam.runAction(cc.sequence(cc.delayTime(_time), cc.fadeIn(.45)));
-                        _time += .05;
-                    }
-                } else {
-                    startY = centerPos.y;
-                    var _time = 0;
-                    if (delayTime) _time += delayTime;
-                    for (var i = 0; i < 5; i++) {
-                        var sam = new SamCard(cards[i]);
-                        sam.setScale(.72);
-                        this.addChild(sam);
-                        this._baiEndGame.push(sam);
-                        sam.setPosition(cc.p(centerPos.x - 27, startY - deltaY * i));
-                        sam.setOpacity(0);
-                        sam.runAction(cc.sequence(cc.delayTime(_time), cc.fadeIn(.45)));
-                        _time += .05;
-                    }
-
-                    for (var i = 5; i < cards.length; i++) {
-                        var sam = new SamCard(cards[i]);
-                        sam.setScale(.72);
-                        this.addChild(sam);
-                        this._baiEndGame.push(sam);
-                        sam.setPosition(cc.p(centerPos.x, startY - deltaY * (i - 5)));
-                        sam.setOpacity(0);
-                        sam.runAction(cc.sequence(cc.delayTime(_time), cc.fadeIn(.45)));
-                        _time += .05;
-                    }
-                }
-                break;
-            }
-        }
-    },
-
-    clearHandOncard: function () {
-        for (var i = 0; i < this._handOnCards.length; i++) {
-            this._handOnCards[i].removeFromParent(true);
-        }
-        this._handOnCards = [];
-    },
-
-    addThang: function (delayTime, samthanhcong)            // Them effect thang'
-    {
-        var sprite1 = new cc.Sprite("GameGUI/new/effc_0021_Layer-13-copy-7.png");
-        var time = .5;
-        if (delayTime && isNaN(delayTime))
-            time = delayTime;
-        this.mask.addChild(sprite1);
-        sprite1.setTag(123);
-
-        var size = this.mask.getContentSize();
-        sprite1.setPosition(size.width / 2, size.height / 2);
-
-        if (this._index == 0) {
-            if (samthanhcong)
-                var sprite2 = new cc.Sprite("GameGUI/new/samt_0003_S-m-th-nh-c-ng.png");
-            else
-                var sprite2 = new cc.Sprite("GameGUI/new/effc_0020_Layer-25.png");
-            this._gameScene._effect2D.addChild(sprite2);
-            sprite2.setTag(124);
-            sprite2.setPosition(cc.winSize.width / 2, 40);
-            sprite2.setOpacity(0);
-            sprite2.setScale(3);
-            sprite2.setVisible(false);
-            sprite2.runAction(cc.sequence(cc.delayTime(time), cc.show(), cc.spawn(cc.fadeIn(.5), new cc.EaseBounceOut(cc.scaleTo(.5, .9))), cc.callFunc(function () {
-                var forever = cc.repeatForever(cc.sequence(cc.scaleTo(.35, .93), cc.scaleTo(.35, .9)));
-                this.runAction(forever);
-            }.bind(sprite2))));
-        }
-    },
-
-    addThua: function (delayTime) {
-        var sprite1 = new cc.Sprite("GameGUI/new/effc_0015_Layer-13-copy-7.png");
-        this.mask.addChild(sprite1);
-        sprite1.setTag(123);
-        var size = this.mask.getContentSize();
-        sprite1.setPosition(size.width / 2, size.height / 2);
-
-        var time = .5;
-        if (delayTime)
-            time = delayTime;
-
-        if (this._index == 0) {
-            var sprite2 = new cc.Sprite("GameGUI/new/effc_0029_Layer-24.png");
-            this._gameScene._effect2D.addChild(sprite2);
-            sprite2.setTag(124);
-            sprite2.setPosition(cc.winSize.width / 2, 40);
-            sprite2.setOpacity(0);
-            sprite2.setScale(3);
-            sprite2.setVisible(false);
-            sprite2.runAction(cc.sequence(cc.delayTime(time), cc.show(), cc.spawn(cc.fadeIn(.5), new cc.EaseBounceOut(cc.scaleTo(.5, .9))), cc.callFunc(function () {
-                var forever = cc.repeatForever(cc.sequence(cc.scaleTo(.35, .93), cc.scaleTo(.35, .9)));
-                this.runAction(forever);
-            }.bind(sprite2))));
-        }
     },
 
     clearThangThua: function () {
@@ -1094,6 +642,13 @@ var PlayerView = cc.Node.extend({
 
     addBao1: function () {
         if (!this._card) return;
+        if (this.isBao) return;
+
+        if (!this.baoOne.eff) {
+            this.baoOne.eff = new CustomSkeleton("Animation/bao", "skeleton", 1);
+            this.baoOne.eff.setPosition(cc.p(this.baoOne.width / 2, 25));
+            this.baoOne.addChild(this.baoOne.eff);
+        }
 
         this.baoOne.stopAllActions();
         this.baoOne.setVisible(true);
@@ -1155,154 +710,154 @@ var PlayerView = cc.Node.extend({
     bao: function () {
         this.baoPanel.stopAllActions();
         this.baoPanel.setOpacity(0);
-        this.baoPanel.setScale(1);
         this.baoPanel.setVisible(true);
-        this.baoPanel.runAction(cc.fadeIn(0.1));
+        this.baoPanel.runAction(cc.fadeIn(0.25));
 
         this.baoPanel.bao.stopAllActions();
-        this.baoPanel.bao.setScale(1.5);
-        this.baoPanel.bao.setOpacity(255);
+        this.baoPanel.bao.setScaleX(-1);
+        this.baoPanel.bao.setScaleY(1);
         this.baoPanel.bao.setVisible(true);
-        this.baoPanel.bao.runAction(cc.scaleTo(0.25, 1).easing(cc.easeIn(5)));
+        this.baoPanel.bao.setPositionX(this.baoPanel.orgPos.x - 250);
+        this.baoPanel.bao.setPositionY(this.baoPanel.orgPos.y);
+        this.baoPanel.bao.runAction(cc.moveTo(0.5, this.baoPanel.orgPos).easing(cc.easeBackOut()));
+
+        for (var i = 0; i < this.baoPanelEfx.length; i++) {
+            this.baoPanelEfx[i].stopAllActions();
+            this.baoPanelEfx[i].setVisible(false);
+        }
 
         this.baoPanel.baoCancel.stopAllActions();
         this.baoPanel.baoCancel.setVisible(false);
-        this.baoPanel.baoCancelClear.stopAllActions();
-        this.baoPanel.baoCancelClear.setVisible(false);
     },
 
     baoCancel: function () {
         this.baoPanel.stopAllActions();
         this.baoPanel.setOpacity(0);
-        this.baoPanel.setScale(1);
         this.baoPanel.setVisible(true);
-        this.baoPanel.runAction(cc.fadeIn(0.1));
+        this.baoPanel.runAction(cc.fadeIn(0.25));
 
         this.baoPanel.baoCancel.stopAllActions();
-        this.baoPanel.baoCancel.setScale(1.5);
         this.baoPanel.baoCancel.setVisible(true);
-        this.baoPanel.baoCancel.runAction(cc.scaleTo(0.25, 1).easing(cc.easeIn(5)));
+        this.baoPanel.baoCancel.setPositionX(this.baoPanel.orgPos.x - 250);
+        this.baoPanel.baoCancel.setPositionY(this.baoPanel.orgPos.y);
+        this.baoPanel.baoCancel.runAction(cc.moveTo(0.5, this.baoPanel.orgPos).easing(cc.easeBackOut()));
 
         this.baoPanel.bao.stopAllActions();
         this.baoPanel.bao.setVisible(false);
-        this.baoPanel.baoCancelClear.stopAllActions();
-        this.baoPanel.baoCancelClear.setVisible(false);
     },
 
     baoNormalize: function () {
-        this.baoPanel.stopAllActions();
-        this.baoPanel.setOpacity(255);
-        this.baoPanel.setScale(1);
+        this.isBao = true;
+        var numberEfx = this.baoPanelEfx.length;
+        if (numberEfx === 0) {
+            numberEfx = 3;
+            for (var i = 0; i < numberEfx; i++) {
+                cc.log("RUN CREATE HERE??", i);
+                var sprite = new cc.Sprite("#player/bao.png");
+                sprite.setPosition(cc.p(this.baoPanel.bao.width / 2, this.baoPanel.bao.height / 2));
+                sprite.setLocalZOrder(-1);
+                this.baoPanel.bao.addChild(sprite);
+                this.baoPanelEfx.push(sprite);
+            }
+        }
 
-        this.baoPanel.bao.stopAllActions();
-        this.baoPanel.bao.setScale(1);
-        this.baoPanel.bao.setOpacity(255);
-        this.baoPanel.bao.setVisible(true);
+        cc.log("RUN OUT HERE??", numberEfx);
+        var widthForward = -100;
+        var time = 0.5;
+        for (var i = 0; i < numberEfx; i++) {
+            cc.log("RUN IN HERE??", i);
+            var efxSprite = this.baoPanelEfx[i];
+            efxSprite.stopAllActions();
+            efxSprite.setPosition(cc.p(this.baoPanel.bao.width / 2, this.baoPanel.bao.height / 2));
+            efxSprite.runAction(cc.sequence(
+                cc.delayTime(i * time),
+                cc.callFunc(function (position, widthForward) {
+                    this.setOpacity(150);
+                    this.setVisible(true);
+                    this.runAction(cc.sequence(
+                        cc.fadeTo(0, 150),
+                        cc.moveTo(0, position),
+                        cc.spawn(
+                            cc.moveBy(2, widthForward, 0),
+                            cc.fadeOut(2).easing(cc.easeIn(2))
+                        ),
+                        cc.delayTime(1)
+                    ).repeatForever())
+                }.bind(efxSprite, cc.p(this.baoPanel.bao.width / 2, this.baoPanel.bao.height / 2), widthForward))
+            ))
+        }
     },
 
-    baoCancelNormalize: function () {
-        this.baoPanel.stopAllActions();
-        this.baoPanel.setOpacity(255);
-        this.baoPanel.setScale(1);
+    clearBao: function (isEndGame, immediate) {
+        if (this.isBao && !isEndGame) return;
 
-        this.baoPanel.bao.stopAllActions();
-        this.baoPanel.bao.setScale(1);
-        this.baoPanel.bao.runAction(cc.fadeOut(0.25));
-
-        this.baoPanel.baoCancel.stopAllActions();
-        this.baoPanel.baoCancel.setScale(1);
-        this.baoPanel.baoCancel.setOpacity(255);
-        this.baoPanel.baoCancel.runAction(cc.spawn(
-            cc.scaleTo(0.25, this.sSmall).easing(cc.easeIn(5)),
-            cc.fadeOut(0.25)
-        ));
-
-        this.baoPanel.baoCancelClear.stopAllActions();
-        this.baoPanel.baoCancelClear.setVisible(true);
-        this.baoPanel.baoCancelClear.setScale(this.sBig);
-        this.baoPanel.baoCancelClear.runAction(cc.scaleTo(0.25, 1).easing(cc.easeIn(5)));
-    },
-
-    clearBao: function () {
-        this.baoPanel.runAction(cc.sequence(
-            cc.delayTime(0.5),
-            cc.scaleTo(0.25, 0).easing(cc.easeBackIn())
-        ));
+        if (immediate)
+            this.baoPanel.setVisible(false);
+        else
+            this.baoPanel.runAction(cc.sequence(
+                cc.delayTime(0.5),
+                cc.fadeOut(0.15),
+                cc.hide()
+            ));
     },
 
     chatEmotion: function (idx) {
         var pos = this._uiAvatar.getPosition();
         ChatPlayer.showChatEmotion(idx, this._panel, pos);
     },
-    addSmile: function () {
-        var pos = this._uiAvatar.getPosition();
-        // old add Smile
-        var path = "icon/";
-        var rd = Math.floor(Math.random() * 10 + 1);
-        if (rd >= 10) rd = 10;
-        path += (rd + ".png");
 
-        var bg = new cc.Sprite("icon/bg.png");
-        bg.setLocalZOrder(3);
-        bg.setOpacity(0);
-        bg.setPosition(pos);
-        bg.runAction(cc.sequence(cc.fadeIn(.5), cc.delayTime(3), cc.fadeOut(.5), cc.removeSelf()));
-        this._panel.addChild(bg);
+    addSmile: function (emotion) {
+        if (this.auto.isVisible()) return;
+        if (this._index === 0) return;
 
-        bg = new cc.Sprite(path);
-        bg.setLocalZOrder(4);
-        bg.setPosition(pos);
-        bg.setScale(0);
-        bg.runAction(cc.sequence(cc.scaleTo(.35, 1.45), cc.scaleTo(.2, 1), cc.delayTime(3.25), cc.removeSelf()));
-        this._panel.addChild(bg);
+        var list = [];
+        switch (emotion) {
+            case PlayerView.EMOTION.ANGRY:
+                list = ["8", "10", "14", "20"];
+                break;
+            case PlayerView.EMOTION.HAPPY:
+                list = ["1", "5", "7", "12", "13", "16"];
+                break;
+            case PlayerView.EMOTION.MISCHIEF:
+                list = ["3", "4", "17", "18"];
+                break;
+            case PlayerView.EMOTION.SAD:
+                list = ["2", "9", "11", "15", "19"];
+                break;
+            default:
+                list = ["6"];
+                break;
+        }
+        var emote = new CustomSkeleton("Animation/autoEmote", "skeleton");
+        emote.setAnimation(0, list[Math.floor(Math.random() * list.length)], -1);
+        this.effectEmote(emote, 2);
+    },
 
-        // new add smile
-        //var rd = Math.floor(Math.random() * 10 + 1);if(rd>=10)rd = 10;
+    clearSmile: function () {
+        var emote = this._panel.getChildByTag(PlayerView.EMOTE_TAG);
+        while (emote) {
+            try {
+                emote.removeFromParent();
+            } catch (e) {}
+            emote = this._panel.getChildByTag(PlayerView.EMOTE_TAG);
+        }
     },
 
     chatMessage: function (msg) {
-        switch (this._index) {
-            case 0: {
-                ChatPlayer.showChatMessage(msg, ChatInGameGUI.BOT_LEFT, this._panel, cc.p(50, 100));
-                break;
-            }
-            case 4: {
-                ChatPlayer.showChatMessage(msg, ChatInGameGUI.BOT_LEFT, this._panel, cc.p(70, 70));
-                break;
-            }
-            case 3: {
-                ChatPlayer.showChatMessage(msg, ChatInGameGUI.TOP_LEFT, this._panel, cc.p(70, 40));
-                break;
-            }
-            case 2: {
-                ChatPlayer.showChatMessage(msg, ChatInGameGUI.TOP_RIGHT, this._panel, cc.p(115, 40));
-                break;
-            }
-            default : {
-                ChatPlayer.showChatMessage(msg, ChatInGameGUI.BOT_RIGHT, this._panel, cc.p(115, 70));
-                break;
-            }
-        }
+    },
 
-    },
     addTmpAvatar: function () {
-        //this._avatarTmp = engine.UIAvatar.create("avatar/ava3.png");
-        //this._panel.addChild(this._avatarTmp);
-        //this._avatarTmp.setPosition(this._uiAvatar.getPosition());
-        //this._avatarTmp.asyncExecuteWithUrl(this.uID,this.avatarURL);
-        //this._avatarTmp.setLocalZOrder(2);
-        //this._uiAvatar.setVisible(false);
     },
+
     clearTmpAvatar: function () {
-        //if(this._avatarTmp)
-        //{
-        //    this._avatarTmp.removeFromParent(true);
-        //    this._uiAvatar.setVisible(true);
-        //    this._avatarTmp = null;
-        //}
     },
 
     addIncreaseMoney: function (gold, delay = 0) {
+        if (!this.result) {
+            this.initResult();
+        }
+        if (!this.resultWin.eff) this.initEffectResultWin();
+
         this.resultWin.stopAllActions();
         this.resultWin.setVisible(true);
         this.resultWin.setOpacity(255);
@@ -1323,6 +878,10 @@ var PlayerView = cc.Node.extend({
     },
 
     addDecreaseMoney: function (gold, delay = 0) {
+        if (!this.result) {
+            this.initResult();
+        }
+
         this.resultLose.stopAllActions();
         this.resultLose.setVisible(true);
         this.resultLose.setOpacity(255);
@@ -1331,6 +890,8 @@ var PlayerView = cc.Node.extend({
         this.resultLose.pCards.setVisible(false);
         this.resultLose.label.setVisible(false);
         this.resultLose.stamp.setVisible(false);
+        this.resultLose.lbGoldToiTrang.setVisible(false);
+        this.resultLose.labelToiTrang.setVisible(false);
 
         this.addResultLabelEffect(
             this.resultLose.lbGold,
@@ -1345,71 +906,119 @@ var PlayerView = cc.Node.extend({
     },
 
     addLevelExp: function (delayTime = 0) {
-        if (this._index !== 0) {
-            return;
-        }
-
-        var update = this._levelResult;
-        if (!update) return;
-        var levelExpAdd = update.newLevelExp - update.oldLevelExp;
-        cc.log("LEVEL UP EXP", levelExpAdd);
-        if (levelExpAdd > 0) {
-            this.addResultLabelEffect(
-                this.lbExp,
-                this.lbExp.orgPos,
-                "+" + StringUtility.standartNumber(levelExpAdd) + "exp",
-                0.25,
-                delayTime
-            );
-
-            cc.log("LEVEL UP EXP", update.newLevel - update.oldLevel);
-
-            this.lbExp.runAction(cc.sequence(
-                cc.delayTime(delayTime + 1.75),
-                cc.fadeOut(0.25)
-            ));
-
-            if (update.newLevel > update.oldLevel) {
-                this.lbExp.runAction(cc.sequence(
-                    cc.delayTime(delayTime + 2),
-                    cc.callFunc(function () {
-                        this.addResultLabelEffect(
-                            this.lbExp,
-                            this.lbExp.orgPos,
-                            "LEVEL UP",
-                            0.25,
-                            0
-                        );
-                    }.bind(this)),
-                    cc.delayTime(1.75),
-                    cc.fadeOut(0.25)
-                ));
-            }
-        }
     },
 
     addResultLose: function (gold, cardsID, type, delay) {
+        if (!this.result) {
+            this.initResult();
+        }
+
+        var isToiTrang = type === GameLayer.END_TYPE_WIN_FLUSH ||
+            type === GameLayer.END_TYPE_WIN_SAM_DINH ||
+            type === GameLayer.END_TYPE_WIN_FIVE_PAIR||
+            type === GameLayer.END_TYPE_WIN_FOUR_PIG;
+
         cardsID.sort(function(a, b) {
             return a - b;
         });
 
-        var delayTime = delay? 3 : 0;
+        var delayTime = delay? PlayerView.TIME_RESULT_ANIMATION : PlayerView.TIME_RESULT_LASTCARD;
 
         var orgWidth = 423;
         var smallWidth = 130;
         var minWidth = 260;
         var oneCardWidth = 174;
         var scaleTime = 0.25;
-        var isThoi = [];
 
-        this.resultLose.stamp.stopAllActions();
-        this.resultLose.stamp.setVisible(true);
-        this.resultLose.stamp.setScaleX(0);
-        this.resultLose.stamp.runAction(cc.sequence(
+        var isThoi = this.setLabelLose(type, cardsID);
+
+        var finalWidth = oneCardWidth + (cardsID.length - 1) * ((orgWidth - oneCardWidth) / (this.resultLose.cards.length - 1));
+        if (this.resultLose.stamp.isVisible()) finalWidth = Math.max(minWidth, finalWidth);
+
+        this._card.stopAllActions();
+        this._card.runAction(cc.sequence(
             cc.delayTime(delayTime),
-            cc.delayTime(scaleTime),
-            cc.scaleTo(scaleTime * this.resultLose.stamp.width / smallWidth, 1)
+            cc.hide()
         ));
+
+        this.resultLose.stopAllActions();
+        this.resultLose.setVisible(true);
+        this.resultLose.setOpacity(255);
+        this.resultLose.setContentSize(cc.size(smallWidth, 89));
+        this.resultLose.setScale(0);
+        var deltaWidth = (finalWidth - smallWidth) / cardsID.length;
+        this.resultLose.runAction(cc.sequence(
+            cc.delayTime(delayTime),
+            cc.scaleTo(scaleTime, -1, 1).easing(cc.easeIn(2.5)),
+            cc.sequence(
+                cc.delayTime(scaleTime / (finalWidth - smallWidth)),
+                cc.callFunc(function (deltaWidth, finalWidth) {
+                    this.resultLose.width = Math.min(this.resultLose.width + deltaWidth, finalWidth);
+                }.bind(this, deltaWidth, finalWidth))
+            ).repeat(cardsID.length)
+        ));
+
+        this.resultLose.label.setVisible(true);
+
+        var cardDelay = 0.05;
+        var cardScaleTime = 0.15;
+        this.resultLose.pCards.setVisible(true);
+        var isSwap = this.isSwapped();
+        for (var i = 0; i < this.resultLose.cards.length; i++) {
+            var theCard = this.resultLose.cards[isSwap? this.resultLose.cards.length - i - 1: i];
+            theCard.stopAllActions();
+            if (i < cardsID.length) {
+                theCard.setOpacity(0);
+                theCard.setVisible(true);
+                theCard.setColor(isThoi[i]?
+                    cc.color(
+                        130 + 75 * (cardsID[i] % 4 / 4),
+                        100 + 75 * (cardsID[i] % 4 / 4),
+                        170 + 75 * (cardsID[i] % 4 / 4)
+                    ) :  cc.WHITE
+                );
+                theCard.loadTexture(SamCard.getCardResource(cardsID[i], true));
+                theCard.runAction(cc.sequence(
+                    cc.delayTime(delayTime),
+                    cc.delayTime(scaleTime + cardDelay * i),
+                    cc.fadeIn(cardScaleTime)
+                ));
+            } else {
+                theCard.setVisible(false);
+            }
+        }
+
+        if (isToiTrang) {
+            this.resultLose.lbGold.stopAllActions();
+            this.resultLose.lbGold.setOpacity(0);
+            this.resultLose.label.setVisible(false);
+            this.resultLose.labelToiTrang.setVisible(true);
+            this.addResultLabelEffect(
+                this.resultLose.lbGoldToiTrang,
+                this.resultLose.lbGoldToiTrangPos,
+                "+" + this.convertGoldString(Math.abs(gold)),
+                scaleTime,
+                scaleTime + cardDelay * cardsID.length + cardScaleTime + delayTime
+            );
+        } else {
+            this.resultLose.lbGoldToiTrang.stopAllActions();
+            this.resultLose.lbGoldToiTrang.setOpacity(0);
+            this.resultLose.label.setVisible(true);
+            this.resultLose.labelToiTrang.setVisible(false);
+            this.addResultLabelEffect(
+                this.resultLose.lbGold,
+                this.resultLose.lbGoldPos,
+                "-" + this.convertGoldString(Math.abs(gold)),
+                scaleTime,
+                scaleTime + cardDelay * cardsID.length + cardScaleTime + delayTime
+            );
+        }
+        //this.addLevelExp(scaleTime + cardDelay * cardsID.length + cardScaleTime + delayTime + 1);
+    },
+
+    setLabelLose: function (type, cardsID) {
+        var isThoi = [];
+        this.resultLose.stamp.setVisible(true);
         switch (type) {
             case GameLayer.END_TYPE_LOSE:
                 var fourOfAKind = GameHelper.kiemtraThoiTuQuy(cardsID);
@@ -1448,7 +1057,7 @@ var PlayerView = cc.Node.extend({
                 this.resultLose.lbStamp.setString("Treo");
                 break;
             case GameLayer.END_TYPE_LOSE_TOI_TRANG:
-                this.resultLose.lbStamp.setString("Tới trắng");
+                this.resultLose.stamp.setVisible(false);
                 break;
             case GameLayer.END_TYPE_LOSE_SAM_BLOCK:
                 this.resultLose.lbStamp.setString("Bị Chặn Sâm");
@@ -1456,89 +1065,66 @@ var PlayerView = cc.Node.extend({
             case GameLayer.END_TYPE_DRAW:
                 this.resultLose.lbStamp.setString("Hòa");
                 break;
+            case GameLayer.END_TYPE_WIN_FLUSH:
+                this.resultLose.lbStamp.setString("Đồng Hoa");
+                break;
+            case GameLayer.END_TYPE_WIN_SAM_DINH:
+                this.resultLose.lbStamp.setString("Sâm Đỉnh");
+                break;
+            case GameLayer.END_TYPE_WIN_FIVE_PAIR:
+                this.resultLose.lbStamp.setString("Năm Đôi");
+                break;
+            case GameLayer.END_TYPE_WIN_FOUR_PIG:
+                this.resultLose.lbStamp.setString("Tứ Quý Heo");
+                break;
+            default:
+                this.resultLose.stamp.setVisible(false);
+                break;
         }
 
-        var finalWidth = oneCardWidth + (cardsID.length - 1) * ((orgWidth - oneCardWidth) / (this.resultLose.cards.length - 1));
-        if (this.resultLose.stamp.isVisible()) finalWidth = Math.max(minWidth, finalWidth);
-
-        this._card.setVisible(false);
-
-        this.resultLose.stopAllActions();
-        this.resultLose.setVisible(true);
-        this.resultLose.setOpacity(255);
-        this.resultLose.setContentSize(cc.size(smallWidth, 89));
-        this.resultLose.setScale(0);
-        this.resultLose.runAction(cc.sequence(
-            cc.delayTime(delayTime),
-            cc.scaleTo(scaleTime, -1, 1).easing(cc.easeIn(2.5)),
-            cc.sequence(
-                cc.delayTime((scaleTime / smallWidth) / 2),
-                cc.callFunc(function () {
-                    this.resultLose.width = this.resultLose.width + 1;
-                }.bind(this))
-            ).repeat(finalWidth - smallWidth)
-        ));
-
-        var cardDelay = 0.1;
-        var cardScaleTime = 0.15;
-        this.resultLose.pCards.setVisible(true);
-        var isSwap = this.isSwapped();
-        for (var i = 0; i < this.resultLose.cards.length; i++) {
-            var theCard = this.resultLose.cards[isSwap? this.resultLose.cards.length - i - 1: i];
-            theCard.stopAllActions();
-            if (i < cardsID.length) {
-                theCard.setOpacity(0);
-                theCard.setVisible(true);
-                theCard.setColor(isThoi[i]?
-                    cc.color(
-                        130 + 75 * (cardsID[i] % 4 / 4),
-                        100 + 75 * (cardsID[i] % 4 / 4),
-                        170 + 75 * (cardsID[i] % 4 / 4)
-                    ) :  cc.WHITE
-                );
-                theCard.loadTexture(SamCard.getCardResource(cardsID[i], true));
-                theCard.runAction(cc.sequence(
-                    cc.delayTime(delayTime),
-                    cc.delayTime(scaleTime + cardDelay * i),
-                    cc.fadeIn(cardScaleTime)
-                ));
-            } else {
-                theCard.setVisible(false);
-            }
-        }
-
-        this.addResultLabelEffect(
-            this.resultLose.lbGold,
-            this.resultLose.lbGoldPos,
-            "-" + this.convertGoldString(Math.abs(gold)),
-            scaleTime,
-            scaleTime + cardDelay * cardsID.length + cardScaleTime + delayTime
-        );
-        this.addLevelExp(scaleTime + cardDelay * cardsID.length + cardScaleTime + delayTime + 1);
+        return isThoi;
     },
 
     addResultWin: function (gold, cardsID, type, delay) {
-        var delayTime = delay? 3 : 0;
+        if (!this.result) {
+            this.initResult();
+        }
 
-        this._card.setVisible(false);
+        if (type === GameLayer.END_TYPE_WIN_FLUSH ||
+            type === GameLayer.END_TYPE_WIN_SAM_DINH ||
+            type === GameLayer.END_TYPE_WIN_FIVE_PAIR||
+            type === GameLayer.END_TYPE_WIN_FOUR_PIG)
+        {
+            this.addResultLose(gold, cardsID, type, delay);
+            return;
+        }
+
+        var delayTime = delay? PlayerView.TIME_RESULT_ANIMATION : PlayerView.TIME_RESULT_LASTCARD;
+
+        this._card.stopAllActions();
+        this._card.runAction(cc.sequence(
+            cc.delayTime(delayTime),
+            cc.hide()
+        ));
 
         this.resultWin.stopAllActions();
         this.resultWin.setVisible(true);
         this.resultWin.setOpacity(255);
 
         var scaleTime = 0.25;
+        if (!this.resultWin.eff) this.initEffectResultWin();
         this.resultWin.eff.stopAllActions();
         this.resultWin.eff.setVisible(false);
         this.resultWin.eff.runAction(cc.sequence(
             cc.delayTime(delayTime),
             cc.show(),
             cc.callFunc(function () {
-                this.resultWin.eff.setAnimation(0, "action", 0);
-            }.bind(this)),
+                this.setAnimation(0, "action", 0);
+            }.bind(this.resultWin.eff)),
             cc.delayTime(this.resultWin.eff.getDuration("action")),
             cc.callFunc(function () {
-                this.resultWin.eff.setAnimation(0, "idle", -1);
-            }.bind(this))
+                this.setAnimation(0, "idle", -1);
+            }.bind(this.resultWin.eff))
         ));
 
         this.resultWin.fox.stopAllActions();
@@ -1547,12 +1133,12 @@ var PlayerView = cc.Node.extend({
             cc.delayTime(scaleTime * 2 + delayTime),
             cc.show(),
             cc.callFunc(function () {
-                this.resultWin.fox.setAnimation(0, "fox_win_action", 0);
-            }.bind(this)),
+                this.setAnimation(0, "fox_win_action", 0);
+            }.bind(this.resultWin.fox)),
             cc.delayTime(this.resultWin.fox.getDuration("fox_win_action")),
             cc.callFunc(function () {
-                this.resultWin.fox.setAnimation(0, "fox_win_idle", -1);
-            }.bind(this))
+                this.setAnimation(0, "fox_win_idle", -1);
+            }.bind(this.resultWin.fox))
         ));
 
         this.addResultLabelEffect(
@@ -1566,26 +1152,44 @@ var PlayerView = cc.Node.extend({
     },
 
     addGotSamBlock: function () {
-        if (this._index === 0) {
-            this._gameScene._effect2D.addBigResult("angry", "angry");
-            return;
+        if (!this.isBao) return;
+        if (!this.resultBlock) {
+            this.initEffectResultBlock();
         }
+
+        this.clearBao(true);
+        this.resultBlock.stopAllActions();
+        this.resultBlock.setVisible(true);
+        this.resultBlock.setOpacity(0);
+        this.resultBlock.runAction(cc.sequence(
+            cc.delayTime(0.5),
+            cc.callFunc(function () {
+                this.setAnimation(0, "angry", -1);
+            }.bind(this.resultBlock)),
+            cc.fadeIn(0.25),
+            cc.delayTime(2),
+            cc.fadeOut(0.25)
+        ))
     },
 
-    removeResult: function (delay = 0) {
+    removeResult: function (delay = 0, immediate = false) {
         var resultPanel = [];
         resultPanel.push(this.resultWin);
         resultPanel.push(this.resultLose);
         resultPanel.push(this._gameScene._effect2D.getChildByTag(LayerEffect2D.SAM_EFFECT_TAG));
         resultPanel.push(this.lbExp);
+        resultPanel.push(this.resultBlock);
 
         for (var i = 0; i < resultPanel.length; i++) {
             if (resultPanel[i]) {
-                resultPanel[i].runAction(cc.sequence(
-                    cc.delayTime(delay),
-                    cc.fadeOut(0.25),
-                    cc.hide()
-                ));
+                if (immediate)
+                    resultPanel[i].setVisible(false);
+                else
+                    resultPanel[i].runAction(cc.sequence(
+                        cc.delayTime(delay),
+                        cc.fadeOut(0.25),
+                        cc.hide()
+                    ));
             }
         }
     },
@@ -1607,25 +1211,51 @@ var PlayerView = cc.Node.extend({
     },
 
     useEmoticon: function (id, emoId) {
-        var emo = StorageManager.getEmoticonForPlay(id, emoId);
-        var duration = emo.playAnimation(1, 2);
-        emo.setPosition(this._uiAvatar.getPosition());
+        cc.log("PLAYER useEmoticon", id, emoId);
         var scale = StorageManager.getEmoticonScale(id) * 0.75;
-        this._panel.addChild(emo, 99);
-        emo.setOpacity(100);
-        emo.setScale(scale * 0.5);
-        emo.runAction(cc.sequence(
+        var emo = StorageManager.getEmoticonForPlay(id, emoId);
+        emo.setScale(scale);
+        var duration = emo.playAnimation(1, 2);
+        this.effectEmote(emo, duration);
+    },
+
+    effectEmote: function (emote, duration) {
+        var timeInOut = 0.2;
+        var bgEmote = new cc.Sprite("ChatNew/bgEmote.png");
+        var bgScale = this.isSwapped()? -1 : 1;
+        var orgRot = this.isSwapped()? 90 : -90;
+        bgEmote.setAnchorPoint(cc.p(0, 0));
+        bgEmote.setPosition(this._uiAvatar.getPosition());
+        bgEmote.y += this.mask.height / 2 - 10;
+        bgEmote.x += (this.mask.width / 3) * bgScale;
+        bgEmote.setOpacity(0);
+        bgEmote.setScale(0);
+        bgEmote.setRotation(orgRot);
+        bgEmote.runAction(cc.sequence(
             cc.spawn(
-                cc.fadeTo(0.2, 255),
-                cc.scaleTo(0.2, scale).easing(cc.easeBackOut())
+                cc.fadeTo(timeInOut, 255),
+                cc.scaleTo(timeInOut, 1 * bgScale, 1).easing(cc.easeBackOut()),
+                cc.rotateTo(timeInOut, 0).easing(cc.easeBackOut())
             ),
-            cc.delayTime(duration - 0.4),
+            cc.delayTime(duration - timeInOut * 2),
             cc.spawn(
-                cc.fadeTo(0.2, 100),
-                cc.scaleTo(0.2, scale * 0.5).easing(cc.easeBackIn())
+                cc.fadeTo(timeInOut, 100),
+                cc.scaleTo(timeInOut, 0).easing(cc.easeBackIn()),
+                cc.rotateTo(timeInOut, orgRot).easing(cc.easeBackIn())
             ),
             cc.removeSelf()
         ));
+        bgEmote.addChild(emote);
+        bgEmote.setTag(PlayerView.EMOTE_TAG);
+        emote.setPosition(cc.p(bgEmote.width * 0.5, bgEmote. height  * 0.6));
+        var emoteScale = emote.getScale();
+        emote.setScale(0);
+        emote.runAction(cc.sequence(
+            cc.scaleTo(timeInOut, emoteScale).easing(cc.easeBackOut()),
+            cc.delayTime(duration - timeInOut * 2),
+            cc.scaleTo(timeInOut, 0).easing(cc.easeBackIn())
+        ))
+        this._panel.addChild(bgEmote);
     },
 
     setAvatarFrame: function (path) {
@@ -1649,6 +1279,10 @@ var PlayerView = cc.Node.extend({
     }
 });
 PlayerView.FIRE_COUNT_TAG = 111;
+PlayerView.EMOTE_TAG = 112;
+PlayerView.TIME_RESULT_ANIMATION = 3.5;
+PlayerView.TIME_RESULT_LASTCARD = 0;
+PlayerView.TIME_DELAY_ENDGAME_PACKET = 2.5;
 PlayerView.VIP_PARTICLE = [
     cc.color("#ffffff"),
     cc.color("#a07e7e"),
@@ -1662,65 +1296,367 @@ PlayerView.VIP_PARTICLE = [
     cc.color("#ae51ec"),
     cc.color("#ec4749")
 ];
-
-PlayerView.createNodeMoney = function (money) {
-    var node = new cc.Node();
-    var str = "" + Math.abs(money);
-    var thang = (money >= 0);
-    var width = 0;
-    var height = 0;
-
-    var ret = new cc.Sprite(PlayerView.getNumberPath(thang, -2));
-    width += ret.getContentSize().width;
-    var fix = 0;
-    node.addChild(ret);
-    for (var i = 0; i < str.length; i++) {
-        var xx = ret.getPositionX() + ret.getContentSize().width + fix;
-        fix = 0;
-        ret = new cc.Sprite(PlayerView.getNumberPath(thang, parseInt(str[i])));
-        ret.setPositionX(xx);
-        node.addChild(ret);
-        width += ret.getContentSize().width;
-        height = ret.getContentSize().height;
-
-
-        if ((i < str.length - 1) && ((str.length - 1 - i) % 3 == 0)) {
-            xx = ret.getPositionX() + ret.getContentSize().width;
-            ret = new cc.Sprite(PlayerView.getNumberPath(thang, -1));
-            ret.setPosition(xx - 7, -9);
-            node.addChild(ret);
-            fix = 4;
-            width += ret.getContentSize().width;
-        }
-    }
-    node.setContentSize(cc.size(width, height));
-    node.setAnchorPoint(cc.p(.5, .5));
-
-    return node;
-};
-
-PlayerView.getNumberPath = function (thang, number) {
-    var path = "common/";
-    if (thang)
-        path += "bosothang/";
-    else
-        path += "bosothua/";
-    if (number == -1)
-        path += "dot";
-    else if (number == -2) {
-        if (thang)
-            path += "cong";
-        else
-            path += "tru";
-    } else {
-        path += ("so" + number);
-    }
-    path += ".png";
-    return path;
+PlayerView.TOTAL_INGAME_AVATAR = 8;
+PlayerView.EMOTION = {
+    ANGRY: 0,
+    MISCHIEF: 1,
+    HAPPY: 2,
+    SAD: 3
 };
 
 var MyView = PlayerView.extend({
-    addResultWin: function (gold, cardsID, type, delayTime = 3) {
+    ctor: function (gameScene) {
+        this._super(gameScene);
+
+        this._touchEnable = false;
+        this._touched = false;
+        this._enableTouch = true;
+
+        this._listener = cc.EventListener.create({
+            event: cc.EventListener.TOUCH_ONE_BY_ONE,
+            swallowTouches: true,
+            onTouchBegan: this.onTouchBegan,
+            onTouchMoved: this.onTouchMoved,
+            onTouchEnded: this.onTouchEnded
+        });
+    },
+
+    /* init for myPlayer */
+    initWithScene: function (gameScene, index) {
+        this._cardPanel = ccui.Helper.seekWidgetByName(gameScene._layout, "card_panel");
+        this._cardPanel.setLocalZOrder(5);
+        this.result = ccui.Helper.seekWidgetByName(gameScene._layout, "result_panel");
+        this.result.setLocalZOrder(6);
+        this._type = Player.MY;
+        this._index = index;
+
+        this.setPosition(this._cardPanel.getPosition().x, this._cardPanel.getPosition().y);
+        this._cardPanel.setVisible(false);
+        this._index = 0;
+        cc.eventManager.addListener(this._listener, this);
+        this._touchEnable = true;
+        if (!this._moveCard) {
+            this._moveCard = new SamCard(60);
+            this._moveCard.setVisible(false);
+            this._moveCard.setOpacity(100);
+            this._moveCard.setLocalZOrder(20);
+            this._cardPanel.addChild(this._moveCard);
+        }
+        this._type = 0;
+        this._gameScene.logForIOS("DONE EventListener");
+
+        this._cardFirstTurn = new SamCard(60);
+        this._cardFirstTurn.setVisible(false);
+        this._cardFirstTurn.setPosition(cc.p(
+            this._cardPanel.width * 0.5 - (this._cardPanel.x - this._cardPanel.x * (5/6)) * 0.5,
+            this._cardPanel.height * 0.5
+        ));
+        this._cardPanel.addChild(this._cardFirstTurn);
+        this._gameScene.logForIOS("DONE CARD");
+
+        this.resultLose = this.result.getChildByName("bgLose");
+        this.resultLose.lbGold = this.resultLose.getChildByName("gold");
+        this.resultLose.label = this.resultLose.getChildByName("label");
+        this.resultLose.stamp = this.resultLose.getChildByName("type");
+        this.resultLose.lbStamp = this.resultLose.stamp.getChildByName("txt");
+        this.resultLose.stampPos = this.resultLose.stamp.getPosition();
+        this.resultLose.setVisible(false);
+
+        this.resultWin = this.result.getChildByName("bgWin");
+        this.resultWin.lbGold = this.resultWin.getChildByName("gold");
+        this.resultWin.lbGold.setLocalZOrder(1);
+        this.resultWin.label = this.resultWin.getChildByName("label");
+        this.resultWin.label.setLocalZOrder(1);
+        this.resultWin.eff = new CustomSkeleton("Animation/light", "skeleton", 1);
+        this.resultWin.eff.setPosition(this.resultWin.width / 2, this.resultWin.height / 2 + 5);
+        this.resultWin.eff.setScale(1.25);
+        this.resultWin.eff.setTimeScale(1.5);
+        this.resultWin.addChild(this.resultWin.eff);
+        this.resultWin.setVisible(false);
+
+        this.timer = gameScene.getControl("timer");
+        this.timer.orgPos = this.timer.getPosition();
+        this.timerLabel = this.timer.getChildByName("label");
+        this.timer.setVisible(false);
+        this.timer.eff = new CustomSkeleton("Animation/clock", "skeleton", 1);
+        this.timer.eff.setLocalZOrder(-1);
+        this.timer.eff.setScale(1);
+        this.timer.eff.setPosition(cc.p(this.timer.width / 2, this.timer.height / 2));
+        this.timer.addChild(this.timer.eff);
+        this._gameScene.logForIOS("DONE TIME");
+
+        var myBaoPosition = cc.p(-80, 140);
+        this.baoPanel.bao.setPosition(myBaoPosition);
+        this.baoPanel.bao.getChildByName("lb").y += 20;
+        this.baoPanel.baoCancel.setPosition(myBaoPosition);
+        this.baoPanel.baoCancel.getChildByName("lb").y += 20;
+        this.baoPanel.orgPos = this.baoPanel.bao.getPosition();
+        this._gameScene.logForIOS("DONE BAO");
+
+        this.vip.setAnchorPoint(cc.p(0, 0.5));
+        this.swapSide(this.vip);
+        this.vip.setPositionY(this._panel.getChildByName("card").getPositionY());
+
+        this._card.setVisible(false);
+
+        this.pLevel = this._panel.getChildByName("pLevel");
+        this.pLevel.glow = this.pLevel.getChildByName("glow");
+        this.pLevel.glow.stopSystem();
+        this.pLevel.arrow = this.pLevel.getChildByName("arrow");
+        this.pLevel.arrow.stopSystem();
+        this.pLevel.arrow2 = this.pLevel.getChildByName("arrow2");
+        this.pLevel.arrow2.stopSystem();
+        this._gameScene.logForIOS("DONE LEVEL");
+    },
+
+    initCards: function (cards) {
+        cc.log("INIT CARD " + JSON.stringify(cards));
+
+        var height = this._cardPanel.getContentSize().height;
+        for (var i = 0; i < cards.length; i++) {
+            var card;
+            if (i < this._handOnCards.length) {
+                card = this._handOnCards[i];
+                card.setID(cards[i]);
+            } else {
+                card = new SamCard(cards[i]);
+                this._cardPanel.addChild(card);
+                this._handOnCards.push(card);
+            }
+            card.addEfxBan();
+            card.setLocalZOrder(i);
+            card._startY = height / 2;
+        }
+        for (var j = i; j < this._handOnCards.length; j) {
+            this._handOnCards[i].removeFromParent();
+            this._handOnCards.pop();
+        }
+
+        this.fixPositionHandOnCardForMy(true);
+    },
+
+    clearBai: function () {
+        var allCards = this._cardPanel.getChildren();
+        for (var i = 0; i < allCards.length; i++) {
+            if (allCards[i] !== this._cardFirstTurn && allCards[i] !== this._moveCard)
+                allCards[i].removeFromParent()
+        }
+        this._handOnCards = [];
+    },
+
+    /* myPlayer ; fix position cards khi danh quan bai */
+    fixPositionHandOnCardForMy: function (immediately) {
+        if (this._handOnCards.length === 0) return;
+
+        this._cardPanel.setVisible(true);
+        var width = this._cardPanel.getContentSize().width;
+        var height = this._cardPanel.getContentSize().height;
+        //this.setContentSize(cc.size(width, height));
+
+        var cardW = this._handOnCards[0].getContentSize().width;
+
+        var xx = (width - cardW) / 9;       // khoang cach giua 2 card
+
+        if ((this._handOnCards.length % 2) === 0) {
+            var idx = this._handOnCards.length / 2 - 1;
+            for (var i = idx; i >= 0; i--) {
+                this.cardToPosition(this._handOnCards[i], cc.p(width / 2 - xx / 2 - (idx - i) * xx, height / 2), immediately);
+            }
+            for (var i = idx + 1; i < this._handOnCards.length; i++) {
+                this.cardToPosition(this._handOnCards[i], cc.p(width / 2 + xx / 2 + (i - idx - 1) * xx, height / 2), immediately);
+            }
+        } else {
+            var idx = Math.floor(this._handOnCards.length / 2);
+            for (var i = idx; i >= 0; i--) {
+                this.cardToPosition(this._handOnCards[i], cc.p(width / 2 - (idx - i) * xx, height / 2), immediately);
+            }
+            for (var i = idx; i < this._handOnCards.length; i++) {
+                this.cardToPosition(this._handOnCards[i], cc.p(width / 2 + (i - idx) * xx, height / 2), immediately);
+            }
+        }
+    },
+
+    cardToPosition: function (control, position, immediately) {
+        control.stopAllActions();
+        if (immediately)
+            control.setPosition(position);
+        else
+            control.runAction(cc.moveTo(0.25, position).easing(cc.easeBackOut()));
+    },
+    /* myPlayer ; fix position cards khi danh quan bai */
+
+    danhbai: function (cards) {
+        var ret = []
+        for (var j = 0; j < this._handOnCards.length; j++) {
+                this._handOnCards[j].forceDOWN();
+                this._handOnCards[j].setVisible(true);
+        }
+        if (!cards) return;
+        var check = [];
+        for (var i = 0; i < cards.length; i++) {
+            for (var j = 0; j < this._handOnCards.length; j++) {
+                if (this._handOnCards[j]._id === cards[i]) {
+                    ret.push({
+                        id: this._handOnCards[j]._id,
+                        x: this._handOnCards[j].convertToWorldSpaceAR(cc.p(0, 0)).x,
+                        y: this._handOnCards[j].convertToWorldSpaceAR(cc.p(0, 0)).y,
+                        scale: 1
+                    });
+                    check.push(j);
+                    break;
+                }
+            }
+        }
+
+        check.sort(function (a, b) { return a - b;});
+        for (var i = check.length - 1; i >= 0; i--) {
+            this._handOnCards[check[i]].removeFromParent(true);
+            this._handOnCards.splice(check[i], 1);
+        }
+        this.fixPositionHandOnCardForMy();
+        return ret;
+    },
+
+    enableTouch: function (enable) {
+        this._enableTouch = enable;
+    },
+
+    onTouchBegan: function (touch, event) {
+        this.forceAllCardDown = false;
+        var target = event.getCurrentTarget();
+        target.autoing(false);
+        var needTouch = true;
+        if (!cc.sys.isNative && touch.getID() === undefined) {
+            touch._id = 0;
+        }
+        for (var i = 0; i < target._handOnCards.length; i++) {
+            if (!target._handOnCards[i].isVisible()) {
+                needTouch = false;
+                break;
+            }
+        }
+
+        if (touch.getID() !== 0 || !target._touchEnable || !needTouch) {
+            return false;
+        }
+
+        target._touched = true;
+        target._startId = null;
+        target._endId = null;
+
+        cc.log("onTouchBegan");
+        for (var i = target._handOnCards.length - 1; i >= 0; i--) {
+            if (target._handOnCards[i].containTouchPoint(touch.getLocation())) {
+                target._startId = i;
+                target._endId = i;
+                target._handOnCards[i].showEfxBan();
+                cc.log("onTouchBegan", target._startId, target._endId);
+                return true;
+            }
+        }
+
+        var removeAll = false;
+        for (var i = target._handOnCards.length - 1; i >= 0; i--) {
+            if (target._handOnCards[i]._up) {
+                target._handOnCards[i].upDown();
+                removeAll = true;
+            }
+        }
+        if (removeAll) target._gameScene.kiemtraDanhbai();
+
+        return false;
+    },
+
+    onTouchMoved: function (touch, event) {
+        var target = event.getCurrentTarget();
+        if (touch.getID() !== 0 || !target._touchEnable || !target._touched) return;
+        if (target._startId === null) return;
+
+        for (var i = target._handOnCards.length - 1; i >= 0; i--) {
+            if (target._handOnCards[i].containTouchPoint(touch.getLocation())) {
+                target._endId = i;
+                break;
+            }
+        }
+        var start = target._startId;
+        var end = target._endId;
+        if (start > end) {
+            start = target._endId;
+            end = target._startId;
+        }
+        cc.log("onTouchMoved", start, end);
+        for (var i = 0; i < target._handOnCards.length; i++) {
+            if (i >= start && i <= end)
+                target._handOnCards[i].showEfxBan();
+            else
+                target._handOnCards[i].hideEfxBan();
+        }
+    },
+
+    onTouchEnded: function (touch, event) {
+        var target = event.getCurrentTarget();
+        if (touch.getID() !== 0 || !target._touchEnable) return;
+
+        target._touched = false;
+        if (target._startId === target._endId) {
+            gameSound.clickQuanbai();
+            target._handOnCards[target._startId].upDown();
+            target._handOnCards[target._startId].hideEfxBan();
+            if (target._handOnCards[target._startId]._up)
+                target._gameScene.oneCardCheck(target._handOnCards[target._startId]._id);
+            target._gameScene.kiemtraDanhbai(target._handOnCards[target._startId]._up);
+            return;
+        }
+        var start = target._startId;
+        var end = target._endId;
+        if (start > end) {
+            start = target._endId;
+            end = target._startId;
+        }
+        cc.log("onTouchEnded", start, end);
+        for (var i = 0; i < target._handOnCards.length; i++) {
+            target._handOnCards[i].hideEfxBan();
+            if (i >= start && i <= end)
+                target._handOnCards[i].forceUP();
+            else
+                target._handOnCards[i].forceDOWN();
+        }
+        target._gameScene.kiemtraDanhbai();
+    },
+
+    moveCardASide: function (index) {
+        if (this._cardMoveTo !== null && this._cardMoveTo !== this._handOnCards[index]) {
+            //this._cardMoveTo.setColor(cc.WHITE);
+            //this._handOnCards[index].setColor(cc.color(100, 100, 100));
+
+            for (var i = 0; i < this._cardEfx.length; i++) {
+                //cc.log("CARD MOVE", index, this._chooseCardIdx, i, this._chooseCard);
+                var targetIndex = i;
+                if (this._chooseCardIdx < index) {
+                    if (i > this._chooseCardIdx && i <= index) {
+                        targetIndex = i - 1;
+                    }
+                } else {
+                    if (i >= index && i < this._chooseCardIdx) {
+                        targetIndex = i + 1;
+                    }
+                }
+                this._cardEfx[i].stopAllActions();
+                if (this._cardEfx[i].getPosition() !== this._handOnCards[targetIndex].getPosition()) {
+                    this._cardEfx[i].runAction(
+                        cc.moveTo(0.15, this._handOnCards[targetIndex].getPosition()).easing(cc.easeBackOut())
+                    );
+                }
+                this._cardEfx[i].setLocalZOrder(this._handOnCards[targetIndex].getLocalZOrder());
+            }
+        }
+        this._cardMoveTo = this._handOnCards[index];
+        this._moveCard.setLocalZOrder(this._handOnCards[index].getLocalZOrder());
+    },
+
+    addResultWin: function (gold, cardsID, type, delay) {
+        var delayTime = delay? PlayerView.TIME_RESULT_ANIMATION : PlayerView.TIME_RESULT_LASTCARD;
+
         this.addEffectResult(this.resultWin, "+" + this.convertGoldString(Math.abs(gold)), delayTime);
         this.addLevelExp(delayTime + 1);
         this.resultWin.label.setVisible(true);
@@ -1749,27 +1685,44 @@ var MyView = PlayerView.extend({
         }
     },
 
-    addResultLose: function (gold, cardsID, type, delayTime = 3) {
+    addResultLose: function (gold, cardsID, type, delay) {
+        var delayTime = delay? PlayerView.TIME_RESULT_ANIMATION : PlayerView.TIME_RESULT_LASTCARD;
+
         this.addEffectResult(this.resultLose, "-" + this.convertGoldString(Math.abs(gold)), delayTime);
         this.addLevelExp(delayTime + 1);
         this.resultLose.label.setVisible(true);
 
+        cc.log("ADD MY RESULT LOSE", JSON.stringify(this._gameScene.winToiTrang));
         gameSound.playThua();
         switch (type) {
             case GameLayer.END_TYPE_LOSE_SAM_BLOCK:
                 this._gameScene._effect2D.addBigResult("lose_action", "lose_idle");
                 break;
             case GameLayer.END_TYPE_LOSE_TOI_TRANG:
-                this._gameScene._effect2D.effectToiTrang(
-                    this._gameScene._players[this._gameScene.winToiTrang.pos].danhbai(this._gameScene.winToiTrang.cardID),
-                    this._gameScene.winToiTrang.type,
-                    false
-                );
+                if (this._gameScene.winToiTrang.pos !== -1)
+                    this._gameScene._effect2D.effectToiTrang(
+                        this._gameScene._players[this._gameScene.winToiTrang.pos].danhbai(this._gameScene.winToiTrang.cardID),
+                        this._gameScene.winToiTrang.type,
+                        false
+                    );
                 break;
             default:
                 this._gameScene._effect2D.addBigResult("fox_lose_action", "fox_lose_idle");
                 break;
         }
+
+        this.setLabelLose(type, cardsID);
+        this.resultLose.stamp.stopAllActions();
+        this.resultLose.stamp.setOpacity(0);
+        this.resultLose.stamp.setPosition(this.resultLose.stampPos);
+        this.resultLose.stamp.x += 75;
+        this.resultLose.stamp.runAction(cc.sequence(
+            cc.delayTime(delayTime + 0.5),
+            cc.spawn(
+                cc.fadeIn(0.25),
+                cc.moveTo(0.5, this.resultLose.stampPos).easing(cc.easeOut(3))
+            )
+        ));
     },
 
     addIncreaseMoney: function (gold, delay = 0) {
@@ -1793,5 +1746,88 @@ var MyView = PlayerView.extend({
             cc.fadeIn(0.5)
         ));
         pResult.lbGold.setString(string);
-    }
+    },
+
+    addGotSamBlock: function () {
+        //do noting
+    },
+
+    addLevelExp: function (delayTime = 0) {
+        if (this._index !== 0) {
+            return;
+        }
+
+        var update = this._levelResult;
+        if (!update) return;
+        var levelExpAdd = update.newLevelExp - update.oldLevelExp;
+        cc.log("LEVEL UP EXP", levelExpAdd);
+        if (levelExpAdd > 0) {
+            this.addResultLabelEffect(
+                this.lbExp,
+                this.lbExp.orgPos,
+                "+" + StringUtility.standartNumber(levelExpAdd) + " exp",
+                0.25,
+                delayTime
+            );
+
+            cc.log("LEVEL UP EXP", update.newLevel - update.oldLevel);
+
+            this.lbExp.runAction(cc.sequence(
+                cc.delayTime(delayTime + 1.75),
+                cc.fadeOut(0.25)
+            ));
+
+            if (update.newLevel > update.oldLevel) {
+                this.lbExp.runAction(cc.sequence(
+                    cc.delayTime(delayTime + 1.25),
+                    cc.callFunc(function () {
+                        this.pLevel.runAction(cc.sequence(
+                            cc.show(),
+                            cc.callFunc(function () {
+                                this.pLevel.glow.resetSystem();
+                                this.pLevel.arrow.resetSystem();
+                                this.pLevel.arrow2.resetSystem();
+                            }.bind(this)),
+                            cc.spawn(
+                                cc.fadeIn(0.1),
+                                cc.delayTime(1.75)
+                            ),
+                            cc.callFunc(function () {
+                                this.pLevel.glow.stopSystem();
+                                this.pLevel.arrow.stopSystem();
+                                this.pLevel.arrow2.stopSystem();
+                            }.bind(this)),
+                            cc.fadeOut(0.5)
+                        ));
+                    }.bind(this)),
+                    cc.delayTime(0.75),
+                    cc.callFunc(function () {
+                        this.addResultLabelEffect(
+                            this.lbExp,
+                            this.lbExp.orgPos,
+                            "LEVEL UP",
+                            0.25,
+                            0
+                        );
+                    }.bind(this)),
+                    cc.delayTime(1.75),
+                    cc.fadeOut(0.25)
+                ));
+            }
+        }
+    },
+
+    addEffectTime: function (time, timeRemain) {
+        this._super(time, timeRemain);
+        this.baoPanel.stopAllActions();
+        this.baoPanel.setOpacity(255);
+        this.baoPanel.runAction(cc.moveTo(0.5, cc.p(this.baoPanel.pos.x, this.baoPanel.pos.y + 20)).easing(cc.easeBackOut()));
+    },
+
+    stopEffectTime: function () {
+        this._super();
+        this.baoPanel.stopAllActions();
+        this.baoPanel.setOpacity(255);
+        this.baoPanel.runAction(cc.moveTo(0.25, this.baoPanel.pos).easing(cc.easeBackIn()));
+    },
 });

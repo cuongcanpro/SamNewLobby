@@ -588,7 +588,7 @@ NewRankData.addMiniRankGUI = function(isTooltip){
         NewRankData.removeMiniRankGUI();
         return;
     }
-    if (gamedata.getUserLevel() >= NewRankData.MIN_LEVEL_JOIN_RANK){
+    if (userMgr.getLevel() >= NewRankData.MIN_LEVEL_JOIN_RANK){
         var gui = sceneMgr.getGUI(NewRankData.MINI_RANK_GUI_TAG);
         if (!gui) {
             var miniRank = sceneMgr.openGUI(NewRankMiniGUI.className, NewRankData.MINI_RANK_GUI_TAG, NewRankData.MINI_RANK_GUI_TAG, false);

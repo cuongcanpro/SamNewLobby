@@ -16,17 +16,18 @@ var SettingGUI = BaseLayer.extend({
 
         this.customButton("close", SettingGUI.BTN_CLOSE, bg);
 
-        this.swSound = this.createSwitchButton(bg, this.getControl("sound", bg), SettingGUI.BTN_SOUND, gamedata.sound);
-        this.swVibrate = this.createSwitchButton(bg, this.getControl("vibrate", bg), SettingGUI.BTN_VIBRATE, gamedata.vibrate);
-        this.swInvite = this.createSwitchButton(bg, this.getControl("invite", bg), SettingGUI.BTN_INVITE, gamedata.acceptInvite);
-        this.swFriend = this.createSwitchButton(bg, this.getControl("friend", bg), SettingGUI.BTN_FRIEND, gamedata.acceptFriend);
+        this.btnSound = this.customButton("sound", SettingGUI.BTN_SOUND, bg);
+        this.btnVibrate = this.customButton("vibrate", SettingGUI.BTN_VIBRATE, bg);
+        this.btnInvite = this.customButton("invite", SettingGUI.BTN_INVITE, bg);
+        this.btnFriend = this.customButton("friend", SettingGUI.BTN_FRIEND, bg);
+        this.btnSound.setPressedActionEnabled(false);
+        this.btnVibrate.setPressedActionEnabled(false);
+        this.btnInvite.setPressedActionEnabled(false);
+        this.btnFriend.setPressedActionEnabled(false);
 
         this.customButton("logout", SettingGUI.BTN_LOGOUT, bg).setVisible(cc.sys.isNative || !Config.WITHOUT_LOGIN);
         this.customButton("support", SettingGUI.BTN_SUPPORT, bg);
         this.customButton("fanpage", SettingGUI.BTN_FANPAGE, bg);
-
-        this.getControl("txMail", bg).setString(!gamedata.isAppSupport ? gamedata.support : gamedata.supporturl);
-        this.getControl("txPhone", bg).setString(gamedata.supportphone);
 
         var version = this.getControl("version", bg);
         version.setString(NativeBridge.getVersionString());
@@ -40,79 +41,49 @@ var SettingGUI = BaseLayer.extend({
     },
 
     finishAnimate: function () {
-        this.swSound.setOn(gamedata.sound, true);
-        this.swVibrate.setOn(gamedata.vibrate, true);
-        this.swInvite.setOn(gamedata.acceptInvite, true);
-        this.swFriend.setOn(gamedata.acceptFriend, true);
+        this.updateButton(this.btnInvite, settingMgr.acceptInvite);
+        this.updateButton(this.btnFriend, settingMgr.acceptFriend);
+        this.updateButton(this.btnSound, settingMgr.sound);
+        this.updateButton(this.btnVibrate, settingMgr.vibrate);
     },
 
-    createSwitchButton: function (parent, btn, id, value) {
-        var switchControl = new cc.ControlSwitch
-        (
-            new cc.Sprite("GUISetting/bgBtn.png"),
-            new cc.Sprite("GUISetting/btnOn.png"),
-            new cc.Sprite("GUISetting/btnOff.png"),
-            new cc.Sprite("GUISetting/icon.png"),
-            new cc.LabelTTF("", "Arial", 16),
-            new cc.LabelTTF("", "Arial", 16)
-        );
-        btn.setVisible(false);
-        switchControl.setOn(value, true);
-        switchControl.setPosition(btn.getPosition());
-        switchControl.setTag(id);
-        parent.addChild(switchControl);
-
-        var mask = new cc.Sprite("GUISetting/maskBtn.png");
-        parent.addChild(mask);
-        mask.setPosition(btn.getPosition());
-
-        switch (id) {
-            case SettingGUI.BTN_SOUND:
-                switchControl.addTargetWithActionForControlEvents(this, this.changeSound, cc.CONTROL_EVENT_VALUECHANGED);
-                break;
-            case SettingGUI.BTN_FRIEND:
-                switchControl.addTargetWithActionForControlEvents(this, this.changeFriend, cc.CONTROL_EVENT_VALUECHANGED);
-                break;
-            case SettingGUI.BTN_VIBRATE:
-                switchControl.addTargetWithActionForControlEvents(this, this.changeVibrate, cc.CONTROL_EVENT_VALUECHANGED);
-                break;
-            case SettingGUI.BTN_INVITE:
-                switchControl.addTargetWithActionForControlEvents(this, this.changeInvite, cc.CONTROL_EVENT_VALUECHANGED);
-                break;
+    updateButton: function (btn, value) {
+        if (value) {
+            btn.loadTextures("Lobby/GUISetting/btnOn.png", "Lobby/GUISetting/btnOn.png");
         }
-        return switchControl;
-    },
-
-    changeSound: function (sender, controlEvent) {
-        var value = sender.isOn();
-        cc.sys.localStorage.setItem("sound", value ? 3 : 1);
-        gamedata.sound = value;
-        gameSound.on = value;
-    },
-
-    changeVibrate: function (sender, controlEvent) {
-        var value = sender.isOn();
-        cc.sys.localStorage.setItem("vibrate", value ? 1 : 0);
-        gamedata.vibrate = value;
-    },
-
-    changeFriend: function (sender, controlEvent) {
-        var value = sender.isOn();
-        cc.sys.localStorage.setItem("friend", value ? 1 : 0);
-        gamedata.acceptFriend = value;
-    },
-
-    changeInvite: function (sender, controlEvent) {
-        var value = sender.isOn();
-        cc.sys.localStorage.setItem("invite", value ? 1 : 0);
-        gamedata.acceptInvite = value;
+        else {
+            btn.loadTextures("Lobby/GUISetting/btnOff.png", "Lobby/GUISetting/btnOff.png");
+        }
     },
 
     onButtonRelease: function (button, id) {
         switch (id) {
             case SettingGUI.BTN_CLOSE: {
                 this.onClose();
-                //gameSound.playSoundxepbai_samchi();
+                break;
+            }
+            case SettingGUI.BTN_SOUND: {
+                settingMgr.sound = !settingMgr.sound;
+                cc.sys.localStorage.setItem("sound", settingMgr.sound ? 3 : 1);
+                this.updateButton(this.btnSound, settingMgr.sound);
+                break;
+            }
+            case SettingGUI.BTN_VIBRATE: {
+                settingMgr.vibrate = !settingMgr.vibrate;
+                cc.sys.localStorage.setItem("vibrate", settingMgr.vibrate ? 1 : 0);
+                this.updateButton(this.btnVibrate, settingMgr.vibrate);
+                break;
+            }
+            case SettingGUI.BTN_FRIEND: {
+                settingMgr.acceptFriend = !settingMgr.acceptFriend;
+                cc.sys.localStorage.setItem("friend", settingMgr.acceptFriend ? 1 : 0);
+                this.updateButton(this.btnFriend, settingMgr.acceptFriend);
+                break;
+            }
+            case SettingGUI.BTN_INVITE: {
+                settingMgr.acceptInvite = !settingMgr.acceptInvite;
+                cc.sys.localStorage.setItem("invite", settingMgr.acceptInvite ? 1 : 0);
+                this.updateButton(this.btnInvite, settingMgr.acceptInvite);
                 break;
             }
             case SettingGUI.BTN_LOGOUT: {

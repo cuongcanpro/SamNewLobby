@@ -202,7 +202,7 @@ NativeBridge.getVersionString = function () {
     var jsVersion = cc.sys.localStorage.getItem(LocalizedString.config("KEY_JS_VERSION"));
     if (jsVersion === undefined || jsVersion == null || jsVersion == "") jsVersion = "0";
 
-    ret += "." + gamedata.appVersion + "." + jsVersion;
+    ret += "." + gameMgr.appVersion + "." + jsVersion;
     return ret;
 };
 

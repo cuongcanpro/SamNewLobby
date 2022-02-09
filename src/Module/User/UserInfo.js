@@ -69,7 +69,6 @@ var UserInfo = cc.Class.extend({
         this.uID = uID;
     },
 
-
     getGold: function () {
         return this.gold;
     },
@@ -91,6 +90,8 @@ var UserInfo = cc.Class.extend({
     },
 
     getUserName: function () {
+        if (!this.userName)
+            return this.getDisplayName();
         return this.userName;
     },
 

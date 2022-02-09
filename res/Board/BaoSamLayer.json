@@ -16,14 +16,14 @@
         "Children": [
           {
             "FileData": {
-              "Type": "Normal",
-              "Path": "Demos/02.png",
+              "Type": "Default",
+              "Path": "Default/ImageFile.png",
               "Plist": ""
             },
-            "Scale9OriginX": 396,
-            "Scale9OriginY": 237,
-            "Scale9Width": 408,
-            "Scale9Height": 246,
+            "Scale9OriginX": -350,
+            "Scale9OriginY": -191,
+            "Scale9Width": 746,
+            "Scale9Height": 428,
             "AnchorPoint": {
               "ScaleX": 0.5,
               "ScaleY": 0.5
@@ -73,6 +73,8 @@
             "ColorVector": {
               "ScaleY": 1.0
             },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
             "TouchEnable": true,
             "AnchorPoint": {
               "ScaleX": 0.5,
@@ -171,16 +173,6 @@
                   "Path": "Default/Button_Disable.png",
                   "Plist": ""
                 },
-                "PressedFileData": {
-                  "Type": "Normal",
-                  "Path": "GameGUI/Tachfile/_0010_Brightness_Contrast-1.png",
-                  "Plist": ""
-                },
-                "NormalFileData": {
-                  "Type": "Normal",
-                  "Path": "GameGUI/Tachfile/_0010_Brightness_Contrast-1.png",
-                  "Plist": ""
-                },
                 "Scale9OriginX": 15,
                 "Scale9OriginY": 11,
                 "Scale9Width": 270,
@@ -229,9 +221,9 @@
                 "Children": [
                   {
                     "FileData": {
-                      "Type": "Normal",
-                      "Path": "GameGUI/Tachfile/title.png",
-                      "Plist": ""
+                      "Type": "PlistSubImage",
+                      "Path": "baoSam/title.png",
+                      "Plist": "GameGUI/GameGUI.plist"
                     },
                     "Scale9OriginX": 99,
                     "Scale9OriginY": 21,
@@ -294,14 +286,14 @@
                   "Plist": ""
                 },
                 "PressedFileData": {
-                  "Type": "Normal",
-                  "Path": "GameGUI/new/btnBaoCancel.png",
-                  "Plist": ""
+                  "Type": "PlistSubImage",
+                  "Path": "baoSam/btnBaoCancel.png",
+                  "Plist": "GameGUI/GameGUI.plist"
                 },
                 "NormalFileData": {
-                  "Type": "Normal",
-                  "Path": "GameGUI/new/btnBaoCancel.png",
-                  "Plist": ""
+                  "Type": "PlistSubImage",
+                  "Path": "baoSam/btnBaoCancel.png",
+                  "Plist": "GameGUI/GameGUI.plist"
                 },
                 "Scale9OriginX": 15,
                 "Scale9OriginY": 11,
@@ -358,12 +350,14 @@
               },
               {
                 "FileData": {
-                  "Type": "Normal",
-                  "Path": "GameGUI/gui_game/processBg.png",
-                  "Plist": ""
+                  "Type": "PlistSubImage",
+                  "Path": "baoSam/processBg.png",
+                  "Plist": "GameGUI/GameGUI.plist"
                 },
-                "Scale9Width": 393,
-                "Scale9Height": 29,
+                "Scale9OriginX": 129,
+                "Scale9OriginY": 9,
+                "Scale9Width": 135,
+                "Scale9Height": 11,
                 "AnchorPoint": {
                   "ScaleX": 0.5,
                   "ScaleY": 0.5
@@ -395,9 +389,9 @@
                 "Children": [
                   {
                     "FileData": {
-                      "Type": "Normal",
-                      "Path": "GameGUI/gui_game/process.png",
-                      "Plist": ""
+                      "Type": "PlistSubImage",
+                      "Path": "baoSam/process.png",
+                      "Plist": "GameGUI/GameGUI.plist"
                     },
                     "Scale9Enable": true,
                     "Scale9OriginX": 8,
@@ -448,22 +442,22 @@
               },
               {
                 "FileData": {
-                  "Type": "Normal",
-                  "Path": "Common/9patch.png",
-                  "Plist": ""
+                  "Type": "PlistSubImage",
+                  "Path": "bgTableNoti.png",
+                  "Plist": "GameGUI/GameGUI.plist"
                 },
                 "Scale9Enable": true,
                 "Scale9OriginX": 15,
                 "Scale9OriginY": 15,
-                "Scale9Width": 18,
-                "Scale9Height": 18,
+                "Scale9Width": 568,
+                "Scale9Height": 51,
                 "AnchorPoint": {
                   "ScaleX": 0.5,
                   "ScaleY": 0.5
                 },
                 "Position": {
                   "X": 600.0,
-                  "Y": 644.0719
+                  "Y": 648.0
                 },
                 "Scale": {
                   "ScaleX": 1.0,
@@ -472,30 +466,32 @@
                 "CColor": {},
                 "IconVisible": false,
                 "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
                 "PrePosition": {
                   "X": 0.5,
-                  "Y": 0.8945
+                  "Y": 0.9
                 },
                 "PreSize": {
-                  "X": 0.6417,
-                  "Y": 0.0556
+                  "X": 0.4983,
+                  "Y": 0.1125
                 },
-                "VerticalEdge": "TopEdge",
-                "LeftMargin": 215.0,
-                "RightMargin": 215.0,
-                "TopMargin": 55.9281,
-                "BottomMargin": 624.0719,
+                "LeftMargin": 301.0,
+                "RightMargin": 301.0,
+                "TopMargin": 31.5,
+                "BottomMargin": 607.5,
                 "Tag": 286,
                 "Children": [
                   {
-                    "FontSize": 16,
-                    "LabelText": "Theo vòng abc sâm trước, mời đánh !............................................                                                .........................................",
+                    "IsCustomSize": true,
+                    "FontSize": 20,
+                    "LabelText": "Chúc mừng bạn được \"Bộ bài Đồng màu\", chọn tới trắng để Sâm ngay hoặc hủy báo để chơi tiếp",
                     "FontResource": {
                       "Type": "Normal",
-                      "Path": "Font/tahoma.ttf",
+                      "Path": "Font/robotoBold.ttf",
                       "Plist": ""
                     },
                     "HorizontalAlignmentType": "HT_Center",
+                    "VerticalAlignmentType": "VT_Center",
                     "OutlineColor": {
                       "G": 0,
                       "B": 0
@@ -512,33 +508,37 @@
                       "ScaleY": 0.5
                     },
                     "Position": {
-                      "X": 385.462,
-                      "Y": 21.4946
+                      "X": 299.0,
+                      "Y": 32.5
                     },
                     "Scale": {
                       "ScaleX": 1.0,
                       "ScaleY": 1.0
                     },
-                    "CColor": {},
+                    "CColor": {
+                      "R": 253,
+                      "G": 244,
+                      "B": 211
+                    },
                     "IconVisible": false,
+                    "PositionPercentXEnabled": true,
                     "PrePosition": {
-                      "X": 0.5006,
-                      "Y": 0.5374
+                      "X": 0.5,
+                      "Y": 0.4012
                     },
+                    "PercentWidthEnable": true,
+                    "PercentWidthEnabled": true,
                     "PreSize": {
-                      "X": 1.0584,
-                      "Y": 0.55
+                      "X": 1.0,
+                      "Y": 0.8519
                     },
-                    "HorizontalEdge": "BothEdge",
-                    "LeftMargin": -22.038,
-                    "RightMargin": -22.962,
-                    "TopMargin": 7.5054,
-                    "BottomMargin": 10.4946,
+                    "TopMargin": 14.0,
+                    "BottomMargin": -2.0,
                     "Tag": 287,
                     "ActionTag": 1089120568,
                     "Size": {
-                      "X": 815.0,
-                      "Y": 22.0
+                      "X": 598.0,
+                      "Y": 69.0
                     },
                     "Name": "text",
                     "ctype": "TextObjectData"
@@ -546,10 +546,9 @@
                 ],
                 "ActionTag": 693859838,
                 "Size": {
-                  "X": 770.0,
-                  "Y": 40.0
+                  "X": 598.0,
+                  "Y": 81.0
                 },
-                "VisibleForFrame": false,
                 "Name": "bg2",
                 "ctype": "ImageViewObjectData"
               }
@@ -571,15 +570,11 @@
         "ctype": "LayerObjectData"
       },
       "UsedResources": [
-        "Common/9patch.png",
         "Default/Button_Disable.png",
-        "Demos/02.png",
-        "Font/tahoma.ttf",
-        "GameGUI/gui_game/process.png",
-        "GameGUI/gui_game/processBg.png",
-        "GameGUI/new/btnBaoCancel.png",
-        "GameGUI/Tachfile/_0010_Brightness_Contrast-1.png",
-        "GameGUI/Tachfile/title.png"
+        "Default/ImageFile.png",
+        "Font/robotoBold.ttf",
+        "GameGUI/GameGUI.plist",
+        "GameGUI/GameGUI.png"
       ],
       "ctype": "GameFileData"
     }

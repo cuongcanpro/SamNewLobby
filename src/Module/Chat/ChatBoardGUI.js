@@ -2,274 +2,100 @@
  * Created by Hunter on 2/13/2017.
  */
 
-var ChatEmoNewCell = cc.TableViewCell.extend({
-
-    ctor: function () {
-        this._super("ChatEmoNewCell");
-
-        this.bgItem = cc.Node.create();
-        this.bgItem.setPosition(36, -20);
-        this.addChild(this.bgItem);
-
-        this.eff = db.DBCCFactory.getInstance().buildArmatureNode("Emoticon0");
-        if (this.eff) {
-            this.eff.setScale(0.7);
-            this.bgItem.addChild(this.eff);
-        }
-
-        if (Config.ENABLE_INTERACT_PLAYER) {
-            this.vip = cc.Sprite.create(InteractConfig.VIP_ICON);
-            this.vip.setPosition(35, -20);
-            this.vip.setVisible(false);
-            this.addChild(this.vip);
-        }
-    },
-
-    setEmotion: function (emo) {
-        var eff = this.eff;
-        if (eff) {
-            if (emo.id > 18)
-                eff.getAnimation().gotoAndPlay("" + (emo.id - 100 + 18), -1, -1, 0);
-            else
-                eff.getAnimation().gotoAndPlay("" + emo.id, -1, -1, 0);
-        }
-
-        if (Config.ENABLE_INTERACT_PLAYER) {
-            this.vip.setVisible(emo.vip && gamedata.userData.typeVip <= 0);
-            eff.setOpacity(this.vip.isVisible() ? 85 : 255);
-            if(this.vip.isVisible()) {
-                if (cc.sys.isNative)
-                    eff.getAnimation().gotoAndStop("" + emo.id, -1, -1, 0);
-                else
-                    eff.getAnimation().gotoAndPlay("" + emo.id, -1, -1, 0);
-            }
-        }
-    },
-
-    onEnter: function () {
-        cc.TableViewCell.prototype.onEnter.call(this);
-    },
-});
-
-var ChatEmoPanelGUI = BaseLayer.extend({
-
-    ctor: function () {
-        this.emoList = [];
-
-        var arVip = [0, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0, 1];
-        for (var i = 0; i < 17; i++) {
-            var obj = {};
-            obj.id = i + 1;
-            obj.vip = arVip[i];
-            obj.use = 0;
-            this.emoList.push(obj);
-        }
-        for (var i = 0; i < 12; i++) {
-            var obj = {};
-            obj.id = 100 + i;
-            obj.vip = 0;
-            obj.use = 0;
-            this.emoList.push(obj);
-        }
-
-        if (Config.ENABLE_INTERACT_PLAYER) {
-            this.emoList.sort(function (a, b) {
-                if (a.vip > b.vip) return 1;
-                if (a.vip < b.vip) return -1;
-                if (a.id >= 100 && b.id >= 100)
-                    return b.id - a.id;
-                if (a.id >= 100)
-                    return -1;
-                if (b.id >= 100)
-                    return 1;
-                return a.id - b.id;
-            });
-        }
-
-        this.defaultPos = cc.p(0, 0);
-
-        this._super(ChatEmoPanelGUI.className);
-        this.initWithBinaryFile("ChatBoardEmoPanel.json");
-
-        this.waitTouch = 0;
-    },
-
-    initGUI: function () {
-        this.bg = this.getControl("bg");
-        this.panel = this.getControl("panel", this.bg);
-
-        this.listView = new cc.TableView(this, cc.size(this.panel.getContentSize().width, this.panel.getContentSize().height * 1.8));
-        this.listView.setDirection(cc.SCROLLVIEW_DIRECTION_HORIZONTAL);
-        this.listView.setVerticalFillOrder(0);
-        this.listView.setDelegate(this);
-        this.panel.addChild(this.listView);
-       // this.listView.setPositionY(-this.panel.getContentSize().height * 0.2);
-        this.listView.reloadData();
-
-        var bgMoreListenter = cc.EventListener.create({
-            event: cc.EventListener.TOUCH_ONE_BY_ONE,
-            swallowTouches: false,
-            onTouchBegan: function (touch, event) {
-                return true;
-            },
-            onTouchMoved: function (touch, event) {
-            },
-            onTouchEnded: function (touch, event) {
-                event.getCurrentTarget().onTouchBoard(touch);
-            }
-        });
-        cc.eventManager.addListener(bgMoreListenter, this);
-
-        this.scheduleUpdate();
-    },
-
-    onEnter: function(){
-        this._super();
-
-        if (!cc.sys.isNative){
-            this.listView.setTouchEnabled(this.listView.isVisible());
-            var bgMoreListenter = cc.EventListener.create({
-                event: cc.EventListener.TOUCH_ONE_BY_ONE,
-                swallowTouches: false,
-                onTouchBegan: function (touch, event) {
-                    return true;
-                },
-                onTouchMoved: function (touch, event) {
-                },
-                onTouchEnded: function (touch, event) {
-                    event.getCurrentTarget().onTouchBoard(touch);
-                }
-            });
-            cc.eventManager.addListener(bgMoreListenter, this);
-        }
-    },
-
-    open: function () {
-        this.waitTouch = false;
-
-        var isShow = this.isVisible();
-
-        this.setPosition(this.defaultPos);
-        if (isShow) {
-            this.runAction(cc.sequence(cc.moveTo(0.15, cc.p(0, -400)), cc.hide()));
-        }
-        else {
-            this.setVisible(true);
-            this.setPosition(0, -400);
-            this.runAction(cc.moveTo(0.15, this.defaultPos));
-        }
-    },
-
-    onTouchBoard: function (touch) {
-        this.waitTouch = true;
-        this.runAction(cc.sequence(cc.delayTime(0.1), cc.callFunc(this.finishTouchBoard.bind(this))));
-    },
-
-    finishTouchBoard: function () {
-        if (!this.waitTouch) return;
-        if (!this.isVisible()) return;
-
-        this.runAction(cc.sequence(cc.moveTo(0.15, cc.p(0, -400)), cc.hide()));
-    },
-
-    tableCellAtIndex: function (table, idx) {
-        var cell = table.dequeueCell();
-        if (!cell) {
-            cell = new ChatEmoNewCell();
-        }
-        cell.setEmotion(this.emoList[idx]);
-        return cell;
-    },
-
-    tableCellSizeForIndex: function (table, idx) {
-        return cc.size(80, 70);
-    },
-
-    numberOfCellsInTableView: function (table) {
-        return this.emoList.length;
-    },
-
-    tableCellTouched: function (table, cell) {
-        var idx = cell.getIdx();
-        var emo = this.emoList[idx];
-
-        if (emo) {
-            var isSend = true;
-            if (Config.ENABLE_INTERACT_PLAYER) {
-                if (emo.vip) {
-                    if (gamedata.userData.typeVip == 0) isSend = false;
-                }
-            }
-
-            if (isSend) {
-                emo.use += 1;
-
-                var pkEmotion = new CmdSendChatEmotion();
-                cc.log("du ma ");
-                pkEmotion.putData(ChatMgr.convertEmoToOld(emo.id));
-                GameClient.getInstance().sendPacket(pkEmotion);
-                pkEmotion.clean();
-
-                if (Config.ENABLE_INTERACT_PLAYER) {
-                    if (InteractConfig.AUTO_SORT_EMOTION) {
-                        this.emoList.sort(function (a, b) {
-                            if (a.use > b.use) return -1;
-                            if (a.use < b.use) return 1;
-                            if (a.vip > b.vip) return 1;
-                            if (a.vip < b.vip) return -1;
-                            return (a.id - b.id);
-                        });
-
-                        this.listView.reloadData();
-                    }
-                }
-
-                this.runAction(cc.sequence(cc.moveTo(0.15, cc.p(0, -400)), cc.hide()));
-            }
-            else {
-                Toast.makeToast(Toast.SHORT, LocalizedString.to("_VIP_ONLY_USE_"));
-            }
-        }
-    },
-});
-
 var ChatPanelGUI = BaseLayer.extend({
-
     ctor: function () {
-        this.hasInit = false;
+        this._super(ChatPanelGUI.className);
 
-        this.tabEmo = null;
-        this.tabText = null;
+        this.btnClose = null;
+        this.btnTab = null;
+        this.btnSend = null;
+        this.tfChat = null;
+
+        this.bg = null;
+        this.pTab = null;
+        this.pLeft = null;
+        this.pRight = null;
+        this.pTabChat = null;
+        this.lvTabChat = null;
+
+        this.chatQuickTextPanel = null;
+        this.tbChat = null;
 
         this.listTab = [];
-        this.tabHistory = {};
+        this.selectedTab = -1;
+        this.selectedTabId = -1;
+        this.isOpenTabList = false;
 
-        this.curTab = null;
-        this.btnTab = null;
-        this.tabChat = null;
-
-        this.activeTabImage = null;
-
-        this.isWaitingMessageUser = false;
-        this.tabUserIdActive = -1;
-
-        this._super(ChatPanelGUI.className);
         this.initWithBinaryFile("ChatPanelGUI.json");
     },
 
     initGUI: function () {
-        this.setBackEnable(true);
-
+        cc.log("INIT GUI ****** ");
         this.bg = this.getControl("bg");
-        this.pButton = this.getControl("pButton");
-        this.pLeft = this.getControl("pLeft");
-        this.pRight = this.getControl("pRight");
-        this.pTab = this.getControl("pTab");
         this.pChat = this.getControl("pChat");
-        this.pQuickChat = this.getControl("pQuickChat");
-
         this.pChat.setVisible(true);
+        this.pQuickChat = this.getControl("pQuickChat");
         this.pQuickChat.setVisible(false);
+
+        this.pTab = this.getControl("pTab", this.pChat);
+        this.pTab.setLocalZOrder(1);
+        this.pLeft = this.getControl("pLeft", this.pChat);
+        this.pLeft.setCascadeOpacityEnabled(true);
+        this.pRight = this.getControl("pRight", this.pQuickChat);
+        this.pRight.setCascadeOpacityEnabled(true);
+
+        this.btnClose = this.customButton("btnClose", ChatPanelGUI.BTN_CLOSE);
+        this.btnTab = this.customButton("btn", ChatPanelGUI.BTN_TAB, this.pTab);
+        this.btnTab.setPressedActionEnabled(false);
+        this.btnTab.lb = this.getControl("lb", this.btnTab);
+        this.btnTab.ico = this.getControl("ico", this.btnTab);
+        this.btnTab.notify = this.getControl("notify", this.btnTab);
+        this.btnSend = this.customButton("btnSend", ChatPanelGUI.BTN_SEND, this.bg)
+        var tfChat = this.getControl("tf");
+        tfChat.setVisible(false);
+        this.tfChat = BaseLayer.createEditBox(tfChat);
+        this.tfChat.setDelegate(this);
+        this.tfChat.setCascadeOpacityEnabled(true);
+        this.pChat.addChild(this.tfChat);
+
+        this.tabWarp = this.getControl("tabWarp", this.pTab);
+        this.pTabChat = this.getControl("tab", this.tabWarp);
+        this.pTabChat.cellSize = cc.size(
+            this.getControl("bottom", this.pTabChat).width,
+            this.pTabChat.getContentSize().height
+        );
+        this.lvTabChat = this.getControl("lv", this.pTabChat);
+        this.lvTabChat.setScrollBarEnabled(false);
+        this.lvTabChat.setBounceEnabled(true);
+        this.lvTabChat.setClippingEnabled(true);
+        this.lvTabChat.addEventListener(function (lv, type) {
+            if (type == ccui.ListView.ON_SELECTED_ITEM_END) {
+                this.selectTab(lv.getCurSelectedIndex());
+            }
+        }.bind(this));
+
+        this.chatQuickTextPanel = new ChatQuickTextPanel(this.pRight, this);
+        this.tbChat = new cc.TableView(this, this.pLeft.getContentSize());
+        this.tbChat.setDirection(cc.SCROLLVIEW_DIRECTION_VERTICAL);
+        this.tbChat.setAnchorPoint(0, 0);
+        this.tbChat.setPosition(0, 0);
+        this.tbChat.setVerticalFillOrder(cc.TABLEVIEW_FILL_BOTTOMUP);
+        this.tbChat.setDelegate(this);
+        this.tbChat.setBounceable(false);
+        this.tbChat.setClippingToBounds(true);
+        this.tbChat.setCascadeOpacityEnabled(true);
+        this.tbChat.getContainer().setCascadeOpacityEnabled(true);
+        this.pLeft.addChild(this.tbChat);
+
+        this.customizeButton("btnEmote", ChatPanelGUI.BTN_EMOTE).setPressedActionEnabled(false);
+        //init
+        this.emotePanel = new ChatEmoGUI();
+        this.bg.addChild(this.emotePanel);
+        this.emotePanel.setCascadeOpacityEnabled(true);
+        this.emotePanel.btnClose.setVisible(false);
+        this.emotePanel.bg.setScale(1);
+        this.emotePanel.chatPanel = this;
+        this.emotePanel.setVisible(false);
 
         this.btnQuickChat = this.customizeButton("btnQuickChat", ChatPanelGUI.BTN_QUICKCHAT);
         this.btnQuickChat.setPressedActionEnabled(false);
@@ -282,174 +108,43 @@ var ChatPanelGUI = BaseLayer.extend({
         this.btnChat.icon = this.getControl("icon", this.btnChat);
         this.btnChat.icon.loadTexture("Board/ChatNew/iconChat.png");
 
-        var size = cc.director.getWinSize();
-        // this.bg.setScaleY(this._scale);
-        // this.bg.setScaleX(size.width / this.bg.getContentSize().width);
-
-        // var posYTop = this.bg.getContentSize().height * this._scale * 0.965 - this.pButton.getContentSize().height * this._scale / 2;
-        // this.pButton.setPositionY(posYTop);
-        // this.pTab.setPositionY(posYTop);
-        // this.pTab.removeFromParent();
-        // this.addChild(this.pTab);
-
-        var tfChat = this.getControl("tf", this.pTab);
-        tfChat.setVisible(false);
-        this.tfChatTemp = tfChat;
-        if (cc.sys.isNative){
-            this.txChat = BaseLayer.createEditBox(tfChat);
-            this.txChat.setDelegate(this);
-            this.pTab.addChild(this.txChat);
-        }
-
-        var panelHeight = this.bg.getContentSize().height * this._scale * 0.965 - this.pButton.getContentSize().height * this._scale;
-        this.pLeft.setScaleY(panelHeight / this.pLeft.getContentSize().height);
-        this.pRight.setScaleY(panelHeight / this.pRight.getContentSize().height);
-
-        this.pLeft.setScaleX(this._scale);
-        this.pRight.setScaleX(size.width - this.pLeft.getContentSize().width * this._scale / this.pRight.getContentSize().width);
-
-        this.finishOpenGUI();
-
-        // add touch event to auto close gui
-        var bgMoreListenter = cc.EventListener.create({
-            event: cc.EventListener.TOUCH_ONE_BY_ONE,
-            swallowTouches: false,
-            onTouchBegan: function (touch, event) {
-                return true;
-            },
-            onTouchMoved: function (touch, event) {
-            },
-            onTouchEnded: function (touch, event) {
-                event.getCurrentTarget().onTouchBoard(touch);
-            }
-        });
-        cc.eventManager.addListener(bgMoreListenter, this);
+        this.setBackEnable(true);
     },
 
-    onEnter: function(){
-        this._super();
+    onEnterFinish: function () {
+        this.bg.setPositionY(this.bg.defaultPos.y - this.bg.getContentSize().height / 2);
+        this.bg.setOpacity(0);
+        this.bg.stopAllActions();
+        this.bg.runAction(cc.spawn(
+            cc.moveTo(0.25, this.bg.defaultPos).easing(cc.easeBackOut()),
+            cc.fadeIn(0.25)
+        ));
+        this.btnClose.setVisible(true);
 
-        if (!cc.sys.isNative){
-            this.tabText.view.setTouchEnabled(true);
-
-            var bgMoreListenter = cc.EventListener.create({
-                event: cc.EventListener.TOUCH_ONE_BY_ONE,
-                swallowTouches: true,
-                onTouchBegan: function (touch, event) {
-                    return true;
-                },
-                onTouchMoved: function (touch, event) {
-                },
-                onTouchEnded: function (touch, event) {
-                    event.getCurrentTarget().onTouchBoard(touch);
-                }
-            });
-            cc.eventManager.addListener(bgMoreListenter, this);
-
-            this.txChat = BaseLayer.createEditBox(this.tfChatTemp);
-            this.txChat.setDelegate(this);
-            this.pTab.addChild(this.txChat);
-        }
+        this.onUpdateGUI();
+        this.showTabList(true, 0);
+        this.chatQuickTextPanel.reloadData();
+        this.emotePanel.readyToUse = true;
     },
 
-    onExit: function(){
-        this._super();
-
-        if (!cc.sys.isNative){
-            this.txChat.removeFromParent(true);
-        }
+    onUpdateGUI: function () {
+        this.selectedTab = -1;
+        this.updateTabList();
+        this.selectTab(this.selectedTab);
     },
 
-    openTabButton: function (id, p) {
-      //  this.tabEmo.setVisible(id == ChatPanelGUI.BTN_EMO);
-        this.tabText.setVisible(id == ChatPanelGUI.BTN_TEXT);
-
-        if (this.activeTabImage) {
-            p = p || this.activeTabImage.dPos;
-            this.activeTabImage.setPositionX(p.x);
-        }
-    },
-
-    selectTab: function (tabIdx) {
-        if (tabIdx === undefined || tabIdx == null) tabIdx = 0;
-
-        if (tabIdx !== this.tabChat.chosenIdx) {
-            var cellGet = this.tabChat.pList.cellAtIndex(this.tabChat.chosenIdx);
-            if (cellGet) cellGet.setChosen(false);
-            cellGet = this.tabChat.pList.cellAtIndex(tabIdx);
-            if (cellGet) cellGet.setChosen(true);
-        }
-        this.tabChat.chosenIdx = tabIdx;
-
-        var tab = this.listTab[tabIdx];
-        this.switchHistory(tab.id);
-        this.visibleTab(0);
-    },
-
-    switchHistory: function (tabId) {
-        this.curTab = tabId;
-
-        for (var key in this.tabHistory) {
-            this.tabHistory[key].setVisible(tabId == key);
-        }
-    },
-
-    visibleTab: function (force) {
-        var isShow = null;
-        if (force !== undefined || force != null) {
-            isShow = (force == 1) ? true : false;
-        }
-        else {
-            isShow = !this.tabChat.isVisible();
-        }
-
-        this.tabChat.setVisible(true);
-        this.btnTab.icon.setRotation(!isShow ? 0 : 180);
-
-        for (var s in this.tabHistory) {
-            this.tabHistory[s].focus(!isShow);
-        }
-        this.pTab.setLocalZOrder(isShow ? 11 : 9);
-    },
-
-    addTabHistory: function (id, chatObj) {
-        var p = new ChatHistoryPanel(this, this.pRight.getContentSize());
-        var pSize = this.pRight.getContentSize();
-        p.setPosition(this.pRight.getPosition());
-        if (chatObj) {
-            p.receiveChat(chatObj);
-        }
-        this.pChat.addChild(p);
-
-        this.tabHistory[id] = p;
-        p.setVisible(false);
-        p.setScale(this._scale);
-        p.setLocalZOrder(10);
-        return p;
-    },
-
-    activeTabHistory: function (id) {
-        this.isWaitingMessageUser = true;
-        this.tabUserIdActive = id;
-    },
-
-    onButtonRelease: function (btn, id) {
+    onButtonRelease: function (button, id) {
+        cc.log("BUTTON ChatPanelGUI", id);
         switch (id) {
-            case ChatPanelGUI.BTN_EMO:
-            case ChatPanelGUI.BTN_TEXT:
-                this.openTabButton(id, btn.getPosition());
+            case ChatPanelGUI.BTN_CLOSE:
+                this.btnClose.setVisible(false);
+                this.onBack();
                 break;
             case ChatPanelGUI.BTN_TAB:
-                this.visibleTab();
+                // this.showTabList(!this.isOpenTabList);
                 break;
             case ChatPanelGUI.BTN_SEND:
-                var s = this.txChat.getString();
-                this.doSendChat(s);
-                this.txChat.setString("");
-                break;
-            case ChatPanelGUI.BTN_EMOTE:
-                this.emotePanel.readyToUse = true;
-                this.emotePanel.setVisible(true);
+                this.onSendChat(this.tfChat.getString().trim());
                 break;
             case ChatPanelGUI.BTN_QUICKCHAT:
                 this.pChat.setVisible(false);
@@ -469,686 +164,349 @@ var ChatPanelGUI = BaseLayer.extend({
                 this.btnQuickChat.setEnabled(true);
                 this.btnQuickChat.icon.loadTexture("Board/ChatNew/iconQuickChatInactive.png");
                 break;
-        }
-    },
-
-    onEnterFinish: function () {
-        this.waitTouch = false;
-        if (this.hasInit) {
-            this.finishOpenGUI();
-        }
-        this.setVisible(true);
-        this.bg.setOpacity(0)
-        this.bg.setPositionY(-50);
-        this.bg.runAction(cc.sequence(
-            cc.spawn(
-                cc.fadeIn(0.25),
-                cc.moveTo(0.25, cc.p(0, 0)).easing(cc.easeBackOut())
-            ),
-            cc.callFunc(this.finishOpenGUI.bind(this))
-        ));
-    },
-
-    finishOpenGUI: function () {
-        if (!this.hasInit) {
-            this.hasInit = true;
-
-            // init tab
-            var bEmo = this.customButton("btnEmo", ChatPanelGUI.BTN_EMO, this.pButton);
-            var bChat = this.customButton("btnChat", ChatPanelGUI.BTN_TEXT, this.pButton);
-            bEmo.setVisible(false);
-            bChat.setVisible(false);
-            var bSend = this.customButton("btnSend", ChatPanelGUI.BTN_SEND, this.pButton);
-            this.customizeButton("btnEmote", ChatPanelGUI.BTN_EMOTE).setPressedActionEnabled(false);
-           // bSend.setPositionX(bSend.getPositionX() + 100);
-
-            this.activeTabImage = this.getControl("active", this.pButton);
-            this.activeTabImage.dPos = bChat.getPosition();
-            this.activeTabImage.setVisible(false);
-
-           // this.tabEmo = new ChatEmoListPanel(cc.size(this.pLeft.getContentSize().width * this._scale, this.pLeft.getContentSize().height * this._scale), this.pLeft.getPosition());
-            //this.addChild(this.tabEmo);
-
-            this.tabText = new ChatQuickTextPanel(cc.size(
-                this.pLeft.getContentSize().width * this._scale,
-                this.pLeft.getContentSize().height * this._scale), this.pLeft.getPosition());
-            this.pQuickChat.addChild(this.tabText);
-
-            // init tab chat
-            var tabRoom = {};
-            tabRoom.id = "0";
-            tabRoom.name = LocalizedString.to("CHAT_ROOM");
-            this.listTab.push(tabRoom);
-
-            this.btnTab = this.customButton("btn", ChatPanelGUI.BTN_TAB, this.pTab);
-            this.btnTab.icon = this.getControl("ico", this.btnTab);
-            this.btnTab.lb = this.getControl("lb", this.btnTab);
-
-            //ChatTabListItem.textColor = this.btnTab.lb.getTextColor();
-
-            var panelTabChat = this.getControl("tab", this.pTab);
-            this.tabChat = new ChatTabListPanel(this, panelTabChat);
-            this.tabChat.setPosition(panelTabChat.getPosition());
-            this.pTab.addChild(this.tabChat);
-
-            this.selectTab();
-
-            // init history chat
-            this.addTabHistory("0");
-            this.switchHistory("0");
-
-            //init
-            this.emotePanel = new ChatEmoGUI();
-            this.bg.addChild(this.emotePanel);
-            this.emotePanel.setCascadeOpacityEnabled(true);
-            this.emotePanel.btnClose.setVisible(false);
-            this.emotePanel.bg.setScale(1);
-            this.emotePanel.chatPanel = this;
-            this.emotePanel.setVisible(false);
-        }
-
-        this.emotePanel.setVisible(false);
-        this.emotePanel.readyToUse = true;
-
-        this.openTabButton(ChatPanelGUI.BTN_TEXT);
-        this.updateChatHistory();
-
-        if (this.isWaitingMessageUser && this.tabUserIdActive > 0) {
-            var tabIdx = 0;
-            if (!(this.tabUserIdActive in this.tabHistory)) {
-                this.addTabHistory(this.tabUserIdActive).updateChatHistory(this.tabUserIdActive);
-                var cObj = chatMgr.chatUsers[this.tabUserIdActive][0];
-                if (cObj) {
-                    var tabOther = {};
-                    tabOther.id = this.tabUserIdActive;
-                    tabOther.name = cObj.user.uName;
-                    this.listTab.push(tabOther);
-                    this.tabChat.updateTab();
-
-                    tabIdx = this.listTab.length - 1;
-                }
-            }
-            else {
-                for (var i = 0, size = this.listTab.length; i < size; i++) {
-                    if (this.listTab[i].id == this.tabUserIdActive) {
-                        tabIdx = i;
-                    }
-                }
-            }
-            // active tab
-            this.selectTab(tabIdx);
-
-            this.isWaitingMessageUser = false;
-            this.tabUserIdActive = -1;
-        }
-    },
-
-    updateChatHistory: function () {
-        for (var key in this.tabHistory) {
-            this.tabHistory[key].updateChatHistory(key);
-        }
-
-        for (var s in chatMgr.activeUserChats) {
-            if (!(s in this.tabHistory)) {
-                this.addTabHistory(s).updateChatHistory(s);
-                var cObj = chatMgr.chatUsers[s][0];
-                if (cObj) {
-                    var tabOther = {};
-                    tabOther.id = s;
-                    tabOther.name = cObj.user.uName;
-                    this.listTab.push(tabOther);
-                    this.tabChat.updateTab();
-                }
-            }
-        }
-    },
-
-    onTouchBoard: function (touch) {
-        this.waitTouch = true;
-        this.finishTouchBoard();
-    },
-
-    finishTouchBoard: function () {
-        if (!this.waitTouch) return;
-        if (!this.isVisible()) return;
-
-        this.bg.runAction(cc.sequence(
-            cc.spawn(
-                cc.fadeOut(0.25),
-                cc.moveTo(0.25, cc.p(0, -50)).easing(cc.easeBackIn())
-            ),
-            cc.callFunc(this.onClose.bind(this))
-        ));
-    },
-
-    editBoxReturn: function (editBox) {
-        if (editBox) {
-            this.doSendChat(editBox.getString());
-            setTimeout(function () {
-                if (this) this.setString("");
-            }.bind(editBox), 100);
-
-        }
-    },
-
-    doChatTemplate: function (type, msg) {
-        if (type === undefined || msg === undefined) return;
-
-        var str = "";
-
-        if (type == 0) {
-            if (this.curTab && this.curTab == "0") {
-                var pkEmotion = new CmdSendChatEmotion();
-                pkEmotion.putData(msg);
-                GameClient.getInstance().sendPacket(pkEmotion);
-                pkEmotion.clean();
-
-                this.onTouchBoard();
-                return;
-            }
-            else {
-                str = chatMgr.convertEmoToString(msg);
-            }
-        }
-        else {
-            str = msg;
-        }
-
-        this.doSendChat(str);
-
-        // check auto hide gui
-        if (this.curTab && this.curTab == "0") {
-            this.onTouchBoard();
-        }
-    },
-
-    doSendChat: function (s) {
-        if (s && s != "") {
-            if (this.curTab && this.curTab == "0") {
-                var cmd = new CmdSendChatString();
-                cmd.putData(s);
-                GameClient.getInstance().sendPacket(cmd);
-                cmd.clean();
-
-                this.txChat.setString("");
-            }
-            else {
-                if (CheatCenter.checkOpenCheat(s))
-                    return;
-
-                var toID = this.curTab;
-                var messType = ChatMgr.MSG_USER;
-
-                var chat = {};
-                chat.user = {};
-                chat.user.uName = gamedata.userData.displayName;
-                chat.user.uId = toID;
-                chat.chat = s;
-                chat.chat = ChatFilter.filterString(chat.chat);
-
-                chatMgr.addChatSending(toID, chat);
-
-                var pk = new CmdSendChatTotal();
-                pk.putData(toID, messType, s);
-
-                GameClient.getInstance().sendPacket(pk);
-                pk.clean();
-
-                this.txChat.setString("");
-            }
-        }
-        else {
-            Toast.makeToast(Toast.SHORT, LocalizedString.to("NHAPCHAT"));
-        }
-    },
-
-    onReceiveChat: function (type, chatObj, active) {
-        cc.log("ChatPanelGUI::onReceiveChat " + type + "/" + JSON.stringify(chatObj));
-
-        if (active === undefined || active == null) active = false;
-
-        var key = "";
-        if (type == ChatMgr.MSG_ROOM) {
-            key = "0";
-        }
-
-        if (type == ChatMgr.MSG_USER) {
-            var key = chatObj.user.uId + "";
-        }
-
-        var isHas = false;
-        for (var i = 0; i < this.listTab.length; i++) {
-            if (this.listTab[i].id == key) {
-                isHas = true;
+            case ChatPanelGUI.BTN_EMOTE:
+                this.emotePanel.readyToUse = true;
+                this.emotePanel.setVisible(true);
                 break;
-            }
-        }
-
-        if (!isHas) {
-            var tabOther = {};
-            tabOther.id = key;
-            tabOther.name = chatObj.user.uName;
-            this.listTab.push(tabOther);
-            this.tabChat.updateTab();
-        }
-
-        if (key in this.tabHistory) {
-            this.tabHistory[key].receiveChat(chatObj);
-        }
-        else {
-            this.addTabHistory(key, chatObj);
         }
     },
 
     onBack: function () {
-        this.onTouchBoard();
-    },
-});
-
-ChatPanelGUI.GUI_PANEL = 200;
-ChatPanelGUI.BTN_EMO = 1;
-ChatPanelGUI.BTN_TEXT = 2;
-ChatPanelGUI.BTN_SEND = 3;
-ChatPanelGUI.BTN_TAB = 4;
-ChatPanelGUI.BTN_EMOTE = 5;
-ChatPanelGUI.BTN_QUICKCHAT = 6;
-ChatPanelGUI.BTN_CHAT = 7;
-
-var ChatTabListItem = cc.TableViewCell.extend({
-    ctor: function (size) {
-        this._super();
-        this.info = null;
-
-        this.bg = ccui.ImageView("ChatNew/bgTabChat.png");
-        var sX = size.width / this.bg.getContentSize().width;
-        this.bg.setScaleX(sX);
-        this.bg.setScaleY(0.98);
-
-        this.lb = BaseLayer.createLabelText();
-        this.lb.setFontName("fonts/robotoLight.ttf");
-        this.lb.setFontSize(15);
-        this.lb.setColor(ChatTabListItem.textColor);
-        this.lb.setTextVerticalAlignment(cc.TEXT_ALIGNMENT_CENTER);
-        this.lb.setTextHorizontalAlignment(cc.TEXT_ALIGNMENT_CENTER);
-
-        this.bg.setVisible(true);
-        this.addChild(this.bg);
-        this.addChild(this.lb);
-
-        this.bg.setPosition(this.bg.getContentSize().width * sX / 2, this.bg.getContentSize().height / 2);
-        this.lb.setPosition(this.bg.getPosition());
+        cc.log("ON BACK CHAT");
+        this.bg.stopAllActions();
+        this.bg.runAction(cc.sequence(
+            cc.spawn(
+                cc.moveTo(0.25, this.bg.defaultPos.x, this.bg.defaultPos.y - this.bg.getContentSize().height / 2).easing(cc.easeBackIn()),
+                cc.fadeOut(0.25)
+            ),
+            cc.callFunc(function () {
+                this.removeFromParent();
+            }.bind(this))
+        ));
     },
 
-    setInfo: function (info) {
-        this.info = info;
-        this.lb.setString(info.name);
+    /* region tabs */
+    addTab: function (id, name) {
+        this.listTab.push({id: id, name: name});
+        var tabItem = new ccui.Layout();
+        tabItem.setTouchEnabled(true);
+        tabItem.setContentSize(this.pTabChat.cellSize);
+        tabItem.tabBg = new ccui.ImageView(this.selectedTab === id? "ChatNew/bgTabChatChosen.png" : "ChatNew/bgTabChat.png");
+        tabItem.tabBg.setPosition(cc.p(tabItem.width / 2, tabItem.height / 2));
+        tabItem.addChild(tabItem.tabBg);
+        tabItem.tabName = new ccui.Text(name, "fonts/robotoLight.ttf", 15);
+        tabItem.tabName.subText = 12;
+        tabItem.tabName.setColor(this.selectedTab === id? ChatPanelGUI.textColorChosen : ChatPanelGUI.textColor);
+        this.setLabelText(name, tabItem.tabName);
+        tabItem.tabName.setPosition(tabItem.getContentSize().width / 2, tabItem.getContentSize().height / 2);
+        tabItem.addChild(tabItem.tabName);
+        tabItem.setTouchEnabled(true);
+        tabItem.notify = new ccui.ImageView("ChatNew/redDot.png");
+        tabItem.notify.setScale(0.6);
+        tabItem.notify.setAnchorPoint(0.5, 0.5);
+        tabItem.notify.setPosition(
+            this.pTabChat.getContentSize().width + (this.lvTabChat.getContentSize().width - this.pTabChat.getContentSize().width) / 2,
+            this.pTabChat.cellSize.height - tabItem.notify.getContentSize().height / 2 * tabItem.notify.getScale()
+        );
+        tabItem.addChild(tabItem.notify);
+        this.lvTabChat.pushBackCustomItem(tabItem);
+
+        this.reloadListTabSize();
     },
 
-    setChosen: function (isChosen) {
-        if (isChosen) {
-            this.bg.loadTexture("ChatNew/bgTabChatChosen.png");
-            this.lb.setColor(ChatTabListItem.textColorChosen);
-        } else {
-            this.bg.loadTexture("ChatNew/bgTabChat.png");
-            this.lb.setColor(ChatTabListItem.textColor);
+    reloadListTabSize: function () {
+        this.pTabChat.setContentSize(
+            this.tabWarp.width,
+            this.pTabChat.getContentSize().height
+        );
+        this.lvTabChat.setBounceEnabled(this.pTabChat.cellSize.width * this.listTab.length > this.tabWarp.width);
+        ccui.Helper.doLayout(this.pTabChat);
+    },
+
+    selectTabById: function (id) {
+        var idx = -1;
+        for (var i = 0; i < this.listTab.length; i++) {
+            if (this.listTab[i].id == id) {
+                idx = i;
+                break;
+            }
         }
+        this.selectTab(idx);
+    },
+
+    selectTab: function (idx) {
+        if (idx < 0 || idx >= this.listTab.length) idx = 0;
+        var item = this.lvTabChat.getItem(this.selectedTab);
+        if (item) {
+            item.tabBg.loadTexture("ChatNew/bgTabChat.png");
+            item.tabName.setColor(ChatPanelGUI.textColor);
+        }
+
+        this.selectedTab = idx;
+        this.selectedTabId = this.listTab[idx].id;
+
+        item = this.lvTabChat.getItem(this.selectedTab);
+        if (item) {
+            item.tabBg.loadTexture("ChatNew/bgTabChatChosen.png");
+            item.tabName.setColor(ChatPanelGUI.textColorChosen);
+        }
+
+        var tab = this.listTab[this.selectedTab];
+        this.setLabelText(tab.name, this.btnTab.lb);
+        this.showTabList(true);
+        this.tbChat.reloadData();
+        this.tbChat.setContentOffset(cc.p(0, 0));
+
+        chatMgr.onNotify(this.selectedTabId, false);
+    },
+
+    updateTabList: function () {
+        this.lvTabChat.removeAllChildren();
+        this.listTab = [];
+        this.addTab(0, LocalizedString.to("CHAT_ROOM"));
+        this.lvTabChat.getItem(0).notify.setVisible(chatMgr.chatRoom.notify);
+        if (this.selectedTabId === 0) this.selectedTab = 0;
+        for (var i = 0; i < chatMgr.userTrack.length; i++) {
+            var id = chatMgr.userTrack[i];
+            if (this.selectedTabId === id) this.selectedTab = i + 1;
+            this.addTab(Number(id), chatMgr.chatUsers[id].userName);
+            this.lvTabChat.getItem(i + 1).notify.setVisible(chatMgr.chatUsers[id].notify);
+        }
+        if (this.selectedTab === -1) this.selectedTabId = -1;
+    },
+
+    showTabList: function (show, duration) {
+        if (duration == undefined) duration = Math.min(0.075 * this.listTab.length, 0.25);
+        this.pTabChat.stopAllActions();
+        this.btnTab.ico.stopAllActions();
+        this.btnTab.notify.stopAllActions();
+        this.isOpenTabList = show;
+
+        if (show) {
+            this.pTabChat.runAction(cc.sequence(
+                cc.show(),
+                cc.spawn(
+                    cc.fadeIn(duration),
+                    cc.moveTo(duration, this.pTabChat.defaultPos).easing(cc.easeSineOut())
+                )
+            ));
+            this.btnTab.ico.runAction(cc.rotateTo(duration, 0));
+            this.btnTab.notify.runAction(cc.fadeOut(duration));
+        } else {
+            this.pTabChat.runAction(cc.sequence(
+                cc.spawn(
+                    cc.fadeOut(duration),
+                    cc.moveTo(duration, this.pTabChat.defaultPos.x, this.pTabChat.defaultPos.y + this.pTabChat.getContentSize().height).easing(cc.easeSineOut())
+                ),
+                cc.hide()
+            ));
+            this.btnTab.ico.runAction(cc.rotateTo(duration, 180));
+            this.btnTab.notify.runAction(cc.fadeIn(duration));
+        }
+    },
+    /* endregion tabs */
+
+    /* region chat history */
+    tableCellAtIndex: function (table, idx) {
+        var cell = table.dequeueCell();
+        if (!cell) cell = new ChatItemCell(this.pLeft.getContentSize().width);
+        var tab = this.listTab[this.selectedTab];
+        var tabData = tab.id == 0 ? chatMgr.chatRoom.dialog : chatMgr.chatUsers[tab.id].dialog;
+        var chatInfo = tabData[tabData.length - idx - 1];
+        cc.log("CHAT INFO", JSON.stringify(chatInfo));
+        cell.setInfo(chatInfo);
+        return cell;
+    },
+
+    tableCellSizeForIndex: function (table, idx) {
+        var tab = this.listTab[this.selectedTab];
+        var tabData = tab.id == 0 ? chatMgr.chatRoom.dialog : chatMgr.chatUsers[tab.id].dialog;
+        var chatInfo = tabData[tabData.length - idx - 1];
+        if (chatInfo.cellSize)
+            return chatInfo.cellSize;
+        else
+            return (chatInfo.cellSize = ChatItemCell.getCellSize(
+                ChatItemCell.getFullMessage(chatInfo.userName, chatInfo.message),
+                this.pLeft.getContentSize().width - ChatItemCell.PADDING * 2
+            ));
+    },
+
+    numberOfCellsInTableView: function (table) {
+        if (this.selectedTab < 0 || this.selectedTab >= this.listTab.length) return 0;
+        var tab = this.listTab[this.selectedTab];
+        var tabData = tab.id == 0 ? chatMgr.chatRoom.dialog : chatMgr.chatUsers[tab.id].dialog;
+        return tabData ? tabData.length : 0;
+    },
+
+    tableCellTouched: function (table, cell) {
+        var tab = this.listTab[this.selectedTab];
+        var tabData = tab.id == 0 ? chatMgr.chatRoom.dialog : chatMgr.chatUsers[tab.id].dialog;
+        var chatInfo = tabData[tabData.length - cell.getIdx() - 1];
+        if (chatInfo.uId == gamedata.userData.uID) {
+            var gui = sceneMgr.openGUI(UserInfoPanel.className, LobbyScene.GUI_USER_INFO, LobbyScene.GUI_USER_INFO);
+            gui.setInfo(gamedata.userData);
+            this.onBack();
+        } else {
+            if (chatInfo.userName != "") {
+                chatMgr.sendGetOtherInfo(chatInfo.uId);
+                this.onBack();
+            }
+        }
+    },
+
+    editBoxReturn: function (editBox) {
+        this.onSendChat(editBox.getString().trim());
+    },
+
+    onSendChat: function (message) {
+        this.tfChat.setString(message);
+        if (message != "") {
+            if (message.length > ChatMgr.MESSAGE_MAX_LENGTH) {
+                Toast.makeToast(Toast.SHORT, StringUtility.replaceAll(LocalizedString.to("CHATLONG"), "@num", ChatMgr.MESSAGE_MAX_LENGTH));
+                return;
+            } else message = ChatFilter.filterString(message);
+            var dialog = [];
+            if (this.selectedTab == 0)
+                dialog = chatMgr.chatRoom.dialog;
+            else if (this.selectedTab > 0 && this.selectedTab < this.listTab.length)
+                dialog = chatMgr.chatUsers[this.listTab[this.selectedTab].id].dialog;
+            if (dialog.length > 0 && dialog[dialog.length - 1].uId == gamedata.userData.uID && message == dialog[dialog.length - 1].message) {
+                Toast.makeToast(Toast.SHORT, LocalizedString.to("CHATSAME"));
+                return;
+            }
+            if (this.selectedTab == 0)
+                chatMgr.sendChatRoom(message);
+            else if (this.selectedTab > 0 && this.selectedTab < this.listTab.length)
+                chatMgr.sendChatUser(this.listTab[this.selectedTab].id, message);
+            this.tfChat.setString("");
+            this.onBack();
+        }
+    },
+
+    onReceiveChat: function (id) {
+        if (this.selectedTabId == id) {
+            this.tbChat.reloadData();
+            this.tbChat.setContentOffset(cc.p(0, 0));
+            chatMgr.onNotify(id, false);
+        }
+    },
+
+    onNotify: function (id, notify) {
+        for (var i = 0; i < this.listTab.length; i++) {
+            if (this.listTab[i].id == id) {
+                this.lvTabChat.getItem(i).notify.setVisible(notify);
+            }
+        }
+        if (notify) this.btnTab.notify.setVisible(true);
+        else this.btnTab.notify.setVisible(chatMgr.isNotify());
+    }
+    /* endregion chat history */
+});
+ChatPanelGUI.textColorChosen = cc.color("#fcf4ca");
+ChatPanelGUI.textColor = cc.color("#c35b50");
+ChatPanelGUI.className = "ChatPanelGUI";
+ChatPanelGUI.TAG = 301;
+ChatPanelGUI.BTN_CLOSE = 0;
+ChatPanelGUI.BTN_TAB = 1;
+ChatPanelGUI.BTN_SEND = 2;
+ChatPanelGUI.MAX_VISIBLE_TAB = 4;
+ChatPanelGUI.BTN_QUICKCHAT = 5;
+ChatPanelGUI.BTN_CHAT = 6;
+ChatPanelGUI.BTN_EMOTE = 7;
+
+var ChatItemCell = cc.TableViewCell.extend({
+    ctor: function (maxWidth) {
+        this._super();
+        this.maxWidth = maxWidth;
+
+        this._layout = new ccui.Layout();
+        this._layout.setPositionX(ChatItemCell.PADDING);
+        this.addChild(this._layout);
+        this.txtName = new ccui.Text("", "fonts/robotoBold.ttf", 16);
+        this.txtName.setAnchorPoint(0, 1);
+        this.txtName.ignoreContentAdaptWithSize(true);
+        this.txtName.setColor(cc.color("#9b5429"));
+        this.txtMess = new ccui.Text("", "fonts/robotoLight.ttf", 16);
+        this.txtMess.setAnchorPoint(0, 1);
+        this.txtMess.ignoreContentAdaptWithSize(true);
+        this.txtMess.setColor(cc.color("#9b5429"));
+        this.imgBg = new ccui.ImageView("ChatNew/bgMine.png");
+        this.imgBg.setCapInsets(cc.rect(20, 10, 300, 39));
+        this.imgBg.setScale9Enabled(true);
+        this.imgBg.setAnchorPoint(cc.p(0, 0));
+        this._layout.addChild(this.txtName, 2);
+        this._layout.addChild(this.txtMess, 1);
+        this._layout.addChild(this.imgBg, 0);
+    },
+
+    setInfo: function (chatInfo) {
+        var isMine = chatInfo.uId === gamedata.userData.uID;
+
+        this.txtName.setString(chatInfo.userName !== "" ? chatInfo.userName + ":" : "");
+        this.txtMess.setString(ChatItemCell.getFullMessage(chatInfo.userName, chatInfo.message));
+        StringUtility.breakLabelToMultiLine(this.txtMess, this.maxWidth - 2 * ChatItemCell.MARGIN);
+        this.txtMess.setPositionY(this.txtMess.getContentSize().height + ChatItemCell.MARGIN);
+        this.txtName.setPositionY(this.txtMess.getContentSize().height + ChatItemCell.MARGIN);
+        this.txtName.setPositionX(ChatItemCell.MARGIN);
+        this.txtMess.setPositionX(ChatItemCell.MARGIN);
+        this._layout.setContentSize(
+            this.maxWidth - ChatItemCell.PADDING * 2,
+            this.txtMess.getContentSize().height + 2 * ChatItemCell.MARGIN
+        );
+
+        this.imgBg.setContentSize(cc.size(
+            this._layout.width,
+            this._layout.height - 2 * ChatItemCell.MARGIN_BUBBLE_HEIGHT
+        ));
+        this.imgBg.setPositionY(ChatItemCell.MARGIN_BUBBLE_HEIGHT);
+        this.imgBg.loadTexture(isMine? "ChatNew/bgMine.png" : "ChatNew/bgOpp.png");
     }
 });
+ChatItemCell.PADDING = 0;
+ChatItemCell.MARGIN = 25;
+ChatItemCell.MARGIN_BUBBLE = 5;
+ChatItemCell.MARGIN_BUBBLE_HEIGHT = 5;
+ChatItemCell.getFullMessage = function (userName, message) {
+    if (userName != "")
+        return userName + ": " + message;
+    else return message;
+};
+ChatItemCell.getCellSize = function (message, maxWidth) {
+    var lb = new ccui.Text(message, "fonts/tahoma.ttf", 16);
+    StringUtility.breakLabelToMultiLine(lb, maxWidth);
+    return cc.size(
+        maxWidth,
+        lb.getContentSize().height + 2 * ChatItemCell.MARGIN
+    );
+};
 
-ChatTabListItem.textColorChosen = cc.color("#c35b50");
-ChatTabListItem.textColor = cc.color("#fcf4ca");
+var ChatQuickTextPanel = cc.Class.extend({
+    ctor: function (_layout, panel) {
+        this.panel = panel;
 
-var ChatTabListPanel = cc.Node.extend({
-    ctor: function (parent, item) {
-        this._super();
-
-        this.panel = parent;
-        this.panelSize = item.getContentSize();
-
-        var sp = cc.Sprite.create("ChatNew/bgTabChat.png");
-        this.itemSize = cc.size(sp.getContentSize().width, item.getContentSize().height);
-
-        this.chosenIdx = 0;
-
-        this.pList = new cc.TableView(this, item.getContentSize());
-        this.pList.setDirection(cc.SCROLLVIEW_DIRECTION_HORIZONTAL);
-        this.pList.setDelegate(this);
-        this.pList.setVerticalFillOrder(0);
-        this.pList.reloadData();
-        this.addChild(this.pList);
-
-        // add touch event to auto close gui
-        var bgMoreListener = cc.EventListener.create({
-            event: cc.EventListener.TOUCH_ONE_BY_ONE,
-            swallowTouches: false,
-            onTouchBegan: function (touch, event) {
-                return true;
-            },
-            onTouchMoved: function (touch, event) {
-            },
-            onTouchEnded: function (touch, event) {
-                event.getCurrentTarget().onTouchBoard(touch);
-            }
-        });
-        cc.eventManager.addListener(bgMoreListener, this);
-    },
-
-    updateTab: function () {
-        this.pList.reloadData();
-    },
-
-    onTouchBoard: function (touch) {
-        var pos = this.getParent().convertToNodeSpace(touch.getLocation());
-        var cp = this.getPosition();
-        var rect = cc.rect(cp.x, cp.y, this.panelSize.width, this.panel.height);
-
-        if (!cc.rectContainsPoint(rect, pos)) {
-            this.panel.visibleTab(0);
+        this.listTxt = [];
+        for (var i = 0; i < ChatQuickTextPanel.NUM_TXT; i++) {
+            this.listTxt.push(LocalizedString.to("CHAT_" + (i + 1)));
         }
+
+        this._layout = _layout;
+        var sp = cc.Sprite.create("ChatNew/bgText.png");
+        this.iSize = cc.size(this._layout.getContentSize().width, sp.getContentSize().height * 1.1);
+        this.tbTxt = new cc.TableView(this, this._layout.getContentSize());
+        this.tbTxt.setDirection(cc.SCROLLVIEW_DIRECTION_VERTICAL);
+        this.tbTxt.setAnchorPoint(0, 0);
+        this.tbTxt.setPosition(0, 0);
+        this.tbTxt.setVerticalFillOrder(0);
+        this.tbTxt.setDelegate(this);
+        this.tbTxt.setCascadeOpacityEnabled(true);
+        this.tbTxt.getContainer().setCascadeOpacityEnabled(true);
+        this._layout.addChild(this.tbTxt);
     },
 
     tableCellAtIndex: function (table, idx) {
         var cell = table.dequeueCell();
-        if (!cell) {
-            cell = new ChatTabListItem(this.itemSize);
-        }
-        cell.setInfo(this.panel.listTab[idx]);
-        cell.setChosen(this.chosenIdx === idx);
-        return cell;
-    },
-
-    tableCellSizeForIndex: function (table, idx) {
-        return cc.size(this.itemSize.width + 10, this.itemSize.height);
-    },
-
-    numberOfCellsInTableView: function (table) {
-        return this.panel.listTab.length;
-    },
-
-    tableCellTouched: function (table, cell) {
-        this.panel.selectTab(cell.getIdx());
-    },
-});
-
-var ChatHistoryPanel = BaseLayer.extend({
-
-    ctor: function (p, size) {
-        this.panel = p;
-        this.panelSize = size;
-
-        this.datas = [];
-        this.histories = null;
-
-        this._super("");
-        this.initGUI();
-    },
-
-    initGUI: function () {
-        this.histories = new cc.TableView(this, this.panelSize);
-        this.histories.setDirection(cc.SCROLLVIEW_DIRECTION_VERTICAL);
-        this.histories.setVerticalFillOrder(0);
-        this.histories.setDelegate(this);
-        this.addChild(this.histories);
-        this.histories.reloadData();
-    },
-
-    updateChatHistory: function (id) {
-        if (!id) return;
-
-        this.datas = [];
-
-        var lst = null;
-        if (id == "0") {
-            lst = chatMgr.chatRooms;
-        }
-        else {
-            if (id in chatMgr.chatUsers) {
-                lst = chatMgr.chatUsers[id];
-            }
-        }
-
-        if (lst) {
-            for (var i = 0, size = lst.length; i < size; i++) {
-                this.receiveChat(lst[i]);
-            }
-        }
-    },
-
-    tableCellAtIndex: function (table, idx) {
-        var cell = table.dequeueCell();
-        if (!cell) {
-            cell = new ChatItemCell();
-        }
-        cell.cellSize = this.datas[idx].size;
-        cell.setChat(this.datas[idx]);
-        return cell;
-    },
-
-    tableCellSizeForIndex: function (table, idx) {
-        return cc.size(
-            this.datas[idx].size.width + ChatHistoryPanel.MARGIN * 2,
-            this.datas[idx].size.height + ChatHistoryPanel.MARGIN * 2
-        );
-    },
-
-    numberOfCellsInTableView: function (table) {
-        return this.datas.length;
-    },
-
-    tableCellTouched: function (table, cell) {
-        var uObj = cell.getUserData();
-        if (cell.info && cell.info.system && cell.info.system == 1) return;
-
-        sceneMgr.openGUI(CheckLogic.getUserInfoClassName(), LobbyScene.GUI_USER_INFO, LobbyScene.GUI_USER_INFO).setInfo(uObj);
-    },
-
-    receiveChat: function (sobj) {
-        if (sobj.chat == "") return;
-
-        var str = JSON.stringify(sobj);
-        var obj = JSON.parse(str);
-
-        obj.name = "";
-        if (obj.user.uName != "") {
-            obj.name = obj.user.uName + ": ";
-        }
-        var fullMsg = ChatMgr.getFullMessage(obj.name, obj.chat, this.panelSize.width - ChatHistoryPanel.MARGIN * 2, 1);
-        var lbMsg = ChatMgr.createText(fullMsg);
-        obj.chat = fullMsg;
-        obj.size = cc.size(this.panelSize.width - ChatHistoryPanel.MARGIN * 2, lbMsg.getContentSize().height);
-
-        if (this.datas.length > 30) {
-            this.datas.splice(0, 5);
-        }
-        this.datas.push(obj);
-
-        this.histories.reloadData();
-        this.histories.setContentOffset(cc.p(0, 0));
-    },
-
-    focus: function (enable) {
-        this.histories.setTouchEnabled(enable);
-    },
-});
-ChatHistoryPanel.MARGIN = 25;
-ChatHistoryPanel.MARGIN_BUBBLE = 20;
-ChatHistoryPanel.MARGIN_BUBBLE_HEIGHT = 10;
-
-var ChatEmoListItem = cc.TableViewCell.extend({
-
-    ctor: function (panel, size) {
-        this.gParent = panel;
-        this.curIndex = -1;
-        this.arPos = [];
-
-        var iWidth = size.width / 4;
-        this.iSize = cc.size(iWidth, size.height);
-
-        for (var i = 0; i < ChatEmoListItem.NUM_EMO_IN_ROW; i++) {
-            this.arPos.push(cc.p(i * iWidth + this.iSize.width / 2, this.iSize.height / 2));
-        }
-
-        this.savePosTouch = 0;
-        this.isWaitingClick = false;
-
-        this._super("");
-        this.initGUI();
-    },
-
-    initGUI: function () {
-        cc.eventManager.addListener({
-            event: cc.EventListener.TOUCH_ONE_BY_ONE,
-
-            onTouchBegan: function (touch, event) {
-                event.getCurrentTarget().onTouch(0, touch.getLocation());
-                return true;
-            },
-
-            onTouchEnded: function (touch, event) {
-                event.getCurrentTarget().onTouch(2, touch.getLocation());
-            },
-
-            onTouchMoved: function (touch, event) {
-                event.getCurrentTarget().onTouch(1, touch.getLocation());
-            }
-        }, this);
-    },
-
-    onTouch: function (type, pos) {
-        if (!this.gParent.isVisible()) return;
-
-        var isTouch = false;
-        var idx = -1;
-
-        if (this.isTouchCell(pos)) {
-            if (type == 0) {
-                this.isWaitingClick = true;
-                this.savePosTouch = pos;
-            }
-            else if (type == 1) {
-                if (Math.abs(pos.y - this.savePosTouch.y) > 3 || Math.abs(pos.x - this.savePosTouch.x) > 3) {
-                    this.isWaitingClick = false;
-                }
-            }
-            else if (type == 2) {
-                if (this.isWaitingClick) {
-                    var emoIdx = this.isTouchEmo(pos);
-                    if (emoIdx > -1) {
-                        isTouch = true;
-                        idx = emoIdx;
-                    }
-                }
-            }
-        }
-
-        if (isTouch) {
-            var gui = sceneMgr.getGUI(ChatMgr.GUI_CHAT_IN_GAME);
-            if (gui && gui instanceof  ChatPanelGUI) {
-                gui.doChatTemplate(0, ChatMgr.convertEmoToOld(idx));
-            }
-        }
-    },
-
-    setEmotion: function (idx) {
-        this.removeAllChildren();
-
-        this.curIndex = ChatEmoListItem.NUM_EMO_IN_ROW * idx + 1;
-
-        for (var i = 0; i < ChatEmoListItem.NUM_EMO_IN_ROW; i++) {
-            var index = (this.curIndex + i);
-            if (index <= ChatEmoListItem.NUM_EMO_MAX) {
-                var eff = db.DBCCFactory.getInstance().buildArmatureNode("Emoticon0");
-                if (eff) {
-                    eff.setScale(0.3);
-                    eff.setPosition(this.arPos[i]);
-                    this.addChild(eff);
-                    eff.getAnimation().gotoAndPlay("" + index, -1, -1, 0);
-                }
-            }
-        }
-        this.addListnerWeb();
-    },
-
-    addListnerWeb: function () {
-        if (!cc.sys.isNative){
-            cc.eventManager.addListener({
-                event: cc.EventListener.TOUCH_ONE_BY_ONE,
-
-                onTouchBegan: function (touch, event) {
-                    event.getCurrentTarget().onTouch(0, touch.getLocation());
-                    return true;
-                },
-
-                onTouchEnded: function (touch, event) {
-                    event.getCurrentTarget().onTouch(2, touch.getLocation());
-                },
-
-                onTouchMoved: function (touch, event) {
-                    event.getCurrentTarget().onTouch(1, touch.getLocation());
-                }
-            }, this);
-            cc.log("addListnerWeb");
-        }
-    },
-
-    isTouchCell: function (p) {
-        var pos = this.getParent().convertToNodeSpace(p);
-        var cp = this.getPosition();
-        var rect = cc.rect(cp.x, cp.y, this.iSize.width * ChatEmoListItem.NUM_EMO_IN_ROW, this.iSize.height);
-
-        return (cc.rectContainsPoint(rect, pos));
-    },
-
-    isTouchEmo: function (p) {
-        var pos = this.convertToNodeSpace(p);
-        for (var i = 0; i < ChatEmoListItem.NUM_EMO_IN_ROW; i++) {
-            var pE = this.arPos[i];
-            var pS = this.iSize;
-            var rect = cc.rect(pE.x - pS.width / 2, pE.y - pS.height / 2, pS.width, pS.height);
-            if (cc.rectContainsPoint(rect, pos)) {
-                return (this.curIndex + i);
-            }
-        }
-        return -1;
-    },
-
-    onEnter: function () {
-        cc.TableViewCell.prototype.onEnter.call(this);
-    },
-});
-
-ChatEmoListItem.NUM_EMO_MAX = 17;
-ChatEmoListItem.NUM_EMO_IN_ROW = 4;
-
-var ChatEmoListPanel = BaseLayer.extend({
-
-    ctor: function (size, pos) {
-        this._super("");
-
-        this.view = null;
-
-        this.pSize = size;
-        this.iSize = cc.size(size.width, size.height / 4);
-
-        this.setPosition(pos.x - size.width, pos.y);
-        this.initGUI();
-    },
-
-    initGUI: function () {
-        this.view = new cc.TableView(this, this.pSize);
-        this.view.setDirection(cc.SCROLLVIEW_DIRECTION_VERTICAL);
-        this.view.setVerticalFillOrder(0);
-        this.view.setDelegate(this);
-        this.view.reloadData();
-        this.addChild(this.view);
-    },
-
-    tableCellAtIndex: function (table, idx) {
-        var cell = table.dequeueCell();
-        if (!cell) {
-            cell = new ChatEmoListItem(this, this.iSize);
-        }
-        cell.setEmotion(idx);
+        if (!cell) cell = new ChatQuickTextCell();
+        cell.setChat(this.listTxt[idx]);
         return cell;
     },
 
@@ -1157,102 +515,38 @@ var ChatEmoListPanel = BaseLayer.extend({
     },
 
     numberOfCellsInTableView: function (table) {
-        var a = ChatEmoListItem.NUM_EMO_MAX;
-        var b = ChatEmoListItem.NUM_EMO_IN_ROW;
-        if (a % b == 0)
-            return a / b;
-        return parseInt(a / b) + 1;
+        return this.listTxt.length;
     },
+
+    tableCellTouched: function (table, cell) {
+        this.panel.onSendChat(this.listTxt[cell.getIdx()]);
+    },
+
+    reloadData: function () {
+        this.tbTxt.reloadData();
+    }
 });
+ChatQuickTextPanel.NUM_TXT = 12;
 
-var ChatQuickTextItem = cc.TableViewCell.extend({
-
-    ctor: function (p) {
-        this._super("ChatQuickTextItem");
-
-        this.initGUI();
-    },
-
-    initGUI: function () {
-        this._scale = cc.director.getWinSize().width / Constant.WIDTH;
-        this._scale = (this._scale > 1) ? 1 : this._scale;
-        this.setScale(this._scale);
+var ChatQuickTextCell = cc.TableViewCell.extend({
+    ctor: function () {
+        this._super();
 
         this.sp = cc.Sprite.create("ChatNew/bgText.png");
-        this.lb = BaseLayer.createLabelText();
-        this.lb.setColor(cc.color("#f3e2b6"));
-        this.lb.setFontSize(20);
+        this.txt = BaseLayer.createLabelText();
+        this.txt.setColor(cc.color("#f3e2b6"));
+        this.txt.setFontSize(20);
 
         this.sp.setPosition(this.sp.getContentSize().width / 2, this.sp.getContentSize().height / 2);
-        this.lb.setAnchorPoint(cc.p(0, 0.5));
-        this.lb.setPosition(cc.p(35, this.sp.getContentSize().height / 2));
+        this.txt.setAnchorPoint(cc.p(0, 0.5));
+        this.txt.setPosition(cc.p(35, this.sp.getContentSize().height / 2));
 
         this.addChild(this.sp);
-        this.addChild(this.lb);
+        this.addChild(this.txt);
     },
 
     setChat: function (txt) {
-        this.lb.setString(txt);
-    },
-
-    onEnter: function () {
-        cc.TableViewCell.prototype.onEnter.call(this);
-    },
+        this.txt.setString(txt);
+    }
 });
-
-var ChatQuickTextPanel = BaseLayer.extend({
-
-    ctor: function (size, pos) {
-        this.list = [];
-        this.view = null;
-
-        this.pSize = size;
-        this.iSize = null;
-
-        this._super("");
-        this.setPosition(pos.x - size.width, pos.y);
-        this.initGUI();
-    },
-
-    initGUI: function () {
-        for (var i = 1; i <= 12; i++) {
-            this.list.push(LocalizedString.to("CHAT_" + i));
-        }
-
-        var sp = cc.Sprite.create("ChatNew/bgText.png");
-        this.iSize = cc.size(this.pSize.width, sp.getContentSize().height * this._scale * 1.1);
-
-        this.view = new cc.TableView(this, this.pSize);
-        this.view.setDirection(cc.SCROLLVIEW_DIRECTION_VERTICAL);
-        this.view.setVerticalFillOrder(0);
-        this.view.setDelegate(this);
-        this.view.reloadData();
-        this.addChild(this.view);
-    },
-
-    tableCellAtIndex: function (table, idx) {
-        var cell = table.dequeueCell();
-        if (!cell) {
-            cell = new ChatQuickTextItem();
-        }
-        cell.setChat(this.list[idx]);
-        return cell;
-    },
-
-    tableCellSizeForIndex: function (table, idx) {
-        return this.iSize;
-    },
-
-    numberOfCellsInTableView: function (table) {
-        return this.list.length;
-    },
-
-    tableCellTouched: function (table, cell) {
-        var gui = sceneMgr.getGUI(ChatMgr.GUI_CHAT_IN_GAME);
-        if (gui && gui instanceof ChatPanelGUI) {
-            gui.doChatTemplate(1, this.list[cell.getIdx()]);
-        }
-    },
-});
-
-ChatPanelGUI.className = "ChatPanelGUI";
+ChatQuickTextCell.SIZE = cc.size(270, 38);
