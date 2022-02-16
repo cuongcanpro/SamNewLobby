@@ -1,0 +1,224 @@
+<Solution>
+  <PropertyGroup Name="Offer" Version="3.10.0.0" Type="CocosStudio" />
+  <SolutionFolder>
+    <Group ctype="ResourceGroup">
+      <RootFolder Name=".">
+        <Folder Name="Common">
+          <PlistImageFolder Image="coin.png" PListFile="coin.plist" Name=".coin_PList.Dir">
+            <PlistImageFile Name="coin0.png" Key="coin0.png" />
+            <PlistImageFile Name="coin1.png" Key="coin1.png" />
+            <PlistImageFile Name="coin2.png" Key="coin2.png" />
+            <PlistImageFile Name="coin3.png" Key="coin3.png" />
+            <PlistImageFile Name="coin4.png" Key="coin4.png" />
+            <PlistImageFile Name="coin5.png" Key="coin5.png" />
+            <PlistImageFile Name="coin6.png" Key="coin6.png" />
+            <PlistImageFile Name="coin7.png" Key="coin7.png" />
+          </PlistImageFolder>
+          <PlistImageFolder Image="coinNew.png" PListFile="coinNew.plist" Name=".coinNew_PList.Dir">
+            <PlistImageFile Name="coinNew0.png" Key="coinNew0.png" />
+            <PlistImageFile Name="coinNew1.png" Key="coinNew1.png" />
+            <PlistImageFile Name="coinNew2.png" Key="coinNew2.png" />
+            <PlistImageFile Name="coinNew3.png" Key="coinNew3.png" />
+            <PlistImageFile Name="coinNew4.png" Key="coinNew4.png" />
+            <PlistImageFile Name="coinNew5.png" Key="coinNew5.png" />
+          </PlistImageFolder>
+          <PlistImageFolder Image="gold.png" PListFile="gold.plist" Name=".gold_PList.Dir">
+            <PlistImageFile Name="gold0.png" Key="gold0.png" />
+            <PlistImageFile Name="gold1.png" Key="gold1.png" />
+            <PlistImageFile Name="gold2.png" Key="gold2.png" />
+            <PlistImageFile Name="gold3.png" Key="gold3.png" />
+            <PlistImageFile Name="gold4.png" Key="gold4.png" />
+          </PlistImageFolder>
+          <Image Name="9patch.png" />
+          <Image Name="bgBroadcast.png" />
+          <Image Name="bgLoading.jpg" />
+          <Image Name="bgSub.png" />
+          <Image Name="bgSubBot.png" />
+          <Image Name="bgSubTop.png" />
+          <Image Name="bgSubTransperance.png" />
+          <Image Name="black.png" />
+          <Image Name="btn_cheat.png" />
+          <Image Name="btnAddG.png" />
+          <Image Name="btnAddGold.png" />
+          <Image Name="btnBack.png" />
+          <Image Name="btnCancel.png" />
+          <Image Name="btnClose.png" />
+          <Image Name="btnConfirm.png" />
+          <Image Name="btnF5.png" />
+          <Image Name="btnHelp.png" />
+          <Image Name="btnUse.png" />
+          <Image Name="buttonOK.png" />
+          <Audio Name="coin_01.mp3" />
+          <Audio Name="coin_02.mp3" />
+          <Audio Name="coin_03.mp3" />
+          <Audio Name="coinFall.mp3" />
+          <Image Name="CommonBg.jpg" />
+          <Image Name="defaultAvatar.png" />
+          <Image Name="dot.png" />
+          <Image Name="gamecenter.png" />
+          <Image Name="iconGold.png" />
+          <Image Name="iconGoldBig.png" />
+          <Image Name="iconStar.png" />
+          <Image Name="iconStarBig.png" />
+          <Image Name="iconXu.png" />
+          <Image Name="iconXuBig.png" />
+          <Image Name="loading.png" />
+          <Image Name="logo_zp.png" />
+          <Image Name="maskAvatar.png" />
+          <Image Name="text.png" />
+          <Image Name="titleGiftStartup.png" />
+          <Image Name="titleGiftSupport.png" />
+          <Image Name="touchDeco.png" />
+          <Image Name="touchIcon0.png" />
+          <Image Name="touchIcon1.png" />
+          <Image Name="touchIcon2.png" />
+          <Image Name="touchIcon3.png" />
+          <Image Name="touchSquare.png" />
+          <Image Name="zingplay.png" />
+        </Folder>
+        <Folder Name="Font">
+          <Fnt Name="detail_jackpot.fnt" />
+          <Fnt Name="jackpot.fnt" />
+          <Image Name="jackpot.png" />
+          <TTF Name="tahoma.ttf" />
+          <TTF Name="tahomabd.ttf" />
+        </Folder>
+        <Folder Name="Offer">
+          <Image Name="bar.png" />
+          <Image Name="bgBonusGold.png" />
+          <Image Name="bgBonusItemGold.png" />
+          <Image Name="bgBonusNoPrice.png" />
+          <Image Name="bgBonusNormal.png" />
+          <Image Name="bgBonusTime.png" />
+          <Image Name="bgBonusVPoint.png" />
+          <Image Name="bgEmpty.png" />
+          <Image Name="bgFold.png" />
+          <Image Name="bgGui.png" />
+          <Image Name="bgNoPrice.png" />
+          <Image Name="bgNoSupport.png" />
+          <Image Name="bgReceive.png" />
+          <Image Name="bgRepay.png" />
+          <Image Name="bgSale.png" />
+          <Image Name="bgShare.png" />
+          <Image Name="bgSupport.png" />
+          <Image Name="bgSupport2.png" />
+          <Image Name="bgText.png" />
+          <Image Name="bgTimeNoPrice.png" />
+          <Image Name="bgTip.png" />
+          <Image Name="bgZaloFirstPay.png" />
+          <Image Name="bgZaloRepay.png" />
+          <Image Name="bntClose3.png" />
+          <Image Name="bntDong.png" />
+          <Image Name="bonusAlert.png" />
+          <Image Name="bonusDiamond.png" />
+          <Image Name="bonusGold.png" />
+          <Image Name="bonusGold2.png" />
+          <Image Name="bonusGold2_big.png" />
+          <Image Name="bonusGStar.png" />
+          <Image Name="bonusMidAutumn.png" />
+          <Image Name="bonusTagLobby.png" />
+          <Image Name="bonusTicket.png" />
+          <Image Name="bonusTicketClover.png" />
+          <Image Name="bonusTicketCoin.png" />
+          <Image Name="bonusTicketEgg.png" />
+          <Image Name="bonusTicketHalloween.png" />
+          <Image Name="bonusTicketHoe.png" />
+          <Image Name="bonusTicketPaper.png" />
+          <Image Name="bonusTime.png" />
+          <Image Name="bonusTime2.png" />
+          <Image Name="bonusTime2_big.png" />
+          <Image Name="bonusVpoint.png" />
+          <Image Name="bonusVpoint_big.png" />
+          <Image Name="bonusZaloGold.png" />
+          <Image Name="bonusZaloGStar.png" />
+          <Image Name="bonusZaloTime.png" />
+          <Image Name="btnatm.png" />
+          <Image Name="btnBuy.png" />
+          <Image Name="btnBuyNow.png" />
+          <Image Name="btnClose.png" />
+          <Image Name="btnClose2.png" />
+          <Image Name="btnCloseRepay.png" />
+          <Image Name="btnCloseZalo.png" />
+          <Image Name="btnDaNhan.png" />
+          <Image Name="btnEnterShop.png" />
+          <Image Name="btniapApple.png" />
+          <Image Name="btniapgoogle.png" />
+          <Image Name="btnNhanNgay.png" />
+          <Image Name="btnOffer.png" />
+          <Image Name="btnReceive.png" />
+          <Image Name="btnReceiveSupport.png" />
+          <Image Name="btnShare.png" />
+          <Image Name="btnsms.png" />
+          <Image Name="btnzalopay.png" />
+          <Image Name="btnzing.png" />
+          <Image Name="chest.png" />
+          <Image Name="circleLight.png" />
+          <Image Name="deco1.png" />
+          <Image Name="deco2.png" />
+          <Image Name="decoFirstPay.png" />
+          <Image Name="decoLeft.png" />
+          <Image Name="decoRepay.png" />
+          <Image Name="decoRight.png" />
+          <Image Name="dot.png" />
+          <Image Name="effect1.png" />
+          <Image Name="effect2.png" />
+          <Image Name="flag.png" />
+          <Image Name="iconApple.png" />
+          <Image Name="iconATM.png" />
+          <Image Name="iconBonus.png" />
+          <Image Name="iconClock.png" />
+          <Image Name="iconFirstPay.png" />
+          <Image Name="iconFox.png" />
+          <Image Name="iconGoogle.png" />
+          <Image Name="iconOfferNormal.png" />
+          <Image Name="iconRepay.png" />
+          <Image Name="iconShare.png" />
+          <Image Name="iconSMS.png" />
+          <Image Name="iconSuperOffer.png" />
+          <Image Name="iconVip0.png" />
+          <Image Name="iconVip1.png" />
+          <Image Name="iconVip10.png" />
+          <Image Name="iconVip2.png" />
+          <Image Name="iconVip3.png" />
+          <Image Name="iconVip4.png" />
+          <Image Name="iconVip5.png" />
+          <Image Name="iconVip6.png" />
+          <Image Name="iconVip7.png" />
+          <Image Name="iconVip8.png" />
+          <Image Name="iconVip9.png" />
+          <Image Name="iconZaloFirstPay.png" />
+          <Image Name="iconZaloPay.png" />
+          <Image Name="iconZaloRepay.png" />
+          <Image Name="iconZing.png" />
+          <Image Name="imgGold.png" />
+          <Image Name="imgSupport.png" />
+          <Image Name="itemBg.png" />
+          <Image Name="lableSupport.png" />
+          <Image Name="layerCover.png" />
+          <Image Name="levelUpArrow.png" />
+          <Image Name="light.png" />
+          <Image Name="line.png" />
+          <Image Name="lineOldGold.png" />
+          <Image Name="offerBg.png" />
+          <Image Name="offerTitle.png" />
+          <Image Name="shine.png" />
+          <Image Name="star.png" />
+          <Image Name="tagZalo.png" />
+          <Image Name="text_line.png" />
+          <Image Name="titleCongrat.png" />
+          <Image Name="titleFirstPay.png" />
+          <Image Name="titleNoPrice.png" />
+          <Image Name="titleOfferRepay.png" />
+          <Image Name="titleQuocKhanh.png" />
+          <Image Name="titleShare.png" />
+          <Image Name="titleSupport.png" />
+        </Folder>
+        <Project Name="GUIOffer.csd" Type="Scene" />
+        <Project Name="GUIOfferNoPrice.csd" Type="Scene" />
+        <Project Name="GUIOfferRepay.csd" Type="Scene" />
+        <Project Name="GUIOfferZaloFirstPay.csd" Type="Scene" />
+        <Project Name="GUIOfferZaloRepay.csd" Type="Scene" />
+      </RootFolder>
+    </Group>
+  </SolutionFolder>
+</Solution>

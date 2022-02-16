@@ -17,7 +17,7 @@
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.5000" Y="0.9887" />
                 <PreSize X="0.6144" Y="0.1667" />
-                <FileData Type="Normal" Path="Offer/titleSupport.png" Plist="" />
+                <FileData Type="Default" Path="Default/Sprite.png" Plist="" />
                 <BlendFunc Src="1" Dst="771" />
               </AbstractNodeData>
               <AbstractNodeData Name="bar" ActionTag="1126894880" Tag="50" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="120.0000" RightMargin="120.0000" TopMargin="95.5000" BottomMargin="251.5000" ctype="SpriteObjectData">
@@ -28,7 +28,7 @@
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.5000" Y="0.7203" />
                 <PreSize X="0.5572" Y="0.0198" />
-                <FileData Type="Normal" Path="Offer/bar.png" Plist="" />
+                <FileData Type="Default" Path="Default/Sprite.png" Plist="" />
                 <BlendFunc Src="1" Dst="771" />
               </AbstractNodeData>
               <AbstractNodeData Name="text" ActionTag="1824850354" Tag="51" RotationSkewX="10.0000" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="123.0000" RightMargin="123.0000" TopMargin="68.0000" BottomMargin="264.0000" FontSize="16" LabelText="Gói hỗ trợ khi bạn hết Gold, 1 lần/ngày" HorizontalAlignmentType="HT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
@@ -51,7 +51,7 @@
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.2934" Y="0.4492" />
                 <PreSize X="0.7362" Y="1.1017" />
-                <FileData Type="Normal" Path="Offer/light.png" Plist="" />
+                <FileData Type="Default" Path="Default/Sprite.png" Plist="" />
                 <BlendFunc Src="1" Dst="771" />
               </AbstractNodeData>
               <AbstractNodeData Name="light2" ActionTag="1625690978" Alpha="178" Tag="548" IconVisible="False" LeftMargin="-48.5598" RightMargin="191.5598" TopMargin="5.8820" BottomMargin="-41.8820" ctype="SpriteObjectData">
@@ -62,7 +62,7 @@
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.2934" Y="0.3927" />
                 <PreSize X="0.7362" Y="1.1017" />
-                <FileData Type="Normal" Path="Offer/light.png" Plist="" />
+                <FileData Type="Default" Path="Default/Sprite.png" Plist="" />
                 <BlendFunc Src="1" Dst="771" />
               </AbstractNodeData>
               <AbstractNodeData Name="light1" ActionTag="-1180690678" Alpha="178" Tag="53" IconVisible="False" LeftMargin="-178.0893" RightMargin="72.0893" TopMargin="-138.5164" BottomMargin="-129.4836" ctype="SpriteObjectData">
@@ -73,7 +73,7 @@
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.2934" Y="0.4492" />
                 <PreSize X="1.1956" Y="1.7571" />
-                <FileData Type="Normal" Path="Offer/shine.png" Plist="" />
+                <FileData Type="Default" Path="Default/Sprite.png" Plist="" />
                 <BlendFunc Src="1" Dst="771" />
               </AbstractNodeData>
               <AbstractNodeData Name="pStar" ActionTag="684053043" Tag="549" IconVisible="False" LeftMargin="59.0000" RightMargin="283.0000" TopMargin="95.0000" BottomMargin="59.0000" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" ctype="PanelObjectData">
@@ -97,7 +97,7 @@
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.2934" Y="0.4492" />
                 <PreSize X="0.3727" Y="0.4435" />
-                <FileData Type="Normal" Path="Offer/chest.png" Plist="" />
+                <FileData Type="Default" Path="Default/Sprite.png" Plist="" />
                 <BlendFunc Src="1" Dst="771" />
               </AbstractNodeData>
               <AbstractNodeData Name="pEff" ActionTag="-1539278814" Tag="550" IconVisible="False" LeftMargin="-31.0000" RightMargin="173.0000" TopMargin="-5.0000" BottomMargin="-61.0000" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
@@ -121,7 +121,7 @@
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.5221" Y="0.5508" />
                 <PreSize X="0.0148" Y="0.0226" />
-                <FileData Type="Normal" Path="Offer/dot.png" Plist="" />
+                <FileData Type="Default" Path="Default/Sprite.png" Plist="" />
                 <BlendFunc Src="1" Dst="771" />
               </AbstractNodeData>
               <AbstractNodeData Name="dot1" ActionTag="822504753" Tag="55" IconVisible="False" LeftMargin="278.9998" RightMargin="255.0002" TopMargin="190.0001" BottomMargin="155.9999" ctype="SpriteObjectData">
@@ -132,7 +132,7 @@
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.5221" Y="0.4520" />
                 <PreSize X="0.0148" Y="0.0226" />
-                <FileData Type="Normal" Path="Offer/dot.png" Plist="" />
+                <FileData Type="Default" Path="Default/Sprite.png" Plist="" />
                 <BlendFunc Src="1" Dst="771" />
               </AbstractNodeData>
               <AbstractNodeData Name="dot2" ActionTag="-914206174" Tag="56" IconVisible="False" LeftMargin="278.9998" RightMargin="255.0002" TopMargin="225.0000" BottomMargin="121.0000" ctype="SpriteObjectData">
@@ -143,7 +143,7 @@
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.5221" Y="0.3531" />
                 <PreSize X="0.0148" Y="0.0226" />
-                <FileData Type="Normal" Path="Offer/dot.png" Plist="" />
+                <FileData Type="Default" Path="Default/Sprite.png" Plist="" />
                 <BlendFunc Src="1" Dst="771" />
               </AbstractNodeData>
               <AbstractNodeData Name="lbBonusVip" ActionTag="-333808151" Tag="58" IconVisible="False" LeftMargin="287.9998" RightMargin="221.0002" TopMargin="146.5000" BottomMargin="182.5000" FontSize="18" LabelText="VIP" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
@@ -190,7 +190,7 @@
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.6365" Y="0.5254" />
                 <PreSize X="0.1015" Y="0.1215" />
-                <FileData Type="Normal" Path="Offer/iconVip10.png" Plist="" />
+                <FileData Type="Default" Path="Default/Sprite.png" Plist="" />
                 <BlendFunc Src="1" Dst="771" />
               </AbstractNodeData>
               <AbstractNodeData Name="valueBonusLevel" ActionTag="1569638561" Tag="62" IconVisible="False" LeftMargin="414.9993" RightMargin="52.0007" TopMargin="177.0000" BottomMargin="147.0000" FontSize="22" LabelText="+100%" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
@@ -226,7 +226,7 @@
                 <PrePosition X="0.9520" Y="0.8475" />
                 <PreSize X="0.0775" Y="0.1186" />
                 <TextColor A="255" R="65" G="65" B="70" />
-                <NormalFileData Type="Normal" Path="Offer/bntClose3.png" Plist="" />
+                <NormalFileData Type="Default" Path="Default/Button_Normal.png" Plist="" />
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
@@ -239,7 +239,7 @@
                 <PrePosition X="0.5000" />
                 <PreSize X="0.3100" Y="0.1667" />
                 <TextColor A="255" R="65" G="65" B="70" />
-                <NormalFileData Type="Normal" Path="Offer/btnNhanNgay.png" Plist="" />
+                <NormalFileData Type="Default" Path="Default/Button_Normal.png" Plist="" />
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
@@ -252,7 +252,7 @@
                 <PrePosition X="0.5000" />
                 <PreSize X="0.3100" Y="0.1667" />
                 <TextColor A="255" R="65" G="65" B="70" />
-                <NormalFileData Type="Normal" Path="Offer/bntDong.png" Plist="" />
+                <NormalFileData Type="Default" Path="Default/Button_Normal.png" Plist="" />
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
@@ -265,7 +265,7 @@
                 <PrePosition X="0.5000" />
                 <PreSize X="0.3100" Y="0.1667" />
                 <TextColor A="255" R="65" G="65" B="70" />
-                <NormalFileData Type="Normal" Path="Offer/btnDaNhan.png" Plist="" />
+                <NormalFileData Type="Default" Path="Default/Button_Normal.png" Plist="" />
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
@@ -276,7 +276,7 @@
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.5000" Y="0.5000" />
             <PreSize X="0.6775" Y="0.7375" />
-            <FileData Type="Normal" Path="Offer/bgSupport2.png" Plist="" />
+            <FileData Type="Default" Path="Default/Sprite.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
         </Children>

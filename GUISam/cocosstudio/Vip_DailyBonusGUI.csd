@@ -135,7 +135,7 @@
             <PreSize X="0.9912" Y="0.6354" />
             <FileData Type="Normal" Path="GUIVipNew/bg/bgCommon.png" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="imgBot" ActionTag="-51377620" UserData="scaleY" Tag="410" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BottomEdge" LeftMargin="16.4976" RightMargin="16.5024" TopMargin="428.0000" StretchWidthEnable="True" LeftEage="253" RightEage="253" TopEage="17" BottomEage="17" Scale9OriginX="253" Scale9OriginY="13" Scale9Width="262" Scale9Height="4" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="imgBot" ActionTag="-51377620" UserData="scaleY" Tag="410" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BottomEdge" LeftMargin="16.4976" RightMargin="16.5024" TopMargin="428.0000" StretchWidthEnable="True" LeftEage="253" RightEage="253" TopEage="17" BottomEage="17" Scale9OriginX="253" Scale9OriginY="17" Scale9Width="705" Scale9Height="39" ctype="ImageViewObjectData">
             <Size X="767.0000" Y="52.0000" />
             <AnchorPoint ScaleX="0.5000" />
             <Position X="399.9976" />
@@ -178,7 +178,7 @@
                 <PreSize X="0.0025" Y="0.5100" />
                 <FileData Type="Normal" Path="LobbyGUI/separator.png" Plist="" />
               </AbstractNodeData>
-              <AbstractNodeData Name="btnDoivang" CanEdit="False" ActionTag="1270089828" Tag="386" IconVisible="False" LeftMargin="523.9551" RightMargin="175.0449" TopMargin="44.6297" BottomMargin="-5.6297" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="71" Scale9Height="39" OutlineSize="0" ShadowOffsetX="0.0000" ShadowOffsetY="0.0000" ctype="ButtonObjectData">
+              <AbstractNodeData Name="btnDoivang" CanEdit="False" ActionTag="1270089828" Tag="386" IconVisible="False" LeftMargin="523.9551" RightMargin="175.0449" TopMargin="44.6297" BottomMargin="-5.6297" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="112" Scale9Height="89" OutlineSize="0" ShadowOffsetX="0.0000" ShadowOffsetY="0.0000" ctype="ButtonObjectData">
                 <Size X="101.0000" Y="61.0000" />
                 <Children>
                   <AbstractNodeData Name="hot" ActionTag="939543297" Tag="387" IconVisible="False" LeftMargin="61.2121" RightMargin="14.7879" TopMargin="12.9266" BottomMargin="24.0734" Scale9Width="25" Scale9Height="24" ctype="ImageViewObjectData">
@@ -205,18 +205,18 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="btnGiftCode" ActionTag="-1190761846" Tag="393" IconVisible="False" LeftMargin="651.0892" RightMargin="55.9108" TopMargin="55.1462" BottomMargin="3.8538" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="14" RightEage="14" TopEage="11" BottomEage="11" Scale9OriginX="14" Scale9OriginY="11" Scale9Width="65" Scale9Height="19" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
-                <Size X="93.0000" Y="41.0000" />
+              <AbstractNodeData Name="btnGiftCode" ActionTag="-1190761846" Tag="393" IconVisible="False" LeftMargin="652.5892" RightMargin="57.4108" TopMargin="30.6462" BottomMargin="-20.6462" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="14" RightEage="14" TopEage="11" BottomEage="11" Scale9OriginX="14" Scale9OriginY="11" Scale9Width="62" Scale9Height="68" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+                <Size X="90.0000" Y="90.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="697.5892" Y="24.3538" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.8720" Y="0.2435" />
-                <PreSize X="0.1163" Y="0.4100" />
+                <PreSize X="0.1125" Y="0.9000" />
                 <TextColor A="255" R="65" G="65" B="70" />
-                <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
-                <PressedFileData Type="Default" Path="Default/Button_Press.png" Plist="" />
-                <NormalFileData Type="Default" Path="Default/Button_Normal.png" Plist="" />
+                <DisabledFileData Type="Normal" Path="LobbyGUI/btnGiftCode.png" Plist="" />
+                <PressedFileData Type="Normal" Path="LobbyGUI/btnGiftCode.png" Plist="" />
+                <NormalFileData Type="Normal" Path="LobbyGUI/btnGiftCode.png" Plist="" />
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
@@ -233,7 +233,7 @@
                 <EndColor A="255" R="255" G="255" B="255" />
                 <ColorVector ScaleY="1.0000" />
               </AbstractNodeData>
-              <AbstractNodeData Name="btnAvatar" ActionTag="590064235" Tag="396" IconVisible="False" LeftMargin="51.0000" RightMargin="661.0000" BottomMargin="12.0000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="58" Scale9Height="66" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+              <AbstractNodeData Name="btnAvatar" ActionTag="590064235" Tag="396" IconVisible="False" LeftMargin="51.0000" RightMargin="661.0000" BottomMargin="12.0000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="42" Scale9Height="50" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                 <Size X="88.0000" Y="88.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="95.0000" Y="56.0000" />
@@ -258,14 +258,14 @@
                 <PreSize X="0.1575" Y="0.3200" />
                 <FileData Type="Normal" Path="LobbyGUI/bgUsername.png" Plist="" />
               </AbstractNodeData>
-              <AbstractNodeData Name="name" ActionTag="497264158" UserData="subText" Tag="398" IconVisible="False" LeftMargin="36.1722" RightMargin="647.8278" TopMargin="73.7990" BottomMargin="3.2010" FontSize="17" LabelText="usernameeee" HorizontalAlignmentType="HT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                <Size X="116.0000" Y="23.0000" />
+              <AbstractNodeData Name="name" ActionTag="497264158" UserData="subText" Tag="398" IconVisible="False" LeftMargin="41.6722" RightMargin="653.3278" TopMargin="75.2990" BottomMargin="4.7010" FontSize="17" LabelText="usernameeee" HorizontalAlignmentType="HT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                <Size X="105.0000" Y="20.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="94.1722" Y="14.7010" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="203" G="204" B="206" />
                 <PrePosition X="0.1177" Y="0.1470" />
-                <PreSize X="0.1450" Y="0.2300" />
+                <PreSize X="0.1312" Y="0.2000" />
                 <FontResource Type="Normal" Path="Font/tahoma.ttf" Plist="" />
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
@@ -280,7 +280,7 @@
                 <PreSize X="0.0362" Y="0.3600" />
                 <FileData Type="Normal" Path="GUIVipNew/iconVip/iconVip1.png" Plist="" />
               </AbstractNodeData>
-              <AbstractNodeData Name="btnGold" ActionTag="1668636828" Tag="401" IconVisible="False" LeftMargin="166.5000" RightMargin="446.5000" TopMargin="62.0000" BottomMargin="12.0000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="77" Scale9Height="2" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+              <AbstractNodeData Name="btnGold" ActionTag="1668636828" Tag="401" IconVisible="False" LeftMargin="166.5000" RightMargin="446.5000" TopMargin="62.0000" BottomMargin="12.0000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="102" Scale9Height="6" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                 <Size X="187.0000" Y="26.0000" />
                 <Children>
                   <AbstractNodeData Name="icon" ActionTag="1950031265" Tag="402" IconVisible="False" LeftMargin="2.2725" RightMargin="161.7275" TopMargin="1.5036" BottomMargin="1.4964" LeftEage="7" RightEage="7" TopEage="7" BottomEage="7" Scale9OriginX="7" Scale9OriginY="7" Scale9Width="9" Scale9Height="9" ctype="ImageViewObjectData">

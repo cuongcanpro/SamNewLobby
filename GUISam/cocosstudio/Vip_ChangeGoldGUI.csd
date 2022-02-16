@@ -222,15 +222,15 @@
                 <PrePosition X="0.4477" Y="0.3443" />
                 <PreSize X="0.0000" Y="0.0000" />
               </AbstractNodeData>
-              <AbstractNodeData Name="imgTicket" ActionTag="-2049989209" Tag="80" IconVisible="False" LeftMargin="340.0000" RightMargin="423.0000" TopMargin="185.0000" BottomMargin="90.0000" LeftEage="11" RightEage="11" TopEage="11" BottomEage="11" Scale9OriginX="11" Scale9OriginY="11" Scale9Width="12" Scale9Height="12" ctype="ImageViewObjectData">
-                <Size X="30.0000" Y="30.0000" />
+              <AbstractNodeData Name="imgTicket" ActionTag="-2049989209" Tag="80" IconVisible="False" LeftMargin="342.5000" RightMargin="425.5000" TopMargin="188.5000" BottomMargin="93.5000" LeftEage="11" RightEage="11" TopEage="11" BottomEage="11" Scale9OriginX="11" Scale9OriginY="11" Scale9Width="3" Scale9Height="1" ctype="ImageViewObjectData">
+                <Size X="25.0000" Y="23.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="355.0000" Y="105.0000" />
                 <Scale ScaleX="0.8000" ScaleY="0.8000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.4477" Y="0.3443" />
-                <PreSize X="0.0378" Y="0.0984" />
-                <FileData Type="Normal" Path="Event/hammer.png" Plist="" />
+                <PreSize X="0.0315" Y="0.0754" />
+                <FileData Type="Normal" Path="GUIVipNew/iconVpoint.png" Plist="" />
               </AbstractNodeData>
               <AbstractNodeData Name="txtTicket" ActionTag="1999876821" Tag="81" IconVisible="False" LeftMargin="375.0000" RightMargin="383.0000" TopMargin="188.0000" BottomMargin="93.0000" FontSize="16" LabelText="6 ve" VerticalAlignmentType="VT_Center" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                 <Size X="35.0000" Y="24.0000" />
@@ -244,15 +244,15 @@
                 <OutlineColor A="255" R="55" G="52" B="159" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="imgDiamond" ActionTag="36631780" Tag="706" IconVisible="False" LeftMargin="344.5000" RightMargin="427.5000" TopMargin="190.5000" BottomMargin="95.5000" LeftEage="6" RightEage="6" TopEage="6" BottomEage="6" Scale9OriginX="6" Scale9OriginY="6" Scale9Width="9" Scale9Height="7" ctype="ImageViewObjectData">
-                <Size X="21.0000" Y="19.0000" />
+              <AbstractNodeData Name="imgDiamond" ActionTag="36631780" Tag="706" IconVisible="False" LeftMargin="342.5000" RightMargin="425.5000" TopMargin="188.5000" BottomMargin="93.5000" LeftEage="6" RightEage="6" TopEage="6" BottomEage="6" Scale9OriginX="6" Scale9OriginY="6" Scale9Width="13" Scale9Height="11" ctype="ImageViewObjectData">
+                <Size X="25.0000" Y="23.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="355.0000" Y="105.0000" />
                 <Scale ScaleX="1.1000" ScaleY="1.1000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.4477" Y="0.3443" />
-                <PreSize X="0.0265" Y="0.0623" />
-                <FileData Type="Normal" Path="LobbyGUI/iconDiamond.png" Plist="" />
+                <PreSize X="0.0315" Y="0.0754" />
+                <FileData Type="Normal" Path="GUIVipNew/iconVpoint.png" Plist="" />
               </AbstractNodeData>
               <AbstractNodeData Name="txtDiamond" ActionTag="-262401534" Tag="707" IconVisible="False" LeftMargin="375.0000" RightMargin="287.0000" TopMargin="188.0000" BottomMargin="93.0000" FontSize="16" LabelText="1000 Kim cương" VerticalAlignmentType="VT_Center" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                 <Size X="131.0000" Y="24.0000" />
@@ -323,7 +323,7 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="iconGold" ActionTag="541196688" Tag="776" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BottomEdge" LeftMargin="136.5000" RightMargin="46.5000" TopMargin="12.0000" BottomMargin="32.0000" Scale9Width="28" Scale9Height="28" ctype="ImageViewObjectData">
+              <AbstractNodeData Name="iconGold" ActionTag="541196688" Tag="776" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BottomEdge" LeftMargin="136.5000" RightMargin="46.5000" TopMargin="12.0000" BottomMargin="32.0000" Scale9Width="30" Scale9Height="30" ctype="ImageViewObjectData">
                 <Size X="17.0000" Y="16.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="145.0000" Y="40.0000" />
@@ -345,7 +345,7 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="iconDiamond" ActionTag="-117628420" Tag="800" IconVisible="False" LeftMargin="240.5000" RightMargin="-61.5000" TopMargin="35.5000" BottomMargin="5.5000" LeftEage="5" RightEage="5" TopEage="5" BottomEage="5" Scale9OriginX="5" Scale9OriginY="5" Scale9Width="11" Scale9Height="9" ctype="ImageViewObjectData">
+              <AbstractNodeData Name="iconDiamond" ActionTag="-117628420" Tag="800" IconVisible="False" LeftMargin="240.5000" RightMargin="-61.5000" TopMargin="35.5000" BottomMargin="5.5000" LeftEage="5" RightEage="5" TopEage="5" BottomEage="5" Scale9OriginX="5" Scale9OriginY="5" Scale9Width="24" Scale9Height="20" ctype="ImageViewObjectData">
                 <Size X="21.0000" Y="19.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="251.0000" Y="15.0000" />
@@ -380,7 +380,7 @@
                 <EndColor A="255" R="255" G="255" B="255" />
                 <ColorVector ScaleY="1.0000" />
               </AbstractNodeData>
-              <AbstractNodeData Name="btnAvatar" ActionTag="170003549" Tag="779" IconVisible="False" LeftMargin="23.5902" RightMargin="88.4098" TopMargin="-43.4088" BottomMargin="15.4088" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="58" Scale9Height="66" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+              <AbstractNodeData Name="btnAvatar" ActionTag="170003549" Tag="779" IconVisible="False" LeftMargin="23.5902" RightMargin="88.4098" TopMargin="-43.4088" BottomMargin="15.4088" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="42" Scale9Height="50" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                 <Size X="88.0000" Y="88.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="67.5902" Y="59.4088" />
@@ -435,7 +435,7 @@
               <AbstractNodeData Name="pVip2" ActionTag="-1296152054" UserData="scale" Tag="763" IconVisible="False" HorizontalEdge="RightEdge" VerticalEdge="BottomEdge" LeftMargin="-295.0000" TopMargin="142.0000" ClipAble="False" BackColorAlpha="48" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
                 <Size X="495.0000" Y="58.0000" />
                 <Children>
-                  <AbstractNodeData Name="bgProgress" ActionTag="-339091131" Tag="765" IconVisible="False" LeftMargin="149.0000" RightMargin="46.0000" TopMargin="24.5000" BottomMargin="6.5000" LeftEage="105" RightEage="105" TopEage="8" BottomEage="8" Scale9OriginX="105" Scale9OriginY="8" Scale9Width="110" Scale9Height="11" ctype="ImageViewObjectData">
+                  <AbstractNodeData Name="bgProgress" ActionTag="-339091131" Tag="765" IconVisible="False" LeftMargin="149.0000" RightMargin="46.0000" TopMargin="24.5000" BottomMargin="6.5000" LeftEage="105" RightEage="105" TopEage="8" BottomEage="8" Scale9OriginX="77" Scale9OriginY="8" Scale9Width="28" Scale9Height="4" ctype="ImageViewObjectData">
                     <Size X="300.0000" Y="27.0000" />
                     <Children>
                       <AbstractNodeData Name="progressVip" ActionTag="-505309297" Tag="766" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="3.5000" RightMargin="3.5000" TopMargin="3.0000" BottomMargin="3.0000" ProgressInfo="54" ctype="LoadingBarObjectData">

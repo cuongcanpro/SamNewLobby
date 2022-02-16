@@ -59,7 +59,7 @@
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.5000" Y="0.5000" />
                 <PreSize X="3.5000" Y="3.4821" />
-                <FileData Type="Normal" Path="Offer/light.png" Plist="" />
+                <FileData Type="Default" Path="Default/ImageFile.png" Plist="" />
               </AbstractNodeData>
               <AbstractNodeData Name="light2" ActionTag="-966170758" Tag="1154" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-142.5000" RightMargin="-142.5000" TopMargin="-139.0000" BottomMargin="-139.0000" LeftEage="131" RightEage="131" TopEage="128" BottomEage="128" Scale9OriginX="131" Scale9OriginY="128" Scale9Width="137" Scale9Height="134" ctype="ImageViewObjectData">
                 <Size X="399.0000" Y="390.0000" />
@@ -69,7 +69,7 @@
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.5000" Y="0.5000" />
                 <PreSize X="3.5000" Y="3.4821" />
-                <FileData Type="Normal" Path="Offer/light.png" Plist="" />
+                <FileData Type="Default" Path="Default/ImageFile.png" Plist="" />
               </AbstractNodeData>
               <AbstractNodeData Name="light1" ActionTag="-390568398" Tag="1153" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-279.9600" RightMargin="-254.0400" TopMargin="-279.8800" BottomMargin="-230.1200" LeftEage="213" RightEage="213" TopEage="205" BottomEage="205" Scale9OriginX="213" Scale9OriginY="205" Scale9Width="222" Scale9Height="212" ctype="ImageViewObjectData">
                 <Size X="648.0000" Y="622.0000" />
@@ -79,7 +79,7 @@
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.5000" Y="0.5000" />
                 <PreSize X="5.6842" Y="5.5536" />
-                <FileData Type="Normal" Path="Offer/shine.png" Plist="" />
+                <FileData Type="Default" Path="Default/ImageFile.png" Plist="" />
               </AbstractNodeData>
               <AbstractNodeData Name="lock" ActionTag="-959513745" Tag="1151" IconVisible="False" LeftMargin="40.0000" RightMargin="44.0000" TopMargin="42.0000" BottomMargin="38.0000" LeftEage="9" RightEage="9" TopEage="10" BottomEage="10" Scale9OriginX="9" Scale9OriginY="10" Scale9Width="12" Scale9Height="12" ctype="ImageViewObjectData">
                 <Size X="30.0000" Y="32.0000" />

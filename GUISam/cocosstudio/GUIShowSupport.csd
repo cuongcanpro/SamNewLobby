@@ -83,7 +83,7 @@
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.5000" Y="0.5000" />
             <PreSize X="0.6750" Y="0.7813" />
-            <FileData Type="Normal" Path="ShopIAP/bgInputCard.png" Plist="" />
+            <FileData Type="Default" Path="Default/ImageFile.png" Plist="" />
           </AbstractNodeData>
         </Children>
       </ObjectData>

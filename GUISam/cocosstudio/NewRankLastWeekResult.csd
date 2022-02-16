@@ -176,7 +176,7 @@
                         <CColor A="255" R="255" G="255" B="255" />
                         <PrePosition X="0.4756" Y="0.9091" />
                         <PreSize X="1.4516" Y="2.0909" />
-                        <FileData Type="Normal" Path="Offer/bonusGold.png" Plist="" />
+                        <FileData Type="Default" Path="Default/ImageFile.png" Plist="" />
                       </AbstractNodeData>
                       <AbstractNodeData Name="txtGoldWin" ActionTag="1236315191" Tag="93" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="20.5000" RightMargin="20.5000" TopMargin="86.0000" BottomMargin="-31.0000" FontSize="16" LabelText="Text Label" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                         <Size X="83.0000" Y="22.0000" />
@@ -210,7 +210,7 @@
                         <CColor A="255" R="255" G="255" B="255" />
                         <PrePosition X="0.4756" Y="0.9091" />
                         <PreSize X="1.4516" Y="2.0779" />
-                        <FileData Type="Normal" Path="Offer/bonusDiamond.png" Plist="" />
+                        <FileData Type="Default" Path="Default/ImageFile.png" Plist="" />
                       </AbstractNodeData>
                       <AbstractNodeData Name="txtDiamond" ActionTag="-122915326" Tag="337" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="20.5000" RightMargin="20.5000" TopMargin="86.0000" BottomMargin="-31.0000" FontSize="16" LabelText="Text Label" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                         <Size X="83.0000" Y="22.0000" />

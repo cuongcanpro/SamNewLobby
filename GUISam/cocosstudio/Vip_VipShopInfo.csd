@@ -25,19 +25,9 @@
               <AbstractNodeData Name="bgProgress" ActionTag="-2015968409" Tag="178" IconVisible="False" LeftMargin="71.0572" RightMargin="80.9428" TopMargin="43.3160" BottomMargin="25.6840" LeftEage="105" RightEage="105" TopEage="8" BottomEage="8" Scale9OriginX="77" Scale9OriginY="8" Scale9Width="28" Scale9Height="4" ctype="ImageViewObjectData">
                 <Size X="182.0000" Y="20.0000" />
                 <Children>
-                  <AbstractNodeData Name="progressVip" ActionTag="-2012387136" Tag="179" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="2.5000" RightMargin="2.5000" TopMargin="3.0000" BottomMargin="3.0000" ProgressInfo="54" ctype="LoadingBarObjectData">
+                  <AbstractNodeData Name="progressVip" ActionTag="-2012387136" Tag="179" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="2.5000" RightMargin="2.5000" TopMargin="3.0000" BottomMargin="3.0000" ProgressInfo="98" ctype="LoadingBarObjectData">
                     <Size X="177.0000" Y="14.0000" />
                     <Children>
-                      <AbstractNodeData Name="imgVpoint" ActionTag="703731235" Tag="180" IconVisible="False" PositionPercentYEnabled="True" HorizontalEdge="RightEdge" LeftMargin="151.5000" RightMargin="0.5000" TopMargin="-4.5000" BottomMargin="-4.5000" LeftEage="8" RightEage="8" TopEage="7" BottomEage="7" Scale9OriginX="8" Scale9OriginY="7" Scale9Width="9" Scale9Height="9" ctype="ImageViewObjectData">
-                        <Size X="25.0000" Y="23.0000" />
-                        <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                        <Position X="164.0000" Y="7.0000" />
-                        <Scale ScaleX="0.9000" ScaleY="0.9000" />
-                        <CColor A="255" R="255" G="255" B="255" />
-                        <PrePosition X="0.9266" Y="0.5000" />
-                        <PreSize X="0.1412" Y="1.6429" />
-                        <FileData Type="Normal" Path="GUIVipNew/iconVpoint.png" Plist="" />
-                      </AbstractNodeData>
                       <AbstractNodeData Name="txtProgress" ActionTag="1006454213" Tag="181" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-35.8097" RightMargin="-37.1903" TopMargin="-4.5838" BottomMargin="-3.4162" IsCustomSize="True" FontSize="15" LabelText="500 / 1000" HorizontalAlignmentType="HT_Center" OutlineEnabled="True" ShadowOffsetX="0.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                         <Size X="250.0000" Y="22.0000" />
                         <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
@@ -49,6 +39,16 @@
                         <FontResource Type="Normal" Path="Font/tahoma.ttf" Plist="" />
                         <OutlineColor A="255" R="187" G="99" B="187" />
                         <ShadowColor A="255" R="172" G="77" B="172" />
+                      </AbstractNodeData>
+                      <AbstractNodeData Name="imgVpoint" ActionTag="703731235" Tag="180" IconVisible="False" PositionPercentYEnabled="True" HorizontalEdge="RightEdge" LeftMargin="166.4989" RightMargin="-14.4989" TopMargin="-4.5000" BottomMargin="-4.5000" LeftEage="8" RightEage="8" TopEage="7" BottomEage="7" Scale9OriginX="8" Scale9OriginY="7" Scale9Width="9" Scale9Height="9" ctype="ImageViewObjectData">
+                        <Size X="25.0000" Y="23.0000" />
+                        <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                        <Position X="178.9989" Y="7.0000" />
+                        <Scale ScaleX="0.9000" ScaleY="0.9000" />
+                        <CColor A="255" R="255" G="255" B="255" />
+                        <PrePosition X="1.0113" Y="0.5000" />
+                        <PreSize X="0.1412" Y="1.6429" />
+                        <FileData Type="Normal" Path="GUIVipNew/iconVpoint.png" Plist="" />
                       </AbstractNodeData>
                     </Children>
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
