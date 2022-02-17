@@ -80,6 +80,8 @@ var ItemIapCell = cc.TableViewCell.extend({
             this.cost.setString(StringUtility.pointNumber(inf.cost));
         else
             this.cost.setString(inf.cost);
+        cc.log("WIDTH LABEL ***** " + this.cost.getContentSize().width + " " + this.cost.getAutoRenderSize().width + " " + this.cost.getVirtualRendererSize().width);
+        this.currency.setPositionX(this.cost.getAutoRenderSize().width * 0.5 + this.cost.getPositionX() + 10);
 
         //level up vip
         this.uptoLevelVip.setVisible(false);
@@ -136,6 +138,27 @@ var ItemIapCell = cc.TableViewCell.extend({
             this.bgBonus.setVisible(false);
         }
         this.groupBonusSource.setVisible(false);
+
+        // check Offer
+        if (inf.isOfferNoPrice) {
+            this.img.removeAllChildren();
+
+            var sp = ccui.Button.create("res/Lobby/Offer/iconSuperOffer.png");
+            sp.setPressedActionEnabled(true);
+            sp.loadTextures("res/Lobby/Offer/iconSuperOffer.png", "res/Lobby/Offer/iconSuperOffer.png", "");
+            sp.addTouchEventListener(this.showOffer, this);
+         //   sp.setScale(this._scale);
+            this.img.addChild(sp);
+            sp.setPosition(this.img.getContentSize().width / 2, this.img.getContentSize().height / 2);
+        }
+    },
+
+    showOffer: function (sender, type) {
+        switch (type) {
+            case ccui.Widget.TOUCH_ENDED:
+                offerManager.showOfferNoPriceGUI(this.info.type);
+                break;
+        }
     },
 
     createImage: function () {

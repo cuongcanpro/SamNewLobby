@@ -30,7 +30,7 @@ var ChatPanelGUI = BaseLayer.extend({
     },
 
     initGUI: function () {
-        cc.log("INIT GUI ****** ");
+
         this.bg = this.getControl("bg");
         this.pChat = this.getControl("pChat");
         this.pChat.setVisible(true);
@@ -95,7 +95,7 @@ var ChatPanelGUI = BaseLayer.extend({
         this.emotePanel.btnClose.setVisible(false);
         this.emotePanel.bg.setScale(1);
         this.emotePanel.chatPanel = this;
-        this.emotePanel.setVisible(false);
+        //this.emotePanel.setVisible(false);
 
         this.btnQuickChat = this.customizeButton("btnQuickChat", ChatPanelGUI.BTN_QUICKCHAT);
         this.btnQuickChat.setPressedActionEnabled(false);
@@ -172,7 +172,6 @@ var ChatPanelGUI = BaseLayer.extend({
     },
 
     onBack: function () {
-        cc.log("ON BACK CHAT");
         this.bg.stopAllActions();
         this.bg.runAction(cc.sequence(
             cc.spawn(

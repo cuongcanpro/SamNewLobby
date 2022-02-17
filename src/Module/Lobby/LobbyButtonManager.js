@@ -94,7 +94,7 @@ LobbyButtonManager.getInstance = function(){
         LobbyButtonManager.instance = new LobbyButtonManager();
     return LobbyButtonManager.instance;
 };
-LobbyButtonManager.OFFSET = cc.p(80, 80);
+LobbyButtonManager.OFFSET = cc.p(120, 120);
 LobbyButtonManager.MAX_ROW = 3;
 
 LobbyButtonManager.BUTTON_TYPES = [

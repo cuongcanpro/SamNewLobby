@@ -9,14 +9,6 @@ var StorageManager = BaseMgr.extend({
         cc.director.getScheduler().schedule(this.update, this, 1, cc.REPEAT_FOREVER, 0, false, "StorageUpdate");
     },
 
-    initListener: function () {
-        dispatcherMgr.addListener(LobbyMgr.EVENT_ON_ENTER_FINISH, this, this.onEnterLobby);
-    },
-
-    onEnterLobby: function () {
-        this.showNotifyStorage();
-    },
-
     /* region Data Manipulating */
     resetData: function() {
         this.itemConfig = null;
@@ -175,6 +167,7 @@ var StorageManager = BaseMgr.extend({
                 return true;
             case StorageManager.CMD_GET_USER_ITEM_INFO:
                 var pk = new CmdReceivedGetUserItemInfo(data);
+                cc.log("CMD_GET_USER_ITEM_INFO" + JSON.stringify(pk));
                 pk.clean();
                 this.onReceiveUserItemInfo(pk);
                 return true;
@@ -848,6 +841,7 @@ StorageManager.getInstance = function() {
     }
     return StorageManager._instance;
 };
+var storageMgr = StorageManager.getInstance();
 
 /* region STORAGE CMD DEFINE */
 StorageManager.CMD_GET_ITEM_CONFIG = 16001;

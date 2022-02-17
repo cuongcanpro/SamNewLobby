@@ -42,7 +42,7 @@ var UserDetailInfo = cc.Node.extend({
 
     updateGold: function (gold) {
         this.lbGold.gold = gold;
-        if (this.lbGold) this.lbGold.setString(StringUtility.formatNumberSymbol(this.lbGold.gold));
+        if (this.lbGold) this.lbGold.setString(StringUtility.pointNumber(this.lbGold.gold));
     },
 
     updateDiamond: function (diamond) {

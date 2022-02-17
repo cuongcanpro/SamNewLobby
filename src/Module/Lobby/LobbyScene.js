@@ -78,7 +78,7 @@ var LobbyScene = BaseLayer.extend({
         }
 
         // hide event button
-        this.btnEvent.setVisible(false);
+        //this.btnEvent.setVisible(false);
         this.scheduleUpdate();
         LobbyButtonManager.getInstance().scheduleUpdate();
 
@@ -228,14 +228,13 @@ var LobbyScene = BaseLayer.extend({
         this.btnGold.hot.setLocalZOrder(100);
 
         this.btnEvent = this.customButton("pEventButton", LobbyScene.BTN_EVENT, pBotButton);
+        this.imgEmpty = this.getControl("imgEmpty", this.btnEvent);
         this.btnEvent.setPressedActionEnabled(false);
     },
 
     initTopLeft: function () {
         var pLeftTop = this.getControl("pLeftTop");
         this.logo = this.getControl("logo", pLeftTop);
-        this.logo.setScale(0.75);
-
         this.initUserInfo();
 
         //cheat old exp
@@ -749,8 +748,6 @@ var LobbyScene = BaseLayer.extend({
                 break;
             }
             case LobbyScene.BTN_AVATAR: {
-                sceneMgr.openGUI(ChatPanelGUI.className, ChatPanelGUI.TAG, ChatPanelGUI.TAG);
-                return;
                 sceneMgr.openGUI(CheckLogic.getUserInfoClassName(), LobbyScene.GUI_USER_INFO, LobbyScene.GUI_USER_INFO).setInfo(userMgr.userInfo);
                 break;
             }

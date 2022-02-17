@@ -9,7 +9,6 @@ var NewRankData = cc.Class.extend({
         this.numberOldCup = 0;
         this.dataTruCup = null;
         this.topUsersData = null;
-        // this.makeDataTest();
     },
     
     resetData: function(){
@@ -26,6 +25,9 @@ var NewRankData = cc.Class.extend({
     setCurRankInfo: function (curRankInfo) {
         cc.log("setCurRankInfo: ", JSON.stringify(curRankInfo));
         this.curRankInfo = curRankInfo;
+
+        var gui = sceneMgr.getGUI(NewRankGUI.TAG);
+        if (gui) gui.updateCurRank(this.curRankInfo);
     },
 
     getCurRankInfo: function () {
@@ -138,7 +140,7 @@ var NewRankData = cc.Class.extend({
     getMyRankPosition: function(isCurWeek){
         var data = (isCurWeek) ? this.getDataCurWeek() : this.getDataLastWeek();
         for (var i = 0; i < data.topUser.length; i++){
-            if (data.topUser[i].userId == gamedata.getUserId()){
+            if (data.topUser[i].userId == userMgr.getUID()){
                 return i;
             }
         }
@@ -178,7 +180,7 @@ var NewRankData = cc.Class.extend({
         this.sortDataRank(this.dataLastWeek, false);
         return this.dataLastWeek;
     },
-    
+
     setDataResultLastWeek: function(dataResult){
         this.dataResultLastWeek = dataResult;
     },
@@ -220,55 +222,6 @@ var NewRankData = cc.Class.extend({
         return parseInt(this.numberOldCup);
     },
 
-    makeDataTest: function(){
-        var listData = [];
-        for (var i = 0; i < 49; i++){
-            var tempPlayer = {};
-            tempPlayer.userName = "player_" + i;
-            tempPlayer.avatar = "";
-            tempPlayer.userId = 1000 + i;
-            tempPlayer.goldWin = Math.floor(Math.random() * 10000000);
-
-            listData.push(tempPlayer);
-        }
-
-        var myPlayer = {};
-        myPlayer.userName = gamedata.getUserName();
-        myPlayer.avatar = gamedata.getUserAvatar();
-        myPlayer.goldWin = Math.floor(Math.random() * 10000000);
-        myPlayer.userId = gamedata.getUserId();
-        listData.push(myPlayer);
-
-        listData.sort(function (a, b) {
-            return a.goldWin - b.goldWin;
-        });
-
-        var dataCurWeek = {};
-        dataCurWeek.topUser = listData;
-        dataCurWeek.size = listData.length;
-        // dataCurWeek.remainTime = Math.floor(Math.random() * 7 * 86400 * 1000);
-        dataCurWeek.remainTime = 1000 * 60 * 10;
-        dataCurWeek.isThisWeek = false;
-        dataCurWeek.isOpening = false;
-        this.setDataCurWeek(dataCurWeek);
-        // this.setDataLastWeek(dataCurWeek);
-
-        // var dataLastWeek = "{\"rankIdx\":48,\"tableSize\":50,\"cup\":-600,\"goldGift\":\"0\",\"goldMedal\":0,\"silverMedal\":0,\"bronzeMedal\":0,\"goldWinLastWeek\":\"3420514\"}";
-        // var dataLastWeek = "{\"rankIdx\":0,\"tableSize\":50,\"oldCup\":0,\"cup\":1000,\"goldGift\":\"1000000\",\"goldMedal\":1,\"silverMedal\":0,\"bronzeMedal\":0,\"goldWinLastWeek\":\"50000000\"}";
-        // var dataLastWeek = "{\"rankIdx\":30,\"tableSize\":50,\"cup\":0,\"goldGift\":\"0\",\"goldMedal\":0,\"silverMedal\":0,\"bronzeMedal\":0,\"goldWinLastWeek\":\"434607\"}";
-        // this.setDataResultLastWeek(JSON.parse(dataLastWeek));
-
-        var cup = 1000;
-        var rank = 2;
-        var dataRankInfo = {rank: rank, rankPoint: cup, goldMedal: 1, silverMedal: 3, bronzeMedal: 5};
-        this.setCurRankInfo(dataRankInfo);
-        // this.rankConfig = JSON.parse(NewRankData.TEMP_CONFIG);
-        //
-        // NewRankData.MIN_LEVEL_JOIN_RANK = 0;
-        // var dataTruCup = {cup: -100, offlineWeek: 2, oldCup: 80}
-        // this.setDataTruCup(dataTruCup);
-    },
-
     fakeMyDataInWeek: function(){
         var data = this.getDataCurWeek();
         var newList = [];
@@ -278,7 +231,7 @@ var NewRankData = cc.Class.extend({
             newUser.userName = data.topUser[i].userName;
             newUser.avatar = data.topUser[i].avatar;
             newUser.goldWin = data.topUser[i].goldWin;
-            if (data.topUser[i].userName === gamedata.getUserName()){
+            if (data.topUser[i].userName === userMgr.getUserName()){
                 newUser.goldWin = Math.random() * 10000000;
             }
             newList.push(newUser);
@@ -295,7 +248,7 @@ var NewRankData = cc.Class.extend({
         });
 
         for (i = 0; i < newList.length; i++){
-            if (newList[i].userName === gamedata.getUserName()){
+            if (newList[i].userName === userMgr.getUserName()){
                 return i;
             }
         }
@@ -305,10 +258,9 @@ var NewRankData = cc.Class.extend({
 });
 
 NewRankData.detectUpdateGoldWin = function(expChange, positionChange){
-    var gui = sceneMgr.getGUI(NewRankData.MINI_RANK_GUI_TAG);
-    if (gui){
-        gui.showExpChange(expChange, positionChange);
-    }
+    var scene = sceneMgr.getMainLayer();
+    if (scene instanceof BoardScene)
+        scene.effectExpRankChange(expChange, positionChange);
 };
 
 NewRankData.getRankImg = function(rank){
@@ -412,7 +364,8 @@ NewRankData.getItemByPackId = function(packId){
         var itemId = Number(itemValues[2]);
         var path = StorageManager.getItemIconPath(itemType, itemSubType, itemId);
         var text = StorageManager.getInstance().getExpiredText(itemType, itemSubType, itemId);
-        return {path: path, text: text};
+        var scale = StorageManager.getItemIconScale(itemType) * 5/3;
+        return {path: path, text: text, scale: scale};
     }
     return null;
 };
@@ -435,7 +388,7 @@ NewRankData.getCupWinLose = function(rank, idx, size){
 };
 
 NewRankData.getTimeRemainStr = function(timeRemain){
-    var str = "";
+    var str;
     var numDay = Math.floor(timeRemain / 86400);
     var numHour = Math.floor((timeRemain - numDay * 86400) / 3600);
     var numMinus = Math.floor((timeRemain - numDay * 86400 - numHour * 3600) / 60);
@@ -491,7 +444,7 @@ NewRankData.checkOpenRank = function(isNotify){
     if (!Config.ENABLE_NEW_RANK || Config.ENABLE_TESTING_NEW_RANK){
         return false;
     }
-    if (gamedata.getUserLevel() >= NewRankData.MIN_LEVEL_JOIN_RANK) {
+    if (userMgr.getLevel() >= NewRankData.MIN_LEVEL_JOIN_RANK) {
         if (NewRankGameClient.getInstance().isRankConnected()) {
             var rankConfig = NewRankData.getInstance().getRankConfig();
             if (!rankConfig || rankConfig["isMaintain"]) {
@@ -520,8 +473,8 @@ NewRankData.checkOpenRank = function(isNotify){
             if (now - NewRankData.lastTimeTryToConnect - NewRankData.DELTA_TIME_TO_NEW_CONNECT * 1000 > 0){
                 NewRankData.lastTimeTryToConnect = now;
                 NewRankData.connectToServerRank();
-                return false;
             }
+            return false;
         }
     } else {
         if (isNotify){
@@ -571,11 +524,10 @@ NewRankData.getOpenResultLastWeek = function(){
 };
 
 NewRankData.checkNotifyOpenRank = function(newLevel){
-    if (gamedata && gamedata.gameConfig &&
-        gamedata.userData.level < NewRankData.MIN_LEVEL_JOIN_RANK){
+    if (userMgr.getLevel() < NewRankData.MIN_LEVEL_JOIN_RANK){
         if (newLevel >= NewRankData.MIN_LEVEL_JOIN_RANK){
             if (CheckLogic.checkInBoard()){
-                gamedata.userData.level = newLevel;
+                userMgr.setLevel(newLevel);
                 NewRankData.addMiniRankGUI(true);
                 NewRankData.isEnoughLevelJoinRank = true;
             }
@@ -584,10 +536,6 @@ NewRankData.checkNotifyOpenRank = function(newLevel){
 };
 
 NewRankData.addMiniRankGUI = function(isTooltip){
-    if (!Config.ENABLE_NEW_RANK || Config.ENABLE_TESTING_NEW_RANK){
-        NewRankData.removeMiniRankGUI();
-        return;
-    }
     if (userMgr.getLevel() >= NewRankData.MIN_LEVEL_JOIN_RANK){
         var gui = sceneMgr.getGUI(NewRankData.MINI_RANK_GUI_TAG);
         if (!gui) {
@@ -691,8 +639,8 @@ NewRankData.numberOpenGuiRankTracking = 0;
 NewRankData.isEnoughLevelJoinRank = false;
 NewRankData.waitOpenMiniRank = false;
 
-NewRankData.PORT_DEV = 10223;
-NewRankData.IP_DEV = "118.102.3.18";
+NewRankData.PORT_DEV = 10126;
+NewRankData.IP_DEV = "120.138.72.33";
 NewRankData.IP_DEV_WEB = "socket-dev.service.zingplay.com:10273";
 
 NewRankData.PORT_LIVE = 443;

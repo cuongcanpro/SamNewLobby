@@ -2,22 +2,12 @@
  *  Created by sonbnt on 24/08/2021
  */
 
-var DailyPurchaseManager = BaseMgr.extend({
+var DailyPurchaseManager = cc.Class.extend({
     ctor: function(){
-        this._super();
         this.btnLobby = new DailyPurchaseButton();
         this.btnLobby.retain();
 
         this.resetData();
-    },
-
-    initListener: function () {
-        dispatcherMgr.addListener(LobbyMgr.EVENT_ON_ENTER_FINISH, this, this.onEnterLobby);
-    },
-
-    onEnterLobby: function () {
-        cc.log("DAI LY PURCHASE ");
-        this.checkNotifyGift();
     },
 
     /* region data */
@@ -38,7 +28,7 @@ var DailyPurchaseManager = BaseMgr.extend({
             this.remainTime = Math.max(0, this.remainTime - dt * 1000);
             var newDay = Math.ceil(this.remainTime / (1000 * 60 * 60 * 24));
             if (oldDay != newDay) {
-                VipManager.getInstance().setWaiting(true);
+                NewVipManager.getInstance().setWaiting(true);
                 this.sendDailyPurchaseData();
             }
         }
@@ -46,40 +36,40 @@ var DailyPurchaseManager = BaseMgr.extend({
     /* endregion data */
 
     /* region listeners */
-    onReceived: function(cmd, data){
+    onReceive: function(cmd, data){
         switch(cmd){
             case DailyPurchaseManager.CMD_DAILY_PURCHASE_CONFIG:
                 var pk = new CmdReceivedDailyPurchaseConfig(data);
                 pk.clean();
                 this.onReceiveDailyPurchaseConfig(pk);
-                return true;
+                break;
             case DailyPurchaseManager.CMD_DAILY_PURCHASE_DATA:
                 var pk = new CmdReceivedDailyPurchaseData(data);
                 pk.clean();
                 this.onReceiveDailyPurchaseData(pk);
-                return true;
+                break;
             case DailyPurchaseManager.CMD_NOTIFY_DAILY_PURCHASE_GIFT:
                 var pk = new CmdReceivedNotifyDailyPurchaseGift(data);
                 pk.clean();
                 this.onReceiveNotifyDailyPurchaseGift(pk);
-                return true;
+                break;
             case DailyPurchaseManager.CMD_RECEIVE_DAILY_PURCHASE_GIFT:
                 var pk = new CmdReceivedReceiveDailyPurchaseGift(data);
                 pk.clean();
                 this.onReceiveReceiveDailyPurchaseGift(pk);
-                return true;
+                break;
             case DailyPurchaseManager.CMD_CHEAT_DAILY_PURCHASE_DATA:
                 var pk = new CmdReceivedCheatDailyPurchaseData(data);
                 pk.clean();
                 Toast.makeToast(Toast.LONG, "Cheat daily purchase data: " + (pk.getError() == 0 ? "successful" : "failed"));
-                return true;
+                break;
             case DailyPurchaseManager.CMD_CHEAT_DAILY_PURCHASE_RESET:
                 var pk = new CmdReceivedCheatDailyPurchaseReset(data);
                 pk.clean();
                 Toast.makeToast(Toast.LONG, "Cheat daily purchase reset: " + (pk.getError() == 0 ? "successful" : "failed"));
-                return true;
+                break;
             default:
-                return false;
+                return;
         }
         cc.log("DailyPurchase received:", cmd);
     },
@@ -166,9 +156,9 @@ var DailyPurchaseManager = BaseMgr.extend({
                 var gui = sceneMgr.getGUI(DailyPurchaseGUI.GUI_TAG);
                 if (!gui){
                     if (!CheckLogic.checkInBoard()) {
-                        VipManager.checkShowUpLevelVip();
+                        NewVipManager.checkShowUpLevelVip();
                     }
-                    else VipManager.getInstance().setWaiting(false);
+                    else NewVipManager.getInstance().setWaiting(false);
                 }
             }, 500);
             var scene = sceneMgr.getMainLayer();
@@ -188,7 +178,7 @@ var DailyPurchaseManager = BaseMgr.extend({
 
     sendReceiveDailyPurchaseGift: function(dayIndex){
         sceneMgr.addLoading(LocalizedString.to("WAITING")).timeout(15);
-        VipManager.getInstance().setWaiting(true);
+        NewVipManager.getInstance().setWaiting(true);
 
         var pk = new CmdSendReceiveDailyPurchaseGift();
         pk.putData(dayIndex);

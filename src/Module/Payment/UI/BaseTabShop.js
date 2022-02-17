@@ -99,6 +99,10 @@ var ChannelPaymentButton = ccui.Button.extend({
         this.iconHot = effect;
         this.addClickEventListener(this.onClickPaymentButton.bind(this));
         this.tabParent = parent;
+
+        this.imgHot = new cc.Sprite("Lobby/ShopIAP/iconHot.png");
+        this.addChild(this.imgHot);
+        this.imgHot.setPosition(28, 32);
     },
 
     onClickPaymentButton: function () {
@@ -108,6 +112,8 @@ var ChannelPaymentButton = ccui.Button.extend({
     setData: function (data) {
         this.data = data;
         this.iconHot.setVisible(data.isHot);
+        this.iconHot.setVisible(false);
+        this.imgHot.setVisible(data.isHot);
     },
 
     setSelect: function (isSelect) {

@@ -299,12 +299,12 @@ var FortuneCatMainLayer = BaseLayer.extend({
     ///start - set up GUI components info
     ///hit boxes of 3 cat slots
     addCatSlotRect: function(){
-        var catSlotWidth = 86;
-        var catSlotHeight = 86;
+        var catSlotWidth = 129;
+        var catSlotHeight = 129;
         var slotX = 0;
-        var slot1Y = 227;
+        var slot1Y = 270;
         var slot2Y = 132;
-        var slot3Y = 37;
+        var slot3Y = -10;
 
         var rect1 = cc.rect(slotX, slot1Y, catSlotWidth, catSlotHeight);
         var rect2 = cc.rect(slotX, slot2Y, catSlotWidth, catSlotHeight);
@@ -336,6 +336,7 @@ var FortuneCatMainLayer = BaseLayer.extend({
             var silhouette = this.getControl("silhouette", slot);
 
             if (typeof userCatIdList[i] !== "undefined"){
+                cc.log("userCatIdList" + userCatIdList[i] + " " + i);
                 silhouette.loadTexture(FortuneCatSilhouetteSlotPathList[userCatIdList[i]]);
                 cat.setVisible(true);
                 cat.loadTexture(FortuneCatImageSlotPathList[userCatIdList[i]]);
@@ -604,8 +605,8 @@ var FortuneCatMainLayer = BaseLayer.extend({
     loadUnlockingCatImage: function(catId){
         this.mainCatImage.removeAllChildren();
         if (typeof sp !== 'undefined') {
-            var unlockingCatImageX = 151;
-            var unlockingCatImageY = 50;
+            var unlockingCatImageX = 251;
+            var unlockingCatImageY = 85;
 
             this.unlockingCatImage = new sp.SkeletonAnimation(fortuneCatFX.catJson, fortuneCatFX.catAtlas);
             this.unlockingCatImage.setAnchorPoint(0.5, 0.5);

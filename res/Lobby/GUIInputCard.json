@@ -17,20 +17,21 @@
           {
             "FileData": {
               "Type": "Normal",
-              "Path": "ShopIAP/bgInputCard.png",
+              "Path": "Common/bgDialog.png",
               "Plist": ""
             },
+            "Scale9Enable": true,
             "Scale9OriginX": 178,
             "Scale9OriginY": 123,
-            "Scale9Width": 184,
-            "Scale9Height": 129,
+            "Scale9Width": 504,
+            "Scale9Height": 391,
             "AnchorPoint": {
               "ScaleX": 0.5,
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 400.0,
-              "Y": 240.0
+              "X": 600.0001,
+              "Y": 369.0005
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -40,37 +41,92 @@
             "IconVisible": false,
             "PrePosition": {
               "X": 0.5,
-              "Y": 0.5
+              "Y": 0.5125
             },
             "PreSize": {
-              "X": 0.675,
-              "Y": 0.7813
+              "X": 0.6333,
+              "Y": 0.7639
             },
             "HorizontalEdge": "BothEdge",
             "VerticalEdge": "BothEdge",
-            "LeftMargin": 130.0,
-            "RightMargin": 130.0,
-            "TopMargin": 52.5,
-            "BottomMargin": 52.5,
+            "LeftMargin": 220.0001,
+            "RightMargin": 219.9999,
+            "TopMargin": 75.9995,
+            "BottomMargin": 94.0005,
             "Tag": 61,
             "Children": [
               {
-                "FileData": {
+                "FontSize": 30,
+                "LabelText": "Nhập thông tin",
+                "FontResource": {
                   "Type": "Normal",
-                  "Path": "ShopIAP/titleInput.png",
+                  "Path": "Font/tahomabd.ttf",
                   "Plist": ""
                 },
-                "Scale9OriginX": 67,
-                "Scale9OriginY": 13,
-                "Scale9Width": 71,
-                "Scale9Height": 14,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.4734,
+                  "ScaleY": 0.3452
+                },
+                "Position": {
+                  "X": 374.6841,
+                  "Y": 507.4139
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PrePosition": {
+                  "X": 0.493,
+                  "Y": 0.9226
+                },
+                "PreSize": {
+                  "X": 0.2632,
+                  "Y": 0.0636
+                },
+                "LeftMargin": 280.0,
+                "RightMargin": 280.0,
+                "TopMargin": 19.6674,
+                "BottomMargin": 495.3326,
+                "Tag": 40,
+                "ActionTag": 1897134843,
+                "Size": {
+                  "X": 200.0,
+                  "Y": 35.0
+                },
+                "Name": "lbTitle",
+                "ctype": "TextObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "ShopIAP/lineGUIZing.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 230,
+                "Scale9OriginY": 1,
+                "Scale9Width": 239,
+                "Scale9Height": 2,
                 "AnchorPoint": {
                   "ScaleX": 0.5,
                   "ScaleY": 0.5
                 },
                 "Position": {
-                  "X": 275.5414,
-                  "Y": 341.2209
+                  "X": 378.0514,
+                  "Y": 478.2281
                 },
                 "Scale": {
                   "ScaleX": 1.0,
@@ -79,28 +135,28 @@
                 "CColor": {},
                 "IconVisible": false,
                 "PrePosition": {
-                  "X": 0.5103,
-                  "Y": 0.9099
+                  "X": 0.4974,
+                  "Y": 0.8695
                 },
                 "PreSize": {
-                  "X": 0.3796,
-                  "Y": 0.1067
+                  "X": 0.9197,
+                  "Y": 0.0073
                 },
-                "LeftMargin": 173.0414,
-                "RightMargin": 161.9586,
-                "TopMargin": 13.7791,
-                "BottomMargin": 321.2209,
-                "Tag": 62,
-                "ActionTag": 1612169775,
+                "LeftMargin": 28.5514,
+                "RightMargin": 32.4486,
+                "TopMargin": 69.7719,
+                "BottomMargin": 476.2281,
+                "Tag": 44,
+                "ActionTag": 1623535066,
                 "Size": {
-                  "X": 205.0,
-                  "Y": 40.0
+                  "X": 699.0,
+                  "Y": 4.0
                 },
                 "Name": "Image_2",
                 "ctype": "ImageViewObjectData"
               },
               {
-                "FontSize": 15,
+                "FontSize": 25,
                 "LabelText": "Vui lòng nhập thông tin thẻ mà bạn muốn nạp",
                 "FontResource": {
                   "Type": "Normal",
@@ -123,8 +179,59 @@
                   "ScaleY": 0.5
                 },
                 "Position": {
-                  "X": 267.4907,
-                  "Y": 305.971
+                  "X": 380.0,
+                  "Y": 445.0772
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "R": 161,
+                  "G": 176,
+                  "B": 229
+                },
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.8092
+                },
+                "PreSize": {
+                  "X": 0.6671,
+                  "Y": 0.0527
+                },
+                "LeftMargin": 126.5,
+                "RightMargin": 126.5,
+                "TopMargin": 90.4228,
+                "BottomMargin": 430.5772,
+                "Tag": 65,
+                "ActionTag": 1336489053,
+                "Size": {
+                  "X": 507.0,
+                  "Y": 29.0
+                },
+                "Name": "Text_1",
+                "ctype": "TextObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "Common/bgGrey.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 231,
+                "Scale9OriginY": 95,
+                "Scale9Width": 239,
+                "Scale9Height": 98,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 379.2171,
+                  "Y": 245.6188
                 },
                 "Scale": {
                   "ScaleX": 1.0,
@@ -133,28 +240,28 @@
                 "CColor": {},
                 "IconVisible": false,
                 "PrePosition": {
-                  "X": 0.4954,
-                  "Y": 0.8159
+                  "X": 0.499,
+                  "Y": 0.4466
                 },
                 "PreSize": {
-                  "X": 0.5981,
-                  "Y": 0.0533
+                  "X": 0.8816,
+                  "Y": 0.6
                 },
-                "LeftMargin": 105.9907,
-                "RightMargin": 111.0093,
-                "TopMargin": 59.029,
-                "BottomMargin": 295.971,
-                "Tag": 65,
-                "ActionTag": 1336489053,
+                "LeftMargin": 44.2171,
+                "RightMargin": 45.7828,
+                "TopMargin": 139.3812,
+                "BottomMargin": 80.6188,
+                "Tag": 43,
+                "ActionTag": -1027977801,
                 "Size": {
-                  "X": 323.0,
-                  "Y": 20.0
+                  "X": 670.0,
+                  "Y": 330.0
                 },
-                "Name": "Text_1",
-                "ctype": "TextObjectData"
+                "Name": "bgInfo",
+                "ctype": "ImageViewObjectData"
               },
               {
-                "FontSize": 16,
+                "FontSize": 25,
                 "LabelText": "Mã số thẻ",
                 "FontResource": {
                   "Type": "Normal",
@@ -177,42 +284,38 @@
                   "ScaleY": 0.5
                 },
                 "Position": {
-                  "X": 95.0551,
-                  "Y": 224.3057
+                  "X": 153.5651,
+                  "Y": 343.6553
                 },
                 "Scale": {
                   "ScaleX": 1.0,
                   "ScaleY": 1.0
                 },
-                "CColor": {
-                  "R": 201,
-                  "G": 173,
-                  "B": 204
-                },
+                "CColor": {},
                 "IconVisible": false,
                 "PrePosition": {
-                  "X": 0.176,
-                  "Y": 0.5981
+                  "X": 0.2021,
+                  "Y": 0.6248
                 },
                 "PreSize": {
-                  "X": 0.1444,
-                  "Y": 0.0587
+                  "X": 0.1487,
+                  "Y": 0.0527
                 },
-                "LeftMargin": 56.0551,
-                "RightMargin": 405.9449,
-                "TopMargin": 139.6943,
-                "BottomMargin": 213.3057,
+                "LeftMargin": 97.0651,
+                "RightMargin": 549.9349,
+                "TopMargin": 191.8447,
+                "BottomMargin": 329.1553,
                 "Tag": 66,
                 "ActionTag": 754267992,
                 "Size": {
-                  "X": 78.0,
-                  "Y": 22.0
+                  "X": 113.0,
+                  "Y": 29.0
                 },
                 "Name": "Text_2",
                 "ctype": "TextObjectData"
               },
               {
-                "FontSize": 16,
+                "FontSize": 25,
                 "LabelText": "Số Seri",
                 "FontResource": {
                   "Type": "Normal",
@@ -235,36 +338,32 @@
                   "ScaleY": 0.5
                 },
                 "Position": {
-                  "X": 103.8199,
-                  "Y": 169.9538
+                  "X": 170.998,
+                  "Y": 258.2204
                 },
                 "Scale": {
                   "ScaleX": 1.0,
                   "ScaleY": 1.0
                 },
-                "CColor": {
-                  "R": 201,
-                  "G": 173,
-                  "B": 204
-                },
+                "CColor": {},
                 "IconVisible": false,
                 "PrePosition": {
-                  "X": 0.1923,
-                  "Y": 0.4532
+                  "X": 0.225,
+                  "Y": 0.4695
                 },
                 "PreSize": {
-                  "X": 0.1,
-                  "Y": 0.0587
+                  "X": 0.1039,
+                  "Y": 0.0527
                 },
-                "LeftMargin": 76.8199,
-                "RightMargin": 409.1801,
-                "TopMargin": 194.0462,
-                "BottomMargin": 158.9538,
+                "LeftMargin": 131.498,
+                "RightMargin": 549.502,
+                "TopMargin": 277.2796,
+                "BottomMargin": 243.7204,
                 "Tag": 67,
                 "ActionTag": 143544369,
                 "Size": {
-                  "X": 54.0,
-                  "Y": 22.0
+                  "X": 79.0,
+                  "Y": 29.0
                 },
                 "Name": "Text_2_0",
                 "ctype": "TextObjectData"
@@ -284,19 +383,19 @@
                 },
                 "PressedFileData": {
                   "Type": "Normal",
-                  "Path": "ShopIAP/btnInputCard.png",
+                  "Path": "Common/btnBlue.png",
                   "Plist": ""
                 },
                 "NormalFileData": {
                   "Type": "Normal",
-                  "Path": "ShopIAP/btnInputCard.png",
+                  "Path": "Common/btnBlue.png",
                   "Plist": ""
                 },
                 "Scale9Enable": true,
                 "Scale9OriginX": 15,
                 "Scale9OriginY": 11,
-                "Scale9Width": 104,
-                "Scale9Height": 29,
+                "Scale9Width": 202,
+                "Scale9Height": 49,
                 "OutlineColor": {
                   "G": 0,
                   "B": 0
@@ -314,8 +413,8 @@
                   "ScaleY": 0.5
                 },
                 "Position": {
-                  "X": 270.0,
-                  "Y": 103.5257
+                  "X": 380.0006,
+                  "Y": 157.528
                 },
                 "Scale": {
                   "ScaleX": 1.0,
@@ -326,21 +425,78 @@
                 "PositionPercentXEnabled": true,
                 "PrePosition": {
                   "X": 0.5,
-                  "Y": 0.2761
+                  "Y": 0.2864
                 },
                 "PreSize": {
-                  "X": 0.2481,
-                  "Y": 0.136
+                  "X": 0.3053,
+                  "Y": 0.1291
                 },
-                "LeftMargin": 203.0,
-                "RightMargin": 203.0,
-                "TopMargin": 245.9743,
-                "BottomMargin": 78.0257,
+                "LeftMargin": 264.0006,
+                "RightMargin": 263.9994,
+                "TopMargin": 356.972,
+                "BottomMargin": 122.028,
                 "Tag": 68,
+                "Children": [
+                  {
+                    "FontSize": 30,
+                    "LabelText": "Nạp thẻ",
+                    "FontResource": {
+                      "Type": "Normal",
+                      "Path": "Font/tahomabd.ttf",
+                      "Plist": ""
+                    },
+                    "OutlineColor": {
+                      "G": 0,
+                      "B": 0
+                    },
+                    "ShadowColor": {
+                      "R": 110,
+                      "G": 110,
+                      "B": 110
+                    },
+                    "ShadowOffsetX": 2.0,
+                    "ShadowOffsetY": -2.0,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 115.9999,
+                      "Y": 40.34
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PositionPercentXEnabled": true,
+                    "PrePosition": {
+                      "X": 0.5,
+                      "Y": 0.5682
+                    },
+                    "PreSize": {
+                      "X": 0.4612,
+                      "Y": 0.493
+                    },
+                    "LeftMargin": 62.4999,
+                    "RightMargin": 62.5001,
+                    "TopMargin": 13.16,
+                    "BottomMargin": 22.84,
+                    "Tag": 42,
+                    "ActionTag": -917455774,
+                    "Size": {
+                      "X": 107.0,
+                      "Y": 35.0
+                    },
+                    "Name": "lb",
+                    "ctype": "TextObjectData"
+                  }
+                ],
                 "ActionTag": -1082825864,
                 "Size": {
-                  "X": 134.0,
-                  "Y": 51.0
+                  "X": 232.0,
+                  "Y": 71.0
                 },
                 "Name": "btnInput",
                 "ctype": "ButtonObjectData"
@@ -348,20 +504,20 @@
               {
                 "FileData": {
                   "Type": "Normal",
-                  "Path": "ShopIAP/bg_text_card.png",
+                  "Path": "ShopIAP/textInputZingCard.png",
                   "Plist": ""
                 },
                 "Scale9OriginX": 91,
                 "Scale9OriginY": 15,
-                "Scale9Width": 94,
-                "Scale9Height": 17,
+                "Scale9Width": 267,
+                "Scale9Height": 38,
                 "AnchorPoint": {
                   "ScaleX": 0.5,
                   "ScaleY": 0.5
                 },
                 "Position": {
-                  "X": 294.5781,
-                  "Y": 225.1047
+                  "X": 456.0173,
+                  "Y": 342.1202
                 },
                 "Scale": {
                   "ScaleX": 1.0,
@@ -370,22 +526,22 @@
                 "CColor": {},
                 "IconVisible": false,
                 "PrePosition": {
-                  "X": 0.5455,
-                  "Y": 0.6003
+                  "X": 0.6,
+                  "Y": 0.622
                 },
                 "PreSize": {
-                  "X": 0.5111,
-                  "Y": 0.1253
+                  "X": 0.5908,
+                  "Y": 0.1236
                 },
-                "LeftMargin": 156.5781,
-                "RightMargin": 107.4219,
-                "TopMargin": 126.3953,
-                "BottomMargin": 201.6047,
+                "LeftMargin": 231.5173,
+                "RightMargin": 79.4827,
+                "TopMargin": 173.8798,
+                "BottomMargin": 308.1202,
                 "Tag": 115,
                 "ActionTag": 1717863239,
                 "Size": {
-                  "X": 276.0,
-                  "Y": 47.0
+                  "X": 449.0,
+                  "Y": 68.0
                 },
                 "Name": "bgcard",
                 "ctype": "ImageViewObjectData"
@@ -393,20 +549,20 @@
               {
                 "FileData": {
                   "Type": "Normal",
-                  "Path": "ShopIAP/bg_text_card.png",
+                  "Path": "ShopIAP/textInputZingCard.png",
                   "Plist": ""
                 },
                 "Scale9OriginX": 91,
                 "Scale9OriginY": 15,
-                "Scale9Width": 94,
-                "Scale9Height": 17,
+                "Scale9Width": 267,
+                "Scale9Height": 38,
                 "AnchorPoint": {
                   "ScaleX": 0.5,
                   "ScaleY": 0.5
                 },
                 "Position": {
-                  "X": 294.4996,
-                  "Y": 168.8196
+                  "X": 457.0244,
+                  "Y": 255.4981
                 },
                 "Scale": {
                   "ScaleX": 1.0,
@@ -415,22 +571,22 @@
                 "CColor": {},
                 "IconVisible": false,
                 "PrePosition": {
-                  "X": 0.5454,
-                  "Y": 0.4502
+                  "X": 0.6013,
+                  "Y": 0.4645
                 },
                 "PreSize": {
-                  "X": 0.5111,
-                  "Y": 0.1253
+                  "X": 0.5908,
+                  "Y": 0.1236
                 },
-                "LeftMargin": 156.4996,
-                "RightMargin": 107.5004,
-                "TopMargin": 182.6804,
-                "BottomMargin": 145.3196,
+                "LeftMargin": 232.5244,
+                "RightMargin": 78.4756,
+                "TopMargin": 260.5019,
+                "BottomMargin": 221.4981,
                 "Tag": 114,
                 "ActionTag": -45646122,
                 "Size": {
-                  "X": 276.0,
-                  "Y": 47.0
+                  "X": 449.0,
+                  "Y": 68.0
                 },
                 "Name": "bgseri",
                 "ctype": "ImageViewObjectData"
@@ -441,7 +597,7 @@
                   "Path": "Font/tahoma.ttf",
                   "Plist": ""
                 },
-                "FontSize": 15,
+                "FontSize": 25,
                 "IsCustomSize": true,
                 "LabelText": "",
                 "PlaceHolderText": "Nhập mã số thẻ dưới lớp tráng bạc",
@@ -452,36 +608,36 @@
                   "ScaleY": 0.5
                 },
                 "Position": {
-                  "X": 297.0205,
-                  "Y": 224.5738
+                  "X": 443.0449,
+                  "Y": 340.506
                 },
                 "Scale": {
                   "ScaleX": 1.0,
                   "ScaleY": 1.0
                 },
                 "CColor": {
-                  "R": 244,
-                  "G": 221,
-                  "B": 251
+                  "R": 160,
+                  "G": 172,
+                  "B": 207
                 },
                 "IconVisible": false,
                 "PrePosition": {
-                  "X": 0.55,
-                  "Y": 0.5989
+                  "X": 0.583,
+                  "Y": 0.6191
                 },
                 "PreSize": {
-                  "X": 0.4815,
-                  "Y": 0.0613
+                  "X": 0.5263,
+                  "Y": 0.0636
                 },
-                "LeftMargin": 167.0205,
-                "RightMargin": 112.9795,
-                "TopMargin": 138.9262,
-                "BottomMargin": 213.0738,
+                "LeftMargin": 243.0449,
+                "RightMargin": 116.9551,
+                "TopMargin": 191.994,
+                "BottomMargin": 323.006,
                 "Tag": 113,
                 "ActionTag": -390974378,
                 "Size": {
-                  "X": 260.0,
-                  "Y": 23.0
+                  "X": 400.0,
+                  "Y": 35.0
                 },
                 "Name": "txcard",
                 "ctype": "TextFieldObjectData"
@@ -492,7 +648,7 @@
                   "Path": "Font/tahoma.ttf",
                   "Plist": ""
                 },
-                "FontSize": 15,
+                "FontSize": 25,
                 "IsCustomSize": true,
                 "LabelText": "",
                 "PlaceHolderText": "Nhập số Seri",
@@ -503,42 +659,42 @@
                   "ScaleY": 0.5
                 },
                 "Position": {
-                  "X": 296.942,
-                  "Y": 169.5455
+                  "X": 447.6342,
+                  "Y": 255.3074
                 },
                 "Scale": {
                   "ScaleX": 1.0,
                   "ScaleY": 1.0
                 },
                 "CColor": {
-                  "R": 236,
-                  "G": 210,
-                  "B": 246
+                  "R": 160,
+                  "G": 172,
+                  "B": 207
                 },
                 "IconVisible": false,
                 "PrePosition": {
-                  "X": 0.5499,
-                  "Y": 0.4521
+                  "X": 0.589,
+                  "Y": 0.4642
                 },
                 "PreSize": {
-                  "X": 0.4815,
-                  "Y": 0.0613
+                  "X": 0.5263,
+                  "Y": 0.0636
                 },
-                "LeftMargin": 166.942,
-                "RightMargin": 113.058,
-                "TopMargin": 193.9545,
-                "BottomMargin": 158.0455,
+                "LeftMargin": 247.6342,
+                "RightMargin": 112.3658,
+                "TopMargin": 277.1926,
+                "BottomMargin": 237.8074,
                 "Tag": 112,
                 "ActionTag": 1202244830,
                 "Size": {
-                  "X": 260.0,
-                  "Y": 23.0
+                  "X": 400.0,
+                  "Y": 35.0
                 },
                 "Name": "txseri",
                 "ctype": "TextFieldObjectData"
               },
               {
-                "FontSize": 14,
+                "FontSize": 22,
                 "LabelText": "Lưu ý:",
                 "FontResource": {
                   "Type": "Normal",
@@ -561,42 +717,41 @@
                   "ScaleY": 0.5
                 },
                 "Position": {
-                  "X": 73.9571,
-                  "Y": 31.9002
+                  "X": 73.9573,
+                  "Y": 39.9003
                 },
                 "Scale": {
                   "ScaleX": 1.0,
                   "ScaleY": 1.0
                 },
                 "CColor": {
-                  "R": 240,
-                  "G": 156,
-                  "B": 78
+                  "G": 215,
+                  "B": 130
                 },
                 "IconVisible": false,
                 "PrePosition": {
-                  "X": 0.137,
-                  "Y": 0.0851
+                  "X": 0.0973,
+                  "Y": 0.0725
                 },
                 "PreSize": {
-                  "X": 0.0778,
-                  "Y": 0.0507
+                  "X": 0.0803,
+                  "Y": 0.0473
                 },
-                "LeftMargin": 52.9571,
-                "RightMargin": 445.0429,
-                "TopMargin": 333.5998,
-                "BottomMargin": 22.4002,
+                "LeftMargin": 43.4573,
+                "RightMargin": 655.5427,
+                "TopMargin": 497.0997,
+                "BottomMargin": 26.9003,
                 "Tag": 116,
                 "ActionTag": -1954965028,
                 "Size": {
-                  "X": 42.0,
-                  "Y": 19.0
+                  "X": 61.0,
+                  "Y": 26.0
                 },
                 "Name": "Text_2_1",
                 "ctype": "TextObjectData"
               },
               {
-                "FontSize": 14,
+                "FontSize": 22,
                 "LabelText": "Bạn sẽ nhận được Gold tương ứng với mệnh giá thẻ nạp vào.",
                 "FontResource": {
                   "Type": "Normal",
@@ -619,36 +774,36 @@
                   "ScaleY": 0.5
                 },
                 "Position": {
-                  "X": 304.7146,
-                  "Y": 31.7624
+                  "X": 405.0638,
+                  "Y": 39.7629
                 },
                 "Scale": {
                   "ScaleX": 1.0,
                   "ScaleY": 1.0
                 },
                 "CColor": {
-                  "R": 170,
-                  "G": 139,
-                  "B": 177
+                  "R": 161,
+                  "G": 176,
+                  "B": 229
                 },
                 "IconVisible": false,
                 "PrePosition": {
-                  "X": 0.5643,
-                  "Y": 0.0847
+                  "X": 0.533,
+                  "Y": 0.0723
                 },
                 "PreSize": {
-                  "X": 0.7667,
-                  "Y": 0.0507
+                  "X": 0.7711,
+                  "Y": 0.0473
                 },
-                "LeftMargin": 97.7146,
-                "RightMargin": 28.2854,
-                "TopMargin": 333.7376,
-                "BottomMargin": 22.2624,
+                "LeftMargin": 112.0638,
+                "RightMargin": 61.9362,
+                "TopMargin": 497.2371,
+                "BottomMargin": 26.7629,
                 "Tag": 117,
                 "ActionTag": 720753356,
                 "Size": {
-                  "X": 414.0,
-                  "Y": 19.0
+                  "X": 586.0,
+                  "Y": 26.0
                 },
                 "Name": "Text_2_1_0",
                 "ctype": "TextObjectData"
@@ -679,8 +834,8 @@
                 "Scale9Enable": true,
                 "Scale9OriginX": 15,
                 "Scale9OriginY": 11,
-                "Scale9Width": 16,
-                "Scale9Height": 25,
+                "Scale9Width": 5,
+                "Scale9Height": 13,
                 "OutlineColor": {
                   "G": 0,
                   "B": 0
@@ -698,8 +853,8 @@
                   "ScaleY": 0.5
                 },
                 "Position": {
-                  "X": 511.9242,
-                  "Y": 346.2433
+                  "X": 710.5328,
+                  "Y": 510.8523
                 },
                 "Scale": {
                   "ScaleX": 1.0,
@@ -708,22 +863,22 @@
                 "CColor": {},
                 "IconVisible": false,
                 "PrePosition": {
-                  "X": 0.948,
-                  "Y": 0.9233
+                  "X": 0.9349,
+                  "Y": 0.9288
                 },
                 "PreSize": {
-                  "X": 0.0852,
-                  "Y": 0.1253
+                  "X": 0.0461,
+                  "Y": 0.0636
                 },
-                "LeftMargin": 488.9242,
-                "RightMargin": 5.0758,
-                "TopMargin": 5.2567,
-                "BottomMargin": 322.7433,
+                "LeftMargin": 693.0328,
+                "RightMargin": 31.9672,
+                "TopMargin": 21.6477,
+                "BottomMargin": 493.3523,
                 "Tag": 118,
                 "ActionTag": -1604036813,
                 "Size": {
-                  "X": 46.0,
-                  "Y": 47.0
+                  "X": 35.0,
+                  "Y": 35.0
                 },
                 "Name": "btnClose",
                 "ctype": "ButtonObjectData"
@@ -731,28 +886,30 @@
             ],
             "ActionTag": -2025778639,
             "Size": {
-              "X": 540.0,
-              "Y": 375.0
+              "X": 760.0,
+              "Y": 550.0
             },
             "Name": "bg",
             "ctype": "ImageViewObjectData"
           }
         ],
         "Size": {
-          "X": 800.0,
-          "Y": 480.0
+          "X": 1200.0,
+          "Y": 720.0
         },
         "Name": "Scene",
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
+        "Common/bgDialog.png",
+        "Common/bgGrey.png",
+        "Common/btnBlue.png",
         "Common/btnClose.png",
         "Default/Button_Disable.png",
         "Font/tahoma.ttf",
-        "ShopIAP/bg_text_card.png",
-        "ShopIAP/bgInputCard.png",
-        "ShopIAP/btnInputCard.png",
-        "ShopIAP/titleInput.png"
+        "Font/tahomabd.ttf",
+        "ShopIAP/lineGUIZing.png",
+        "ShopIAP/textInputZingCard.png"
       ],
       "ctype": "GameFileData"
     }

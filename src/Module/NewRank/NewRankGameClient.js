@@ -1,7 +1,3 @@
-/**
- * Created by KienVN on 5/21/2015.
- */
-
 var NewRankGameClient = cc.Class.extend({
     ctor: function () {
         this._clientListener2 = new NewRankGameClientListener();
@@ -15,8 +11,8 @@ var NewRankGameClient = cc.Class.extend({
         }
         else
         {
-           this._tcpClient2 = new WebsocketClient();
-           this._tcpClient2.listener = this._clientListener2;
+            this._tcpClient2 = new WebsocketClient();
+            this._tcpClient2.listener = this._clientListener2;
         }
 
         this.connectState = ConnectState.DISCONNECTED;
@@ -26,19 +22,8 @@ var NewRankGameClient = cc.Class.extend({
         return true;
     },
 
-    getNetwork: function () {
-        return this._tcpClient2;
-    },
-
     connect: function (/* timeout */) {
         if (Config.ENABLE_CHEAT) {
-            // if (cc.sys.isNative){
-            //    this._tcpClient2.connect(CheatCenter.SERVER_NEW_RANK_IP, CheatCenter.SERVER_NEW_RANK_PORT);
-            //    cc.log("_________ CONNECT SERVER NEW RANK PRIVATE CONFIG : " + NewRankData.IP_DEV + ":" + NewRankData.PORT_DEV);
-            // } else {
-            //     cc.log("_________ CONNECT SERVER NEW RANK PRIVATE WEB : " + NewRankData.IP_DEV_WEB);
-            //     this._tcpClient2.connect(NewRankData.IP_DEV_WEB);
-            // }
             this._tcpClient2.connect(CheatCenter.SERVER_NEW_RANK_IP, CheatCenter.SERVER_NEW_RANK_PORT);
             cc.log("_________ CONNECT SERVER NEW RANK PRIVATE CONFIG : " + CheatCenter.SERVER_NEW_RANK_IP + ":" + CheatCenter.SERVER_NEW_RANK_PORT);
         }
@@ -78,12 +63,6 @@ var NewRankGameClient = cc.Class.extend({
     disconnect: function () {
         cc.log(" new rank disconnect");
         this._tcpClient2.disconnect();
-        // if (cc.sys.isNative){
-        //     this._tcpClient2.setFinishConnectListener(null);
-        //     this._tcpClient2.setDisconnectListener(null);
-        //     this._tcpClient2.setReceiveDataListener(null);
-        // }
-        // NewRankGameClient.destroyInstance();
         this.connectServer = false;
     },
 
@@ -130,13 +109,8 @@ NewRankGameClient.getInstance = function () {
 };
 
 NewRankGameClient.destroyInstance = function () {
-    //if (!NewRankGameClient.firstInit) {
-    //    NewRankGameClient.instance = null;
-    //    NewRankGameClient.firstInit = true;
-    //}
 };
 
 NewRankGameClient.disconnectHandle = function () {
     NewRankGameClient.getInstance().connectState = ConnectState.DISCONNECTED;
-    // NewRankGameClient.getInstance().connect();
 };

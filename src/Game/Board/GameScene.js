@@ -849,7 +849,7 @@ var BoardScene = BaseLayer.extend({
             {
                 this.pressedHuyBao = false;
                 try {
-                    this.stopAction(this.clearResultAction);
+                    this.stopAction(this.clearResultAction);c
                 } catch (e) {}
                 NewRankData.checkOpenRank(false);
 
@@ -1499,15 +1499,15 @@ var BoardScene = BaseLayer.extend({
             case GameLayer.BTN_AVATAR_4:
             {
                 cc.log("CLICK PLAYER");
-                if (Config.ENABLE_CHEAT) {
-                    this.avatarTestingFunction(button, id);
-                    break;
-                }
+                // if (Config.ENABLE_CHEAT) {
+                //     this.avatarTestingFunction(button, id);
+                //     break;
+                // }
 
                 var uID = inGameMgr.gameLogic._players[id - GameLayer.BTN_AVATAR_0]._info["uID"];
-                if (uID === gamedata.getUserId()){
+                if (uID === userMgr.getUID()) {
                     var guiInfo = sceneMgr.openGUI(UserInfoPanel.className, LobbyScene.GUI_USER_INFO, LobbyScene.GUI_USER_INFO);
-                    guiInfo.setInfo(gamedata.userData);
+                    guiInfo.setInfo(userMgr.getUserInfo());
                 } else {
                     var otherInfo = new CmdSendGetOtherRankInfo();
                     otherInfo.putData(uID);

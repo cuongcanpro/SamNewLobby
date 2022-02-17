@@ -314,7 +314,7 @@ var UserInfoPanel = BaseLayer.extend({
         }
         this.interactData = [].concat(availableInteract, outOfNumInteract, unavailableInteract);
 
-        if (event.isInEvent(Event.MID_AUTUMN)) {
+        if (eventMgr.isInEvent(EventMgr.MID_AUTUMN)) {
             var interact = {
                 id: 1001,
                 num: 1,

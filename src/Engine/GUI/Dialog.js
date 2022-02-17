@@ -31,7 +31,7 @@ var Dialog = BaseLayer.extend({
         this._btnClose = this.customButton("btnQuit", Dialog.BTN_QUIT, bg);
 
         this.lbOk = this.getControl("lbOk", this._btnOK);
-        this.lbCancel = this.getControl("lbCancel", this._btnClose);
+        this.lbCancel = this.getControl("lbCancel", this._btnCancel);
         this._lb_message = this.getControl("lb_message", bg);
 
         this._pLeft = this._btnOK.getPosition();
@@ -76,7 +76,7 @@ var Dialog = BaseLayer.extend({
 
         this._btnOK.loadTextures("Common/btnYellow.png", "Common/btnYellow.png");
         this.lbOk.setString(localized("AGREE"));
-        this.lbOk.setString(localized("CANCEL"));
+        this.lbCancel.setString(localized("CANCEL"));
 
         this._btnOK.setPosition(this._pLeft);
         this._btnCancel.setPosition(this._pRight);

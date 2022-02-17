@@ -481,7 +481,28 @@ var IAPHandler = cc.Class.extend({
         }
     },
 
-
+    isActiveIapPakage: function (value) {
+        var config = paymentMgr.getShopGoldById(Payment.GOLD_IAP);
+        // kiem tra xem co goi IAP nao dang duoc Active khong
+        var iapEnable = iapHandler.arrayPackageOpen;
+        for (var i = 0; i < config.numPackage; i++) {
+            var packageShop = config["packages"][i];
+            if (packageShop["value"] == value) {
+                if (iapEnable[i]) {
+                    var nTime = iapHandler.getTimeLimitLeft(i);
+                    if (nTime <= 0) {
+                        return true;
+                    }
+                    else {
+                        return false;
+                    }
+                }
+                else {
+                    return false;
+                }
+            }
+        }
+    }
 
 });
 

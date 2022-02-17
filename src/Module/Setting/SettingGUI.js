@@ -87,11 +87,11 @@ var SettingGUI = BaseLayer.extend({
                 break;
             }
             case SettingGUI.BTN_LOGOUT: {
-                var message = gamedata.isPortal() ? LocalizedString.to("LOGOUT_GAME_TO_PORTAL") : LocalizedString.to("_ASKLOGOUT_");
+                var message = portalMgr.isPortal() ? LocalizedString.to("LOGOUT_GAME_TO_PORTAL") : LocalizedString.to("_ASKLOGOUT_");
                 sceneMgr.showOkCancelDialog(message, this, function (btnID) {
                     if (btnID == 0) {
-                        if (gamedata.isPortal()) {
-                            gamedata.endGame();
+                        if (portalMgr.isPortal()) {
+                            gameMgr.endGame();
                         } else {
                             socialMgr.clearSession();
                             GameClient.getInstance().connectState = ConnectState.DISCONNECTED;
@@ -102,7 +102,7 @@ var SettingGUI = BaseLayer.extend({
 
                             cc.sys.localStorage.setItem("autologin", -1);
                             this.runAction(new cc.Sequence([new cc.DelayTime(.1), new cc.CallFunc(function () {
-                                gamedata.backToLoginScene();
+                                loginMgr.backToLoginScene();
                             }, this, null)]));
 
                             NewRankData.getInstance().resetData();
