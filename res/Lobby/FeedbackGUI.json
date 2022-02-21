@@ -1,0 +1,285 @@
+{
+  "ID": "58cfc79e-c362-492f-983f-5973395739c6",
+  "Version": "2.3.4",
+  "Name": "FeedbackGUI",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 78,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Feedback/bg.png",
+              "Plist": ""
+            },
+            "Scale9OriginX": 256,
+            "Scale9OriginY": 147,
+            "Scale9Width": 648,
+            "Scale9Height": 373,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 600.0,
+              "Y": 360.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PositionPercentYEnabled": true,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.5
+            },
+            "PreSize": {
+              "X": 0.9667,
+              "Y": 0.9264
+            },
+            "LeftMargin": 20.0,
+            "RightMargin": 20.0,
+            "TopMargin": 26.5,
+            "BottomMargin": 26.5,
+            "Tag": 79,
+            "Children": [
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Normal",
+                  "Path": "Feedback/btnClose.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "Normal",
+                  "Path": "Feedback/btnClose.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "Feedback/btnClose.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 8,
+                "Scale9OriginY": 11,
+                "Scale9Width": 22,
+                "Scale9Height": 16,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 1103.0067,
+                  "Y": 611.1881
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.9509,
+                  "Y": 0.9163
+                },
+                "PreSize": {
+                  "X": 0.0328,
+                  "Y": 0.057
+                },
+                "LeftMargin": 1084.0067,
+                "RightMargin": 37.9933,
+                "TopMargin": 36.8119,
+                "BottomMargin": 592.1881,
+                "Tag": 80,
+                "ActionTag": 386187818,
+                "Size": {
+                  "X": 38.0,
+                  "Y": 38.0
+                },
+                "Name": "btnClose",
+                "ctype": "ButtonObjectData"
+              },
+              {
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahoma.ttf",
+                  "Plist": ""
+                },
+                "FontSize": 22,
+                "IsCustomSize": true,
+                "LabelText": "",
+                "PlaceHolderText": "Nhập nội dung...",
+                "MaxLengthText": 10,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 761.5016,
+                  "Y": 347.5165
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "R": 129,
+                  "G": 118,
+                  "B": 89
+                },
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.6565,
+                  "Y": 0.521
+                },
+                "PreSize": {
+                  "X": 0.431,
+                  "Y": 0.2999
+                },
+                "LeftMargin": 511.5016,
+                "RightMargin": 148.4984,
+                "TopMargin": 219.4835,
+                "BottomMargin": 247.5165,
+                "Tag": 81,
+                "ActionTag": -549939126,
+                "Size": {
+                  "X": 500.0,
+                  "Y": 200.0
+                },
+                "Name": "textField",
+                "ctype": "TextFieldObjectData"
+              },
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Normal",
+                  "Path": "Feedback/btnSend.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "Normal",
+                  "Path": "Feedback/btnSend.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "Feedback/btnSend.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 158,
+                "Scale9Height": 53,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 774.0191,
+                  "Y": 179.2788
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.6673,
+                  "Y": 0.2688
+                },
+                "PreSize": {
+                  "X": 0.1621,
+                  "Y": 0.1124
+                },
+                "LeftMargin": 680.0191,
+                "RightMargin": 291.9809,
+                "TopMargin": 450.2212,
+                "BottomMargin": 141.7788,
+                "Tag": 82,
+                "ActionTag": 14293136,
+                "Size": {
+                  "X": 188.0,
+                  "Y": 75.0
+                },
+                "Name": "btnSend",
+                "ctype": "ButtonObjectData"
+              }
+            ],
+            "ActionTag": 363317610,
+            "Size": {
+              "X": 1160.0,
+              "Y": 667.0
+            },
+            "Name": "bg",
+            "ctype": "ImageViewObjectData"
+          }
+        ],
+        "Size": {
+          "X": 1200.0,
+          "Y": 720.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "Feedback/bg.png",
+        "Feedback/btnClose.png",
+        "Feedback/btnSend.png",
+        "Font/tahoma.ttf"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

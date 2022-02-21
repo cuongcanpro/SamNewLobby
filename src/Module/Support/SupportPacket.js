@@ -1,4 +1,19 @@
 
+CmdSendGetDailyGift = CmdSendCommon.extend({
+    ctor: function () {
+        this._super();
+        this.initData(100);
+        this.setControllerId(1);
+        this.setCmdId(SupportMgr.GET_DAILY_GIFT);
+    },
+
+    putData: function (index) {
+        this.packHeader();
+        this.putByte(index);
+        this.updateSize();
+    }
+});
+
 CmdSendGetSupportBean = CmdSendCommon.extend({
     ctor: function () {
         this._super();

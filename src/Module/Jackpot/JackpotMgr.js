@@ -30,6 +30,7 @@ var JackpotMgr = BaseMgr.extend({
         switch (cmd) {
             case JackpotMgr.CMD_JACKPOT_INFO:
             {
+                var board = sceneMgr.getRunningScene().getMainLayer();
                 var jackpot = new CmdJackpotInfo(pk);
                 jackpot.jackpotPacket = true;
                 if (!this.jackpot[1] || this.jackpot[1][channelMgr.selectedChanel] != jackpot.diamond[channelMgr.selectedChanel] ||
@@ -66,12 +67,12 @@ var JackpotMgr = BaseMgr.extend({
                 this.hasJackpot = true;
                 var jackpot = new CmdGetJackpot(pk);
                 jackpot.jackpotPacket = true;
-                if (gamedata.gameLogic && jackpot.chair == gamedata.gameLogic._myChair) {
+                if (inGameMgr.gameLogic && jackpot.chair == inGameMgr.gameLogic._myChair) {
                     sceneMgr.openGUI(JackpotWin5GUI.className, GameLayer.JACKPOT, GameLayer.JACKPOT);
                     var jackpotGui = sceneMgr.getGUI(GameLayer.JACKPOT);
                     if (jackpotGui)
                         jackpotGui.onUpdateGUI("win5", jackpot);
-                } else if (gamedata.gameLogic && jackpot.chair != gamedata.gameLogic._myChair) {
+                } else if (inGameMgr.gameLogic && jackpot.chair != inGameMgr.gameLogic._myChair) {
                     sceneMgr.openGUI(JackpotInBoardGUI.className, GameLayer.JACKPOT, GameLayer.JACKPOT);
                     var jackpotGui = sceneMgr.getGUI(GameLayer.JACKPOT);
                     if (jackpotGui)
@@ -166,7 +167,7 @@ var JackpotMgr = BaseMgr.extend({
 
             }, this)));
             this.runAction(new cc.Sequence(cc.delayTime(jackpotMgr.jackpot[1][channelMgr.selectedChanel] * 0.32 + 2.9), new cc.CallFunc(function () {
-                if (jackpotMgr.jackpot[1][channelMgr.selectedChanel] == 4) {
+                if (jackpotMgr.jackpot[1][channelMgr.getSelectedChannel()] == 4) {
                     jackpotMgr.createAnim(this, "Bang1");
                     this.anim.gotoAndPlay("1", -1);
                 } else {

@@ -1,0 +1,144 @@
+<Solution>
+  <PropertyGroup Name="Received" Version="3.10.0.0" Type="CocosStudio" />
+  <SolutionFolder>
+    <Group ctype="ResourceGroup">
+      <RootFolder Name=".">
+        <Folder Name="Common">
+          <PlistImageFolder Image="coin.png" PListFile="coin.plist" Name=".coin_PList.Dir">
+            <PlistImageFile Name="coin0.png" Key="coin0.png" />
+            <PlistImageFile Name="coin1.png" Key="coin1.png" />
+            <PlistImageFile Name="coin2.png" Key="coin2.png" />
+            <PlistImageFile Name="coin3.png" Key="coin3.png" />
+            <PlistImageFile Name="coin4.png" Key="coin4.png" />
+            <PlistImageFile Name="coin5.png" Key="coin5.png" />
+            <PlistImageFile Name="coin6.png" Key="coin6.png" />
+            <PlistImageFile Name="coin7.png" Key="coin7.png" />
+          </PlistImageFolder>
+          <PlistImageFolder Image="coinNew.png" PListFile="coinNew.plist" Name=".coinNew_PList.Dir">
+            <PlistImageFile Name="coinNew0.png" Key="coinNew0.png" />
+            <PlistImageFile Name="coinNew1.png" Key="coinNew1.png" />
+            <PlistImageFile Name="coinNew2.png" Key="coinNew2.png" />
+            <PlistImageFile Name="coinNew3.png" Key="coinNew3.png" />
+            <PlistImageFile Name="coinNew4.png" Key="coinNew4.png" />
+            <PlistImageFile Name="coinNew5.png" Key="coinNew5.png" />
+          </PlistImageFolder>
+          <PlistImageFolder Image="gold.png" PListFile="gold.plist" Name=".gold_PList.Dir">
+            <PlistImageFile Name="gold0.png" Key="gold0.png" />
+            <PlistImageFile Name="gold1.png" Key="gold1.png" />
+            <PlistImageFile Name="gold2.png" Key="gold2.png" />
+            <PlistImageFile Name="gold3.png" Key="gold3.png" />
+            <PlistImageFile Name="gold4.png" Key="gold4.png" />
+          </PlistImageFolder>
+          <Folder Name="light">
+            <Image Name="grand_lightRotate.png" />
+            <Image Name="light.png" />
+            <Image Name="light_2.png" />
+            <Image Name="star_light.png" />
+          </Folder>
+          <Image Name="9patch.png" />
+          <Image Name="bgAvatarSmallCircle.png" />
+          <Image Name="bgBroadcast.png" />
+          <Image Name="bgChooseRoom.jpg" />
+          <Image Name="bgColumn.png" />
+          <Image Name="bgDialog.png" />
+          <Image Name="bgGrey.png" />
+          <Image Name="bgLoading.jpg" />
+          <Image Name="bgMoney.png" />
+          <Image Name="bgSub.png" />
+          <Image Name="bgSubBot.png" />
+          <Image Name="bgSubTop.png" />
+          <Image Name="bgSubTransperance.png" />
+          <Image Name="black.png" />
+          <Image Name="borderAvatar.png" />
+          <Image Name="btn_cheat.png" />
+          <Image Name="btnAddG.png" />
+          <Image Name="btnAddGold.png" />
+          <Image Name="btnAvatar.png" />
+          <Image Name="btnBack.png" />
+          <Image Name="btnBlue.png" />
+          <Image Name="btnCancel.png" />
+          <Image Name="btnClose.png" />
+          <Image Name="btnConfirm.png" />
+          <Image Name="btnF5.png" />
+          <Image Name="btnGreen.png" />
+          <Image Name="btnHelp.png" />
+          <Image Name="btnReceiveSorry.png" />
+          <Image Name="btnUse.png" />
+          <Image Name="btnYellow.png" />
+          <Image Name="buttonOK.png" />
+          <Image Name="camera.png" />
+          <Image Name="coin.png" />
+          <Audio Name="coin_01.mp3" />
+          <Audio Name="coin_02.mp3" />
+          <Audio Name="coin_03.mp3" />
+          <Audio Name="coinFall.mp3" />
+          <Image Name="coinNew.png" />
+          <Image Name="CommonBg.jpg" />
+          <Image Name="CommonMask.png" />
+          <Image Name="defaultAvatar.png" />
+          <Image Name="dot.png" />
+          <Image Name="dotLight.png" />
+          <Image Name="dotNormal.png" />
+          <Image Name="gamecenter.png" />
+          <Image Name="gold.png" />
+          <Image Name="iconGold.png" />
+          <Image Name="iconGoldBig.png" />
+          <Image Name="iconGoldDisable.png" />
+          <Image Name="iconStar.png" />
+          <Image Name="iconStarBig.png" />
+          <Image Name="iconXu.png" />
+          <Image Name="iconXuBig.png" />
+          <Image Name="infoRoom.png" />
+          <Image Name="loading.png" />
+          <Image Name="logo_zp.png" />
+          <Image Name="maskAvatar.png" />
+          <Image Name="maskEmpty.png" />
+          <Image Name="separateLine.png" />
+          <Image Name="text.png" />
+          <Image Name="titleGiftStartup.png" />
+          <Image Name="titleGiftSupport.png" />
+          <Image Name="touchDeco.png" />
+          <Image Name="touchIcon0.png" />
+          <Image Name="touchIcon1.png" />
+          <Image Name="touchIcon2.png" />
+          <Image Name="touchIcon3.png" />
+          <Image Name="touchSquare.png" />
+          <Image Name="zingplay.png" />
+        </Folder>
+        <Folder Name="Font">
+          <Fnt Name="detail_jackpot.fnt" />
+          <Fnt Name="jackpot.fnt" />
+          <Image Name="jackpot.png" />
+          <TTF Name="robotoBold.ttf" />
+          <TTF Name="robotoLight.ttf" />
+          <TTF Name="tahoma.ttf" />
+          <TTF Name="tahomabd.ttf" />
+        </Folder>
+        <Folder Name="Received">
+          <Folder Name="defaultItem">
+            <Image Name="g.png" />
+            <Image Name="vPoint.png" />
+            <Image Name="gold.png" />
+          </Folder>
+          <Image Name="bg.png" />
+          <Image Name="bgDetails.png" />
+          <Image Name="bgItem.png" />
+          <Image Name="deco0.png" />
+          <Image Name="deco1.png" />
+          <Image Name="deco2.png" />
+          <Image Name="flare.png" />
+          <Image Name="flash.png" />
+          <Image Name="light.png" />
+          <Image Name="logo.png" />
+          <Image Name="outline.png" />
+          <Image Name="stripe0.png" />
+          <Image Name="stripe1.png" />
+          <Image Name="stripe2.png" />
+          <Image Name="title.png" />
+        </Folder>
+        <Project Name="ReceivedGUI.csd" Type="Layer" />
+        <Project Name="ReceivedCell.csd" Type="Node" />
+      </RootFolder>
+    </Group>
+  </SolutionFolder>
+</Solution>

@@ -49,6 +49,13 @@ var UserMgr = BaseMgr.extend({
                 gameConfig.loadServerConfig(cmd.jsonConfig);
                 return true;
             }
+            case UserMgr.CMD_GET_AVATAR_CONFIG: {
+                var cmd = new CmdReceivedAvatarConfig(pk);
+                cmd.clean();
+                cc.log("CMD_GET_AVATAR_CONFIG", JSON.stringify(cmd));
+                this.listAvatars = cmd.avatarConfigs;
+                return true;
+            }
         }
     },
 
@@ -121,6 +128,8 @@ var userMgr = UserMgr.getInstance();
 UserMgr.CMD_GET_USER_INFO = 1001;
 UserMgr.CMD_UPDATE_MONEY = 1007;
 UserMgr.CMD_GET_CONFIG = 1004;
+UserMgr.CMD_GET_AVATAR_CONFIG = 1114;
+UserMgr.CMD_CHANGE_AVATAR = 1113;
 
 UserMgr.EVENT_ON_GET_USER_INFO = "userMgrOnGetUserInfo";
 UserMgr.EVENT_UPDATE_MONEY = "userMgrUpdateMoney";

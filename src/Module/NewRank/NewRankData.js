@@ -1,5 +1,6 @@
-var NewRankData = cc.Class.extend({
+var NewRankData = BaseMgr.extend({
     ctor: function () {
+        this._super();
         this.rankConfig = null;
         this.curRankInfo = null;
         this.dataCurWeek = null;
@@ -20,6 +21,22 @@ var NewRankData = cc.Class.extend({
         this.numberOldCup = 0;
         this.dataTruCup = null;
         this.topUsersData = null;
+    },
+
+    onReceived: function (cmd, pk) {
+        switch (cmd) {
+            case NewRankData.CMD_RANK_INFO_OTHER_USER: {
+                var otherInfo = new CmdReceivedOtherRankInfo(pk);
+                cc.log("otherInfo: ", JSON.stringify(otherInfo));
+                sceneMgr.clearLoading();
+                var otherInfoGUI = sceneMgr.openGUI(UserInfoPanel.className, LobbyScene.GUI_USER_INFO, LobbyScene.GUI_USER_INFO);
+                var info = new UserInfo();
+                info.setInfoFromRankInfo(otherInfo);
+                otherInfoGUI.setInfo(info);
+                otherInfo.clean();
+                return;
+            }
+        }
     },
 
     setCurRankInfo: function (curRankInfo) {

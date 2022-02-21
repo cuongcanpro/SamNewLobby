@@ -220,6 +220,12 @@ var LobbyScene = BaseLayer.extend({
         this.btnGold.setPressedActionEnabled(false);
 
         this.btnNews = this.customButton("btnNews", LobbyScene.BTN_THONGBAO, pBotButton);
+        this.btnNews.loadTextures(
+            "res/Lobby/Feedback/btnLobby.png",
+            "res/Lobby/Feedback/btnLobby.png",
+            "res/Lobby/Feedback/btnLobby.png"
+        );
+
         this.btnGiftCode = this.customButton("btnGiftCode", LobbyScene.BTN_GUI_GIFTCODE, pBotButton);
         this.btnSetting = this.customButton("btnSetting", LobbyScene.BTN_SETTING, pBotButton);
 
@@ -614,7 +620,6 @@ var LobbyScene = BaseLayer.extend({
         var cur = sceneMgr.getRunningScene().getMainLayer();
         if (!(cur instanceof LobbyScene)) return;
 
-        supportMgr.checkShowSupportStartUp();
         eventMgr.showButtonEvent(this.btnEvent);
         eventMgr.showHideButtonEventInGame();
         PersonalInfoGUI.checkOpenGuiFirstTime();
@@ -769,16 +774,13 @@ var LobbyScene = BaseLayer.extend({
                 }
                 break;
             }
-            case LobbyScene.BTN_THONGBAO: {
-                NativeBridge.openWebView(gameMgr.urlnews);
-                break;
-            }
             case LobbyScene.BTN_SETTING: {
                 settingMgr.openSettingGUI();
                 break;
             }
             case LobbyScene.BTN_VIP: {
-                VipManager.openVip();
+                supportMgr.showSupportStartup();
+                //VipManager.openVip();
                 break;
             }
             case LobbyScene.BTN_DOIVANG: {
@@ -802,7 +804,8 @@ var LobbyScene = BaseLayer.extend({
                 break;
             }
             case LobbyScene.BTN_SUPPORT: {
-                sceneMgr.openGUI(GUISupportInfo.className, GUISupportInfo.tag, GUISupportInfo.tag, false).showGUI(0, supportMgr.numSupport);
+                //sceneMgr.openGUI(GUISupportInfo.className, GUISupportInfo.tag, GUISupportInfo.tag, false).showGUI(0, supportMgr.numSupport);
+                sceneMgr.openGUI(GUISupportInfo.className, GUISupportInfo.tag, GUISupportInfo.tag, false).showGUI(3330, 1);
                 break;
             }
             case LobbyScene.BTN_EVENT_IN_GAME: {
@@ -828,6 +831,11 @@ var LobbyScene = BaseLayer.extend({
             }
             case LobbyScene.BTN_STORAGE: {
                 StorageManager.getInstance().openStorageScene();
+                break;
+            }
+            case LobbyScene.BTN_THONGBAO: {
+                if (FeedbackGUI.checkNewDay()) sceneMgr.openGUI(FeedbackGUI.className, 1, 1, false);
+                // NativeBridge.openWebView(gamedata.urlnews);
                 break;
             }
             default:

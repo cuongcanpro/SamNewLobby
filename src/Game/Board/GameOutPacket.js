@@ -139,20 +139,3 @@ var CmdSendAddBot = CmdSendCommon.extend({
         this.updateSize();
     }
 });
-
-var CmdSendInBoardAvatar = CmdSendCommon.extend({
-    ctor: function () {
-        this._super();
-        this.initData(100);
-        this.setControllerId(1);
-        this.setCmdId(CMD.CMD_CHANGE_AVATAR);
-    },
-
-    putData: function (avatarIndex) {
-        //pack
-        this.packHeader();
-        this.putByte(avatarIndex);
-        //update
-        this.updateSize();
-    }
-});

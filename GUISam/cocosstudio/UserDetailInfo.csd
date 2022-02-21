@@ -29,13 +29,13 @@
                 <PreSize X="0.2348" Y="0.8214" />
                 <FileData Type="Normal" Path="LobbyGUI/btnAdd.png" Plist="" />
               </AbstractNodeData>
-              <AbstractNodeData Name="lb" ActionTag="1301838960" Tag="417" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="20.6273" RightMargin="11.3727" TopMargin="1.0350" BottomMargin="3.9650" IsCustomSize="True" FontSize="18" LabelText="999.999" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+              <AbstractNodeData Name="lb" ActionTag="1301838960" Tag="417" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="20.6273" RightMargin="11.3727" TopMargin="3.0356" BottomMargin="1.9644" IsCustomSize="True" FontSize="18" LabelText="999.999" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                 <Size X="100.0000" Y="23.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="70.6273" Y="15.4650" />
+                <Position X="70.6273" Y="13.4644" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="81" G="232" B="255" />
-                <PrePosition X="0.5351" Y="0.5523" />
+                <PrePosition X="0.5351" Y="0.4809" />
                 <PreSize X="0.7576" Y="0.8214" />
                 <FontResource Type="Normal" Path="Font/tahomabd.ttf" Plist="" />
                 <OutlineColor A="255" R="255" G="0" B="0" />
@@ -68,23 +68,23 @@
                 <PreSize X="0.1500" Y="1.0714" />
                 <FileData Type="Normal" Path="LobbyGUI/iconGold.png" Plist="" />
               </AbstractNodeData>
-              <AbstractNodeData Name="btn" ActionTag="-2099046306" Tag="420" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="178.0227" RightMargin="-4.0227" TopMargin="-1.4236" BottomMargin="0.4236" LeftEage="7" RightEage="7" TopEage="7" BottomEage="7" Scale9OriginX="7" Scale9OriginY="7" Scale9Width="12" Scale9Height="15" ctype="ImageViewObjectData">
+              <AbstractNodeData Name="btn" ActionTag="-2099046306" Tag="420" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="178.0227" RightMargin="-4.0227" TopMargin="-1.4240" BottomMargin="0.4240" LeftEage="7" RightEage="7" TopEage="7" BottomEage="7" Scale9OriginX="7" Scale9OriginY="7" Scale9Width="12" Scale9Height="15" ctype="ImageViewObjectData">
                 <Size X="26.0000" Y="29.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="191.0227" Y="14.9236" />
+                <Position X="191.0227" Y="14.9240" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.9551" Y="0.5330" />
                 <PreSize X="0.1300" Y="1.0357" />
                 <FileData Type="Normal" Path="LobbyGUI/btnAdd.png" Plist="" />
               </AbstractNodeData>
-              <AbstractNodeData Name="lb" ActionTag="2007236668" Tag="421" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="19.5699" RightMargin="30.4301" TopMargin="2.5000" BottomMargin="2.5000" IsCustomSize="True" FontSize="18" LabelText="999.9994444444" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+              <AbstractNodeData Name="lb" ActionTag="2007236668" Tag="421" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="23.5699" RightMargin="26.4301" TopMargin="2.4998" BottomMargin="2.5002" IsCustomSize="True" FontSize="18" LabelText="999.9994444444" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                 <Size X="150.0000" Y="23.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="94.5699" Y="14.0000" />
+                <Position X="98.5699" Y="14.0002" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="251" G="212" B="93" />
-                <PrePosition X="0.4728" Y="0.5000" />
+                <PrePosition X="0.4928" Y="0.5000" />
                 <PreSize X="0.7500" Y="0.8214" />
                 <FontResource Type="Normal" Path="Font/tahomabd.ttf" Plist="" />
                 <OutlineColor A="255" R="255" G="0" B="0" />
@@ -117,23 +117,23 @@
                 <PreSize X="0.2190" Y="1.1538" />
                 <FileData Type="Normal" Path="LobbyGUI/iconG.png" Plist="" />
               </AbstractNodeData>
-              <AbstractNodeData Name="btn" ActionTag="-2030750683" Tag="424" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="111.4138" RightMargin="-0.4138" TopMargin="-2.8074" BottomMargin="-0.1926" LeftEage="7" RightEage="7" TopEage="7" BottomEage="7" Scale9OriginX="7" Scale9OriginY="7" Scale9Width="12" Scale9Height="15" ctype="ImageViewObjectData">
+              <AbstractNodeData Name="btn" ActionTag="-2030750683" Tag="424" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="111.4138" RightMargin="-0.4138" TopMargin="-2.8078" BottomMargin="-0.1922" LeftEage="7" RightEage="7" TopEage="7" BottomEage="7" Scale9OriginX="7" Scale9OriginY="7" Scale9Width="12" Scale9Height="15" ctype="ImageViewObjectData">
                 <Size X="26.0000" Y="29.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="124.4138" Y="14.3074" />
+                <Position X="124.4138" Y="14.3078" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.9081" Y="0.5503" />
                 <PreSize X="0.1898" Y="1.1154" />
                 <FileData Type="Normal" Path="LobbyGUI/btnAdd.png" Plist="" />
               </AbstractNodeData>
-              <AbstractNodeData Name="lb" ActionTag="1919699993" Tag="425" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="4.3994" RightMargin="12.6006" TopMargin="-3.5199" BottomMargin="-0.4801" IsCustomSize="True" FontSize="18" LabelText="999.999" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+              <AbstractNodeData Name="lb" ActionTag="1919699993" Tag="425" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="4.3995" RightMargin="12.6005" TopMargin="-1.5211" BottomMargin="-2.4789" IsCustomSize="True" FontSize="18" LabelText="999.999" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                 <Size X="120.0000" Y="30.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="64.3994" Y="14.5199" />
+                <Position X="64.3995" Y="12.5211" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="9" G="212" B="9" />
-                <PrePosition X="0.4701" Y="0.5585" />
+                <PrePosition X="0.4701" Y="0.4816" />
                 <PreSize X="0.8759" Y="1.1538" />
                 <FontResource Type="Normal" Path="Font/tahomabd.ttf" Plist="" />
                 <OutlineColor A="255" R="255" G="0" B="0" />

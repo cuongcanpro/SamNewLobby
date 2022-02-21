@@ -172,12 +172,11 @@ var BoardScene = BaseLayer.extend({
     },
 
     initJackpot: function () {
-        return;
         UPDATING_JACKPOT = true;
         var btnjp = ccui.Helper.seekWidgetByName(this._layout, "btnJackpot");
         var jackpot = ccui.Helper.seekWidgetByName(btnjp, "jackpot");
 
-        jackpot.setString("$" + StringUtility.standartNumber(gamedata.jackpot[0][gamedata.selectedChanel]));
+        jackpot.setString("$" + StringUtility.standartNumber(jackpotMgr.jackpot[0][channelMgr.getSelectedChannel()]));
 
         var introJackpot = this.getControl("introJackpot");
         //cc.log(introJackpot.isVisible());
@@ -209,7 +208,7 @@ var BoardScene = BaseLayer.extend({
                             cc.scaleTo(0.2, 0.25)
                         ));
 
-                        for (var j = 0; j < gamedata.jackpot[1][gamedata.selectedChanel]; j++) {
+                        for (var j = 0; j < jackpotMgr.jackpot[1][channelMgr.getSelectedChannel()]; j++) {
                             var dia = dias[j];
                             dia.runAction(cc.sequence(
                                 cc.delayTime(j * 0.32 + 0.4),
@@ -239,7 +238,7 @@ var BoardScene = BaseLayer.extend({
                     cc.delayTime(dias.length * 0.32),
                     cc.callFunc(function () {
                         var listDiamond = this.getChildByName("listDiamond");
-                        if (gamedata.jackpot[1][gamedata.selectedChanel] == 4) {
+                        if (jackpotMgr.jackpot[1][channelMgr.getSelectedChannel()] == 4) {
                             self.createAnim(listDiamond, "Bang1");
                             listDiamond.anim.setOpacity(0);
                             listDiamond.anim.runAction(cc.fadeIn(0.25));
@@ -266,7 +265,6 @@ var BoardScene = BaseLayer.extend({
     },
 
     updateJackpotGUI: function () {
-        return;
         fr.crashLytics.log("updateJackpotGUI 1");
         if (UPDATING_JACKPOT) {
             //cc.log("trueeeeeeeeeeeee");
@@ -274,7 +272,7 @@ var BoardScene = BaseLayer.extend({
         }
         UPDATING_JACKPOT = true;
         //cc.log("jackpotupdate");
-        var config = CheckLogic.getJackpotConfig(gamedata.selectedChanel);
+        var config = jackpotMgr.getJackpotConfig(channelMgr.getSelectedChannel());
         var listDiamond = ccui.Helper.seekWidgetByName(this._layout, "btnJackpot").getChildByName("listDiamond");
         this.dias = listDiamond.getChildren();
         for (var i = 0; i < this.dias.length; i++) {
@@ -286,13 +284,13 @@ var BoardScene = BaseLayer.extend({
         var self = this;
 
         fr.crashLytics.log("updateJackpotGUI 2");
-        //cc.log(gamedata.jackpot[0][gamedata.selectedChanel]);
+        //cc.log(jackpotMgr.jackpot[0][channelMgr.getSelectedChannel()]);
         var jackpot = ccui.Helper.seekWidgetByName(this._layout, "jackpot");
-        jackpot.setString("$" + StringUtility.standartNumber(gamedata.jackpot[0][gamedata.selectedChanel]));
+        jackpot.setString("$" + StringUtility.standartNumber(jackpotMgr.jackpot[0][channelMgr.getSelectedChannel()]));
 
         try {
             var lastVisible = -1;
-            for (var j = 0; j < gamedata.jackpot[1][gamedata.selectedChanel]; j++) {
+            for (var j = 0; j < jackpotMgr.jackpot[1][channelMgr.getSelectedChannel()]; j++) {
                 var dia = this.dias[j];
                 if (dia.isVisible() === false) {
                     dia.runAction(cc.sequence(
@@ -312,14 +310,14 @@ var BoardScene = BaseLayer.extend({
                     lastVisible = j;
                 }
             }
-            for (j = gamedata.jackpot[1][gamedata.selectedChanel]; j < this.dias.length; j++) {
+            for (j = jackpotMgr.jackpot[1][channelMgr.getSelectedChannel()]; j < this.dias.length; j++) {
                 this.dias[j].setVisible(false);
             }
             self.runAction(cc.sequence(
                 cc.delayTime((lastVisible + 1) * 0.32 + 0.4),
                 cc.callFunc(function () {
                     var listDiamond = this.btnjp.getChildByName("listDiamond");
-                    if (gamedata.jackpot[1][gamedata.selectedChanel] == 4) {
+                    if (jackpotMgr.jackpot[1][channelMgr.getSelectedChannel()] == 4) {
                         self.createAnim(listDiamond, "Bang1");
                         listDiamond.anim.gotoAndPlay("1", -1);
                     } else {

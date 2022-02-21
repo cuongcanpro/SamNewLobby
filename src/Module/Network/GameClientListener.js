@@ -114,6 +114,7 @@ var GameClientListener = cc.Class.extend({
                     }
                     break;
                 }
+
             }
             //packet.clean();
             return;

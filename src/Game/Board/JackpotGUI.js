@@ -40,12 +40,12 @@ var JackpotGUI = BaseLayer.extend({
     },
 
     onUpdateGUI: function (data) {
-        var jackpot = gamedata.jackpot[0][gamedata.selectedChanel];
-        var diamond = gamedata.jackpot[1][gamedata.selectedChanel];
+        var jackpot = jackpotMgr.jackpot[0][channelMgr.getSelectedChannel()];
+        var diamond = jackpotMgr.jackpot[1][channelMgr.getSelectedChannel()];
         this.setJackpotTotalUI(jackpot);
         this.setDiamondUI(diamond);
-        this.setChannel(gamedata.selectedChanel);
-        this.setTextGUI(gamedata.selectedChanel);
+        this.setChannel(channelMgr.getSelectedChannel());
+        this.setTextGUI(channelMgr.getSelectedChannel());
     },
 
     setJackpotTotalUI: function (jackpot) {
@@ -110,7 +110,7 @@ var JackpotGUI = BaseLayer.extend({
 
     setDiamondUI: function (diamond) {
         var bg = this.getControl("bg", this._layout);
-        var config = CommonLogic.getJackpotConfig(gamedata.selectedChanel);
+        var config = jackpotMgr.getJackpotConfig(channelMgr.getSelectedChannel());
         var listDiamond = bg.getChildByTag(JackpotGUI.TAG_DIAMOND);
         for (var i = 0; i < listDiamond.getChildrenCount(); i++) {
             listDiamond.getChildren()[i].loadTexture(config.popup_diamond);
@@ -124,14 +124,14 @@ var JackpotGUI = BaseLayer.extend({
     setChannel: function (channel) {
         var bg = this.getControl("bg", this._layout);
         var channelGui = this.getControl("channel", bg);
-        var config = CommonLogic.getJackpotConfig(channel);
+        var config = jackpotMgr.getJackpotConfig(channel);
         channelGui.loadTexture(config.channel);
     },
 
     setTextGUI: function () {
         var bg = this.getControl("bg", this._layout);
         var listText = bg.getChildByTag(JackpotGUI.TAG_TEXT);
-        var config = CommonLogic.getJackpotConfig(gamedata.selectedChanel);
+        var config = jackpotMgr.getJackpotConfig(channelMgr.getSelectedChannel());
         var text1 = listText.getChildByName("textNgoc1");
         text1.setString(config.text);
         text1.setColor(cc.hexToColor(config.color));
@@ -209,13 +209,13 @@ var JackpotWinGUI = BaseLayer.extend({
     },
 
     setDiamondUI: function () {
-        this.diamondShine.anim.getAnimation().gotoAndPlay((gamedata.selectedChanel + 1).toString(), -1);
+        this.diamondShine.anim.getAnimation().gotoAndPlay((channelMgr.getSelectedChannel() + 1).toString(), -1);
     },
 
     setTextGUI: function (data) {
         if (!data) {
             var text = ccui.Helper.seekWidgetByName(this.noti, "textNgoc");
-            var config = CommonLogic.getJackpotConfig(gamedata.selectedChanel);
+            var config = jackpotMgr.getJackpotConfig(channelMgr.getSelectedChannel());
             text.setString(config.text);
             text.setColor(cc.hexToColor(config.color));
             cc.log(config.color);
@@ -234,7 +234,7 @@ var JackpotWinGUI = BaseLayer.extend({
     effectFlyDiamond: function () {
         var board = sceneMgr.getRunningScene().getMainLayer();
         var listDiamond = ccui.Helper.seekWidgetByName(board._layout, "btnJackpot").getChildByName("listDiamond");
-        var myDiamond = gamedata.jackpot[1][gamedata.selectedChanel];
+        var myDiamond = jackpotMgr.jackpot[1][channelMgr.getSelectedChannel()];
         if (myDiamond === 0) myDiamond = 5;
         var pos = listDiamond.convertToWorldSpace(listDiamond.getChildByName("kc" + (myDiamond).toString()).getPosition());
         pos.x -= this.diamondShine.x;
@@ -341,7 +341,7 @@ var JackpotWin5GUI = BaseLayer.extend({
                 this.getControl("bg", this._layout).setVisible(false);
                 this.createAnim(this, "FiveDiamond");
                 this.anim.setVisible(true);
-                this.anim.gotoAndPlay((gamedata.selectedChanel + 1).toString(), -1);
+                this.anim.gotoAndPlay((channelMgr.getSelectedChannel() + 1).toString(), -1);
                 this.anim.setCompleteListener(function () {
                     this.anim.setVisible(false);
                     this.win5.setVisible(true);
@@ -349,7 +349,7 @@ var JackpotWin5GUI = BaseLayer.extend({
                     bg.setVisible(true);
                     this.createAnim(bg, "Jackpot");
                     bg.anim.getAnimation().gotoAndPlay("1", -1);
-                    this.setChannel(gamedata.selectedChanel);
+                    this.setChannel(channelMgr.getSelectedChannel());
                     this.setJackpotTotalUI(data.jackpot);
                     this.runAction(new cc.Sequence(cc.delayTime(1), new cc.CallFunc(function () {
                         effectMgr.dropCoinEffect(this, 200, cc.p(cc.winSize.width / 2, cc.winSize.height / 3));
@@ -362,7 +362,7 @@ var JackpotWin5GUI = BaseLayer.extend({
     },
     setChannel: function (channel) {
         var bg = this.getControl("bg", this._layout);
-        var config = CommonLogic.getJackpotConfig(channel);
+        var config = jackpotMgr.getJackpotConfig(channel);
         var channelGUI = this.getControl("channel", this.win5);
         channelGUI.loadTexture(config.channel);
     },
@@ -483,7 +483,7 @@ var JackpotInBoardGUI = BaseLayer.extend({
         this.runAction(new cc.Sequence(cc.delayTime(3), new cc.CallFunc(function () {
             if (sceneMgr.getRunningScene().getMainLayer().updateJackpotGUI)
                 sceneMgr.getRunningScene().getMainLayer().updateJackpotGUI();
-            var localChair = gamedata.gameLogic.convertChair(data.chair);
+            var localChair = inGameMgr.gameLogic.convertChair(data.chair);
             var gameBoard = sceneMgr.getRunningScene().getMainLayer();
             var playerPanel = null;
             if (gameBoard instanceof BoardScene) {
@@ -501,7 +501,7 @@ var JackpotInBoardGUI = BaseLayer.extend({
                 jp.setPosition(nPos);
             }
             this.createAnim(jp, "GetJackpot");
-            jp.anim.getAnimation().gotoAndPlay((gamedata.selectedChanel + 1).toString());
+            jp.anim.getAnimation().gotoAndPlay((channelMgr.getSelectedChannel() + 1).toString());
             var jptotal = ccui.Helper.seekWidgetByName(jp, "jp" + localChair.toString());
             jptotal.setString("$" + StringUtility.standartNumber(data.jackpot));
             jptotal.setLocalZOrder(1000);

@@ -30,9 +30,9 @@ var NewRankGameClientListener = cc.Class.extend({
         {
             cmd = packet._cmdId;
         }
-        if (cmd !== 50){
-            cc.log("Rank server ON RECEIVED PACKET   CMD: " + cmd + "  CONTROLLER ID: " + controllerID + " ERRO.R:  " + packet.getError());
-        }
+        // if (cmd !== 50){
+        //     cc.log("Rank server ON RECEIVED PACKET   CMD: " + cmd + "  CONTROLLER ID: " + controllerID + " ERRO.R:  " + packet.getError());
+        // }
         if (Config.ENABLE_TESTING_NEW_RANK){
             if (cmd === CMD.HAND_SHAKE){
                 var loginpk = new CmdSendLogin();
@@ -144,6 +144,7 @@ var NewRankGameClientListener = cc.Class.extend({
                 cmdTruCup.clean();
                 break;
             }
+
         }
         packet.clean();
     }

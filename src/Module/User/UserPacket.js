@@ -107,3 +107,33 @@ CmdReceivedConfig = CmdReceivedCommon.extend({
         this.jsonConfig = this.getString();
     }
 });
+
+
+var CmdReceivedAvatarConfig = CmdReceivedCommon.extend({
+    ctor: function (pkg) {
+        this._super(pkg);
+        this.readData();
+    },
+
+    readData: function () {
+        this.avatarConfigs = this.getStrings();
+    }
+});
+
+
+var CmdSendInBoardAvatar = CmdSendCommon.extend({
+    ctor: function () {
+        this._super();
+        this.initData(100);
+        this.setControllerId(1);
+        this.setCmdId(UserMgr.CMD_CHANGE_AVATAR);
+    },
+
+    putData: function (avatarIndex) {
+        //pack
+        this.packHeader();
+        this.putByte(avatarIndex);
+        //update
+        this.updateSize();
+    }
+});

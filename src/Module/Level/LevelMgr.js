@@ -70,6 +70,12 @@ var LevelMgr = BaseMgr.extend({
         return this.levelConfig[level].bonus;
     },
 
+    getTotalSupportBean: function (level, bean) {
+        if (!this.levelConfig || this.levelConfig.length == 0)
+            return bean;
+        return Math.floor(bean * (1 + this.levelConfig[level].bonus / 100));
+    },
+
 })
 
 LevelMgr.instance = null;

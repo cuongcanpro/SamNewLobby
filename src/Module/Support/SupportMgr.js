@@ -7,6 +7,7 @@ var SupportMgr = BaseMgr.extend({
     initListener: function () {
         dispatcherMgr.addListener(UserMgr.EVENT_ON_GET_USER_INFO, this, this.sendGetSupport);
         dispatcherMgr.addListener(UserMgr.EVENT_UPDATE_MONEY, this, this.updateMoney);
+        dispatcherMgr.addListener(LobbyMgr.EVENT_ON_ENTER_FINISH, this, this.checkShowSupportStartUp);
     },
 
     updateMoney: function () {
@@ -20,6 +21,7 @@ var SupportMgr = BaseMgr.extend({
             case SupportMgr.GET_DAILY_GIFT: {
                 var cDG = new CmdReceiveDailyGift(pk);
                 this.giftIndex = cDG.index;
+                cc.log("GET_DAILY_GIFT" + JSON.stringify(cDG));
                 this.showSupportStartup();
                 cDG.clean();
                 break;
@@ -97,7 +99,8 @@ var SupportMgr = BaseMgr.extend({
     },
 
     checkShowSupportStartUp: function () {
-        if (this.giftIndex > 0) {
+        cc.log("checkShowSupportStartUp " + this.giftIndex);
+        if (this.giftIndex >= 0) {
             this.showSupportStartup();
         } else {
             if (this.checkSupportBean()) {
@@ -108,7 +111,7 @@ var SupportMgr = BaseMgr.extend({
 
     showSupportStartup: function () {
         if (popUpManager.canShow(PopUpManager.STARTUP)) {
-            var sp = sceneMgr.openGUI(SupportBeanGUI.className, PopUpManager.STARTUP, PopUpManager.STARTUP, false);
+            var sp = sceneMgr.openGUI(GUIStartUp.className, PopUpManager.STARTUP, PopUpManager.STARTUP, false);
             if (sp) sp.showSupportStartup();
         }
     },
@@ -198,6 +201,8 @@ var SupportMgr = BaseMgr.extend({
             pk.clean();
         }
     },
+
+
 
     sharePhoto: function (isShareImage, image) {
         if (!gameMgr.checkOldNativeVersion()) {

@@ -151,6 +151,20 @@ var UserInfo = cc.Class.extend({
         //
         // if (Config.ENABLE_IAP_BONUS_TEMP)
         //     this.bonusIAPTemp = info.bonusIAPTemp;
+    },
+
+    setInfoFromRankInfo: function (rankInfo) {
+        this.setGold(rankInfo.bean);
+        this.setLevel(rankInfo.level);
+        this.setWinCount(rankInfo.winCount);
+        this.setLostCount(rankInfo.lostCount);
+        this.setUID(rankInfo.uID);
+        this.setDisplayName(rankInfo.displayName);
+        this.setAvatar(rankInfo.avatar);
+        this.rank = rankInfo.rank;
+        this.goldMedal = rankInfo.goldMedal;
+        this.silverMedal = rankInfo.silverMedal;
+        this.bronzeMedal = rankInfo.bronzeMedal;
     }
 })
 

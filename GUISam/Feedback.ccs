@@ -1,0 +1,27 @@
+<Solution>
+  <PropertyGroup Name="Feedback" Version="3.10.0.0" Type="CocosStudio" />
+  <SolutionFolder>
+    <Group ctype="ResourceGroup">
+      <RootFolder Name=".">
+        <Folder Name="Feedback">
+          <Image Name="bg.png" />
+          <Image Name="bgSuccess.png" />
+          <Image Name="btnClose.png" />
+          <Image Name="btnLobby.png" />
+          <Image Name="btnOk.png" />
+          <Image Name="btnSend.png" />
+        </Folder>
+        <Folder Name="Font">
+          <Fnt Name="detail_jackpot.fnt" />
+          <Fnt Name="jackpot.fnt" />
+          <TTF Name="robotoBold.ttf" />
+          <TTF Name="robotoLight.ttf" />
+          <TTF Name="tahoma.ttf" />
+          <TTF Name="tahomabd.ttf" />
+        </Folder>
+        <Project Name="FeedbackGUI.csd" Type="Scene" />
+        <Project Name="FeedbackSuccess.csd" Type="Scene" />
+      </RootFolder>
+    </Group>
+  </SolutionFolder>
+</Solution>

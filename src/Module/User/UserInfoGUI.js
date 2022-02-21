@@ -75,6 +75,8 @@ var UserInfoPanel = BaseLayer.extend({
         this.customizeButton("btnCloseAvatar", UserInfoPanel.BTN_CHANGE_AVATAR);
         this.version = this.getControl("version", this.bg);
         this.version.ignoreContentAdaptWithSize(true);
+        this.btnAddFriend.setVisible(false);
+        this.btnRemoveFriend.setVisible(false);
 
         //pAvatar
         this.defaultFrame = this.getControl("defaultFrame", pAvatar);
@@ -102,6 +104,24 @@ var UserInfoPanel = BaseLayer.extend({
         this.pChooseAvatar = this.getControl("pChooseAvatar");
         this.pChooseAvatar.setScaleY(0);
         this.pChooseAvatar.isOpen = false;
+
+        this.frameChosen = this.getControl("frameChosen", this.pChooseAvatar);
+        this.frameChosen.setLocalZOrder(15);
+
+        this.pChooseAvatar.list = [];
+        for (var i = 0; i < PlayerView.TOTAL_INGAME_AVATAR; i++) {
+            var button = this.customizeButton("btn_" + i, UserInfoPanel.BTN_CHANGE_AVATAR_SPEC);
+            button.avatarIndex = i;
+            button.setLocalZOrder(10);
+            button.setPressedActionEnabled(false);
+
+            var avatarDefault = new AvatarUI("Common/defaultAvatar_ingame.png", "GameGUI/player/bgAvatar.png", "");
+            avatarDefault.setPosition(button.getPosition());
+            avatarDefault.setScale(1.05);
+            avatarDefault.setLocalZOrder(0);
+            this.pChooseAvatar.addChild(avatarDefault);
+            this.pChooseAvatar.list.push(avatarDefault);
+        }
 
         //tabs
         this.btnTabInfo = this.customButton("btnTabInfo", UserInfoPanel.BTN_TAB_INFO, tabBg);
@@ -169,13 +189,22 @@ var UserInfoPanel = BaseLayer.extend({
                 this.onBack();
                 break;
             case UserInfoPanel.BTN_ADD_FRIEND:
-                chatMgr.addFriend(this._user.uID);
                 break;
             case UserInfoPanel.BTN_REMOVE_FRIEND:
-                chatMgr.removeFriend(this._user.uID);
                 break;
             case UserInfoPanel.BTN_SEND_CHAT:
-                chatMgr.doMessageFriend(this._user);
+                if (inGameMgr.gameLogic){
+                    for (var i = 0; i < inGameMgr.gameLogic._players.length; i++) {
+                        if (inGameMgr.gameLogic._players[i]._ingame &&
+                            inGameMgr.gameLogic._players[i]._info &&
+                            inGameMgr.gameLogic._players[i]._info["uID"] === this._user.getUID()) {
+                            chatMgr.openChatGUIAtTab(this._user.getUID(), this._user.getDisplayName());
+                            this.onBack();
+                            return;
+                        }
+                    }
+                }
+                Toast.makeToast(Toast.SHORT, "Người chơi này không còn ở trong bàn chơi.");
                 this.onBack();
                 break;
             case UserInfoPanel.BTN_PERSONAL_INFO:
@@ -194,6 +223,14 @@ var UserInfoPanel = BaseLayer.extend({
 
                 this.onBack();
                 break;
+            case UserInfoPanel.BTN_CHANGE_AVATAR_SPEC:
+                var pk = new CmdSendInBoardAvatar();
+                pk.putData(button.avatarIndex);
+                GameClient.getInstance().sendPacket(pk);
+                pk.clean();
+
+                var defaultAvatar = button.avatarIndex;
+                this.frameChosen.setPosition(this.getControl("btn_" + defaultAvatar, this.pChooseAvatar).getPosition());
             case UserInfoPanel.BTN_CHANGE_AVATAR:
                 cc.log("BTN_CHANGE_AVATAR", this.pChooseAvatar.isOpen);
                 this.pChooseAvatar.isOpen = !this.pChooseAvatar.isOpen;
@@ -205,10 +242,16 @@ var UserInfoPanel = BaseLayer.extend({
                         cc.scaleTo(0.25, 1).easing(cc.easeBackOut())
                     ));
                 } else {
-                    this.pChooseAvatar.runAction(cc.sequence(
+                    var sequence = [
                         cc.scaleTo(0.25, 1, 0).easing(cc.easeBackIn()),
                         cc.hide()
-                    ));
+                    ];
+                    if (id === UserInfoPanel.BTN_CHANGE_AVATAR_SPEC) sequence.push(
+                        cc.callFunc(function () {
+                            this.onBack();
+                        }.bind(this))
+                    );
+                    this.pChooseAvatar.runAction(cc.sequence(sequence));
                 }
                 break;
         }
@@ -347,7 +390,7 @@ var UserInfoPanel = BaseLayer.extend({
     useInteract: function(index) {
         var interact = this.interactData[index];
         if (interact.id >= 1000) {
-            // danh rieng cho EventMgr
+            // danh rieng cho Event
             midAutumn.clickSendSam(this._user.uID, this._user.avatar);
             return;
         }
@@ -395,6 +438,10 @@ var UserInfoPanel = BaseLayer.extend({
     setInfo: function(inf) {
         cc.log("SET USER INFO", JSON.stringify(inf));
         this._user = inf;
+        if (!this._user.zName)
+            this._user.zName = this._user.displayName;
+        if (!this._user.uID)
+            this._user.uID = this._user.uId;
 
         try{
             this.avatar.asyncExecuteWithUrl(this._user.getUID(), this._user.getAvatar());
@@ -412,30 +459,25 @@ var UserInfoPanel = BaseLayer.extend({
                 cc.log("MY INFO");
                 this.bgImage.setAnchorPoint(cc.p(0.5, 0.5));
                 this.level.setString(levelMgr.getLevelString(this._user.getLevel(), this._user.getLevelExp()));
-                this.btnAddFriend.setVisible(false);
-                this.btnRemoveFriend.setVisible(false);
                 this.btnSendMessage.setVisible(false);
                 this.btnPersonalInfo.setVisible(true);
                 this.btnStorage.setVisible(true);
                 this.tabs[UserInfoPanel.BTN_TAB_INTERACT].setVisible(false);
                 this.btnClose.setVisible(true);
-                avatarFramePath = StorageManager.getInstance().getUserAvatarFramePath()
+                avatarFramePath = StorageManager.getInstance().getUserAvatarFramePath();
             } else {
                 cc.log("OTHERS INFO");
-                this.bgImage.setAnchorPoint(cc.p(0.69, 0.5));
+                var inTable = sceneMgr.getMainLayer() instanceof BoardScene;
+                this.bgImage.setAnchorPoint(cc.p(inTable? 0.69 : 0.5, 0.5));
                 this.level.setString(this._user.level);
-                var isFriend = chatMgr.checkIsFriend(this._user.getUID());
-                this.btnAddFriend.setVisible(!isFriend);
-                this.btnRemoveFriend.setVisible(isFriend);
-                var scene = sceneMgr.getMainLayer();
-                this.btnSendMessage.setVisible(scene instanceof ChatScene || CheckLogic.checkInBoard());
+                this.btnSendMessage.setVisible(CheckLogic.checkInBoard());
                 this.btnPersonalInfo.setVisible(false);
                 this.btnStorage.setVisible(false);
-                this.tabs[UserInfoPanel.BTN_TAB_INTERACT].setVisible(true);
-                this.btnClose.setVisible(false);
+                this.tabs[UserInfoPanel.BTN_TAB_INTERACT].setVisible(inTable);
+                this.btnClose.setVisible(!inTable);
 
-                if (StorageManager.getInstance().cacheOtherAvatarId[this._user.getUID()] != null)
-                    avatarFramePath = StorageManager.getAvatarFramePath(StorageManager.getInstance().cacheOtherAvatarId[this._user.getUID()]);
+                if (StorageManager.getInstance().cacheOtherAvatarId[this._user.uID] != null)
+                    avatarFramePath = StorageManager.getAvatarFramePath(StorageManager.getInstance().cacheOtherAvatarId[this._user.uID]);
                 else
                     avatarFramePath = ""
             }
@@ -460,6 +502,26 @@ var UserInfoPanel = BaseLayer.extend({
         try {
             this.version.setString(NativeBridge.getVersionString());
         } catch(e) {}
+
+        if (this._user.getUID() === userMgr.getUID()) {
+            this.btnChangeAvatar.setVisible(true);
+            this.frameChosen.setVisible(false);
+            var avatarConfig = userMgr.listAvatars;
+            for (var i = 0; i < this.pChooseAvatar.list.length; i++) {
+                if (i < avatarConfig.length) {
+                    this.pChooseAvatar.list[i].setVisible(true);
+                    this.pChooseAvatar.list[i].asyncExecuteWithUrl(userMgr.getUID(), avatarConfig[i]);
+                    if (avatarConfig[i] === userMgr.getAvatar()) {
+                        this.frameChosen.setVisible(true);
+                        this.frameChosen.setPosition(this.getControl("btn_" + i, this.pChooseAvatar).getPosition());
+                    }
+                } else {
+                    this.pChooseAvatar.list[i].setVisible(false);
+                }
+            }
+        } else {
+            this.btnChangeAvatar.setVisible(false);
+        }
 
         //load interact data
         this.loadInteractData();
@@ -497,8 +559,8 @@ var UserInfoPanel = BaseLayer.extend({
         this.silverMedal.setString(StringUtility.pointNumber(silverMedal));
         this.bronzeMedal.setString(StringUtility.pointNumber(bronzeMedal));
         this.txtRank.setString(NewRankData.getRankName(rank).toUpperCase());
-        this.imgRank.loadTexture(NewRankData.getRankImg(rank), ccui.Widget.PLIST_TEXTURE);
-        this.levelRank.loadTexture(NewRankData.getRankLevelImg(rank), ccui.Widget.PLIST_TEXTURE);
+        //this.imgRank.loadTexture(NewRankData.getRankImg(rank), ccui.Widget.PLIST_TEXTURE);
+        //this.levelRank.loadTexture(NewRankData.getRankLevelImg(rank), ccui.Widget.PLIST_TEXTURE);
         this.levelRank.setVisible(rank < NewRankData.MAX_RANK);
 
         var oldAnim = this.imgRank.getChildByTag(50);
@@ -527,6 +589,7 @@ UserInfoPanel.BTN_STORAGE = 5;
 UserInfoPanel.BTN_TAB_INFO = 6;
 UserInfoPanel.BTN_TAB_INTERACT = 7;
 UserInfoPanel.BTN_CHANGE_AVATAR = 8;
+UserInfoPanel.BTN_CHANGE_AVATAR_SPEC = 9;
 
 var UserInfoPanelInteractCell = cc.TableViewCell.extend({
     ctor: function(itemSize, cellSize, numRow, userInfoPanel) {
@@ -560,6 +623,7 @@ var UserInfoPanelInteractCell = cc.TableViewCell.extend({
             itemNode.bg = itemNode.getChildByName("bg");
             itemNode.bg.setTouchEnabled(true);
             itemNode.bg.setSwallowTouches(false);
+            itemNode.bg.loadTexture("UserInfoPanel/bgInteract.png");
             itemNode.bg.addTouchEventListener(function(target, type){
                 switch(type){
                     case ccui.Widget.TOUCH_BEGAN:
@@ -587,6 +651,7 @@ var UserInfoPanelInteractCell = cc.TableViewCell.extend({
             itemNode.iconLock = itemNode.getChildByName("iconLock");
             itemNode.textLock = itemNode.iconLock.getChildByName("text");
             itemNode.textLock.ignoreContentAdaptWithSize(true);
+            itemNode.textLock.setFontSize(20);
         }
     },
 
@@ -600,16 +665,14 @@ var UserInfoPanelInteractCell = cc.TableViewCell.extend({
                 if (interact.id < 1000) {
                     var path = StorageManager.getItemIconPath(StorageManager.TYPE_INTERACTION, null, interact.id);
                     var scale = 0.8;
-                    //itemNode.bg.loadTexture("Lobby/UserInfoPanel/itemBg.png");
-                    if (path && path != ""){
+                    if (path && path != "") {
                         itemNode.img.setVisible(true);
                         itemNode.shadow.setVisible(true);
                         itemNode.img.loadTexture(path);
                         itemNode.shadow.loadTexture(path);
                         itemNode.img.setScale(scale);
                         itemNode.shadow.setScale(scale);
-                    }
-                    else{
+                    } else {
                         itemNode.img.setVisible(false);
                         itemNode.shadow.setVisible(false);
                     }
@@ -618,19 +681,17 @@ var UserInfoPanelInteractCell = cc.TableViewCell.extend({
                         itemNode.num.setVisible(true);
                         itemNode.iconLock.setVisible(false);
                         this.setNum(itemNode, interact.num);
-                    }
-                    else{
+                    } else {
                         itemNode.num.setVisible(false);
                         itemNode.iconLock.setVisible(true);
                         this.setTextLock(itemNode, interact.cond);
-                        //itemNode.bg.loadTexture("Lobby/UserInfoPanel/itemBgGray.png");
-                        itemNode.img.getVirtualRenderer().setState(1);
+                        itemNode.img.setOpacity(75);
+                        itemNode.img.setColor(cc.color("#4c4c4c"));
+                        itemNode.shadow.setVisible(false);
                     }
-                }
-                else {
-                    // danh cho su kien EventMgr
+                } else {
+                    // danh cho su kien Event
                     itemNode.img.setVisible(false);
-                    //itemNode.bg.loadTexture("res/EventMgr/MidAutumn/MidAutumnUI/btnActionSendSam.png");
                     itemNode.shadow.setVisible(false);
                     itemNode.num.setVisible(false);
                     itemNode.iconLock.setVisible(false);
@@ -643,23 +704,22 @@ var UserInfoPanelInteractCell = cc.TableViewCell.extend({
         var str = "";
         switch(cond.type){
             case StorageManager.VIP_CONDITION:
-                str = "Vip";
+                str = "VIP";
                 break;
             case StorageManager.LEVEL_CONDITION:
-                str = "Level";
+                str = "LEVEL";
                 break;
         }
         str += (" " + cond.num);
         node.textLock.setString(str);
-        node.iconLock.setPositionX(node.width - (node.textLock.x + node.textLock.getAutoRenderSize().width) * node.iconLock.getScale());
     },
 
     setNum: function(node, num) {
         node.num.setString(num >= 0 ? num : '\u221e');
-        node.num.setTextColor(num != 0 ? cc.color("#ffffff") : cc.color("#ff5b5b"));
-        node.num.enableOutline(num != 0 ? cc.color("#4c3093") : cc.color("#6a2035"));
-        node.img.getVirtualRenderer().setState(num > 0 ? 0 : 1);
-        //node.bg.loadTexture(num != 0 ? "Lobby/UserInfoPanel/itemBg.png" : "Lobby/UserInfoPanel/itemBgGray.png")
+        node.num.setTextColor(num != 0 ? cc.color("#dcba93") : cc.color("#660000"));
+        node.img.setOpacity(num > 0? 255 : 75);
+        node.img.setColor(num > 0? cc.color("#ffffff") : cc.color("#4c4c4c"));
+        node.shadow.setVisible(false);
     }
 });
 UserInfoPanelInteractCell.PADDING = 0;

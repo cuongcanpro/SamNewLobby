@@ -85,10 +85,10 @@
           <AbstractNodeData Name="iconDiamond" ActionTag="-1793648145" Tag="858" IconVisible="False" LeftMargin="74.9111" RightMargin="104.0889" TopMargin="260.8173" BottomMargin="18.1827" LeftEage="6" RightEage="6" TopEage="6" BottomEage="6" Scale9OriginX="6" Scale9OriginY="6" Scale9Width="22" Scale9Height="18" ctype="ImageViewObjectData">
             <Size X="34.0000" Y="30.0000" />
             <Children>
-              <AbstractNodeData Name="diamond" ActionTag="1938995687" Tag="861" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="35.7099" RightMargin="-37.7099" TopMargin="-8.7954" BottomMargin="-2.2046" FontSize="30" LabelText="60" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+              <AbstractNodeData Name="diamond" ActionTag="1938995687" Tag="861" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="35.7099" RightMargin="-37.7099" TopMargin="-8.7940" BottomMargin="-2.2060" FontSize="30" LabelText="60" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                 <Size X="36.0000" Y="41.0000" />
                 <AnchorPoint ScaleY="0.5000" />
-                <Position X="35.7099" Y="18.2954" />
+                <Position X="35.7099" Y="18.2940" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="1.0503" Y="0.6098" />
@@ -104,7 +104,7 @@
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.4315" Y="0.1074" />
             <PreSize X="0.1596" Y="0.0971" />
-            <FileData Type="Normal" Path="LobbyGUI/iconDiamond.png" Plist="" />
+            <FileData Type="Normal" Path="Common/iconDiamond.png" Plist="" />
           </AbstractNodeData>
           <AbstractNodeData Name="iconLock" ActionTag="775177620" Tag="859" IconVisible="False" LeftMargin="53.9693" RightMargin="129.0307" TopMargin="241.6198" BottomMargin="27.3802" LeftEage="3" RightEage="3" TopEage="4" BottomEage="4" Scale9OriginX="3" Scale9OriginY="4" Scale9Width="24" Scale9Height="32" ctype="ImageViewObjectData">
             <Size X="30.0000" Y="40.0000" />
