@@ -559,11 +559,11 @@ var CheatCenterScene = BaseLayer.extend({
                 CheatCenter.SERVER_NEW_RANK_PORT = rankPort;
             } else {
                 if (cc.sys.isNative) {
-                    CheatCenter.SERVER_NEW_RANK_IP = NewRankData.IP_DEV;
-                    CheatCenter.SERVER_NEW_RANK_PORT = NewRankData.PORT_DEV;
+                    CheatCenter.SERVER_NEW_RANK_IP = RankData.IP_DEV;
+                    CheatCenter.SERVER_NEW_RANK_PORT = RankData.PORT_DEV;
                 } else {
-                    CheatCenter.SERVER_NEW_RANK_IP = NewRankData.IP_DEV_WEB;
-                    CheatCenter.SERVER_NEW_RANK_PORT = NewRankData.PORT_DEV;
+                    CheatCenter.SERVER_NEW_RANK_IP = RankData.IP_DEV_WEB;
+                    CheatCenter.SERVER_NEW_RANK_PORT = RankData.PORT_DEV;
                 }
 
 
@@ -1307,8 +1307,8 @@ var CheatCenterScene = BaseLayer.extend({
                 }
 
                 if (Config.ENABLE_NEW_RANK) {
-                    CheatCenter.SERVER_NEW_RANK_IP = (cc.sys.isNative) ? NewRankData.IP_DEV : NewRankData.IP_DEV_WEB;
-                    CheatCenter.SERVER_NEW_RANK_PORT = NewRankData.PORT_DEV;
+                    CheatCenter.SERVER_NEW_RANK_IP = (cc.sys.isNative) ? RankData.IP_DEV : RankData.IP_DEV_WEB;
+                    CheatCenter.SERVER_NEW_RANK_PORT = RankData.PORT_DEV;
 
                     cc.sys.localStorage.setItem(CHEAT_SERVER_RANK_IP, CheatCenter.SERVER_NEW_RANK_IP);
                     cc.sys.localStorage.setItem(CHEAT_SERVER_RANK_PORT, CheatCenter.SERVER_NEW_RANK_PORT);
@@ -1349,8 +1349,8 @@ var CheatCenterScene = BaseLayer.extend({
                 }
 
                 if (Config.ENABLE_NEW_RANK) {
-                    CheatCenter.SERVER_NEW_RANK_IP = (cc.sys.isNative) ? NewRankData.IP_LIVE : NewRankData.IP_LIVE_WEB;
-                    CheatCenter.SERVER_NEW_RANK_PORT = NewRankData.PORT_LIVE;
+                    CheatCenter.SERVER_NEW_RANK_IP = (cc.sys.isNative) ? RankData.IP_LIVE : RankData.IP_LIVE_WEB;
+                    CheatCenter.SERVER_NEW_RANK_PORT = RankData.PORT_LIVE;
 
                     cc.sys.localStorage.setItem(CHEAT_SERVER_RANK_IP, CheatCenter.SERVER_NEW_RANK_IP);
                     cc.sys.localStorage.setItem(CHEAT_SERVER_RANK_PORT, CheatCenter.SERVER_NEW_RANK_PORT);

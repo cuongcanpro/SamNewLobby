@@ -506,6 +506,10 @@ var LobbyScene = BaseLayer.extend({
     },
 
     loadAnimation: function () {
+       var  effect = this.createAnim(this.btnGold, "shopwithtag");
+        //effect.setScale(0.71);
+        effect.setPosition(effect.getPositionX() + 20, effect.getPositionY() + 15);
+
         return;
         this.createAnim(this.logo, "LogoSmall");
 
@@ -620,8 +624,8 @@ var LobbyScene = BaseLayer.extend({
         var cur = sceneMgr.getRunningScene().getMainLayer();
         if (!(cur instanceof LobbyScene)) return;
 
-        eventMgr.showButtonEvent(this.btnEvent);
-        eventMgr.showHideButtonEventInGame();
+       // eventMgr.showButtonEvent(this.btnEvent);
+       eventMgr.showHideButtonEventInGame();
         PersonalInfoGUI.checkOpenGuiFirstTime();
     },
 
@@ -636,7 +640,7 @@ var LobbyScene = BaseLayer.extend({
         this.runAction(cc.sequence(
             cc.delayTime(1),
             cc.callFunc(function () {
-                if (NewRankData.getOpenResultLastWeek()) {
+                if (RankData.getOpenResultLastWeek()) {
                     this.btnRank.hot.setVisible(true);
                 }
                 else{
@@ -645,13 +649,13 @@ var LobbyScene = BaseLayer.extend({
                         //show unlock item
                     }
                 }
-                if (NewRankData.isEnoughLevelJoinRank) {
+                if (RankData.isEnoughLevelJoinRank) {
                     var pos = this.btnRank.getWorldPosition();
                     pos.x -= 60;
                     pos.y -= 75;
                     var text = localized("NEW_RANK_HAS_OPENED");
                     TooltipFloat.makeTooltip(TooltipFloat.LONG, text, pos, TooltipFloat.SHOW_UP_TYPE_0, 15);
-                    NewRankData.isEnoughLevelJoinRank = false;
+                    RankData.isEnoughLevelJoinRank = false;
                 }
             }.bind(this))
         ));
@@ -659,10 +663,10 @@ var LobbyScene = BaseLayer.extend({
 
     onUpdateBtnRankCallFunc: function (cupChange) {
         this.btnRank.hot.setVisible(true);
-        var dataRank = NewRankData.getInstance().getCurRankInfo();
+        var dataRank = RankData.getInstance().getCurRankInfo();
         var curRank = dataRank.rank;
-        var oldCup = NewRankData.getInstance().getNumberOldCup();
-        var oldRank = NewRankData.getRankByCup(oldCup);
+        var oldCup = RankData.getInstance().getNumberOldCup();
+        var oldRank = RankData.getRankByCup(oldCup);
         cc.log("onUpdateBtnRankCallFunc: ", curRank, oldRank, dataRank.rankPoint, oldCup);
 
         if (oldRank - curRank !== 0) {
@@ -753,6 +757,10 @@ var LobbyScene = BaseLayer.extend({
                 break;
             }
             case LobbyScene.BTN_AVATAR: {
+                // sceneMgr.openGUI(ReceivedGUI.className);
+                // return;
+                // sceneMgr.openGUI(ChatPanelGUI.className, ChatPanelGUI.TAG, ChatPanelGUI.TAG);
+                // return;
                 sceneMgr.openGUI(CheckLogic.getUserInfoClassName(), LobbyScene.GUI_USER_INFO, LobbyScene.GUI_USER_INFO).setInfo(userMgr.userInfo);
                 break;
             }
@@ -779,7 +787,8 @@ var LobbyScene = BaseLayer.extend({
                 break;
             }
             case LobbyScene.BTN_VIP: {
-                supportMgr.showSupportStartup();
+                VipManager.openVip(LobbyScene.className);
+                // supportMgr.showSupportStartup();
                 //VipManager.openVip();
                 break;
             }
@@ -805,7 +814,8 @@ var LobbyScene = BaseLayer.extend({
             }
             case LobbyScene.BTN_SUPPORT: {
                 //sceneMgr.openGUI(GUISupportInfo.className, GUISupportInfo.tag, GUISupportInfo.tag, false).showGUI(0, supportMgr.numSupport);
-                sceneMgr.openGUI(GUISupportInfo.className, GUISupportInfo.tag, GUISupportInfo.tag, false).showGUI(3330, 1);
+                supportMgr.numSupport = 0;
+                sceneMgr.openGUI(GUISupportInfo.className, GUISupportInfo.tag, GUISupportInfo.tag, false).showGUI(33330, 1);
                 break;
             }
             case LobbyScene.BTN_EVENT_IN_GAME: {
@@ -823,7 +833,7 @@ var LobbyScene = BaseLayer.extend({
             case LobbyScene.BTN_RANK: {
                 if (Config.ENABLE_NEW_RANK) {
                     this.btnRank.hot.setVisible(false);
-                    NewRankData.openTableRank();
+                    RankData.openTableRank();
                 } else {
                     Toast.makeToast(ToastFloat.MEDIUM, localized("COMING_SOON"));
                 }

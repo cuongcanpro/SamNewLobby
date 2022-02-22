@@ -97,7 +97,7 @@ var SettingGUI = BaseLayer.extend({
                             GameClient.getInstance().connectState = ConnectState.DISCONNECTED;
                             GameClient.getInstance().disconnect();
                             GameClient.destroyInstance();
-                            // NewRankGameClient.getInstance().disconnect()
+                            // RankGameClient.getInstance().disconnect()
                             // socialMgr.logout();
 
                             cc.sys.localStorage.setItem("autologin", -1);
@@ -105,8 +105,8 @@ var SettingGUI = BaseLayer.extend({
                                 loginMgr.backToLoginScene();
                             }, this, null)]));
 
-                            NewRankData.getInstance().resetData();
-                            NewRankData.disconnectServer();
+                            RankData.getInstance().resetData();
+                            RankData.disconnectServer();
                         }
                     }
                 });

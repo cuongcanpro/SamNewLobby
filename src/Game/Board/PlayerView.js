@@ -119,6 +119,8 @@ var PlayerView = cc.Node.extend({
         this.auto.eyes0 = this.auto.getChildByName("eyes0");
         this.auto.eyes1 = this.auto.getChildByName("eyes1");
         this.auto.setVisible(false);
+
+        this.vipEfx = false;
     },
 
     initResult: function () {
@@ -371,17 +373,21 @@ var PlayerView = cc.Node.extend({
         ));
         this.clearSmile();
 
-        this.vip.setScale(1.5);
-        this.vip.setOpacity(0);
-        this.vipParticle.setVisible(false);
+        // this.vip.setScale(1.5);
+        // this.vip.setOpacity(0);
+        // this.vipParticle.setVisible(false);
+
+        if (this.vipEfx) this.vipEfx.removeFromParent();
         this.vip.runAction(cc.sequence(
             cc.delayTime(0.25),
-            cc.spawn(
-                cc.scaleTo(0.25, 1).easing(cc.easeIn(5)),
-                cc.fadeIn(0.1)
-            ),
-            cc.callFunc(this.addVipEffect.bind(this))
-        ))
+            cc.callFunc(function () {
+                this.vipEfx = new VipBoardIcon();
+                this.vip.addChild(this.vipEfx);
+                this.vipEfx.setPosition(cc.p(this.vip.width / 2, this.vip.height / 2));
+                this.vipEfx._layout.setScale(0.5);
+                this.vipEfx.open();
+            }.bind(this))
+        ));
     },
 
     efxPlayerOut: function () {

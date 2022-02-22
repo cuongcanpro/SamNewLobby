@@ -82,7 +82,7 @@ var PanelIapItem = BaseLayer.extend({
             cc.log("##ShopIAP : " + this.itemType + " -> " + JSON.stringify(cell.info));
             this.selectItem(cell.info, this.itemType);
         } catch (e) {
-            cc.log("Touch Item error " + e);
+            cc.log("Touch Item error " + e.stack);
         }
     },
 

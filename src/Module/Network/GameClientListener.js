@@ -46,7 +46,7 @@ var GameClientListener = cc.Class.extend({
                 return;
             GameClient.disconnectHandle();
             fr.crashLytics.logGameClient("onDisconnected-connected");
-            NewRankData.disconnectServer();
+            RankData.disconnectServer();
         } else if (GameClient.getInstance().connectState == ConnectState.CONNECTING) {
             GameClient.getInstance().connectState = ConnectState.DISCONNECTED;
             engine.HandlerManager.getInstance().forceRemoveHandler("login");
@@ -56,7 +56,7 @@ var GameClientListener = cc.Class.extend({
                 return;
             GameClient.connectFailedHandle();
             fr.crashLytics.logGameClient("onDisconnected-connecting");
-            NewRankData.disconnectServer();
+            RankData.disconnectServer();
         }
 
         GameClient.connectLai = !!CheckLogic.checkInBoard();
@@ -110,7 +110,7 @@ var GameClientListener = cc.Class.extend({
                             }
                             loginMgr.backToLoginScene(checkPortal);
                         });
-                        NewRankData.disconnectServer();
+                        RankData.disconnectServer();
                     }
                     break;
                 }
@@ -122,8 +122,7 @@ var GameClientListener = cc.Class.extend({
 
         for (var i = 0; i < gameMgr.arrayMgr.length; i++) {
             var mgr = gameMgr.arrayMgr[i];
-            if (mgr.onReceived(cmd, pk))
-                return;
+            if (mgr.onReceived) mgr.onReceived(cmd, pk);
         }
 
     }

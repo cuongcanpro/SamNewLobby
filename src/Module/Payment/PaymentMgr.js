@@ -826,6 +826,9 @@ var PaymentMgr = BaseMgr.extend({
                         } else if (cc.sys.os == cc.sys.OS_IOS) {
                             imageResource = "btnApple";
                         }
+                        else {
+                            imageResource = "btnApple";
+                        }
                         break;
                     case Payment.G_ATM:
                         imageResource = "btnATM";

@@ -329,10 +329,14 @@ GroupBonusSource = cc.Node.extend({
         if (this.isShow) {
             this.setVisible(true);
             this.setScale(0);
-            this.runAction(cc.sequence(cc.scaleTo(0.3, 1, 1), cc.delayTime(2.0), cc.callFunc(this.showGroup.bind(this))));
+            this.runAction(cc.sequence(
+                new cc.EaseBackOut(cc.scaleTo(0.5, 1, 1)),
+                cc.delayTime(2.0),
+                cc.callFunc(this.showGroup.bind(this))
+            ));
         }
         else {
-            this.runAction(cc.scaleTo(0.3, 0, 0));
+            this.runAction(new cc.EaseBackIn(cc.scaleTo(0.3, 0, 0)));
         }
     },
 

@@ -58,9 +58,9 @@ var BoardScene = BaseLayer.extend({
 
         this.pressedHuyBao = false;
 
-        //NewRankData
-        NewRankData.addMiniRankGUI(false);
-        var miniRankGUI = sceneMgr.getGUI(NewRankData.MINI_RANK_GUI_TAG);
+        //RankData
+        RankData.addMiniRankGUI(false);
+        var miniRankGUI = sceneMgr.getGUI(RankData.MINI_RANK_GUI_TAG);
         if (miniRankGUI) {
             this.btnMiniRank.setVisible(true);
             this.btnMiniRank.setOpacity(255);
@@ -364,7 +364,6 @@ var BoardScene = BaseLayer.extend({
         this.listTopRight.push(btnCamera);
         this.btnMiniRank = this.customizeButton("btnNewRank", GameLayer.BTN_NEW_RANK, this.pTopRight);
         this.listTopRight.push(this.btnMiniRank);
-        cc.log("BTN MINIRANK " + this.btnMiniRank);
         this.btnMiniRank.pArrow = this.getControl("pArrow", this.btnMiniRank);
         this.btnMiniRank.pArrow.setClippingEnabled(true);
         this.btnMiniRank.txtExpChange = this.getControl("txtExpChange", this.btnMiniRank);
@@ -849,7 +848,7 @@ var BoardScene = BaseLayer.extend({
                 try {
                     this.stopAction(this.clearResultAction);c
                 } catch (e) {}
-                NewRankData.checkOpenRank(false);
+                RankData.checkOpenRank(false);
 
                 /** Game sound */
                 gameSound.playStart2();
@@ -1533,7 +1532,7 @@ var BoardScene = BaseLayer.extend({
             }
             case GameLayer.BTN_CAMERA:
             {
-                // NewRankData.getInstance().fakeMyDataInWeek();
+                // RankData.getInstance().fakeMyDataInWeek();
                 // break;
                 this.addAvatarFixShare();
 
@@ -1594,9 +1593,9 @@ var BoardScene = BaseLayer.extend({
                     break;
                 }
 
-                var miniRankGUI = sceneMgr.getGUI(NewRankData.MINI_RANK_GUI_TAG);
+                var miniRankGUI = sceneMgr.getGUI(RankData.MINI_RANK_GUI_TAG);
                 if (miniRankGUI) {
-                    miniRankGUI.onButtonRelease(miniRankGUI.btnMiniRank, NewRankMiniGUI.BTN_MINI_RANK);
+                    miniRankGUI.onButtonRelease(miniRankGUI.btnMiniRank, RankMiniGUI.BTN_MINI_RANK);
                 }
                 break;
             }
@@ -1987,17 +1986,24 @@ var BoardScene = BaseLayer.extend({
         // this._players[playerPos].addEffectTime(7, 15);
 
         // Toi trang
+        // var playerPos = id - GameLayer.BTN_AVATAR_0;
+        // this._players[id - GameLayer.BTN_AVATAR_0].initCards([11, 12, 13, 14, 15, 16, 17, 18, 19, 20]);
+        // inGameMgr.gameLogic._players[playerPos]._ingame = true;
+        // this._players[playerPos].setVisible(true);
+        // this._players[playerPos]._card.setVisible(playerPos !== 0);
+        // this._effect2D.clearEffect();
+        // this._effect2D.effectToiTrang(
+        //     this._players[playerPos].danhbai([11, 12, 13, 14, 15, 16, 17, 18, 19, 20]),
+        //     GameLayer.END_TYPE_WIN_SAM_DINH,
+        //     playerPos === 0
+        // );
+
+        // Effect in out
         var playerPos = id - GameLayer.BTN_AVATAR_0;
-        this._players[id - GameLayer.BTN_AVATAR_0].initCards([11, 12, 13, 14, 15, 16, 17, 18, 19, 20]);
-        inGameMgr.gameLogic._players[playerPos]._ingame = true;
-        this._players[playerPos].setVisible(true);
-        this._players[playerPos]._card.setVisible(playerPos !== 0);
-        this._effect2D.clearEffect();
-        this._effect2D.effectToiTrang(
-            this._players[playerPos].danhbai([11, 12, 13, 14, 15, 16, 17, 18, 19, 20]),
-            GameLayer.END_TYPE_WIN_SAM_DINH,
-            playerPos === 0
-        );
+        inGameMgr.gameLogic._players[playerPos + 1]._ingame = true;
+        this._players[playerPos + 1].updateWithPlayer(inGameMgr.gameLogic._players[playerPos + 1]);
+        this._players[playerPos + 1].setVisible(true);
+        this._players[playerPos + 1].efxPlayerIn();
 
         // //Chat chong
         // var gold = 12345677;
@@ -2050,7 +2056,7 @@ var BoardScene = BaseLayer.extend({
         // var playerPos = id - GameLayer.BTN_AVATAR_0;
         // ChatMgr.playChatEffect(playerPos, "abc acb abc acb abc acb abc acb abc acb abc acb abc acb abc acb abc acb abc acb abc acb abc acb abc acb abc acb abc acb abc acb abc acb abc acb abc acb abc acb abc acb abc acb abc acb abc acb ");
 
-        // var miniRankGUI = sceneMgr.getGUI(NewRankData.MINI_RANK_GUI_TAG);
+        // var miniRankGUI = sceneMgr.getGUI(RankData.MINI_RANK_GUI_TAG);
         // if (miniRankGUI) {
         //     miniRankGUI.showExpChange(100, 2);
         // }

@@ -9,23 +9,26 @@ var PersonalInfoGUI = BaseLayer.extend({
         // this.btnClose.setVisible(false);
         this.btnConfirm = this.customButton("btnConfirm", PersonalInfoGUI.BTN_CONFIRM, this.bg);
 
+        this.context = this.getControl("content", this.getControl("icon"));
+        this.contextDone = this.getControl("content_done", this.getControl("icon"));
+
         this.pInfo = this.getControl("pInfo", this.bg);
 
         this.infoName = this.getControl("bgName", this.pInfo);
         this.txName = this.createExitBox(this.getControl("content", this.infoName), LocalizedString.to("PERSONAL_NAME"), PersonalInfoGUI.TF_NAME);
         this.txName.setMaxLength(100);
         this.infoName.addChild(this.txName);
-        
+
         this.infoIdentityCard = this.getControl("bgIdentityCard", this.pInfo);
         this.txIdentityCard = this.createExitBox(this.getControl("content", this.infoIdentityCard), LocalizedString.to("PERSONAL_CMND"), PersonalInfoGUI.TF_CMND);
         this.txIdentityCard.setMaxLength(100);
         this.infoIdentityCard.addChild(this.txIdentityCard);
-        
+
         this.infoEmail = this.getControl("bgEmail", this.pInfo);
         this.txEmail = this.createExitBox(this.getControl("content", this.infoEmail), LocalizedString.to("PERSONAL_EMAIL"), PersonalInfoGUI.TF_EMAIL);
         this.txEmail.setMaxLength(100);
         this.infoEmail.addChild(this.txEmail);
-        
+
         this.infoPhoneNumber = this.getControl("bgPhoneNumber", this.pInfo);
         this.txPhoneNumber = this.createExitBox(this.getControl("content", this.infoPhoneNumber), LocalizedString.to("PERSONAL_PHONE"), PersonalInfoGUI.TF_PHONE);
         if (cc.sys.isNative){
@@ -33,7 +36,7 @@ var PersonalInfoGUI = BaseLayer.extend({
         }
         this.txPhoneNumber.setMaxLength(100);
         this.infoPhoneNumber.addChild(this.txPhoneNumber);
-        
+
         this.infoAddress = this.getControl("bgAddress", this.pInfo);
         this.txAddress = this.createExitBox(this.getControl("content", this.infoAddress), LocalizedString.to("PERSONAL_ADDRESS"), PersonalInfoGUI.TF_ADDRESS);
         this.txAddress.setMaxLength(100);
@@ -52,15 +55,15 @@ var PersonalInfoGUI = BaseLayer.extend({
         var hadInfo = true;
         if (personalInfo && personalInfo !== ""){
             var detail = JSON.parse(personalInfo);
-            
-            if (detail["name"] === "" || detail["name"] === "" || detail["name"] === "" 
+
+            if (detail["name"] === "" || detail["name"] === "" || detail["name"] === ""
                 || detail["name"] === "" || detail["name"] === ""){
                 hadInfo = false;
             }
         } else {
             hadInfo = false;
         }
-        
+
         if (hadInfo){
             cc.log("thong tin ca nhan: " + JSON.stringify(detail));
             this.txName.setString(detail["name"]);
@@ -68,12 +71,6 @@ var PersonalInfoGUI = BaseLayer.extend({
             this.txIdentityCard.setString(detail["identityCard"]);
             this.txEmail.setString(detail["email"]);
             this.txPhoneNumber.setString(detail["phone"]);
-            // khong cho cap nhat lai nua
-            this.txName.setTouchEnabled(false);
-            this.txAddress.setTouchEnabled(false);
-            this.txIdentityCard.setTouchEnabled(false);
-            this.txEmail.setTouchEnabled(false);
-            this.txPhoneNumber.setTouchEnabled(false);
         } else {
             cc.log("chua co thong tin");
             this.txName.setString("");
@@ -81,15 +78,17 @@ var PersonalInfoGUI = BaseLayer.extend({
             this.txIdentityCard.setString("");
             this.txEmail.setString("");
             this.txPhoneNumber.setString("");
-
-            this.txName.setTouchEnabled(true);
-            this.txAddress.setTouchEnabled(true);
-            this.txIdentityCard.setTouchEnabled(true);
-            this.txEmail.setTouchEnabled(true);
-            this.txPhoneNumber.setTouchEnabled(true);
         }
-        
-        this.enableConfirmButton(hadInfo);
+
+        this.txName.setTouchEnabled(!hadInfo);
+        this.txAddress.setTouchEnabled(!hadInfo);
+        this.txIdentityCard.setTouchEnabled(!hadInfo);
+        this.txEmail.setTouchEnabled(!hadInfo);
+        this.txPhoneNumber.setTouchEnabled(!hadInfo);
+        this.context.setVisible(!hadInfo);
+        this.contextDone.setVisible(hadInfo);
+
+        this.enableConfirmButton(false);
     },
 
     onButtonRelease: function (btn, id) {
@@ -100,7 +99,7 @@ var PersonalInfoGUI = BaseLayer.extend({
 
         this.savePersonalInfo();
     },
-    
+
     savePersonalInfo: function(){
         if ((cc.sys.isNative && !this.txName.isTouchEnabled()) || (!cc.sys.isNative && !this.txName._touchEnabled)){
             this.onClose();
@@ -158,7 +157,7 @@ var PersonalInfoGUI = BaseLayer.extend({
             }
         }
 
-        if (!ok) {
+        if (!ok && alert) {
             Toast.makeToast(Toast.SHORT, alert);
         }
 
@@ -169,7 +168,28 @@ var PersonalInfoGUI = BaseLayer.extend({
     validateEmail: function (email, alert) {
         var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         var ok = re.test(email);
-        if (!ok) {
+        if (!ok && alert) {
+            Toast.makeToast(Toast.SHORT, alert);
+        }
+        return ok;
+    },
+
+    validateName: function (name, alert) {
+        if (!this.checkTextInput(name, 3, alert? LocalizedString.to("PERSONAL_INPUT_NAME") : null)) {
+            return false;
+        }
+        name = name.toLowerCase();
+        name = name.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
+        name = name.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e");
+        name = name.replace(/ì|í|ị|ỉ|ĩ/g, "i");
+        name = name.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g, "o");
+        name = name.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u");
+        name = name.replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y");
+        name = name.replace(/đ/g, "d");
+        cc.log("validateName", name);
+        var re = /^[a-zA-Z ]{2,}$/g;
+        var ok = re.test(name);
+        if (!ok && alert) {
             Toast.makeToast(Toast.SHORT, alert);
         }
         return ok;
@@ -191,7 +211,7 @@ var PersonalInfoGUI = BaseLayer.extend({
         switch (tag) {
             case PersonalInfoGUI.TF_NAME:
             {
-                this.checkTextInput(str, 3, LocalizedString.to("PERSONAL_INPUT_NAME"));
+                this.validateName(str, LocalizedString.to("PERSONAL_INPUT_NAME_ERROR"));
                 break;
             }
             case PersonalInfoGUI.TF_ADDRESS:
@@ -226,7 +246,7 @@ var PersonalInfoGUI = BaseLayer.extend({
         var sdt = this.txPhoneNumber.getString().trim();
         var email = this.txEmail.getString().trim();
 
-        if (name.length < 3 || address.length < 3 || cmnd.length < 9 || sdt.length < 9 || email.length < 3) {
+        if (!this.validateName(name) || address.length < 3 || cmnd.length < 9 || sdt.length < 9 || !this.validateEmail(email)) {
             this.enableConfirmButton(false);
             return false;
         }

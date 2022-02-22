@@ -59,11 +59,10 @@ var UserInfoPanel = BaseLayer.extend({
         this.bgImage = this.getControl("bgImage", this.bg);
         var pAvatar = this.getControl("pAvatar", this.bg);
         var pUserInfo = this.getControl("pUserInfo", this.bg);
-        var tabBg = this.getControl("tabBg", this.bg);
+        var tabInfo = this.getControl("pUserInfo", pUserInfo);
 
         //buttons
         this.btnClose = this.customButton("btnClose", UserInfoPanel.BTN_ClOSE, this.bg);
-        this.customButton("btnCloseOther", UserInfoPanel.BTN_ClOSE);
         this.btnSendMessage = this.customButton("btnChat", UserInfoPanel.BTN_SEND_CHAT, this.bg);
         this.btnAddFriend = this.customButton("btnAddFriend", UserInfoPanel.BTN_ADD_FRIEND, this.bg);
         this.btnRemoveFriend = this.customButton("btnRemoveFriend", UserInfoPanel.BTN_REMOVE_FRIEND, this.bg);
@@ -123,16 +122,6 @@ var UserInfoPanel = BaseLayer.extend({
             this.pChooseAvatar.list.push(avatarDefault);
         }
 
-        //tabs
-        this.btnTabInfo = this.customButton("btnTabInfo", UserInfoPanel.BTN_TAB_INFO, tabBg);
-        this.btnTabInfo.setZoomScale(0);
-        this.tabButtons[UserInfoPanel.BTN_TAB_INFO] = this.btnTabInfo;
-        this.btnTabInteract = this.customButton("btnTabInteract", UserInfoPanel.BTN_TAB_INTERACT, tabBg);
-        this.btnTabInteract.setZoomScale(0);
-        this.tabButtons[UserInfoPanel.BTN_TAB_INTERACT] = this.btnTabInteract;
-        var tabInfo = this.tabs[UserInfoPanel.BTN_TAB_INFO] = this.getControl("pInfo", tabBg);
-        var tabInteract = this.tabs[UserInfoPanel.BTN_TAB_INTERACT] = this.getControl("pInteract", tabBg);
-
         //info
         this.winCount = this.getControl("win", tabInfo);
         this.winCount.ignoreContentAdaptWithSize(true);
@@ -159,15 +148,16 @@ var UserInfoPanel = BaseLayer.extend({
         this.bronzeMedal.ignoreContentAdaptWithSize(true);
 
         //interact
+        this.pInteract = this.getControl("pInteract", pUserInfo);
         this.initTabInteract();
-        var pTable = this.getControl("pTable", tabInteract);
-        this.tbInteract = new cc.TableView(this, pTable.getContentSize());
+        this.tbInteract = new cc.TableView(this, this.pInteract.getContentSize());
         this.tbInteract.setAnchorPoint(0, 0);
         this.tbInteract.setPosition(0, 0);
         this.tbInteract.setDirection(cc.SCROLLVIEW_DIRECTION_VERTICAL);
         this.tbInteract.setVerticalFillOrder(0);
         this.tbInteract.setDelegate(this);
-        pTable.addChild(this.tbInteract);
+        this.pInteract.addChild(this.tbInteract);
+
 
         this.enableFog();
         this.setBackEnable(true);
@@ -303,8 +293,7 @@ var UserInfoPanel = BaseLayer.extend({
 
     /* region Tab Interact */
     initTabInteract: function() {
-        var tabInteract = this.tabs[UserInfoPanel.BTN_TAB_INTERACT];
-        var tbSize = tabInteract.getContentSize();
+        var tbSize = this.pInteract.getContentSize();
         this.numRow = UserInfoPanelInteractCell.NUM_ROW;
         this.itemSize = (tbSize.height - (UserInfoPanelInteractCell.PADDING * this.numRow * 2)) / this.numRow;
         this.cellSize = cc.size(UserInfoPanelInteractCell.PADDING * 2 + this.itemSize + UserInfoPanelInteractCell.MARGIN * 2, tbSize.height);
@@ -525,20 +514,19 @@ var UserInfoPanel = BaseLayer.extend({
 
         //load interact data
         this.loadInteractData();
-        this.btnTabInteract.setVisible(this._user.getUID() != userMgr.getUID());
         this.tbInteract.reloadData();
         //this.selectTab(this._user.uID == gamedata.userData.uID ? UserInfoPanel.BTN_TAB_INFO : UserInfoPanel.BTN_TAB_INTERACT);
     },
 
     setInfoRank: function() {
-        var canJoinRank = this._user.level >= NewRankData.MIN_LEVEL_JOIN_RANK && !Config.ENABLE_TESTING_NEW_RANK && Config.ENABLE_NEW_RANK;
+        var canJoinRank = this._user.level >= RankData.MIN_LEVEL_JOIN_RANK && !Config.ENABLE_TESTING_NEW_RANK && Config.ENABLE_NEW_RANK;
         this.rankNotice.setVisible(!canJoinRank);
         this.txtRank.setVisible(canJoinRank);
         this.pMedal.setVisible(canJoinRank);
         this.imgRank.setColor((canJoinRank) ? cc.color("#ffffff") : cc.color("#000000"));
         var conditionKey = (this._user.getUID() === userMgr.getUID()) ? "NEW_RANK_MY_CONDITION" : "NEW_RANK_OTHER_CONDITION";
         if (Config.ENABLE_TESTING_NEW_RANK || !Config.ENABLE_NEW_RANK) conditionKey = "NEW_RANK_COMING_SOON";
-        var conditionStr = StringUtility.replaceAll(localized(conditionKey), "@number", NewRankData.MIN_LEVEL_JOIN_RANK);
+        var conditionStr = StringUtility.replaceAll(localized(conditionKey), "@number", RankData.MIN_LEVEL_JOIN_RANK);
         this.rankNotice.setString(conditionStr);
         StringUtility.breakLabelToMultiLine(this.rankNotice, this.rankNotice.getParent().width - 80);
         if (!canJoinRank) {
@@ -550,18 +538,18 @@ var UserInfoPanel = BaseLayer.extend({
         var bronzeMedal = this._user.bronzeMedal;
         var rank = this._user.rank;
         if (this._user.uID === userMgr.getUID()) {
-            goldMedal = NewRankData.getInstance().getNumberGoldMedal();
-            silverMedal = NewRankData.getInstance().getNumberSilverMedal() || 0;
-            bronzeMedal = NewRankData.getInstance().getNumberBronzeMedal() || 0;
-            rank = NewRankData.getInstance().getCurRankInfo()["rank"] || 0;
+            goldMedal = RankData.getInstance().getNumberGoldMedal();
+            silverMedal = RankData.getInstance().getNumberSilverMedal() || 0;
+            bronzeMedal = RankData.getInstance().getNumberBronzeMedal() || 0;
+            rank = RankData.getInstance().getCurRankInfo()["rank"] || 0;
         }
         this.goldMedal.setString(StringUtility.pointNumber(goldMedal));
         this.silverMedal.setString(StringUtility.pointNumber(silverMedal));
         this.bronzeMedal.setString(StringUtility.pointNumber(bronzeMedal));
-        this.txtRank.setString(NewRankData.getRankName(rank).toUpperCase());
-        //this.imgRank.loadTexture(NewRankData.getRankImg(rank), ccui.Widget.PLIST_TEXTURE);
-        //this.levelRank.loadTexture(NewRankData.getRankLevelImg(rank), ccui.Widget.PLIST_TEXTURE);
-        this.levelRank.setVisible(rank < NewRankData.MAX_RANK);
+        this.txtRank.setString(RankData.getRankName(rank).toUpperCase());
+        //this.imgRank.loadTexture(RankData.getRankImg(rank), ccui.Widget.PLIST_TEXTURE);
+        //this.levelRank.loadTexture(RankData.getRankLevelImg(rank), ccui.Widget.PLIST_TEXTURE);
+        this.levelRank.setVisible(rank < RankData.MAX_RANK);
 
         var oldAnim = this.imgRank.getChildByTag(50);
         if (oldAnim) {

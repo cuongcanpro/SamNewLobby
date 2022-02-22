@@ -226,7 +226,7 @@ let FortuneCatIcon = cc.Node.extend({
         let ingameIconOffsetXWithoutRank = 30;
 
         ///ingame scene has rank icon
-        if (gamedata.getUserLevel() >= NewRankData.MIN_LEVEL_JOIN_RANK){
+        if (gamedata.getUserLevel() >= RankData.MIN_LEVEL_JOIN_RANK){
             iconX = winSize.width - ingameIconOffsetXWithRank;
             iconY = winSize.height - ingameIconOffsetY;
         }

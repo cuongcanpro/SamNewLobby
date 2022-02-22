@@ -598,7 +598,7 @@ var ZingCardPanel = BaseLayer.extend({
 
     initGUI: function () {
         this._layout.setScale(this._scale);
-
+       // this._layout.setVisible(false);
         this.btnPurchase = this.customButton("purchase", ZingCardPanel.BTN_PURCHASE);
         this.pInput = this.getControl("pInput");
 

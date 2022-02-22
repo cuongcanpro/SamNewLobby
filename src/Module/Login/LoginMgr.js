@@ -82,7 +82,7 @@ var LoginMgr = BaseMgr.extend({
                     this.sendPacket(request);
                     request.clean();
 
-                    NewRankData.connectToServerRank();
+                    RankData.connectToServerRank();
                     broadcastMgr.onStart();
                     // reset du lieu cua moi Module khi nhan duoc goi Login
                     gameMgr.resetData();
@@ -132,7 +132,7 @@ var LoginMgr = BaseMgr.extend({
                     GameClient.getInstance().connect();
                 }, 1000);
 
-                NewRankData.disconnectServer();
+                RankData.disconnectServer();
                 return true;
             }
         }

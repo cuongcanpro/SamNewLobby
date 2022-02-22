@@ -76,7 +76,7 @@ var PingPongHandler = cc.Class.extend({
 
         GameClient.connectLai = !!CheckLogic.checkInBoard();
 
-        NewRankData.disconnectServer();
+        RankData.disconnectServer();
     },
 
     updatePing : function (dt) {

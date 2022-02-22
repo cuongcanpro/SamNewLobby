@@ -381,7 +381,7 @@ var LoginScene = BaseLayer.extend({
         {
             var sFake = parseInt(this.login_tfName.getString());
             if(!sFake) sFake = "1";
-            gameMgr.setSessionKey(sFake);
+            loginMgr.setSessionKey(sFake);
             GameClient.getInstance().connect();
             return;
         }

@@ -616,9 +616,9 @@
               "Plist": ""
             },
             "Scale9OriginX": 253,
-            "Scale9OriginY": 13,
-            "Scale9Width": 262,
-            "Scale9Height": 4,
+            "Scale9OriginY": 17,
+            "Scale9Width": 705,
+            "Scale9Height": 39,
             "StretchWidthEnable": true,
             "AnchorPoint": {
               "ScaleX": 0.5
@@ -856,8 +856,8 @@
                 "Scale9Enable": true,
                 "Scale9OriginX": 15,
                 "Scale9OriginY": 11,
-                "Scale9Width": 71,
-                "Scale9Height": 39,
+                "Scale9Width": 112,
+                "Scale9Height": 89,
                 "OutlineSize": 0,
                 "OutlineColor": {
                   "G": 0,
@@ -960,25 +960,25 @@
                   "B": 70
                 },
                 "DisabledFileData": {
-                  "Type": "Default",
-                  "Path": "Default/Button_Disable.png",
+                  "Type": "Normal",
+                  "Path": "LobbyGUI/btnGiftCode.png",
                   "Plist": ""
                 },
                 "PressedFileData": {
                   "Type": "Normal",
-                  "Path": "LobbyGUI/btnGuiGiftCode.png",
+                  "Path": "LobbyGUI/btnGiftCode.png",
                   "Plist": ""
                 },
                 "NormalFileData": {
                   "Type": "Normal",
-                  "Path": "LobbyGUI/btnGuiGiftCode.png",
+                  "Path": "LobbyGUI/btnGiftCode.png",
                   "Plist": ""
                 },
                 "Scale9Enable": true,
                 "Scale9OriginX": 14,
                 "Scale9OriginY": 11,
-                "Scale9Width": 65,
-                "Scale9Height": 19,
+                "Scale9Width": 62,
+                "Scale9Height": 68,
                 "OutlineColor": {
                   "G": 0,
                   "B": 0
@@ -1010,96 +1010,20 @@
                   "Y": 0.2435
                 },
                 "PreSize": {
-                  "X": 0.1163,
-                  "Y": 0.41
+                  "X": 0.1125,
+                  "Y": 0.9
                 },
-                "LeftMargin": 651.0892,
-                "RightMargin": 55.9108,
-                "TopMargin": 55.1462,
-                "BottomMargin": 3.8538,
+                "LeftMargin": 652.5892,
+                "RightMargin": 57.4108,
+                "TopMargin": 30.6462,
+                "BottomMargin": -20.6462,
                 "Tag": 393,
                 "ActionTag": -1190761846,
                 "Size": {
-                  "X": 93.0,
-                  "Y": 41.0
+                  "X": 90.0,
+                  "Y": 90.0
                 },
                 "Name": "btnGiftCode",
-                "ctype": "ButtonObjectData"
-              },
-              {
-                "FontSize": 14,
-                "ButtonText": "",
-                "TextColor": {
-                  "R": 65,
-                  "G": 65,
-                  "B": 70
-                },
-                "DisabledFileData": {
-                  "Type": "Default",
-                  "Path": "Default/Button_Disable.png",
-                  "Plist": ""
-                },
-                "PressedFileData": {
-                  "Type": "Normal",
-                  "Path": "LobbyGUI/iconVip.png",
-                  "Plist": ""
-                },
-                "NormalFileData": {
-                  "Type": "Normal",
-                  "Path": "LobbyGUI/iconVip.png",
-                  "Plist": ""
-                },
-                "Scale9Enable": true,
-                "Scale9OriginX": 15,
-                "Scale9OriginY": 11,
-                "Scale9Width": 9,
-                "Scale9Height": 7,
-                "OutlineColor": {
-                  "G": 0,
-                  "B": 0
-                },
-                "ShadowColor": {
-                  "R": 110,
-                  "G": 110,
-                  "B": 110
-                },
-                "ShadowOffsetX": 2.0,
-                "ShadowOffsetY": -2.0,
-                "TouchEnable": true,
-                "AnchorPoint": {
-                  "ScaleX": 0.5,
-                  "ScaleY": 0.5
-                },
-                "Position": {
-                  "X": 652.626,
-                  "Y": 27.6563
-                },
-                "Scale": {
-                  "ScaleX": 1.0,
-                  "ScaleY": 1.0
-                },
-                "CColor": {},
-                "IconVisible": false,
-                "PrePosition": {
-                  "X": 0.8158,
-                  "Y": 0.2766
-                },
-                "PreSize": {
-                  "X": 0.0487,
-                  "Y": 0.29
-                },
-                "LeftMargin": 633.126,
-                "RightMargin": 127.874,
-                "TopMargin": 57.8437,
-                "BottomMargin": 13.1563,
-                "Tag": 394,
-                "ActionTag": -1346539864,
-                "Size": {
-                  "X": 39.0,
-                  "Y": 29.0
-                },
-                "VisibleForFrame": false,
-                "Name": "btnVip",
                 "ctype": "ButtonObjectData"
               },
               {
@@ -1181,8 +1105,8 @@
                 "Scale9Enable": true,
                 "Scale9OriginX": 15,
                 "Scale9OriginY": 11,
-                "Scale9Width": 58,
-                "Scale9Height": 66,
+                "Scale9Width": 42,
+                "Scale9Height": 50,
                 "OutlineColor": {
                   "G": 0,
                   "B": 0
@@ -1315,19 +1239,19 @@
                   "Y": 0.147
                 },
                 "PreSize": {
-                  "X": 0.145,
-                  "Y": 0.23
+                  "X": 0.1312,
+                  "Y": 0.2
                 },
-                "LeftMargin": 36.1722,
-                "RightMargin": 647.8278,
-                "TopMargin": 73.799,
-                "BottomMargin": 3.201,
+                "LeftMargin": 41.6722,
+                "RightMargin": 653.3278,
+                "TopMargin": 75.299,
+                "BottomMargin": 4.701,
                 "UserData": "subText",
                 "Tag": 398,
                 "ActionTag": 497264158,
                 "Size": {
-                  "X": 116.0,
-                  "Y": 23.0
+                  "X": 105.0,
+                  "Y": 20.0
                 },
                 "Name": "name",
                 "ctype": "TextObjectData"
@@ -1403,8 +1327,8 @@
                 "Scale9Enable": true,
                 "Scale9OriginX": 15,
                 "Scale9OriginY": 11,
-                "Scale9Width": 77,
-                "Scale9Height": 2,
+                "Scale9Width": 102,
+                "Scale9Height": 6,
                 "OutlineColor": {
                   "G": 0,
                   "B": 0
@@ -1870,9 +1794,8 @@
         "LobbyGUI/btnAddG.png",
         "LobbyGUI/btnAddGold.png",
         "LobbyGUI/btnDoiVang.png",
-        "LobbyGUI/btnGuiGiftCode.png",
+        "LobbyGUI/btnGiftCode.png",
         "LobbyGUI/hot.png",
-        "LobbyGUI/iconVip.png",
         "LobbyGUI/separator.png"
       ],
       "ctype": "GameFileData"

@@ -95,7 +95,7 @@ var GameClient = cc.Class.extend({
         sceneMgr.clearLoading();
         GameClient.destroyInstance();
         GameClient.disconnectHandle();
-        NewRankData.disconnectServer();
+        RankData.disconnectServer();
     },
 
     retryManualConnect: function() {
@@ -227,7 +227,7 @@ GameClient.connectFailedHandle = function () {
         GameClient.processRetryConnect();
     }
 
-    NewRankData.disconnectServer();
+    RankData.disconnectServer();
 };
 
 GameClient.processRetryConnect = function () {

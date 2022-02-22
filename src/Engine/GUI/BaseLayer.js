@@ -384,11 +384,12 @@ var BaseLayer  = cc.Layer.extend({
             return null;
         }
         this.analyzeCustomControl(control);
-        control.defaultPos = control.getPosition();
+        if (!control.defaultPos) control.defaultPos = control.getPosition();
         return control;
     },
 
     processScaleControl : function (control,direct) {
+        return;
         if(direct === undefined)
         {
             control.setScale(this._scale);

@@ -44,7 +44,7 @@ var TimeoutConnectHandler = cc.Class.extend({
             });
         }
 
-        NewRankData.disconnectServer();
+        RankData.disconnectServer();
     },
 
     updateCountDown : function (dt) {

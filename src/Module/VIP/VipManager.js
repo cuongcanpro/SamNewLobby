@@ -14,8 +14,6 @@ var VipManager = BaseMgr.extend({
         this.benefitConfig = null;
         this.beanNeedSupportConfig = null;
         VipManager.preloadResource();
-        // this.dataConvert =  {"gstar":"1000","oldVip":1,"oldTime":"86334447","newLevel":0,"vPointG":"875","vPointV":"4400","remainTime":"86399999","goldBonus":"1000"};
-        // this.saveDailyBonusGold(200000);
     },
 
     update: function (dt) {
@@ -23,7 +21,10 @@ var VipManager = BaseMgr.extend({
     },
 
     initListener: function () {
+        //Add function to others event
         dispatcherMgr.addListener(LobbyMgr.EVENT_ON_ENTER_FINISH, this, this.onEnterLobby);
+
+        //Add event to my functions
     },
 
     onEnterLobby: function () {
@@ -32,6 +33,7 @@ var VipManager = BaseMgr.extend({
     },
 
     setConfig: function (config) {
+        cc.log("THE VIP CONFIG", JSON.stringify(config));
         this.vipConfig = [];
         var vObj = config["VIP"];
         var spObj = config["beanSuports"];
@@ -219,7 +221,6 @@ var VipManager = BaseMgr.extend({
         if (benefitConfig){
             var packages = benefitConfig["package"];
             var benefit = packages[vipLevel + ""];
-
             for (var key in benefit){
                 if ((isGetFull || benefit[key]) && (key !== "0" && key !== "8")){
                     listBenefit.push({index: key, value:benefit[key]});
@@ -291,6 +292,45 @@ var VipManager = BaseMgr.extend({
             return localized("VIP_TURN_ON");
         }
         return StringUtility.formatNumberSymbol(value);
+    },
+
+    getValuePhrase: function (type, value) {
+        var result = null;
+        switch (parseInt(type)) {
+            case VipManager.BENEFIT_GOLD_INSTANT:
+            case VipManager.BENEFIT_GOLD_DAILY:
+                result = {
+                    phrase: "@number",
+                    type: EffectMgr.TYPE_NUMBER_FORMAT
+                }
+                break;
+            case VipManager.BENEFIT_GOLD_SUPPORT:
+                result = {
+                    phrase: "@numberx" + value["num"],
+                    type: EffectMgr.TYPE_NUMBER_FORMAT
+                }
+                break;
+            case VipManager.BENEFIT_HOUR_INSTANT:
+                var str = localized("VIP_FORMAT_DAY");
+                str = StringUtility.replaceAll(str, "@day", "@number");
+                result = {
+                    phrase: str,
+                    type: EffectMgr.TYPE_NUMBER
+                }
+                break;
+            case VipManager.BENEFIT_BONUS_SPIN:
+            case VipManager.BENEFIT_BONUS_SHOP:
+            case VipManager.BENEFIT_BONUS_TAX:
+                result = {
+                    phrase: "@number%",
+                    type: EffectMgr.TYPE_NUMBER
+                }
+                break;
+            default:
+                result = null;
+                break;
+        }
+        return result;
     },
 
     getDataSave: function(){
@@ -374,7 +414,30 @@ var VipManager = BaseMgr.extend({
         return (this.getRealVipLevel() > 0);
     },
 
-    onReceive: function (cmd, data) {
+    updateTimeVip: function (dt) {
+        var remainTime = this.getRemainTime();
+        if (remainTime <= 0){
+            return;
+        }
+        remainTime -= dt * 1000;
+        this.setRemainTime(remainTime);
+        if (remainTime <= 0){
+            var cmdEvent = new CmdSendRequestEventShop();
+            GameClient.getInstance().sendPacket(cmdEvent);
+        }
+    },
+
+    sendGetVipInfo: function () {
+        var getInfoVip = new CmdSendGetVipInfo();
+        GameClient.getInstance().sendPacket(getInfoVip);
+        getInfoVip.clean();
+    },
+
+    showVipProgress: function () {
+
+    },
+
+    onReceived: function (cmd, data) {
         switch (cmd) {
             case VipManager.CMD_VIP_INFO: {
                 var vipInfo = new CmdReceiveNewVipInfo(data);
@@ -409,25 +472,6 @@ var VipManager = BaseMgr.extend({
                 break;
             }
         }
-    },
-
-    updateTimeVip: function (dt) {
-        var remainTime = this.getRemainTime();
-        if (remainTime <= 0){
-            return;
-        }
-        remainTime -= dt * 1000;
-        this.setRemainTime(remainTime);
-        if (remainTime <= 0){
-            var cmdEvent = new CmdSendRequestEventShop();
-            GameClient.getInstance().sendPacket(cmdEvent);
-        }
-    },
-
-    sendGetVipInfo: function () {
-        var getInfoVip = new CmdSendGetVipInfo();
-        GameClient.getInstance().sendPacket(getInfoVip);
-        getInfoVip.clean();
     }
 });
 
@@ -519,11 +563,19 @@ VipManager.getImageVip = function (vipLevel) {
     return "res/Lobby/GUIVipNew/iconVipNormal/iconVipNormal" + vipLevel + ".png";
 };
 
-VipManager.getImageUpVip = function (vipLevel) {
+VipManager.getImageUpVip = function (vipLevel, isWhite) {
     if (vipLevel < 1 || vipLevel > VipManager.NUMBER_VIP){
         return "res/Lobby/GUIVipNew/imgVipFree.png";
     }
-    return "res/Lobby/GUIVipNew/imgUpLevel/imgUpVip" + vipLevel + ".png";
+    return "res/Lobby/GUIVipNew/imgUpLevel/imgUpVip"+ vipLevel + (isWhite? "_w" : "")  + ".png";
+};
+
+VipManager.getIconVpoint = function () {
+    return "res/Lobby/GUIVipNew/iconVpoint.png";
+};
+
+VipManager.getIconHour = function () {
+    return "res/Lobby/GUIVipNew/iconTime.png";
 };
 
 VipManager.preloadResource = function(){
@@ -532,8 +584,8 @@ VipManager.preloadResource = function(){
 
     // cc.spriteFrameCache.addSpriteFrames("EventMgr/PotBreakerRes/gold.plist");
 
-    db.DBCCFactory.getInstance().loadDragonBonesData(folder + "Ngoc1/skeleton.xml","Ngoc1");
-    db.DBCCFactory.getInstance().loadTextureAtlas(folder + "Ngoc1/texture.plist", "Ngoc1");
+    db.DBCCFactory.getInstance().loadDragonBonesData(folder + "Gem/skeleton.xml", "Gem");
+    db.DBCCFactory.getInstance().loadTextureAtlas(folder + "Gem/texture.plist", "Gem");
 
     db.DBCCFactory.getInstance().loadDragonBonesData(folder + "Highlight/skeleton.xml","Highlight");
     db.DBCCFactory.getInstance().loadTextureAtlas(folder + "Highlight/texture.plist", "Highlight");
@@ -574,12 +626,11 @@ VipManager.viewedNewVip = function(){
 };
 
 VipManager.openVip = function(oldScene){
-    var scene = sceneMgr.getRunningScene().getMainLayer();
-    if (scene instanceof LobbyScene && VipManager.checkNotifyNewVip()) {
-        sceneMgr.openGUI(VipIntroGUI.className);
-        return;
+    if (vipMgr.getVipLevel() > 0) {
+        sceneMgr.openScene(VipScene.className, oldScene);
+    } else {
+        sceneMgr.openGUI(VipStarter.className);
     }
-    sceneMgr.openScene(VipScene.className, oldScene);
 };
 
 VipManager.effectVipShopInfo = function(scene, isEffect){
@@ -628,7 +679,7 @@ VipManager.effectVipShopInfo = function(scene, isEffect){
     var vpoint = VipManager.getInstance().getVpoint();
     // cc.log("vPoint: ", vpoint);
     if (isEffect){
-        VipScene.runEffectProgressVip(scene.bgProgressVip, scene.progressVip, scene.txtProgress, scene.imgVpoint, 0.7, 0, vpoint, levelVip, scene.iconCurVip, scene.iconNextVip);
+        VipSceneOld.runEffectProgressVip(scene.bgProgressVip, scene.progressVip, scene.txtProgress, scene.imgVpoint, 0.7, 0, vpoint, levelVip, scene.iconCurVip, scene.iconNextVip);
     } else {
         scene.txtProgress.setString(StringUtility.pointNumber(vpoint) + " / " +StringUtility.pointNumber(nextLevelExp));
         var percent = vpoint / nextLevelExp * 100;
@@ -712,6 +763,16 @@ VipManager.setNextLevelVip = function (data) {
         }
     }
 }
+VipManager.BENEFIT_GOLD_INSTANT = 1;
+VipManager.BENEFIT_GOLD_DAILY = 2;
+VipManager.BENEFIT_GOLD_SUPPORT = 3;
+VipManager.BENEFIT_BONUS_SHOP = 4;
+VipManager.BENEFIT_SPECIAL_EFFECT = 5;
+VipManager.BENEFIT_SPECIAL_INTERACTION = 6;
+VipManager.BENEFIT_BONUS_TAX = 7;
+VipManager.BENEFIT_BONUS_SPIN = 8;
+VipManager.BENEFIT_HOUR_INSTANT = 9;
+VipManager.BENEFIT_ORDER = [-1, 3, 1, 2, 6, 7, 8, 0, 4, 5];
 
 VipManager.NUMBER_VIP = 10;
 VipManager.NUMBER_BENEFIT = 10;
@@ -720,8 +781,8 @@ VipManager.TYPE_BENEFIT_INTERACT_ITEM = 6;
 
 VipManager.RELEASE_DATE = "17-07-2020";
 
+VipManager.EVENT_SHOW_VIP_PROGRESS = "vipMgrShowVIPProgress";
 VipManager.instance = null;
-
 VipManager.getInstance = function () {
     if (VipManager.instance == null){
         VipManager.instance = new VipManager();
