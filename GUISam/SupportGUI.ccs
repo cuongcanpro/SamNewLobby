@@ -4,9 +4,31 @@
     <Group ctype="ResourceGroup">
       <RootFolder Name=".">
         <Folder Name="Common">
-          <PlistImageFolder Image="coin.png" PListFile="coin.plist" Name=".coin_PList.Dir" />
-          <PlistImageFolder Image="coinNew.png" PListFile="coinNew.plist" Name=".coinNew_PList.Dir" />
-          <PlistImageFolder Image="gold.png" PListFile="gold.plist" Name=".gold_PList.Dir" />
+          <PlistImageFolder Image="coin.png" PListFile="coin.plist" Name=".coin_PList.Dir">
+            <PlistImageFile Name="coin0.png" Key="coin0.png" />
+            <PlistImageFile Name="coin1.png" Key="coin1.png" />
+            <PlistImageFile Name="coin2.png" Key="coin2.png" />
+            <PlistImageFile Name="coin3.png" Key="coin3.png" />
+            <PlistImageFile Name="coin4.png" Key="coin4.png" />
+            <PlistImageFile Name="coin5.png" Key="coin5.png" />
+            <PlistImageFile Name="coin6.png" Key="coin6.png" />
+            <PlistImageFile Name="coin7.png" Key="coin7.png" />
+          </PlistImageFolder>
+          <PlistImageFolder Image="coinNew.png" PListFile="coinNew.plist" Name=".coinNew_PList.Dir">
+            <PlistImageFile Name="coinNew0.png" Key="coinNew0.png" />
+            <PlistImageFile Name="coinNew1.png" Key="coinNew1.png" />
+            <PlistImageFile Name="coinNew2.png" Key="coinNew2.png" />
+            <PlistImageFile Name="coinNew3.png" Key="coinNew3.png" />
+            <PlistImageFile Name="coinNew4.png" Key="coinNew4.png" />
+            <PlistImageFile Name="coinNew5.png" Key="coinNew5.png" />
+          </PlistImageFolder>
+          <PlistImageFolder Image="gold.png" PListFile="gold.plist" Name=".gold_PList.Dir">
+            <PlistImageFile Name="gold0.png" Key="gold0.png" />
+            <PlistImageFile Name="gold1.png" Key="gold1.png" />
+            <PlistImageFile Name="gold2.png" Key="gold2.png" />
+            <PlistImageFile Name="gold3.png" Key="gold3.png" />
+            <PlistImageFile Name="gold4.png" Key="gold4.png" />
+          </PlistImageFolder>
           <Folder Name="IconVip">
             <Image Name="iconVip1.png" />
             <Image Name="iconVip10.png" />

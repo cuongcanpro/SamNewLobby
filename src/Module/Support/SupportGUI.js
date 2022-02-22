@@ -38,19 +38,25 @@ var GUISupportInfo = BaseLayer.extend({
 
         this.totalValue = new NumberGroupCustom("res/Lobby/ShopIAP/Number/num_", -4, NumberGroupCustom.TYPE_POINT);
         this.totalValue.setPosition(this.bg.width/2, 55);
-        this.totalValue.setScale(0.95);
-        this.totalValue.setPosition(this.btnReceive.getPositionX(), this.btnReceive.getPositionY() + this.btnReceive.getContentSize().height * 1.0);
+        this.totalValue.setScale(1.05);
+        this.totalValue.setPosition(this.btnReceive.getPositionX(), this.btnReceive.getPositionY() + this.btnReceive.getContentSize().height * 0.8);
         this.bg.addChild(this.totalValue);
 
         this.description = this.getControl("text", this.bg);
         this.description.ignoreContentAdaptWithSize(true);
-        this.valueBonusLevel = this.getControl("valueBonusLevel", this.bg);
-        this.valueBonusEvent = this.getControl("valueBonusEvent", this.bg);
-        this.valueBonusVip = this.getControl("valueBonusVip", this.bg);
-        var bg1 = this.getControl("bgVip", this.bg);
+
+        this.bgGift = this.getControl("bgGift", this.bg);
+        this.valueBonusLevel = this.getControl("valueBonusLevel", this.bgGift);
+        this.valueBonusEvent = this.getControl("valueBonusEvent", this.bgGift);
+        this.valueBonusVip = this.getControl("valueBonusVip", this.bgGift);
+
+        var bg1 = this.getControl("bgVip", this.bgGift);
         this.imgVip = bg1.getChildByName("icon");
         this.labelLevel = this.getControl("lbBonusLevel", this.bg);
         this.labelVip = this.getControl("lbBonusLevel", this.bg);
+
+        this.bgGiftSpecial = this.getControl("bgGiftSpecial", this.bg);
+        this.valueBonusSpecial = this.getControl("valueBonusSpecial", this.bgGiftSpecial);
 
         this.enableFog();
     },
@@ -65,6 +71,8 @@ var GUISupportInfo = BaseLayer.extend({
         this.btnReceive.setVisible(false);
         this.btnClose.setVisible(false);
         this.btnReceived.setVisible(false);
+        this.bgGift.setVisible(false);
+        this.bgGiftSpecial.setVisible(false);
         if (money > 0) {
             this.totalValue.setNumber(money);
             if (!isSpecial) {
@@ -74,10 +82,13 @@ var GUISupportInfo = BaseLayer.extend({
                     this.description.setString(StringUtility.replaceAll(LocalizedString.to("SUPPORT_MONEY_NUM_1"), "@num", supportMgr.numSupport));
                 else
                     this.description.setString("");
+                this.bgGift.setVisible(true);
             }
             else{
                 isShowSpecial = true;
                 this.description.setString(LocalizedString.to("SUPPORT_MONEY_SPECIAL"));
+                this.bgGiftSpecial.setVisible(true);
+                this.valueBonusSpecial.setString("+" + StringUtility.pointNumber(money));
             }
             this.btnReceive.setVisible(true);
         }
@@ -85,6 +96,7 @@ var GUISupportInfo = BaseLayer.extend({
             var specialSupport = supportMgr.specialSupport.bonusGold;
             if (supportMgr.numSupport <= 0){
                 var checkSpecial = supportMgr.checkInSpecialTimeSupport();
+
                 if (checkSpecial && checkSpecial.error == 0){       //not special time yet
                     isShowSpecial = true;
                     this.description.setString(StringUtility.replaceAll(LocalizedString.to("SUPPORT_MONEY_SPECIAL_2"), "@time", checkSpecial.time + "\n"));
@@ -95,7 +107,7 @@ var GUISupportInfo = BaseLayer.extend({
                     this.description.setString(StringUtility.replaceAll(LocalizedString.to("SUPPORT_INFO_3"), "@time", checkSpecial.time));
                     this.btnClose.setVisible(true);
                 }
-                else{   //special time over
+                else {   //special time over
                     this.description.setString(LocalizedString.to("SUPPORT_INFO_1"));
                     this.btnReceived.setVisible(true);
                 }
@@ -108,6 +120,8 @@ var GUISupportInfo = BaseLayer.extend({
 
             if (isShowSpecial){
                 this.totalValue.setNumber(specialSupport);
+                this.valueBonusSpecial.setString("+" + StringUtility.pointNumber(specialSupport));
+                this.bgGiftSpecial.setVisible(true);
             }
             else {
                 if (money <= 0) {
@@ -117,6 +131,7 @@ var GUISupportInfo = BaseLayer.extend({
                         this.totalValue.setNumber(levelMgr.getTotalSupportBean(userMgr.getLevel(), vipMgr.vipConfig[0].support[1]));
                     }
                 }
+                this.bgGift.setVisible(true);
             }
         }
 
