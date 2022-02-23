@@ -158,7 +158,6 @@ var UserInfoPanel = BaseLayer.extend({
         this.tbInteract.setDelegate(this);
         this.pInteract.addChild(this.tbInteract);
 
-
         this.enableFog();
         this.setBackEnable(true);
     },
@@ -294,11 +293,9 @@ var UserInfoPanel = BaseLayer.extend({
     /* region Tab Interact */
     initTabInteract: function() {
         var tbSize = this.pInteract.getContentSize();
-        this.numRow = UserInfoPanelInteractCell.NUM_ROW;
-        this.itemSize = (tbSize.height - (UserInfoPanelInteractCell.PADDING * this.numRow * 2)) / this.numRow;
-        this.cellSize = cc.size(UserInfoPanelInteractCell.PADDING * 2 + this.itemSize + UserInfoPanelInteractCell.MARGIN * 2, tbSize.height);
+        this.numRow = UserInfoPanelInteractCell.NUM_COLUMN;
         this.itemSize = UserInfoPanelInteractCell.SIZE;
-        this.cellSize = cc.size(225, 125);
+        this.cellSize = cc.size(tbSize.width, UserInfoPanelInteractCell.SIZE);
     },
 
     loadInteractData: function() {
@@ -508,13 +505,18 @@ var UserInfoPanel = BaseLayer.extend({
                     this.pChooseAvatar.list[i].setVisible(false);
                 }
             }
+         //   this.pInteract.setVisible(false);
+            this.loadInteractData();
+            this.tbInteract.reloadData();
         } else {
             this.btnChangeAvatar.setVisible(false);
+            //load interact data
+            this.loadInteractData();
+            this.tbInteract.reloadData();
         }
 
-        //load interact data
-        this.loadInteractData();
-        this.tbInteract.reloadData();
+
+
         //this.selectTab(this._user.uID == gamedata.userData.uID ? UserInfoPanel.BTN_TAB_INFO : UserInfoPanel.BTN_TAB_INTERACT);
     },
 
@@ -580,28 +582,27 @@ UserInfoPanel.BTN_CHANGE_AVATAR = 8;
 UserInfoPanel.BTN_CHANGE_AVATAR_SPEC = 9;
 
 var UserInfoPanelInteractCell = cc.TableViewCell.extend({
-    ctor: function(itemSize, cellSize, numRow, userInfoPanel) {
+    ctor: function(itemSize, cellSize, numColumn, userInfoPanel) {
         this._super();
         this.itemSize = itemSize;
         this.cellSize = cellSize;
-        this.numRow = numRow;
+        this.numColumn = numColumn;
         this.userInfoPanel = userInfoPanel;
 
         this.initGUI();
     },
 
     initGUI: function() {
-        this._layout = new cc.Layer(this.cellSize.width, this.cellSize.height);
-        this.addChild(this._layout);
+        //this._layout = new cc.Layer(this.cellSize.width, this.cellSize.height);
+        //this.addChild(this._layout);
 
-        for (var i = 0; i < this.numRow; i++){
+        for (var i = 0; i < this.numColumn; i++){
             var itemNode = ccs.load("Lobby/InteractItemCell.json").node;
             itemNode.setPosition(
-                this.cellSize.width - (i + 1) * this.itemSize - (2 * i + 1) * UserInfoPanelInteractCell.PADDING,
-                UserInfoPanelInteractCell.PADDING + UserInfoPanelInteractCell.MARGIN
+                itemNode.getContentSize().width * i,
+                0
             );
-            itemNode.setScale(this.itemSize / UserInfoPanelInteractCell.SIZE);
-            this._layout.addChild(itemNode, 0, i);
+            this.addChild(itemNode, 0, i);
             itemNode.img = itemNode.getChildByName("img");
             itemNode.shadow = itemNode.getChildByName("shadow");
             itemNode.num = itemNode.getChildByName("num");
@@ -611,7 +612,6 @@ var UserInfoPanelInteractCell = cc.TableViewCell.extend({
             itemNode.bg = itemNode.getChildByName("bg");
             itemNode.bg.setTouchEnabled(true);
             itemNode.bg.setSwallowTouches(false);
-            itemNode.bg.loadTexture("UserInfoPanel/bgInteract.png");
             itemNode.bg.addTouchEventListener(function(target, type){
                 switch(type){
                     case ccui.Widget.TOUCH_BEGAN:
@@ -644,12 +644,14 @@ var UserInfoPanelInteractCell = cc.TableViewCell.extend({
     },
 
     setData: function(interacts) {
-        for (var i = 0; i < this.numRow; i++){
-            var itemNode = this._layout.getChildByTag(i);
+        cc.log("INTERACT DATA " + JSON.stringify(interacts));
+        for (var i = 0; i < this.numColumn; i++){
+            var itemNode = this.getChildByTag(i);
             if (i >= interacts.length) itemNode.setVisible(false);
             else{
                 var interact = interacts[i];
                 itemNode.setVisible(true);
+                cc.log("INTERACT DATA " + JSON.stringify(interact));
                 if (interact.id < 1000) {
                     var path = StorageManager.getItemIconPath(StorageManager.TYPE_INTERACTION, null, interact.id);
                     var scale = 0.8;
@@ -704,13 +706,13 @@ var UserInfoPanelInteractCell = cc.TableViewCell.extend({
 
     setNum: function(node, num) {
         node.num.setString(num >= 0 ? num : '\u221e');
-        node.num.setTextColor(num != 0 ? cc.color("#dcba93") : cc.color("#660000"));
+       // node.num.setTextColor(num != 0 ? cc.color("#dcba93") : cc.color("#660000"));
         node.img.setOpacity(num > 0? 255 : 75);
         node.img.setColor(num > 0? cc.color("#ffffff") : cc.color("#4c4c4c"));
         node.shadow.setVisible(false);
     }
 });
 UserInfoPanelInteractCell.PADDING = 0;
-UserInfoPanelInteractCell.NUM_ROW = 2;
+UserInfoPanelInteractCell.NUM_COLUMN = 2;
 UserInfoPanelInteractCell.SIZE = 113;
 UserInfoPanelInteractCell.MARGIN = 0;

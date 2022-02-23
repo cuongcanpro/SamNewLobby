@@ -1,5 +1,5 @@
 <Solution>
-  <PropertyGroup Name="UserInfo" Version="3.10.0.0" Type="CocosStudio" />
+  <PropertyGroup Name="Storage" Version="3.10.0.0" Type="CocosStudio" />
   <SolutionFolder>
     <Group ctype="ResourceGroup">
       <RootFolder Name=".">
@@ -83,46 +83,86 @@
           <TTF Name="tahoma.ttf" />
           <TTF Name="tahomabd.ttf" />
         </Folder>
-        <Folder Name="InfoGUI">
-          <Image Name="bgInfo.png" />
-          <Image Name="bgVerify.png" />
-          <Image Name="btnConfirm.png" />
-          <Image Name="iconVerify.png" />
-        </Folder>
-        <Folder Name="NewLobbyUserInfoGUI">
-          <Image Name="avatarFrame.png" />
-          <Image Name="bgEnemy.png" />
-          <Image Name="bgGold.png" />
-          <Image Name="bgInfo.png" />
-          <Image Name="bgInfoAvatar.png" />
-          <Image Name="bgInfoUser.png" />
-          <Image Name="bgInteract.png" />
-          <Image Name="bgMedal.png" />
-          <Image Name="bgTitle.png" />
-          <Image Name="btnChangeAvatar.png" />
-          <Image Name="btnClose.png" />
-          <Image Name="btnStorage.png" />
-          <Image Name="btnVerify.png" />
-          <Image Name="Button_Ketban.png" />
-          <Image Name="Button_Nhantin.png" />
-          <Image Name="Button_Xoaban.png" />
-          <Image Name="dot.png" />
-          <Image Name="frame.png" />
-          <Image Name="frameChosen.png" />
-          <Image Name="iconLock.png" />
-          <Image Name="iconMedalSmall0.png" />
-          <Image Name="iconMedalSmall1.png" />
-          <Image Name="iconMedalSmall2.png" />
-          <Image Name="level0.png" />
-          <Image Name="medalBronze.png" />
-          <Image Name="medalGold.png" />
-          <Image Name="medelSilver.png" />
-          <Image Name="rank0.png" />
+        <Folder Name="Storage">
+          <Folder Name="emo_panel">
+            <Image Name="bg.png" />
+            <Image Name="bgLock.png" />
+            <Image Name="iconLock.png" />
+            <Image Name="tabActive0.png" />
+            <Image Name="tabActive1.png" />
+            <Image Name="tabInactive0.png" />
+            <Image Name="tabInactive1.png" />
+          </Folder>
+          <Folder Name="in_board">
+            <Image Name="bg.png" />
+            <Image Name="btnClose.png" />
+            <Image Name="btnTabAvatarActive.png" />
+            <Image Name="btnTabAvatarInactive.png" />
+            <Image Name="btnTabEmoticonActive.png" />
+            <Image Name="btnTabEmoticonInactive.png" />
+            <Image Name="btnTabInteractionActive.png" />
+            <Image Name="btnTabInteractionInactive.png" />
+            <Image Name="btnTabVoucherActive.png" />
+            <Image Name="btnTabVoucherInactive.png" />
+          </Folder>
+          <Folder Name="popup">
+            <Image Name="bg.png" />
+            <Image Name="boxBg.png" />
+            <Image Name="boxTick.png" />
+            <Image Name="btnDone.png" />
+            <Image Name="btnLeft.png" />
+            <Image Name="btnNext.png" />
+            <Image Name="btnRight.png" />
+            <Image Name="demo_1.png" />
+            <Image Name="demo_2.png" />
+            <Image Name="demo_3.png" />
+            <Image Name="demo_animation.png" />
+            <Image Name="diamond.png" />
+            <Image Name="diamond_text.png" />
+            <Image Name="kho_do.png" />
+            <Image Name="kho_do_text.png" />
+            <Image Name="khung.png" />
+            <Image Name="khung_text.png" />
+            <Image Name="shop.png" />
+            <Image Name="shop_text.png" />
+            <Image Name="title_new_feature.png" />
+            <Image Name="title_new_item.png" />
+            <Image Name="voucher.png" />
+            <Image Name="voucher_text.png" />
+          </Folder>
+          <Image Name="avatarBg.png" />
+          <Image Name="barBg.png" />
+          <Image Name="bg.jpg" />
+          <Image Name="bg.png" />
+          <Image Name="bgLock.png" />
+          <Image Name="btnBack.png" />
+          <Image Name="btnTabAvatar.png" />
+          <Image Name="btnTabEmoticon.png" />
+          <Image Name="btnTabInteraction.png" />
+          <Image Name="btnTabVoucher.png" />
+          <Image Name="btnUnuse.png" />
+          <Image Name="btnUse.png" />
+          <Image Name="descriptionBg.png" />
+          <Image Name="empty.png" />
+          <Image Name="error.png" />
+          <Image Name="GIcon.png" />
+          <Image Name="goldIcon.png" />
+          <Image Name="itemBg.png" />
+          <Image Name="itemHighlight.png" />
+          <Image Name="labelUsing.png" />
+          <Project Name="Layer.csd" Type="Layer" />
+          <Image Name="lock.png" />
+          <Image Name="moneyBg.png" />
+          <Image Name="previewBg.png" />
+          <Image Name="tabAvatar.png" />
+          <Image Name="tabBg.png" />
+          <Image Name="tabEmoticon.png" />
+          <Image Name="tabInteraction.png" />
+          <Image Name="tabSeparator.png" />
+          <Image Name="tabVoucher.png" />
           <Image Name="title.png" />
+          <Image Name="unlock.png" />
         </Folder>
-        <Project Name="InteractItemCell.csd" Type="Layer" />
-        <Project Name="PersonalInfoGUI.csd" Type="Layer" />
-        <Project Name="UserInfoPanel.csd" Type="Scene" />
       </RootFolder>
     </Group>
   </SolutionFolder>
