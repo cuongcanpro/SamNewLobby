@@ -225,7 +225,7 @@ var CmdSendShopGoldSuccess = CmdSendCommon.extend({
         this._super();
         this.initData(100);
         this.setControllerId(1);
-        this.setCmdId(CMD.CMD_SEND_SHOP_GOLD_SUCCESS);
+        this.setCmdId(PaymentMgr.CMD_SEND_SHOP_GOLD_SUCCESS);
     },
     putData: function (id) {
         //pack

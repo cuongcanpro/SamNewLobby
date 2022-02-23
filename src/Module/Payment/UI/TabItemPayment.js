@@ -275,7 +275,7 @@ TabItemPayment = cc.Layer.extend({
     },
 
     tableCellSizeForIndex: function(table, idx) {
-        return cc.size(this.pItem.getContentSize().width, StorageItemCell.HEIGHT * this.itemScale + this.itemSpace);
+        return cc.size(this.pItem.getContentSize().width, ShopItemCell.HEIGHT * this.itemScale + this.itemSpace);
     },
 
     numberOfCellsInTableView: function(table) {

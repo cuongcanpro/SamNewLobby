@@ -833,16 +833,16 @@ var TangVangPopup = BaseLayer.extend({
 
     onEnterFinish : function () {
         this.setShowHideAnimate(this._bg,true);
-        gamedata.startTrackingOffer();
+     //   gamedata.startTrackingOffer();
     },
 
     onButtonRelease: function (button, id) {
         if (id === 1) {
-            gamedata.updateInfoTrackingOffer(2);
-            var idTab = gamedata.gameConfig.getMaxChannelFirstShopBonus();
-            gamedata.openShopInTab(idTab);
+          //  gamedata.updateInfoTrackingOffer(2);
+            var idTab = paymentMgr.getMaxChannelFirstShopBonus();
+            paymentMgr.openShopInTab(idTab);
         } else {
-            gamedata.sendTrackingOffer();
+          //  gamedata.sendTrackingOffer();
             this.onClose();
         }
     },
@@ -853,7 +853,7 @@ var TangVangPopup = BaseLayer.extend({
     },
 
     loadInfo : function () {
-        this.labelBonus.setString(gamedata.gameConfig.getMaxFirstShopBonus() + "%");
+        this.labelBonus.setString(paymentMgr.getMaxFirstShopBonus() + "%");
     },
 
     showKhuyenmai1: function () {

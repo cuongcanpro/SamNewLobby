@@ -106,6 +106,10 @@ var UserMgr = BaseMgr.extend({
         return this.userInfo.getDisplayName();
     },
 
+    getUserInfo: function () {
+        return this.userInfo;
+    },
+
     // check social login
     checkDisableSocialViral: function () {
         if (Config.DISABLE_FACEBOOK_VIRAL && socialMgr._currentSocial != SocialManager.ZALO) {

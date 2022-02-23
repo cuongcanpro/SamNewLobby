@@ -53,7 +53,7 @@ var PaymentMgr = BaseMgr.extend({
             }
             case PaymentMgr.CMD_UPDATE_COIN: {
                 var pk = new CmdReceivedUpdateCoin(pk);
-                userMgr.setCoin(pk.coin);
+                userMgr.getUserInfo().setCoin(pk.coin);
                 Toast.makeToast(Toast.SHORT, LocalizedString.to("NAP_G"));
                 sceneMgr.updateCurrentGUI();
                 pk.clean();

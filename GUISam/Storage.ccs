@@ -41,12 +41,15 @@
           <Image Name="btnAddG.png" />
           <Image Name="btnAddGold.png" />
           <Image Name="btnBack.png" />
+          <Image Name="btnBlue.png" />
           <Image Name="btnCancel.png" />
           <Image Name="btnClose.png" />
           <Image Name="btnConfirm.png" />
           <Image Name="btnF5.png" />
+          <Image Name="btnGreen.png" />
           <Image Name="btnHelp.png" />
           <Image Name="btnUse.png" />
+          <Image Name="btnYellow.png" />
           <Image Name="buttonOK.png" />
           <Audio Name="coin_01.mp3" />
           <Audio Name="coin_02.mp3" />
@@ -82,6 +85,44 @@
           <Image Name="jackpot.png" />
           <TTF Name="tahoma.ttf" />
           <TTF Name="tahomabd.ttf" />
+        </Folder>
+        <Folder Name="NewLobbyUserInfoGUI">
+          <Image Name="avatarFrame.png" />
+          <Image Name="backgroundAvatar.png" />
+          <Image Name="bgAvatar.png" />
+          <Image Name="bgEnemy.png" />
+          <Image Name="bgGold.png" />
+          <Image Name="bgInfo.png" />
+          <Image Name="bgInfoAvatar.png" />
+          <Image Name="bgInfoUser.png" />
+          <Image Name="bgInteract.png" />
+          <Image Name="bgMedal.png" />
+          <Image Name="bgTab.png" />
+          <Image Name="bgTabSelect.png" />
+          <Image Name="bgText.png" />
+          <Image Name="bgTitle.png" />
+          <Image Name="btnChangeAvatar.png" />
+          <Image Name="btnClose.png" />
+          <Image Name="btnFinish.png" />
+          <Image Name="btnStorage.png" />
+          <Image Name="btnVerify.png" />
+          <Image Name="bubble.png" />
+          <Image Name="Button_Ketban.png" />
+          <Image Name="Button_Nhantin.png" />
+          <Image Name="Button_Xoaban.png" />
+          <Image Name="dot.png" />
+          <Image Name="frame.png" />
+          <Image Name="frameChosen.png" />
+          <Image Name="iconGirl.png" />
+          <Image Name="iconLock.png" />
+          <Image Name="iconMedalSmall0.png" />
+          <Image Name="iconMedalSmall1.png" />
+          <Image Name="iconMedalSmall2.png" />
+          <Image Name="level0.png" />
+          <Image Name="medalBronze.png" />
+          <Image Name="medalGold.png" />
+          <Image Name="medelSilver.png" />
+          <Image Name="rank0.png" />
         </Folder>
         <Folder Name="Storage">
           <Folder Name="emo_panel">
@@ -163,6 +204,8 @@
           <Image Name="title.png" />
           <Image Name="unlock.png" />
         </Folder>
+        <Project Name="StorageGUI.csd" Type="Layer" />
+        <Project Name="UserItem.csd" Type="Layer" />
       </RootFolder>
     </Group>
   </SolutionFolder>

@@ -813,9 +813,9 @@ var LobbyScene = BaseLayer.extend({
                 break;
             }
             case LobbyScene.BTN_SUPPORT: {
-                //sceneMgr.openGUI(GUISupportInfo.className, GUISupportInfo.tag, GUISupportInfo.tag, false).showGUI(0, supportMgr.numSupport);
-                supportMgr.numSupport = 0;
-                sceneMgr.openGUI(GUISupportInfo.className, GUISupportInfo.tag, GUISupportInfo.tag, false).showGUI(33330, 1);
+                sceneMgr.openGUI(GUISupportInfo.className, GUISupportInfo.tag, GUISupportInfo.tag, false).showGUI(0, supportMgr.numSupport);
+                // supportMgr.numSupport = 0;
+                // sceneMgr.openGUI(GUISupportInfo.className, GUISupportInfo.tag, GUISupportInfo.tag, false).showGUI(33330, 1);
                 break;
             }
             case LobbyScene.BTN_EVENT_IN_GAME: {

@@ -1,22 +1,17 @@
 var StorageItemCell = cc.TableViewCell.extend({
-    ctor: function(numCol, itemScale, itemSpace, highlight, storageScene) {
-        this.numCol = numCol;
-        this.itemScale = itemScale;
-        this.itemSpace = itemSpace;
+    ctor: function(highlight, storageScene) {
         this.highlight = highlight;
         this.storageScene = storageScene;
         this._super(StorageItemCell.className);
         this.setCascadeOpacityEnabled(true);
 
-        this._layout = new cc.Layer(StorageItemCell.WIDTH * this.itemScale * this.numCol + this.itemSpace * this.numCol, StorageItemCell.HEIGHT * this.itemScale + this.itemSpace);
-        this._layout.setCascadeOpacityEnabled(true);
-        for (var i = 0; i < this.numCol; i++){
+        for (var i = 0; i < StorageItemCell.NUM_COL; i++){
             var itemNode = ccs.load("Lobby/UserItem.json").node;
-            itemNode.setPosition(this.itemSpace + i * (this.itemSpace + StorageItemCell.WIDTH * this.itemScale), this.itemSpace/2);
-            itemNode.setScale(this.itemScale);
-            this._layout.addChild(itemNode, 0, i);
+            itemNode.setPosition(i * StorageItemCell.WIDTH, 0);
+            this.addChild(itemNode, 0, i);
             itemNode.img = itemNode.getChildByName("img");
             itemNode.shadow = itemNode.getChildByName("shadow");
+            itemNode.name = itemNode.getChildByName("name");
             itemNode.num = itemNode.getChildByName("num");
             itemNode.img.ignoreContentAdaptWithSize(true);
             itemNode.shadow.ignoreContentAdaptWithSize(true);
@@ -40,7 +35,7 @@ var StorageItemCell = cc.TableViewCell.extend({
                         if (target.isWaitingTouch){
                             this.highlight.removeFromParent();
                             target.getParent().addChild(this.highlight);
-                            this.storageScene.selectItem(this.getIdx() * this.numCol + target.getParent().getTag(), target.getParent());
+                            this.storageScene.selectItem(this.getIdx() * StorageItemCell.NUM_COL + target.getParent().getTag(), target.getParent());
                             this.storageScene.playSoundButton(-1);
                         }
                         break;
@@ -49,16 +44,16 @@ var StorageItemCell = cc.TableViewCell.extend({
                 }
             }.bind(this), this);
         }
-        this.addChild(this._layout);
     },
 
     setData: function(items){
-        for (var i = 0; i < this.numCol; i++){
-            var itemNode = this._layout.getChildByTag(i);
+        for (var i = 0; i < StorageItemCell.NUM_COL; i++){
+            var itemNode = this.getChildByTag(i);
             if (i >= items.length) itemNode.setVisible(false);
             else{
                 var item = items[i];
                 itemNode.setVisible(true);
+                itemNode.name.setString(item.name);
                 itemNode.getChildByName("labelUsing").setVisible(!!item.isUsing);
                 if (item.num != null) {
                     itemNode.num.setVisible(true);
@@ -90,11 +85,10 @@ var StorageItemCell = cc.TableViewCell.extend({
 });
 
 StorageItemCell.className = "StorageItemCell";
-StorageItemCell.WIDTH = 213;
-StorageItemCell.HEIGHT = 309;
-StorageItemCell.MIN_COL = 2;
-StorageItemCell.MAX_COL = 3;
+StorageItemCell.WIDTH = 147;
+StorageItemCell.HEIGHT = 158;
+StorageItemCell.NUM_COL = 4;
 StorageItemCell.MIN_SPACE = 8;
 StorageItemCell.MIN_SCALE = 0.75;
-StorageItemCell.HIGHLIGHT_POS = cc.p(55, 56.25);
+StorageItemCell.HIGHLIGHT_POS = cc.p(74, 85);
 StorageItemCell.HIGHLIGHT_SCALE = 0.925;

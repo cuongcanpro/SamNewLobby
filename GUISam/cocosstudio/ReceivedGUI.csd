@@ -12,6 +12,26 @@
               <AbstractNodeData Name="pDecor" ActionTag="1575280736" Tag="6" IconVisible="False" PercentWidthEnable="True" PercentWidthEnabled="True" LeftMargin="0.0010" RightMargin="-0.0010" TopMargin="107.0000" BottomMargin="155.0000" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
                 <Size X="1560.0000" Y="275.0000" />
                 <Children>
+                  <AbstractNodeData Name="c0" ActionTag="438760860" Tag="11" IconVisible="False" LeftMargin="971.8801" RightMargin="446.1199" TopMargin="11.9993" BottomMargin="-13.9993" LeftEage="46" RightEage="46" TopEage="91" BottomEage="91" Scale9OriginX="46" Scale9OriginY="91" Scale9Width="50" Scale9Height="95" ctype="ImageViewObjectData">
+                    <Size X="142.0000" Y="277.0000" />
+                    <AnchorPoint ScaleY="0.5000" />
+                    <Position X="971.8801" Y="124.5007" />
+                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                    <CColor A="255" R="255" G="255" B="255" />
+                    <PrePosition X="0.6230" Y="0.4527" />
+                    <PreSize X="0.0910" Y="1.0073" />
+                    <FileData Type="Normal" Path="Received/deco2.png" Plist="" />
+                  </AbstractNodeData>
+                  <AbstractNodeData Name="c1" ActionTag="1484137335" Tag="12" IconVisible="False" LeftMargin="588.1200" RightMargin="829.8800" TopMargin="12.0000" BottomMargin="-14.0000" FlipX="True" LeftEage="46" RightEage="46" TopEage="91" BottomEage="91" Scale9OriginX="46" Scale9OriginY="91" Scale9Width="50" Scale9Height="95" ctype="ImageViewObjectData">
+                    <Size X="142.0000" Y="277.0000" />
+                    <AnchorPoint ScaleY="0.5000" />
+                    <Position X="588.1200" Y="124.5000" />
+                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                    <CColor A="255" R="255" G="255" B="255" />
+                    <PrePosition X="0.3770" Y="0.4527" />
+                    <PreSize X="0.0910" Y="1.0073" />
+                    <FileData Type="Normal" Path="Received/deco2.png" Plist="" />
+                  </AbstractNodeData>
                   <AbstractNodeData Name="a0" ActionTag="-1779165" Tag="7" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="1324.0000" RightMargin="76.0000" TopMargin="36.7500" BottomMargin="64.2500" LeftEage="52" RightEage="52" TopEage="57" BottomEage="57" Scale9OriginX="52" Scale9OriginY="57" Scale9Width="56" Scale9Height="60" ctype="ImageViewObjectData">
                     <Size X="160.0000" Y="174.0000" />
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
@@ -51,26 +71,6 @@
                     <PrePosition X="0.8897" />
                     <PreSize X="0.2788" Y="0.7309" />
                     <FileData Type="Normal" Path="Received/deco0.png" Plist="" />
-                  </AbstractNodeData>
-                  <AbstractNodeData Name="c0" ActionTag="438760860" Tag="11" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="971.8801" RightMargin="446.1199" TopMargin="11.9993" BottomMargin="-13.9993" LeftEage="46" RightEage="46" TopEage="91" BottomEage="91" Scale9OriginX="46" Scale9OriginY="91" Scale9Width="50" Scale9Height="95" ctype="ImageViewObjectData">
-                    <Size X="142.0000" Y="277.0000" />
-                    <AnchorPoint ScaleY="0.5000" />
-                    <Position X="971.8801" Y="124.5007" />
-                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                    <CColor A="255" R="255" G="255" B="255" />
-                    <PrePosition X="0.6230" Y="0.4527" />
-                    <PreSize X="0.0910" Y="1.0073" />
-                    <FileData Type="Normal" Path="Received/deco2.png" Plist="" />
-                  </AbstractNodeData>
-                  <AbstractNodeData Name="c1" ActionTag="1484137335" Tag="12" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="588.1200" RightMargin="829.8800" TopMargin="12.0000" BottomMargin="-14.0000" FlipX="True" LeftEage="46" RightEage="46" TopEage="91" BottomEage="91" Scale9OriginX="46" Scale9OriginY="91" Scale9Width="50" Scale9Height="95" ctype="ImageViewObjectData">
-                    <Size X="142.0000" Y="277.0000" />
-                    <AnchorPoint ScaleY="0.5000" />
-                    <Position X="588.1200" Y="124.5000" />
-                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                    <CColor A="255" R="255" G="255" B="255" />
-                    <PrePosition X="0.3770" Y="0.4527" />
-                    <PreSize X="0.0910" Y="1.0073" />
-                    <FileData Type="Normal" Path="Received/deco2.png" Plist="" />
                   </AbstractNodeData>
                   <AbstractNodeData Name="logo_0" ActionTag="-1814849340" Tag="14" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="-198.9960" RightMargin="1560.9960" TopMargin="18.0000" BottomMargin="207.0000" LeftEage="65" RightEage="65" TopEage="16" BottomEage="16" Scale9OriginX="65" Scale9OriginY="16" Scale9Width="68" Scale9Height="18" ctype="ImageViewObjectData">
                     <Size X="198.0000" Y="50.0000" />
@@ -167,68 +167,173 @@
               <AbstractNodeData Name="pTitle" ActionTag="517535482" Tag="21" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="589.5000" RightMargin="589.5000" TopMargin="65.0000" BottomMargin="388.0000" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
                 <Size X="381.0000" Y="84.0000" />
                 <Children>
-                  <AbstractNodeData Name="stripe_0" ActionTag="-399292809" Tag="36" IconVisible="False" LeftMargin="-49.8821" RightMargin="-14.1179" TopMargin="59.6618" BottomMargin="7.3382" ctype="SpriteObjectData">
+                  <AbstractNodeData Name="stripe_0" ActionTag="-399292809" Tag="36" IconVisible="False" LeftMargin="-138.8840" RightMargin="74.8840" TopMargin="59.6619" BottomMargin="7.3381" ctype="SpriteObjectData">
                     <Size X="445.0000" Y="17.0000" />
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                    <Position X="172.6179" Y="15.8382" />
+                    <Position X="83.6160" Y="15.8381" />
                     <Scale ScaleX="1.0000" ScaleY="1.0000" />
                     <CColor A="255" R="255" G="255" B="255" />
-                    <PrePosition X="0.4531" Y="0.1885" />
+                    <PrePosition X="0.2195" Y="0.1885" />
                     <PreSize X="1.1680" Y="0.2024" />
                     <FileData Type="Normal" Path="Received/stripe0.png" Plist="" />
                     <BlendFunc Src="1" Dst="771" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="stripe_1" ActionTag="-59434688" Tag="37" IconVisible="False" LeftMargin="-158.4144" RightMargin="94.4144" TopMargin="5.1385" BottomMargin="61.8615" ctype="SpriteObjectData">
+                  <AbstractNodeData Name="stripe_1" ActionTag="-59434688" Tag="37" IconVisible="False" LeftMargin="-247.4160" RightMargin="183.4160" TopMargin="5.1386" BottomMargin="61.8614" ctype="SpriteObjectData">
                     <Size X="445.0000" Y="17.0000" />
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                    <Position X="64.0856" Y="70.3615" />
+                    <Position X="-24.9160" Y="70.3614" />
                     <Scale ScaleX="1.0000" ScaleY="1.0000" />
                     <CColor A="255" R="255" G="255" B="255" />
-                    <PrePosition X="0.1682" Y="0.8376" />
+                    <PrePosition X="-0.0654" Y="0.8376" />
                     <PreSize X="1.1680" Y="0.2024" />
                     <FileData Type="Normal" Path="Received/stripe1.png" Plist="" />
                     <BlendFunc Src="1" Dst="771" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="stripe_2" ActionTag="-928506966" Tag="38" IconVisible="False" LeftMargin="-271.4140" RightMargin="207.4140" TopMargin="36.5677" BottomMargin="30.4323" ctype="SpriteObjectData">
+                  <AbstractNodeData Name="stripe_2" ActionTag="-928506966" Tag="38" IconVisible="False" LeftMargin="-360.4140" RightMargin="296.4140" TopMargin="36.5678" BottomMargin="30.4322" ctype="SpriteObjectData">
                     <Size X="445.0000" Y="17.0000" />
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                    <Position X="-48.9140" Y="38.9323" />
+                    <Position X="-137.9140" Y="38.9322" />
                     <Scale ScaleX="1.0000" ScaleY="1.0000" />
                     <CColor A="255" R="255" G="255" B="255" />
-                    <PrePosition X="-0.1284" Y="0.4635" />
+                    <PrePosition X="-0.3620" Y="0.4635" />
                     <PreSize X="1.1680" Y="0.2024" />
                     <FileData Type="Normal" Path="Received/stripe2.png" Plist="" />
                     <BlendFunc Src="1" Dst="771" />
                   </AbstractNodeData>
                   <AbstractNodeData Name="title" ActionTag="1002777639" Tag="5" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-0.8001" RightMargin="0.8001" LeftEage="125" RightEage="125" TopEage="27" BottomEage="27" Scale9OriginX="125" Scale9OriginY="27" Scale9Width="131" Scale9Height="30" ctype="ImageViewObjectData">
                     <Size X="381.0000" Y="84.0000" />
-                    <AnchorPoint ScaleX="0.5021" ScaleY="0.2500" />
-                    <Position X="190.5000" Y="21.0000" />
+                    <Children>
+                      <AbstractNodeData Name="efx" ActionTag="-1803788644" Tag="237" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" ctype="SpriteObjectData">
+                        <Size X="381.0000" Y="84.0000" />
+                        <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                        <Position X="190.5000" Y="42.0000" />
+                        <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                        <CColor A="255" R="255" G="255" B="255" />
+                        <PrePosition X="0.5000" Y="0.5000" />
+                        <PreSize X="1.0000" Y="1.0000" />
+                        <FileData Type="Normal" Path="Received/title.png" Plist="" />
+                        <BlendFunc Src="770" Dst="1" />
+                      </AbstractNodeData>
+                    </Children>
+                    <AnchorPoint ScaleX="0.5021" ScaleY="0.5000" />
+                    <Position X="190.5000" Y="42.0000" />
                     <Scale ScaleX="1.0000" ScaleY="1.0000" />
                     <CColor A="255" R="255" G="255" B="255" />
-                    <PrePosition X="0.5000" Y="0.2500" />
+                    <PrePosition X="0.5000" Y="0.5000" />
                     <PreSize X="1.0000" Y="1.0000" />
                     <FileData Type="Normal" Path="Received/title.png" Plist="" />
                   </AbstractNodeData>
+                  <AbstractNodeData Name="pLight" ActionTag="-1359168237" Tag="232" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="690.0703" RightMargin="-309.0703" TopMargin="42.0000" BottomMargin="42.0000" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" ctype="PanelObjectData">
+                    <Size X="0.0000" Y="0.0000" />
+                    <Children>
+                      <AbstractNodeData Name="stripe" ActionTag="100590527" Tag="234" IconVisible="False" LeftMargin="-502.7384" RightMargin="57.7384" TopMargin="-7.6109" BottomMargin="-9.3891" ctype="SpriteObjectData">
+                        <Size X="445.0000" Y="17.0000" />
+                        <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                        <Position X="-280.2384" Y="-0.8891" />
+                        <Scale ScaleX="1.4416" ScaleY="1.4416" />
+                        <CColor A="255" R="255" G="255" B="255" />
+                        <PrePosition />
+                        <PreSize X="0.0000" Y="0.0000" />
+                        <FileData Type="Normal" Path="Received/stripe0.png" Plist="" />
+                        <BlendFunc Src="770" Dst="1" />
+                      </AbstractNodeData>
+                      <AbstractNodeData Name="stripe" ActionTag="-2009375947" Tag="235" IconVisible="False" LeftMargin="-539.1719" RightMargin="94.1719" TopMargin="-20.6223" BottomMargin="3.6223" ctype="SpriteObjectData">
+                        <Size X="445.0000" Y="17.0000" />
+                        <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                        <Position X="-316.6719" Y="12.1223" />
+                        <Scale ScaleX="1.6405" ScaleY="1.6405" />
+                        <CColor A="255" R="255" G="255" B="255" />
+                        <PrePosition />
+                        <PreSize X="0.0000" Y="0.0000" />
+                        <FileData Type="Normal" Path="Received/stripe1.png" Plist="" />
+                        <BlendFunc Src="770" Dst="1" />
+                      </AbstractNodeData>
+                      <AbstractNodeData Name="stripe" ActionTag="-1968295474" Tag="236" IconVisible="False" LeftMargin="-643.2867" RightMargin="198.2867" TopMargin="-14.1201" BottomMargin="-2.8799" ctype="SpriteObjectData">
+                        <Size X="445.0000" Y="17.0000" />
+                        <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                        <Position X="-420.7867" Y="5.6201" />
+                        <Scale ScaleX="2.0002" ScaleY="2.0002" />
+                        <CColor A="255" R="255" G="255" B="255" />
+                        <PrePosition />
+                        <PreSize X="0.0000" Y="0.0000" />
+                        <FileData Type="Normal" Path="Received/stripe2.png" Plist="" />
+                        <BlendFunc Src="770" Dst="1" />
+                      </AbstractNodeData>
+                      <AbstractNodeData Name="stripe" ActionTag="383875187" Tag="241" IconVisible="False" LeftMargin="23.6149" RightMargin="-468.6149" TopMargin="4.2598" BottomMargin="-21.2598" FlipX="True" ctype="SpriteObjectData">
+                        <Size X="445.0000" Y="17.0000" />
+                        <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                        <Position X="246.1149" Y="-12.7598" />
+                        <Scale ScaleX="1.4416" ScaleY="1.4416" />
+                        <CColor A="255" R="255" G="255" B="255" />
+                        <PrePosition />
+                        <PreSize X="0.0000" Y="0.0000" />
+                        <FileData Type="Normal" Path="Received/stripe0.png" Plist="" />
+                        <BlendFunc Src="770" Dst="1" />
+                      </AbstractNodeData>
+                      <AbstractNodeData Name="stripe" ActionTag="215208875" Tag="242" IconVisible="False" LeftMargin="-12.8176" RightMargin="-432.1824" TopMargin="-8.7490" BottomMargin="-8.2510" FlipX="True" ctype="SpriteObjectData">
+                        <Size X="445.0000" Y="17.0000" />
+                        <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                        <Position X="209.6824" Y="0.2490" />
+                        <Scale ScaleX="1.6405" ScaleY="1.6405" />
+                        <CColor A="255" R="255" G="255" B="255" />
+                        <PrePosition />
+                        <PreSize X="0.0000" Y="0.0000" />
+                        <FileData Type="Normal" Path="Received/stripe1.png" Plist="" />
+                        <BlendFunc Src="770" Dst="1" />
+                      </AbstractNodeData>
+                      <AbstractNodeData Name="stripe" ActionTag="-95843513" Tag="243" IconVisible="False" LeftMargin="-116.9238" RightMargin="-328.0762" TopMargin="-2.2489" BottomMargin="-14.7511" FlipX="True" ctype="SpriteObjectData">
+                        <Size X="445.0000" Y="17.0000" />
+                        <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                        <Position X="105.5762" Y="-6.2511" />
+                        <Scale ScaleX="2.0002" ScaleY="2.0002" />
+                        <CColor A="255" R="255" G="255" B="255" />
+                        <PrePosition />
+                        <PreSize X="0.0000" Y="0.0000" />
+                        <FileData Type="Normal" Path="Received/stripe2.png" Plist="" />
+                        <BlendFunc Src="770" Dst="1" />
+                      </AbstractNodeData>
+                    </Children>
+                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                    <Position X="690.0703" Y="42.0000" />
+                    <Scale ScaleX="1.5000" ScaleY="1.5000" />
+                    <CColor A="255" R="255" G="255" B="255" />
+                    <PrePosition X="1.8112" Y="0.5000" />
+                    <PreSize X="0.0000" Y="0.0000" />
+                    <SingleColor A="255" R="150" G="200" B="255" />
+                    <FirstColor A="255" R="150" G="200" B="255" />
+                    <EndColor A="255" R="255" G="255" B="255" />
+                    <ColorVector ScaleY="1.0000" />
+                  </AbstractNodeData>
+                  <AbstractNodeData Name="bigLight" ActionTag="-1273297472" Tag="244" RotationSkewY="-0.0009" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="-189.5588" RightMargin="83.5588" TopMargin="-199.9952" BottomMargin="-203.0048" ctype="SpriteObjectData">
+                    <Size X="487.0000" Y="487.0000" />
+                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                    <Position X="53.9412" Y="40.4952" />
+                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                    <CColor A="255" R="255" G="255" B="255" />
+                    <PrePosition X="0.1416" Y="0.4821" />
+                    <PreSize X="1.2782" Y="5.7976" />
+                    <FileData Type="Normal" Path="Received/bigLight.png" Plist="" />
+                    <BlendFunc Src="770" Dst="1" />
+                  </AbstractNodeData>
                 </Children>
-                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="780.0000" Y="430.0000" />
+                <AnchorPoint ScaleX="0.4993" ScaleY="0.3115" />
+                <Position X="779.7361" Y="414.1667" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.5000" Y="0.8007" />
+                <PrePosition X="0.4998" Y="0.7713" />
                 <PreSize X="0.2442" Y="0.1564" />
                 <SingleColor A="255" R="150" G="200" B="255" />
                 <FirstColor A="255" R="150" G="200" B="255" />
                 <EndColor A="255" R="255" G="255" B="255" />
                 <ColorVector ScaleY="1.0000" />
               </AbstractNodeData>
-              <AbstractNodeData Name="pItems" ActionTag="-774840721" Tag="32" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="705.0000" RightMargin="705.0000" TopMargin="193.5000" BottomMargin="193.5000" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" ScrollDirectionType="Horizontal" ctype="ScrollViewObjectData">
-                <Size X="150.0000" Y="150.0000" />
+              <AbstractNodeData Name="pItems" ActionTag="-774840721" Tag="32" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="705.0000" RightMargin="705.0000" TopMargin="123.0200" BottomMargin="163.9800" TouchEnable="True" ClipAble="True" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ScrollDirectionType="Horizontal" ctype="ScrollViewObjectData">
+                <Size X="150.0000" Y="250.0000" />
                 <Children>
-                  <AbstractNodeData Name="testNode" ActionTag="1429449178" Tag="33" IconVisible="True" PositionPercentYEnabled="True" LeftMargin="75.0000" RightMargin="325.0000" TopMargin="75.0000" BottomMargin="75.0000" StretchWidthEnable="False" StretchHeightEnable="False" InnerActionSpeed="1.0000" CustomSizeEnabled="False" ctype="ProjectNodeObjectData">
+                  <AbstractNodeData Name="testNode" ActionTag="1429449178" Tag="33" IconVisible="True" PositionPercentYEnabled="True" LeftMargin="75.0000" RightMargin="325.0000" TopMargin="125.0000" BottomMargin="125.0000" StretchWidthEnable="False" StretchHeightEnable="False" InnerActionSpeed="1.0000" CustomSizeEnabled="False" ctype="ProjectNodeObjectData">
                     <Size X="0.0000" Y="0.0000" />
                     <AnchorPoint />
-                    <Position X="75.0000" Y="75.0000" />
+                    <Position X="75.0000" Y="125.0000" />
                     <Scale ScaleX="1.0000" ScaleY="1.0000" />
                     <CColor A="255" R="255" G="255" B="255" />
                     <PrePosition X="0.1875" Y="0.5000" />
@@ -237,16 +342,16 @@
                   </AbstractNodeData>
                 </Children>
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="780.0000" Y="268.5000" />
+                <Position X="780.0000" Y="288.9800" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.5000" Y="0.5000" />
-                <PreSize X="0.0962" Y="0.2793" />
+                <PrePosition X="0.5000" Y="0.5381" />
+                <PreSize X="0.0962" Y="0.4655" />
                 <SingleColor A="255" R="255" G="150" B="100" />
                 <FirstColor A="255" R="255" G="150" B="100" />
                 <EndColor A="255" R="255" G="255" B="255" />
                 <ColorVector ScaleY="1.0000" />
-                <InnerNodeSize Width="400" Height="150" />
+                <InnerNodeSize Width="400" Height="250" />
               </AbstractNodeData>
               <AbstractNodeData Name="btn" ActionTag="-359630506" Tag="4" RotationSkewX="15.0000" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="530.0000" RightMargin="530.0000" TopMargin="440.0009" BottomMargin="-3.0009" TouchEnable="True" FontSize="25" ButtonText="Chạm để tiếp tục..." Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="5" BottomEage="5" Scale9OriginX="15" Scale9OriginY="5" Scale9Width="188" Scale9Height="19" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                 <Size X="500.0000" Y="100.0000" />

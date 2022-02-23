@@ -43,7 +43,7 @@ var UserInfoPanel = BaseLayer.extend({
         this.tbInteract = null;
         this.cellSize = null;
         this.itemSize = null;
-        this.numRow = null;
+        this.numColumn = null;
 
         //DATA
         this.selectedTab = -1;
@@ -59,7 +59,10 @@ var UserInfoPanel = BaseLayer.extend({
         this.bgImage = this.getControl("bgImage", this.bg);
         var pAvatar = this.getControl("pAvatar", this.bg);
         var pUserInfo = this.getControl("pUserInfo", this.bg);
+        this.pUserInfo = pUserInfo;
         var tabInfo = this.getControl("pUserInfo", pUserInfo);
+        this.pTab = this.getControl("pTab", this.bg);
+        this.iconGirl = this.getControl("iconGirl", pUserInfo);
 
         //buttons
         this.btnClose = this.customButton("btnClose", UserInfoPanel.BTN_ClOSE, this.bg);
@@ -72,7 +75,7 @@ var UserInfoPanel = BaseLayer.extend({
         this.btnChangeAvatar.setLocalZOrder(5);
         this.btnChangeAvatar.setPressedActionEnabled(false);
         this.customizeButton("btnCloseAvatar", UserInfoPanel.BTN_CHANGE_AVATAR);
-        this.version = this.getControl("version", this.bg);
+        this.version = this.getControl("version", this.iconGirl);
         this.version.ignoreContentAdaptWithSize(true);
         this.btnAddFriend.setVisible(false);
         this.btnRemoveFriend.setVisible(false);
@@ -158,6 +161,22 @@ var UserInfoPanel = BaseLayer.extend({
         this.tbInteract.setDelegate(this);
         this.pInteract.addChild(this.tbInteract);
 
+        //pItem
+        this.pItem = new StorageScene();
+        this.bg.addChild(this.pItem);
+        this.pItem.setPosition(this.pUserInfo.getPositionX() - this.pUserInfo.getContentSize().width * 0.5,
+            this.pUserInfo.getPositionY() - this.pUserInfo.getContentSize().height * 0.5);
+
+        this.arrayTab = [];
+        var startY = this.pTab.getContentSize().height;
+        var startX = 0;
+        for (var i = 0; i < UserInfoPanel.NUM_TAB; i++) {
+            this.arrayTab[i] = new UserInfoTab(i, this);
+            this.pTab.addChild(this.arrayTab[i]);
+            this.arrayTab[i].setPosition(startX + this.arrayTab[i].getContentSize().width * 0.5, startY - this.arrayTab[i].getContentSize().height * (i + 0.5));
+        }
+
+        this.selectTab(UserInfoTab.TAB_INFROMATION);
         this.enableFog();
         this.setBackEnable(true);
     },
@@ -200,17 +219,8 @@ var UserInfoPanel = BaseLayer.extend({
                 PersonalInfoGUI.openGUI();
                 this.onBack();
                 break;
-            case UserInfoPanel.BTN_TAB_INFO:
-            case UserInfoPanel.BTN_TAB_INTERACT:
-                this.selectTab(id);
-                break;
             case UserInfoPanel.BTN_STORAGE:
-                if(!StorageManager.getInstance().checkEnableItem()){
-                    return;
-                }
-                this.waitOpenStorage = true;
-
-                this.onBack();
+                var gui = sceneMgr.openGUI(StorageCheatGUI.className, 10000, 1000);
                 break;
             case UserInfoPanel.BTN_CHANGE_AVATAR_SPEC:
                 var pk = new CmdSendInBoardAvatar();
@@ -264,36 +274,30 @@ var UserInfoPanel = BaseLayer.extend({
 
     /* region Tabs Control */
     selectTab: function(id) {
-        if (this.tabs[id] == null) id = UserInfoPanel.BTN_TAB_INFO;
-        this.selectedTab = id;
-
-        for (var i in this.tabs){
-            this.tabs[i].setVisible(i == this.selectedTab);
-            var img = this.getButtonImage(i);
-            this.tabButtons[i].loadTextures(img, img, img);
+        for (var i = 0; i < this.arrayTab.length; i++) {
+            if (i == id) {
+                this.arrayTab[i].setSelect();
+            }
+            else {
+                this.arrayTab[i].setNormal();
+            }
         }
-    },
-
-    getButtonImage: function(id) {
-        var str = "";
-        switch(Number(id)) {
-            case UserInfoPanel.BTN_TAB_INFO:
-                str = "tabInfo";
-                break;
-            case UserInfoPanel.BTN_TAB_INTERACT:
-                str = "tabInteract";
-                break;
+        if (id == UserInfoTab.TAB_INFROMATION) {
+            this.pUserInfo.setVisible(true);
+            this.pItem.setVisible(false);
         }
-        if (id != this.selectedTab)
-            str += "Inactive";
-        return "Lobby/UserInfoPanel/" + str + ".png";
+        else {
+            this.pUserInfo.setVisible(false);
+            this.pItem.setVisible(true);
+            this.pItem.selectTab(id);
+        }
     },
     /* endregion Tabs Control */
 
     /* region Tab Interact */
     initTabInteract: function() {
         var tbSize = this.pInteract.getContentSize();
-        this.numRow = UserInfoPanelInteractCell.NUM_COLUMN;
+        this.numColumn = UserInfoPanelInteractCell.NUM_COLUMN;
         this.itemSize = UserInfoPanelInteractCell.SIZE;
         this.cellSize = cc.size(tbSize.width, UserInfoPanelInteractCell.SIZE);
     },
@@ -355,10 +359,10 @@ var UserInfoPanel = BaseLayer.extend({
 
     tableCellAtIndex: function(table, idx) {
         var cell = table.dequeueCell();
-        if (!cell) cell = new UserInfoPanelInteractCell(this.itemSize, this.cellSize, this.numRow, this);
+        if (!cell) cell = new UserInfoPanelInteractCell(this.itemSize, this.cellSize, this.numColumn, this);
 
         var interacts = [];
-        for (var i = idx * this.numRow; i < this.interactData.length && i < (idx + 1) * this.numRow; i++)
+        for (var i = idx * this.numColumn; i < this.interactData.length && i < (idx + 1) * this.numColumn; i++)
             interacts.push(this.interactData[i]);
 
         cell.setData(interacts);
@@ -370,7 +374,7 @@ var UserInfoPanel = BaseLayer.extend({
     },
 
     numberOfCellsInTableView: function() {
-        return Math.ceil(this.interactData.length / this.numRow);
+        return Math.ceil(this.interactData.length / this.numColumn);
     },
 
     useInteract: function(index) {
@@ -399,9 +403,9 @@ var UserInfoPanel = BaseLayer.extend({
                 if (this.canUseInteract) {
                     if (this._user.uID != userMgr.getUID() && CheckLogic.checkInBoard()) {
                         var nChair = null;
-                        for (var i = 0; i < gamedata.gameLogic._players.length; i++) {
-                            if ((gamedata.gameLogic._players[i]._info != null) && (this._user.uID == gamedata.gameLogic._players[i]._info["uID"])) {
-                                nChair = gamedata.gameLogic._players[i]._chairInServer;
+                        for (var i = 0; i < inGameMgr.gameLogic._players.length; i++) {
+                            if ((inGameMgr.gameLogic._players[i]._info != null) && (this._user.getUID() == inGameMgr.gameLogic._players[i]._info["uID"])) {
+                                nChair = inGameMgr.gameLogic._players[i]._chairInServer;
                                 break;
                             }
                         }
@@ -428,7 +432,7 @@ var UserInfoPanel = BaseLayer.extend({
             this._user.zName = this._user.displayName;
         if (!this._user.uID)
             this._user.uID = this._user.uId;
-
+        this.btnStorage.setVisible(Config.ENABLE_CHEAT);
         try{
             this.avatar.asyncExecuteWithUrl(this._user.getUID(), this._user.getAvatar());
             this.displayName.setString(this._user.getDisplayName());
@@ -447,7 +451,7 @@ var UserInfoPanel = BaseLayer.extend({
                 this.level.setString(levelMgr.getLevelString(this._user.getLevel(), this._user.getLevelExp()));
                 this.btnSendMessage.setVisible(false);
                 this.btnPersonalInfo.setVisible(true);
-                this.btnStorage.setVisible(true);
+
                 this.tabs[UserInfoPanel.BTN_TAB_INTERACT].setVisible(false);
                 this.btnClose.setVisible(true);
                 avatarFramePath = StorageManager.getInstance().getUserAvatarFramePath();
@@ -458,7 +462,6 @@ var UserInfoPanel = BaseLayer.extend({
                 this.level.setString(this._user.level);
                 this.btnSendMessage.setVisible(CheckLogic.checkInBoard());
                 this.btnPersonalInfo.setVisible(false);
-                this.btnStorage.setVisible(false);
                 this.tabs[UserInfoPanel.BTN_TAB_INTERACT].setVisible(inTable);
                 this.btnClose.setVisible(!inTable);
 
@@ -505,17 +508,28 @@ var UserInfoPanel = BaseLayer.extend({
                     this.pChooseAvatar.list[i].setVisible(false);
                 }
             }
-         //   this.pInteract.setVisible(false);
-            this.loadInteractData();
-            this.tbInteract.reloadData();
+            this.pInteract.setVisible(false);
+            this.iconGirl.setVisible(true);
+            // this.loadInteractData();
+            // this.tbInteract.reloadData();
+
+
+            for (var i = 1; i < UserInfoPanel.NUM_TAB; i++) {
+                this.arrayTab[i].setVisible(true);
+            }
         } else {
             this.btnChangeAvatar.setVisible(false);
             //load interact data
+            this.iconGirl.setVisible(false);
+            this.pInteract.setVisible(true);
             this.loadInteractData();
             this.tbInteract.reloadData();
+            for (var i = 1; i < UserInfoPanel.NUM_TAB; i++) {
+                this.arrayTab[i].setVisible(false);
+            }
+            this.pItem.setVisible(false);
+            this.pUserInfo.setVisible(true);
         }
-
-
 
         //this.selectTab(this._user.uID == gamedata.userData.uID ? UserInfoPanel.BTN_TAB_INFO : UserInfoPanel.BTN_TAB_INTERACT);
     },
@@ -580,6 +594,8 @@ UserInfoPanel.BTN_TAB_INFO = 6;
 UserInfoPanel.BTN_TAB_INTERACT = 7;
 UserInfoPanel.BTN_CHANGE_AVATAR = 8;
 UserInfoPanel.BTN_CHANGE_AVATAR_SPEC = 9;
+
+UserInfoPanel.NUM_TAB = 5;
 
 var UserInfoPanelInteractCell = cc.TableViewCell.extend({
     ctor: function(itemSize, cellSize, numColumn, userInfoPanel) {
@@ -714,5 +730,55 @@ var UserInfoPanelInteractCell = cc.TableViewCell.extend({
 });
 UserInfoPanelInteractCell.PADDING = 0;
 UserInfoPanelInteractCell.NUM_COLUMN = 2;
-UserInfoPanelInteractCell.SIZE = 113;
+UserInfoPanelInteractCell.SIZE = 125;
 UserInfoPanelInteractCell.MARGIN = 0;
+
+
+var UserInfoTab = cc.Node.extend({
+    ctor: function (id, parent) {
+        this._super();
+        this.btn = new ccui.Button("NewLobbyUserInfoGUI/bgTab.png");
+        this.addChild(this.btn);
+        this.btn.setPosition(0, 0);
+        this.btn.addClickEventListener(this.touchEvent.bind(this));
+        this.btn.ignoreContentAdaptWithSize(true);
+        this.setContentSize(this.btn.getContentSize());
+
+        this.lbTime = new ccui.Text("", SceneMgr.FONT_BOLD, 21);
+        this.addChild(this.lbTime);
+        this.lbTime.ignoreContentAdaptWithSize(true);
+        this.lbTime.setTextHorizontalAlignment(cc.TEXT_ALIGNMENT_CENTER);
+        this.lbTime.setTextVerticalAlignment(cc.VERTICAL_TEXT_ALIGNMENT_CENTER);
+        this.lbTime.setAnchorPoint(0.5, 0.5);
+        this.lbTime.setPosition(0, 0);
+        this.lbTime.setColor(cc.color(239, 217, 108));
+        //this.lbTime.enableOutline(cc.color(131, 73, 52), 1);
+        this.id = id;
+        this.lbTime.setString(localized("USER_INFO_TAB_" + id));
+
+        this.isSelect = false;
+        this.parentGUI = parent;
+    },
+
+    touchEvent: function () {
+        if (this.isSelect) {
+            return;
+        }
+        this.setSelect();
+        this.parentGUI.selectTab(this.id);
+    },
+
+    setNormal: function () {
+        this.lbTime.setColor(cc.color("#8c98ca"));
+        this.btn.loadTextures("NewLobbyUserInfoGUI/bgTab.png", "NewLobbyUserInfoGUI/bgTab.png", "");
+        this.isSelect = false;
+    },
+
+    setSelect: function () {
+        this.lbTime.setColor(cc.color(255, 255, 255));
+        this.btn.loadTextures("NewLobbyUserInfoGUI/bgTabSelect.png", "NewLobbyUserInfoGUI/bgTabSelect.png", "");
+        this.isSelect = true;
+    }
+});
+
+UserInfoTab.TAB_INFROMATION = 0;

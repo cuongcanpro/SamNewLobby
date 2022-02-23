@@ -24,7 +24,6 @@ var StorageScene = BaseLayer.extend({
         this.valueDiamond = null;
 
         this.labelNoItem = null;
-        this.descriptionView = null;
         this.itemName = null;
         this.itemDescription = null;
         this.itemExpiredDate = null;
@@ -51,68 +50,11 @@ var StorageScene = BaseLayer.extend({
 
     initGUI: function() {
         //main parts
-        this.btnBack = this.customButton("btnBack", StorageScene.BTN_BACK);
-        this.btnBack.setLocalZOrder(2);
-        this.tabBg = this.getControl("tabBg");
-        this.barBg = this.getControl("barBg");
-        this.barBg.setLocalZOrder(1);
-        this.barBg.setTouchEnabled(true);
-        this.barBg.setSwallowTouches(true);
         this.previewBg = this.getControl("previewBg");
         this.previewBg.setLocalZOrder(1);
-        this.tabBtnList = this.getControl("btnList", this.tabBg);
-        this.tabBtnList.setScrollBarEnabled(false);
-        this.tabBtnList.setContentSize(cc.size(this.tabBtnList.width, this.tabBtnList.height / this._scale));
-        this.tabBtnList.setScaleY(this._scale);
         this.pItem = this.getControl("itemPanel");
-        this.pItem.setPositionX(this.pItem.x * this._scale);
-        this.pItem.defaultPos = this.pItem.getPosition();
-        this.pItem.setContentSize(cc.size(cc.winSize.width - this.pItem.x - this.previewBg.width - 27, this.pItem.getContentSize().height));
         this.pItem.setCascadeOpacityEnabled(true);
         this.pItem.setClippingEnabled(true);
-        ccui.Helper.doLayout(this.pItem);
-        this.initPItem();
-
-        //TOP BAR
-        this.valueG = this.getControl("label", this.getControl("GBg", this.barBg));
-        this.valueG.ignoreContentAdaptWithSize(true);
-        this.valueGold = this.getControl("label", this.getControl("goldBg", this.barBg));
-        this.valueGold.ignoreContentAdaptWithSize(true);
-        this.valueDiamond = this.getControl("label", this.getControl("diamondBg", this.barBg));
-        this.valueDiamond.ignoreContentAdaptWithSize(true);
-        this.title = this.getControl("title", this.barBg);
-        if (Config.ENABLE_CHEAT){
-            this.title.setTouchEnabled(true);
-            this.title.setSwallowTouches(true);
-            this.title.addTouchEventListener(function(target, type){
-                if (type == ccui.Widget.TOUCH_ENDED){
-                    var gui = sceneMgr.openGUI(StorageCheatGUI.className);
-                    if (this.selectedTab != -1 && this.selectedItem[this.selectedTab] != -1)
-                        gui.setData(this.itemData[this.selectedTab][this.selectedItem[this.selectedTab]]);
-                }
-            }, this);
-        }
-        else this.title.setTouchEnabled(false);
-
-        //TAB BTN LIST
-        var tabAvatar = this.getControl("tabBtnAvatar", this.tabBtnList);
-        this.btnTabAvatarActive = this.customButton("active", StorageScene.BTN_AVATAR_TAB, tabAvatar);
-        this.btnTabAvatarInactive = this.customButton("inactive", StorageScene.BTN_AVATAR_TAB, tabAvatar);
-        this.btnTabAvatarActive.setPressedActionEnabled(false);
-        var tabInteraction = this.getControl("tabBtnInteraction", this.tabBtnList);
-        this.btnTabInteractionActive = this.customButton("active", StorageScene.BTN_INTERACTION_TAB, tabInteraction);
-        this.btnTabInteractionInactive = this.customButton("inactive", StorageScene.BTN_INTERACTION_TAB, tabInteraction);
-        this.btnTabInteractionActive.setPressedActionEnabled(false);
-        var tabEmoticon = this.getControl("tabBtnEmoticon", this.tabBtnList);
-        this.btnTabEmoticonActive = this.customButton("active", StorageScene.BTN_EMOTICON_TAB, tabEmoticon);
-        this.btnTabEmoticonInactive = this.customButton("inactive", StorageScene.BTN_EMOTICON_TAB, tabEmoticon);
-        this.btnTabEmoticonActive.setPressedActionEnabled(false);
-        var tabVoucher = this.getControl("tabBtnVoucher", this.tabBtnList);
-        this.btnTabVoucherActive = this.customButton("active", StorageScene.BTN_VOUCHER_TAB, tabVoucher);
-        this.btnTabVoucherInactive = this.customButton("inactive", StorageScene.BTN_VOUCHER_TAB, tabVoucher);
-        this.btnTabVoucherActive.setPressedActionEnabled(false);
-        this.tabBtnActive = [this.btnTabAvatarActive, this.btnTabInteractionActive, this.btnTabEmoticonActive, this.btnTabVoucherActive];
-        this.tabBtnInactive = [this.btnTabAvatarInactive, this.btnTabInteractionInactive, this.btnTabEmoticonInactive, this.btnTabVoucherInactive];
 
         //PREVIEW PANEL
         this.btnUse = this.customButton("btnUse", StorageScene.BTN_USE, this.previewBg);
@@ -120,18 +62,13 @@ var StorageScene = BaseLayer.extend({
         this.btnUnuse.setVisible(false); this.btnUnuse.setEnabled(false);
         this.pItemPreview = this.getControl("itemPreview", this.previewBg);
         this.avatarBg = this.getControl("avatarBg", this.previewBg);
-        this.descriptionBg = this.getControl("descriptionBg", this.previewBg);
-        this.descriptionView = this.getControl("textView", this.descriptionBg);
-        this.descriptionView.setScrollBarEnabled(false);
-        this.itemName = this.getControl("title", this.descriptionView);
+        this.pText = this.getControl("pText", this.previewBg);
+        this.itemName = this.getControl("title", this.pText);
         this.itemName.ignoreContentAdaptWithSize(true);
-        this.itemName.setAnchorPoint(0, 1);
-        this.itemDescription = this.getControl("des", this.descriptionView);
+        this.itemDescription = this.getControl("des", this.pText);
         this.itemDescription.ignoreContentAdaptWithSize(true);
-        this.itemDescription.setAnchorPoint(0, 1);
-        this.itemExpiredDate = this.getControl("time", this.descriptionView);
+        this.itemExpiredDate = this.getControl("time", this.pText);
         this.itemExpiredDate.ignoreContentAdaptWithSize(true);
-        this.itemExpiredDate.setAnchorPoint(0, 1);
         this.labelNoItem = this.getControl("labelNone", this.previewBg);
         this.avatar = new AvatarUI("Common/defaultAvatar.png", "Common/maskAvatar.png", "");
         this.avatar.setPosition(this.avatarBg.width/2, this.avatarBg.height/2);
@@ -143,15 +80,16 @@ var StorageScene = BaseLayer.extend({
         this.avatarBg.addChild(this.avatarFrame);
 
         //ITEM PANEL
-        this.tbItem = new cc.TableView(this, cc.size(this.pItem.getContentSize().width, this.pItem.getContentSize().height - 65 + this.storageItemSpace));
+        this.tbItem = new cc.TableView(this, cc.size(this.pItem.getContentSize().width, this.pItem.getContentSize().height));
         this.tbItem.setDirection(cc.SCROLLVIEW_DIRECTION_VERTICAL);
-        this.tbItem.setPosition(0, 48);
+        this.tbItem.setPosition(0, 0);
         this.tbItem.setVerticalFillOrder(cc.TABLEVIEW_FILL_TOPDOWN);
         this.tbItem.setDelegate(this);
         this.tbItem.setCascadeOpacityEnabled(true);
         this.tbItem.setClippingToBounds(false);
         this.tbItem.getContainer().setCascadeOpacityEnabled(true);
         this.pItem.addChild(this.tbItem);
+
         this.labelMess = this.getControl("mess", this.pItem);
         this.labelMess.ignoreContentAdaptWithSize(true);
         this.imgMess = this.getControl("messImg", this.pItem);
@@ -160,7 +98,7 @@ var StorageScene = BaseLayer.extend({
         this.itemHighlight = new cc.Sprite("Storage/itemHighlight.png");
         this.itemHighlight.retain();
         this.itemHighlight.setPosition(StorageItemCell.HIGHLIGHT_POS);
-        this.itemHighlight.setScale(StorageItemCell.HIGHLIGHT_SCALE);
+        //this.itemHighlight.setScale(StorageItemCell.HIGHLIGHT_SCALE);
 
         this.setBackEnable(true);
     },
@@ -173,22 +111,7 @@ var StorageScene = BaseLayer.extend({
     },
 
     doEffect: function() {
-        this.barBg.stopAllActions();
-        this.barBg.setOpacity(0);
-        this.barBg.setPositionY(cc.winSize.height + this.barBg.height/2);
-        this.barBg.runAction(cc.spawn(
-            cc.moveTo(0.5, this.barBg.defaultPos).easing(cc.easeExponentialOut()),
-            cc.fadeIn(0.5)
-        ));
-
-        this.tabBg.stopAllActions();
-        this.tabBg.setOpacity(0);
-        this.tabBg.setPositionX(-this.tabBg.width/2);
-        this.tabBg.runAction(cc.spawn(
-            cc.moveTo(0.5, this.tabBg.defaultPos).easing(cc.easeExponentialOut()),
-            cc.fadeIn(0.5)
-        ));
-
+        return;
         this.previewBg.stopAllActions();
         this.previewBg.setOpacity(0);
         this.previewBg.setPositionX(cc.winSize.width + this.previewBg.width/2);
@@ -206,22 +129,7 @@ var StorageScene = BaseLayer.extend({
     },
 
     effectOut: function() {
-        this.barBg.stopAllActions();
-        this.barBg.setOpacity(255);
-        this.barBg.setPositionY(this.barBg.defaultPos.y);
-        this.barBg.runAction(cc.spawn(
-            cc.moveTo(0.5, this.barBg.defaultPos.x, cc.winSize.height + this.barBg.height/2).easing(cc.easeExponentialIn()),
-            cc.fadeOut(0.5)
-        ));
-
-        this.tabBg.stopAllActions();
-        this.tabBg.setOpacity(255);
-        this.tabBg.setPositionX(this.tabBg.defaultPos.x);
-        this.tabBg.runAction(cc.spawn(
-            cc.moveTo(0.5, -this.tabBg.width/2, this.tabBg.defaultPos.y).easing(cc.easeExponentialIn()),
-            cc.fadeOut(0.5)
-        ));
-
+        return;
         this.previewBg.stopAllActions();
         this.previewBg.setOpacity(255);
         this.previewBg.setPositionX(this.previewBg.defaultPos.x);
@@ -270,11 +178,6 @@ var StorageScene = BaseLayer.extend({
             this.avatar.asyncExecuteWithUrl(userMgr.getUserName(), userMgr.getAvatar());
         } catch (e) {}
         this.avatarFrame.reload();
-
-        // update bean
-        this.setGValue(userMgr.getCoin());
-        this.setGoldValue(userMgr.getGold());
-        this.setDiamondValue(userMgr.getDiamond());
 
         this.itemData = {};
         for (var i = 0; i < this.arrayButtonId.length; i++)
@@ -408,19 +311,6 @@ var StorageScene = BaseLayer.extend({
         }
     },
 
-    /* region Set data */
-    setGoldValue: function(num) {
-        this.valueGold.setString(StringUtility.formatNumberSymbol(num));
-    },
-
-    setGValue: function(num) {
-        this.valueG.setString(StringUtility.formatNumberSymbol(num));
-    },
-
-    setDiamondValue: function(num) {
-        this.valueDiamond.setString(StringUtility.formatNumberSymbol(num));
-    },
-
     selectItem: function(idx, itemNode) {
         if (idx < 0 || idx >= this.itemData[this.selectedTab].length){
             this.selectedItem[this.selectedTab] = -1;
@@ -448,7 +338,7 @@ var StorageScene = BaseLayer.extend({
 
     setPreviewItemData: function(itemData, itemNode) {
         this.labelNoItem.setVisible(!itemData);
-        this.descriptionBg.setVisible(!!itemData);
+        this.pText.setVisible(!!itemData);
         this.btnUse.setVisible(!!itemData);
         this.pItemPreview.setVisible(!!itemData);
         this.avatarBg.setVisible(!!itemData);
@@ -459,8 +349,10 @@ var StorageScene = BaseLayer.extend({
 
         this.itemName.setString(itemData.name);
         // StringUtility.breakLabelToMultiLine(this.itemName, this.descriptionView.width);
+        this.itemDescription.ignoreContentAdaptWithSize(false);
+        this.itemDescription.setContentSize(cc.size(250, 80));
         this.itemDescription.setString(itemData.description);
-        StringUtility.breakLabelToMultiLine(this.itemDescription, this.descriptionView.width);
+     //   StringUtility.breakLabelToMultiLine(this.itemDescription, this.pText.getContentSize().width);
 
         var callback = function(itemRef){
             var expireStr = "Vĩnh viễn";
@@ -488,7 +380,6 @@ var StorageScene = BaseLayer.extend({
         callback();
         if (itemData.remainTime >= 0)
             this.pItemPreview.schedule(callback, 1);
-        ccui.Helper.doLayout(this.descriptionBg);
 
         var typesNeedAvatar = [StorageManager.TYPE_AVATAR, StorageManager.TYPE_INTERACTION, StorageManager.TYPE_EMOTICON];
         this.avatarBg.setVisible(typesNeedAvatar.indexOf(itemData.type) != -1);
@@ -620,8 +511,6 @@ var StorageScene = BaseLayer.extend({
     selectTab: function(id) {
         var oldSelectedTab = this.selectedTab;
         this.selectedTab = (id && id != -1) ? id : StorageScene.BTN_AVATAR_TAB;
-        this.selectTabBtn(this.selectedTab, oldSelectedTab);
-
         var callback = function() {
             if (!StorageManager.getInstance().itemConfig) {
                 this.onErrorStorage();
@@ -680,76 +569,21 @@ var StorageScene = BaseLayer.extend({
         }
 
     },
-
-    selectTabBtn: function(id, oldId) {
-        if (oldId == -1 || id == oldId) {
-            for (var i in this.tabBtnActive) {
-                var tabBtn = this.tabBtnActive[i];
-                tabBtn.stopAllActions();
-                tabBtn.setVisible(tabBtn.getTag() == id);
-                tabBtn.setTouchEnabled(true);
-                tabBtn.setPosition(tabBtn.defaultPos);
-                tabBtn.setOpacity(255);
-            }
-        }
-        else{
-            var curActiveBtn, nextActiveBtn;
-            for (var i = 0; i < this.tabBtnActive.length; i++) {
-                if (this.tabBtnActive[i].getTag() == oldId) curActiveBtn = this.tabBtnActive[i];
-                else if (this.tabBtnActive[i].getTag() == id) nextActiveBtn = this.tabBtnActive[i];
-                else
-                    this.tabBtnActive[i].setVisible(false);
-                this.tabBtnActive[i].stopAllActions();
-            }
-
-            var worldStartPos = curActiveBtn.getParent().convertToWorldSpace(curActiveBtn.defaultPos);
-            var worldEndPos = nextActiveBtn.getParent().convertToWorldSpace(nextActiveBtn.defaultPos);
-
-            curActiveBtn.setPosition(curActiveBtn.defaultPos);
-            curActiveBtn.setOpacity(255);
-            curActiveBtn.setVisible(true);
-            curActiveBtn.setTouchEnabled(false);
-            nextActiveBtn.setPosition(nextActiveBtn.getParent().convertToNodeSpace(worldStartPos));
-            nextActiveBtn.setOpacity(0);
-            nextActiveBtn.setVisible(true);
-            nextActiveBtn.setTouchEnabled(false);
-
-            curActiveBtn.runAction(cc.sequence(
-                cc.spawn(
-                    cc.moveTo(0.2, curActiveBtn.getParent().convertToNodeSpace(worldEndPos)).easing(cc.easeSineOut()),
-                    cc.fadeOut(0.2).easing(cc.easeExponentialOut())
-                ),
-                cc.callFunc(function(){
-                    this.setVisible(false);
-                    this.setTouchEnabled(true)
-                }.bind(curActiveBtn))
-            ));
-
-            nextActiveBtn.runAction(cc.sequence(
-                cc.spawn(
-                    cc.moveTo(0.2, nextActiveBtn.defaultPos).easing(cc.easeSineOut()),
-                    cc.fadeIn(0.2).easing(cc.easeExponentialOut())
-                ),
-                cc.callFunc(function(){
-                    this.setTouchEnabled(true);
-                }.bind(nextActiveBtn))
-            ));
-        }
-    },
     /* endregion TABS */
 
     /* region Table View Delegate */
     tableCellAtIndex: function(table, idx) {
         var cell = table.dequeueCell();
-        if(!cell) cell = new StorageItemCell(this.numCol, this.storageItemScale, this.storageItemSpace, this.itemHighlight, this);
+        if(!cell) cell = new StorageItemCell(this.itemHighlight, this);
         var items = [];
-        for (var i = idx * this.numCol; i < this.itemData[this.selectedTab].length && i < (idx + 1) * this.numCol; i++){
+        for (var i = idx * StorageItemCell.NUM_COL; i < this.itemData[this.selectedTab].length && i < (idx + 1) * StorageItemCell.NUM_COL; i++){
             var data = this.itemData[this.selectedTab][i];
             var item = {};
             var itemRef = StorageManager.getInstance().userItemInfo[data.type][data.id][data.index];
             item.isSelected = i == this.selectedItem[this.selectedTab];
             item.path = StorageManager.getItemIconPath(data.type, null, data.id);
             item.num = itemRef.num;
+            item.name = StorageManager.getItemName(data.type, data.id);
             switch(data.type) {
                 case StorageManager.TYPE_AVATAR:
                     item.scale = 0.5;
@@ -776,35 +610,19 @@ var StorageScene = BaseLayer.extend({
     },
 
     tableCellSizeForIndex: function(table, idx) {
-        return cc.size(this.pItem.getContentSize().width, StorageItemCell.HEIGHT * this.storageItemScale + this.storageItemSpace);
+        return cc.size(this.pItem.getContentSize().width, StorageItemCell.HEIGHT);
     },
 
     numberOfCellsInTableView: function(table) {
         if (!table.isVisible()) return 0;
+        cc.log("NUM CELL****** " + this.getCellNum(this.selectedTab));
         return this.getCellNum(this.selectedTab);
     },
 
     getCellNum: function(tabId){
         if (tabId == -1 || !this.itemData[tabId]) return 0;
-        else return Math.ceil(this.itemData[tabId].length / this.numCol);
+        else return Math.ceil(this.itemData[tabId].length / StorageItemCell.NUM_COL);
     },
-
-    initPItem: function() {
-        var totalWidth = this.pItem.getContentSize().width;
-        this.numCol = StorageItemCell.MIN_COL;
-        for (; this.numCol < StorageItemCell.MAX_COL; this.numCol++){
-            if ((this.numCol + 1) * StorageItemCell.MIN_SCALE * StorageItemCell.WIDTH + (this.numCol + 2) * StorageItemCell.MIN_SPACE <= totalWidth){
-                continue;
-            }
-            break;
-        }
-        this.storageItemScale = (totalWidth - (this.numCol+1) * StorageItemCell.MIN_SPACE) / (this.numCol * StorageItemCell.WIDTH);
-        this.storageItemSpace = StorageItemCell.MIN_SPACE;
-        if (this.storageItemScale >= 1){
-            this.storageItemScale = totalWidth/(this.numCol * StorageItemCell.WIDTH + (this.numCol+1) * StorageItemCell.MIN_SPACE);
-            this.storageItemSpace = StorageItemCell.MIN_SPACE * this.storageItemScale;
-        }
-    }
     /* endregion Table View Delegate */
 });
 

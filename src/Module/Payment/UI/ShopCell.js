@@ -589,10 +589,10 @@ var ShopItemCell = cc.TableViewCell.extend({
         this.highlight = highlight;
         this.tabItemPayment = tabItemPayment;
 
-        this._layout = new cc.Layer(StorageItemCell.WIDTH * this.itemScale * this.numCol + this.itemSpace * this.numCol, StorageItemCell.HEIGHT * this.itemScale + this.itemSpace);
+        this._layout = new cc.Layer(ShopItemCell.WIDTH * this.itemScale * this.numCol + this.itemSpace * this.numCol, ShopItemCell.HEIGHT * this.itemScale + this.itemSpace);
         for (var i = 0; i < this.numCol; i++){
             var itemNode = ccs.load("Lobby/ShopItem.json").node;
-            itemNode.setPosition(this.itemSpace + i * (this.itemSpace + StorageItemCell.WIDTH * this.itemScale), this.itemSpace/2);
+            itemNode.setPosition(this.itemSpace + i * (this.itemSpace + ShopItemCell.WIDTH * this.itemScale), this.itemSpace/2);
             itemNode.setScale(this.itemScale);
             this._layout.addChild(itemNode, 0, i);
             itemNode.img = itemNode.getChildByName("img");

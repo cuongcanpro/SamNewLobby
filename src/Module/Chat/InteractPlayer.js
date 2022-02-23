@@ -330,13 +330,13 @@ var InteractSound = function () {
 };
 
 InteractSound.playAction = function (s) {
-    if (gamedata.sound && rInteractSound[s]) {
+    if (settingMgr.sound && rInteractSound[s]) {
         audioEngine.playEffect(CheckLogic.getPathResourceGame() + rInteractSound[s], false);
     }
 };
 
 InteractSound.playThrow = function (s) {
-    if (!gamedata.sound) return;
+    if (!settingMgr.sound) return;
 
     if (s == 0) {
         var ar = [0, 1];

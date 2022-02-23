@@ -117,12 +117,13 @@
         <Folder Name="Received">
           <Folder Name="defaultItem">
             <Image Name="g.png" />
-            <Image Name="vPoint.png" />
             <Image Name="gold.png" />
+            <Image Name="vPoint.png" />
           </Folder>
           <Image Name="bg.png" />
           <Image Name="bgDetails.png" />
           <Image Name="bgItem.png" />
+          <Image Name="bigLight.png" />
           <Image Name="deco0.png" />
           <Image Name="deco1.png" />
           <Image Name="deco2.png" />
@@ -136,8 +137,8 @@
           <Image Name="stripe2.png" />
           <Image Name="title.png" />
         </Folder>
-        <Project Name="ReceivedGUI.csd" Type="Layer" />
         <Project Name="ReceivedCell.csd" Type="Node" />
+        <Project Name="ReceivedGUI.csd" Type="Layer" />
       </RootFolder>
     </Group>
   </SolutionFolder>

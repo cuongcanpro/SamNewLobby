@@ -129,7 +129,7 @@ PaymentUtils.fakePayment = function (amount, type, isOffer) {
         isOffer = Payment.NO_OFFER;
     cc.log("FAKE " + amount + " TYPE " + type);
     var url = Constant.SMS_PRIVATE;
-    var data = "gameId=" + LocalizedString.config("GAME") + "&username=" + gamedata.userData.zName + "&uId=" + gamedata.userData.uID + "&paymentType=" + type + "&amount=" + amount + "&forEvent=" + isOffer;
+    var data = "gameId=" + LocalizedString.config("GAME") + "&username=" + userMgr.getUserName() + "&uId=" + userMgr.getUID() + "&paymentType=" + type + "&amount=" + amount + "&forEvent=" + isOffer;
 
     this.xhr = cc.loader.getXMLHttpRequest();
     this.xhr.open("GET", url + "?" + data, true);

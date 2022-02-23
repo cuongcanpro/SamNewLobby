@@ -6,19 +6,19 @@
       <ObjectData Name="Node" Tag="25" ctype="GameNodeObjectData">
         <Size X="0.0000" Y="0.0000" />
         <Children>
-          <AbstractNodeData Name="efxOutline" ActionTag="-948647284" Tag="41" IconVisible="False" LeftMargin="-67.0000" RightMargin="-67.0000" TopMargin="-71.5000" BottomMargin="-62.5000" LeftEage="44" RightEage="44" TopEage="44" BottomEage="44" Scale9OriginX="44" Scale9OriginY="44" Scale9Width="46" Scale9Height="46" ctype="ImageViewObjectData">
-            <Size X="134.0000" Y="134.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position Y="4.5000" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-            <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition />
-            <PreSize X="0.0000" Y="0.0000" />
-            <FileData Type="Normal" Path="Received/outline.png" Plist="" />
-          </AbstractNodeData>
           <AbstractNodeData Name="bg" ActionTag="239717124" Tag="26" IconVisible="False" LeftMargin="-62.0000" RightMargin="-62.0000" TopMargin="-62.5000" BottomMargin="-62.5000" LeftEage="40" RightEage="40" TopEage="41" BottomEage="41" Scale9OriginX="40" Scale9OriginY="41" Scale9Width="44" Scale9Height="43" ctype="ImageViewObjectData">
             <Size X="124.0000" Y="125.0000" />
             <Children>
+              <AbstractNodeData Name="efxOutline" ActionTag="-948647284" Tag="41" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="-5.0001" RightMargin="-4.9999" TopMargin="-9.0000" BottomMargin="0.0000" LeftEage="44" RightEage="44" TopEage="44" BottomEage="44" Scale9OriginX="44" Scale9OriginY="44" Scale9Width="46" Scale9Height="46" ctype="ImageViewObjectData">
+                <Size X="134.0000" Y="134.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="61.9999" Y="67.0000" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition X="0.5000" Y="0.5360" />
+                <PreSize X="1.0806" Y="1.0720" />
+                <FileData Type="Normal" Path="Received/outline.png" Plist="" />
+              </AbstractNodeData>
               <AbstractNodeData Name="bgModify" ActionTag="1386655432" Tag="28" IconVisible="False" LeftMargin="30.5000" RightMargin="-15.5000" TopMargin="-14.5000" BottomMargin="110.5000" LeftEage="35" RightEage="35" TopEage="9" BottomEage="9" Scale9OriginX="35" Scale9OriginY="9" Scale9Width="39" Scale9Height="11" ctype="ImageViewObjectData">
                 <Size X="109.0000" Y="29.0000" />
                 <Children>
@@ -51,6 +51,18 @@
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="Normal" Path="Received/bgItem.png" Plist="" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="name" ActionTag="-430643838" Tag="320" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="-62.5000" RightMargin="-62.5000" TopMargin="66.0000" BottomMargin="-141.0000" IsCustomSize="True" FontSize="20" LabelText="Text Label" HorizontalAlignmentType="HT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+            <Size X="125.0000" Y="75.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="1.0000" />
+            <Position Y="-66.0000" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="32" G="83" B="136" />
+            <PrePosition />
+            <PreSize X="0.0000" Y="0.0000" />
+            <FontResource Type="Normal" Path="Font/tahomabd.ttf" Plist="" />
+            <OutlineColor A="255" R="255" G="0" B="0" />
+            <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
           <AbstractNodeData Name="itemImg" ActionTag="-1229451948" Tag="30" IconVisible="False" LeftMargin="-62.0000" RightMargin="-62.0000" TopMargin="-62.5000" BottomMargin="-62.5000" LeftEage="40" RightEage="40" TopEage="41" BottomEage="41" Scale9OriginX="40" Scale9OriginY="41" Scale9Width="44" Scale9Height="43" ctype="ImageViewObjectData">
             <Size X="124.0000" Y="125.0000" />
@@ -97,7 +109,7 @@
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="Normal" Path="Received/defaultItem/gold.png" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="efxFlash" ActionTag="-1296204822" Tag="61" IconVisible="False" LeftMargin="-58.0000" RightMargin="-58.0000" TopMargin="-62.5000" BottomMargin="-53.5000" TouchEnable="True" ClipAble="True" BackColorAlpha="102" ColorAngle="90.0000" ctype="PanelObjectData">
+          <AbstractNodeData Name="efxFlash" ActionTag="-1296204822" Tag="61" IconVisible="False" LeftMargin="-58.0000" RightMargin="-58.0000" TopMargin="-62.5000" BottomMargin="-53.5000" ClipAble="True" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
             <Size X="116.0000" Y="116.0000" />
             <Children>
               <AbstractNodeData Name="light_0" ActionTag="1685492447" Tag="64" RotationSkewX="-45.0000" RotationSkewY="-45.0000" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-177.5000" RightMargin="-61.5000" TopMargin="-31.0000" BottomMargin="116.0000" ctype="SpriteObjectData">
@@ -156,7 +168,7 @@
             <OutlineColor A="255" R="255" G="255" B="255" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="pEffect" Visible="False" ActionTag="-1911890371" Tag="40" IconVisible="False" TopMargin="-4.5000" BottomMargin="4.5000" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" ctype="PanelObjectData">
+          <AbstractNodeData Name="pEffect" Visible="False" ActionTag="-1911890371" Tag="40" IconVisible="False" TopMargin="-4.5000" BottomMargin="4.5000" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
             <Size X="0.0000" Y="0.0000" />
             <AnchorPoint />
             <Position Y="4.5000" />
