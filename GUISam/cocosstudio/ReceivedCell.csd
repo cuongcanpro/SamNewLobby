@@ -9,10 +9,10 @@
           <AbstractNodeData Name="bg" ActionTag="239717124" Tag="26" IconVisible="False" LeftMargin="-62.0000" RightMargin="-62.0000" TopMargin="-62.5000" BottomMargin="-62.5000" LeftEage="40" RightEage="40" TopEage="41" BottomEage="41" Scale9OriginX="40" Scale9OriginY="41" Scale9Width="44" Scale9Height="43" ctype="ImageViewObjectData">
             <Size X="124.0000" Y="125.0000" />
             <Children>
-              <AbstractNodeData Name="efxOutline" ActionTag="-948647284" Tag="41" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="-5.0001" RightMargin="-4.9999" TopMargin="-9.0000" BottomMargin="0.0000" LeftEage="44" RightEage="44" TopEage="44" BottomEage="44" Scale9OriginX="44" Scale9OriginY="44" Scale9Width="46" Scale9Height="46" ctype="ImageViewObjectData">
+              <AbstractNodeData Name="efxOutline" ActionTag="-948647284" Tag="41" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="-5.0000" RightMargin="-5.0000" TopMargin="-9.0000" LeftEage="44" RightEage="44" TopEage="44" BottomEage="44" Scale9OriginX="44" Scale9OriginY="44" Scale9Width="46" Scale9Height="46" ctype="ImageViewObjectData">
                 <Size X="134.0000" Y="134.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="61.9999" Y="67.0000" />
+                <Position X="62.0000" Y="67.0000" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.5000" Y="0.5360" />
@@ -64,13 +64,23 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="itemImg" ActionTag="-1229451948" Tag="30" IconVisible="False" LeftMargin="-62.0000" RightMargin="-62.0000" TopMargin="-62.5000" BottomMargin="-62.5000" LeftEage="40" RightEage="40" TopEage="41" BottomEage="41" Scale9OriginX="40" Scale9OriginY="41" Scale9Width="44" Scale9Height="43" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="pItem" ActionTag="-681571344" Tag="68" IconVisible="False" LeftMargin="-62.0000" RightMargin="-62.0000" TopMargin="-62.5000" BottomMargin="-62.5000" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" ctype="PanelObjectData">
             <Size X="124.0000" Y="125.0000" />
             <Children>
-              <AbstractNodeData Name="flare_0" ActionTag="1833058397" Tag="67" IconVisible="False" LeftMargin="70.3630" RightMargin="2.6370" TopMargin="24.1910" BottomMargin="49.8090" ctype="SpriteObjectData">
+              <AbstractNodeData Name="itemImg" ActionTag="-1229451948" Tag="30" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftEage="40" RightEage="40" TopEage="41" BottomEage="41" Scale9OriginX="40" Scale9OriginY="41" Scale9Width="44" Scale9Height="43" ctype="ImageViewObjectData">
+                <Size X="124.0000" Y="125.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="62.0000" Y="62.5000" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition X="0.5000" Y="0.5000" />
+                <PreSize X="1.0000" Y="1.0000" />
+                <FileData Type="Normal" Path="Received/defaultItem/gold.png" Plist="" />
+              </AbstractNodeData>
+              <AbstractNodeData Name="flare_0" ActionTag="1833058397" Tag="67" IconVisible="False" LeftMargin="70.3630" RightMargin="2.6370" TopMargin="24.1900" BottomMargin="49.8100" ctype="SpriteObjectData">
                 <Size X="51.0000" Y="51.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="95.8630" Y="75.3090" />
+                <Position X="95.8630" Y="75.3100" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.7731" Y="0.6025" />
@@ -107,7 +117,10 @@
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
-            <FileData Type="Normal" Path="Received/defaultItem/gold.png" Plist="" />
+            <SingleColor A="255" R="150" G="200" B="255" />
+            <FirstColor A="255" R="150" G="200" B="255" />
+            <EndColor A="255" R="255" G="255" B="255" />
+            <ColorVector ScaleY="1.0000" />
           </AbstractNodeData>
           <AbstractNodeData Name="efxFlash" ActionTag="-1296204822" Tag="61" IconVisible="False" LeftMargin="-58.0000" RightMargin="-58.0000" TopMargin="-62.5000" BottomMargin="-53.5000" ClipAble="True" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
             <Size X="116.0000" Y="116.0000" />

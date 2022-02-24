@@ -118,6 +118,12 @@ var UserMgr = BaseMgr.extend({
         // khong cho user duoi level 2 thay nut share
         return this.level < 2;
     },
+
+    openUserInfoGUI: function (info, idTab) {
+        var gui = sceneMgr.openGUI(UserInfoPanel.className, UserInfoPanel.TAG, UserInfoPanel.TAG);
+        gui.setInfo(userMgr.userInfo);
+        gui.selectTab(idTab);
+    },
 })
 
 UserMgr.instance = null;

@@ -1,0 +1,378 @@
+<Solution>
+  <PropertyGroup Name="LuckyBonus" Version="3.10.0.0" Type="CocosStudio" />
+  <SolutionFolder>
+    <Group ctype="ResourceGroup">
+      <RootFolder Name=".">
+        <Folder Name="Common">
+          <PlistImageFolder Image="coin.png" PListFile="coin.plist" Name=".coin_PList.Dir" />
+          <PlistImageFolder Image="coinNew.png" PListFile="coinNew.plist" Name=".coinNew_PList.Dir" />
+          <PlistImageFolder Image="gold.png" PListFile="gold.plist" Name=".gold_PList.Dir" />
+          <Folder Name="IconVip">
+            <Image Name="iconVip1.png" />
+            <Image Name="iconVip10.png" />
+            <Image Name="iconVip2.png" />
+            <Image Name="iconVip3.png" />
+            <Image Name="iconVip4.png" />
+            <Image Name="iconVip5.png" />
+            <Image Name="iconVip6.png" />
+            <Image Name="iconVip7.png" />
+            <Image Name="iconVip8.png" />
+            <Image Name="iconVip9.png" />
+            <Image Name="imgUp.png" />
+          </Folder>
+          <Folder Name="light">
+            <Image Name="grand_lightRotate.png" />
+            <Image Name="light.png" />
+            <Image Name="light_2.png" />
+            <Image Name="star_light.png" />
+          </Folder>
+          <Image Name="9patch.png" />
+          <Image Name="bgAvatarSmallCircle.png" />
+          <Image Name="bgBroadcast.png" />
+          <Image Name="bgChooseRoom.jpg" />
+          <Image Name="bgColumn.png" />
+          <Image Name="bgDialog.png" />
+          <Image Name="bgGrey.png" />
+          <Image Name="bgLoading.jpg" />
+          <Image Name="bgMoney.png" />
+          <Image Name="bgSub.png" />
+          <Image Name="bgSubBot.png" />
+          <Image Name="bgSubTop.png" />
+          <Image Name="bgSubTransperance.png" />
+          <Image Name="black.png" />
+          <Image Name="borderAvatar.png" />
+          <Image Name="btn_cheat.png" />
+          <Image Name="btnAddG.png" />
+          <Image Name="btnAddGold.png" />
+          <Image Name="btnAvatar.png" />
+          <Image Name="btnBack.png" />
+          <Image Name="btnBlue.png" />
+          <Image Name="btnCancel.png" />
+          <Image Name="btnClose.png" />
+          <Image Name="btnConfirm.png" />
+          <Image Name="btnF5.png" />
+          <Image Name="btnGreen.png" />
+          <Image Name="btnHelp.png" />
+          <Image Name="btnReceiveSorry.png" />
+          <Image Name="btnUse.png" />
+          <Image Name="btnYellow.png" />
+          <Image Name="buttonOK.png" />
+          <Image Name="camera.png" />
+          <Audio Name="coin_01.mp3" />
+          <Audio Name="coin_02.mp3" />
+          <Audio Name="coin_03.mp3" />
+          <Audio Name="coinFall.mp3" />
+          <Image Name="CommonBg.jpg" />
+          <Image Name="CommonMask.png" />
+          <Image Name="defaultAvatar.png" />
+          <Image Name="dot.png" />
+          <Image Name="dotLight.png" />
+          <Image Name="dotNormal.png" />
+          <Image Name="gamecenter.png" />
+          <Image Name="iconDiamond.png" />
+          <Image Name="iconG.png" />
+          <Image Name="iconGold.png" />
+          <Image Name="iconGoldBig.png" />
+          <Image Name="iconGoldDisable.png" />
+          <Image Name="iconStar.png" />
+          <Image Name="iconStarBig.png" />
+          <Image Name="iconXu.png" />
+          <Image Name="iconXuBig.png" />
+          <Image Name="infoRoom.png" />
+          <Image Name="loading.png" />
+          <Image Name="logo_zp.png" />
+          <Image Name="maskAvatar.png" />
+          <Image Name="maskEmpty.png" />
+          <Image Name="separateLine.png" />
+          <Image Name="text.png" />
+          <Image Name="titleGiftStartup.png" />
+          <Image Name="titleGiftSupport.png" />
+          <Image Name="touchDeco.png" />
+          <Image Name="touchIcon0.png" />
+          <Image Name="touchIcon1.png" />
+          <Image Name="touchIcon2.png" />
+          <Image Name="touchIcon3.png" />
+          <Image Name="touchSquare.png" />
+          <Image Name="zingplay.png" />
+        </Folder>
+        <Folder Name="Font">
+          <Fnt Name="detail_jackpot.fnt" />
+          <Fnt Name="jackpot.fnt" />
+          <TTF Name="robotoBold.ttf" />
+          <TTF Name="robotoLight.ttf" />
+          <TTF Name="tahoma.ttf" />
+          <TTF Name="tahomabd.ttf" />
+        </Folder>
+        <Folder Name="GUILuckyBonus">
+          <Folder Name="effect">
+            <File Name="lever.atlas" />
+            <File Name="lever.json" />
+            <Image Name="lever.png" />
+          </Folder>
+          <Folder Name="icon spin">
+            <Image Name="1.png" />
+            <Image Name="2.png" />
+            <Image Name="3.png" />
+            <Image Name="4.png" />
+            <Image Name="5.png" />
+            <Image Name="6.png" />
+          </Folder>
+          <Folder Name="iconLobby">
+            <Image Name="hot.png" />
+            <Image Name="lever_1.png" />
+            <Image Name="lever_2.png" />
+            <Image Name="lever_3.png" />
+            <Image Name="reels.png" />
+            <Image Name="slot.png" />
+            <Image Name="slotMachine.png" />
+          </Folder>
+          <Folder Name="popup">
+            <Image Name="1.png" />
+            <Image Name="2.png" />
+            <Image Name="3.png" />
+            <Image Name="4.png" />
+            <Image Name="5.png" />
+            <Image Name="rowBg.png" />
+            <Image Name="7.png" />
+            <Image Name="8.png" />
+            <Image Name="9.png" />
+            <Image Name="demo 1.jpg" />
+            <Image Name="demo 2.jpg" />
+            <Fnt Name="LBPopUpFont.fnt" />
+          </Folder>
+          <Folder Name="token">
+            <Image Name="1.png" />
+            <Image Name="1_glow.png" />
+            <Image Name="10.png" />
+            <Image Name="10_glow.png" />
+            <Image Name="2.png" />
+            <Image Name="2_glow.png" />
+            <Image Name="3.png" />
+            <Image Name="3_glow.png" />
+            <Image Name="4.png" />
+            <Image Name="4_glow.png" />
+            <Image Name="5.png" />
+            <Image Name="5_glow.png" />
+            <Image Name="6.png" />
+            <Image Name="6_glow.png" />
+            <Image Name="7.png" />
+            <Image Name="7_glow.png" />
+            <Image Name="8.png" />
+            <Image Name="8_glow.png" />
+            <Image Name="9.png" />
+            <Image Name="9_glow.png" />
+            <Image Name="Untitled-1_0000_rollEffect.png" />
+          </Folder>
+          <Image Name="1.png" />
+          <Image Name="10.png" />
+          <Image Name="11.png" />
+          <Image Name="12.png" />
+          <Image Name="13.png" />
+          <Image Name="14.png" />
+          <Image Name="15.png" />
+          <Image Name="16.png" />
+          <Image Name="17.png" />
+          <Image Name="18.png" />
+          <Image Name="19.png" />
+          <Image Name="2.png" />
+          <Image Name="20.png" />
+          <Image Name="21.png" />
+          <Image Name="22.png" />
+          <Image Name="3.png" />
+          <Image Name="4.png" />
+          <Image Name="5.png" />
+          <Image Name="6.png" />
+          <Image Name="7.png" />
+          <Image Name="8.png" />
+          <Image Name="9.png" />
+          <Image Name="demo 1.jpg" />
+          <Image Name="demo 2.jpg" />
+          <Image Name="Ellipse 1.png" />
+          <Image Name="hand.png" />
+          <Fnt Name="LBFont.fnt" />
+          <TTF Name="tahoma.ttf" />
+          <TTF Name="tahomabd.ttf" />
+        </Folder>
+        <Folder Name="GUIVipNew">
+          <Folder Name="benefit">
+            <Image Name="b0.png" />
+          </Folder>
+          <Folder Name="bg">
+            <Image Name="bgAvatar.png" />
+            <Image Name="bgBottom.png" />
+            <Image Name="bgCommon.png" />
+            <Image Name="bgCurrVipLevel.png" />
+            <Image Name="bgFadeLevelVipMini.png" />
+            <Image Name="bgFullVip.png" />
+            <Image Name="bgHelp.png" />
+            <Image Name="bgIntro.png" />
+            <Image Name="bgLevelVip.png" />
+            <Image Name="bgNextLevelBenefit.png" />
+            <Image Name="bgNextVipLevel.png" />
+            <Image Name="bgProcessVipShop.png" />
+            <Image Name="bgProcessVpoint.png" />
+            <Image Name="bgShopInfoVip.png" />
+            <Image Name="bgTooltipLobby.png" />
+          </Folder>
+          <Folder Name="bgIconVip">
+            <Image Name="bgIconVip1.png" />
+            <Image Name="bgIconVip10.png" />
+            <Image Name="bgIconVip2.png" />
+            <Image Name="bgIconVip3.png" />
+            <Image Name="bgIconVip4.png" />
+            <Image Name="bgIconVip5.png" />
+            <Image Name="bgIconVip6.png" />
+            <Image Name="bgIconVip7.png" />
+            <Image Name="bgIconVip8.png" />
+            <Image Name="bgIconVip9.png" />
+          </Folder>
+          <Folder Name="guide">
+            <Image Name="bgPage.png" />
+            <Image Name="btnPage.png" />
+            <Image Name="page1.png" />
+            <Image Name="page2.png" />
+          </Folder>
+          <Folder Name="iconVip">
+            <Image Name="iconVip1.png" />
+            <Image Name="iconVip10.png" />
+            <Image Name="iconVip2.png" />
+            <Image Name="iconVip3.png" />
+            <Image Name="iconVip4.png" />
+            <Image Name="iconVip5.png" />
+            <Image Name="iconVip6.png" />
+            <Image Name="iconVip7.png" />
+            <Image Name="iconVip8.png" />
+            <Image Name="iconVip9.png" />
+          </Folder>
+          <Folder Name="iconVipNormal">
+            <Image Name="iconVipNormal1.png" />
+            <Image Name="iconVipNormal10.png" />
+            <Image Name="iconVipNormal2.png" />
+            <Image Name="iconVipNormal3.png" />
+            <Image Name="iconVipNormal4.png" />
+            <Image Name="iconVipNormal5.png" />
+            <Image Name="iconVipNormal6.png" />
+            <Image Name="iconVipNormal7.png" />
+            <Image Name="iconVipNormal8.png" />
+            <Image Name="iconVipNormal9.png" />
+          </Folder>
+          <Folder Name="imgUpLevel">
+            <Image Name="imgUpVip1.png" />
+            <Image Name="imgUpVip1_w.png" />
+            <Image Name="imgUpVip10.png" />
+            <Image Name="imgUpVip10_w.png" />
+            <Image Name="imgUpVip2.png" />
+            <Image Name="imgUpVip2_w.png" />
+            <Image Name="imgUpVip3.png" />
+            <Image Name="imgUpVip3_w.png" />
+            <Image Name="imgUpVip4.png" />
+            <Image Name="imgUpVip4_w.png" />
+            <Image Name="imgUpVip5.png" />
+            <Image Name="imgUpVip5_w.png" />
+            <Image Name="imgUpVip6.png" />
+            <Image Name="imgUpVip6_w.png" />
+            <Image Name="imgUpVip7.png" />
+            <Image Name="imgUpVip7_w.png" />
+            <Image Name="imgUpVip8.png" />
+            <Image Name="imgUpVip8_w.png" />
+            <Image Name="imgUpVip9.png" />
+            <Image Name="imgUpVip9_w.png" />
+          </Folder>
+          <Folder Name="intro">
+            <Image Name="introImg0.png" />
+            <Image Name="introImg1.png" />
+            <Image Name="introImg2.png" />
+            <Image Name="introImg3.png" />
+            <Image Name="introImg4.png" />
+            <Image Name="introImg5.png" />
+          </Folder>
+          <Folder Name="vipRes">
+            <Folder Name="Gem">
+              <PlistImageFolder Image="texture.png" PListFile="texture.plist" Name=".texture_PList.Dir" />
+              <File Name="skeleton.xml" />
+            </Folder>
+            <Folder Name="Highlight">
+              <PlistImageFolder Image="texture.png" PListFile="texture.plist" Name=".texture_PList.Dir" />
+              <File Name="skeleton.xml" />
+            </Folder>
+            <Folder Name="HighlightBig">
+              <PlistImageFolder Image="texture.png" PListFile="texture.plist" Name=".texture_PList.Dir" />
+              <File Name="skeleton.xml" />
+            </Folder>
+            <File Name="VipLocalized_vi" />
+          </Folder>
+          <Image Name="9patch.png" />
+          <Image Name="bgBenefit.png" />
+          <Image Name="bgBenefit_time.png" />
+          <Image Name="btnBenefit.png" />
+          <Image Name="btnClose.png" />
+          <Image Name="btnClose2.png" />
+          <Image Name="btnEnterShop.png" />
+          <Image Name="btnEnterVip.png" />
+          <Image Name="btnEnterVipIntro.png" />
+          <Image Name="btnGuide.png" />
+          <Image Name="btnOK.png" />
+          <Image Name="btnReceiveNow.png" />
+          <Image Name="buttonBack.png" />
+          <Image Name="buttonHelp.png" />
+          <Image Name="fireMask.png" />
+          <Image Name="iconExpired.png" />
+          <Image Name="iconFly0.png" />
+          <Image Name="iconFly1.png" />
+          <Image Name="iconFly2.png" />
+          <Image Name="iconFly3.png" />
+          <Image Name="iconLock.png" />
+          <Image Name="iconTick.png" />
+          <Image Name="iconTime.png" />
+          <Image Name="iconVpoint.png" />
+          <Image Name="imgArrow.png" />
+          <Image Name="imgArrowNextLevel.png" />
+          <Image Name="imgBenefitDis.png" />
+          <Image Name="imgBgCurrentLevel.png" />
+          <Image Name="imgBlur0.png" />
+          <Image Name="imgBlur1.png" />
+          <Image Name="imgBlur2.png" />
+          <Image Name="imgClose2.png" />
+          <Image Name="imgDecorate.png" />
+          <Image Name="imgDecorateBonusGoldDaily.png" />
+          <Image Name="imgDecorateChangeGold.png" />
+          <Image Name="imgDecorateUpVip.png" />
+          <Image Name="imgDecorateUpVip0.png" />
+          <Image Name="imgDecorateUpVip1.png" />
+          <Image Name="imgGold.png" />
+          <Image Name="imgGuideDis.png" />
+          <Image Name="imgHightlight.png" />
+          <Image Name="imgOldVip0.png" />
+          <Image Name="imgOldVip1.png" />
+          <Image Name="imgOldVip2.png" />
+          <Image Name="imgTableHelp.png" />
+          <Image Name="imgTilteNewVip.png" />
+          <Image Name="imgTilteOldVip.png" />
+          <Image Name="imgTitle.png" />
+          <Image Name="imgTitleChangeGold.png" />
+          <Image Name="imgUp.png" />
+          <Image Name="imgVipFree.png" />
+          <Image Name="lineReceiveGold.png" />
+          <Image Name="lock.png" />
+          <Image Name="processVpoint.png" />
+          <Image Name="starIAP.png" />
+          <Image Name="titleCurLevel.png" />
+          <Image Name="titleCurLevelConvertGUI.png" />
+          <Image Name="titleNextLevel.png" />
+          <Image Name="titleOldLevelConvertGUI.png" />
+          <Image Name="type0.png" />
+          <Image Name="type1.png" />
+          <Image Name="type2.png" />
+          <Image Name="type3.png" />
+          <Image Name="typeDate.png" />
+          <Image Name="typeMoney.png" />
+          <Image Name="typeSupport.png" />
+          <Image Name="typeVipTime.png" />
+        </Folder>
+        <Project Name="GUILuckyBonus.csd" Type="Scene" />
+        <Project Name="GUILuckyBonusNotEnoughG.csd" Type="Scene" />
+        <Project Name="GUILuckyBonusRewardInfo.csd" Type="Scene" />
+      </RootFolder>
+    </Group>
+  </SolutionFolder>
+</Solution>

@@ -399,5 +399,5 @@ var ItemNotifyCell = ccui.Layout.extend({
     }
 });
 
-ItemNotifyCell.SIZE = 110;
+ItemNotifyCell.SIZE = 160;
 ItemNotifyCell.INNER_SIZE = 100;

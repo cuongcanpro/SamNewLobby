@@ -59,30 +59,30 @@ var RankGUI = BaseLayer.extend({
         this.btnCheat.setTouchEnabled(Config.ENABLE_CHEAT);
 
         this.titleTop = db.DBCCFactory.getInstance().buildArmatureNode("Huychuong");
-        this.titleTop.setScale(1.5);
+        this.titleTop.setScale(RankData.TEMPORARY_SCALE);
         this.txtTop = db.DBCCFactory.getInstance().buildArmatureNode("Title_thanbai");
-        this.txtTop.setScale(1.5);
+        this.txtTop.setScale(RankData.TEMPORARY_SCALE);
         if (this.titleTop && this.txtTop) {
             this.bg.addChild(this.titleTop, 3);
-            this.titleTop.setPosition(this.title.getPositionX() - 135 * 1.5, this.title.getPositionY());
+            this.titleTop.setPosition(this.title.getPositionX() - 135 * RankData.TEMPORARY_SCALE, this.title.getPositionY());
             this.titleTop.gotoAndPlay("1", 0, -1, 0);
 
             this.bg.addChild(this.txtTop, 3);
-            this.txtTop.setPosition(this.title.getPositionX() + 29 * 1.5, this.title.getPositionY() + 4);
+            this.txtTop.setPosition(this.title.getPositionX() + 29 * RankData.TEMPORARY_SCALE, this.title.getPositionY() + 4);
             this.txtTop.gotoAndPlay("1", 0, -1, 0);
         }
 
         this.titleIndividual = db.DBCCFactory.getInstance().buildArmatureNode("Cup");
-        this.titleIndividual.setScale(1.5);
+        this.titleIndividual.setScale(RankData.TEMPORARY_SCALE);
         this.txtIndividual = db.DBCCFactory.getInstance().buildArmatureNode("Title_canhan");
-        this.txtIndividual.setScale(1.5);
+        this.txtIndividual.setScale(RankData.TEMPORARY_SCALE);
         if (this.titleIndividual && this.txtIndividual) {
             this.bg.addChild(this.titleIndividual, 3);
-            this.titleIndividual.setPosition(this.title.getPositionX() - 130 * 1.5, this.title.getPositionY() - 3);
+            this.titleIndividual.setPosition(this.title.getPositionX() - 130 * RankData.TEMPORARY_SCALE, this.title.getPositionY() - 3);
             this.titleIndividual.gotoAndPlay("1", 0, -1, 0);
 
             this.bg.addChild(this.txtIndividual, 3);
-            this.txtIndividual.setPosition(this.title.getPositionX() + 26 * 1.5, this.title.getPositionY() + 3);
+            this.txtIndividual.setPosition(this.title.getPositionX() + 26 * RankData.TEMPORARY_SCALE, this.title.getPositionY() + 3);
             this.txtIndividual.gotoAndPlay("1", 0, -1, 0);
         }
 
@@ -150,13 +150,14 @@ var RankGUI = BaseLayer.extend({
         this.txtCheatMedal0 = this.getControl("txtCheatMedal0", this.pCheat);
         this.customButton("btnCheatInfo", RankGUI.BTN_CHEAT_INFO, this.pCheat);
         this.customButton("btnEfxResult", RankGUI.BTN_CHEAT_EFX_RESULT, this.pCheat);
+        this.customButton("btnMiniRank", RankGUI.BTN_CHEAT_MINI_RANK, this.pCheat);
 
         this.animLightBg = db.DBCCFactory.getInstance().buildArmatureNode("LightBg");
         if (this.animLightBg) {
             this.pCurLevel.addChild(this.animLightBg, -1, -1);
             this.animLightBg.setPosition(130, 100);
             this.animLightBg.gotoAndPlay("1", 0, -1, 9999);
-            this.animLightBg.setScale(1.5);
+            this.animLightBg.setScale(RankData.TEMPORARY_SCALE);
         }
     },
 
@@ -359,6 +360,11 @@ var RankGUI = BaseLayer.extend({
                 gui.updateResult(resultLastWeek);
                 break;
             }
+            case RankGUI.BTN_CHEAT_MINI_RANK: {
+                RankData.addMiniRankGUI(true);
+                // RankData.showMiniRankGUI(true);
+                break;
+            }
             case RankGUI.BTN_TOOLTIP: {
                 var pos = this.pNextLevel.convertToWorldSpace(cc.p(0, this.pNextLevel.getContentSize().height));
                 var text = this.getInfoTooltip();
@@ -436,7 +442,7 @@ var RankGUI = BaseLayer.extend({
                 animRank.setPosition(imgRankSize.width / 2, imgRankSize.height / 2);
                 var indexLevel = Math.floor(rank / 3) + 1;
                 animRank.gotoAndPlay(indexLevel, 0, -1, 9999);
-                animRank.setScale(1.5);
+                animRank.setScale(RankData.TEMPORARY_SCALE);
             }
             panel.imgRank.setScale(1);
         }
@@ -818,7 +824,7 @@ var RankGUI = BaseLayer.extend({
                 var imgRankPos = this.pCurLevel.imgRank.getPosition();
                 effect.setPosition(imgRankPos.x, imgRankPos.y);
                 effect.gotoAndPlay("1", 0, 1.2, 1);
-                effect.setScale(1.5);
+                effect.setScale(RankData.TEMPORARY_SCALE);
             }
         }.bind(this), 400);
 
@@ -855,35 +861,35 @@ var RankGUI = BaseLayer.extend({
         var textureNextBtn = this.getButtonTexture(nextBtn.getTag(), true);
         curBtn.loadTextures(textureCurBtn, textureCurBtn, "", ccui.Widget.LOCAL_TEXTURE);
         nextBtn.loadTextures(textureNextBtn, textureNextBtn, "", ccui.Widget.LOCAL_TEXTURE);
-        curBtn.setTouchEnabled(false);
+        curBtn.setTouchEnabled(true);
         nextBtn.setTouchEnabled(false);
 
-        curBtn.removeAllChildren();
-        curBtn.stopAllActions();
-        curBtn.setPositionX(this.btnIndividual.defaultPos.x);
-        curBtn.setLocalZOrder(1);
-        curBtn.addChild(new ccui.ImageView(this.getButtonTexture(curBtn.getTag(), true), ccui.Widget.LOCAL_TEXTURE), 0, 0);
-        curBtn.getChildByTag(0).setAnchorPoint(0, 0);
-        curBtn.getChildByTag(0).runAction(cc.sequence(cc.fadeOut(duration), cc.removeSelf()));
-        curBtn.runAction(cc.sequence(
-            cc.moveBy(duration/5, -12, 0),
-            cc.callFunc(function(){this.setLocalZOrder(0);}.bind(curBtn)),
-            cc.moveTo(duration * 4/5, this.btnTop.defaultPos),
-            cc.callFunc(function(){this.setTouchEnabled(true);}.bind(curBtn))
-        ));
+        // curBtn.removeAllChildren();
+        // curBtn.stopAllActions();
+        // curBtn.setPositionX(this.btnIndividual.defaultPos.x);
+        // curBtn.setLocalZOrder(1);
+        // curBtn.addChild(new ccui.ImageView(this.getButtonTexture(curBtn.getTag(), true), ccui.Widget.LOCAL_TEXTURE), 0, 0);
+        // curBtn.getChildByTag(0).setAnchorPoint(0, 0);
+        // curBtn.getChildByTag(0).runAction(cc.sequence(cc.fadeOut(duration), cc.removeSelf()));
+        // curBtn.runAction(cc.sequence(
+        //     cc.moveBy(duration/5, -12, 0),
+        //     cc.callFunc(function(){this.setLocalZOrder(0);}.bind(curBtn)),
+        //     cc.moveTo(duration * 4/5, this.btnTop.defaultPos),
+        //     cc.callFunc(function(){this.setTouchEnabled(true);}.bind(curBtn))
+        // ));
 
-        nextBtn.removeAllChildren();
-        nextBtn.stopAllActions();
-        nextBtn.setPositionX(this.btnTop.defaultPos.x);
-        nextBtn.setLocalZOrder(0);
-        nextBtn.addChild(new ccui.ImageView(this.getButtonTexture(nextBtn.getTag(), false), ccui.Widget.LOCAL_TEXTURE), 0, 0);
-        nextBtn.getChildByTag(0).setAnchorPoint(0, 0);
-        nextBtn.getChildByTag(0).runAction(cc.sequence(cc.fadeOut(duration), cc.removeSelf()));
-        nextBtn.runAction(cc.sequence(
-            cc.moveBy(duration/5, 12, 0),
-            cc.callFunc(function(){this.setLocalZOrder(1);}.bind(nextBtn)),
-            cc.moveTo(duration * 4/5, this.btnIndividual.defaultPos)
-        ));
+        // nextBtn.removeAllChildren();
+        // nextBtn.stopAllActions();
+        // nextBtn.setPositionX(this.btnTop.defaultPos.x);
+        // nextBtn.setLocalZOrder(0);
+        // nextBtn.addChild(new ccui.ImageView(this.getButtonTexture(nextBtn.getTag(), false), ccui.Widget.LOCAL_TEXTURE), 0, 0);
+        // nextBtn.getChildByTag(0).setAnchorPoint(0, 0);
+        // nextBtn.getChildByTag(0).runAction(cc.sequence(cc.fadeOut(duration), cc.removeSelf()));
+        // nextBtn.runAction(cc.sequence(
+        //     cc.moveBy(duration/5, 12, 0),
+        //     cc.callFunc(function(){this.setLocalZOrder(1);}.bind(nextBtn)),
+        //     cc.moveTo(duration * 4/5, this.btnIndividual.defaultPos)
+        // ));
     },
 
     updateBackground: function(isTopRank) {
@@ -1061,6 +1067,7 @@ RankGUI.BTN_INDIVIDUAL = 7;
 RankGUI.BTN_TOP = 8;
 RankGUI.BTN_CHEAT = 9;
 RankGUI.BTN_CHEAT_EFX_RESULT = 10;
+RankGUI.BTN_CHEAT_MINI_RANK = 11;
 
 RankGUI.PADDING_CELL = 3;
 RankGUI.DELTA_TIME_ADD_DECOR = 1.6;

@@ -164,7 +164,7 @@
                 <EndColor A="255" R="255" G="255" B="255" />
                 <ColorVector ScaleY="1.0000" />
               </AbstractNodeData>
-              <AbstractNodeData Name="pTitle" ActionTag="517535482" Tag="21" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="589.5000" RightMargin="589.5000" TopMargin="65.0000" BottomMargin="388.0000" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
+              <AbstractNodeData Name="pTitle" ActionTag="517535482" Tag="21" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="589.4547" RightMargin="589.5453" TopMargin="64.9993" BottomMargin="388.0007" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
                 <Size X="381.0000" Y="84.0000" />
                 <Children>
                   <AbstractNodeData Name="stripe_0" ActionTag="-399292809" Tag="36" IconVisible="False" LeftMargin="-138.8840" RightMargin="74.8840" TopMargin="59.6619" BottomMargin="7.3381" ctype="SpriteObjectData">
@@ -223,7 +223,7 @@
                     <PreSize X="1.0000" Y="1.0000" />
                     <FileData Type="Normal" Path="Received/title.png" Plist="" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="pLight" ActionTag="-1359168237" Tag="232" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="690.0703" RightMargin="-309.0703" TopMargin="42.0000" BottomMargin="42.0000" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" ctype="PanelObjectData">
+                  <AbstractNodeData Name="pLight" ActionTag="-1359168237" Tag="232" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="690.0672" RightMargin="-309.0672" TopMargin="42.0000" BottomMargin="42.0000" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
                     <Size X="0.0000" Y="0.0000" />
                     <Children>
                       <AbstractNodeData Name="stripe" ActionTag="100590527" Tag="234" IconVisible="False" LeftMargin="-502.7384" RightMargin="57.7384" TopMargin="-7.6109" BottomMargin="-9.3891" ctype="SpriteObjectData">
@@ -294,7 +294,7 @@
                       </AbstractNodeData>
                     </Children>
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                    <Position X="690.0703" Y="42.0000" />
+                    <Position X="690.0672" Y="42.0000" />
                     <Scale ScaleX="1.5000" ScaleY="1.5000" />
                     <CColor A="255" R="255" G="255" B="255" />
                     <PrePosition X="1.8112" Y="0.5000" />
@@ -304,10 +304,10 @@
                     <EndColor A="255" R="255" G="255" B="255" />
                     <ColorVector ScaleY="1.0000" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="bigLight" ActionTag="-1273297472" Tag="244" RotationSkewY="-0.0009" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="-189.5588" RightMargin="83.5588" TopMargin="-199.9952" BottomMargin="-203.0048" ctype="SpriteObjectData">
+                  <AbstractNodeData Name="bigLight" ActionTag="-1273297472" Tag="244" RotationSkewY="-0.0009" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="-189.5588" RightMargin="83.5588" TopMargin="-199.9964" BottomMargin="-203.0036" ctype="SpriteObjectData">
                     <Size X="487.0000" Y="487.0000" />
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                    <Position X="53.9412" Y="40.4952" />
+                    <Position X="53.9412" Y="40.4964" />
                     <Scale ScaleX="1.0000" ScaleY="1.0000" />
                     <CColor A="255" R="255" G="255" B="255" />
                     <PrePosition X="0.1416" Y="0.4821" />
@@ -317,7 +317,7 @@
                   </AbstractNodeData>
                 </Children>
                 <AnchorPoint ScaleX="0.4993" ScaleY="0.3115" />
-                <Position X="779.7361" Y="414.1667" />
+                <Position X="779.6880" Y="414.1667" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.4998" Y="0.7713" />
@@ -361,6 +361,19 @@
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.5000" Y="0.0875" />
                 <PreSize X="0.3205" Y="0.1862" />
+                <FontResource Type="Normal" Path="Font/robotoBold.ttf" Plist="" />
+                <TextColor A="255" R="255" G="255" B="255" />
+                <OutlineColor A="255" R="255" G="0" B="0" />
+                <ShadowColor A="255" R="110" G="110" B="110" />
+              </AbstractNodeData>
+              <AbstractNodeData Name="btnReset" ActionTag="-770291162" Tag="240" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="671.0000" RightMargin="671.0000" TopMargin="-53.0560" BottomMargin="540.0560" TouchEnable="True" FontSize="25" ButtonText="Reset Effect" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="5" BottomEage="5" Scale9OriginX="15" Scale9OriginY="5" Scale9Width="104" Scale9Height="19" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+                <Size X="218.0000" Y="50.0000" />
+                <AnchorPoint ScaleX="0.5000" />
+                <Position X="780.0000" Y="540.0560" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition X="0.5000" Y="1.0057" />
+                <PreSize X="0.1397" Y="0.0931" />
                 <FontResource Type="Normal" Path="Font/robotoBold.ttf" Plist="" />
                 <TextColor A="255" R="255" G="255" B="255" />
                 <OutlineColor A="255" R="255" G="0" B="0" />

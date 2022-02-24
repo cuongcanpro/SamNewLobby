@@ -56,13 +56,14 @@ var RankMiniGUI = BaseLayer.extend({
 
         this.title = this.getControl("title", this.pMiniRank);
         this.title.setVisible(false);
-        this.animTitle = db.DBCCFactory.getInstance().buildArmatureNode("TitleRank");
-        var imgRankPos = this.title.getPosition();
-        if (this.animTitle) {
-            this.title.getParent().addChild(this.animTitle);
-            this.animTitle.setPosition(imgRankPos.x, imgRankPos.y);
-            this.animTitle.gotoAndPlay("1", 0, -1, 9999);
-        }
+        // this.animTitle = db.DBCCFactory.getInstance().buildArmatureNode("TitleRank");
+        // var imgRankPos = this.title.getPosition();
+        // if (this.animTitle) {
+        //     this.title.getParent().addChild(this.animTitle);
+        //     this.animTitle.setPosition(imgRankPos.x, imgRankPos.y);
+        //     this.animTitle.gotoAndPlay("1", 0, -1, 9999);
+        //     this.animTitle.setScale(RankData.TEMPORARY_SCALE);
+        // }
 
         this.txtTooLate = this.getControl("txtTooLate", this.pMiniRank);
         this.myRankInfoCell = new RankPersonalInfoCell(true);

@@ -761,7 +761,7 @@ var LobbyScene = BaseLayer.extend({
                 // return;
                 // sceneMgr.openGUI(ChatPanelGUI.className, ChatPanelGUI.TAG, ChatPanelGUI.TAG);
                 // return;
-                sceneMgr.openGUI(CheckLogic.getUserInfoClassName(), LobbyScene.GUI_USER_INFO, LobbyScene.GUI_USER_INFO).setInfo(userMgr.userInfo);
+                userMgr.openUserInfoGUI(userMgr.userInfo, UserInfoTab.TAB_INFROMATION);
                 break;
             }
             case LobbyScene.BTN_CHOINGAY: {
@@ -840,7 +840,7 @@ var LobbyScene = BaseLayer.extend({
                 break;
             }
             case LobbyScene.BTN_STORAGE: {
-                StorageManager.getInstance().openStorageScene();
+                userMgr.openUserInfoGUI(userMgr.userInfo, UserInfoTab.TAB_AVATAR);
                 break;
             }
             case LobbyScene.BTN_THONGBAO: {

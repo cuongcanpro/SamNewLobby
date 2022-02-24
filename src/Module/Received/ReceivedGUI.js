@@ -37,9 +37,96 @@ var ReceivedGUI = BaseLayer.extend({
     },
 
     onEnterFinish: function () {
-        this.runLogo();
-        this.scheduleUpdate();
+        this.resetGUI();
 
+        this.setReceivedRewardInfo();
+        this.runAnimation();
+    },
+
+    resetGUI: function () {
+        this.pItems.removeAllChildren();
+        this.items = [];
+        this.pConfetti.removeAllChildren();
+    },
+
+    setReceivedRewardInfo: function () {
+        let info = ReceivedGUIManager.getInstance().getReceivedGUIInfo();
+        info = [
+            {
+                type: ReceivedCell.TYPE_GOLD,
+                number: 1000000,
+                modify: "+150% VIP3",
+                title: "Something"
+            },
+            {
+                type: ReceivedCell.TYPE_G,
+                number: 50,
+                modify: "",
+                title: "Something"
+            },
+            {
+                type: ReceivedCell.VPOINT,
+                number: 20000,
+                modify: "+20% Bonus",
+                title: "Something"
+            },
+            {
+                type: ReceivedCell.VPOINT,
+                number: 20000,
+                modify: "+20% Bonus",
+                title: "Something"
+            },
+            {
+                type: ReceivedCell.VPOINT,
+                number: 20000,
+                modify: "+20% Bonus",
+                title: "Something"
+            },
+            {
+                type: ReceivedCell.VPOINT,
+                number: 20000,
+                modify: "+20% Bonus",
+                title: "Something"
+            },
+            {
+                type: ReceivedCell.VPOINT,
+                number: 20000,
+                modify: "+20% Bonus",
+                title: "Something"
+            }
+        ];
+
+        this.pItems.innerWidth = info.length * ReceivedCell.SIZE;
+        this.pItems.width = Math.min(info.length * ReceivedCell.SIZE, ReceivedCell.SIZE * (ReceivedGUI.MAX_LENGTH + 0.5));
+        this.pItems.setScrollBarEnabled(false);
+        this.pItems.setBounceEnabled(info.length > ReceivedGUI.MAX_LENGTH);
+        for (var i = 0; i < info.length; i++) {
+            var item = new ReceivedCell(info[i]);
+            item.setPosition(cc.p((i + 0.5) * ReceivedCell.SIZE, this.pItems.height / 2));
+            item.setVisible(false);
+            this.pItems.addChild(item);
+            this.items.push(item);
+        }
+    },
+
+    runAnimation: function () {
+        this.doBgEffect();
+        this.doDecorEffect();
+        this.doLightEffect();
+        this.doLogoEffect();
+        this.doItemEffect();
+
+        this.scheduleUpdate();
+    },
+
+    doItemEffect: function () {
+        var delayDelta = 0.15;
+        for (var i = 0; i < this.items.length; i++) {
+            this.items[i].startEffect(delayDelta * (i + 1));
+        }
+    },
+
+    doBgEffect: function () {
         this._fog.stopAllActions();
         this._fog.setOpacity(0);
         this._fog.runAction(cc.fadeTo(0.25, 200));
@@ -50,13 +137,15 @@ var ReceivedGUI = BaseLayer.extend({
             cc.fadeIn(0.1),
             cc.scaleTo(0.1, 1).easing(cc.easeBackOut())
         ));
+    },
 
+    doDecorEffect: function () {
         var fadeTime = 0.75;
         var idleTime = 5;
         this.pDecor.stopAllActions();
         this.pDecor.setOpacity(0);
         this.pDecor.runAction(cc.fadeIn(fadeTime).easing(cc.easeIn(2)));
-        for (var i = 0;  i < 2; i++) {
+        for (var i = 0; i < 2; i++) {
             var dia = this.getControl("a" + i, this.pDecor);
             dia.stopAllActions();
             dia.setScale(0);
@@ -87,7 +176,7 @@ var ReceivedGUI = BaseLayer.extend({
             wav.setPosition(wav.defaultPos);
             wav.runAction(cc.sequence(
                 cc.moveTo(0, cc.p(
-                    wav.defaultPos.x + (wav.defaultPos.x > cc.winSize.width * 0.5? -80 : 80),
+                    wav.defaultPos.x + (wav.defaultPos.x > cc.winSize.width * 0.5 ? -80 : 80),
                     wav.defaultPos.y
                 )),
                 cc.spawn(
@@ -97,7 +186,11 @@ var ReceivedGUI = BaseLayer.extend({
                 cc.fadeOut(fadeTime)
             ).repeatForever());
         }
+    },
 
+    doLightEffect: function () {
+        var fadeTime = 0.75;
+        var idleTime = 5;
         var timeTitle = 0.275;
         this.pLight.setOpacity(255);
         this.pLight.setPosition(this.pLight.defaultPos);
@@ -137,76 +230,9 @@ var ReceivedGUI = BaseLayer.extend({
                 cc.moveBy(idleTime + idleTime * Math.random() * 0.5, cc.p(150, 0))
             ));
         }
-
-        this.pItems.removeAllChildren();
-        this.items = [];
-        this.pConfetti.removeAllChildren();
-
-        this.setInfo();
-
-        this.finishAnimate();
     },
 
-    finishAnimate: function () {
-        var delayDelta = 0.15;
-        for (var i = 0; i < this.items.length; i++) {
-            this.items[i].startEffect(delayDelta * (i + 1));
-        }
-    },
-
-    setInfo: function (info) {
-        info = [
-            {
-                type: ReceivedCell.TYPE_GOLD,
-                number: 1000000,
-                modify: "+150% VIP3"
-            },
-            // {
-            //     type: ReceivedCell.TYPE_G,
-            //     number: 50,
-            //     modify: ""
-            // },
-            // {
-            //     type: ReceivedCell.VPOINT,
-            //     number: 20000,
-            //     modify: "+20% Bonus"
-            // },
-            // {
-            //     type: ReceivedCell.VPOINT,
-            //     number: 20000,
-            //     modify: "+20% Bonus"
-            // },
-            // {
-            //     type: ReceivedCell.VPOINT,
-            //     number: 20000,
-            //     modify: "+20% Bonus"
-            // },
-            // {
-            //     type: ReceivedCell.VPOINT,
-            //     number: 20000,
-            //     modify: "+20% Bonus"
-            // },
-            // {
-            //     type: ReceivedCell.VPOINT,
-            //     number: 20000,
-            //     modify: "+20% Bonus"
-            // }
-        ];
-
-        this.pItems.innerWidth = info.length * ReceivedCell.SIZE;
-        this.pItems.width = Math.min(info.length * ReceivedCell.SIZE, ReceivedCell.SIZE * (ReceivedGUI.MAX_LENGTH + 0.5));
-        this.pItems.setScrollBarEnabled(false);
-        this.pItems.setBounceEnabled(info.length > ReceivedGUI.MAX_LENGTH);
-        for (var i = 0; i < info.length; i++) {
-            var item = new ReceivedCell(info[i]);
-            item.setPosition(cc.p((i + 0.5) * ReceivedCell.SIZE, this.pItems.height / 2));
-            item.setVisible(false);
-            this.pItems.addChild(item);
-            this.items.push(item);
-        }
-    },
-
-    runLogo: function () {
+    doLogoEffect: function () {
         var moveTime = 7.5;
         for (var i = 0; i < this.logo.length; i++) {
             var logo = this.logo[i];
@@ -249,6 +275,8 @@ var ReceivedGUI = BaseLayer.extend({
         switch (id) {
             case ReceivedGUI.BTN_CLOSE:
                 this.onClose();
+                let callBack = ReceivedGUIManager.getInstance().getCallbackOnClose();
+                callBack();
                 break;
         }
     }
@@ -399,8 +427,7 @@ var ReceivedCell = cc.Node.extend({
         if (!p) p = this._layout;
         var control = ccui.Helper.seekWidgetByName(p, cName);
         if (control == null) control = p.getChildByName(cName);
-        if (control == null)
-        {
+        if (control == null) {
             cc.log("ERROR : getControl " + cName + "/" + p);
             return null;
         }
@@ -412,8 +439,18 @@ var ReceivedCell = cc.Node.extend({
         this.bg = this.getControl("bg");
         this.bgModify = this.getControl("bgModify", this.bg);
         this.lbModify = this.getControl("label", this.bgModify);
-        this.itemImg = this.getControl("itemImg");
+        this.pItem = this.getControl("pItem");
+        this.itemImg = this.getControl("itemImg", this.pItem);
+        this.itemImg.defaultPos = this.itemImg.getPosition();
         this.itemImg.ignoreContentAdaptWithSize(true);
+
+        this.flareArr = [];
+        for (let i = 0; i < 3; i++) {
+            let flare = this.getControl("flare_" + i, this.pItem);
+            flare.setLocalZOrder(1);
+            this.flareArr.push(flare);
+        }
+
         this.num = this.getControl("num");
         this.pEffect = this.getControl("pEffect");
         this.efxOutline = this.getControl("efxOutline", this.bg);
@@ -434,6 +471,11 @@ var ReceivedCell = cc.Node.extend({
             case ReceivedCell.VPOINT:
                 this.itemImg.loadTexture("res/Lobby/Received/defaultItem/vPoint.png");
                 break;
+            case ReceivedCell.TYPE_OBJ:
+                this.itemImg.setVisible(false);
+                this.pItem.addChild(info.obj);
+                this.itemObj = info.obj;
+                break;
             default:
                 try {
                     this.itemImg.loadTexture(info.type);
@@ -444,79 +486,130 @@ var ReceivedCell = cc.Node.extend({
                 break;
         }
 
+        this.rewardType = info.type;
         this.num.setString(StringUtility.formatNumberSymbol(info.number));
         this.lbModify.setString(info.modify);
         this.bgModify.setVisible(info.modify !== "");
+
+        this.name.setString(info.title);
     },
 
     startEffect: function (delay) {
         this.setVisible(true);
 
-        var firstAction = 0.25;
-        var secondAction = 0.5;
+        var firstActTime = 0.25;
+        var secondActTime = 0.5;
+        var thirdActTime = 0.25;
+        var outlineTime = 0.75;
+        var flashTime = 0.5;
+
+        this.doEffectBg(delay, firstActTime, secondActTime);
+        this.doEffectBgModify(delay, firstActTime, secondActTime, thirdActTime);
+        this.doEffectLabel(delay, firstActTime, secondActTime, thirdActTime);
+        this.doEffectOutline(delay, firstActTime, outlineTime);
+        this.doEffectFlash(delay, flashTime);
+        this.doEffectLight(delay, firstActTime, secondActTime);
+        this.doEffectFlare(delay, firstActTime, secondActTime);
+        this.doEffectItem(delay, firstActTime, secondActTime);
+
+    },
+
+    doEffectItem: function (delay, firstActTime, secondActTime) {
+
+        if (this.rewardType === ReceivedCell.TYPE_OBJ) {
+
+            this.itemObj.setVisible(true);
+            this.itemObj.setPosition(cc.p(100, 0));
+            this.itemObj.setOpacity(0);
+            this.itemObj.setRotation3D(cc.math.vec3(0, 90, 0));
+            let desPos = cc.p(this.pItem.width / 2, this.pItem.height / 2);
+
+            this.itemObj.runAction(cc.sequence(
+                cc.delayTime(delay),
+                cc.spawn(
+                    cc.moveTo(firstActTime, desPos).easing(cc.easeBackOut()),
+                    cc.sequence(
+                        cc.delayTime(firstActTime * 0.5),
+                        cc.spawn(
+                            cc.fadeIn(0.1),
+                            cc.rotateBy(secondActTime * 1.5, cc.math.vec3(0, 270, 0)).easing(cc.easeBackOut())
+                        )
+                    )
+                )
+            ));
+
+        } else {
+
+            this.itemImg.setVisible(true);
+            this.itemImg.setPosition(cc.p(100, 0));
+            this.itemImg.setOpacity(0);
+            this.itemImg.setRotation3D(cc.math.vec3(0, 90, 0));
+            this.itemImg.runAction(cc.sequence(
+                cc.delayTime(delay),
+                cc.spawn(
+                    cc.moveTo(firstActTime, this.itemImg.defaultPos).easing(cc.easeBackOut()),
+                    cc.sequence(
+                        cc.delayTime(firstActTime * 0.5),
+                        cc.spawn(
+                            cc.fadeIn(0.1),
+                            cc.rotateBy(secondActTime * 1.5, cc.math.vec3(0, 270, 0)).easing(cc.easeBackOut())
+                        )
+                    )
+                )
+            ));
+        }
+    },
+
+    doEffectBg: function (delay, firstActTime, secondActTime) {
         this.bg.setVisible(true);
         this.bg.setOpacity(0);
         this.bg.setPosition(cc.p(100, 0));
         this.bg.runAction(cc.sequence(
             cc.delayTime(delay),
             cc.spawn(
-                cc.moveTo(firstAction, this.bg.defaultPos).easing(cc.easeBackOut()),
-                cc.fadeIn(firstAction * 0.5),
+                cc.moveTo(firstActTime, this.bg.defaultPos).easing(cc.easeBackOut()),
+                cc.fadeIn(firstActTime * 0.5),
                 cc.sequence(
-                    cc.delayTime(firstAction * 0.5),
-                    cc.rotateBy(secondAction, cc.math.vec3(0, 180, 0)).easing(cc.easeBackOut()),
+                    cc.delayTime(firstActTime * 0.5),
+                    cc.rotateBy(secondActTime, cc.math.vec3(0, 180, 0)).easing(cc.easeBackOut()),
                     cc.rotateTo(0, cc.math.vec3(0, 0, 0))
                 )
             )
         ));
+    },
 
-        this.itemImg.setVisible(true);
-        this.itemImg.setPosition(cc.p(100, 0));
-        this.itemImg.setOpacity(0);
-        this.itemImg.setRotation3D(cc.math.vec3(0, 90, 0));
-        this.itemImg.runAction(cc.sequence(
-            cc.delayTime(delay),
-            cc.spawn(
-                cc.moveTo(firstAction, this.bg.defaultPos).easing(cc.easeBackOut()),
-                cc.sequence(
-                    cc.delayTime(firstAction * 0.5),
-                    cc.spawn(
-                        cc.fadeIn(0.1),
-                        cc.rotateBy(secondAction * 1.5, cc.math.vec3(0, 270, 0)).easing(cc.easeBackOut())
-                    )
-                )
-            )
-        ));
-
-        var thirdAction = 0.25;
+    doEffectBgModify: function (delay, firstActTime, secondActTime, thirdActTime) {
         this.bgModify.setOpacity(0);
         this.bgModify.setScale(0.5);
         this.bgModify.runAction(cc.sequence(
-            cc.delayTime(delay + firstAction + secondAction),
+            cc.delayTime(delay + firstActTime + secondActTime),
             cc.spawn(
                 cc.fadeIn(0.1),
-                cc.scaleTo(thirdAction, 1).easing(cc.easeBackOut())
+                cc.scaleTo(thirdActTime, 1).easing(cc.easeBackOut())
             )
         ));
+    },
 
+    doEffectLabel: function (delay, firstActTime, secondActTime, thirdActTime) {
         this.num.setOpacity(0);
         this.num.runAction(cc.sequence(
-            cc.delayTime(delay + firstAction + secondAction),
-            cc.fadeIn(thirdAction)
+            cc.delayTime(delay + firstActTime + secondActTime),
+            cc.fadeIn(thirdActTime)
         ));
 
         this.name.setOpacity(0);
         this.name.runAction(cc.sequence(
             cc.delayTime(delay),
-            cc.fadeIn(thirdAction)
+            cc.fadeIn(thirdActTime)
         ));
+    },
 
-        var outlineTime = 0.75;
+    doEffectOutline: function (delay, firstActTime, outlineTime) {
         this.efxOutline.setVisible(true);
         this.efxOutline.setScale(0);
         this.efxOutline.setOpacity(0);
         this.efxOutline.runAction(cc.sequence(
-            cc.delayTime(delay + firstAction * 0.25),
+            cc.delayTime(delay + firstActTime * 0.25),
             cc.spawn(
                 cc.scaleTo(outlineTime, 1.25).easing(cc.easeOut(2.5)),
                 cc.sequence(
@@ -526,8 +619,9 @@ var ReceivedCell = cc.Node.extend({
                 )
             )
         ));
+    },
 
-        var flashTime = 0.5;
+    doEffectFlash: function (delay, flashTime) {
         this.efxFlash.setVisible(true);
         var flash = this.efxFlash.img;
         flash.setPositionX(flash.defaultPos.x - flash.width);
@@ -537,13 +631,14 @@ var ReceivedCell = cc.Node.extend({
                 flash.defaultPos.x + flash.width, flash.defaultPos.y
             )).easing(cc.easeIn(2.5))
         ));
+    },
 
+    doEffectLight: function (delay, firstActTime, secondActTime) {
         for (var i = 0; i < 2; i++) {
             var light = this.getControl("light_" + i, this.efxFlash);
-            cc.log("IS THERE A LIGHT", light);
             light.setOpacity(255 - i * 100);
             light.runAction(cc.sequence(
-                cc.delayTime(delay + firstAction + secondAction + i * 0.15),
+                cc.delayTime(delay + firstActTime + secondActTime + i * 0.15),
                 cc.callFunc(function () {
                     var light = this;
                     light.runAction(cc.sequence(
@@ -557,13 +652,14 @@ var ReceivedCell = cc.Node.extend({
                 }.bind(light))
             ));
         }
+    },
 
-        var flare = this.itemImg.getChildren();
-        for (var i = 0; i < flare.length; i++) {
-            var f = flare[i];
+    doEffectFlare: function (delay, firstActTime, secondActTime) {
+        for (var i = 0; i < this.flareArr.length; i++) {
+            var f = this.flareArr[i];
             f.setScale(0);
             f.runAction(cc.sequence(
-                cc.delayTime(delay + firstAction + secondAction),
+                cc.delayTime(delay + firstActTime + secondActTime),
                 cc.callFunc(function () {
                     var time = 0.75 * Math.random() + 0.25;
                     this.runAction(cc.sequence(
@@ -586,8 +682,67 @@ var ReceivedCell = cc.Node.extend({
             ));
         }
     }
+
+
 });
 ReceivedCell.SIZE = 150;
 ReceivedCell.TYPE_GOLD = 0;
 ReceivedCell.TYPE_G = 1;
 ReceivedCell.VPOINT = 2;
+ReceivedCell.TYPE_OBJ = 3;
+
+// Localize
+ReceivedCell.GOLD_TEXT = "Gold";
+ReceivedCell.G_TEXT = "G-Gold";
+
+let ReceivedGUIManager = cc.Class.extend({
+    ctor: function () {
+        this._callbackOnClose = function () {
+        };
+    },
+
+    /**
+     * @param {[ReceivedGUIData]} info
+     */
+
+    setReceivedGUIInfo: function (info) {
+        this._info = info;
+    },
+
+    getReceivedGUIInfo: function () {
+        return this._info;
+    },
+
+    setCallbackOnClose: function (callback) {
+        this._callbackOnClose = callback;
+    },
+
+    getCallbackOnClose: function () {
+        return this._callbackOnClose;
+    },
+});
+
+ReceivedGUIManager._instance = null;
+ReceivedGUIManager.getInstance = function () {
+    if (ReceivedGUIManager._instance === null) {
+        ReceivedGUIManager._instance = new ReceivedGUIManager();
+    }
+
+    return ReceivedGUIManager._instance;
+}
+
+/**
+ * @param {Number | String} type
+ * @param {Number} number
+ * @param {String} title
+ * @param {String} modify
+ * @param {Object} obj
+ */
+
+let ReceivedGUIData = function (type, number, title, modify = "", obj = null) {
+    this.type = type;
+    this.number = number;
+    this.title = title;
+    this.modify = modify;
+    this.obj = obj;
+}

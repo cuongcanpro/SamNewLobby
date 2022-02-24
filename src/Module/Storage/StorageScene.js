@@ -615,7 +615,6 @@ var StorageScene = BaseLayer.extend({
 
     numberOfCellsInTableView: function(table) {
         if (!table.isVisible()) return 0;
-        cc.log("NUM CELL****** " + this.getCellNum(this.selectedTab));
         return this.getCellNum(this.selectedTab);
     },
 

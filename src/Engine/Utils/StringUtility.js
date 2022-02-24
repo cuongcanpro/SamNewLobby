@@ -319,3 +319,11 @@ StringUtility.breakLabelToMultiLine = function(label, maxWidth) {
         label.setString(resStr);
     }
 };
+
+StringUtility.getLabelWidth = function (label) {
+    var tempStr = new ccui.Text();
+    tempStr.setFontName(label.getFontName());
+    tempStr.setFontSize(label.getFontSize());
+    tempStr.setString(label.getString());
+    return tempStr.getContentSize().width;
+};

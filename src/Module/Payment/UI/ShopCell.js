@@ -274,6 +274,8 @@ GroupBonusSource = cc.Node.extend({
     },
 
     setInfo: function (shopPackage) {
+        cc.log("SHOP PACKAGE *** " + JSON.stringify(shopPackage));
+
         for (var i = 0; i < this.arrayBonusRow.length; i++) {
             this.arrayBonusRow[i].setVisible(false);
         }
@@ -289,8 +291,9 @@ GroupBonusSource = cc.Node.extend({
             else {
                 s = s + "Vourcher VPoint";
             }
+            bonusRow.setVisible(true);
             bonusRow.setString(s);
-            bonusRow.setPosition(5, pad * (count + 0.5));
+            bonusRow.setPosition(5, pad * (count + 1.0));
             count++;
         }
 
@@ -299,7 +302,7 @@ GroupBonusSource = cc.Node.extend({
             var bonusRow = this.getShopBonusRow();
             bonusRow.setVisible(true);
             bonusRow.setString(s);
-            bonusRow.setPosition(10, pad * (count + 0.9));
+            bonusRow.setPosition(10, pad * (count + 1.0));
             count++;
         }
         this.bg.setContentSize(this.bg.getContentSize().width, pad * (count + 1));

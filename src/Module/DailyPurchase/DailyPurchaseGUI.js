@@ -363,7 +363,7 @@ var DailyPurchaseGUI = BaseLayer.extend({
                         gamedata.openShop(LobbyScene.className, true, shopTabIdx);
                 }
                 else{
-                    NewVipManager.checkShowUpLevelVip();
+                    VipManager.checkShowUpLevelVip();
                     fr.tracker.logStepStart(ConfigLog.DAILY_PURCHASE, ConfigLog.END);
                 }
             }.bind(this))

@@ -31,6 +31,7 @@
           </PlistImageFolder>
           <Image Name="9patch.png" />
           <Image Name="bgBroadcast.png" />
+          <Image Name="bgDialog.png" />
           <Image Name="bgLoading.jpg" />
           <Image Name="bgSub.png" />
           <Image Name="bgSubBot.png" />
@@ -65,9 +66,11 @@
           <Image Name="iconStarBig.png" />
           <Image Name="iconXu.png" />
           <Image Name="iconXuBig.png" />
+          <Image Name="light.png" />
           <Image Name="loading.png" />
           <Image Name="logo_zp.png" />
           <Image Name="maskAvatar.png" />
+          <Image Name="shine.png" />
           <Image Name="text.png" />
           <Image Name="titleGiftStartup.png" />
           <Image Name="titleGiftSupport.png" />
@@ -191,7 +194,6 @@
           <Image Name="itemBg.png" />
           <Image Name="itemHighlight.png" />
           <Image Name="labelUsing.png" />
-          <Project Name="Layer.csd" Type="Layer" />
           <Image Name="lock.png" />
           <Image Name="moneyBg.png" />
           <Image Name="previewBg.png" />
@@ -204,6 +206,8 @@
           <Image Name="title.png" />
           <Image Name="unlock.png" />
         </Folder>
+        <Project Name="ItemNotifyCell.csd" Type="Layer" />
+        <Project Name="ItemNotifyGUI.csd" Type="Scene" />
         <Project Name="StorageGUI.csd" Type="Layer" />
         <Project Name="UserItem.csd" Type="Layer" />
       </RootFolder>

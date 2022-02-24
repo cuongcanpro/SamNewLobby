@@ -41,12 +41,10 @@ var SimOperatorPopup = BaseLayer.extend({
     },
 
     updateMaintain: function () {
-        var maintainViettel = gamedata.gameConfig.getShopGoldById(Payment.GOLD_SMS_VIETTEL)["isMaintained"][0];
-        var maintainVina = gamedata.gameConfig.getShopGoldById(Payment.GOLD_SMS_VINA)["isMaintained"][0];
-        var maintainMobi = gamedata.gameConfig.getShopGoldById(Payment.GOLD_SMS_MOBI)["isMaintained"][0];
-        maintainViettel = maintainViettel || !gamedata.gameConfig.checkHavePackage(Payment.GOLD_SMS_VIETTEL, this.amount);
-        maintainVina = maintainVina || !gamedata.gameConfig.checkHavePackage(Payment.GOLD_SMS_VINA, this.amount);
-        maintainMobi = maintainMobi || !gamedata.gameConfig.checkHavePackage(Payment.GOLD_SMS_MOBI, this.amount);
+        var configSMS = paymentMgr.getShopGoldById(Payment.GOLD_SMS);
+        var maintainViettel = configSMS["isMaintained"][Payment.SMS_VIETTEL];
+        var maintainVina = configSMS["isMaintained"][Payment.SMS_VINA];
+        var maintainMobi = configSMS["isMaintained"][Payment.SMS_MOBI];
         this.iconViettel.setVisible(maintainViettel);
         this.iconVina.setVisible(maintainVina);
         this.iconMobi.setVisible(maintainMobi);
@@ -89,7 +87,7 @@ var SimOperatorPopup = BaseLayer.extend({
                 }
                 break;
         }
-        if (id != PanelCard.BTN_CLOSE && !gamedata.gameConfig.checkHavePackage(this.type, this.amount)) {
+        if (id != PanelCard.BTN_CLOSE) {
             ToastFloat.makeToast(ToastFloat.SHORT, "Không hỗ trợ gói SMS này");
             this.onClose();
             return;

@@ -144,7 +144,7 @@ var RankData = BaseMgr.extend({
                 gui.updateDetailRankInfo(true);
             }
         }
-        if (CheckLogic.checkInBoard() && RankData.waitOpenMiniRank){
+        if (RankData.waitOpenMiniRank){
             RankData.waitOpenMiniRank = false;
             var gui = sceneMgr.getGUI(RankData.MINI_RANK_GUI_TAG);
             if (gui) gui.showMiniRank(true);
@@ -558,8 +558,10 @@ RankData.addMiniRankGUI = function(isTooltip){
     if (userMgr.getLevel() >= RankData.MIN_LEVEL_JOIN_RANK){
         var gui = sceneMgr.getGUI(RankData.MINI_RANK_GUI_TAG);
         if (!gui) {
+            cc.log("addMiniRankGUI");
             var miniRank = sceneMgr.openGUI(RankMiniGUI.className, RankData.MINI_RANK_GUI_TAG, RankData.MINI_RANK_GUI_TAG, false);
             if (isTooltip) miniRank.showTooltipOpenRank();
+            miniRank.btnMiniRank.setVisible(!CheckLogic.checkInBoard());
             RankData.waitOpenMiniRank = false;
         }
     }
@@ -642,6 +644,7 @@ RankData.getInstance = function () {
     }
     return RankData.instance;
 };
+RankData.TEMPORARY_SCALE = 1.5;
 
 RankData.MAX_RANK = 9;
 RankData.MIN_LEVEL_JOIN_RANK = 3;

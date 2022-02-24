@@ -390,11 +390,11 @@ TabItemPayment = cc.Layer.extend({
         this.pPreview.avatarBg = this.pPreview.getChildByName("avatarBg");
         this.pPreview.avatar = new AvatarUI("Common/defaultAvatar.png", "Common/maskAvatar.png", "");
         this.pPreview.avatar.setPosition(this.pPreview.avatarBg.width/2, this.pPreview.avatarBg.height/2);
-        this.pPreview.avatar.setScale(1.5);
+        this.pPreview.avatar.setScale(1.85);
         this.pPreview.avatarBg.addChild(this.pPreview.avatar);
         this.pPreview.avatarFrame = new cc.Sprite();
         this.pPreview.avatarFrame.setPosition(this.pPreview.avatarBg.width/2, this.pPreview.avatarBg.height/2);
-        this.pPreview.avatarFrame.setScale(0.75);
+        this.pPreview.avatarFrame.setScale(0.9);
         this.pPreview.avatarBg.addChild(this.pPreview.avatarFrame);
 
         this.pPreview.pTime = this.pPreview.getChildByName("pTime");
@@ -506,8 +506,8 @@ TabItemPayment = cc.Layer.extend({
                 this.pPreview.avatarBg.setVisible(true);
                 this.pPreview.avatarFrame.setVisible(false);
                 var avatarSprite = new cc.Sprite(StorageManager.getItemIconPath(StorageManager.TYPE_AVATAR, null, this.previewItemData.id));
-                avatarSprite.setPosition(this.pPreview.pItem.width/2, this.pPreview.pItem.height/2);
-                avatarSprite.setScale(0.8);
+                avatarSprite.setPosition(this.pPreview.pItem.width/2, this.pPreview.pItem.height * 0.55);
+                avatarSprite.setScale(1.0);
                 avatarSprite.setTag(1);
                 this.pPreview.pItem.addChild(avatarSprite);
                 break;

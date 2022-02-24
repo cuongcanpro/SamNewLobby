@@ -209,7 +209,8 @@ var PanelIapItem = BaseLayer.extend({
                 if (configSMS && configSMS["isMaintained"][0]) {
                     sceneMgr.openGUI(GUIMaintainSMS.className, GUIMaintainSMS.TAG, GUIMaintainSMS.TAG);
                 } else {
-                    PaymentUtils.requestSMSSyntax(operator, parseInt(info.cost), parseInt(info.smsType), type);
+                    sceneMgr.openGUI(SimOperatorPopup.className, SimOperatorPopup.TAG, SimOperatorPopup.TAG).setAmount(parseInt(info.cost), Payment.CHEAT_PAYMENT_NORMAL);
+                    //PaymentUtils.requestSMSSyntax(operator, parseInt(info.cost), parseInt(info.smsType), type);
                 }
                 break;
             case Payment.GOLD_ATM:

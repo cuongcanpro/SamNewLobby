@@ -48,7 +48,7 @@ var PrizeDetailTableViewCell = cc.TableViewCell.extend({
 
         this.bg = new ccui.ImageView("res/Lobby/GUILuckyBonus/popup/rowBg.png");
         this.bg.setName("bg");
-        this.bg.setPosition(PrizeDetailPopup.ROW_BASE_POSITION);
+        this.bg.setPosition(cc.p(this.bg.width / 2, this.bg.height / 2));
 
         this.combination = new ccui.Layout();
         this.combination.setName("combination");
@@ -86,9 +86,8 @@ var PrizeDetailTableViewCell = cc.TableViewCell.extend({
 
         var value = new cc.LabelBMFont(this.formatTotalGoldValue(rowConfig.gold), "res/Lobby/GUILuckyBonus/popup/LBPopUpFont.fnt");
         value.setName("value");
-        value.setScale(PrizeDetailPopup.PRIZE_VALUE_SCALE, PrizeDetailPopup.PRIZE_VALUE_SCALE);
         value.setAnchorPoint(PrizeDetailPopup.PRIZE_FREE_VALUE_ANCHOR);
-        value.setPosition(PrizeDetailPopup.PRIZE_FREE_VALUE_POSITION);
+        value.setPosition(cc.p(this.prizeFree.width + 5, this.prizeFree.height / 2));
         this.prizeFree.addChild(value);
     },
 
@@ -99,9 +98,8 @@ var PrizeDetailTableViewCell = cc.TableViewCell.extend({
         var labelValue = this.formatTotalGoldValue(rowConfig.gold * 20 * LuckyBonusManager.getInstance().gToGoldFactor);
         var value = new cc.LabelBMFont(labelValue, "res/Lobby/GUILuckyBonus/popup/LBPopUpFont.fnt");
         value.setName("value");
-        value.setScale(PrizeDetailPopup.PRIZE_VALUE_SCALE, PrizeDetailPopup.PRIZE_VALUE_SCALE);
         value.setAnchorPoint(PrizeDetailPopup.PRIZE_G_VALUE_ANCHOR);
-        value.setPosition(PrizeDetailPopup.PRIZE_G_VALUE_POSITION);
+        value.setPosition(cc.p(this.prizeG.width + 5, this.prizeG.height / 2));
         this.prizeG.addChild(value);
     },
 
@@ -249,8 +247,9 @@ var PrizeDetailPopup = BaseLayer.extend({
 
     loadPrizeDetail: function(){
         this.prizeDetail = this.getControl("prizeDetail", this.bg);
+        this.row = this.getControl("row", this.prizeDetail);
 
-        var prizeDetailTableView = new cc.TableView(this, cc.size(PrizeDetailPopup.TABLE_WIDTH, PrizeDetailPopup.TABLE_HEIGHT));
+        var prizeDetailTableView = new cc.TableView(this, cc.size(this.prizeDetail.width, this.prizeDetail.height));
         prizeDetailTableView.setDirection(cc.SCROLLVIEW_DIRECTION_VERTICAL);
         prizeDetailTableView.setAnchorPoint(0, 0);
         prizeDetailTableView.x = 0;
@@ -274,7 +273,7 @@ var PrizeDetailPopup = BaseLayer.extend({
     },
 
     tableCellSizeForIndex: function(table, idx){
-        return PrizeDetailPopup.TABLE_CELL_SIZE;
+        return this.row.getContentSize();
     },
 
     numberOfCellsInTableView: function(table, idx){
@@ -302,21 +301,21 @@ PrizeDetailPopup.BTN_CLOSE = 1;
 
 //row position config
 PrizeDetailPopup.TOKEN_SIZE = cc.size(100, 100);
-PrizeDetailPopup.TOKEN_BASE_POSITION = cc.p(25, 25);
-PrizeDetailPopup.TOKEN_POS_X_INCREMENT = 60;
+PrizeDetailPopup.TOKEN_BASE_POSITION = cc.p(50, 38);
+PrizeDetailPopup.TOKEN_POS_X_INCREMENT = 82.5;
 PrizeDetailPopup.NORMAL_TOKEN_SCALE = 0.5;
-PrizeDetailPopup.MULTI_TOKEN_POSITION_OFFSET = 12.5;
-PrizeDetailPopup.MULTI_TOKEN_SCALE = 0.2;
+PrizeDetailPopup.MULTI_TOKEN_POSITION_OFFSET = 18.5;
+PrizeDetailPopup.MULTI_TOKEN_SCALE = 0.25;
 
 PrizeDetailPopup.ROW_BASE_POSITION = cc.p(262.5, 28.5);
-PrizeDetailPopup.ROW_COMBINATION_CONTENT_SIZE = cc.size(175, 47);
+PrizeDetailPopup.ROW_COMBINATION_CONTENT_SIZE = cc.size(265, 76);
 PrizeDetailPopup.ROW_COMBINATION_POSITION = cc.p(5, 5);
 PrizeDetailPopup.ROW_HEIGHT = 60;
 
-PrizeDetailPopup.PRIZE_FREE_ICON_POSITION = cc.p(205, 30);
+PrizeDetailPopup.PRIZE_FREE_ICON_POSITION = cc.p(315, 43);
 PrizeDetailPopup.PRIZE_FREE_VALUE_POSITION = cc.p(27.6, 13);
 PrizeDetailPopup.PRIZE_FREE_VALUE_ANCHOR = cc.p(0, 0.5);
-PrizeDetailPopup.PRIZE_G_ICON_POSITION = cc.p(365, 30);
+PrizeDetailPopup.PRIZE_G_ICON_POSITION = cc.p(545, 43);
 PrizeDetailPopup.PRIZE_G_VALUE_POSITION = cc.p(28.6, 13);
 PrizeDetailPopup.PRIZE_G_VALUE_ANCHOR = cc.p(0, 0.5);
 PrizeDetailPopup.PRIZE_VALUE_SCALE = 0.6;

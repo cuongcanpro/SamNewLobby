@@ -56,7 +56,6 @@ var UserInfoPanel = BaseLayer.extend({
     initGUI: function() {
         //main parts
         this.bg = this.getControl("bg");
-        this.bgImage = this.getControl("bgImage", this.bg);
         var pAvatar = this.getControl("pAvatar", this.bg);
         var pUserInfo = this.getControl("pUserInfo", this.bg);
         this.pUserInfo = pUserInfo;
@@ -443,26 +442,21 @@ var UserInfoPanel = BaseLayer.extend({
             this.winCount.setString(StringUtility.pointNumber(this._user.getWinCount()));
             this.lostCount.setString(StringUtility.pointNumber(this._user.getLostCount()));
 
-            this.tabs[UserInfoPanel.BTN_TAB_INFO].setVisible(true);
             var avatarFramePath = null;
             if (this._user.getUID() == userMgr.getUID()) {
                 cc.log("MY INFO");
-                this.bgImage.setAnchorPoint(cc.p(0.5, 0.5));
                 this.level.setString(levelMgr.getLevelString(this._user.getLevel(), this._user.getLevelExp()));
                 this.btnSendMessage.setVisible(false);
                 this.btnPersonalInfo.setVisible(true);
 
-                this.tabs[UserInfoPanel.BTN_TAB_INTERACT].setVisible(false);
                 this.btnClose.setVisible(true);
                 avatarFramePath = StorageManager.getInstance().getUserAvatarFramePath();
             } else {
                 cc.log("OTHERS INFO");
                 var inTable = sceneMgr.getMainLayer() instanceof BoardScene;
-                this.bgImage.setAnchorPoint(cc.p(inTable? 0.69 : 0.5, 0.5));
                 this.level.setString(this._user.level);
                 this.btnSendMessage.setVisible(CheckLogic.checkInBoard());
                 this.btnPersonalInfo.setVisible(false);
-                this.tabs[UserInfoPanel.BTN_TAB_INTERACT].setVisible(inTable);
                 this.btnClose.setVisible(!inTable);
 
                 if (StorageManager.getInstance().cacheOtherAvatarId[this._user.uID] != null)
@@ -470,8 +464,7 @@ var UserInfoPanel = BaseLayer.extend({
                 else
                     avatarFramePath = ""
             }
-            this.bgImage.setPosition(cc.p(0, 0));
-
+            cc.log("avatarFramePath " + avatarFramePath);
             if (avatarFramePath == null || avatarFramePath == ""){
                 this.avatarFrame.setTexture(null);
                 this.avatarFrame.setVisible(false);
@@ -482,15 +475,15 @@ var UserInfoPanel = BaseLayer.extend({
                 this.defaultFrame.setVisible(false);
             }
         }
-        catch(e) { cc.log(e); }
+        catch(e) { cc.log(e + " " + e.stack); }
 
         try {
             this.setInfoRank();
-        } catch(e) { cc.error(e); }
+        } catch(e) { cc.error(e + " " + e.stack); }
 
         try {
             this.version.setString(NativeBridge.getVersionString());
-        } catch(e) {}
+        } catch(e) {cc.error(e + " " + e.stack);}
 
         if (this._user.getUID() === userMgr.getUID()) {
             this.btnChangeAvatar.setVisible(true);
@@ -584,6 +577,8 @@ var UserInfoPanel = BaseLayer.extend({
 });
 
 UserInfoPanel.className = "UserInfoPanel";
+UserInfoPanel.TAG = 5000;
+
 UserInfoPanel.BTN_ClOSE = 0;
 UserInfoPanel.BTN_ADD_FRIEND = 1;
 UserInfoPanel.BTN_REMOVE_FRIEND = 2;
@@ -782,3 +777,4 @@ var UserInfoTab = cc.Node.extend({
 });
 
 UserInfoTab.TAB_INFROMATION = 0;
+UserInfoTab.TAB_AVATAR = 1;
