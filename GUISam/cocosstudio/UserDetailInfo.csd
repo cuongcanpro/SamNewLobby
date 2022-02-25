@@ -29,10 +29,10 @@
                 <PreSize X="0.2348" Y="0.8214" />
                 <FileData Type="Normal" Path="LobbyGUI/btnAdd.png" Plist="" />
               </AbstractNodeData>
-              <AbstractNodeData Name="lb" ActionTag="1301838960" Tag="417" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="20.6273" RightMargin="11.3727" TopMargin="3.0356" BottomMargin="1.9644" IsCustomSize="True" FontSize="18" LabelText="999.999" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+              <AbstractNodeData Name="lb" ActionTag="1301838960" Tag="417" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="20.6273" RightMargin="11.3727" TopMargin="3.0348" BottomMargin="1.9652" IsCustomSize="True" FontSize="18" LabelText="999.999" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                 <Size X="100.0000" Y="23.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="70.6273" Y="13.4644" />
+                <Position X="70.6273" Y="13.4652" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="81" G="232" B="255" />
                 <PrePosition X="0.5351" Y="0.4809" />
@@ -78,10 +78,10 @@
                 <PreSize X="0.1300" Y="1.0357" />
                 <FileData Type="Normal" Path="LobbyGUI/btnAdd.png" Plist="" />
               </AbstractNodeData>
-              <AbstractNodeData Name="lb" ActionTag="2007236668" Tag="421" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="23.5699" RightMargin="26.4301" TopMargin="2.4998" BottomMargin="2.5002" IsCustomSize="True" FontSize="18" LabelText="999.9994444444" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+              <AbstractNodeData Name="lb" ActionTag="2007236668" Tag="421" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="23.5699" RightMargin="26.4301" TopMargin="2.5000" BottomMargin="2.5000" IsCustomSize="True" FontSize="18" LabelText="999.9994444444" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                 <Size X="150.0000" Y="23.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="98.5699" Y="14.0002" />
+                <Position X="98.5699" Y="14.0000" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="251" G="212" B="93" />
                 <PrePosition X="0.4928" Y="0.5000" />
@@ -127,10 +127,10 @@
                 <PreSize X="0.1898" Y="1.1154" />
                 <FileData Type="Normal" Path="LobbyGUI/btnAdd.png" Plist="" />
               </AbstractNodeData>
-              <AbstractNodeData Name="lb" ActionTag="1919699993" Tag="425" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="4.3995" RightMargin="12.6005" TopMargin="-1.5211" BottomMargin="-2.4789" IsCustomSize="True" FontSize="18" LabelText="999.999" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+              <AbstractNodeData Name="lb" ActionTag="1919699993" Tag="425" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="4.3995" RightMargin="12.6005" TopMargin="-1.5216" BottomMargin="-2.4784" IsCustomSize="True" FontSize="18" LabelText="999.999" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                 <Size X="120.0000" Y="30.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="64.3995" Y="12.5211" />
+                <Position X="64.3995" Y="12.5216" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="9" G="212" B="9" />
                 <PrePosition X="0.4701" Y="0.4816" />

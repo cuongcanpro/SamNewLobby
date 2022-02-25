@@ -100,6 +100,25 @@
             <PlistImageFile Name="gold3.png" Key="gold3.png" />
             <PlistImageFile Name="gold4.png" Key="gold4.png" />
           </PlistImageFolder>
+          <Folder Name="IconVip">
+            <Image Name="iconVip1.png" />
+            <Image Name="iconVip10.png" />
+            <Image Name="iconVip2.png" />
+            <Image Name="iconVip3.png" />
+            <Image Name="iconVip4.png" />
+            <Image Name="iconVip5.png" />
+            <Image Name="iconVip6.png" />
+            <Image Name="iconVip7.png" />
+            <Image Name="iconVip8.png" />
+            <Image Name="iconVip9.png" />
+            <Image Name="imgUp.png" />
+          </Folder>
+          <Folder Name="light">
+            <Image Name="grand_lightRotate.png" />
+            <Image Name="light.png" />
+            <Image Name="light_2.png" />
+            <Image Name="star_light.png" />
+          </Folder>
           <Image Name="9patch.png" />
           <Image Name="bgAvatarSmallCircle.png" />
           <Image Name="bgBroadcast.png" />
@@ -143,19 +162,24 @@
           <Image Name="dotLight.png" />
           <Image Name="dotNormal.png" />
           <Image Name="gamecenter.png" />
+          <Image Name="iconDiamond.png" />
+          <Image Name="iconG.png" />
           <Image Name="iconGold.png" />
           <Image Name="iconGoldBig.png" />
           <Image Name="iconGoldDisable.png" />
           <Image Name="iconStar.png" />
           <Image Name="iconStarBig.png" />
+          <Image Name="iconVPoint.png" />
           <Image Name="iconXu.png" />
           <Image Name="iconXuBig.png" />
           <Image Name="infoRoom.png" />
+          <Image Name="light.png" />
           <Image Name="loading.png" />
           <Image Name="logo_zp.png" />
           <Image Name="maskAvatar.png" />
           <Image Name="maskEmpty.png" />
           <Image Name="separateLine.png" />
+          <Image Name="shine.png" />
           <Image Name="text.png" />
           <Image Name="titleGiftStartup.png" />
           <Image Name="titleGiftSupport.png" />
@@ -871,11 +895,6 @@
           <Image Name="voucher.png" />
           <Image Name="voucher_text.png" />
         </Folder>
-        <Folder Name="PopupEventFanpage">
-          <Image Name="bg.png" />
-          <Image Name="btnClose.png" />
-          <Image Name="btnEnterFanpage.png" />
-        </Folder>
         <Folder Name="ShopIAP">
           <Folder Name="BtnBuy">
             <Image Name="ATMBtn.png" />
@@ -1262,44 +1281,6 @@
           <Image Name="title.png" />
           <Image Name="UI_lbth_0026_B-ng-X-p-H-ng.png" />
         </Folder>
-        <Folder Name="UserInfoGUI">
-          <Image Name="Button_Ketban.png" />
-          <Image Name="Button_Nhantin.png" />
-          <Image Name="Button_Xoaban.png" />
-          <Image Name="line.png" />
-          <Image Name="note.png" />
-          <Image Name="titlle.png" />
-          <Image Name="ttnc_0000_Shape-241-copy.png" />
-          <Image Name="ttnc_0001_Layer-732-copy.png" />
-          <Image Name="ttnc_0002_Shape-240-copy.png" />
-        </Folder>
-        <Folder Name="UserInfoPanel">
-          <Image Name="avatarBg.png" />
-          <Image Name="bg.png" />
-          <Image Name="btn.png" />
-          <Image Name="btnAddFriend.png" />
-          <Image Name="btnChat.png" />
-          <Image Name="btnClose.png" />
-          <Image Name="btnPersonalInfo.png" />
-          <Image Name="btnRemoveFriend.png" />
-          <Image Name="btnStorage.png" />
-          <Image Name="color_1.jpg" />
-          <Image Name="color_2.jpg" />
-          <Image Name="demo_1.jpg" />
-          <Image Name="demo_2.jpg" />
-          <Image Name="demo_3.jpg" />
-          <Image Name="iconLock.png" />
-          <Image Name="itemBg.png" />
-          <Image Name="itemBgGray.png" />
-          <Image Name="labelRank.png" />
-          <Image Name="rankBg.png" />
-          <Image Name="tabBg.png" />
-          <Image Name="tabInfo.png" />
-          <Image Name="tabInfoInactive.png" />
-          <Image Name="tabInteract.png" />
-          <Image Name="tabInteractInactive.png" />
-          <Image Name="whiteDot.png" />
-        </Folder>
         <Folder Name="Vote">
           <Image Name="bg.png" />
           <Image Name="close.png" />
@@ -1333,7 +1314,6 @@
         <Project Name="GUISupportInfo.csd" Type="Scene" />
         <Project Name="HotNewGUI.csd" Type="Scene" />
         <Project Name="HotNewItem.csd" Type="Layer" />
-        <Project Name="InboardStorageGUI.csd" Type="Scene" />
         <Project Name="InputPass.csd" Type="Layer" />
         <Project Name="InviteGUI.csd" Type="Scene" />
         <Project Name="ItemNotifyCell.csd" Type="Layer" />
@@ -1342,17 +1322,10 @@
         <Project Name="LoginGUI.csd" Type="Scene" />
         <Project Name="RoomItemCell.csd" Type="Layer" />
         <Project Name="SettingGUI.csd" Type="Scene" />
-        <Project Name="SimOperatorPopup.csd" Type="Scene" />
-        <Project Name="StorageCheatGUI.csd" Type="Scene" />
-        <Project Name="StorageGUI.csd" Type="Scene" />
-        <Project Name="StorageNotifyGUI.csd" Type="Scene" />
-        <Project Name="SupportBeanGUI.csd" Type="Scene" />
         <Project Name="TangVangPopup.csd" Type="Scene" />
         <Project Name="TestAccountSystemGUI.csd" Type="Layer" />
         <Project Name="TopFriendCell.csd" Type="Layer" />
         <Project Name="UserDetailInfo.csd" Type="Layer" />
-        <Project Name="UserItem.csd" Type="Layer" />
-        <Project Name="UserPointNode.csd" Type="Node" />
         <Project Name="Vip_BenefitCell.csd" Type="Layer" />
         <Project Name="Vip_BenefitChangeCell.csd" Type="Layer" />
         <Project Name="Vip_ChangeGoldGUI.csd" Type="Layer" />
@@ -1369,7 +1342,6 @@
         <Project Name="VipHelpGUI.csd" Type="Scene" />
         <Project Name="VoteGUI.csd" Type="Scene" />
         <Project Name="WebviewUI.csd" Type="Scene" />
-        <Project Name="ZingCardPanel.csd" Type="Node" />
       </RootFolder>
     </Group>
   </SolutionFolder>

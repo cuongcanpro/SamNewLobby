@@ -6,17 +6,17 @@
       <ObjectData Name="Scene" Tag="54" ctype="GameNodeObjectData">
         <Size X="1200.0000" Y="720.0000" />
         <Children>
-          <AbstractNodeData Name="bg" ActionTag="2002332235" Tag="55" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="131.0000" RightMargin="131.0000" TopMargin="77.5840" BottomMargin="134.4160" LeftEage="177" RightEage="177" TopEage="88" BottomEage="88" Scale9OriginX="177" Scale9OriginY="88" Scale9Width="184" Scale9Height="92" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="bg" ActionTag="2002332235" Tag="55" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="331.0000" RightMargin="331.0000" TopMargin="183.3760" BottomMargin="268.6240" LeftEage="177" RightEage="177" TopEage="88" BottomEage="88" Scale9OriginX="177" Scale9OriginY="88" Scale9Width="184" Scale9Height="92" ctype="ImageViewObjectData">
             <Size X="538.0000" Y="268.0000" />
             <Children>
-              <AbstractNodeData Name="btnClose" ActionTag="632295514" Tag="59" IconVisible="False" LeftMargin="484.9890" RightMargin="7.0110" TopMargin="5.3017" BottomMargin="215.6983" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="25" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
-                <Size X="46.0000" Y="47.0000" />
+              <AbstractNodeData Name="btnClose" ActionTag="632295514" Tag="59" IconVisible="False" LeftMargin="490.4890" RightMargin="12.5110" TopMargin="11.3017" BottomMargin="221.6983" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="5" Scale9Height="13" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+                <Size X="35.0000" Y="35.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="507.9890" Y="239.1983" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.9442" Y="0.8925" />
-                <PreSize X="0.0855" Y="0.1754" />
+                <PreSize X="0.0651" Y="0.1306" />
                 <TextColor A="255" R="65" G="65" B="70" />
                 <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
                 <PressedFileData Type="Normal" Path="Common/btnClose.png" Plist="" />
@@ -56,11 +56,11 @@
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="400.0000" Y="268.4160" />
+            <Position X="600.0000" Y="402.6240" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.5000" Y="0.5592" />
-            <PreSize X="0.6725" Y="0.5583" />
+            <PreSize X="0.4483" Y="0.3722" />
             <FileData Type="Normal" Path="ShopIAP/bgGUIMaintain.png" Plist="" />
           </AbstractNodeData>
         </Children>
