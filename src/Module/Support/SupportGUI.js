@@ -46,8 +46,10 @@ var GUISupportInfo = BaseLayer.extend({
         this.description.ignoreContentAdaptWithSize(true);
 
         this.bgGift = this.getControl("bgGift", this.bg);
-        this.valueBonusLevel = this.getControl("valueBonusLevel", this.bgGift);
-        this.valueBonusEvent = this.getControl("valueBonusEvent", this.bgGift);
+        this.bgLevel = this.getControl("bgLevel", this.bgGift);
+        this.bgEvent = this.getControl("bgEvent", this.bgGift);
+        this.valueBonusLevel = this.getControl("valueBonusLevel", this.bgLevel);
+        this.valueBonusEvent = this.getControl("valueBonusEvent", this.bgEvent);
         this.valueBonusVip = this.getControl("valueBonusVip", this.bgGift);
 
         var bg1 = this.getControl("bgVip", this.bgGift);
@@ -73,8 +75,10 @@ var GUISupportInfo = BaseLayer.extend({
         this.btnReceived.setVisible(false);
         this.bgGift.setVisible(false);
         this.bgGiftSpecial.setVisible(false);
+        var targetMoney;
         if (money > 0) {
             this.totalValue.setNumber(money);
+            targetMoney = money;
             if (!isSpecial) {
                 if (supportMgr.numSupport == 0)
                     this.description.setString(LocalizedString.to("SUPPORT_MONEY_NUM_0"));
@@ -126,10 +130,11 @@ var GUISupportInfo = BaseLayer.extend({
             else {
                 if (money <= 0) {
                     if (VipManager.getInstance().getVipLevel() > 0 && VipManager.getInstance().getRemainTime() > 0) {
-                        this.totalValue.setNumber(levelMgr.getTotalSupportBean(userMgr.getLevel(), vipMgr.vipConfig[VipManager.getInstance().getVipLevel()].support[1]));
+                        targetMoney = levelMgr.getTotalSupportBean(userMgr.getLevel(), vipMgr.vipConfig[VipManager.getInstance().getVipLevel()].support[1]);
                     } else {
-                        this.totalValue.setNumber(levelMgr.getTotalSupportBean(userMgr.getLevel(), vipMgr.vipConfig[0].support[1]));
+                        targetMoney = levelMgr.getTotalSupportBean(userMgr.getLevel(), vipMgr.vipConfig[0].support[1]);
                     }
+                    this.totalValue.setNumber(targetMoney);
                 }
                 this.bgGift.setVisible(true);
             }
@@ -142,7 +147,19 @@ var GUISupportInfo = BaseLayer.extend({
             this.valueBonusEvent.setString("+0%");
             this.labelLevel.setString("Bonus Lv " + userMgr.getLevel());
             var vipBonus = (VipManager.getInstance().getVipLevel() > 0 && VipManager.getInstance().getRemainTime() > 0) ? vipMgr.vipConfig[VipManager.getInstance().getVipLevel()].support[1] : 30000;
-            this.valueBonusVip.setString(vipBonus);
+            this.valueBonusVip.setString(StringUtility.pointNumber(vipBonus));
+
+            if (levelMgr.getLevelBonus(userMgr.getLevel()) > 0) {
+                var startMoney;
+                if (VipManager.getInstance().getVipLevel() > 0 && VipManager.getInstance().getRemainTime() > 0) {
+                    startMoney = vipMgr.vipConfig[VipManager.getInstance().getVipLevel()].support[1];
+                } else {
+                    startMoney = vipMgr.vipConfig[0].support[1];
+                }
+                this.totalValue.setNumber(startMoney);
+                this.totalValue.setTargetNumber(1, targetMoney);
+                this.bgLevel.runAction(cc.sequence(cc.delayTime(0.8), cc.scaleTo(0.2, 1.2), cc.scaleTo(0.3, 1.0)));
+            }
         }
         else{
 
@@ -211,27 +228,89 @@ var GUIStartUp = BaseLayer.extend({
         this._lbNotice = null;
         this._posMoney = null;
         this._moneyGroup = null;
-        this._imgGold = null;
         this._type = -1;
-        this.titles = [];
 
         this._super(GUIStartUp.className);
         this.initWithBinaryFile("GUIStartUp.json");
     },
 
     initGUI : function () {
+        this.pStar = this.getControl("pStar");
         var bg = this.getControl("bg");
-        this._bg = bg;
+        this.bg = bg;
 
         this.customizeButton("btnOK",1, bg);
         this._lbNotice = ccui.Helper.seekWidgetByName(bg,"lbNotice");
         this.lbGold = this.getControl("lbGold");
 
+        this.arrayLight = [];
+        this.pLight = this.getControl("pLight");
+        for (var i = 0; i < 5; i++) {
+            this.arrayLight[i] = this.getControl("iconLight_" + i);
+        }
+
+        this.arrayStar = [];
+
         this.enableFog();
+        this.timeEffect = 0;
+        this.countLight = 0;
+        this.timeStar = 0;
     },
 
     onEnterFinish : function () {
-        this.setShowHideAnimate(this._bg,true);
+        this.setShowHideAnimate(this.bg,true);
+        this.scheduleUpdate();
+    },
+
+    update: function (dt) {
+        this.timeEffect = this.timeEffect - dt;
+        if (this.timeEffect < 0) {
+            this.countLight++;
+            if (this.countLight >= this.arrayLight.length) {
+                this.countLight = 0;
+            }
+            this.timeEffect = 0.5;
+            var light = this.arrayLight[this.countLight];
+            light.stopAllActions();
+            light.setScale(0);
+            light.runAction(cc.sequence(
+                cc.scaleTo(0.5, 2.0),
+                cc.scaleTo(1.0, 0.0)
+            ))
+            light.runAction(cc.sequence(
+                cc.fadeIn(0.2),
+                cc.delayTime(0.8),
+                cc.fadeOut(1.0)
+            ))
+            light.runAction(cc.rotateBy(3.0,359));
+        }
+        this.timeStar = this.timeStar - dt;
+        if (this.timeStar < 0) {
+            this.timeStar = 0.1;
+            var star = this.getStar();
+            star.setPosition(0, 0);
+            var randomX = this.bg.getContentSize().width * (0.4 - Math.random() * 0.8) + star.getPositionX();
+            var randomY = this.bg.getContentSize().height * (0.5 - Math.random() * 0.2) + star.getPositionY();
+            star.runAction(cc.sequence(cc.moveTo(2.0, cc.p(randomX, randomY)), cc.hide()));
+            star.runAction(cc.sequence(cc.delayTime(1.8), cc.fadeOut(0.2)));
+            //star.runAction(cc.blink(2, 10));
+        }
+    },
+
+    getStar: function () {
+        var i;
+        var star;
+        for (i = 0; i < this.arrayStar.length; i++) {
+            if (this.arrayStar[i].isVisible()) {
+                star = this.arrayStar[i];
+            }
+        }
+        if (i == this.arrayStar.length) {
+            star = new cc.Sprite("Common/iconLight.png");
+            this.pStar.addChild(star);
+        }
+        star.setVisible(true);
+        return star;
     },
 
     showSupportStartup : function () {

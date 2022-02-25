@@ -14,6 +14,57 @@
       "ObjectData": {
         "Children": [
           {
+            "ClipAble": false,
+            "BackColorAlpha": 102,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 600.0,
+              "Y": 360.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PositionPercentYEnabled": true,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.5
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 600.0,
+            "RightMargin": 600.0,
+            "TopMargin": 360.0,
+            "BottomMargin": 360.0,
+            "Tag": 46,
+            "ActionTag": 693542074,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "pStar",
+            "ctype": "PanelObjectData"
+          },
+          {
             "FileData": {
               "Type": "Normal",
               "Path": "SupportGUI/bgStartUp.png",
@@ -28,8 +79,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 610.451,
-              "Y": 434.8929
+              "X": 610.44,
+              "Y": 434.88
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -47,10 +98,10 @@
             },
             "HorizontalEdge": "BothEdge",
             "VerticalEdge": "BothEdge",
-            "LeftMargin": 254.451,
-            "RightMargin": 233.549,
-            "TopMargin": -7.3929,
-            "BottomMargin": 142.3929,
+            "LeftMargin": 254.44,
+            "RightMargin": 233.56,
+            "TopMargin": -7.38,
+            "BottomMargin": 142.38,
             "UserData": "scale",
             "Tag": 2,
             "Children": [
@@ -325,7 +376,7 @@
                   "ScaleY": 0.5
                 },
                 "Position": {
-                  "X": 363.2278,
+                  "X": 363.2624,
                   "Y": 390.4451
                 },
                 "Scale": {
@@ -343,8 +394,8 @@
                   "X": 0.8427,
                   "Y": 0.1026
                 },
-                "LeftMargin": 63.2278,
-                "RightMargin": 48.7722,
+                "LeftMargin": 63.2624,
+                "RightMargin": 48.7375,
                 "TopMargin": 164.5549,
                 "BottomMargin": 360.4451,
                 "Tag": 30,
@@ -355,6 +406,281 @@
                 },
                 "Name": "lbNotice",
                 "ctype": "TextObjectData"
+              },
+              {
+                "ClipAble": false,
+                "BackColorAlpha": 102,
+                "SingleColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "FirstColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "EndColor": {},
+                "ColorVector": {
+                  "ScaleY": 1.0
+                },
+                "TouchEnable": true,
+                "AnchorPoint": {},
+                "Position": {
+                  "X": 108.6323,
+                  "Y": 144.8418
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.1526,
+                  "Y": 0.2476
+                },
+                "PreSize": {
+                  "X": 0.5618,
+                  "Y": 0.3419
+                },
+                "LeftMargin": 108.6323,
+                "RightMargin": 203.3677,
+                "TopMargin": 240.1581,
+                "BottomMargin": 144.8418,
+                "Tag": 41,
+                "Children": [
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "Common/iconLight.png",
+                      "Plist": ""
+                    },
+                    "Scale9OriginX": 19,
+                    "Scale9OriginY": 22,
+                    "Scale9Width": 20,
+                    "Scale9Height": 24,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 59.4203,
+                      "Y": 90.0619
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.1486,
+                      "Y": 0.4503
+                    },
+                    "PreSize": {
+                      "X": 0.145,
+                      "Y": 0.34
+                    },
+                    "LeftMargin": 30.4203,
+                    "RightMargin": 311.5797,
+                    "TopMargin": 75.9381,
+                    "BottomMargin": 56.0619,
+                    "Tag": 40,
+                    "ActionTag": 1432655624,
+                    "Size": {
+                      "X": 58.0,
+                      "Y": 68.0
+                    },
+                    "Name": "iconLight_0",
+                    "ctype": "ImageViewObjectData"
+                  },
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "Common/iconLight.png",
+                      "Plist": ""
+                    },
+                    "Scale9OriginX": 19,
+                    "Scale9OriginY": 22,
+                    "Scale9Width": 20,
+                    "Scale9Height": 24,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 235.6136,
+                      "Y": 97.7029
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.589,
+                      "Y": 0.4885
+                    },
+                    "PreSize": {
+                      "X": 0.145,
+                      "Y": 0.34
+                    },
+                    "LeftMargin": 206.6136,
+                    "RightMargin": 135.3864,
+                    "TopMargin": 68.2971,
+                    "BottomMargin": 63.7029,
+                    "Tag": 42,
+                    "ActionTag": -135439762,
+                    "Size": {
+                      "X": 58.0,
+                      "Y": 68.0
+                    },
+                    "Name": "iconLight_1",
+                    "ctype": "ImageViewObjectData"
+                  },
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "Common/iconLight.png",
+                      "Plist": ""
+                    },
+                    "Scale9OriginX": 19,
+                    "Scale9OriginY": 22,
+                    "Scale9Width": 20,
+                    "Scale9Height": 24,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 241.8983,
+                      "Y": 145.2682
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.6047,
+                      "Y": 0.7263
+                    },
+                    "PreSize": {
+                      "X": 0.145,
+                      "Y": 0.34
+                    },
+                    "LeftMargin": 212.8983,
+                    "RightMargin": 129.1017,
+                    "TopMargin": 20.7318,
+                    "BottomMargin": 111.2682,
+                    "Tag": 43,
+                    "ActionTag": 631479278,
+                    "Size": {
+                      "X": 58.0,
+                      "Y": 68.0
+                    },
+                    "Name": "iconLight_2",
+                    "ctype": "ImageViewObjectData"
+                  },
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "Common/iconLight.png",
+                      "Plist": ""
+                    },
+                    "Scale9OriginX": 19,
+                    "Scale9OriginY": 22,
+                    "Scale9Width": 20,
+                    "Scale9Height": 24,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 364.2423,
+                      "Y": 100.9143
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.9106,
+                      "Y": 0.5046
+                    },
+                    "PreSize": {
+                      "X": 0.145,
+                      "Y": 0.34
+                    },
+                    "LeftMargin": 335.2423,
+                    "RightMargin": 6.7577,
+                    "TopMargin": 65.0857,
+                    "BottomMargin": 66.9143,
+                    "Tag": 44,
+                    "ActionTag": -1945537748,
+                    "Size": {
+                      "X": 58.0,
+                      "Y": 68.0
+                    },
+                    "Name": "iconLight_3",
+                    "ctype": "ImageViewObjectData"
+                  },
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "Common/iconLight.png",
+                      "Plist": ""
+                    },
+                    "Scale9OriginX": 19,
+                    "Scale9OriginY": 22,
+                    "Scale9Width": 20,
+                    "Scale9Height": 24,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 323.173,
+                      "Y": 177.2624
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.8079,
+                      "Y": 0.8863
+                    },
+                    "PreSize": {
+                      "X": 0.145,
+                      "Y": 0.34
+                    },
+                    "LeftMargin": 294.173,
+                    "RightMargin": 47.827,
+                    "TopMargin": -11.2624,
+                    "BottomMargin": 143.2624,
+                    "Tag": 45,
+                    "ActionTag": 1612092812,
+                    "Size": {
+                      "X": 58.0,
+                      "Y": 68.0
+                    },
+                    "Name": "iconLight_4",
+                    "ctype": "ImageViewObjectData"
+                  }
+                ],
+                "ActionTag": -1268801286,
+                "Size": {
+                  "X": 400.0,
+                  "Y": 200.0
+                },
+                "Name": "pLight",
+                "ctype": "PanelObjectData"
               }
             ],
             "ActionTag": -2111772047,
@@ -375,6 +701,7 @@
       },
       "UsedResources": [
         "Common/btnYellow.png",
+        "Common/iconLight.png",
         "Default/Button_Disable.png",
         "Font/tahomabd.ttf",
         "SupportGUI/bgStartUp.png",

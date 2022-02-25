@@ -66,9 +66,9 @@ var ShopIapScene = BaseLayer.extend({
         this.tabItem = new TabItemPayment(cc.size(cc.winSize.width, heightTab));
         this._layout.addChild(this.tabItem);
 
-        // data Effect Dot Vip
-        this.timeEffectVip = 0;
-        this.stateEffect = 0;
+        this.vipInfo = new VipShopInfo();
+        this.panelTop.addChild(this.vipInfo);
+        this.vipInfo.setPosition(cc.winSize.width - this.vipInfo.getContentSize().width, 0);
 
         // config common
         this.setBackEnable(true);
@@ -84,7 +84,7 @@ var ShopIapScene = BaseLayer.extend({
         paymentMgr.sendUpdateBuyGold();
         paymentMgr.sendGetConfigShop(CmdSendGetConfigShop.GOLD, paymentMgr.versionShopGold);
         eventMgr.requestShopEventConfig();
-        this.effectVipInfo();
+        this.vipInfo.showVipInfo(false);
         this.scheduleUpdate();
         this.reLayoutTab();
         this.tabGold.onEnterFinish();
@@ -132,7 +132,7 @@ var ShopIapScene = BaseLayer.extend({
     },
 
     updateVipInfo: function () {
-        VipManager.effectVipShopInfo(this, false);
+        this.vipInfo.showVipInfo(false);
     },
 
     updateEventInfo: function () {
@@ -161,10 +161,6 @@ var ShopIapScene = BaseLayer.extend({
             this.iconTicket.setVisible(false);
             this.pUserInfo.setVisible(true);
         }
-    },
-
-    effectVipInfo: function () {
-        VipManager.effectVipShopInfo(this, true);
     },
 
     selectTabShop: function (idTab) {
@@ -306,22 +302,7 @@ var ShopIapScene = BaseLayer.extend({
     },
 
     update: function (dt) {
-        VipManager.getInstance().updateTimeVip(dt);
-        var remainTime = VipManager.getInstance().getRemainTime();
-        this.txtRemainVipTime.setString(VipManager.getRemainTimeString(remainTime));
-        this.timeEffectVip = this.timeEffectVip - dt;
-        if (this.timeEffectVip < 0) {
-            this.timeEffectVip = 0.2;
-            this.stateEffect = 1 - this.stateEffect;
-            for (var i = 0; i < this.arrayDot.length; i++) {
-                if (i % 2 == this.stateEffect) {
-                    this.arrayDot[i].loadTexture("Lobby/Common/dotNormal.png");
-                }
-                else {
-                    this.arrayDot[i].loadTexture("Lobby/Common/dotLight.png");
-                }
-            }
-        }
+        this.vipInfo.update(dt);
     },
 
     getPositionComponent: function (type) {

@@ -67,7 +67,7 @@
                   "ScaleY": 0.5
                 },
                 "Position": {
-                  "X": 61.9999,
+                  "X": 62.0,
                   "Y": 67.0
                 },
                 "Scale": {
@@ -85,10 +85,9 @@
                   "X": 1.0806,
                   "Y": 1.072
                 },
-                "LeftMargin": -5.0001,
-                "RightMargin": -4.9999,
+                "LeftMargin": -5.0,
+                "RightMargin": -5.0,
                 "TopMargin": -9.0,
-                "BottomMargin": 0.0,
                 "Tag": 41,
                 "ActionTag": -948647284,
                 "Size": {
@@ -277,15 +276,21 @@
             "ctype": "TextObjectData"
           },
           {
-            "FileData": {
-              "Type": "Normal",
-              "Path": "Received/defaultItem/gold.png",
-              "Plist": ""
+            "ClipAble": false,
+            "BackColorAlpha": 102,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
             },
-            "Scale9OriginX": 40,
-            "Scale9OriginY": 41,
-            "Scale9Width": 44,
-            "Scale9Height": 43,
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "TouchEnable": true,
             "AnchorPoint": {
               "ScaleX": 0.5,
               "ScaleY": 0.5
@@ -312,8 +317,51 @@
             "RightMargin": -62.0,
             "TopMargin": -62.5,
             "BottomMargin": -62.5,
-            "Tag": 30,
+            "Tag": 68,
             "Children": [
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "Received/defaultItem/gold.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 40,
+                "Scale9OriginY": 41,
+                "Scale9Width": 44,
+                "Scale9Height": 43,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 62.0,
+                  "Y": 62.5
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "Tag": 30,
+                "ActionTag": -1229451948,
+                "Size": {
+                  "X": 124.0,
+                  "Y": 125.0
+                },
+                "Name": "itemImg",
+                "ctype": "ImageViewObjectData"
+              },
               {
                 "FileData": {
                   "Type": "Normal",
@@ -330,7 +378,7 @@
                 },
                 "Position": {
                   "X": 95.863,
-                  "Y": 75.309
+                  "Y": 75.31
                 },
                 "Scale": {
                   "ScaleX": 1.0,
@@ -348,8 +396,8 @@
                 },
                 "LeftMargin": 70.363,
                 "RightMargin": 2.637,
-                "TopMargin": 24.191,
-                "BottomMargin": 49.809,
+                "TopMargin": 24.19,
+                "BottomMargin": 49.81,
                 "Tag": 67,
                 "ActionTag": 1833058397,
                 "Size": {
@@ -450,13 +498,13 @@
                 "ctype": "SpriteObjectData"
               }
             ],
-            "ActionTag": -1229451948,
+            "ActionTag": -681571344,
             "Size": {
               "X": 124.0,
               "Y": 125.0
             },
-            "Name": "itemImg",
-            "ctype": "ImageViewObjectData"
+            "Name": "pItem",
+            "ctype": "PanelObjectData"
           },
           {
             "ClipAble": true,

@@ -787,8 +787,8 @@ var LobbyScene = BaseLayer.extend({
                 break;
             }
             case LobbyScene.BTN_VIP: {
-                VipManager.openVip(LobbyScene.className);
-                // supportMgr.showSupportStartup();
+                //VipManager.openVip(LobbyScene.className);
+                supportMgr.showSupportStartup();
                 //VipManager.openVip();
                 break;
             }

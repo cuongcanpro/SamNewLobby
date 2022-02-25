@@ -123,7 +123,7 @@
                 },
                 "Position": {
                   "X": 168.0412,
-                  "Y": 119.5757
+                  "Y": 119.5688
                 },
                 "Scale": {
                   "ScaleX": 0.8,
@@ -142,9 +142,9 @@
                 },
                 "HorizontalEdge": "LeftEdge",
                 "LeftMargin": 81.0412,
-                "RightMargin": 944.9589,
-                "TopMargin": 22.4163,
-                "BottomMargin": 100.5757,
+                "RightMargin": 944.9588,
+                "TopMargin": 22.4232,
+                "BottomMargin": 100.5688,
                 "Tag": 184,
                 "ActionTag": -987782656,
                 "Size": {
@@ -211,7 +211,7 @@
                   "X": 0.2233,
                   "Y": 0.4597
                 },
-                "HorizontalEdge": "RightEdge",
+                "HorizontalEdge": "LeftEdge",
                 "VerticalEdge": "BottomEdge",
                 "LeftMargin": -6.0063,
                 "RightMargin": 938.0063,
@@ -283,7 +283,7 @@
                   "X": 0.2233,
                   "Y": 0.4597
                 },
-                "HorizontalEdge": "RightEdge",
+                "HorizontalEdge": "LeftEdge",
                 "VerticalEdge": "BottomEdge",
                 "LeftMargin": 201.5436,
                 "RightMargin": 730.4564,
@@ -355,7 +355,7 @@
                   "X": 0.2233,
                   "Y": 0.4597
                 },
-                "HorizontalEdge": "RightEdge",
+                "HorizontalEdge": "LeftEdge",
                 "VerticalEdge": "BottomEdge",
                 "LeftMargin": 410.9989,
                 "RightMargin": 521.0011,
@@ -427,7 +427,7 @@
                   "X": 0.2233,
                   "Y": 0.4597
                 },
-                "HorizontalEdge": "RightEdge",
+                "HorizontalEdge": "LeftEdge",
                 "VerticalEdge": "BottomEdge",
                 "LeftMargin": 619.7462,
                 "RightMargin": 312.2538,
@@ -487,7 +487,7 @@
                 },
                 "Position": {
                   "X": 5.0,
-                  "Y": 154.992
+                  "Y": 154.987
                 },
                 "Scale": {
                   "ScaleX": 1.0,
@@ -507,8 +507,8 @@
                 "HorizontalEdge": "LeftEdge",
                 "LeftMargin": 5.0,
                 "RightMargin": 1116.0,
-                "TopMargin": 6.0,
-                "BottomMargin": 92.992,
+                "TopMargin": 6.005,
+                "BottomMargin": 92.987,
                 "UserData": "scale",
                 "Tag": 66,
                 "ActionTag": -2018780999,
@@ -610,13 +610,13 @@
           {
             "FileData": {
               "Type": "Normal",
-              "Path": "Event/hammer.png",
+              "Path": "ShopIAP/iconTicket0.png",
               "Plist": ""
             },
             "Scale9OriginX": 11,
-            "Scale9OriginY": 11,
-            "Scale9Width": 12,
-            "Scale9Height": 12,
+            "Scale9OriginY": 4,
+            "Scale9Width": 8,
+            "Scale9Height": 7,
             "AnchorPoint": {
               "ScaleX": 0.5,
               "ScaleY": 0.5
@@ -636,13 +636,13 @@
               "Y": 0.9697
             },
             "PreSize": {
-              "X": 0.0208,
-              "Y": 0.0347
+              "X": 0.025,
+              "Y": 0.0208
             },
-            "LeftMargin": 1009.9859,
-            "RightMargin": 165.0142,
-            "TopMargin": 9.3284,
-            "BottomMargin": 685.6716,
+            "LeftMargin": 1007.4859,
+            "RightMargin": 162.5142,
+            "TopMargin": 14.3284,
+            "BottomMargin": 690.6716,
             "Tag": 290,
             "Children": [
               {
@@ -670,7 +670,7 @@
                 },
                 "Position": {
                   "X": 30.0,
-                  "Y": 12.5
+                  "Y": 7.5
                 },
                 "Scale": {
                   "ScaleX": 1.0,
@@ -684,17 +684,17 @@
                 "IconVisible": false,
                 "PositionPercentYEnabled": true,
                 "PrePosition": {
-                  "X": 1.2,
+                  "X": 1.0,
                   "Y": 0.5
                 },
                 "PreSize": {
-                  "X": 7.92,
-                  "Y": 1.2
+                  "X": 6.6,
+                  "Y": 2.0
                 },
                 "LeftMargin": 30.0,
-                "RightMargin": -203.0,
-                "TopMargin": -2.5,
-                "BottomMargin": -2.5,
+                "RightMargin": -198.0,
+                "TopMargin": -7.5,
+                "BottomMargin": -7.5,
                 "UserData": "subText",
                 "Tag": 291,
                 "ActionTag": -1437268901,
@@ -708,8 +708,8 @@
             ],
             "ActionTag": -164709821,
             "Size": {
-              "X": 25.0,
-              "Y": 25.0
+              "X": 30.0,
+              "Y": 15.0
             },
             "Name": "iconTicket",
             "ctype": "ImageViewObjectData"
@@ -872,14 +872,9 @@
             "ctype": "PanelObjectData"
           },
           {
-            "FileData": {
-              "Type": "Normal",
-              "Path": "Vip_VipShopInfo.json",
-              "Plist": ""
-            },
             "StretchWidthEnable": false,
             "StretchHeightEnable": false,
-            "InnerActionSpeed": 1.0,
+            "InnerActionSpeed": 0.0,
             "AnchorPoint": {},
             "Position": {
               "X": 866.0,
@@ -928,7 +923,6 @@
         "Common/btnBack.png",
         "Common/btnHelp.png",
         "Default/Button_Disable.png",
-        "Event/hammer.png",
         "Font/tahoma.ttf",
         "ShopIAP/BtnTab/btnTabEventActive.png",
         "ShopIAP/BtnTab/btnTabGActive.png",
@@ -936,7 +930,7 @@
         "ShopIAP/BtnTab/btnTabItemActive.png",
         "ShopIAP/iconMaintainG.png",
         "ShopIAP/iconShop.png",
-        "Vip_VipShopInfo.json"
+        "ShopIAP/iconTicket0.png"
       ],
       "ctype": "GameFileData"
     }

@@ -348,7 +348,6 @@
           {
             "ClipAble": false,
             "BackColorAlpha": 0,
-            "ComboBoxIndex": 1,
             "SingleColor": {
               "R": 150,
               "G": 200
@@ -382,21 +381,20 @@
               "Y": 1.0
             },
             "PreSize": {
-              "X": 0.4208,
-              "Y": 0.4625
+              "X": 0.6275,
+              "Y": 0.6944
             },
             "HorizontalEdge": "RightEdge",
             "VerticalEdge": "TopEdge",
-            "LeftMargin": 699.0,
+            "LeftMargin": 451.0,
             "RightMargin": -4.0,
-            "BottomMargin": 387.0,
+            "BottomMargin": 220.0,
             "UserData": "scale",
             "Tag": 91,
             "Children": [
               {
                 "ClipAble": false,
                 "BackColorAlpha": 0,
-                "ComboBoxIndex": 1,
                 "SingleColor": {
                   "R": 150,
                   "G": 200
@@ -415,7 +413,7 @@
                 "AnchorPoint": {},
                 "Position": {
                   "X": 0.0,
-                  "Y": -50.0
+                  "Y": -102.0
                 },
                 "Scale": {
                   "ScaleX": 1.0,
@@ -425,33 +423,33 @@
                 "IconVisible": false,
                 "PrePosition": {
                   "X": 0.0,
-                  "Y": -0.1502
+                  "Y": -0.204
                 },
                 "PreSize": {
                   "X": 1.0,
                   "Y": 1.0
                 },
-                "TopMargin": 50.0,
-                "BottomMargin": -50.0,
+                "TopMargin": 102.0,
+                "BottomMargin": -102.0,
                 "Tag": 92,
                 "Children": [
                   {
                     "FileData": {
-                      "Type": "PlistSubImage",
-                      "Path": "bgMiniRank.png",
-                      "Plist": "Ranking/newRank.plist"
+                      "Type": "Normal",
+                      "Path": "Ranking/bgMiniRank.png",
+                      "Plist": ""
                     },
                     "Scale9OriginX": 198,
                     "Scale9OriginY": 134,
-                    "Scale9Width": 106,
-                    "Scale9Height": 65,
+                    "Scale9Width": 362,
+                    "Scale9Height": 232,
                     "AnchorPoint": {
                       "ScaleX": 0.5,
                       "ScaleY": 0.5
                     },
                     "Position": {
-                      "X": 252.5,
-                      "Y": 166.5
+                      "X": 376.5,
+                      "Y": 250.0
                     },
                     "Scale": {
                       "ScaleX": 1.0,
@@ -466,35 +464,37 @@
                       "Y": 0.5
                     },
                     "PreSize": {
-                      "X": 1.0,
+                      "X": 1.0066,
                       "Y": 1.0
                     },
+                    "LeftMargin": -2.5,
+                    "RightMargin": -2.5,
                     "Tag": 90,
                     "ActionTag": -1616874449,
                     "Size": {
-                      "X": 505.0,
-                      "Y": 333.0
+                      "X": 758.0,
+                      "Y": 500.0
                     },
                     "Name": "bgMiniRank",
                     "ctype": "ImageViewObjectData"
                   },
                   {
                     "FileData": {
-                      "Type": "PlistSubImage",
-                      "Path": "titleNoGift.png",
-                      "Plist": "Ranking/newRank.plist"
+                      "Type": "Normal",
+                      "Path": "Ranking/titleNoGift.png",
+                      "Plist": ""
                     },
                     "Scale9OriginX": 90,
                     "Scale9OriginY": 11,
-                    "Scale9Width": 95,
-                    "Scale9Height": 13,
+                    "Scale9Width": 233,
+                    "Scale9Height": 31,
                     "AnchorPoint": {
                       "ScaleX": 0.5,
                       "ScaleY": 0.5
                     },
                     "Position": {
-                      "X": 252.5,
-                      "Y": 305.0
+                      "X": 376.5,
+                      "Y": 462.5
                     },
                     "Scale": {
                       "ScaleX": 1.0,
@@ -505,35 +505,36 @@
                     "PositionPercentXEnabled": true,
                     "PrePosition": {
                       "X": 0.5,
-                      "Y": 0.9159
+                      "Y": 0.925
                     },
                     "PreSize": {
-                      "X": 0.5446,
-                      "Y": 0.1051
+                      "X": 0.5485,
+                      "Y": 0.106
                     },
-                    "LeftMargin": 115.0,
-                    "RightMargin": 115.0,
-                    "TopMargin": 10.5,
-                    "BottomMargin": 287.5,
+                    "VerticalEdge": "TopEdge",
+                    "LeftMargin": 170.0,
+                    "RightMargin": 170.0,
+                    "TopMargin": 11.0,
+                    "BottomMargin": 436.0,
                     "Tag": 220,
                     "ActionTag": 1667718825,
                     "Size": {
-                      "X": 275.0,
-                      "Y": 35.0
+                      "X": 413.0,
+                      "Y": 53.0
                     },
+                    "VisibleForFrame": false,
                     "Name": "title",
                     "ctype": "ImageViewObjectData"
                   },
                   {
                     "IsBounceEnabled": true,
                     "InnerNodeSize": {
-                      "Width": 500,
+                      "Width": 703,
                       "Height": 2000
                     },
                     "ScrollDirectionType": "Vertical",
                     "ClipAble": true,
                     "BackColorAlpha": 0,
-                    "ComboBoxIndex": 1,
                     "SingleColor": {
                       "G": 150,
                       "B": 100
@@ -554,8 +555,8 @@
                       "ScaleY": 0.5
                     },
                     "Position": {
-                      "X": 252.5,
-                      "Y": 135.0
+                      "X": 379.512,
+                      "Y": 202.9999
                     },
                     "Scale": {
                       "ScaleX": 1.0,
@@ -565,22 +566,22 @@
                     "IconVisible": false,
                     "PositionPercentXEnabled": true,
                     "PrePosition": {
-                      "X": 0.5,
-                      "Y": 0.4054
+                      "X": 0.504,
+                      "Y": 0.406
                     },
                     "PreSize": {
-                      "X": 0.9149,
-                      "Y": 0.6937
+                      "X": 0.919,
+                      "Y": 0.666
                     },
-                    "LeftMargin": 21.5,
-                    "RightMargin": 21.5,
-                    "TopMargin": 82.5,
-                    "BottomMargin": 19.5,
+                    "LeftMargin": 33.512,
+                    "RightMargin": 27.488,
+                    "TopMargin": 130.5001,
+                    "BottomMargin": 36.4999,
                     "Tag": 98,
                     "ActionTag": -327177693,
                     "Size": {
-                      "X": 462.0,
-                      "Y": 231.0
+                      "X": 692.0,
+                      "Y": 333.0
                     },
                     "Name": "sTableRank",
                     "ctype": "ScrollViewObjectData"
@@ -588,7 +589,6 @@
                   {
                     "ClipAble": false,
                     "BackColorAlpha": 0,
-                    "ComboBoxIndex": 1,
                     "SingleColor": {
                       "R": 150,
                       "G": 200
@@ -608,8 +608,8 @@
                       "ScaleY": 0.5
                     },
                     "Position": {
-                      "X": 252.5,
-                      "Y": 135.0
+                      "X": 379.512,
+                      "Y": 203.0
                     },
                     "Scale": {
                       "ScaleX": 1.0,
@@ -619,22 +619,22 @@
                     "IconVisible": false,
                     "PositionPercentXEnabled": true,
                     "PrePosition": {
-                      "X": 0.5,
-                      "Y": 0.4054
+                      "X": 0.504,
+                      "Y": 0.406
                     },
                     "PreSize": {
-                      "X": 0.9149,
-                      "Y": 0.6937
+                      "X": 0.919,
+                      "Y": 0.666
                     },
-                    "LeftMargin": 21.5,
-                    "RightMargin": 21.5,
-                    "TopMargin": 82.5,
-                    "BottomMargin": 19.5,
+                    "LeftMargin": 33.512,
+                    "RightMargin": 27.488,
+                    "TopMargin": 130.5,
+                    "BottomMargin": 36.5,
                     "Tag": 358,
                     "ActionTag": 293119214,
                     "Size": {
-                      "X": 462.0,
-                      "Y": 231.0
+                      "X": 692.0,
+                      "Y": 333.0
                     },
                     "Name": "pTouch",
                     "ctype": "PanelObjectData"
@@ -642,15 +642,15 @@
                 ],
                 "ActionTag": 415733106,
                 "Size": {
-                  "X": 505.0,
-                  "Y": 333.0
+                  "X": 753.0,
+                  "Y": 500.0
                 },
                 "Name": "pTable",
                 "ctype": "PanelObjectData"
               },
               {
                 "IsCustomSize": true,
-                "FontSize": 16,
+                "FontSize": 24,
                 "LabelText": "Đã hết thời hạn đăng ký cho Bảng Xếp Hạng tuần này. Hãy quay lại vào tuần sau nhé!",
                 "FontResource": {
                   "Type": "Normal",
@@ -675,8 +675,8 @@
                   "ScaleY": 0.5
                 },
                 "Position": {
-                  "X": 252.5,
-                  "Y": 3.8295
+                  "X": 376.5,
+                  "Y": -16.77
                 },
                 "Scale": {
                   "ScaleX": 1.0,
@@ -691,35 +691,35 @@
                 "PositionPercentXEnabled": true,
                 "PrePosition": {
                   "X": 0.5,
-                  "Y": 0.0115
+                  "Y": -0.0335
                 },
                 "PreSize": {
-                  "X": 0.8752,
-                  "Y": 0.1802
+                  "X": 0.8632,
+                  "Y": 0.18
                 },
-                "LeftMargin": 31.5,
-                "RightMargin": 31.5,
-                "TopMargin": 299.1705,
-                "BottomMargin": -26.1705,
+                "LeftMargin": 51.5,
+                "RightMargin": 51.5,
+                "TopMargin": 471.77,
+                "BottomMargin": -61.77,
                 "Tag": 190,
                 "Children": [
                   {
                     "FileData": {
-                      "Type": "PlistSubImage",
-                      "Path": "imgTimeUp.png",
-                      "Plist": "Ranking/newRank.plist"
+                      "Type": "Normal",
+                      "Path": "Ranking/imgTimeUp.png",
+                      "Plist": ""
                     },
                     "Scale9OriginX": 39,
                     "Scale9OriginY": 49,
-                    "Scale9Width": 42,
-                    "Scale9Height": 52,
+                    "Scale9Width": 102,
+                    "Scale9Height": 127,
                     "AnchorPoint": {
                       "ScaleX": 0.5,
                       "ScaleY": 0.5
                     },
                     "Position": {
-                      "X": 221.0,
-                      "Y": 143.9771
+                      "X": 325.0,
+                      "Y": 199.9783
                     },
                     "Scale": {
                       "ScaleX": 1.0,
@@ -730,21 +730,21 @@
                     "PositionPercentXEnabled": true,
                     "PrePosition": {
                       "X": 0.5,
-                      "Y": 2.3996
+                      "Y": 2.222
                     },
                     "PreSize": {
-                      "X": 0.2715,
+                      "X": 0.2769,
                       "Y": 2.5
                     },
-                    "LeftMargin": 161.0,
-                    "RightMargin": 161.0,
-                    "TopMargin": -158.9771,
-                    "BottomMargin": 68.9771,
+                    "LeftMargin": 235.0,
+                    "RightMargin": 235.0,
+                    "TopMargin": -222.4783,
+                    "BottomMargin": 87.4783,
                     "Tag": 191,
                     "ActionTag": 193957170,
                     "Size": {
-                      "X": 120.0,
-                      "Y": 150.0
+                      "X": 180.0,
+                      "Y": 225.0
                     },
                     "Name": "img",
                     "ctype": "ImageViewObjectData"
@@ -752,8 +752,8 @@
                 ],
                 "ActionTag": -636019054,
                 "Size": {
-                  "X": 442.0,
-                  "Y": 60.0
+                  "X": 650.0,
+                  "Y": 90.0
                 },
                 "Name": "txtTooLate",
                 "ctype": "TextObjectData"
@@ -761,8 +761,8 @@
             ],
             "ActionTag": 1878709491,
             "Size": {
-              "X": 505.0,
-              "Y": 333.0
+              "X": 753.0,
+              "Y": 500.0
             },
             "Name": "pMiniRank",
             "ctype": "PanelObjectData"
@@ -781,8 +781,11 @@
         "Default/Button_Press.png",
         "Font/tahoma.ttf",
         "Font/tahomabd.ttf",
+        "Ranking/bgMiniRank.png",
+        "Ranking/imgTimeUp.png",
         "Ranking/newRank.plist",
-        "Ranking/newRank.png"
+        "Ranking/newRank.png",
+        "Ranking/titleNoGift.png"
       ],
       "ctype": "GameFileData"
     }

@@ -818,14 +818,20 @@ var NumberGroupCustom = cc.Node.extend({
             this.type = type;
         else
             this.type = NumberGroupCustom.TYPE_SYMBOL;
+        this.currentNumber = 0;
+        this.targetNumber = 0;
+        this.dNumber = 0;
+        this.scheduleUpdate();
     },
 
     setNumber: function(number) {
+        this.currentNumber = number;
         for (var i = 0; i < this.arrayChar.length; i++) {
             this.arrayChar[i].removeFromParent();
         }
         this.arrayChar = [];
         var string = "";
+        number = Math.floor(number);
         if (this.type == NumberGroupCustom.TYPE_SYMBOL)
             string = StringUtility.formatNumberSymbol(number);
         else
@@ -858,8 +864,28 @@ var NumberGroupCustom = cc.Node.extend({
 
     setString: function(number) {
         this.setNumber(number);
-    }
+    },
 
+    setTargetNumber: function (timeDelay, targetNumber) {
+        this.targetNumber = targetNumber;
+        this.timeDelay = timeDelay;
+        this.dNumber = (this.targetNumber - this.currentNumber) / 10;
+    },
+
+    update: function (dt) {
+        if (this.timeDelay > 0)
+            this.timeDelay = this.timeDelay - dt;
+        if (this.timeDelay <= 0) {
+            if (this.targetNumber != this.currentNumber) {
+                if (Math.abs(this.targetNumber - this.currentNumber) <= Math.abs(this.dNumber)) {
+                    this.setNumber(this.targetNumber);
+                }
+                else {
+                    this.setNumber(this.currentNumber + this.dNumber);
+                }
+            }
+        }
+    }
 })
 NumberGroupCustom.TYPE_POINT = 1;
 NumberGroupCustom.TYPE_SYMBOL = 0;

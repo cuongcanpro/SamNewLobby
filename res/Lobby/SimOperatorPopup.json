@@ -17,21 +17,21 @@
           {
             "FileData": {
               "Type": "Normal",
-              "Path": "ShopIAP/bgGUIMaintain.png",
+              "Path": "Common/bgDialog.png",
               "Plist": ""
             },
             "Scale9Enable": true,
             "Scale9OriginX": 15,
             "Scale9OriginY": 15,
-            "Scale9Width": 508,
-            "Scale9Height": 238,
+            "Scale9Width": 830,
+            "Scale9Height": 607,
             "AnchorPoint": {
               "ScaleX": 0.5,
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 400.0,
-              "Y": 249.984
+              "X": 600.0,
+              "Y": 374.976
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -44,63 +44,18 @@
               "Y": 0.5208
             },
             "PreSize": {
-              "X": 0.6725,
-              "Y": 0.5583
+              "X": 0.5833,
+              "Y": 0.8333
             },
             "HorizontalEdge": "BothEdge",
             "VerticalEdge": "BothEdge",
-            "LeftMargin": 131.0,
-            "RightMargin": 131.0,
-            "TopMargin": 96.016,
-            "BottomMargin": 115.984,
+            "LeftMargin": 250.0,
+            "RightMargin": 250.0,
+            "TopMargin": 45.024,
+            "BottomMargin": 74.976,
             "UserData": "scale",
             "Tag": 128,
             "Children": [
-              {
-                "FileData": {
-                  "Type": "Normal",
-                  "Path": "ShopIAP/titleNetwork.png",
-                  "Plist": ""
-                },
-                "Scale9OriginX": 72,
-                "Scale9OriginY": 13,
-                "Scale9Width": 75,
-                "Scale9Height": 14,
-                "AnchorPoint": {
-                  "ScaleX": 0.5,
-                  "ScaleY": 0.5
-                },
-                "Position": {
-                  "X": 264.0,
-                  "Y": 226.0
-                },
-                "Scale": {
-                  "ScaleX": 1.0,
-                  "ScaleY": 1.0
-                },
-                "CColor": {},
-                "IconVisible": false,
-                "PrePosition": {
-                  "X": 0.4907,
-                  "Y": 0.8433
-                },
-                "PreSize": {
-                  "X": 0.4071,
-                  "Y": 0.1493
-                },
-                "LeftMargin": 154.5,
-                "RightMargin": 164.5,
-                "TopMargin": 22.0,
-                "BottomMargin": 206.0,
-                "Tag": 99,
-                "ActionTag": -1877579130,
-                "Size": {
-                  "X": 219.0,
-                  "Y": 40.0
-                },
-                "Name": "Image_2",
-                "ctype": "ImageViewObjectData"
-              },
               {
                 "FontSize": 14,
                 "ButtonText": "",
@@ -127,8 +82,8 @@
                 "Scale9Enable": true,
                 "Scale9OriginX": 15,
                 "Scale9OriginY": 11,
-                "Scale9Width": 16,
-                "Scale9Height": 25,
+                "Scale9Width": 5,
+                "Scale9Height": 13,
                 "OutlineColor": {
                   "G": 0,
                   "B": 0
@@ -146,8 +101,8 @@
                   "ScaleY": 0.5
                 },
                 "Position": {
-                  "X": 510.0,
-                  "Y": 242.0
+                  "X": 655.5905,
+                  "Y": 558.006
                 },
                 "Scale": {
                   "ScaleX": 1.0,
@@ -156,22 +111,22 @@
                 "CColor": {},
                 "IconVisible": false,
                 "PrePosition": {
-                  "X": 0.948,
-                  "Y": 0.903
+                  "X": 0.9366,
+                  "Y": 0.93
                 },
                 "PreSize": {
-                  "X": 0.0855,
-                  "Y": 0.1754
+                  "X": 0.05,
+                  "Y": 0.0583
                 },
-                "LeftMargin": 487.0,
-                "RightMargin": 5.0,
-                "TopMargin": 2.5,
-                "BottomMargin": 218.5,
+                "LeftMargin": 638.0905,
+                "RightMargin": 26.9095,
+                "TopMargin": 24.494,
+                "BottomMargin": 540.506,
                 "Tag": 100,
                 "ActionTag": 1441979338,
                 "Size": {
-                  "X": 46.0,
-                  "Y": 47.0
+                  "X": 35.0,
+                  "Y": 35.0
                 },
                 "Name": "btnClose",
                 "ctype": "ButtonObjectData"
@@ -191,19 +146,19 @@
                 },
                 "PressedFileData": {
                   "Type": "Normal",
-                  "Path": "ShopIAP/card_viettel.png",
+                  "Path": "ShopIAP/IconNetwork/cardViettel.png",
                   "Plist": ""
                 },
                 "NormalFileData": {
                   "Type": "Normal",
-                  "Path": "ShopIAP/card_viettel.png",
+                  "Path": "ShopIAP/IconNetwork/cardViettel.png",
                   "Plist": ""
                 },
                 "Scale9Enable": true,
                 "Scale9OriginX": 15,
                 "Scale9OriginY": 11,
-                "Scale9Width": 78,
-                "Scale9Height": 47,
+                "Scale9Width": 332,
+                "Scale9Height": 103,
                 "OutlineColor": {
                   "G": 0,
                   "B": 0
@@ -221,8 +176,8 @@
                   "ScaleY": 0.5
                 },
                 "Position": {
-                  "X": 104.86,
-                  "Y": 107.0124
+                  "X": 350.0002,
+                  "Y": 447.1109
                 },
                 "Scale": {
                   "ScaleX": 1.0,
@@ -230,24 +185,25 @@
                 },
                 "CColor": {},
                 "IconVisible": false,
+                "PositionPercentXEnabled": true,
                 "PositionPercentYEnabled": true,
                 "PrePosition": {
-                  "X": 0.1949,
-                  "Y": 0.3993
+                  "X": 0.5,
+                  "Y": 0.7452
                 },
                 "PreSize": {
-                  "X": 0.2007,
-                  "Y": 0.2575
+                  "X": 0.5171,
+                  "Y": 0.2083
                 },
-                "LeftMargin": 50.86,
-                "RightMargin": 379.14,
-                "TopMargin": 126.4876,
-                "BottomMargin": 72.5124,
+                "LeftMargin": 169.0002,
+                "RightMargin": 168.9998,
+                "TopMargin": 90.3891,
+                "BottomMargin": 384.6109,
                 "Tag": 129,
                 "ActionTag": -1977491027,
                 "Size": {
-                  "X": 108.0,
-                  "Y": 69.0
+                  "X": 362.0,
+                  "Y": 125.0
                 },
                 "Name": "viettel",
                 "ctype": "ButtonObjectData"
@@ -267,8 +223,8 @@
                   "ScaleY": 0.5
                 },
                 "Position": {
-                  "X": 102.0,
-                  "Y": 81.0
+                  "X": 496.2436,
+                  "Y": 411.7559
                 },
                 "Scale": {
                   "ScaleX": 1.0,
@@ -277,17 +233,17 @@
                 "CColor": {},
                 "IconVisible": false,
                 "PrePosition": {
-                  "X": 0.1896,
-                  "Y": 0.3022
+                  "X": 0.7089,
+                  "Y": 0.6863
                 },
                 "PreSize": {
-                  "X": 0.1059,
-                  "Y": 0.194
+                  "X": 0.0814,
+                  "Y": 0.0867
                 },
-                "LeftMargin": 73.5,
-                "RightMargin": 407.5,
-                "TopMargin": 161.0,
-                "BottomMargin": 55.0,
+                "LeftMargin": 467.7436,
+                "RightMargin": 175.2564,
+                "TopMargin": 162.2441,
+                "BottomMargin": 385.7559,
                 "Tag": 98,
                 "ActionTag": -671422129,
                 "Size": {
@@ -312,19 +268,19 @@
                 },
                 "PressedFileData": {
                   "Type": "Normal",
-                  "Path": "ShopIAP/card_mobifone.png",
+                  "Path": "ShopIAP/IconNetwork/cardMobi.png",
                   "Plist": ""
                 },
                 "NormalFileData": {
                   "Type": "Normal",
-                  "Path": "ShopIAP/card_mobifone.png",
+                  "Path": "ShopIAP/IconNetwork/cardMobi.png",
                   "Plist": ""
                 },
                 "Scale9Enable": true,
                 "Scale9OriginX": 15,
                 "Scale9OriginY": 11,
-                "Scale9Width": 78,
-                "Scale9Height": 47,
+                "Scale9Width": 332,
+                "Scale9Height": 103,
                 "OutlineColor": {
                   "G": 0,
                   "B": 0
@@ -342,8 +298,8 @@
                   "ScaleY": 0.5
                 },
                 "Position": {
-                  "X": 269.0,
-                  "Y": 107.0124
+                  "X": 350.0002,
+                  "Y": 142.8971
                 },
                 "Scale": {
                   "ScaleX": 1.0,
@@ -355,21 +311,21 @@
                 "PositionPercentYEnabled": true,
                 "PrePosition": {
                   "X": 0.5,
-                  "Y": 0.3993
+                  "Y": 0.2382
                 },
                 "PreSize": {
-                  "X": 0.2007,
-                  "Y": 0.2575
+                  "X": 0.5171,
+                  "Y": 0.2083
                 },
-                "LeftMargin": 215.0,
-                "RightMargin": 215.0,
-                "TopMargin": 126.4876,
-                "BottomMargin": 72.5124,
+                "LeftMargin": 169.0002,
+                "RightMargin": 168.9998,
+                "TopMargin": 394.6029,
+                "BottomMargin": 80.3971,
                 "Tag": 130,
                 "ActionTag": -1927723850,
                 "Size": {
-                  "X": 108.0,
-                  "Y": 69.0
+                  "X": 362.0,
+                  "Y": 125.0
                 },
                 "Name": "mobifone",
                 "ctype": "ButtonObjectData"
@@ -389,19 +345,19 @@
                 },
                 "PressedFileData": {
                   "Type": "Normal",
-                  "Path": "ShopIAP/card_vinaphone.png",
+                  "Path": "ShopIAP/IconNetwork/cardVina.png",
                   "Plist": ""
                 },
                 "NormalFileData": {
                   "Type": "Normal",
-                  "Path": "ShopIAP/card_vinaphone.png",
+                  "Path": "ShopIAP/IconNetwork/cardVina.png",
                   "Plist": ""
                 },
                 "Scale9Enable": true,
                 "Scale9OriginX": 15,
                 "Scale9OriginY": 11,
-                "Scale9Width": 78,
-                "Scale9Height": 47,
+                "Scale9Width": 332,
+                "Scale9Height": 103,
                 "OutlineColor": {
                   "G": 0,
                   "B": 0
@@ -419,8 +375,8 @@
                   "ScaleY": 0.5
                 },
                 "Position": {
-                  "X": 436.9973,
-                  "Y": 107.0124
+                  "X": 350.0002,
+                  "Y": 296.0544
                 },
                 "Scale": {
                   "ScaleX": 1.0,
@@ -428,34 +384,35 @@
                 },
                 "CColor": {},
                 "IconVisible": false,
+                "PositionPercentXEnabled": true,
                 "PositionPercentYEnabled": true,
                 "PrePosition": {
-                  "X": 0.8123,
-                  "Y": 0.3993
+                  "X": 0.5,
+                  "Y": 0.4934
                 },
                 "PreSize": {
-                  "X": 0.2007,
-                  "Y": 0.2575
+                  "X": 0.5171,
+                  "Y": 0.2083
                 },
-                "LeftMargin": 382.9973,
-                "RightMargin": 47.0027,
-                "TopMargin": 126.4876,
-                "BottomMargin": 72.5124,
+                "LeftMargin": 169.0002,
+                "RightMargin": 168.9998,
+                "TopMargin": 241.4456,
+                "BottomMargin": 233.5544,
                 "Tag": 131,
                 "ActionTag": 34032329,
                 "Size": {
-                  "X": 108.0,
-                  "Y": 69.0
+                  "X": 362.0,
+                  "Y": 125.0
                 },
                 "Name": "vinaphone",
                 "ctype": "ButtonObjectData"
               },
               {
-                "FontSize": 18,
-                "LabelText": "Vui lòng chọn nhà mạng bạn muốn nạp:",
+                "FontSize": 26,
+                "LabelText": "Chọn nhà mạng bạn muốn nạp",
                 "FontResource": {
                   "Type": "Normal",
-                  "Path": "Font/tahoma.ttf",
+                  "Path": "Font/tahomabd.ttf",
                   "Plist": ""
                 },
                 "OutlineColor": {
@@ -474,36 +431,33 @@
                   "ScaleY": 0.5
                 },
                 "Position": {
-                  "X": 268.0,
-                  "Y": 198.0
+                  "X": 350.0,
+                  "Y": 560.0448
                 },
                 "Scale": {
                   "ScaleX": 1.0,
                   "ScaleY": 1.0
                 },
-                "CColor": {
-                  "R": 202,
-                  "G": 172,
-                  "B": 206
-                },
+                "CColor": {},
                 "IconVisible": false,
+                "PositionPercentXEnabled": true,
                 "PrePosition": {
-                  "X": 0.4981,
-                  "Y": 0.7388
+                  "X": 0.5,
+                  "Y": 0.9334
                 },
                 "PreSize": {
-                  "X": 0.6394,
-                  "Y": 0.0933
+                  "X": 0.5757,
+                  "Y": 0.0583
                 },
-                "LeftMargin": 96.0,
-                "RightMargin": 98.0,
-                "TopMargin": 57.5,
-                "BottomMargin": 185.5,
+                "LeftMargin": 148.5,
+                "RightMargin": 148.5,
+                "TopMargin": 22.4552,
+                "BottomMargin": 542.5448,
                 "Tag": 101,
                 "ActionTag": 1197422948,
                 "Size": {
-                  "X": 344.0,
-                  "Y": 25.0
+                  "X": 403.0,
+                  "Y": 35.0
                 },
                 "Name": "Text_1",
                 "ctype": "TextObjectData"
@@ -523,8 +477,8 @@
                   "ScaleY": 0.5
                 },
                 "Position": {
-                  "X": 267.0,
-                  "Y": 81.0
+                  "X": 496.412,
+                  "Y": 108.6909
                 },
                 "Scale": {
                   "ScaleX": 1.0,
@@ -533,17 +487,17 @@
                 "CColor": {},
                 "IconVisible": false,
                 "PrePosition": {
-                  "X": 0.4963,
-                  "Y": 0.3022
+                  "X": 0.7092,
+                  "Y": 0.1812
                 },
                 "PreSize": {
-                  "X": 0.1059,
-                  "Y": 0.194
+                  "X": 0.0814,
+                  "Y": 0.0867
                 },
-                "LeftMargin": 238.5,
-                "RightMargin": 242.5,
-                "TopMargin": 161.0,
-                "BottomMargin": 55.0,
+                "LeftMargin": 467.912,
+                "RightMargin": 175.088,
+                "TopMargin": 465.3091,
+                "BottomMargin": 82.6909,
                 "Tag": 102,
                 "ActionTag": -667052204,
                 "Size": {
@@ -568,27 +522,27 @@
                   "ScaleY": 0.5
                 },
                 "Position": {
-                  "X": 436.0,
-                  "Y": 83.0
+                  "X": 498.3343,
+                  "Y": 260.3718
                 },
                 "Scale": {
                   "ScaleX": 1.0,
-                  "ScaleY": 1.0
+                  "ScaleY": 0.8749
                 },
                 "CColor": {},
                 "IconVisible": false,
                 "PrePosition": {
-                  "X": 0.8104,
-                  "Y": 0.3097
+                  "X": 0.7119,
+                  "Y": 0.434
                 },
                 "PreSize": {
-                  "X": 0.1059,
-                  "Y": 0.194
+                  "X": 0.0814,
+                  "Y": 0.0867
                 },
-                "LeftMargin": 407.5,
-                "RightMargin": 73.5,
-                "TopMargin": 159.0,
-                "BottomMargin": 57.0,
+                "LeftMargin": 469.8343,
+                "RightMargin": 173.1658,
+                "TopMargin": 313.6282,
+                "BottomMargin": 234.3718,
                 "Tag": 103,
                 "ActionTag": -269978229,
                 "Size": {
@@ -601,30 +555,29 @@
             ],
             "ActionTag": -36226420,
             "Size": {
-              "X": 538.0,
-              "Y": 268.0
+              "X": 700.0,
+              "Y": 600.0
             },
             "Name": "bg",
             "ctype": "ImageViewObjectData"
           }
         ],
         "Size": {
-          "X": 800.0,
-          "Y": 480.0
+          "X": 1200.0,
+          "Y": 720.0
         },
         "Name": "Scene",
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
+        "Common/bgDialog.png",
         "Common/btnClose.png",
         "Default/Button_Disable.png",
-        "Font/tahoma.ttf",
-        "ShopIAP/bgGUIMaintain.png",
-        "ShopIAP/card_mobifone.png",
-        "ShopIAP/card_viettel.png",
-        "ShopIAP/card_vinaphone.png",
+        "Font/tahomabd.ttf",
         "ShopIAP/iconMaintainSmall.png",
-        "ShopIAP/titleNetwork.png"
+        "ShopIAP/IconNetwork/cardMobi.png",
+        "ShopIAP/IconNetwork/cardViettel.png",
+        "ShopIAP/IconNetwork/cardVina.png"
       ],
       "ctype": "GameFileData"
     }
