@@ -103,16 +103,17 @@
                   "Path": "Received/bgDetails.png",
                   "Plist": ""
                 },
-                "Scale9OriginX": 35,
+                "Scale9Enable": true,
+                "Scale9OriginX": 12,
                 "Scale9OriginY": 9,
-                "Scale9Width": 39,
+                "Scale9Width": 85,
                 "Scale9Height": 11,
                 "AnchorPoint": {
-                  "ScaleX": 0.5,
+                  "ScaleX": 1.0,
                   "ScaleY": 0.5
                 },
                 "Position": {
-                  "X": 85.0,
+                  "X": 139.5,
                   "Y": 125.0
                 },
                 "Scale": {
@@ -122,14 +123,14 @@
                 "CColor": {},
                 "IconVisible": false,
                 "PrePosition": {
-                  "X": 0.6855,
+                  "X": 1.125,
                   "Y": 1.0
                 },
                 "PreSize": {
-                  "X": 0.879,
+                  "X": 0.9919,
                   "Y": 0.232
                 },
-                "LeftMargin": 30.5,
+                "LeftMargin": 16.5,
                 "RightMargin": -15.5,
                 "TopMargin": -14.5,
                 "BottomMargin": 110.5,
@@ -137,14 +138,13 @@
                 "Children": [
                   {
                     "IsCustomSize": true,
-                    "FontSize": 17,
+                    "FontSize": 18,
                     "LabelText": "+150% VIP3",
                     "FontResource": {
                       "Type": "Normal",
-                      "Path": "Font/tahomabd.ttf",
+                      "Path": "Font/robotoBold.ttf",
                       "Plist": ""
                     },
-                    "HorizontalAlignmentType": "HT_Center",
                     "VerticalAlignmentType": "VT_Center",
                     "OutlineColor": {
                       "G": 0,
@@ -158,12 +158,11 @@
                     "ShadowOffsetX": 2.0,
                     "ShadowOffsetY": -2.0,
                     "AnchorPoint": {
-                      "ScaleX": 0.5,
                       "ScaleY": 0.5
                     },
                     "Position": {
-                      "X": 54.5,
-                      "Y": 14.5
+                      "X": 12.0,
+                      "Y": 14.5001
                     },
                     "Scale": {
                       "ScaleX": 1.0,
@@ -171,10 +170,9 @@
                     },
                     "CColor": {},
                     "IconVisible": false,
-                    "PositionPercentXEnabled": true,
                     "PositionPercentYEnabled": true,
                     "PrePosition": {
-                      "X": 0.5,
+                      "X": 0.0976,
                       "Y": 0.5
                     },
                     "PercentWidthEnable": true,
@@ -185,12 +183,14 @@
                       "X": 2.0,
                       "Y": 1.0
                     },
-                    "LeftMargin": -54.5,
-                    "RightMargin": -54.5,
+                    "LeftMargin": 12.0,
+                    "RightMargin": -135.0,
+                    "TopMargin": -0.0001,
+                    "BottomMargin": 0.0001,
                     "Tag": 29,
                     "ActionTag": -1332886347,
                     "Size": {
-                      "X": 218.0,
+                      "X": 246.0,
                       "Y": 29.0
                     },
                     "Name": "label",
@@ -199,7 +199,7 @@
                 ],
                 "ActionTag": 1386655432,
                 "Size": {
-                  "X": 109.0,
+                  "X": 123.0,
                   "Y": 29.0
                 },
                 "Name": "bgModify",
@@ -217,7 +217,7 @@
           {
             "IsCustomSize": true,
             "FontSize": 20,
-            "LabelText": "Text Label",
+            "LabelText": "Nạp lần đầu",
             "FontResource": {
               "Type": "Normal",
               "Path": "Font/tahomabd.ttf",
@@ -262,14 +262,14 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": -62.5,
-            "RightMargin": -62.5,
+            "LeftMargin": -72.5,
+            "RightMargin": -72.5,
             "TopMargin": 66.0,
             "BottomMargin": -141.0,
             "Tag": 320,
             "ActionTag": -430643838,
             "Size": {
-              "X": 125.0,
+              "X": 145.0,
               "Y": 75.0
             },
             "Name": "name",
@@ -290,6 +290,8 @@
             "ColorVector": {
               "ScaleY": 1.0
             },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
             "TouchEnable": true,
             "AnchorPoint": {
               "ScaleX": 0.5,
@@ -706,7 +708,7 @@
           {
             "IsCustomSize": true,
             "FontSize": 20,
-            "LabelText": "100.000",
+            "LabelText": "99.999.999",
             "FontResource": {
               "Type": "Normal",
               "Path": "Font/robotoBold.ttf",

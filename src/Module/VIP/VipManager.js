@@ -23,6 +23,7 @@ var VipManager = BaseMgr.extend({
     initListener: function () {
         //Add function to others event
         dispatcherMgr.addListener(LobbyMgr.EVENT_ON_ENTER_FINISH, this, this.onEnterLobby);
+        dispatcherMgr.addListener(ReceivedManager.EVENT_CLOSE_GUI, this, VipManager.checkShowUpLevelVip);
 
         //Add event to my functions
     },
@@ -56,7 +57,7 @@ var VipManager = BaseMgr.extend({
         this.setBeanNeedSupportConfig(config["BeanNeedSupport"]);
     },
 
-    resetData: function(){
+    resetData: function () {
         this.vipLevel = 0;
         this.remainTime = 0;
         this.vPoint = 0;
@@ -69,30 +70,24 @@ var VipManager = BaseMgr.extend({
         this.beanNeedSupportConfig = null;
     },
 
-    // cap nhat data sau khi dien Effect -> neu ko duoc dien Effect -> Ko update Data -> can Update Data truoc khi mo lai gui co thong tin VIP
+    // cap nhat data sau khi dien Effect
+    // -> neu ko duoc dien Effect
+    // -> Ko update Data
+    // -> can Update Data truoc khi mo lai gui co thong tin VIP
     updateFromSaveData: function () {
-        this.isWaitingEffect = false;
-        this.saveInfoVip(this.dataSave);
+        if (!this.dataSave) return;
+        this.setRemainTime(this.dataSave.remainTime);
+        this.setVipLevel(this.dataSave.vipLevel);
+        this.setVpoint(this.dataSave.vPoint);
     },
 
-    saveInfoVip: function(data){
+    saveInfoVip: function (data) {
         if (!data) return;
-        // cc.log("saveInfoVip: ", JSON.stringify(data));
-        if (this.isWaitingEffect){
-            this.dataSave = data;
-            cc.log("WAITING EFFECT **** ");
-            return;
-        }
-        else {
-            cc.log(" GAN LAI GIA TRI");
-        }
-        this.setRemainTime(data.remainTime);
-        this.setVipLevel(data.vipLevel);
-        this.setVpoint(data.vPoint);
-        this.dataSave = null;
+        this.dataSave = data;
+        cc.log("WAITING EFFECT **** ");
     },
 
-    saveConvertInfo: function(data){
+    saveConvertInfo: function (data) {
         var vPoint = parseFloat(data.vPointG) + parseFloat(data.vPointV);
         if (vPoint === 0) {
             var confirm = new CmdSendConfirmFinishConvertOldVip();
@@ -104,7 +99,7 @@ var VipManager = BaseMgr.extend({
         this.dataConvert = data;
         var startLevel = 0;
         // cc.log("vPoint: ", vPoint, this.getVpointNeed(startLevel));
-        while (vPoint >= this.getVpointNeed(startLevel) && startLevel < VipManager.NUMBER_VIP){
+        while (vPoint >= this.getVpointNeed(startLevel) && startLevel < VipManager.NUMBER_VIP) {
             vPoint -= this.getVpointNeed(startLevel);
             // cc.log("vPoint1: ", vPoint);
             startLevel++;
@@ -113,28 +108,42 @@ var VipManager = BaseMgr.extend({
         this.saveInfoVip(dataVip);
     },
 
-    saveDailyBonusGold: function(gold){
+    saveDailyBonusGold: function (gold) {
         this.dailyBonusGold = gold;
     },
 
     checkShowDailyBonus: function () {
         var dailyBonus = this.getDailyBonusGold();
+
         if (dailyBonus) {
-            if (popUpManager.canShow(PopUpManager.DAILY_BONUS_VIP)) {
-                var gui = sceneMgr.openGUI(VipDailyGoldBonusGUI.className, PopUpManager.DAILY_BONUS_VIP, PopUpManager.DAILY_BONUS_VIP);
-                gui.setInfoDailyBonus(dailyBonus);
-            }
+            receivedMgr.onReceivedGold(
+                parseInt(dailyBonus),
+                StringUtility.replaceAll(
+                    LocalizedString.to("VIP_DAILY_BONUS"),
+                    "@number",
+                    vipMgr.getVipLevel()
+                )
+            );
+            this.saveDailyBonusGold(0);
         }
     },
 
-    getDailyBonusGold: function(){
+    getDailyBonusGold: function () {
+        var listBenefit = vipMgr.getListBenefit(this.getVipLevel());
+        var isDailyBonus = false;
+        for (var i = 0; i < listBenefit.length; i++) {
+            if (parseInt(listBenefit[i]["index"]) === VipManager.BENEFIT_GOLD_DAILY) {
+                isDailyBonus = true;
+            }
+        }
+        if (!isDailyBonus) return 0;
         return this.dailyBonusGold;
     },
 
-    getDataConvert: function(){
+    getDataConvert: function () {
         var data = this.dataConvert;
-        if (data){
-            if (data["vPointG"] || data["vPointV"]){
+        if (data) {
+            if (data["vPointG"] || data["vPointV"]) {
                 return data;
             }
         }
@@ -142,56 +151,56 @@ var VipManager = BaseMgr.extend({
         return null;
     },
 
-    removeDataConvert: function(){
+    removeDataConvert: function () {
         this.dataConvert = null;
     },
 
-    setBenefitConfig: function(benefitConfig){
+    setBenefitConfig: function (benefitConfig) {
         this.benefitConfig = benefitConfig;
         cc.log("setBenefitConfig: ", JSON.stringify(this.benefitConfig));
     },
 
-    getBenefitConfig: function(){
+    getBenefitConfig: function () {
         return this.benefitConfig;
     },
 
-    setOldVipConfig: function(oldVipConfig){
+    setOldVipConfig: function (oldVipConfig) {
         this.oldConfig = oldVipConfig;
         cc.log("setOldVipConfig: ", JSON.stringify(this.oldConfig));
     },
 
-    getOldVipConfig: function(){
+    getOldVipConfig: function () {
         return this.oldConfig;
     },
 
-    setRatioGstarToVpoint: function(ratio){
+    setRatioGstarToVpoint: function (ratio) {
         this.ratioGstarToVpoint = ratio;
     },
 
-    getRatioGstarToVpoint: function(){
+    getRatioGstarToVpoint: function () {
         return this.ratioGstarToVpoint;
     },
 
-    setNumberVip: function(number){
+    setNumberVip: function (number) {
         VipManager.NUMBER_VIP = number - 1;
     },
 
-    setBeanNeedSupportConfig: function(config){
+    setBeanNeedSupportConfig: function (config) {
         this.beanNeedSupportConfig = config;
         cc.log("beanNeedSupportConfig: ", JSON.stringify(this.beanNeedSupportConfig));
     },
 
-    getBeanNeedSupportConfig: function(){
+    getBeanNeedSupportConfig: function () {
         return this.beanNeedSupportConfig;
     },
 
-    getListLockTypeBenefit: function(){
+    getListLockTypeBenefit: function () {
         var listLock = [];
         var benefitConfig = this.getBenefitConfig();
-        if (benefitConfig){
+        if (benefitConfig) {
             var types = benefitConfig.type;
-            for (var i in types){
-                if (types[i]["isKey"]){
+            for (var i in types) {
+                if (types[i]["isKey"]) {
                     listLock.push(parseInt(i));
                 }
             }
@@ -200,14 +209,14 @@ var VipManager = BaseMgr.extend({
     },
 
     // index of benefit
-    getListBenefitHave: function(vipLevel, isOldVip){
+    getListBenefitHave: function (vipLevel, isOldVip) {
         var listBenefit = [];
-        var benefitConfig = isOldVip ? this.getOldVipConfig() :this.getBenefitConfig();
-        if (benefitConfig){
+        var benefitConfig = isOldVip ? this.getOldVipConfig() : this.getBenefitConfig();
+        if (benefitConfig) {
             var packages = benefitConfig["package"];
             var benefit = packages[vipLevel + ""];
-            for (var key in benefit){
-                if (benefit[key] && (key !== "0" && key !== "8")){
+            for (var key in benefit) {
+                if (benefit[key] && (key !== "0" && key !== "8")) {
                     listBenefit.push(parseInt(key));
                 }
             }
@@ -215,15 +224,15 @@ var VipManager = BaseMgr.extend({
         return listBenefit;
     },
 
-    getListBenefit: function(vipLevel, isOldVip, isGetFull){
+    getListBenefit: function (vipLevel, isOldVip, isGetFull) {
         var listBenefit = [];
         var benefitConfig = isOldVip ? this.getOldVipConfig() : this.getBenefitConfig();
-        if (benefitConfig){
+        if (benefitConfig) {
             var packages = benefitConfig["package"];
             var benefit = packages[vipLevel + ""];
-            for (var key in benefit){
-                if ((isGetFull || benefit[key]) && (key !== "0" && key !== "8")){
-                    listBenefit.push({index: key, value:benefit[key]});
+            for (var key in benefit) {
+                if ((isGetFull || benefit[key]) && (key !== "0" && key !== "8")) {
+                    listBenefit.push({index: key, value: benefit[key]});
                 }
             }
         }
@@ -231,67 +240,97 @@ var VipManager = BaseMgr.extend({
         return listBenefit;
     },
 
-    getBenefitName: function(type){
+    getBenefitName: function (type) {
         var name = "";
         var benefitConfig = this.getBenefitConfig();
-        if (benefitConfig){
+        if (benefitConfig) {
             var types = benefitConfig.type;
             return types[type + ""]["name"];
         }
         return name;
     },
 
-    getIsLock: function(type){
+    getIsLock: function (type) {
         var benefitConfig = this.getBenefitConfig();
-        if (benefitConfig){
+        if (benefitConfig) {
             var types = benefitConfig.type;
             return types[type + ""]["isKey"];
         }
         return false;
     },
 
-    getImageBenefit: function(type){
-        type = parseInt(type);
-        var folder = "res/Lobby/GUIVipNew/";
-        switch (type) {
-            case 4:
-            case 7:
-            case 1:{
-                return folder + "typeMoney.png";
-            }
-            case 2:{
-                return folder + "typeDate.png";
-            }
-            case 3:{
-                return folder + "typeSupport.png";
-            }
-            case 5:
-            case 6:
-            case 8:
-            case 9:{
-                return folder + "typeVipTime.png";
-            }
-            default:{
-                return folder + "type0.png";
-            }
+    getIsOneTimeReceived: function (type) {
+        switch (parseInt(type)) {
+            case VipManager.BENEFIT_GOLD_INSTANT:
+            case VipManager.BENEFIT_HOUR_INSTANT:
+                return true;
         }
+        return false;
     },
 
-    getValueBenefit: function(type, value, isUpLevelGUI){
-        if (type === "3"){ // ho tro hang ngay
-            return StringUtility.formatNumberSymbol(value["value"]) + " x " + value["num"];
-        } else if (type === "9" ){ // bonus ngay vip
-            var str = localized("VIP_FORMAT_DAY");
-            return StringUtility.replaceAll(str, "@day", value);
-        } else if (type === "4" || type === "7"){ // bonus shop & giam phe
-            return value + "%";
-        } else if (type === "5" || type === "6" || type === "8"){
-            if (isUpLevelGUI) {
-                return "";
-            }
-            return localized("VIP_TURN_ON");
+    getBenefitImage: function (type) {
+        type = parseInt(type);
+        var folder = "res/Lobby/Vip/benefit/";
+        switch (type) {
+            case VipManager.BENEFIT_GOLD_INSTANT:
+                folder += "gold.png";
+                break;
+            case VipManager.BENEFIT_GOLD_DAILY:
+                folder += "daily.png";
+                break;
+            case VipManager.BENEFIT_GOLD_SUPPORT:
+                folder += "dailySupport.png";
+                break;
+            case VipManager.BENEFIT_BONUS_SHOP:
+                folder += "shop.png";
+                break;
+            case VipManager.BENEFIT_SPECIAL_EFFECT:
+                folder += "effect.png";
+                break;
+            case VipManager.BENEFIT_SPECIAL_INTERACTION:
+                folder += "gold.png";
+                break;
+            case VipManager.BENEFIT_BONUS_TAX:
+                folder += "tax.png";
+                break;
+            case VipManager.BENEFIT_BONUS_SPIN:
+                folder += "luckyBonus.png";
+                break;
+            case VipManager.BENEFIT_HOUR_INSTANT:
+                folder += "time.png";
+                break;
+            default:
+                folder += "gold.png";
+                break;
         }
-        return StringUtility.formatNumberSymbol(value);
+        return folder;
+    },
+
+    getValueBenefit: function (type, value, isUpLevelGUI) {
+        var result = "";
+        switch (parseInt(type)) {
+            case VipManager.BENEFIT_GOLD_SUPPORT:
+                result = StringUtility.formatNumberSymbol(value["value"]) + " x " + value["num"];
+                break;
+            case VipManager.BENEFIT_BONUS_SHOP:
+            case VipManager.BENEFIT_BONUS_TAX:
+            case VipManager.BENEFIT_BONUS_SPIN:
+                result = value + "%";
+                break;
+            case VipManager.BENEFIT_SPECIAL_EFFECT:
+            case VipManager.BENEFIT_SPECIAL_INTERACTION:
+            case VipManager.BENEFIT_BONUS_FANPAGE:
+                result = localized("VIP_TURN_ON");
+                break;
+            case VipManager.BENEFIT_HOUR_INSTANT:
+                var str = localized("VIP_FORMAT_DAY");
+                result = StringUtility.replaceAll(str, "@day", value);
+                break;
+            default:
+                result = StringUtility.formatNumberSymbol(value);
+                break;
+        }
+        return result;
     },
 
     getValuePhrase: function (type, value) {
@@ -333,7 +372,7 @@ var VipManager = BaseMgr.extend({
         return result;
     },
 
-    getDataSave: function(){
+    getDataSave: function () {
         return this.dataSave;
     },
 
@@ -341,32 +380,32 @@ var VipManager = BaseMgr.extend({
         return Math.max(0, this.remainTime);
     },
 
-    getVipLevel: function(){
+    getVipLevel: function () {
         return this.vipLevel;
     },
 
-    getRealVipLevel: function(){
+    getRealVipLevel: function () {
         var dataSave = this.getDataSave();
-        if (dataSave){
+        if (dataSave) {
             return dataSave.vipLevel;
         }
         return this.vipLevel;
     },
 
-    getRealVipVpoint: function(){
+    getRealVipVpoint: function () {
         var dataSave = this.getDataSave();
-        if (dataSave){
+        if (dataSave) {
             return dataSave.vPoint;
         }
         return this.vPoint;
     },
 
-    getVpoint: function(){
+    getVpoint: function () {
         return parseFloat(this.vPoint);
     },
 
     // lay so vpoint can thiet de len level tiep theo cua level
-    getVpointNeed: function(level){
+    getVpointNeed: function (level) {
         try {
             // cc.log("level: ", level);
             if (level >= VipManager.NUMBER_VIP) level = VipManager.NUMBER_VIP - 1;
@@ -377,11 +416,11 @@ var VipManager = BaseMgr.extend({
         }
     },
 
-    getLevelCanUseItem: function(){
+    getLevelCanUseItem: function () {
         var levelVipCanInteract = 0;
-        for (var i = 0; i < VipManager.NUMBER_VIP; i++){
+        for (var i = 0; i < VipManager.NUMBER_VIP; i++) {
             var benefitHave = this.getListBenefitHave(i, false);
-            if (benefitHave.indexOf(VipManager.TYPE_BENEFIT_INTERACT_ITEM) >= 0){
+            if (benefitHave.indexOf(VipManager.TYPE_BENEFIT_INTERACT_ITEM) >= 0) {
                 levelVipCanInteract = i;
                 break;
             }
@@ -401,27 +440,27 @@ var VipManager = BaseMgr.extend({
         this.vPoint = vPoint;
     },
 
-    setWaiting: function(isWaiting){
+    setWaiting: function (isWaiting) {
         this.isWaitingEffect = isWaiting;
-        if (!isWaiting){
+        if (!isWaiting) {
             var dataSave = this.getDataSave();
             cc.log("dataSave: ", JSON.stringify(dataSave));
             this.saveInfoVip(dataSave);
         }
     },
 
-    isVip: function(){
+    isVip: function () {
         return (this.getRealVipLevel() > 0);
     },
 
     updateTimeVip: function (dt) {
         var remainTime = this.getRemainTime();
-        if (remainTime <= 0){
+        if (remainTime <= 0) {
             return;
         }
         remainTime -= dt * 1000;
         this.setRemainTime(remainTime);
-        if (remainTime <= 0){
+        if (remainTime <= 0) {
             var cmdEvent = new CmdSendRequestEventShop();
             GameClient.getInstance().sendPacket(cmdEvent);
         }
@@ -442,7 +481,13 @@ var VipManager = BaseMgr.extend({
             case VipManager.CMD_VIP_INFO: {
                 var vipInfo = new CmdReceiveNewVipInfo(data);
                 cc.log("newVipInfo: ", JSON.stringify(vipInfo));
-                this.saveInfoVip(vipInfo);
+
+                if (!this.dataSave) {
+                    this.saveInfoVip(vipInfo);
+                    this.updateFromSaveData();
+                } else {
+                    this.saveInfoVip(vipInfo);
+                }
                 break;
             }
             case VipManager.CMD_CONVERT_OLD_VIP: {
@@ -451,21 +496,15 @@ var VipManager = BaseMgr.extend({
                 this.saveConvertInfo(convertVipInfo);
                 break;
             }
-            case VipManager.CMD_DAILY_BONUS:{
+            case VipManager.CMD_DAILY_BONUS: {
                 var dailyBonus = new CmdReceiveDailyBonusGold(data);
-                // cc.log("dailyBonus: ", JSON.stringify(dailyBonus));
-                this.saveDailyBonusGold(parseFloat(dailyBonus.dailyBonus));
-                var scene = sceneMgr.getRunningScene().getMainLayer();
-                if (scene instanceof LobbyScene){
-                    if (popUpManager.canShow(PopUpManager.DAILY_BONUS_VIP)) {
-                        var gui = sceneMgr.openGUI(VipDailyGoldBonusGUI.className, PopUpManager.DAILY_BONUS_VIP, PopUpManager.DAILY_BONUS_VIP);
-                        gui.setInfoDailyBonus(dailyBonus.dailyBonus);
-                    }
-                }
+                cc.log("dailyBonus VIP: ", JSON.stringify(dailyBonus));
+                this.saveDailyBonusGold(parseInt(dailyBonus.dailyBonus));
+                this.checkShowDailyBonus();
                 break;
             }
             case VipManager.CMD_CHEAT_OLD_VIP:
-            case VipManager.CMD_CHEAT_NEW_VIP:{
+            case VipManager.CMD_CHEAT_NEW_VIP: {
                 var resultCheat = new CmdReceiveCheatVipNew(data);
                 var result = resultCheat.getError() ? "fail" : "success";
                 Toast.makeToast(ToastFloat.MEDIUM, "Cheat " + result);
@@ -475,25 +514,25 @@ var VipManager = BaseMgr.extend({
     }
 });
 
-VipManager.getLevelWithVpoint = function(vPoint){
+VipManager.getLevelWithVpoint = function (vPoint) {
     var startLevel = 0;
-    while (vPoint >= VipManager.getInstance().getVpointNeed(startLevel) && startLevel < VipManager.NUMBER_VIP){
+    while (vPoint >= VipManager.getInstance().getVpointNeed(startLevel) && startLevel < VipManager.NUMBER_VIP) {
         vPoint -= VipManager.getInstance().getVpointNeed(startLevel);
         startLevel++;
     }
     return startLevel--;
 };
 
-VipManager.getRemainVpoint = function(vPoint){
+VipManager.getRemainVpoint = function (vPoint) {
     var startLevel = 0;
-    while (vPoint >= VipManager.getInstance().getVpointNeed(startLevel) && startLevel < VipManager.NUMBER_VIP){
+    while (vPoint >= VipManager.getInstance().getVpointNeed(startLevel) && startLevel < VipManager.NUMBER_VIP) {
         vPoint -= VipManager.getInstance().getVpointNeed(startLevel);
         startLevel++;
     }
     return vPoint;
 };
 
-VipManager.getRemainTimeString = function(remainTime, isNewFormat){
+VipManager.getRemainTimeString = function (remainTime, isNewFormat) {
     var totalSeconds = Math.floor(remainTime / 1000);
     var numSeconds = totalSeconds % 60;
     var totalMinutes = Math.floor(totalSeconds / 60);
@@ -513,29 +552,29 @@ VipManager.getRemainTimeString = function(remainTime, isNewFormat){
 
     var remainTimeStr = "";
     var enoughInfoTime = false;
-    if (totalDay > 0){
+    if (totalDay > 0) {
         remainTimeStr += strDays;
         remainTimeStr += strHours;
         enoughInfoTime = true;
     }
 
-    if (numHours > 0 && !enoughInfoTime){
+    if (numHours > 0 && !enoughInfoTime) {
         remainTimeStr += strHours;
         remainTimeStr += strMinutes;
         enoughInfoTime = true;
     }
 
-    if (numMinutes > 0 && !enoughInfoTime){
+    if (numMinutes > 0 && !enoughInfoTime) {
         remainTimeStr += strMinutes;
         remainTimeStr += strSeconds;
         enoughInfoTime = true;
     }
 
-    if (!enoughInfoTime && numSeconds > 0){
+    if (!enoughInfoTime && numSeconds > 0) {
         remainTimeStr += strSeconds;
     }
 
-    if (remainTimeStr === ""){
+    if (remainTimeStr === "") {
         remainTimeStr = localized("VIP_TIME_UP");
     }
 
@@ -543,58 +582,56 @@ VipManager.getRemainTimeString = function(remainTime, isNewFormat){
 };
 
 VipManager.getIconVip = function (vipLevel) {
-    if (vipLevel < 1 || vipLevel > VipManager.NUMBER_VIP){
+    if (vipLevel < 1 || vipLevel > VipManager.NUMBER_VIP) {
         return "";
     }
-    return "res/Lobby/GUIVipNew/iconVip/iconVip" + vipLevel + ".png";
+    return "res/Lobby/Vip/iconVip/iconVip" + vipLevel + ".png";
 };
 
 VipManager.getDisableIconVip = function (vipLevel) {
-    if (vipLevel < 1 || vipLevel > VipManager.NUMBER_VIP){
+    if (vipLevel < 1 || vipLevel > VipManager.NUMBER_VIP) {
         return "";
     }
-    return "res/Lobby/GUIVipNew/bgIconVip/bgIconVip" + vipLevel + ".png";
+    return "res/Lobby/Vip/bgIconVip/bgIconVip" + vipLevel + ".png";
 };
 
 VipManager.getImageVip = function (vipLevel) {
-    if (vipLevel < 1 || vipLevel > VipManager.NUMBER_VIP){
-        return "res/Lobby/GUIVipNew/imgVipFree.png";
+    if (vipLevel < 1 || vipLevel > VipManager.NUMBER_VIP) {
+        return "res/Lobby/Vip/imgVipFree.png";
     }
-    return "res/Lobby/GUIVipNew/iconVipNormal/iconVipNormal" + vipLevel + ".png";
+    return "res/Lobby/Vip/iconVipNormal/iconVipNormal" + vipLevel + ".png";
 };
 
 VipManager.getImageUpVip = function (vipLevel, isWhite) {
-    if (vipLevel < 1 || vipLevel > VipManager.NUMBER_VIP){
-        return "res/Lobby/GUIVipNew/imgVipFree.png";
+    if (vipLevel < 1 || vipLevel > VipManager.NUMBER_VIP) {
+        return "res/Lobby/Vip/imgVipFree.png";
     }
-    return "res/Lobby/GUIVipNew/imgUpLevel/imgUpVip"+ vipLevel + (isWhite? "_w" : "")  + ".png";
+    return "res/Lobby/Vip/imgUpLevel/imgUpVip" + vipLevel + (isWhite ? "_w" : "") + ".png";
 };
 
 VipManager.getIconVpoint = function () {
-    return "res/Lobby/GUIVipNew/iconVpoint.png";
+    return "res/Lobby/Vip/iconVpoint.png";
 };
 
 VipManager.getIconHour = function () {
-    return "res/Lobby/GUIVipNew/iconTime.png";
+    return "res/Lobby/Vip/iconTime.png";
 };
 
-VipManager.preloadResource = function(){
-    var folder = "res/Lobby/GUIVipNew/vipRes/";
+VipManager.preloadResource = function () {
+    var folder = "res/Lobby/Vip/";
     LocalizedString.add(folder + "VipLocalized_vi");
 
-    // cc.spriteFrameCache.addSpriteFrames("EventMgr/PotBreakerRes/gold.plist");
+    db.DBCCFactory.getInstance().loadDragonBonesData(folder + "animation/Gem/skeleton.xml", "Gem");
+    db.DBCCFactory.getInstance().loadTextureAtlas(folder + "animation/Gem/texture.plist", "Gem");
 
-    db.DBCCFactory.getInstance().loadDragonBonesData(folder + "Gem/skeleton.xml", "Gem");
-    db.DBCCFactory.getInstance().loadTextureAtlas(folder + "Gem/texture.plist", "Gem");
+    db.DBCCFactory.getInstance().loadDragonBonesData(folder + "animation/Highlight/skeleton.xml", "Highlight");
+    db.DBCCFactory.getInstance().loadTextureAtlas(folder + "animation/Highlight/texture.plist", "Highlight");
 
-    db.DBCCFactory.getInstance().loadDragonBonesData(folder + "Highlight/skeleton.xml","Highlight");
-    db.DBCCFactory.getInstance().loadTextureAtlas(folder + "Highlight/texture.plist", "Highlight");
-
-    db.DBCCFactory.getInstance().loadDragonBonesData(folder + "HighlightBig/skeleton.xml","HighlightBig");
-    db.DBCCFactory.getInstance().loadTextureAtlas(folder + "HighlightBig/texture.plist", "HighlightBig");
+    db.DBCCFactory.getInstance().loadDragonBonesData(folder + "animation/HighlightBig/skeleton.xml", "HighlightBig");
+    db.DBCCFactory.getInstance().loadTextureAtlas(folder + "animation/HighlightBig/texture.plist", "HighlightBig");
 };
 
-VipManager.checkNotifyNewVip = function(){
+VipManager.checkNotifyNewVip = function () {
     var installDate = new Date(VipManager.changeFormatDate(gameMgr.getInstallDate()));
     var installTime = installDate.getTime();
 
@@ -602,30 +639,30 @@ VipManager.checkNotifyNewVip = function(){
     var releaseTime = releaseDay.getTime();
 
     var thisTime = new Date().getTime();
-    var oneMonthAfterRelease = releaseTime + 1000*86400*30;
+    var oneMonthAfterRelease = releaseTime + 1000 * 86400 * 30;
 
     var dataConvert = VipManager.getInstance().getDataConvert();
 
     return (releaseTime > installTime && thisTime < oneMonthAfterRelease && !VipManager.getHasViewNewVip() || !!dataConvert);
 };
 
-VipManager.changeFormatDate = function(date){
+VipManager.changeFormatDate = function (date) {
     var arrTime = date.split("-");
     return arrTime[1] + "/" + arrTime[0] + "/" + arrTime[2];
 };
 
-VipManager.getHasViewNewVip = function(){
+VipManager.getHasViewNewVip = function () {
     var keySave = "has_view_new_vip";
     var strHasViewed = cc.sys.localStorage.getItem(keySave);
     return !!strHasViewed;
 };
 
-VipManager.viewedNewVip = function(){
+VipManager.viewedNewVip = function () {
     var keySave = "has_view_new_vip";
     cc.sys.localStorage.setItem(keySave, "true");
 };
 
-VipManager.openVip = function(oldScene){
+VipManager.openVip = function (oldScene) {
     if (vipMgr.getVipLevel() > 0) {
         sceneMgr.openScene(VipScene.className, oldScene);
     } else {
@@ -633,7 +670,7 @@ VipManager.openVip = function(oldScene){
     }
 };
 
-VipManager.effectVipShopInfo = function(scene, isEffect){
+VipManager.effectVipShopInfo = function (scene, isEffect) {
     var nVip = scene._layout.getChildByName("nVip");
     scene.pVip = scene.getControl("pVip", nVip);
     scene.pVip.setLocalZOrder(1);
@@ -662,14 +699,14 @@ VipManager.effectVipShopInfo = function(scene, isEffect){
     scene.txtRemainVipTime.setPositionX(scene.txtVip1.getPositionX() + txtTemp.getContentSize().width + 3);
 
     var texture = VipManager.getIconVip(levelVip);
-    if (texture !== ""){
+    if (texture !== "") {
         scene.iconCurVip.loadTexture(texture);
     }
-    if (levelVip >= VipManager.NUMBER_VIP){
+    if (levelVip >= VipManager.NUMBER_VIP) {
         scene.iconNextVip.setVisible(false);
     } else {
         var texture2 = VipManager.getIconVip(levelVip + 1);
-        if (texture2 !== ""){
+        if (texture2 !== "") {
             scene.iconNextVip.loadTexture(texture2);
         }
         scene.iconNextVip.setVisible(true);
@@ -678,12 +715,12 @@ VipManager.effectVipShopInfo = function(scene, isEffect){
     var nextLevelExp = VipManager.getInstance().getVpointNeed(levelVip);
     var vpoint = VipManager.getInstance().getVpoint();
     // cc.log("vPoint: ", vpoint);
-    if (isEffect){
+    if (isEffect) {
         VipSceneOld.runEffectProgressVip(scene.bgProgressVip, scene.progressVip, scene.txtProgress, scene.imgVpoint, 0.7, 0, vpoint, levelVip, scene.iconCurVip, scene.iconNextVip);
     } else {
-        scene.txtProgress.setString(StringUtility.pointNumber(vpoint) + " / " +StringUtility.pointNumber(nextLevelExp));
+        scene.txtProgress.setString(StringUtility.pointNumber(vpoint) + " / " + StringUtility.pointNumber(nextLevelExp));
         var percent = vpoint / nextLevelExp * 100;
-        if (levelVip + 1 > VipManager.NUMBER_VIP){
+        if (levelVip + 1 > VipManager.NUMBER_VIP) {
             scene.txtProgress.setString(StringUtility.pointNumber(vpoint));
             percent = 100;
         }
@@ -699,39 +736,73 @@ VipManager.effectVipShopInfo = function(scene, isEffect){
             scene.arrayDot[i] = new ccui.ImageView("Lobby/Common/dotNormal.png");
             scene.arrayDot[i].setPosition(startX + padX * i, startY);
             scene.pVip.addChild(scene.arrayDot[i]);
-        }
-        else if (i > 16 && i < 29) {
+        } else if (i > 16 && i < 29) {
             scene.arrayDot[i] = new ccui.ImageView("Lobby/Common/dotNormal.png");
             scene.arrayDot[i].setPosition(startX + padX * (28 - i), startY + 71);
             scene.pVip.addChild(scene.arrayDot[i]);
-        }
-        else {
+        } else {
             scene.arrayDot[i] = scene.getControl("dot" + i, scene.pVip);
         }
     }
 };
 
-VipManager.openChangeGoldSuccess = function(data, vpointGet, bonusTime, offerEvent, bonusDiamond){
-    var gui =sceneMgr.openGUI(VipChangeGoldSuccess.className);
-    if (gui){
+VipManager.openChangeGoldSuccess = function (data, vpointGet, bonusTime, offerEvent, bonusDiamond) {
+    var gui = sceneMgr.openGUI(VipChangeGoldSuccess.className);
+    if (gui) {
         gui.setInfoChangeGold(data, vpointGet, bonusTime, offerEvent, bonusDiamond);
     }
 };
 
-VipManager.showUpLevelVip = function(oldLevel, newLevel){
+VipManager.showUpLevelVip = function (oldLevel, newLevel) {
     cc.log("VipManager.showUpLevelVip");
-    var scene = sceneMgr.openGUI(VipUpLevelGUI.className);
-    scene.setChangeBenefit(oldLevel, newLevel);
+    var scene = sceneMgr.openGUI(VipLevelUp.className);
+    scene.setInfo(oldLevel, newLevel);
+};
+
+VipManager.showUpLevelVipBonus = function (oldLevel, newLevel) {
+    var info = [];
+    for (var i = oldLevel + 1; i <= newLevel; i++) {
+        var listBenefit = vipMgr.getListBenefit(i);
+        for (var j = 0; j < listBenefit.length; j++) {
+            if (vipMgr.getIsOneTimeReceived(listBenefit[j]["index"])) {
+                switch (parseInt(listBenefit[j]["index"])) {
+                    case VipManager.BENEFIT_GOLD_INSTANT:
+                        info.push(new ReceivedGUIData(
+                            ReceivedCell.TYPE_GOLD,
+                            listBenefit[j]["value"],
+                            "Vàng"
+                        ));
+                        break;
+                    case VipManager.BENEFIT_HOUR_INSTANT:
+                        info.push(new ReceivedGUIData(
+                            ReceivedCell.TYPE_VHOUR,
+                            listBenefit[j]["value"] * 24,
+                            "Giờ VIP"
+                        ));
+                        break;
+                }
+            }
+        }
+    }
+    receivedMgr.setReceivedGUIInfo(info, LocalizedString.to("VIP_LEVEL_UP_INSTANT"));
+    receivedMgr.openGUI();
 };
 
 VipManager.checkShowUpLevelVip = function () {
-    cc.log("CHECK SHOW LEVEL UP");
+    cc.log("EVENT TO HERE checkCloseLevelUp");
+    var gui = sceneMgr.getGUIByClassName(VipLevelUp.className);
+    cc.log("IS THERE A GUI:", gui);
+    if (gui && gui.isShow) {
+        gui.effectReceived();
+    }
+
     var vipLevel = VipManager.getInstance().getVipLevel();
     var newLevel = VipManager.getInstance().getRealVipLevel();
-    if (newLevel > vipLevel){
+    cc.log("CHECK SHOW LEVEL UP", vipLevel, newLevel);
+    if (newLevel > vipLevel) {
         VipManager.showUpLevelVip(vipLevel, newLevel);
     }
-    VipManager.getInstance().setWaiting(false);
+    vipMgr.updateFromSaveData();
 }
 
 VipManager.setNextLevelVip = function (data) {
@@ -750,14 +821,13 @@ VipManager.setNextLevelVip = function (data) {
             var neededVPoint = 0;
             for (var level = vipLevel; level < nextLevel; level++)
                 neededVPoint += VipManager.getInstance().getVpointNeed(level);
-            while(true){
-                if (totalVPoint >= neededVPoint && neededVPoint > 0){
+            while (true) {
+                if (totalVPoint >= neededVPoint && neededVPoint > 0) {
                     data[i].uptoLevelVip = nextLevel;
                     nextLevel++;
                     if (nextLevel > VipManager.NUMBER_VIP) break;
                     else neededVPoint += VipManager.getInstance().getVpointNeed(nextLevel - 1);
-                }
-                else break;
+                } else break;
             }
             if (nextLevel > VipManager.NUMBER_VIP) break;
         }
@@ -770,9 +840,22 @@ VipManager.BENEFIT_BONUS_SHOP = 4;
 VipManager.BENEFIT_SPECIAL_EFFECT = 5;
 VipManager.BENEFIT_SPECIAL_INTERACTION = 6;
 VipManager.BENEFIT_BONUS_TAX = 7;
-VipManager.BENEFIT_BONUS_SPIN = 8;
+VipManager.BENEFIT_BONUS_FANPAGE = 8;
 VipManager.BENEFIT_HOUR_INSTANT = 9;
-VipManager.BENEFIT_ORDER = [-1, 3, 1, 2, 6, 7, 8, 0, 4, 5];
+VipManager.BENEFIT_BONUS_SPIN = 10;
+VipManager.BENEFIT_ORDER = [
+    -1,
+    3, //VipManager.BENEFIT_GOLD_INSTANT
+    1, //VipManager.BENEFIT_GOLD_DAILY
+    0, //VipManager.BENEFIT_GOLD_SUPPORT
+    6, //VipManager.BENEFIT_BONUS_SHOP
+    7, //VipManager.BENEFIT_SPECIAL_EFFECT
+    8, //VipManager.BENEFIT_SPECIAL_INTERACTION
+    2, //VipManager.BENEFIT_BONUS_TAX
+    5, //VipManager.BENEFIT_BONUS_FANPAGE
+    4, //VipManager.BENEFIT_HOUR_INSTANT
+    5, //VipManager.BENEFIT_BONUS_SPIN
+];
 
 VipManager.NUMBER_VIP = 10;
 VipManager.NUMBER_BENEFIT = 10;
@@ -784,7 +867,7 @@ VipManager.RELEASE_DATE = "17-07-2020";
 VipManager.EVENT_SHOW_VIP_PROGRESS = "vipMgrShowVIPProgress";
 VipManager.instance = null;
 VipManager.getInstance = function () {
-    if (VipManager.instance == null){
+    if (VipManager.instance == null) {
         VipManager.instance = new VipManager();
     }
 

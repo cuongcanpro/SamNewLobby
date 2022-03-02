@@ -787,18 +787,18 @@ OfferManager.buyOffer = function (isInShop, offerId) {
                 sceneMgr.openGUI(GUIMaintainSMS.className, GUIMaintainSMS.TAG, GUIMaintainSMS.TAG);
             } else {
                 if (offer.isNoPrice())
-                    iapHandler.requestSMSSyntax(operator, offer.getValueToBuy(), Payment.CHEAT_PAYMENT_NORMAL, type, Payment.NO_OFFER);
+                    PaymentUtils.requestSMSSyntax(operator, offer.getValueToBuy(), Payment.CHEAT_PAYMENT_NORMAL, type, Payment.NO_OFFER);
                 else
-                    iapHandler.requestSMSSyntax(operator, offer.getValueToBuy(), Payment.CHEAT_PAYMENT_OFFER, type, Payment.IS_OFFER);
+                    PaymentUtils.requestSMSSyntax(operator, offer.getValueToBuy(), Payment.CHEAT_PAYMENT_OFFER, type, Payment.IS_OFFER);
             }
         }
     } else if (typeOffer == OfferManager.TYPE_ATM) {
         if (Config.ENABLE_CHEAT && CheatCenter.ENABLE_FAKE_SMS) {
             sceneMgr.addLoading(LocalizedString.to("WAITING")).timeout(3);
             if (offer.isNoPrice())
-                iapHandler.fakePayment(offer.getValueToBuy(), Constant.GOLD_ATM, Payment.CHEAT_PAYMENT_NORMAL);
+                PaymentUtils.fakePayment(offer.getValueToBuy(), Constant.GOLD_ATM, Payment.CHEAT_PAYMENT_NORMAL);
             else
-                iapHandler.fakePayment(offer.getValueToBuy(), Constant.GOLD_ATM, Payment.CHEAT_PAYMENT_OFFER);
+                PaymentUtils.fakePayment(offer.getValueToBuy(), Constant.GOLD_ATM, Payment.CHEAT_PAYMENT_OFFER);
         } else {
             var gui = sceneMgr.openGUI(GUIBank.className, GUIBank.TAG, GUIBank.TAG);
             if (offer.isNoPrice())
@@ -821,9 +821,9 @@ OfferManager.buyOffer = function (isInShop, offerId) {
                         if (Config.ENABLE_CHEAT && CheatCenter.ENABLE_FAKE_SMS) {
                             sceneMgr.addLoading(LocalizedString.to("WAITING")).timeout(3);
                             if (offer.isNoPrice())
-                                iapHandler.fakePayment(offer.getValueToBuy(), Constant.GOLD_ZALO, Payment.CHEAT_PAYMENT_NORMAL);
+                                PaymentUtils.fakePayment(offer.getValueToBuy(), Constant.GOLD_ZALO, Payment.CHEAT_PAYMENT_NORMAL);
                             else
-                                iapHandler.fakePayment(offer.getValueToBuy(), Constant.GOLD_ZALO, Payment.CHEAT_PAYMENT_OFFER);
+                                PaymentUtils.fakePayment(offer.getValueToBuy(), Constant.GOLD_ZALO, Payment.CHEAT_PAYMENT_OFFER);
                         }
                         else {
                             sceneMgr.addLoading(LocalizedString.to("WAITING")).timeout(5);
@@ -834,7 +834,7 @@ OfferManager.buyOffer = function (isInShop, offerId) {
                                 cmd.putData(offer.getValueToBuy(), 1, Payment.IS_OFFER, offer.offerId, packageName);
                             GameClient.getInstance().sendPacket(cmd);
                             cmd.clean();
-                            gamedata.zalopayPackValue = offer.getValueToBuy();
+                            paymentMgr.zalopayPackValue = offer.getValueToBuy();
                         }
                     }
                 });
@@ -842,7 +842,7 @@ OfferManager.buyOffer = function (isInShop, offerId) {
         }
         else {
             if (Config.ENABLE_CHEAT && CheatCenter.ENABLE_FAKE_SMS) {
-                iapHandler.fakePayment(OfferManager.getValueOfferToBuy(offer), Constant.GOLD_ZALO, Payment.CHEAT_PAYMENT_OFFER);
+                PaymentUtils.fakePayment(OfferManager.getValueOfferToBuy(offer), Constant.GOLD_ZALO, Payment.CHEAT_PAYMENT_OFFER);
             }
             else {
                 sceneMgr.addLoading(LocalizedString.to("WAITING")).timeout(15);
@@ -855,9 +855,9 @@ OfferManager.buyOffer = function (isInShop, offerId) {
         if (Config.ENABLE_CHEAT && CheatCenter.ENABLE_FAKE_SMS) {
             sceneMgr.addLoading(LocalizedString.to("WAITING")).timeout(3);
             if (offer.isNoPrice())
-                iapHandler.fakePayment(offer.getValueToBuy(), Constant.GOLD_ZING, Payment.CHEAT_PAYMENT_NORMAL);
+                PaymentUtils.fakePayment(offer.getValueToBuy(), Constant.GOLD_ZING, Payment.CHEAT_PAYMENT_NORMAL);
             else
-                iapHandler.fakePayment(offer.getValueToBuy(), Constant.GOLD_ZING, Payment.CHEAT_PAYMENT_OFFER);
+                PaymentUtils.fakePayment(offer.getValueToBuy(), Constant.GOLD_ZING, Payment.CHEAT_PAYMENT_OFFER);
         } else {
             var gui = sceneMgr.openGUI(GUIInputCard.className, GUIInputCard.TAG, GUIInputCard.TAG);
             if (offer.isNoPrice())
@@ -887,9 +887,9 @@ OfferManager.buyOffer = function (isInShop, offerId) {
         if (Config.ENABLE_CHEAT && CheatCenter.ENABLE_FAKE_SMS) {
             sceneMgr.addLoading(LocalizedString.to("WAITING")).timeout(3);
             if (offer.isNoPrice())
-                iapHandler.fakePayment(obj.costConfig, Constant.GOLD_IAP, Payment.CHEAT_PAYMENT_NORMAL);
+                PaymentUtils.fakePayment(obj.costConfig, Constant.GOLD_IAP, Payment.CHEAT_PAYMENT_NORMAL);
             else
-                iapHandler.fakePayment(obj.costConfig, Constant.GOLD_IAP, Payment.CHEAT_PAYMENT_OFFER);
+                PaymentUtils.fakePayment(obj.costConfig, Constant.GOLD_IAP, Payment.CHEAT_PAYMENT_OFFER);
         } else {
             if (offer.isNoPrice())
                 offerManager.setOfferIAP(0);

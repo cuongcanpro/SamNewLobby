@@ -352,6 +352,10 @@ var StorageManager = BaseMgr.extend({
         cc.log("User Item Info: " + JSON.stringify(this.userItemInfo));
 
         var scene = sceneMgr.getMainLayer();
+        var gui = sceneMgr.getGUIByClassName(UserInfoPanel.className);
+        if (gui && gui.isShow) {
+            gui.updateInfoItem();
+        }
         if (scene instanceof StorageScene){
             scene.onUpdateGUI();
         }
@@ -430,6 +434,7 @@ var StorageManager = BaseMgr.extend({
     },
 
     onReceiveUseItem: function(pk) {
+        cc.log("USE ITEM " + JSON.stringify(pk));
         switch(pk.status){
             case StorageManager.USE_ERROR.SUCCESS:
                 Toast.makeToast(Toast.SHORT, "Sử dụng " + StorageManager.TYPE_NAMES[pk.type].toLowerCase() + " thành công!");

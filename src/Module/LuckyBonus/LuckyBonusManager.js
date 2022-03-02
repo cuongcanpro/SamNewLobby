@@ -37,6 +37,10 @@ var LuckyBonusManager = BaseMgr.extend({
         this.gToGoldFactor = null;
     },
 
+    initListener: function () {
+        dispatcherMgr.addListener(LobbyMgr.EVENT_ON_ENTER_FINISH, this, this.checkShowNotify);
+    },
+
     //listeners and handlers
     onReceived: function(cmd, data){
         switch (cmd){
@@ -222,9 +226,10 @@ var LuckyBonusManager = BaseMgr.extend({
     },
 
     ///called every time user enter lobby GUI
-    checkShowNotify: function(btn){
+    checkShowNotify: function(){
         var luckyBonusMgr = LuckyBonusManager.getInstance();
         this.sendGetUserInfo(0);
+        var btn = this.lobbyIcon;
         btn.runAction(cc.sequence(
             cc.delayTime(1),
             cc.callFunc(function(){

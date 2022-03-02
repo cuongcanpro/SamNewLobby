@@ -1,7 +1,7 @@
 var VipShopInfo = BaseLayer.extend({
     ctor: function () {
         this._super();
-        this.initWithBinaryFile("Vip_VipShopInfo.json");
+        this.initWithBinaryFile("VipShopInfo.json");
     },
 
     initGUI: function () {

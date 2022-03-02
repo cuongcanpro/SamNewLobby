@@ -821,6 +821,7 @@ var NumberGroupCustom = cc.Node.extend({
         this.currentNumber = 0;
         this.targetNumber = 0;
         this.dNumber = 0;
+        this.dTime = 0;
         this.scheduleUpdate();
     },
 
@@ -877,11 +878,15 @@ var NumberGroupCustom = cc.Node.extend({
             this.timeDelay = this.timeDelay - dt;
         if (this.timeDelay <= 0) {
             if (this.targetNumber != this.currentNumber) {
-                if (Math.abs(this.targetNumber - this.currentNumber) <= Math.abs(this.dNumber)) {
-                    this.setNumber(this.targetNumber);
-                }
-                else {
-                    this.setNumber(this.currentNumber + this.dNumber);
+                this.dTime = this.dTime - dt;
+                if (this.dTime <= 0) {
+                    this.dTime = NumberGroupCustom.D_TIME;
+                    if (Math.abs(this.targetNumber - this.currentNumber) <= Math.abs(this.dNumber)) {
+                        this.setNumber(this.targetNumber);
+                    }
+                    else {
+                        this.setNumber(this.currentNumber + this.dNumber);
+                    }
                 }
             }
         }
@@ -889,6 +894,7 @@ var NumberGroupCustom = cc.Node.extend({
 })
 NumberGroupCustom.TYPE_POINT = 1;
 NumberGroupCustom.TYPE_SYMBOL = 0;
+NumberGroupCustom.D_TIME = 0.1;
 
 var BaseImage = cc.Sprite.extend({
     ctor: function (res) {

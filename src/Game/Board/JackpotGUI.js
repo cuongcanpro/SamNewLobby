@@ -8,7 +8,8 @@ var JackpotGUI = BaseLayer.extend({
     },
 
     customizeGUI: function () {
-        this.bg = this.getControl("bg", this._layout);
+        this.bg = this.getControl("panel", this._layout)
+        //this.bg = this.getControl("bg", this._layout);
         this.customButton("btnQuit", ChooseRoomScene.BTN_QUIT, this.bg);
         var jpTitle = this.getControl("jptitle", this.bg);
         this.createAnim(jpTitle, "JackpotLogo");

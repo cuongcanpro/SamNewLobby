@@ -27,7 +27,10 @@ var GameMgr = cc.Class.extend({
         CheatCenter.checkEnableCheat();
         NativeBridge.getTelephoneInfo();
         NativeBridge.getNetworkOperator();
-        cc.director.runScene(makeScene(new LoginScene()));
+        if (portalMgr.isPortal())
+            cc.director.runScene(makeScene(new LoadingScene()));
+        else
+            cc.director.runScene(makeScene(new LoginScene()));
     },
 
     initListener: function () {
@@ -344,7 +347,12 @@ var GameMgr = cc.Class.extend({
     onFinishLoadInformation: function () {
         var g = sceneMgr.getRunningScene().getMainLayer();
         if (!Config.WITHOUT_LOGIN || cc.sys.isNative) {
-            g.showLogin();
+            if (portalMgr.isPortal()) {
+                loginMgr.autoLoginPortal();
+            }
+            else {
+                g.showLogin();
+            }
         } else {
             g.autoLogin();
         }

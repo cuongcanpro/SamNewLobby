@@ -136,6 +136,7 @@ var EventMgr = BaseMgr.extend({
             this.btnMainEvent.setInfo(event.dataEvent);
             event.showNotifyEvent(this.btnMainEvent);
         }
+        this.showHideButtonEventInGame();
     },
 
     showHideButtonEventInGame: function () {

@@ -69,6 +69,10 @@ var UserInfo = cc.Class.extend({
         this.uID = uID;
     },
 
+    setOpenID: function (openID) {
+        this.openID =  openID;
+    },
+
     getGold: function () {
         return this.gold;
     },
@@ -117,6 +121,10 @@ var UserInfo = cc.Class.extend({
 
     getIsHolding: function () {
         return this.isHolding;
+    },
+
+    getOpenId: function () {
+        return this.openID;
     },
 
     setUserInfo: function (info) {

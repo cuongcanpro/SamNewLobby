@@ -271,6 +271,7 @@ var SocialManager = cc.Class.extend({
         else {
             cc.sys.localStorage.setItem("session" + stringId, session);
         }
+        cc.log("LOG LOGIN *** " + stringId + " " + openID);
         cc.sys.localStorage.setItem("openID" + stringId, openID);
         cc.sys.localStorage.setItem("typesocial" + stringId, typesocial);
     },

@@ -553,7 +553,7 @@
             "VerticalEdge": "BothEdge",
             "LeftMargin": 598.3982,
             "RightMargin": 1.6018,
-            "TopMargin": 168.784,
+            "TopMargin": 168.7839,
             "BottomMargin": 151.216,
             "UserData": "scale",
             "Tag": 57,
@@ -1175,49 +1175,6 @@
                 "TopMargin": 270.7343,
                 "BottomMargin": -12.7343,
                 "Tag": 13,
-                "Children": [
-                  {
-                    "FileData": {
-                      "Type": "Normal",
-                      "Path": "Vip_TooltipLobby.json",
-                      "Plist": ""
-                    },
-                    "StretchWidthEnable": false,
-                    "StretchHeightEnable": false,
-                    "InnerActionSpeed": 1.0,
-                    "AnchorPoint": {},
-                    "Position": {
-                      "X": -64.777,
-                      "Y": -65.5861
-                    },
-                    "Scale": {
-                      "ScaleX": 1.0,
-                      "ScaleY": 1.0
-                    },
-                    "CColor": {},
-                    "IconVisible": true,
-                    "PrePosition": {
-                      "X": -0.41,
-                      "Y": -0.4619
-                    },
-                    "PreSize": {
-                      "X": 1.0633,
-                      "Y": 0.493
-                    },
-                    "LeftMargin": -64.777,
-                    "RightMargin": 54.777,
-                    "TopMargin": 137.5861,
-                    "BottomMargin": -65.5861,
-                    "Tag": 107,
-                    "ActionTag": -1813663837,
-                    "Size": {
-                      "X": 168.0,
-                      "Y": 70.0
-                    },
-                    "Name": "nTooltipVip",
-                    "ctype": "ProjectNodeObjectData"
-                  }
-                ],
                 "ActionTag": 660942421,
                 "Size": {
                   "X": 158.0,
@@ -1691,7 +1648,7 @@
                       {
                         "FileData": {
                           "Type": "Normal",
-                          "Path": "GUIVipNew/iconVip/iconVip1.png",
+                          "Path": "Common/IconVip/iconVip1.png",
                           "Plist": ""
                         },
                         "Scale9OriginX": 9,
@@ -1717,18 +1674,18 @@
                           "Y": 0.5325
                         },
                         "PreSize": {
-                          "X": 0.2197,
-                          "Y": 1.2857
+                          "X": 0.2348,
+                          "Y": 1.3214
                         },
-                        "LeftMargin": 9.012,
-                        "RightMargin": 93.988,
-                        "TopMargin": -4.9091,
-                        "BottomMargin": -3.0909,
+                        "LeftMargin": 8.012,
+                        "RightMargin": 92.988,
+                        "TopMargin": -5.4091,
+                        "BottomMargin": -3.5909,
                         "Tag": 885,
                         "ActionTag": 650026789,
                         "Size": {
-                          "X": 29.0,
-                          "Y": 36.0
+                          "X": 31.0,
+                          "Y": 37.0
                         },
                         "Name": "imgVip",
                         "ctype": "ImageViewObjectData"
@@ -2334,26 +2291,11 @@
                   "G": 65,
                   "B": 70
                 },
-                "DisabledFileData": {
-                  "Type": "Normal",
-                  "Path": "Event/btnEventBackground.png",
-                  "Plist": ""
-                },
-                "PressedFileData": {
-                  "Type": "Normal",
-                  "Path": "Event/btnEventBackground.png",
-                  "Plist": ""
-                },
-                "NormalFileData": {
-                  "Type": "Normal",
-                  "Path": "Event/btnEventBackground.png",
-                  "Plist": ""
-                },
                 "Scale9Enable": true,
-                "Scale9OriginX": 15,
-                "Scale9OriginY": 11,
-                "Scale9Width": 170,
-                "Scale9Height": 78,
+                "Scale9OriginX": -15,
+                "Scale9OriginY": -11,
+                "Scale9Width": 30,
+                "Scale9Height": 22,
                 "OutlineColor": {
                   "G": 0,
                   "B": 0
@@ -2384,12 +2326,14 @@
                   "X": -0.2822,
                   "Y": 0.0778
                 },
+                "PercentWidthEnable": true,
+                "PercentWidthEnabled": true,
                 "PreSize": {
                   "X": 0.3175,
                   "Y": 2.0
                 },
-                "LeftMargin": -277.786,
-                "RightMargin": 707.786,
+                "LeftMargin": -277.7985,
+                "RightMargin": 707.7735,
                 "TopMargin": -53.8915,
                 "BottomMargin": 3.8915,
                 "Tag": 118,
@@ -2423,11 +2367,11 @@
                       "Y": 0.5926
                     },
                     "PreSize": {
-                      "X": 0.68,
+                      "X": 0.6799,
                       "Y": 1.21
                     },
                     "LeftMargin": 35.6261,
-                    "RightMargin": 28.3739,
+                    "RightMargin": 28.3989,
                     "TopMargin": -19.762,
                     "BottomMargin": -1.238,
                     "Tag": 169,
@@ -2438,11 +2382,61 @@
                     },
                     "Name": "imgEmpty",
                     "ctype": "ImageViewObjectData"
+                  },
+                  {
+                    "ClipAble": false,
+                    "BackColorAlpha": 102,
+                    "SingleColor": {
+                      "R": 150,
+                      "G": 200
+                    },
+                    "FirstColor": {
+                      "R": 150,
+                      "G": 200
+                    },
+                    "EndColor": {},
+                    "ColorVector": {
+                      "ScaleY": 1.0
+                    },
+                    "Scale9Width": 1,
+                    "Scale9Height": 1,
+                    "TouchEnable": true,
+                    "AnchorPoint": {},
+                    "Position": {
+                      "X": 0.0,
+                      "Y": 0.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.0,
+                      "Y": 0.0
+                    },
+                    "PercentWidthEnable": true,
+                    "PercentHeightEnable": true,
+                    "PercentWidthEnabled": true,
+                    "PercentHeightEnabled": true,
+                    "PreSize": {
+                      "X": 1.0,
+                      "Y": 1.0
+                    },
+                    "Tag": 152,
+                    "ActionTag": 731240078,
+                    "Size": {
+                      "X": 200.025,
+                      "Y": 100.0
+                    },
+                    "Name": "pButton",
+                    "ctype": "PanelObjectData"
                   }
                 ],
                 "ActionTag": -268315973,
                 "Size": {
-                  "X": 200.0,
+                  "X": 200.025,
                   "Y": 100.0
                 },
                 "Name": "pEventButton",
@@ -2488,8 +2482,8 @@
                   "ScaleY": 0.5
                 },
                 "Position": {
-                  "X": 86.8545,
-                  "Y": 45.4626
+                  "X": 52.2886,
+                  "Y": 45.4624
                 },
                 "Scale": {
                   "ScaleX": 1.0,
@@ -2498,17 +2492,17 @@
                 "CColor": {},
                 "IconVisible": false,
                 "PrePosition": {
-                  "X": 0.1379,
-                  "Y": 0.9093
+                  "X": 0.083,
+                  "Y": 0.9092
                 },
                 "PreSize": {
                   "X": 0.1429,
                   "Y": 1.8
                 },
-                "LeftMargin": 41.8545,
-                "RightMargin": 498.1455,
-                "TopMargin": -40.4626,
-                "BottomMargin": 0.4626,
+                "LeftMargin": 7.2886,
+                "RightMargin": 532.7114,
+                "TopMargin": -40.4624,
+                "BottomMargin": 0.4624,
                 "Tag": 120,
                 "Children": [
                   {
@@ -2601,8 +2595,8 @@
                   "ScaleY": 0.5
                 },
                 "Position": {
-                  "X": 231.3632,
-                  "Y": 36.4627
+                  "X": 196.7971,
+                  "Y": 36.4625
                 },
                 "Scale": {
                   "ScaleX": 1.0,
@@ -2611,17 +2605,17 @@
                 "CColor": {},
                 "IconVisible": false,
                 "PrePosition": {
-                  "X": 0.3672,
-                  "Y": 0.7293
+                  "X": 0.3124,
+                  "Y": 0.7292
                 },
                 "PreSize": {
                   "X": 0.1429,
                   "Y": 1.8
                 },
-                "LeftMargin": 186.3632,
-                "RightMargin": 353.6368,
-                "TopMargin": -31.4627,
-                "BottomMargin": -8.5373,
+                "LeftMargin": 151.7971,
+                "RightMargin": 388.2029,
+                "TopMargin": -31.4625,
+                "BottomMargin": -8.5375,
                 "Tag": 90,
                 "ActionTag": -314126968,
                 "Size": {
@@ -2666,8 +2660,8 @@
                   "ScaleY": 0.5
                 },
                 "Position": {
-                  "X": 379.5242,
-                  "Y": 44.7987
+                  "X": 344.9581,
+                  "Y": 44.7985
                 },
                 "Scale": {
                   "ScaleX": 1.0,
@@ -2676,17 +2670,17 @@
                 "CColor": {},
                 "IconVisible": false,
                 "PrePosition": {
-                  "X": 0.6024,
+                  "X": 0.5476,
                   "Y": 0.896
                 },
                 "PreSize": {
                   "X": 0.1429,
                   "Y": 1.8
                 },
-                "LeftMargin": 334.5242,
-                "RightMargin": 205.4758,
-                "TopMargin": -39.7987,
-                "BottomMargin": -0.2013,
+                "LeftMargin": 299.9581,
+                "RightMargin": 240.0419,
+                "TopMargin": -39.7985,
+                "BottomMargin": -0.2015,
                 "Tag": 94,
                 "ActionTag": -1138295367,
                 "Size": {
@@ -2731,8 +2725,8 @@
                   "ScaleY": 0.5
                 },
                 "Position": {
-                  "X": 660.2948,
-                  "Y": 45.4626
+                  "X": 625.7283,
+                  "Y": 45.4624
                 },
                 "Scale": {
                   "ScaleX": 1.0,
@@ -2741,17 +2735,17 @@
                 "CColor": {},
                 "IconVisible": false,
                 "PrePosition": {
-                  "X": 1.0481,
-                  "Y": 0.9093
+                  "X": 0.9932,
+                  "Y": 0.9092
                 },
                 "PreSize": {
                   "X": 0.1429,
                   "Y": 1.8
                 },
-                "LeftMargin": 615.2948,
-                "RightMargin": -75.2948,
-                "TopMargin": -40.4626,
-                "BottomMargin": 0.4626,
+                "LeftMargin": 580.7283,
+                "RightMargin": -40.7283,
+                "TopMargin": -40.4624,
+                "BottomMargin": 0.4624,
                 "Tag": 142,
                 "ActionTag": -685710079,
                 "Size": {
@@ -2797,8 +2791,8 @@
                   "ScaleY": 0.5
                 },
                 "Position": {
-                  "X": 523.2836,
-                  "Y": 46.0172
+                  "X": 488.7167,
+                  "Y": 46.017
                 },
                 "Scale": {
                   "ScaleX": 1.0,
@@ -2807,17 +2801,17 @@
                 "CColor": {},
                 "IconVisible": false,
                 "PrePosition": {
-                  "X": 0.8306,
+                  "X": 0.7757,
                   "Y": 0.9203
                 },
                 "PreSize": {
                   "X": 0.1429,
                   "Y": 1.8
                 },
-                "LeftMargin": 478.2836,
-                "RightMargin": 61.7164,
-                "TopMargin": -41.0172,
-                "BottomMargin": 1.0172,
+                "LeftMargin": 443.7167,
+                "RightMargin": 96.2833,
+                "TopMargin": -41.017,
+                "BottomMargin": 1.017,
                 "Tag": 17,
                 "ActionTag": -1808089602,
                 "Size": {
@@ -2863,8 +2857,8 @@
                   "ScaleY": 0.5
                 },
                 "Position": {
-                  "X": 780.2514,
-                  "Y": 39.3362
+                  "X": 763.681,
+                  "Y": 39.3359
                 },
                 "Scale": {
                   "ScaleX": 1.0,
@@ -2873,17 +2867,17 @@
                 "CColor": {},
                 "IconVisible": false,
                 "PrePosition": {
-                  "X": 1.2385,
+                  "X": 1.2122,
                   "Y": 0.7867
                 },
                 "PreSize": {
                   "X": 0.1603,
                   "Y": 1.22
                 },
-                "LeftMargin": 729.7514,
-                "RightMargin": -200.7514,
-                "TopMargin": -19.8362,
-                "BottomMargin": 8.8362,
+                "LeftMargin": 713.181,
+                "RightMargin": -184.181,
+                "TopMargin": -19.8359,
+                "BottomMargin": 8.8359,
                 "Tag": 14,
                 "Children": [
                   {
@@ -2956,12 +2950,11 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
+        "Common/IconVip/iconVip1.png",
         "Default/Button_Disable.png",
         "Default/Button_Normal.png",
         "Default/Button_Press.png",
-        "Event/btnEventBackground.png",
         "Font/tahoma.ttf",
-        "GUIVipNew/iconVip/iconVip1.png",
         "LobbyGUI/adult.png",
         "LobbyGUI/bar.png",
         "LobbyGUI/bgAvatar.png",
@@ -2983,8 +2976,7 @@
         "LobbyGUI/chonban.png",
         "LobbyGUI/GUIMainLogo.png",
         "LobbyGUI/hot.png",
-        "LobbyGUI/iconGirl.png",
-        "Vip_TooltipLobby.json"
+        "LobbyGUI/iconGirl.png"
       ],
       "ctype": "GameFileData"
     }

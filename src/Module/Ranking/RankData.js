@@ -55,6 +55,9 @@ var RankData = BaseMgr.extend({
 
     getNumberGoldMedal: function(){
         var curRank = this.getCurRankInfo();
+        if (!curRank) {
+            return 0;
+        }
         if (curRank.error !== 0){
             return 0;
         }
@@ -69,6 +72,9 @@ var RankData = BaseMgr.extend({
 
     getNumberSilverMedal: function(){
         var curRank = this.getCurRankInfo();
+        if (!curRank) {
+            return 0;
+        }
         if (curRank.error !== 0){
             return 0;
         }
@@ -83,6 +89,9 @@ var RankData = BaseMgr.extend({
 
     getNumberBronzeMedal: function(){
         var curRank = this.getCurRankInfo();
+        if (!curRank) {
+            return 0;
+        }
         if (curRank.error !== 0){
             return 0;
         }

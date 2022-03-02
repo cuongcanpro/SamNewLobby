@@ -103,9 +103,9 @@ var GUIOfferZaloFirstPay = BaseLayer.extend({
                     lbTimeBonus.setString(s);
                     break;
                 case OfferManager.TYPE_TICKET:
-                    this.imgBonus.loadTexture(event.getOfferTicketImage(bonus["eventId"]));
+                    this.imgBonus.loadTexture(eventMgr.getOfferTicketImage(bonus["eventId"]));
                     this.imgBonus.ignoreContentAdaptWithSize(true);
-                    s = StringUtility.pointNumber(bonus["value"]) + " " + event.getOfferTicketString(bonus["eventId"]);
+                    s = StringUtility.pointNumber(bonus["value"]) + " " + eventMgr.getOfferTicketString(bonus["eventId"]);
                     this.lbEmpty.setString(s);
                     break;
                 case OfferManager.TYPE_DIAMOND:

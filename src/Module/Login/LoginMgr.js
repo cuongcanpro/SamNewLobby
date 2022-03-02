@@ -4,7 +4,7 @@ var LoginMgr = BaseMgr.extend({
         this.tag = "LOGIN MGR :";
         this.sessionKey = "";
         this.sessionExpiredTime = 0;
-        this.openId = "";
+        this.openID = "";
         this.preloadResource();
     },
 
@@ -60,8 +60,8 @@ var LoginMgr = BaseMgr.extend({
         } catch (e) {
             typeLogin = Constant.ZINGME;
         }
-        socialMgr.saveSession(this.sessionKey, typeLogin, this.openID, socialMgr._currentSocial, this.sessionExpiredTime);
-        NativeBridge.sendLoginGSN(userMgr.getUID() + "", typeLogin, this.openID + "", userMgr.getUserName());
+        socialMgr.saveSession(this.sessionKey, typeLogin, this.openId, socialMgr._currentSocial, this.sessionExpiredTime);
+        NativeBridge.sendLoginGSN(userMgr.getUID() + "", typeLogin, this.openId + "", userMgr.getUserName());
     },
 
     onReceived: function (cmd, pk) {
@@ -152,6 +152,12 @@ var LoginMgr = BaseMgr.extend({
         }
     },
 
+    autoLoginPortal: function () {
+        socialMgr._currentSocial = SocialManager.ZINGME;
+        this.setSessionKey(portalMgr.getSessionKeyPortal());
+        this.setOpenId("");
+        GameClient.getInstance().connect();
+    },
 
     setSessionKey: function (session_key) {
         this.sessionKey = decodeURIComponent(session_key);

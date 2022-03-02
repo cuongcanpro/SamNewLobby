@@ -64,7 +64,7 @@ var GUIOfferRepay = BaseLayer.extend({
         for (var i = 0; i < this.arrayOfferImage.length; i++) {
             this.arrayOfferImage[i].setVisible(false);
         }
-        var startY = this.bg.getContentSize().height * 0.17;
+        var startY = this.bg.getContentSize().height * 0.19;
         this.arrayBonus = [];
         for (var i = 0; i < offerData.listBonus.length; i++) {
             var bonus = offerData.listBonus[i];
@@ -77,7 +77,7 @@ var GUIOfferRepay = BaseLayer.extend({
             //offer.setPosition(this.bg.getContentSize().width * 0.3, startY - 20 * i);
         }
         var w = this.arrayBonus[0].getContentSize().width;
-        var pad = 15;
+        var pad = -10;
         var sumW = w * this.arrayBonus.length + pad * (this.arrayBonus.length - 1);
         var startX = this.btnBuy.getPositionX() - sumW * 0.5;
 
@@ -207,7 +207,7 @@ var GroupOfferRepayBonus = cc.Node.extend({
         this.labelDescrible.setPosition(this.bg.getContentSize().width * 0.5, this.bg.getContentSize().height * 0.7);
         this.labelDescrible.setContentSize(cc.size(this.bg.getContentSize().width * 0.9, 80));
         this.labelDescrible.ignoreContentAdaptWithSize(false);
-        this.labelDescrible.setSkewX(10);
+        this.labelDescrible.setSkewX(15);
         // this.labelDescrible.setSkewY(50);
         this.bg.addChild(this.labelDescrible);
 
@@ -215,7 +215,7 @@ var GroupOfferRepayBonus = cc.Node.extend({
         this.labelValue.setFontName(SceneMgr.FONT_BOLD);
         this.labelValue.setTextHorizontalAlignment(cc.TEXT_ALIGNMENT_CENTER);
         this.labelValue.setAnchorPoint(cc.p(0.5, 0.5));
-        this.labelValue.setFontSize(20);
+        this.labelValue.setFontSize(30);
         this.labelValue.setPosition(this.bg.getContentSize().width * 0.5, this.bg.getContentSize().height * 0.12);
         this.bg.addChild(this.labelValue);
         this.labelValue.pos = this.labelValue.getPositionY();
@@ -225,7 +225,7 @@ var GroupOfferRepayBonus = cc.Node.extend({
         this.labelOldValue.setTextHorizontalAlignment(cc.TEXT_ALIGNMENT_CENTER);
         this.labelOldValue.setTextVerticalAlignment(cc.VERTICAL_TEXT_ALIGNMENT_CENTER);
         this.labelOldValue.setAnchorPoint(cc.p(0.5, 0.5));
-        this.labelOldValue.setFontSize(20);
+        this.labelOldValue.setFontSize(30);
         this.labelOldValue.setPosition(this.bg.getContentSize().width * 0.5, this.labelValue.getPositionY() - 10);
         this.bg.addChild(this.labelOldValue);
 
@@ -244,7 +244,7 @@ var GroupOfferRepayBonus = cc.Node.extend({
         this.labelSale.setString("100%");
         this.labelSale.setTextHorizontalAlignment(cc.TEXT_ALIGNMENT_CENTER);
         this.labelSale.setAnchorPoint(cc.p(0.5, 0.5));
-        this.labelSale.setFontSize(16);
+        this.labelSale.setFontSize(22);
         this.labelSale.setPosition(this.bgSale.getContentSize().width * 0.55, this.bgSale.getContentSize().height * 0.65);
         this.bgSale.addChild(this.labelSale);
         this.labelSale.setColor(cc.color(254, 245, 209, 255));
@@ -258,7 +258,7 @@ var GroupOfferRepayBonus = cc.Node.extend({
         this.iconEffect.setOpacity(255);
         this.iconEffect.setScale(1.0);
         this.pos = this.getPositionY();
-        this.setPositionY(this.getPositionY() + 400);
+        this.setPositionY(this.getPositionY() + cc.winSize.height);
         this.runAction(cc.sequence(cc.delayTime(delayTime), cc.moveTo(0.1, this.getPositionX(), this.pos), cc.delayTime(0.2), cc.callFunc(this.callbackShowEffect.bind(this))));
         this.runAction(cc.sequence(cc.delayTime(delayTime+ 0.1), cc.scaleTo(0.2, 1.0, 0.8), new cc.EaseBackOut(cc.scaleTo(0.4, 1.0, 1.0))));
     },
@@ -335,8 +335,8 @@ var GroupOfferRepayBonus = cc.Node.extend({
             case OfferManager.TYPE_TICKET:
                 this.bg.setTexture("res/Lobby/Offer/bgBonusNormal.png");
                 this.icon.setVisible(true);
-                this.icon.setTexture(event.getOfferTicketImage(eventId));
-                this.labelValue.setString(StringUtility.pointNumber(value) + event.getOfferTicketString(eventId));
+                this.icon.setTexture(eventMgr.getOfferTicketImage(eventId));
+                this.labelValue.setString(StringUtility.pointNumber(value) + eventMgr.getOfferTicketString(eventId));
                 var percent = offerManager.getPercentSale(offerId, type, value, eventId);
 
                 if (percent <= 0) {
@@ -347,9 +347,9 @@ var GroupOfferRepayBonus = cc.Node.extend({
                 }
                 else {
                     this.labelSale.setString("+" + percent + "%");
-                    var config = event.getEventTicketConfig(offer.convertOfferPayment(), eventId);
+                    var config = eventMgr.getEventTicketConfig(offer.convertOfferPayment(), eventId);
                     var value = config[offer.valueOffer];
-                    this.labelOldValue.setString(StringUtility.pointNumber(value) + event.getOfferTicketString(eventId));
+                    this.labelOldValue.setString(StringUtility.pointNumber(value) + eventMgr.getOfferTicketString(eventId));
                     this.labelValue.setPositionY(this.labelValue.pos + 10);
                 }
                 this.labelDescrible.setVisible(true);

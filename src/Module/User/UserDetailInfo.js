@@ -12,6 +12,8 @@ var UserDetailInfo = cc.Node.extend({
         this.btnGold = this.pInfo.getChildByName("btnGold");
         this.btnCoin = this.pInfo.getChildByName("btnCoin");
         this.btnDiamond = this.pInfo.getChildByName("btnDiamond");
+        this.btnGold.addClickEventListener(this.clickBtnGold.bind(this));
+        this.btnCoin.addClickEventListener(this.clickBtnCoin.bind(this));
 
         this.lbGold = this.btnGold.getChildByName("lb");
         this.lbCoin = this.btnCoin.getChildByName("lb");
@@ -20,6 +22,14 @@ var UserDetailInfo = cc.Node.extend({
         this.imgGold = this.btnGold.getChildByName("icon");
         this.imgCoin = this.btnCoin.getChildByName("icon");
         this.imgDiamond = this.btnDiamond.getChildByName("icon");
+    },
+
+    clickBtnGold: function () {
+        paymentMgr.openShop();
+    },
+
+    clickBtnCoin: function () {
+        paymentMgr.openNapG();
     },
 
     updateToCurrentData: function () {

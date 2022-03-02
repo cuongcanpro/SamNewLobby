@@ -1,0 +1,360 @@
+{
+  "ID": "af0e9a2b-10be-4e34-ac1a-51d3723afb56",
+  "Version": "2.3.4",
+  "Name": "VipTooltipLobby",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 226,
+        "Children": [
+          {
+            "ClipAble": true,
+            "BackColorAlpha": 0,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "Position": {
+              "X": 168.0,
+              "Y": 70.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PositionPercentYEnabled": true,
+            "PrePosition": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "Tag": 227,
+            "Children": [
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "Vip/bgTooltipLobby.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 56,
+                "Scale9OriginY": 24,
+                "Scale9Width": 58,
+                "Scale9Height": 27,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 86.9379,
+                  "Y": 31.4304
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.5175,
+                  "Y": 0.449
+                },
+                "PreSize": {
+                  "X": 1.0119,
+                  "Y": 1.0714
+                },
+                "HorizontalEdge": "RightEdge",
+                "LeftMargin": 1.9379,
+                "RightMargin": -3.9379,
+                "TopMargin": 1.0696,
+                "BottomMargin": -6.0696,
+                "Tag": 228,
+                "Children": [
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "Vip/iconVip/iconVip1.png",
+                      "Plist": ""
+                    },
+                    "Scale9OriginX": 9,
+                    "Scale9OriginY": 11,
+                    "Scale9Width": 13,
+                    "Scale9Height": 15,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 46.4238,
+                      "Y": 54.0461
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.2731,
+                      "Y": 0.7206
+                    },
+                    "PreSize": {
+                      "X": 0.1824,
+                      "Y": 0.4933
+                    },
+                    "LeftMargin": 30.9238,
+                    "RightMargin": 108.0762,
+                    "TopMargin": 2.4539,
+                    "BottomMargin": 35.5461,
+                    "Tag": 229,
+                    "ActionTag": -795707372,
+                    "Size": {
+                      "X": 31.0,
+                      "Y": 37.0
+                    },
+                    "Name": "iconVip",
+                    "ctype": "ImageViewObjectData"
+                  },
+                  {
+                    "IsCustomSize": true,
+                    "FontSize": 16,
+                    "LabelText": "VIP10",
+                    "FontResource": {
+                      "Type": "Normal",
+                      "Path": "Font/tahomabd.ttf",
+                      "Plist": ""
+                    },
+                    "VerticalAlignmentType": "VT_Center",
+                    "OutlineColor": {
+                      "G": 0,
+                      "B": 0
+                    },
+                    "ShadowColor": {
+                      "R": 110,
+                      "G": 110,
+                      "B": 110
+                    },
+                    "ShadowOffsetX": 2.0,
+                    "ShadowOffsetY": -2.0,
+                    "AnchorPoint": {
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 67.45,
+                      "Y": 49.61
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {
+                      "R": 207,
+                      "G": 207,
+                      "B": 233
+                    },
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.3968,
+                      "Y": 0.6615
+                    },
+                    "PreSize": {
+                      "X": 0.3471,
+                      "Y": 0.2933
+                    },
+                    "LeftMargin": 67.45,
+                    "RightMargin": 43.55,
+                    "TopMargin": 14.39,
+                    "BottomMargin": 38.61,
+                    "Tag": 230,
+                    "ActionTag": 348883110,
+                    "Size": {
+                      "X": 59.0,
+                      "Y": 22.0
+                    },
+                    "Name": "txtVip",
+                    "ctype": "TextObjectData"
+                  },
+                  {
+                    "IsCustomSize": true,
+                    "FontSize": 16,
+                    "LabelText": "còn: ",
+                    "FontResource": {
+                      "Type": "Normal",
+                      "Path": "Font/tahoma.ttf",
+                      "Plist": ""
+                    },
+                    "VerticalAlignmentType": "VT_Center",
+                    "OutlineColor": {
+                      "G": 0,
+                      "B": 0
+                    },
+                    "ShadowColor": {
+                      "R": 110,
+                      "G": 110,
+                      "B": 110
+                    },
+                    "ShadowOffsetX": 2.0,
+                    "ShadowOffsetY": -2.0,
+                    "AnchorPoint": {
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 118.43,
+                      "Y": 50.18
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {
+                      "R": 207,
+                      "G": 207,
+                      "B": 233
+                    },
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.6966,
+                      "Y": 0.6691
+                    },
+                    "PreSize": {
+                      "X": 0.3,
+                      "Y": 0.2933
+                    },
+                    "LeftMargin": 118.43,
+                    "RightMargin": 0.57,
+                    "TopMargin": 13.82,
+                    "BottomMargin": 39.18,
+                    "Tag": 231,
+                    "ActionTag": -327236327,
+                    "Size": {
+                      "X": 51.0,
+                      "Y": 22.0
+                    },
+                    "Name": "txtRemain",
+                    "ctype": "TextObjectData"
+                  },
+                  {
+                    "IsCustomSize": true,
+                    "FontSize": 15,
+                    "LabelText": "6 ngay 12 gio",
+                    "FontResource": {
+                      "Type": "Normal",
+                      "Path": "Font/tahoma.ttf",
+                      "Plist": ""
+                    },
+                    "HorizontalAlignmentType": "HT_Center",
+                    "VerticalAlignmentType": "VT_Center",
+                    "OutlineColor": {
+                      "G": 0,
+                      "B": 0
+                    },
+                    "ShadowColor": {
+                      "R": 110,
+                      "G": 110,
+                      "B": 110
+                    },
+                    "ShadowOffsetX": 2.0,
+                    "ShadowOffsetY": -2.0,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 90.06,
+                      "Y": 24.14
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {
+                      "R": 0,
+                      "G": 203,
+                      "B": 105
+                    },
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.5298,
+                      "Y": 0.3219
+                    },
+                    "PreSize": {
+                      "X": 0.7412,
+                      "Y": 0.2933
+                    },
+                    "LeftMargin": 27.06,
+                    "RightMargin": 16.94,
+                    "TopMargin": 39.86,
+                    "BottomMargin": 13.14,
+                    "Tag": 232,
+                    "ActionTag": -65001680,
+                    "Size": {
+                      "X": 126.0,
+                      "Y": 22.0
+                    },
+                    "Name": "txtTimeRemain",
+                    "ctype": "TextObjectData"
+                  }
+                ],
+                "ActionTag": -1205815298,
+                "Size": {
+                  "X": 170.0,
+                  "Y": 75.0
+                },
+                "Name": "bgTooltip",
+                "ctype": "ImageViewObjectData"
+              }
+            ],
+            "ActionTag": -1207026731,
+            "Size": {
+              "X": 168.0,
+              "Y": 70.0
+            },
+            "Name": "pTooltipVip",
+            "ctype": "PanelObjectData"
+          }
+        ],
+        "Size": {
+          "X": 168.0,
+          "Y": 70.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "Font/tahoma.ttf",
+        "Font/tahomabd.ttf",
+        "Vip/bgTooltipLobby.png",
+        "Vip/iconVip/iconVip1.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}

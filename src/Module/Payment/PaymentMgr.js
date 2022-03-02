@@ -9,7 +9,7 @@ var PaymentMgr = BaseMgr.extend({
 
     initListener: function () {
         dispatcherMgr.addListener(UserMgr.EVENT_ON_GET_USER_INFO, this, this.onGetUserInfo);
-        dispatcherMgr.addListener(LobbyMgr.EVENT_ON_ENTER_FINISH, this, this.openIAP);
+        dispatcherMgr.addListener(LobbyMgr.EVENT_ON_ENTER_FINISH, this, this.onEnterLobby);
     },
 
     onGetUserInfo: function (eventName, eventData) {
@@ -64,21 +64,25 @@ var PaymentMgr = BaseMgr.extend({
             case PaymentMgr.CMD_SHOP_GOLD_SUCCESS: {
                 WaitingPopup.clear();
                 sceneMgr.clearLoading();
+
                 var cmd = new CmdReceivedShopGoldSuccess(pk);
                 cc.log("CMD_SHOP_GOLD_SUCCESS", JSON.stringify(cmd));
-                var cmdSend = new CmdSendShopGoldSuccess();
-                cmdSend.putData(cmd.purchaseId[0]);
-                GameClient.getInstance().sendPacket(cmdSend);
-                cmdSend.clean();
-                var gui = sceneMgr.getGUIByClassName(GUIShopGoldSuccess.className);
-                if (gui && gui.isShow) {
-                    cc.log("is SHOW " + gui.isShow + " " + gui.isVisible());
-                    gui.setInfo(cmd, false);
-                }
-                else {
-                    gui = sceneMgr.openGUI(GUIShopGoldSuccess.className, GUIShopGoldSuccess.TAG, GUIShopGoldSuccess.TAG);
-                    gui.setInfo(cmd, true);
-                }
+
+                // var cmdSend = new CmdSendShopGoldSuccess();
+                // cmdSend.putData(cmd.purchaseId[0]);
+                // GameClient.getInstance().sendPacket(cmdSend);
+                // cmdSend.clean();
+
+                // var gui = sceneMgr.getGUIByClassName(GUIShopGoldSuccess.className);
+                // if (gui && gui.isShow) {
+                //     cc.log("is SHOW " + gui.isShow + " " + gui.isVisible());
+                //     gui.setInfo(cmd, false);
+                // }
+                // else {
+                //     gui = sceneMgr.openGUI(GUIShopGoldSuccess.className, GUIShopGoldSuccess.TAG, GUIShopGoldSuccess.TAG);
+                //     gui.setInfo(cmd, true);
+                // }
+                dispatcherMgr.dispatchEvent(PaymentMgr.EVENT_SHOP_GOLD_SUCCESS, cmd);
                 break;
             }
             case PaymentMgr.CMD_SHOP_GOLD: {
@@ -700,7 +704,6 @@ var PaymentMgr = BaseMgr.extend({
             }
 
         }
-
         if (show) {
             var sp = sceneMgr.openGUI(TangVangPopup.className, Dialog.SUPPORT, Dialog.SUPPORT, false);
             if (sp) sp.showBonus(1);
@@ -1208,6 +1211,8 @@ PaymentMgr.CMD_BUY_GOLD = 9997;
 PaymentMgr.CMD_UPDATE_COIN = 1012;
 PaymentMgr.CMD_SHOP_GOLD_SUCCESS = 4890;
 PaymentMgr.CMD_SEND_SHOP_GOLD_SUCCESS = 4891;
+
+PaymentMgr.EVENT_SHOP_GOLD_SUCCESS = "paymentMgrEventShopGoldSuccess";
 
 ConfigLog = {};
 ConfigLog.ZALO_PAY = "ZALO_PAY";

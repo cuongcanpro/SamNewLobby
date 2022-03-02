@@ -43,12 +43,17 @@ TabItemPayment = cc.Layer.extend({
             var effect = db.DBCCFactory.getInstance().buildArmatureNode("IconHot");
             effect.setPosition(tabImage.getContentSize().width * 0.6, tabImage.getContentSize().height);
             effect.setScale(1.5);
-            effect.setTag(2);
+            //effect.setTag(2);
             effect.getAnimation().gotoAndPlay("1", -1, -1, -1);
             effect.setVisible(false);
 
             panel.addChild(tabImage);
             panel.addChild(effect);
+
+            this.imgHot = new cc.Sprite("Lobby/ShopIAP/iconHot.png");
+            panel.addChild(this.imgHot, 2, 2);
+            this.imgHot.setPosition(29, 40);
+            this.imgHot.setVisible(false);
 
             this.listButton.addChild(panel);
             panel.setTouchEnabled(true);
@@ -268,6 +273,7 @@ TabItemPayment = cc.Layer.extend({
                     item.scale = 0.75;
                     break;
             }
+            item.scale = item.scale * 1.3;
             items.push(item);
         }
         cell.setData(items);

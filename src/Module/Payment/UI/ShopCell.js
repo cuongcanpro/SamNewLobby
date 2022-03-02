@@ -27,6 +27,7 @@ var ItemIapCell = cc.TableViewCell.extend({
 
         this.goldOld = this.cloneLabel(ccui.Helper.seekWidgetByName(this._layout, "gold_old"));
         this.goldOld.setColor(cc.color(200, 200, 200));
+        this.iconLine = ccui.Helper.seekWidgetByName(this._layout, "iconLine");
         this.goldNew = new NumberGroupCustom("res/Lobby/ShopIAP/Number/num_", -4, NumberGroupCustom.TYPE_POINT);
         this.goldNew.setPositionX(this._layout.getContentSize().width * 0.5);
         this.goldNew.setPositionY(this.goldOld.getPositionY() - 40);
@@ -82,6 +83,12 @@ var ItemIapCell = cc.TableViewCell.extend({
             this.cost.setString(inf.cost);
         cc.log("WIDTH LABEL ***** " + this.cost.getContentSize().width + " " + this.cost.getAutoRenderSize().width + " " + this.cost.getVirtualRendererSize().width);
         this.currency.setPositionX(this.cost.getAutoRenderSize().width * 0.5 + this.cost.getPositionX() + 10);
+        if (inf.type == Payment.GOLD_G) {
+            this.currency.setVisible(false);
+        }
+        else {
+            this.currency.setVisible(true);
+        }
 
         //level up vip
         this.uptoLevelVip.setVisible(false);
@@ -102,6 +109,8 @@ var ItemIapCell = cc.TableViewCell.extend({
         this.goldNew.setNumber(inf.goldNew);
         this.goldOld.setString(StringUtility.pointNumber(inf.goldOld));
         this.goldOld.setVisible(inf.goldNew != inf.goldOld);
+        this.iconLine.setContentSize(cc.size(this.goldOld.getAutoRenderSize().width, this.iconLine.getContentSize().height));
+        this.iconLine.setVisible(inf.goldNew != inf.goldOld);
         // if (this.goldOld.isVisible()) this.goldNew.setPositionY(this.goldNew.defaultPos.y);
         // else this.goldNew.setPositionY(this.goldOld.getPositionY() - 10);
 

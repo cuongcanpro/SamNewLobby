@@ -10,6 +10,8 @@ var ReceivedGUI = BaseLayer.extend({
 
         this.bg = this.getControl("bg");
 
+        this.desciption = this.getControl("description", this.bg);
+
         this.pDecor = this.getControl("pDecor", this.bg);
         this.logo = [];
         for (var i = 0; i < ReceivedGUI.DECO_LOGO; i++) {
@@ -32,6 +34,7 @@ var ReceivedGUI = BaseLayer.extend({
         this.pConfetti = this.getControl("pConfetti", this.bg);
 
         this.customButton("btn", ReceivedGUI.BTN_CLOSE, this.bg);
+        this.customButton("btnReset", ReceivedGUI.BTN_RESET, this.bg).setVisible(Config.ENABLE_CHEAT);
         this.enableFog();
         this._fog.setColor(cc.color("#111b28"));
     },
@@ -50,51 +53,13 @@ var ReceivedGUI = BaseLayer.extend({
     },
 
     setReceivedRewardInfo: function () {
-        let info = ReceivedGUIManager.getInstance().getReceivedGUIInfo();
-        info = [
-            {
-                type: ReceivedCell.TYPE_GOLD,
-                number: 1000000,
-                modify: "+150% VIP3",
-                title: "Something"
-            },
-            {
-                type: ReceivedCell.TYPE_G,
-                number: 50,
-                modify: "",
-                title: "Something"
-            },
-            {
-                type: ReceivedCell.VPOINT,
-                number: 20000,
-                modify: "+20% Bonus",
-                title: "Something"
-            },
-            {
-                type: ReceivedCell.VPOINT,
-                number: 20000,
-                modify: "+20% Bonus",
-                title: "Something"
-            },
-            {
-                type: ReceivedCell.VPOINT,
-                number: 20000,
-                modify: "+20% Bonus",
-                title: "Something"
-            },
-            {
-                type: ReceivedCell.VPOINT,
-                number: 20000,
-                modify: "+20% Bonus",
-                title: "Something"
-            },
-            {
-                type: ReceivedCell.VPOINT,
-                number: 20000,
-                modify: "+20% Bonus",
-                title: "Something"
-            }
-        ];
+        var receivedGUIInfo = receivedMgr.getReceivedGUIInfo();
+        if (!receivedGUIInfo) {
+            cc.log("ReceivedGUI THERE IS NO INFO");
+            return;
+        }
+
+        var info = receivedGUIInfo.info;
 
         this.pItems.innerWidth = info.length * ReceivedCell.SIZE;
         this.pItems.width = Math.min(info.length * ReceivedCell.SIZE, ReceivedCell.SIZE * (ReceivedGUI.MAX_LENGTH + 0.5));
@@ -107,10 +72,18 @@ var ReceivedGUI = BaseLayer.extend({
             this.pItems.addChild(item);
             this.items.push(item);
         }
+
+        var des = receivedGUIInfo.title;
+        if (des) {
+            this.desciption.setString(des);
+            this.desciption.setVisible(true);
+        } else {
+            this.desciption.setVisible(false);
+        }
     },
 
-    runAnimation: function () {
-        this.doBgEffect();
+    runAnimation: function (isOpened) {
+        if (!isOpened) this.doBgEffect();
         this.doDecorEffect();
         this.doLightEffect();
         this.doLogoEffect();
@@ -274,17 +247,47 @@ var ReceivedGUI = BaseLayer.extend({
     onButtonRelease: function (btn, id) {
         switch (id) {
             case ReceivedGUI.BTN_CLOSE:
-                this.onClose();
-                let callBack = ReceivedGUIManager.getInstance().getCallbackOnClose();
-                callBack();
+
+                receivedMgr.removeReceivedGUIInfo();
+                if (receivedMgr.isFinishData()) {
+                    this.onClose();
+                } else {
+                    this.resetGUI();
+                    this.setReceivedRewardInfo();
+                    this.runAnimation(true);
+                }
+                break;
+            case ReceivedGUI.BTN_RESET:
+                this.runAnimation(true);
                 break;
         }
-    }
+    },
+
+    onClose: function () {
+        this._fog.stopAllActions();
+        this._fog.setOpacity(0);
+        this._fog.runAction(cc.fadeOut(0.25));
+
+        this.bg.stopAllActions();
+        this.bg.runAction(cc.sequence(
+            cc.scaleTo(0.25, 1, 0).easing(cc.easeBackIn()),
+            cc.callFunc(this.onCloseDone.bind(this))
+        ));
+    },
+
+    onCloseDone: function () {
+        dispatcherMgr.dispatchEvent(ReceivedManager.EVENT_CLOSE_GUI);
+        let callBack = receivedMgr.getCallbackOnClose();
+        callBack();
+        this._super();
+    },
 });
 ReceivedGUI.className = "ReceivedGUI";
 ReceivedGUI.MAX_LENGTH = 5;
 ReceivedGUI.DECO_LOGO = 8;
+
 ReceivedGUI.BTN_CLOSE = 0;
+ReceivedGUI.BTN_RESET = 1;
 
 //Confetti effect
 var Paper = cc.Node.extend({
@@ -306,14 +309,14 @@ var Paper = cc.Node.extend({
         var rSpin = Math.random() * 0.25 + 0.25;
         var p1 = cc.p(-50, (0.5 - Math.random()) * 50);
         var p2 = cc.p(
-            cc.winSize.width * (0.25 + Math.random()),
-            -500 * Math.random()
+            cc.winSize.width * 0.75 * (0.25 + Math.random()),
+            -250 * Math.random()
         );
         var p3 = cc.p(
             (p1.x + p2.x) / 2 + (0.5 - Math.random()) * 300,
             (p1.y + p2.y) / 2 + (0.5 - Math.random()) * 150
         );
-        var rTime = (5 + Math.random() * 2.5);
+        var rTime = (3.5 + Math.random() * 2.5);
 
         this.spriteImg.runAction(cc.sequence(
             cc.delayTime(delayTime + rTime / 5),
@@ -461,6 +464,8 @@ var ReceivedCell = cc.Node.extend({
 
     setInfo: function (info) {
         cc.log("RECEIVED CELL", JSON.stringify(info));
+        var prefix = "";
+        var subfix = "";
         switch (parseInt(info.type)) {
             case ReceivedCell.TYPE_GOLD:
                 this.itemImg.loadTexture("res/Lobby/Received/defaultItem/gold.png");
@@ -468,13 +473,21 @@ var ReceivedCell = cc.Node.extend({
             case ReceivedCell.TYPE_G:
                 this.itemImg.loadTexture("res/Lobby/Received/defaultItem/g.png");
                 break;
-            case ReceivedCell.VPOINT:
+            case ReceivedCell.TYPE_VPOINT:
                 this.itemImg.loadTexture("res/Lobby/Received/defaultItem/vPoint.png");
+                break;
+            case ReceivedCell.TYPE_VHOUR:
+                this.itemImg.loadTexture("res/Lobby/Received/defaultItem/vHour.png");
+                subfix = " giờ";
+                break;
+            case ReceivedCell.TYPE_DIAMOND:
+                this.itemImg.loadTexture("res/Lobby/Received/defaultItem/diamond.png");
                 break;
             case ReceivedCell.TYPE_OBJ:
                 this.itemImg.setVisible(false);
                 this.pItem.addChild(info.obj);
                 this.itemObj = info.obj;
+                prefix = "x";
                 break;
             default:
                 try {
@@ -487,8 +500,13 @@ var ReceivedCell = cc.Node.extend({
         }
 
         this.rewardType = info.type;
-        this.num.setString(StringUtility.formatNumberSymbol(info.number));
+        this.num.setString(
+            prefix
+            + (info.number > ReceivedCell.MAX_POINT_NUMBER?
+            StringUtility.formatNumberSymbol(info.number) : StringUtility.pointNumber(info.number))
+            + subfix);
         this.lbModify.setString(info.modify);
+        this.bgModify.width = StringUtility.getLabelWidth(this.lbModify) + 24;
         this.bgModify.setVisible(info.modify !== "");
 
         this.name.setString(info.title);
@@ -688,61 +706,12 @@ var ReceivedCell = cc.Node.extend({
 ReceivedCell.SIZE = 150;
 ReceivedCell.TYPE_GOLD = 0;
 ReceivedCell.TYPE_G = 1;
-ReceivedCell.VPOINT = 2;
-ReceivedCell.TYPE_OBJ = 3;
+ReceivedCell.TYPE_VPOINT = 2;
+ReceivedCell.TYPE_VHOUR = 3;
+ReceivedCell.TYPE_DIAMOND = 4;
+ReceivedCell.TYPE_OBJ = 5;
+ReceivedCell.MAX_POINT_NUMBER = 99999999;
 
 // Localize
 ReceivedCell.GOLD_TEXT = "Gold";
 ReceivedCell.G_TEXT = "G-Gold";
-
-let ReceivedGUIManager = cc.Class.extend({
-    ctor: function () {
-        this._callbackOnClose = function () {
-        };
-    },
-
-    /**
-     * @param {[ReceivedGUIData]} info
-     */
-
-    setReceivedGUIInfo: function (info) {
-        this._info = info;
-    },
-
-    getReceivedGUIInfo: function () {
-        return this._info;
-    },
-
-    setCallbackOnClose: function (callback) {
-        this._callbackOnClose = callback;
-    },
-
-    getCallbackOnClose: function () {
-        return this._callbackOnClose;
-    },
-});
-
-ReceivedGUIManager._instance = null;
-ReceivedGUIManager.getInstance = function () {
-    if (ReceivedGUIManager._instance === null) {
-        ReceivedGUIManager._instance = new ReceivedGUIManager();
-    }
-
-    return ReceivedGUIManager._instance;
-}
-
-/**
- * @param {Number | String} type
- * @param {Number} number
- * @param {String} title
- * @param {String} modify
- * @param {Object} obj
- */
-
-let ReceivedGUIData = function (type, number, title, modify = "", obj = null) {
-    this.type = type;
-    this.number = number;
-    this.title = title;
-    this.modify = modify;
-    this.obj = obj;
-}

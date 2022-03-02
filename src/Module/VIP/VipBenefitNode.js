@@ -6,7 +6,11 @@ var VipBenefitNode = BaseLayer.extend({
 
     initGUI: function () {
         this.bg = this.getControl("bgBenefit");
+        this.bg.scroll = this.getControl("scroll", this.bg);
+        this.bg.scroll.setScrollBarEnabled(false);
         this.bgTime = this.getControl("bgBenefitTime");
+        this.bgTime.scroll = this.getControl("scroll", this.bgTime);
+        this.bgTime.scroll.setScrollBarEnabled(false);
         this.lbTime = this.getControl("lbTimeRemain", this.bgTime);
 
         this.list = [];
@@ -18,66 +22,90 @@ var VipBenefitNode = BaseLayer.extend({
 
     updatePosition: function (effectTime) {
         this.stopAllActions();
-        var delta = (this.numTime - this.num) * (VipBenefitCell.WIDTH + VipBenefitNode.MARGIN_CELL) * 0.5;
+        var widthTime = Math.min(this.numTime, VipBenefitNode.MAX_CELL + 0.5) * (VipBenefitCell.WIDTH + VipBenefitNode.MARGIN_CELL);
+        var width = Math.min(this.num, VipBenefitNode.MAX_CELL + 0.5) * (VipBenefitCell.WIDTH + VipBenefitNode.MARGIN_CELL);
+
+        var delta = (widthTime - width) * 0.5;
+        if (this.numTime * this.num === 0) {
+            if (this.numTime !== 0) delta -= (this.bgTime.x - VipBenefitNode.MARGIN_CELL * 0.5);
+            else if (this.num !== 0) delta -= (this.bg.x + VipBenefitNode.MARGIN_CELL * 0.5);
+        }
+        cc.log("updatePosition:", this.numTime, this.num, delta, this.bgTime.width, this.bgTime.x);
         this.runAction(
-            cc.moveTo(effectTime, cc.p(cc.winSize.width * 0.5 + delta, this.y)).easing(cc.easeOut(2))
+            cc.moveTo(effectTime, cc.p(delta, this.y)).easing(cc.easeOut(2))
         );
     },
 
-    changeBenefit: function (num, isTime) {
+    changeBenefit: function (num, isTime, isEffect) {
         var scaleTime = 0.1;
         var bg = isTime? this.bgTime : this.bg;
         var thisNum = isTime? this.numTime : this.num;
 
         bg.stopAllActions();
-        var targetWidth = VipBenefitCell.WIDTH * num
+        var realTargetWidth = VipBenefitCell.WIDTH * num
             + VipBenefitNode.MARGIN_CELL * (num - 1)
             + VipBenefitNode.MARGIN_SIDE * 2;
+        bg.scroll.innerWidth = realTargetWidth;
+        var targetWidth = VipBenefitCell.WIDTH * Math.min(num, VipBenefitNode.MAX_CELL + 0.5)
+            + VipBenefitNode.MARGIN_CELL * (Math.min(num, VipBenefitNode.MAX_CELL) - 1)
+            + VipBenefitNode.MARGIN_SIDE * 2;
+        bg.scroll.setBounceEnabled(targetWidth !== realTargetWidth);
         if (num <= 0) targetWidth = 0;
         var delta = targetWidth - bg.width;
         var benefitTime = scaleTime * Math.abs(num - thisNum);
         var times = 25 * Math.abs(num - thisNum) + 1;
-        bg.runAction(cc.sequence(
-            cc.sequence(
+        if (isEffect) {
+            bg.runAction(cc.sequence(
+                cc.sequence(
+                    cc.callFunc(function () {
+                        bg.width += delta / times;
+                        bg.scroll.width = bg.width;
+                        bg.scroll.x = bg.scroll.getAnchorPoint().x * bg.width;
+                    }.bind(this)),
+                    cc.delayTime(benefitTime / times)
+                ).repeat(times),
                 cc.callFunc(function () {
-                    bg.width += delta / times;
-                    if (isTime) this.lbTime.width += delta / times;
-                }.bind(this)),
-                cc.delayTime(benefitTime / times)
-            ).repeat(times),
-            cc.callFunc(function () {
-                bg.width = targetWidth;
-                if (isTime) this.lbTime.width = targetWidth;
-            }.bind(this))
-        ));
+                    bg.width = targetWidth;
+                    bg.scroll.width = bg.width;
+                    bg.scroll.x = bg.scroll.getAnchorPoint().x * bg.width;
+                }.bind(this))
+            ));
+        } else {
+            bg.width = targetWidth;
+            bg.scroll.width = bg.width;
+            bg.scroll.x = bg.scroll.getAnchorPoint().x * bg.width;
+        }
 
         var list = isTime? this.listTime : this.list;
         for (var i = 0; i < Math.max(list.length, num); i++) {
             var cell;
             if (i >= list.length) {
                 cell = new VipBenefitCell();
-                cell.setPosition(cc.p(
-                    (isTime? -1 : 1) * (
-                        VipBenefitNode.MARGIN_SIDE
-                        + (i + 0.5) * VipBenefitCell.WIDTH
-                        + i * VipBenefitNode.MARGIN_CELL
-                    ),
-                    0
-                ));
-                this.addChild(cell);
+                bg.scroll.addChild(cell);
                 list.push(cell);
             } else {
                 cell = list[i];
             }
 
+            cell.setPosition(cc.p(
+                bg.scroll.getAnchorPoint().x * targetWidth
+                + (isTime? -1 : 1) * (
+                    VipBenefitNode.MARGIN_SIDE
+                    + (i + 0.5) * VipBenefitCell.WIDTH
+                    + i * VipBenefitNode.MARGIN_CELL
+                ),
+                bg.height / 2
+            ));
+            if (isTime) cc.log("CELL BENEFIT POSITION", i, bg.width, JSON.stringify(cell.getPosition()));
+
             if (thisNum < num) {
-                if (thisNum <= i && i < num) {
+                if (thisNum <= i && i < num && isEffect) {
                     cell.effectShow(thisNum, scaleTime, i);
                 } else {
                     cell.show(i < num);
                 }
             } else if (num < thisNum) {
-                if (num <= i && i < thisNum) {
+                if (num <= i && i < thisNum && isEffect) {
                     cell.effectHide(thisNum, scaleTime, i);
                 } else {
                     cell.show(i < num);
@@ -92,7 +120,7 @@ var VipBenefitNode = BaseLayer.extend({
         }
     },
 
-    setBenefit: function (level) {
+    setBenefit: function (level, notEffect) {
         var listBenefit = vipMgr.getListBenefit(level);
         cc.log("THE BENEFIT", JSON.stringify(listBenefit));
         listBenefit.sort(function (a, b) {
@@ -111,15 +139,41 @@ var VipBenefitNode = BaseLayer.extend({
                 num++;
             }
         }
-        this.changeBenefit(numTime, true);
-        this.changeBenefit(num, false);
-        this.lbTime.setVisible(level === vipMgr.getVipLevel());
+        this.changeBenefit(numTime, true, !notEffect);
+        this.changeBenefit(num, false, !notEffect);
+        var pNode = this.lbTime.getParent();
+        pNode.stopAllActions();
+        if (level === vipMgr.getVipLevel()) {
+            pNode.runAction(cc.scaleTo(0.2, 1, 1).easing(cc.easeBackOut()));
+        } else {
+            pNode.runAction(cc.scaleTo(0.2, 1, 0).easing(cc.easeBackIn()));
+        }
 
         for (var i = 0; i < listBenefit.length; i++) {
             if (listBenefit[i].isTime) {
                 this.listTime[listBenefit[i].num].setInfo(listBenefit[i], true, level);
             } else {
                 this.list[listBenefit[i].num].setInfo(listBenefit[i], false, level);
+            }
+        }
+    },
+
+    turnOnOffTime: function (isOn) {
+        this.lbTime.getParent().setVisible(isOn);
+    },
+
+    turnOffReceivedStamp: function () {
+        for (var i = 0; i < this.list.length; i ++) {
+            this.list[i].receivedStamp.setVisible(false);
+        }
+    },
+
+    runEffectReceive: function () {
+        var delay = 0;
+        for (var i = 0; i < this.list.length; i ++) {
+            if (vipMgr.getIsOneTimeReceived(this.list[i].index)) {
+                this.list[i].effectReceive(delay);
+                delay += 0.25;
             }
         }
     },
@@ -134,12 +188,13 @@ var VipBenefitNode = BaseLayer.extend({
     update: function (dt) {
         var remainTime = VipManager.getInstance().getRemainTime();
         this.lbTime.setString(VipManager.getRemainTimeString(remainTime));
-        var color = remainTime > 0 ? cc.color("#ffd863") : cc.color("#dd4d4d");
+        var color = remainTime > 0 ? cc.color("#792EB2") : cc.color("#E4C9F4");
         this.lbTime.setColor(color);
     },
 });
-VipBenefitNode.MARGIN_SIDE = 10.5;
-VipBenefitNode.MARGIN_CELL = 2;
+VipBenefitNode.MARGIN_SIDE = 12;
+VipBenefitNode.MARGIN_CELL = 12;
+VipBenefitNode.MAX_CELL = 4;
 
 var VipBenefitCell = BaseLayer.extend({
     ctor: function () {
@@ -154,43 +209,83 @@ var VipBenefitCell = BaseLayer.extend({
     },
 
     initGUI: function () {
-        this.bg = this.getControl("bg");
-        this.title = this.getControl("title");
-        this.img = this.getControl("img");
-        this.value = this.getControl("value");
-        this.maxStamp = this.getControl("max");
+        this.main = this.getControl("main");
+
+        this.title = this.getControl("title", this.main);
+        this.iconTime = this.getControl("iconTime", this.main);
+
+        this.bg = this.getControl("bg", this.main);
+        this.img = this.getControl("img", this.bg);
+        this.img.ignoreContentAdaptWithSize(true);
+        this.value = this.getControl("value", this.bg);
+        this.maxStamp = this.getControl("max", this.bg);
         this.maxStamp.setVisible(false);
-        this.explain = this.getControl("explain");
+        this.receivedStamp = this.getControl("received", this.bg);
+        this.explain = this.getControl("explain", this.bg);
         this.explain.setVisible(false);
         this.explain.setOpacity(0);
         this.explain.setRotation(this.closedAngle);
         this.lbExplain = this.getControl("label", this.explain);
 
+        this.efx = this.getControl("efx", this.main);
+        this.efx.img = this.getControl("img", this.efx);
+        this.efx.img.ignoreContentAdaptWithSize(true);
+        this.efx.value = this.getControl("value", this.efx);
+        this.efx.receivedStamp = this.getControl("received", this.efx);
+
         this.btn = this.customButton("btn", 0);
+        this.btn.setSwallowTouches(false);
     },
 
     setInfo: function (benefit, isTime, level) {
-        this.title.setString(vipMgr.getBenefitName(benefit["index"]));
-        this.img.loadTexture(vipMgr.getImageBenefit(benefit["index"]));
-        // this.value.setString(vipMgr.getValueBenefit(benefit["index"], benefit["value"]));
-        this.bg.loadTexture("res/Lobby/GUIVipNew/bgBenefit" + (isTime? "_time.png" : ""));
-        this.bg.setOpacity(level >= vipMgr.getVipLevel()? 255 : 100);
+        if (this.index === benefit["index"]) {
+            this.efx.loadTexture("res/Lobby/Vip/bgBenefit" + (isTime? "_time.png" : ""));
+            this.efx.img.loadTexture(vipMgr.getBenefitImage(this.index));
+            this.efx.value.setString(this.value.getString());
+            this.efx.value.setColor(this.value.getColor());
+            this.efx.receivedStamp.setVisible(this.receivedStamp.isVisible());
 
-        var valueResult = vipMgr.getValuePhrase(benefit["index"], benefit["value"]);
-        if (valueResult) {
-            cc.log("VALUE RESULT", JSON.stringify(valueResult), benefit["index"], this.dataValue, benefit["value"]);
-            effectMgr.runNumberLabelEffect(
-                this.value,
-                this.dataValue,
-                benefit["value"],
-                0,
-                25,
-                valueResult.type,
-                valueResult.phrase
-            );
+            var actionTime = 0.4;
+            this.efx.stopAllActions();
+            this.efx.setVisible(true);
+            this.efx.setScale(1);
+            this.bg.stopAllActions();
+            this.bg.setOpacity(0);
+            if (level > this.level) {
+                this.efx.setAnchorPoint(cc.p(0.5, 0));
+                this.efx.setPosition(this.efx.defaultPos);
+                this.bg.setPosition(cc.p(this.bg.defaultPos.x, this.efx.defaultPos.y + this.bg.height));
+            } else {
+                this.efx.setAnchorPoint(cc.p(0.5, 1));
+                this.efx.setPosition(cc.p(this.efx.defaultPos.x, this.efx.defaultPos.y + this.efx.height));
+                this.bg.setPosition(cc.p(this.bg.defaultPos.x, this.efx.defaultPos.y - this.bg.height));
+            }
+            this.efx.runAction(cc.sequence(
+                cc.scaleTo(actionTime, 1, 0).easing(cc.easeOut(2.5)).easing(cc.easeBackOut()),
+                cc.hide()
+            ));
+            this.bg.runAction(cc.spawn(
+                cc.fadeIn(actionTime),
+                cc.moveTo(actionTime, this.bg.defaultPos).easing(cc.easeOut(2.5)).easing(cc.easeBackOut())
+            ));
         } else {
-            this.value.setString(vipMgr.getValueBenefit(benefit["index"], benefit["value"]));
+            this.efx.setVisible(false);
+            this.bg.setOpacity(255);
         }
+
+        this.main.setOpacity(255);
+        this.bg.loadTexture("res/Lobby/Vip/bgBenefit" + (isTime? "_time.png" : ""));
+
+        this.title.setString(vipMgr.getBenefitName(benefit["index"]));
+        this.title.setColor(VipBenefitCell.COLOR_TITLE[isTime? "time" : "timeless"]);
+
+        this.value.setString(vipMgr.getValueBenefit(benefit["index"], benefit["value"]));
+        this.value.setColor(VipBenefitCell.COLOR_VALUE[isTime? "time" : "timeless"]);
+
+        this.img.loadTexture(vipMgr.getBenefitImage(benefit["index"]));
+
+        this.iconTime.setVisible(isTime);
+        this.receivedStamp.setVisible(level <= vipMgr.getVipLevel() && vipMgr.getIsOneTimeReceived(benefit["index"]));
 
         this.level = level;
         this.index = benefit["index"];
@@ -213,9 +308,11 @@ var VipBenefitCell = BaseLayer.extend({
     },
 
     effectShow: function (thisNum, scaleTime, i) {
-        this.bg.stopAllActions();
-        this.bg.setVisible(true);
-        this.bg.runAction(cc.sequence(
+        cc.log("effectShow VipBenefitCell", i);
+        this.main.stopAllActions();
+        this.main.setVisible(true);
+        this.main.setScale(0);
+        this.main.runAction(cc.sequence(
             cc.delayTime((i - thisNum + 0.5) * scaleTime),
             cc.scaleTo(scaleTime / 2, 1).easing(cc.easeIn(2))
         ));
@@ -223,8 +320,9 @@ var VipBenefitCell = BaseLayer.extend({
     },
 
     effectHide: function (thisNum, scaleTime, i) {
-        this.bg.stopAllActions();
-        this.bg.runAction(cc.sequence(
+        cc.log("effectHide VipBenefitCell", i);
+        this.main.stopAllActions();
+        this.main.runAction(cc.sequence(
             cc.delayTime((thisNum - i - 1) * scaleTime),
             cc.spawn(
                 cc.scaleTo(scaleTime, 0).easing(cc.easeOut(2)),
@@ -235,8 +333,23 @@ var VipBenefitCell = BaseLayer.extend({
         this.explain.setVisible(false);
     },
 
+    effectReceive: function (delay = 0) {
+        this.receivedStamp.setVisible(true);
+        this.receivedStamp.setOpacity(0);
+        this.receivedStamp.setScale(1.75);
+        this.receivedStamp.setRotation(15);
+        this.receivedStamp.runAction(cc.sequence(
+            cc.delayTime(delay),
+            cc.spawn(
+                cc.fadeIn(0.25).easing(cc.easeOut(2.5)),
+                cc.scaleTo(0.25, 1).easing(cc.easeIn(5)),
+                cc.rotateTo(0.25, 0).easing(cc.easeBackOut())
+            )
+        ));
+    },
+
     show: function (isShow) {
-        this.bg.setVisible(isShow);
+        this.main.setVisible(isShow);
     },
 
     openExplain: function () {
@@ -276,6 +389,7 @@ var VipBenefitCell = BaseLayer.extend({
 
     onButtonRelease: function () {
         cc.log("INDEX", this.index);
+        return;
         switch (parseInt(this.index)) {
             case VipManager.BENEFIT_BONUS_SHOP:
                 paymentMgr.openShop();
@@ -292,8 +406,16 @@ var VipBenefitCell = BaseLayer.extend({
         }
     }
 });
-VipBenefitCell.WIDTH = 95;
-VipBenefitCell.HEIGHT = 130;
+VipBenefitCell.WIDTH = 136;
+VipBenefitCell.HEIGHT = 196;
+VipBenefitCell.COLOR_TITLE = {
+    time: cc.color("#c98ceb"),
+    timeless: cc.color("#a1b2f0")
+};
+VipBenefitCell.COLOR_VALUE = {
+    time: cc.color("#750aa7"),
+    timeless: cc.color("#303d97")
+};
 
 var VipBoardIcon = BaseLayer.extend({
     ctor: function (level) {

@@ -87,11 +87,6 @@ var SimOperatorPopup = BaseLayer.extend({
                 }
                 break;
         }
-        if (id != PanelCard.BTN_CLOSE) {
-            ToastFloat.makeToast(ToastFloat.SHORT, "Không hỗ trợ gói SMS này");
-            this.onClose();
-            return;
-        }
         this.onClose();
         if (id == PanelCard.BTN_CLOSE)
             return;
@@ -359,15 +354,15 @@ var GUISystemBonus = BaseLayer.extend({
 
         if (id == 1) {
             //sceneMgr.openScene(ShopScene.className);
-            var idTab = gamedata.gameConfig.getMaxChannelBonus();
-            gamedata.openShopInTab(idTab);
+            var idTab = paymentMgr.getMaxChannelBonus();
+            paymentMgr.openShopInTab(idTab);
 
         }
         popUpManager.removePopUp(PopUpManager.SHOP_BONUS);
     },
 
     loadInfo: function () {
-        var arrayBonus = gamedata.gameConfig.getMaxShopBonus();
+        var arrayBonus = paymentMgr.getMaxShopBonus();
         this.labelBonus.setString(arrayBonus[arrayBonus.length - 1] + "%");
 
         var txts = [];
@@ -416,11 +411,11 @@ var GUISystemBonus = BaseLayer.extend({
         this._bg.addChild(this.lbTimeRemain);
         this.lbTimeRemain.setPosition(this._bg.getContentSize().width * 0.9 - this.lbTimeRemain.getWidth(), 10);
         var s = localized("TIME_BONUS");
-        s = StringUtility.replaceAll(s, "@time1", gamedata.gameConfig.bonusStartDate.substr(0, 5));
-        s = StringUtility.replaceAll(s, "@time2", gamedata.gameConfig.bonusEndDate);
+        s = StringUtility.replaceAll(s, "@time1", paymentMgr.bonusStartDate.substr(0, 5));
+        s = StringUtility.replaceAll(s, "@time2", paymentMgr.bonusEndDate);
         this.labelTime.setString(s);
-        if (gamedata.gameConfig.bonusStartDate === gamedata.gameConfig.bonusEndDate) {
-            this.labelTime.setString(StringUtility.replaceAll(localized("DAY"), "%day", gamedata.gameConfig.bonusEndDate));
+        if (paymentMgr.bonusStartDate === paymentMgr.bonusEndDate) {
+            this.labelTime.setString(StringUtility.replaceAll(localized("DAY"), "%day", paymentMgr.bonusEndDate));
         }
         this.labelChannelApply.setString(applyFor);
     },
@@ -501,14 +496,14 @@ var GUIGBonus = BaseLayer.extend({
 
         if (id == 1) {
             //sceneMgr.openScene(ShopScene.className);
-            var idTab = gamedata.gameConfig.getMaxChannelGBonus();
-            gamedata.openNapGInTab(idTab);
+            var idTab = paymentMgr.getMaxChannelGBonus();
+            paymentMgr.openNapGInTab(idTab);
         }
         popUpManager.removePopUp(PopUpManager.SHOP_BONUS);
     },
 
     loadInfo: function () {
-        var arrayBonus = gamedata.gameConfig.getMaxShopGBonus();
+        var arrayBonus = paymentMgr.getMaxShopGBonus();
         this.labelBonus.setString(arrayBonus[arrayBonus.length - 1] + "%");
 
         var txts = [];
@@ -550,8 +545,8 @@ var GUIGBonus = BaseLayer.extend({
         this._bg.addChild(this.lbTimeRemain);
         this.lbTimeRemain.setPosition(this._bg.getContentSize().width * 0.89 - this.lbTimeRemain.getWidth(), 20);
         var s = localized("TIME_BONUS");
-        s = StringUtility.replaceAll(s, "@time1", gamedata.gameConfig.bonusStartDateG);
-        s = StringUtility.replaceAll(s, "@time2", gamedata.gameConfig.bonusEndDateG);
+        s = StringUtility.replaceAll(s, "@time1", paymentMgr.bonusStartDateG);
+        s = StringUtility.replaceAll(s, "@time2", paymentMgr.bonusEndDateG);
         this.labelTime.setString(s);
     },
 

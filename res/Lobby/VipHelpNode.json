@@ -1,0 +1,267 @@
+{
+  "ID": "04694302-326a-4cb7-8b52-e95c99a5d6a8",
+  "Version": "2.3.4",
+  "Name": "VipHelpNode",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 1450,
+        "Children": [
+          {
+            "FontSize": 14,
+            "ButtonText": "",
+            "TextColor": {
+              "R": 65,
+              "G": 65,
+              "B": 70
+            },
+            "DisabledFileData": {
+              "Type": "Normal",
+              "Path": "Vip/btnHelp.png",
+              "Plist": ""
+            },
+            "PressedFileData": {
+              "Type": "Normal",
+              "Path": "Vip/btnHelp.png",
+              "Plist": ""
+            },
+            "NormalFileData": {
+              "Type": "Normal",
+              "Path": "Vip/btnHelp.png",
+              "Plist": ""
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 10,
+            "Scale9Height": 18,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -20.0,
+            "RightMargin": -20.0,
+            "TopMargin": -20.0,
+            "BottomMargin": -20.0,
+            "Tag": 1528,
+            "ActionTag": -1111572277,
+            "Size": {
+              "X": 40.0,
+              "Y": 40.0
+            },
+            "Name": "btn",
+            "ctype": "ButtonObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Vip/bgGuide.png",
+              "Plist": ""
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 100,
+            "Scale9OriginY": 68,
+            "Scale9Width": 104,
+            "Scale9Height": 73,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 30.0,
+              "Y": -20.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 30.0,
+            "RightMargin": -320.0,
+            "TopMargin": -115.0,
+            "BottomMargin": -20.0,
+            "Tag": 1529,
+            "Children": [
+              {
+                "FontSize": 22,
+                "LabelText": "Làm sao để nhận VPoint:",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/robotoBold.ttf",
+                  "Plist": ""
+                },
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.0011
+                },
+                "Position": {
+                  "X": 14.9999,
+                  "Y": 95.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "R": 70,
+                  "G": 91,
+                  "B": 170
+                },
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0517,
+                  "Y": 0.7037
+                },
+                "PreSize": {
+                  "X": 0.8552,
+                  "Y": 0.1926
+                },
+                "LeftMargin": 14.7376,
+                "RightMargin": 27.2624,
+                "TopMargin": 14.0,
+                "BottomMargin": 95.0,
+                "Tag": 1607,
+                "ActionTag": 1176507862,
+                "Size": {
+                  "X": 248.0,
+                  "Y": 26.0
+                },
+                "Name": "title",
+                "ctype": "TextObjectData"
+              },
+              {
+                "FontSize": 22,
+                "LabelText": "1. Mua Gold trong shop\n2. Mua qua khuyến mãi\n3. Tham gia sự kiện",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/robotoLight.ttf",
+                  "Plist": ""
+                },
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {},
+                "Position": {
+                  "X": 20.0,
+                  "Y": 15.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "R": 70,
+                  "G": 91,
+                  "B": 170
+                },
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.069,
+                  "Y": 0.1111
+                },
+                "PreSize": {
+                  "X": 0.7862,
+                  "Y": 0.5778
+                },
+                "LeftMargin": 20.0,
+                "RightMargin": 42.0,
+                "TopMargin": 42.0,
+                "BottomMargin": 15.0,
+                "Tag": 1608,
+                "ActionTag": 1116313080,
+                "Size": {
+                  "X": 228.0,
+                  "Y": 78.0
+                },
+                "Name": "context",
+                "ctype": "TextObjectData"
+              }
+            ],
+            "ActionTag": 891502560,
+            "Size": {
+              "X": 290.0,
+              "Y": 135.0
+            },
+            "Name": "bg",
+            "ctype": "ImageViewObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Node",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "Font/robotoBold.ttf",
+        "Font/robotoLight.ttf",
+        "Vip/bgGuide.png",
+        "Vip/btnHelp.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Node"
+}

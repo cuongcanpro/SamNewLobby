@@ -37,6 +37,10 @@ var FortuneCatManager = BaseMgr.extend({
         this.ingameIcon = null;
     },
 
+    initListener: function () {
+        dispatcherMgr.addListener(LobbyMgr.EVENT_ON_ENTER_FINISH, this, this.checkShowNotify);
+    },
+
     updateUserVipInfo: function(){
         this.userVipLevel = VipManager.getInstance().getVipLevel();
         this.userVipRemainTime = VipManager.getInstance().getRemainTime();

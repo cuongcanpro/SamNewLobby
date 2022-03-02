@@ -59,6 +59,7 @@ var GUISupportInfo = BaseLayer.extend({
 
         this.bgGiftSpecial = this.getControl("bgGiftSpecial", this.bg);
         this.valueBonusSpecial = this.getControl("valueBonusSpecial", this.bgGiftSpecial);
+        this.pEff = this.getControl("pEff", this.bg);
 
         this.enableFog();
     },
@@ -157,8 +158,8 @@ var GUISupportInfo = BaseLayer.extend({
                     startMoney = vipMgr.vipConfig[0].support[1];
                 }
                 this.totalValue.setNumber(startMoney);
-                this.totalValue.setTargetNumber(1, targetMoney);
-                this.bgLevel.runAction(cc.sequence(cc.delayTime(0.8), cc.scaleTo(0.2, 1.2), cc.scaleTo(0.3, 1.0)));
+                this.totalValue.setTargetNumber(0.5, targetMoney);
+                this.bgLevel.runAction(cc.sequence(cc.delayTime(0.4), cc.scaleTo(0.2, 1.2), cc.scaleTo(0.3, 1.0)));
             }
         }
         else{
@@ -288,12 +289,14 @@ var GUIStartUp = BaseLayer.extend({
         if (this.timeStar < 0) {
             this.timeStar = 0.1;
             var star = this.getStar();
+            star.stopAllActions();
             star.setPosition(0, 0);
             var randomX = this.bg.getContentSize().width * (0.4 - Math.random() * 0.8) + star.getPositionX();
             var randomY = this.bg.getContentSize().height * (0.5 - Math.random() * 0.2) + star.getPositionY();
-            star.runAction(cc.sequence(cc.moveTo(2.0, cc.p(randomX, randomY)), cc.hide()));
-            star.runAction(cc.sequence(cc.delayTime(1.8), cc.fadeOut(0.2)));
-            //star.runAction(cc.blink(2, 10));
+            star.runAction(cc.sequence(cc.moveTo(4.0, cc.p(randomX, randomY)), cc.hide()));
+            star.runAction(cc.sequence(cc.delayTime(3.8), cc.fadeOut(0.2)));
+            star.runAction(cc.blink(2, 5));
+            star.runAction(cc.rotateBy(0.1, 30).repeatForever());
         }
     },
 

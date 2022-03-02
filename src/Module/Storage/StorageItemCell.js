@@ -86,7 +86,7 @@ var StorageItemCell = cc.TableViewCell.extend({
 
 StorageItemCell.className = "StorageItemCell";
 StorageItemCell.WIDTH = 147;
-StorageItemCell.HEIGHT = 158;
+StorageItemCell.HEIGHT = 170;
 StorageItemCell.NUM_COL = 4;
 StorageItemCell.MIN_SPACE = 8;
 StorageItemCell.MIN_SCALE = 0.75;

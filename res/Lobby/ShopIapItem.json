@@ -29,7 +29,7 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 160.0,
+              "X": 159.5669,
               "Y": 240.0
             },
             "Scale": {
@@ -41,15 +41,15 @@
             "PositionPercentXEnabled": true,
             "PositionPercentYEnabled": true,
             "PrePosition": {
-              "X": 0.5,
+              "X": 0.4986,
               "Y": 0.5
             },
             "PreSize": {
               "X": 0.9563,
               "Y": 0.9542
             },
-            "LeftMargin": 7.0,
-            "RightMargin": 7.0,
+            "LeftMargin": 6.5669,
+            "RightMargin": 7.4331,
             "TopMargin": 11.0,
             "BottomMargin": 11.0,
             "Tag": 32,
@@ -57,7 +57,7 @@
               {
                 "FileData": {
                   "Type": "Normal",
-                  "Path": "GUIVipNew/imgUp.png",
+                  "Path": "Common/IconVip/imgUp.png",
                   "Plist": ""
                 },
                 "Scale9OriginX": 3,
@@ -102,7 +102,7 @@
               {
                 "FileData": {
                   "Type": "Normal",
-                  "Path": "GUIVipNew/iconVip/iconVip1.png",
+                  "Path": "Common/IconVip/iconVip1.png",
                   "Plist": ""
                 },
                 "Scale9OriginX": 9,
@@ -128,13 +128,13 @@
                   "Y": 0.2697
                 },
                 "PreSize": {
-                  "X": 0.0948,
-                  "Y": 0.0786
+                  "X": 0.1013,
+                  "Y": 0.0808
                 },
-                "LeftMargin": 253.0428,
-                "RightMargin": 23.9572,
-                "TopMargin": 316.4564,
-                "BottomMargin": 105.5436,
+                "LeftMargin": 252.0428,
+                "RightMargin": 22.9572,
+                "TopMargin": 315.9564,
+                "BottomMargin": 105.0436,
                 "Tag": 33,
                 "Children": [
                   {
@@ -172,8 +172,8 @@
                       "ScaleY": 0.5
                     },
                     "Position": {
-                      "X": 14.5,
-                      "Y": 18.0
+                      "X": 15.5,
+                      "Y": 18.5
                     },
                     "Scale": {
                       "ScaleX": 1.0,
@@ -198,8 +198,8 @@
                     "Tag": 34,
                     "ActionTag": -2037124656,
                     "Size": {
-                      "X": 29.0,
-                      "Y": 36.0
+                      "X": 31.0,
+                      "Y": 37.0
                     },
                     "Name": "btnTooltip",
                     "ctype": "ButtonObjectData"
@@ -207,8 +207,8 @@
                 ],
                 "ActionTag": 1167348270,
                 "Size": {
-                  "X": 29.0,
-                  "Y": 36.0
+                  "X": 31.0,
+                  "Y": 37.0
                 },
                 "Name": "uptoLevelVip",
                 "ctype": "ImageViewObjectData"
@@ -255,21 +255,68 @@
                   "Y": 0.9127
                 },
                 "PreSize": {
-                  "X": 0.4379,
-                  "Y": 0.0437
+                  "X": 0.451,
+                  "Y": 0.0502
                 },
                 "LeftMargin": 32.2329,
-                "RightMargin": 139.7671,
-                "TopMargin": 29.9936,
-                "BottomMargin": 408.0064,
+                "RightMargin": 135.7671,
+                "TopMargin": 28.4936,
+                "BottomMargin": 406.5064,
                 "Tag": 39,
                 "ActionTag": 895519243,
                 "Size": {
-                  "X": 134.0,
-                  "Y": 20.0
+                  "X": 138.0,
+                  "Y": 23.0
                 },
                 "Name": "gold_old",
                 "ctype": "TextObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "ShopIAP/line.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 16,
+                "Scale9Width": 18,
+                "Scale9Height": 2,
+                "AnchorPoint": {
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 36.7218,
+                  "Y": 417.5386
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "R": 32,
+                  "G": 48,
+                  "B": 108
+                },
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.12,
+                  "Y": 0.9117
+                },
+                "PreSize": {
+                  "X": 0.1634,
+                  "Y": 0.0044
+                },
+                "LeftMargin": 36.7218,
+                "RightMargin": 219.2782,
+                "TopMargin": 39.4614,
+                "BottomMargin": 416.5386,
+                "Tag": 64,
+                "ActionTag": -1228184087,
+                "Size": {
+                  "X": 50.0,
+                  "Y": 2.0
+                },
+                "Name": "iconLine",
+                "ctype": "ImageViewObjectData"
               },
               {
                 "FontSize": 14,
@@ -383,18 +430,18 @@
                       "Y": 0.5156
                     },
                     "PreSize": {
-                      "X": 0.7167,
-                      "Y": 0.2773
+                      "X": 0.7667,
+                      "Y": 0.3193
                     },
                     "LeftMargin": 11.8966,
-                    "RightMargin": 22.1034,
-                    "TopMargin": 41.1436,
-                    "BottomMargin": 44.8564,
+                    "RightMargin": 16.1034,
+                    "TopMargin": 38.6436,
+                    "BottomMargin": 42.3564,
                     "Tag": 42,
                     "ActionTag": 389440086,
                     "Size": {
-                      "X": 86.0,
-                      "Y": 33.0
+                      "X": 92.0,
+                      "Y": 38.0
                     },
                     "Name": "bonus",
                     "ctype": "TextObjectData"
@@ -572,18 +619,18 @@
                       "Y": 0.5068
                     },
                     "PreSize": {
-                      "X": 0.0464,
-                      "Y": 0.2958
+                      "X": 0.0497,
+                      "Y": 0.3521
                     },
                     "LeftMargin": 251.1752,
-                    "RightMargin": 36.8248,
-                    "TopMargin": 24.5154,
-                    "BottomMargin": 25.4846,
+                    "RightMargin": 35.8248,
+                    "TopMargin": 22.5154,
+                    "BottomMargin": 23.4846,
                     "Tag": 30,
                     "ActionTag": 93676401,
                     "Size": {
-                      "X": 14.0,
-                      "Y": 21.0
+                      "X": 15.0,
+                      "Y": 25.0
                     },
                     "Name": "lb",
                     "ctype": "TextObjectData"
@@ -633,18 +680,18 @@
                     },
                     "PreSize": {
                       "X": 0.7119,
-                      "Y": 0.493
+                      "Y": 0.5775
                     },
                     "HorizontalEdge": "RightEdge",
                     "LeftMargin": 31.7661,
                     "RightMargin": 55.2339,
-                    "TopMargin": 14.1932,
-                    "BottomMargin": 21.8068,
+                    "TopMargin": 11.1932,
+                    "BottomMargin": 18.8068,
                     "Tag": 31,
                     "ActionTag": 365585412,
                     "Size": {
                       "X": 215.0,
-                      "Y": 35.0
+                      "Y": 41.0
                     },
                     "Name": "vnd",
                     "ctype": "TextObjectData"
@@ -728,17 +775,17 @@
                         },
                         "PreSize": {
                           "X": 1.1299,
-                          "Y": 0.76
+                          "Y": 0.88
                         },
                         "LeftMargin": -9.3034,
                         "RightMargin": -10.6966,
-                        "TopMargin": 2.7628,
-                        "BottomMargin": 3.2372,
+                        "TopMargin": 1.2628,
+                        "BottomMargin": 1.7372,
                         "Tag": 159,
                         "ActionTag": -51566109,
                         "Size": {
                           "X": 174.0,
-                          "Y": 19.0
+                          "Y": 22.0
                         },
                         "Name": "lbTime",
                         "ctype": "TextObjectData"
@@ -779,11 +826,12 @@
         "ctype": "LayerObjectData"
       },
       "UsedResources": [
+        "Common/IconVip/iconVip1.png",
+        "Common/IconVip/imgUp.png",
         "Default/Button_Disable.png",
         "Font/tahoma.ttf",
         "Font/tahomabd.ttf",
-        "GUIVipNew/iconVip/iconVip1.png",
-        "GUIVipNew/imgUp.png",
+        "ShopIAP/line.png",
         "ShopIAP/ShopCell/bgGoldCell.png",
         "ShopIAP/ShopCell/bgTime.png",
         "ShopIAP/ShopCell/btnBuyGold.png",

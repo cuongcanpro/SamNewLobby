@@ -46,7 +46,7 @@ var GUIOfferNoPrice = BaseLayer.extend({
             this.arrayBonus.push(offer);
         }
         var w = this.arrayBonus[0].getContentSize().width;
-        var pad = 12;
+        var pad = -12;
         var sumW = w * this.arrayBonus.length + pad * (this.arrayBonus.length - 1);
         var startX = this.btnBuy.getPositionX() - sumW * 0.5;
 
@@ -161,8 +161,8 @@ var GroupOfferNoPriceBonus = cc.Node.extend({
         this.labelDescrible.setFontName(SceneMgr.FONT_NORMAL);
         this.labelDescrible.setTextHorizontalAlignment(cc.TEXT_ALIGNMENT_CENTER);
         this.labelDescrible.setAnchorPoint(cc.p(0.5, 0.5));
-        this.labelDescrible.setFontSize(13);
-        this.labelDescrible.setPosition(this.bg.getContentSize().width * 0.525, this.bg.getContentSize().height * 0.7);
+        this.labelDescrible.setFontSize(20);
+        this.labelDescrible.setPosition(this.bg.getContentSize().width * 0.525, this.bg.getContentSize().height * 0.8);
         this.labelDescrible.setContentSize(cc.size(this.bg.getContentSize().width * 0.75, 80));
         this.labelDescrible.ignoreContentAdaptWithSize(false);
         this.labelDescrible.setSkewX(10);
@@ -172,7 +172,7 @@ var GroupOfferNoPriceBonus = cc.Node.extend({
         this.labelValue.setFontName(SceneMgr.FONT_BOLD);
         this.labelValue.setTextHorizontalAlignment(cc.TEXT_ALIGNMENT_CENTER);
         this.labelValue.setAnchorPoint(cc.p(0.5, 0.5));
-        this.labelValue.setFontSize(20);
+        this.labelValue.setFontSize(30);
         this.labelValue.setPosition(this.bg.getContentSize().width * 0.45, this.bg.getContentSize().height * 0.12);
         this.bg.addChild(this.labelValue);
         this.labelValue.pos = this.labelValue.getPositionY();
@@ -222,8 +222,8 @@ var GroupOfferNoPriceBonus = cc.Node.extend({
                 this.labelDescrible.setString(localized("OFFER_BONUS_TIME_DES"));
                 break;
             case OfferManager.TYPE_TICKET:
-                this.icon.setTexture(event.getOfferTicketImage(eventId));
-                this.labelValue.setString(StringUtility.pointNumber(value) + " " + event.getOfferTicketString(eventId));
+                this.icon.setTexture(eventMgr.getOfferTicketImage(eventId));
+                this.labelValue.setString(StringUtility.pointNumber(value) + " " + eventMgr.getOfferTicketString(eventId));
                 this.labelDescrible.setVisible(true);
                 this.labelDescrible.setString(localized("OFFER_BONUS_EVENT_DES"));
                 break;
@@ -232,10 +232,16 @@ var GroupOfferNoPriceBonus = cc.Node.extend({
                 this.labelValue.setString(StringUtility.pointNumber(value) + " Kim cương");
                 break;
             case OfferManager.TYPE_ITEM:
-                var config = StorageManager.getInstance().itemConfig[idType];
-                cc.log("CONFIG ITEM " + JSON.stringify(config));
-                this.icon.setTexture(StorageManager.getItemIconPath(idType, subType, id));
-                this.labelValue.setString(OfferManager.getNameItem(idType, id, subType, value));
+                if (StorageManager.getInstance().itemConfig) {
+                    var config = StorageManager.getInstance().itemConfig[idType];
+                    cc.log("CONFIG ITEM " + JSON.stringify(config));
+                    this.icon.setTexture(StorageManager.getItemIconPath(idType, subType, id));
+                    this.labelValue.setString(OfferManager.getNameItem(idType, id, subType, value));
+                }
+                else {
+                    this.setVisible(false);
+                }
+
                 break;
         }
     }

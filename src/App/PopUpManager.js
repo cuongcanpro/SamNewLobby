@@ -5,8 +5,16 @@
 var PopUpManager = cc.Class.extend({
     ctor: function () {
         this.arrayPopUp = [];
-        this.arrayUniqe = [PopUpManager.STARTUP, PopUpManager.DAILY_BONUS_VIP, PopUpManager.SUPPORT, PopUpManager.INPUT_INFORMATION, PopUpManager.SHOP_BONUS,
-            PopUpManager.NOTIFY_OUT_GAME, PopUpManager.OFFER, PopUpManager.OFFER_ZALO];
+        this.arrayUnique = [
+            PopUpManager.STARTUP,
+            PopUpManager.DAILY_BONUS_VIP,
+            PopUpManager.SUPPORT,
+            PopUpManager.INPUT_INFORMATION,
+            PopUpManager.SHOP_BONUS,
+            PopUpManager.NOTIFY_OUT_GAME,
+            PopUpManager.OFFER,
+            PopUpManager.OFFER_ZALO
+        ];
     },
 
     addPopUp: function (id, data) {
@@ -19,7 +27,7 @@ var PopUpManager = cc.Class.extend({
     },
 
     canShow: function (id) {
-        if (this.arrayUniqe.indexOf(id) >= 0) {
+        if (this.arrayUnique.indexOf(id) >= 0) {
             for (var i = 0; i < this.arrayPopUp.length; i++) {
                 if (this.arrayPopUp[i] == id) {
                     return false;

@@ -1,0 +1,378 @@
+{
+  "ID": "b6730bbc-136a-4fa3-8a9f-a97fe392625d",
+  "Version": "2.3.4",
+  "Name": "VipLevelNode",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 130,
+        "Children": [
+          {
+            "FontSize": 14,
+            "ButtonText": "",
+            "FontResource": {
+              "Type": "Normal",
+              "Path": "Font/robotoBold.ttf",
+              "Plist": ""
+            },
+            "TextColor": {
+              "R": 65,
+              "G": 65,
+              "B": 70
+            },
+            "DisabledFileData": {
+              "Type": "Default",
+              "Path": "Default/Button_Disable.png",
+              "Plist": ""
+            },
+            "PressedFileData": {
+              "Type": "Default",
+              "Path": "Default/Button_Press.png",
+              "Plist": ""
+            },
+            "NormalFileData": {
+              "Type": "Default",
+              "Path": "Default/Button_Normal.png",
+              "Plist": ""
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 16,
+            "Scale9Height": 14,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PositionPercentYEnabled": true,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -150.0,
+            "RightMargin": -150.0,
+            "TopMargin": -187.5,
+            "BottomMargin": -187.5,
+            "Tag": 149,
+            "Children": [
+              {
+                "IsCustomSize": true,
+                "FontSize": 30,
+                "LabelText": "VIP 1",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/robotoBold.ttf",
+                  "Plist": ""
+                },
+                "HorizontalAlignmentType": "HT_Center",
+                "VerticalAlignmentType": "VT_Center",
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 150.0,
+                  "Y": 70.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.1867
+                },
+                "PreSize": {
+                  "X": 0.5,
+                  "Y": 0.0933
+                },
+                "LeftMargin": 75.0,
+                "RightMargin": 75.0,
+                "TopMargin": 287.5,
+                "BottomMargin": 52.5,
+                "Tag": 150,
+                "ActionTag": 1641544283,
+                "Size": {
+                  "X": 150.0,
+                  "Y": 35.0
+                },
+                "Name": "name",
+                "ctype": "TextObjectData"
+              },
+              {
+                "IsCustomSize": true,
+                "FontSize": 25,
+                "LabelText": "10,000/10,000",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/robotoLight.ttf",
+                  "Plist": ""
+                },
+                "VerticalAlignmentType": "VT_Center",
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 150.0,
+                  "Y": 17.5
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.0467
+                },
+                "PreSize": {
+                  "X": 0.6667,
+                  "Y": 0.0773
+                },
+                "LeftMargin": 150.0,
+                "RightMargin": -50.0,
+                "TopMargin": 343.0,
+                "BottomMargin": 3.0,
+                "Tag": 151,
+                "Children": [
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "Vip/iconVpoint.png",
+                      "Plist": ""
+                    },
+                    "Scale9OriginX": 10,
+                    "Scale9OriginY": 10,
+                    "Scale9Width": 13,
+                    "Scale9Height": 11,
+                    "AnchorPoint": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": -5.0,
+                      "Y": 16.82
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PositionPercentYEnabled": true,
+                    "PrePosition": {
+                      "X": -0.025,
+                      "Y": 0.58
+                    },
+                    "PreSize": {
+                      "X": 0.165,
+                      "Y": 1.069
+                    },
+                    "LeftMargin": -38.0,
+                    "RightMargin": 205.0,
+                    "TopMargin": -3.32,
+                    "BottomMargin": 1.32,
+                    "Tag": 152,
+                    "ActionTag": -1924587559,
+                    "Size": {
+                      "X": 33.0,
+                      "Y": 31.0
+                    },
+                    "Name": "icon",
+                    "ctype": "ImageViewObjectData"
+                  }
+                ],
+                "ActionTag": -1979889655,
+                "Size": {
+                  "X": 200.0,
+                  "Y": 29.0
+                },
+                "Name": "vPoint",
+                "ctype": "TextObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "Vip/imgVipFree.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 43,
+                "Scale9OriginY": 50,
+                "Scale9Width": 1,
+                "Scale9Height": 1,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 150.0,
+                  "Y": 187.5
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 0.2867,
+                  "Y": 0.2667
+                },
+                "LeftMargin": 107.0,
+                "RightMargin": 107.0,
+                "TopMargin": 137.5,
+                "BottomMargin": 137.5,
+                "Tag": 153,
+                "ActionTag": -1605633038,
+                "Size": {
+                  "X": 86.0,
+                  "Y": 100.0
+                },
+                "Name": "img",
+                "ctype": "ImageViewObjectData"
+              }
+            ],
+            "ActionTag": 1524964875,
+            "Size": {
+              "X": 300.0,
+              "Y": 375.0
+            },
+            "Alpha": 127,
+            "Name": "vip",
+            "ctype": "ButtonObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Vip/iconLocker.png",
+              "Plist": ""
+            },
+            "Scale9OriginX": 14,
+            "Scale9OriginY": 17,
+            "Scale9Width": 17,
+            "Scale9Height": 20,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 90.0,
+              "Y": -65.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 67.5,
+            "RightMargin": -112.5,
+            "TopMargin": 38.0,
+            "BottomMargin": -92.0,
+            "Tag": 278,
+            "ActionTag": 362943249,
+            "Size": {
+              "X": 45.0,
+              "Y": 54.0
+            },
+            "Name": "lock",
+            "ctype": "ImageViewObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Node",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "Default/Button_Disable.png",
+        "Default/Button_Normal.png",
+        "Default/Button_Press.png",
+        "Font/robotoBold.ttf",
+        "Font/robotoLight.ttf",
+        "Vip/iconLocker.png",
+        "Vip/iconVpoint.png",
+        "Vip/imgVipFree.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Node"
+}

@@ -1,0 +1,1001 @@
+{
+  "ID": "59c82cc3-4529-4fe1-a4f8-034383bdd7db",
+  "Version": "2.3.4",
+  "Name": "VipShopInfo",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 175,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Vip/shopProgress/bgShopInfoVip.png",
+              "Plist": ""
+            },
+            "Scale9OriginX": 110,
+            "Scale9OriginY": 29,
+            "Scale9Width": 114,
+            "Scale9Height": 31,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 168.1512,
+              "Y": 43.6239
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5034,
+              "Y": 0.4902
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "LeftMargin": 1.1512,
+            "RightMargin": -1.1512,
+            "TopMargin": 0.8761,
+            "BottomMargin": -0.8761,
+            "Tag": 129,
+            "Children": [
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": -15,
+                "Scale9OriginY": -11,
+                "Scale9Width": 30,
+                "Scale9Height": 22,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 242.3988,
+                  "Y": 47.1001
+                },
+                "Scale": {
+                  "ScaleX": 0.9,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.7257,
+                  "Y": 0.5292
+                },
+                "PreSize": {
+                  "X": 0.4521,
+                  "Y": 0.5843
+                },
+                "HorizontalEdge": "RightEdge",
+                "VerticalEdge": "BottomEdge",
+                "LeftMargin": 166.8988,
+                "RightMargin": 16.1012,
+                "TopMargin": 15.8999,
+                "BottomMargin": 21.1001,
+                "Tag": 177,
+                "ActionTag": 911633722,
+                "Size": {
+                  "X": 151.0,
+                  "Y": 52.0
+                },
+                "VisibleForFrame": false,
+                "Name": "btnEnterVip",
+                "ctype": "ButtonObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "Vip/shopProgress/bgProcessVipShop.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 60,
+                "Scale9OriginY": 8,
+                "Scale9Width": 62,
+                "Scale9Height": 4,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 162.0572,
+                  "Y": 35.684
+                },
+                "Scale": {
+                  "ScaleX": 0.84,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.4852,
+                  "Y": 0.4009
+                },
+                "PreSize": {
+                  "X": 0.5449,
+                  "Y": 0.2247
+                },
+                "LeftMargin": 71.0572,
+                "RightMargin": 80.9428,
+                "TopMargin": 43.316,
+                "BottomMargin": 25.684,
+                "Tag": 178,
+                "Children": [
+                  {
+                    "ProgressInfo": 98,
+                    "ImageFileData": {
+                      "Type": "Normal",
+                      "Path": "Vip/shopProgress/processVpoint.png",
+                      "Plist": ""
+                    },
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 91.0,
+                      "Y": 10.0
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PositionPercentXEnabled": true,
+                    "PositionPercentYEnabled": true,
+                    "PrePosition": {
+                      "X": 0.5,
+                      "Y": 0.5
+                    },
+                    "PreSize": {
+                      "X": 0.9725,
+                      "Y": 0.7
+                    },
+                    "LeftMargin": 2.5,
+                    "RightMargin": 2.5,
+                    "TopMargin": 3.0,
+                    "BottomMargin": 3.0,
+                    "Tag": 179,
+                    "Children": [
+                      {
+                        "IsCustomSize": true,
+                        "FontSize": 15,
+                        "LabelText": "500 / 1000",
+                        "FontResource": {
+                          "Type": "Normal",
+                          "Path": "Font/tahoma.ttf",
+                          "Plist": ""
+                        },
+                        "HorizontalAlignmentType": "HT_Center",
+                        "OutlineColor": {
+                          "R": 187,
+                          "G": 99,
+                          "B": 187
+                        },
+                        "OutlineEnabled": true,
+                        "ShadowColor": {
+                          "R": 172,
+                          "G": 77,
+                          "B": 172
+                        },
+                        "ShadowOffsetX": 0.0,
+                        "ShadowOffsetY": -2.0,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 89.1903,
+                          "Y": 7.5838
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 0.93
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PositionPercentXEnabled": true,
+                        "PositionPercentYEnabled": true,
+                        "PrePosition": {
+                          "X": 0.5039,
+                          "Y": 0.5417
+                        },
+                        "PreSize": {
+                          "X": 1.4124,
+                          "Y": 1.5714
+                        },
+                        "LeftMargin": -35.8097,
+                        "RightMargin": -37.1903,
+                        "TopMargin": -4.5838,
+                        "BottomMargin": -3.4162,
+                        "Tag": 181,
+                        "ActionTag": 1006454213,
+                        "Size": {
+                          "X": 250.0,
+                          "Y": 22.0
+                        },
+                        "Name": "txtProgress",
+                        "ctype": "TextObjectData"
+                      },
+                      {
+                        "FileData": {
+                          "Type": "Normal",
+                          "Path": "Vip/iconVpoint.png",
+                          "Plist": ""
+                        },
+                        "Scale9OriginX": 8,
+                        "Scale9OriginY": 7,
+                        "Scale9Width": 17,
+                        "Scale9Height": 17,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 178.9989,
+                          "Y": 7.0
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 0.9
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PositionPercentYEnabled": true,
+                        "PrePosition": {
+                          "X": 1.0113,
+                          "Y": 0.5
+                        },
+                        "PreSize": {
+                          "X": 0.1864,
+                          "Y": 2.2143
+                        },
+                        "HorizontalEdge": "RightEdge",
+                        "LeftMargin": 162.4989,
+                        "RightMargin": -18.4989,
+                        "TopMargin": -8.5,
+                        "BottomMargin": -8.5,
+                        "Tag": 180,
+                        "ActionTag": 703731235,
+                        "Size": {
+                          "X": 33.0,
+                          "Y": 31.0
+                        },
+                        "Name": "imgVpoint",
+                        "ctype": "ImageViewObjectData"
+                      }
+                    ],
+                    "ActionTag": -2012387136,
+                    "Size": {
+                      "X": 177.0,
+                      "Y": 14.0
+                    },
+                    "Name": "progressVip",
+                    "ctype": "LoadingBarObjectData"
+                  }
+                ],
+                "ActionTag": -2015968409,
+                "Size": {
+                  "X": 182.0,
+                  "Y": 20.0
+                },
+                "Name": "bgProgress",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "Vip/iconVip/iconVip6.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 9,
+                "Scale9OriginY": 12,
+                "Scale9Width": 26,
+                "Scale9Height": 14,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5541
+                },
+                "Position": {
+                  "X": 284.3757,
+                  "Y": 48.4366
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.8514,
+                  "Y": 0.5442
+                },
+                "PreSize": {
+                  "X": 0.1317,
+                  "Y": 0.427
+                },
+                "LeftMargin": 262.3757,
+                "RightMargin": 27.6243,
+                "TopMargin": 23.6192,
+                "BottomMargin": 27.3808,
+                "Tag": 182,
+                "ActionTag": 417296225,
+                "Size": {
+                  "X": 44.0,
+                  "Y": 38.0
+                },
+                "Name": "iconNextVip",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "Vip/iconVip/iconVip1.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 9,
+                "Scale9OriginY": 11,
+                "Scale9Width": 13,
+                "Scale9Height": 15,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 47.9935,
+                  "Y": 45.4366
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.1437,
+                  "Y": 0.5105
+                },
+                "PreSize": {
+                  "X": 0.0928,
+                  "Y": 0.4157
+                },
+                "LeftMargin": 32.4935,
+                "RightMargin": 270.5065,
+                "TopMargin": 25.0634,
+                "BottomMargin": 26.9366,
+                "Tag": 183,
+                "ActionTag": -1856002928,
+                "Size": {
+                  "X": 31.0,
+                  "Y": 37.0
+                },
+                "Name": "iconCurVip",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "IsCustomSize": true,
+                "FontSize": 14,
+                "LabelText": "Vip 10 còn:",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahoma.ttf",
+                  "Plist": ""
+                },
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 88.3349,
+                  "Y": 58.9333
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.2645,
+                  "Y": 0.6622
+                },
+                "PreSize": {
+                  "X": 0.2635,
+                  "Y": 0.2247
+                },
+                "LeftMargin": 88.3349,
+                "RightMargin": 157.6651,
+                "TopMargin": 20.0667,
+                "BottomMargin": 48.9333,
+                "Tag": 184,
+                "ActionTag": -1319960800,
+                "Size": {
+                  "X": 88.0,
+                  "Y": 20.0
+                },
+                "Name": "txtVip1",
+                "ctype": "TextObjectData"
+              },
+              {
+                "IsCustomSize": true,
+                "FontSize": 14,
+                "LabelText": "10",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahomabd.ttf",
+                  "Plist": ""
+                },
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 165.3355,
+                  "Y": 58.9333
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "G": 216,
+                  "B": 99
+                },
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.495,
+                  "Y": 0.6622
+                },
+                "PreSize": {
+                  "X": 0.4521,
+                  "Y": 0.2247
+                },
+                "LeftMargin": 165.3355,
+                "RightMargin": 17.6645,
+                "TopMargin": 20.0667,
+                "BottomMargin": 48.9333,
+                "Tag": 185,
+                "ActionTag": -189633162,
+                "Size": {
+                  "X": 151.0,
+                  "Y": 20.0
+                },
+                "Name": "txtRemainTime",
+                "ctype": "TextObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "Common/dotNormal.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 10,
+                "Scale9OriginY": 10,
+                "Scale9Width": 13,
+                "Scale9Height": 13,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 310.9981,
+                  "Y": 15.0905
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.9311,
+                  "Y": 0.1696
+                },
+                "PreSize": {
+                  "X": 0.0988,
+                  "Y": 0.3708
+                },
+                "LeftMargin": 294.4981,
+                "RightMargin": 6.5019,
+                "TopMargin": 57.4095,
+                "BottomMargin": -1.4095,
+                "Tag": 56,
+                "ActionTag": -1078287007,
+                "Size": {
+                  "X": 33.0,
+                  "Y": 33.0
+                },
+                "Name": "dot12",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "Common/dotNormal.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 10,
+                "Scale9OriginY": 10,
+                "Scale9Width": 13,
+                "Scale9Height": 13,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 322.0754,
+                  "Y": 28.2669
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.9643,
+                  "Y": 0.3176
+                },
+                "PreSize": {
+                  "X": 0.0988,
+                  "Y": 0.3708
+                },
+                "LeftMargin": 305.5754,
+                "RightMargin": -4.5754,
+                "TopMargin": 44.2331,
+                "BottomMargin": 11.7669,
+                "Tag": 57,
+                "ActionTag": -807321129,
+                "Size": {
+                  "X": 33.0,
+                  "Y": 33.0
+                },
+                "Name": "dot13",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "Common/dotNormal.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 10,
+                "Scale9OriginY": 10,
+                "Scale9Width": 13,
+                "Scale9Height": 13,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 328.5428,
+                  "Y": 49.2871
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.9837,
+                  "Y": 0.5538
+                },
+                "PreSize": {
+                  "X": 0.0988,
+                  "Y": 0.3708
+                },
+                "LeftMargin": 312.0428,
+                "RightMargin": -11.0428,
+                "TopMargin": 23.2129,
+                "BottomMargin": 32.7871,
+                "Tag": 58,
+                "ActionTag": 1622236033,
+                "Size": {
+                  "X": 33.0,
+                  "Y": 33.0
+                },
+                "Name": "dot14",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "Common/dotNormal.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 10,
+                "Scale9OriginY": 10,
+                "Scale9Width": 13,
+                "Scale9Height": 13,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 322.6131,
+                  "Y": 68.6907
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.9659,
+                  "Y": 0.7718
+                },
+                "PreSize": {
+                  "X": 0.0988,
+                  "Y": 0.3708
+                },
+                "LeftMargin": 306.1131,
+                "RightMargin": -5.1131,
+                "TopMargin": 3.8093,
+                "BottomMargin": 52.1907,
+                "Tag": 59,
+                "ActionTag": 439572189,
+                "Size": {
+                  "X": 33.0,
+                  "Y": 33.0
+                },
+                "Name": "dot15",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "Common/dotNormal.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 10,
+                "Scale9OriginY": 10,
+                "Scale9Width": 13,
+                "Scale9Height": 13,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 308.8981,
+                  "Y": 80.2507
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.9248,
+                  "Y": 0.9017
+                },
+                "PreSize": {
+                  "X": 0.0988,
+                  "Y": 0.3708
+                },
+                "LeftMargin": 292.3981,
+                "RightMargin": 8.6019,
+                "TopMargin": -7.7507,
+                "BottomMargin": 63.7507,
+                "Tag": 60,
+                "ActionTag": 981024671,
+                "Size": {
+                  "X": 33.0,
+                  "Y": 33.0
+                },
+                "Name": "dot16",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "Common/dotNormal.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 10,
+                "Scale9OriginY": 10,
+                "Scale9Width": 13,
+                "Scale9Height": 13,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 25.1447,
+                  "Y": 79.9513
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0753,
+                  "Y": 0.8983
+                },
+                "PreSize": {
+                  "X": 0.0988,
+                  "Y": 0.3708
+                },
+                "LeftMargin": 8.6447,
+                "RightMargin": 292.3553,
+                "TopMargin": -7.4513,
+                "BottomMargin": 63.4513,
+                "Tag": 61,
+                "ActionTag": 702368351,
+                "Size": {
+                  "X": 33.0,
+                  "Y": 33.0
+                },
+                "Name": "dot29",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "Common/dotNormal.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 10,
+                "Scale9OriginY": 10,
+                "Scale9Width": 13,
+                "Scale9Height": 13,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 12.5067,
+                  "Y": 69.8732
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0374,
+                  "Y": 0.7851
+                },
+                "PreSize": {
+                  "X": 0.0988,
+                  "Y": 0.3708
+                },
+                "LeftMargin": -3.9933,
+                "RightMargin": 304.9933,
+                "TopMargin": 2.6268,
+                "BottomMargin": 53.3732,
+                "Tag": 62,
+                "ActionTag": 863464605,
+                "Size": {
+                  "X": 33.0,
+                  "Y": 33.0
+                },
+                "Name": "dot30",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "Common/dotNormal.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 10,
+                "Scale9OriginY": 10,
+                "Scale9Width": 13,
+                "Scale9Height": 13,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 5.2588,
+                  "Y": 49.7099
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0157,
+                  "Y": 0.5585
+                },
+                "PreSize": {
+                  "X": 0.0988,
+                  "Y": 0.3708
+                },
+                "LeftMargin": -11.2412,
+                "RightMargin": 312.2412,
+                "TopMargin": 22.7901,
+                "BottomMargin": 33.2099,
+                "Tag": 63,
+                "ActionTag": -1590112624,
+                "Size": {
+                  "X": 33.0,
+                  "Y": 33.0
+                },
+                "Name": "dot31",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "Common/dotNormal.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 10,
+                "Scale9OriginY": 10,
+                "Scale9Width": 13,
+                "Scale9Height": 13,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 10.1095,
+                  "Y": 30.8447
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0303,
+                  "Y": 0.3466
+                },
+                "PreSize": {
+                  "X": 0.0988,
+                  "Y": 0.3708
+                },
+                "LeftMargin": -6.3905,
+                "RightMargin": 307.3905,
+                "TopMargin": 41.6553,
+                "BottomMargin": 14.3447,
+                "Tag": 64,
+                "ActionTag": -1398691469,
+                "Size": {
+                  "X": 33.0,
+                  "Y": 33.0
+                },
+                "Name": "dot32",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "Common/dotNormal.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 10,
+                "Scale9OriginY": 10,
+                "Scale9Width": 13,
+                "Scale9Height": 13,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 22.9603,
+                  "Y": 15.9939
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0687,
+                  "Y": 0.1797
+                },
+                "PreSize": {
+                  "X": 0.0988,
+                  "Y": 0.3708
+                },
+                "LeftMargin": 6.4603,
+                "RightMargin": 294.5397,
+                "TopMargin": 56.5061,
+                "BottomMargin": -0.5061,
+                "Tag": 65,
+                "ActionTag": 1437617677,
+                "Size": {
+                  "X": 33.0,
+                  "Y": 33.0
+                },
+                "Name": "dot33",
+                "ctype": "ImageViewObjectData"
+              }
+            ],
+            "ActionTag": 1818859898,
+            "Size": {
+              "X": 334.0,
+              "Y": 89.0
+            },
+            "Name": "pVip",
+            "ctype": "ImageViewObjectData"
+          }
+        ],
+        "Size": {
+          "X": 334.0,
+          "Y": 89.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "Common/dotNormal.png",
+        "Font/tahoma.ttf",
+        "Font/tahomabd.ttf",
+        "Vip/iconVip/iconVip1.png",
+        "Vip/iconVip/iconVip6.png",
+        "Vip/iconVpoint.png",
+        "Vip/shopProgress/bgProcessVipShop.png",
+        "Vip/shopProgress/bgShopInfoVip.png",
+        "Vip/shopProgress/processVpoint.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}

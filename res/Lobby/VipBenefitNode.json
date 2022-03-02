@@ -17,19 +17,19 @@
           {
             "FileData": {
               "Type": "Normal",
-              "Path": "Common/bgDialog.png",
+              "Path": "Vip/bgBenefitBack.png",
               "Plist": ""
             },
             "Scale9Enable": true,
-            "Scale9OriginX": 25,
-            "Scale9OriginY": 25,
-            "Scale9Width": 810,
-            "Scale9Height": 587,
+            "Scale9OriginX": 12,
+            "Scale9OriginY": 2,
+            "Scale9Width": 178,
+            "Scale9Height": 182,
             "AnchorPoint": {
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 0.0,
+              "X": 10.0,
               "Y": 0.0
             },
             "Scale": {
@@ -38,7 +38,6 @@
             },
             "CColor": {},
             "IconVisible": false,
-            "PositionPercentXEnabled": true,
             "PositionPercentYEnabled": true,
             "PrePosition": {
               "X": 0.0,
@@ -48,14 +47,70 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "RightMargin": -250.0,
-            "TopMargin": -75.0,
-            "BottomMargin": -75.0,
+            "LeftMargin": 10.0,
+            "RightMargin": -212.0,
+            "TopMargin": -98.0,
+            "BottomMargin": -98.0,
             "Tag": 742,
+            "Children": [
+              {
+                "IsBounceEnabled": true,
+                "InnerNodeSize": {
+                  "Width": 202,
+                  "Height": 196
+                },
+                "ScrollDirectionType": "Horizontal",
+                "ClipAble": true,
+                "BackColorAlpha": 102,
+                "SingleColor": {
+                  "G": 150,
+                  "B": 100
+                },
+                "FirstColor": {
+                  "G": 150,
+                  "B": 100
+                },
+                "EndColor": {},
+                "ColorVector": {
+                  "ScaleY": 1.0
+                },
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 0.0,
+                  "Y": 98.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.0,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "Tag": 11,
+                "ActionTag": 904706561,
+                "Size": {
+                  "X": 202.0,
+                  "Y": 196.0
+                },
+                "Name": "scroll",
+                "ctype": "ScrollViewObjectData"
+              }
+            ],
             "ActionTag": 631078592,
             "Size": {
-              "X": 250.0,
-              "Y": 150.0
+              "X": 202.0,
+              "Y": 196.0
             },
             "Name": "bgBenefit",
             "ctype": "ImageViewObjectData"
@@ -63,20 +118,20 @@
           {
             "FileData": {
               "Type": "Normal",
-              "Path": "Common/bgDialog.png",
+              "Path": "Vip/bgBenefitBack_time.png",
               "Plist": ""
             },
             "Scale9Enable": true,
-            "Scale9OriginX": 25,
-            "Scale9OriginY": 25,
-            "Scale9Width": 810,
-            "Scale9Height": 587,
+            "Scale9OriginX": 12,
+            "Scale9OriginY": 12,
+            "Scale9Width": 178,
+            "Scale9Height": 172,
             "AnchorPoint": {
               "ScaleX": 1.0,
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 0.0,
+              "X": -10.0,
               "Y": 0.0
             },
             "Scale": {
@@ -85,7 +140,6 @@
             },
             "CColor": {},
             "IconVisible": false,
-            "PositionPercentXEnabled": true,
             "PositionPercentYEnabled": true,
             "PrePosition": {
               "X": 0.0,
@@ -95,74 +149,177 @@
               "X": 0.0,
               "Y": 0.0
             },
-            "LeftMargin": -250.0,
-            "TopMargin": -75.0,
-            "BottomMargin": -75.0,
+            "LeftMargin": -212.0,
+            "RightMargin": 10.0,
+            "TopMargin": -98.0,
+            "BottomMargin": -98.0,
             "Tag": 809,
             "Children": [
               {
-                "IsCustomSize": true,
-                "FontSize": 15,
-                "LabelText": "#FFD863",
-                "FontResource": {
-                  "Type": "Normal",
-                  "Path": "Font/tahomabd.ttf",
-                  "Plist": ""
+                "IsBounceEnabled": true,
+                "InnerNodeSize": {
+                  "Width": 202,
+                  "Height": 196
                 },
-                "HorizontalAlignmentType": "HT_Center",
-                "OutlineColor": {
-                  "G": 0,
-                  "B": 0
+                "ScrollDirectionType": "Horizontal",
+                "ClipAble": true,
+                "BackColorAlpha": 102,
+                "SingleColor": {
+                  "R": 0,
+                  "G": 0
                 },
-                "ShadowColor": {
-                  "R": 110,
-                  "G": 110,
-                  "B": 110
+                "FirstColor": {
+                  "G": 150,
+                  "B": 100
                 },
-                "ShadowOffsetX": 2.0,
-                "ShadowOffsetY": -2.0,
-                "AnchorPoint": {
+                "EndColor": {},
+                "ColorVector": {
                   "ScaleY": 1.0
                 },
+                "Scale9Width": 1,
+                "Scale9Height": 1,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 0.5
+                },
                 "Position": {
-                  "X": 0.0,
-                  "Y": 0.0
+                  "X": 202.0,
+                  "Y": 98.0
                 },
                 "Scale": {
                   "ScaleX": 1.0,
                   "ScaleY": 1.0
                 },
-                "CColor": {
-                  "G": 216,
-                  "B": 99
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 1.0,
+                  "Y": 0.5
                 },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "Tag": 12,
+                "ActionTag": -715498960,
+                "Size": {
+                  "X": 202.0,
+                  "Y": 196.0
+                },
+                "Name": "scroll",
+                "ctype": "ScrollViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "Vip/bgRemainTime.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 55,
+                "Scale9OriginY": 13,
+                "Scale9Width": 59,
+                "Scale9Height": 15,
+                "AnchorPoint": {},
+                "Position": {
+                  "X": 0.0,
+                  "Y": 178.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
                 "IconVisible": false,
                 "PrePosition": {
                   "X": 0.0,
-                  "Y": 0.0
+                  "Y": 0.9082
                 },
-                "PercentWidthEnable": true,
-                "PercentWidthEnabled": true,
                 "PreSize": {
-                  "X": 1.0,
-                  "Y": 0.6
+                  "X": 0.6931,
+                  "Y": 0.2092
                 },
-                "TopMargin": 150.0,
-                "BottomMargin": -90.0,
-                "Tag": 952,
-                "ActionTag": -879466195,
+                "RightMargin": 62.0,
+                "TopMargin": -23.0,
+                "BottomMargin": 178.0,
+                "Tag": 739,
+                "Children": [
+                  {
+                    "IsCustomSize": true,
+                    "FontSize": 17,
+                    "LabelText": "12 ngày 20 giờ",
+                    "FontResource": {
+                      "Type": "Normal",
+                      "Path": "Font/robotoBold.ttf",
+                      "Plist": ""
+                    },
+                    "HorizontalAlignmentType": "HT_Center",
+                    "VerticalAlignmentType": "VT_Center",
+                    "OutlineColor": {
+                      "G": 0,
+                      "B": 0
+                    },
+                    "ShadowColor": {
+                      "R": 110,
+                      "G": 110,
+                      "B": 110
+                    },
+                    "ShadowOffsetX": 2.0,
+                    "ShadowOffsetY": -2.0,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 67.494,
+                      "Y": 26.4983
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PositionPercentXEnabled": true,
+                    "PositionPercentYEnabled": true,
+                    "PrePosition": {
+                      "X": 0.4821,
+                      "Y": 0.6463
+                    },
+                    "PreSize": {
+                      "X": 1.1429,
+                      "Y": 0.561
+                    },
+                    "LeftMargin": -12.506,
+                    "RightMargin": -7.494,
+                    "TopMargin": 3.0017,
+                    "BottomMargin": 14.9983,
+                    "Tag": 952,
+                    "ActionTag": -879466195,
+                    "Size": {
+                      "X": 160.0,
+                      "Y": 23.0
+                    },
+                    "Name": "lbTimeRemain",
+                    "ctype": "TextObjectData"
+                  }
+                ],
+                "ActionTag": 620358488,
                 "Size": {
-                  "X": 250.0,
-                  "Y": 90.0
+                  "X": 140.0,
+                  "Y": 41.0
                 },
-                "Name": "lbTimeRemain",
-                "ctype": "TextObjectData"
+                "Name": "bg",
+                "ctype": "ImageViewObjectData"
               }
             ],
             "ActionTag": 962305820,
             "Size": {
-              "X": 250.0,
-              "Y": 150.0
+              "X": 202.0,
+              "Y": 196.0
             },
             "Name": "bgBenefitTime",
             "ctype": "ImageViewObjectData"
@@ -176,8 +333,10 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
-        "Common/bgDialog.png",
-        "Font/tahomabd.ttf"
+        "Font/robotoBold.ttf",
+        "Vip/bgBenefitBack.png",
+        "Vip/bgBenefitBack_time.png",
+        "Vip/bgRemainTime.png"
       ],
       "ctype": "GameFileData"
     }

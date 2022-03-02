@@ -550,7 +550,11 @@ var UserInfoPanel = BaseLayer.extend({
             goldMedal = RankData.getInstance().getNumberGoldMedal();
             silverMedal = RankData.getInstance().getNumberSilverMedal() || 0;
             bronzeMedal = RankData.getInstance().getNumberBronzeMedal() || 0;
-            rank = RankData.getInstance().getCurRankInfo()["rank"] || 0;
+            var rankInfo = RankData.getInstance().getCurRankInfo();
+            if (!rankInfo)
+                rank = 0;
+            else
+                rank = rankInfo["rank"] || 0;
         }
         this.goldMedal.setString(StringUtility.pointNumber(goldMedal));
         this.silverMedal.setString(StringUtility.pointNumber(silverMedal));
@@ -572,8 +576,12 @@ var UserInfoPanel = BaseLayer.extend({
             var indexLevel = Math.floor(rank / 3) + 1;
             animRank.gotoAndPlay(indexLevel, 0, -1, 9999);
         }
-    }
+    },
     /* endregion Tab Info */
+
+    updateInfoItem: function () {
+        this.pItem.onUpdateGUI();
+    }
 });
 
 UserInfoPanel.className = "UserInfoPanel";
