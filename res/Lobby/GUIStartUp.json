@@ -29,6 +29,8 @@
             "ColorVector": {
               "ScaleY": 1.0
             },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
@@ -422,6 +424,8 @@
                 "ColorVector": {
                   "ScaleY": 1.0
                 },
+                "Scale9Width": 1,
+                "Scale9Height": 1,
                 "TouchEnable": true,
                 "AnchorPoint": {},
                 "Position": {
@@ -444,7 +448,7 @@
                 },
                 "LeftMargin": 108.6323,
                 "RightMargin": 203.3677,
-                "TopMargin": 240.1581,
+                "TopMargin": 240.1582,
                 "BottomMargin": 144.8418,
                 "Tag": 41,
                 "Children": [
@@ -680,6 +684,53 @@
                   "Y": 200.0
                 },
                 "Name": "pLight",
+                "ctype": "PanelObjectData"
+              },
+              {
+                "ClipAble": false,
+                "BackColorAlpha": 102,
+                "SingleColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "FirstColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "EndColor": {},
+                "ColorVector": {
+                  "ScaleY": 1.0
+                },
+                "AnchorPoint": {},
+                "Position": {
+                  "X": 161.9904,
+                  "Y": -67.1744
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.2275,
+                  "Y": -0.1148
+                },
+                "PreSize": {
+                  "X": 0.5618,
+                  "Y": 1.0256
+                },
+                "LeftMargin": 161.9904,
+                "RightMargin": 150.0096,
+                "TopMargin": 52.1744,
+                "BottomMargin": -67.1744,
+                "Tag": 47,
+                "ActionTag": 627258519,
+                "Size": {
+                  "X": 400.0,
+                  "Y": 600.0
+                },
+                "Name": "pEff",
                 "ctype": "PanelObjectData"
               }
             ],

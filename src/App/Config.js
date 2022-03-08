@@ -106,5 +106,5 @@ Config.ENABLE_QR_SMS_SYNTAX = false;
 
 Config.URL_ZALOPAY = "vn.com.vng.zalopay";
 Config.URL_ZALOPAY_SANBOX = "vn.com.vng.zalopay.sbmc";
-
+Config.ZALOPAY_DEEP_LINK = "zalopay://launch/app/731?view=top_up&amount=@amount&redirect_url=zps://@package";
 var vec3 = cc.math.vec3;

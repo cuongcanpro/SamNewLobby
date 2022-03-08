@@ -821,7 +821,7 @@ TabItemPayment = cc.Layer.extend({
 
         this.pPreview.btnSub.setEnabled(this.previewItemData.maxNum > 0 && this.previewItemData.selectedNum > 1);
         this.pPreview.btnAdd.setEnabled(this.previewItemData.maxNum > 0 && this.previewItemData.selectedNum < this.previewItemData.maxNum);
-        this.pPreview.btnFive.setVisible(this.previewItemData.maxNum >= 5);
+        this.pPreview.btnFive.setEnabled(this.previewItemData.maxNum >= 5);
 
         this.shopItemData[this.selectedTab][this.previewItemData.index].selectedNum = this.previewItemData.selectedNum;
         this.pItem.updateCellAtIndex(Math.floor(this.previewItemData.index/this.numCol));
@@ -884,8 +884,8 @@ TabItemPayment = cc.Layer.extend({
         this.pPreview.btnBuy.setEnabled(enabled);
         this.pPreview.iconCondition.getVirtualRenderer().setState(enabled ? 0 : 1);
         this.pPreview.iconDiamond.getVirtualRenderer().setState(enabled ? 0 : 1);
-        this.pPreview.condition.enableOutline(enabled ? cc.color("#FF9700") : cc.color("#949494"), 1);
-        this.pPreview.diamond.enableOutline(enabled ? cc.color("#FF9700") : cc.color("#949494"), 1);
+        // this.pPreview.condition.enableOutline(enabled ? cc.color("#FF9700") : cc.color("#949494"), 1);
+        // this.pPreview.diamond.enableOutline(enabled ? cc.color("#FF9700") : cc.color("#949494"), 1);
     },
 
     onAddPreviewItemNum: function(button, type) {

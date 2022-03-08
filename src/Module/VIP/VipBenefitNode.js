@@ -2,6 +2,8 @@ var VipBenefitNode = BaseLayer.extend({
     ctor: function () {
         this._super();
         this.initWithBinaryFile("VipBenefitNode.json");
+        this.maxCell = VipBenefitNode.MAX_CELL + (cc.winSize.width > Constant.WIDTH?
+            Math.floor((cc.winSize.width - Constant.WIDTH) / 100) : Math.ceil((cc.winSize.width - Constant.WIDTH) / 100));
     },
 
     initGUI: function () {
@@ -22,8 +24,8 @@ var VipBenefitNode = BaseLayer.extend({
 
     updatePosition: function (effectTime) {
         this.stopAllActions();
-        var widthTime = Math.min(this.numTime, VipBenefitNode.MAX_CELL + 0.5) * (VipBenefitCell.WIDTH + VipBenefitNode.MARGIN_CELL);
-        var width = Math.min(this.num, VipBenefitNode.MAX_CELL + 0.5) * (VipBenefitCell.WIDTH + VipBenefitNode.MARGIN_CELL);
+        var widthTime = Math.min(this.numTime, this.maxCell + 0.5) * (VipBenefitCell.WIDTH + VipBenefitNode.MARGIN_CELL);
+        var width = Math.min(this.num, this.maxCell + 0.5) * (VipBenefitCell.WIDTH + VipBenefitNode.MARGIN_CELL);
 
         var delta = (widthTime - width) * 0.5;
         if (this.numTime * this.num === 0) {
@@ -46,8 +48,8 @@ var VipBenefitNode = BaseLayer.extend({
             + VipBenefitNode.MARGIN_CELL * (num - 1)
             + VipBenefitNode.MARGIN_SIDE * 2;
         bg.scroll.innerWidth = realTargetWidth;
-        var targetWidth = VipBenefitCell.WIDTH * Math.min(num, VipBenefitNode.MAX_CELL + 0.5)
-            + VipBenefitNode.MARGIN_CELL * (Math.min(num, VipBenefitNode.MAX_CELL) - 1)
+        var targetWidth = VipBenefitCell.WIDTH * Math.min(num, this.maxCell + 0.5)
+            + VipBenefitNode.MARGIN_CELL * (Math.min(num, this.maxCell) - 1)
             + VipBenefitNode.MARGIN_SIDE * 2;
         bg.scroll.setBounceEnabled(targetWidth !== realTargetWidth);
         if (num <= 0) targetWidth = 0;
@@ -80,7 +82,7 @@ var VipBenefitNode = BaseLayer.extend({
         for (var i = 0; i < Math.max(list.length, num); i++) {
             var cell;
             if (i >= list.length) {
-                cell = new VipBenefitCell();
+                cell = new VipBenefitCell(this);
                 bg.scroll.addChild(cell);
                 list.push(cell);
             } else {
@@ -197,12 +199,13 @@ VipBenefitNode.MARGIN_CELL = 12;
 VipBenefitNode.MAX_CELL = 4;
 
 var VipBenefitCell = BaseLayer.extend({
-    ctor: function () {
+    ctor: function (benefitNode) {
         this.level = 0;
         this.index = 0;
         this.dataValue = 0;
         this.closedAngle = -45;
         this.delayTime = 15;
+        this.benefitNode = benefitNode;
 
         this._super();
         this.initWithBinaryFile("VipBenefitCell.json");
@@ -353,6 +356,7 @@ var VipBenefitCell = BaseLayer.extend({
     },
 
     openExplain: function () {
+        cc.log("OPENING EXPLAIN");
         var effectTime = 0.15;
         var delayTime = this.delayTime;
         this.explain.stopAllActions();
@@ -388,8 +392,8 @@ var VipBenefitCell = BaseLayer.extend({
     },
 
     onButtonRelease: function () {
-        cc.log("INDEX", this.index);
         return;
+        cc.log("INDEX", this.index);
         switch (parseInt(this.index)) {
             case VipManager.BENEFIT_BONUS_SHOP:
                 paymentMgr.openShop();
@@ -401,7 +405,7 @@ var VipBenefitCell = BaseLayer.extend({
                 break;
             default:
                 this.openExplain();
-                this.getParent().closeOtherExplain(this);
+                this.benefitNode.closeOtherExplain(this);
                 break;
         }
     }

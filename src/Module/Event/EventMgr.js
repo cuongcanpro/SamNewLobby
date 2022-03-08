@@ -117,6 +117,7 @@ var EventMgr = BaseMgr.extend({
     },
 
     showButtonEvent: function (btn) {
+        cc.log("SHOW BUTTON EVENT ** ");
         if (this.btnMainEvent) {
             this.btnMainEvent.removeFromParent();
         }
@@ -124,14 +125,17 @@ var EventMgr = BaseMgr.extend({
             this.btnMainEvent = new EventButton(true);
             this.btnMainEvent.retain();
         }
+
         this.btnMainEvent.nodeDownload.setScale(1.0);
         btn.removeAllChildren();
         btn.addChild(this.btnMainEvent);
+
         this.btnMainEvent.setPosition(btn.getContentSize().width * 0.5, btn.getContentSize().height * 0.5);
         var event = this.getEventById();
         if (event && !event.isFinishDownload) {
             this.btnMainEvent.waitDownload();
         }
+
         if (event && event.showNotifyEvent) {
             this.btnMainEvent.setInfo(event.dataEvent);
             event.showNotifyEvent(this.btnMainEvent);
@@ -612,6 +616,23 @@ EventMgr.EGG_BREAKER_NAME = "eggBreaker";
 EventMgr.WEEKLY_CHALLENGE_NAME = "weeklyChallenge";
 EventMgr.BLUE_OCEAN_NAME = "summer";
 
+var Event = {};
+Event.LUCKY_CARD = "halloween";
+Event.POT_BREAKER = "potBreaker";
+Event.EGG_BREAKER = "eggBreaker";
+Event.MID_AUTUMN = "midAutumn";
+Event.EVENT_TET = "tet2018";
+Event.WEEKLY_CHALLENGE = "weeklyChallenge";
+Event.BLUE_OCEAN = "summer";
+
+Event.LUCKY_CARD_NAME = "halloween";
+Event.POT_BREAKER_NAME = "potBreaker";
+Event.MID_AUTUMN_NAME = "midAutumn";
+Event.EVENT_TET_NAME = "tet2018";
+Event.EGG_BREAKER_NAME = "eggBreaker";
+Event.WEEKLY_CHALLENGE_NAME = "weeklyChallenge";
+Event.BLUE_OCEAN_NAME = "summer";
+
 //EventMgr.LUCKY_CARD_PATH = "res/Lobby/EventMgr/WishingStar/project.manifest";
 
 EventMgr._inst = null;
@@ -622,4 +643,4 @@ EventMgr.instance = function () {
     return EventMgr._inst;
 };
 var eventMgr = EventMgr.instance();
-
+var event = eventMgr;

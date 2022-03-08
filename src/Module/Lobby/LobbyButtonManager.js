@@ -79,7 +79,6 @@ var LobbyButtonManager = cc.Class.extend({
             var type = this.buttonArray[i].type;
             var id = this.buttonArray[i].id;
             var button = this.buttonMap[type][id];
-
             if (!button.isVisible()) continue;
             var row = count % LobbyButtonManager.MAX_ROW;
             var col = Math.floor(count / LobbyButtonManager.MAX_ROW);

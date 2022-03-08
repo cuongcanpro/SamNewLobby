@@ -223,7 +223,7 @@ var GiftCodeScene = BaseLayer.extend({
     },
 
     tableCellSizeForIndex:function(table, idx){
-        return cc.size(GiftCodeScene.GIFT_W,GiftCodeScene.GIFT_H);
+        return cc.size(GiftCodeScene.GIFT_W, GiftCodeScene.GIFT_H);
     },
 
     numberOfCellsInTableView:function (table) {
@@ -272,7 +272,7 @@ GiftCodeScene.BTN_OK    = 3;
 GiftCodeScene.BTN_USE   = 4;
 
 GiftCodeScene.GIFT_W    = 465;
-GiftCodeScene.GIFT_H    = 92;
+GiftCodeScene.GIFT_H    = 120;
 
 GiftCodeScene.TAB_INPUT     = 0;
 GiftCodeScene.TAB_GET       = 1;

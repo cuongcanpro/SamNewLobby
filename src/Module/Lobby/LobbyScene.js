@@ -61,17 +61,16 @@ var LobbyScene = BaseLayer.extend({
         // this.btnCamera.setVisible(false);
         this.updateMoreButtonTopRight();
         this.onUpdateGUI();
-        this.pUserInfo.updateToCurrentData();
-        this.loadAnimation();
+        this.updateToCurrentData();
+
         if (Config.ENABLE_NEW_RANK)
             this.onUpdateBtnRank();
        
-        if (!this.isAnimateGUI) {
+        if (!this.isAnimateGUI || true) {
             this.isAnimateGUI = true;
             this.defaultPosition();
-            //setTimeout(this.doFinishEffect.bind(this), 100);
-             //this.waitEffect();
-             //this.effect();
+            this.waitEffect();
+            this.effect();
         } else {
             this.defaultPosition();
             setTimeout(this.doFinishEffect.bind(this), 100);
@@ -80,16 +79,16 @@ var LobbyScene = BaseLayer.extend({
         // hide event button
         this.scheduleUpdate();
         LobbyButtonManager.getInstance().scheduleUpdate();
-
         dispatcherMgr.dispatchEvent(LobbyMgr.EVENT_ON_ENTER_FINISH);
 
         //init lucky bonus
         this.btnCamera.setVisible(false);
         if (this.btnCamera.isVisible())
-            this.btnLuckyBonus.setPosition(this.btnCamera.getPositionX() - 90, this.btnCamera.getPositionY());
+            this.btnLuckyBonus.setPosition(this.btnCamera.getPositionX() - 110, this.btnCamera.getPositionY());
         else
-            this.btnLuckyBonus.setPosition(this.btnSupport.getPositionX() - 90, this.btnCamera.getPositionY());
-        this.btnFortuneCat.setPosition(this.btnLuckyBonus.getPositionX() - 90, this.btnLuckyBonus.getPositionY());
+            this.btnLuckyBonus.setPosition(this.btnSupport.getPositionX() - 110, this.btnCamera.getPositionY());
+        this.btnFortuneCat.setPosition(this.btnLuckyBonus.getPositionX() - 110, this.btnLuckyBonus.getPositionY());
+
     },
 
 
@@ -107,34 +106,20 @@ var LobbyScene = BaseLayer.extend({
         var scale = cc.winSize.height / bg.getContentSize().height;
         bg.setScale(scale);
         bg.setVisible(true);
+        this.bg = bg;
 
         this.adult = this.getControl("adult");
         this.adult.setVisible(gameMgr.enableAdult);
 
-        this.panelSnow = this.getControl("panelSnow", bg);
-        var emitter1 = new cc.ParticleSystem("res/Particles/snow.plist");
-        emitter1.setBlendAdditive(true);
-        emitter1.setPosVar(cc.p(this.panelSnow.getContentSize().width, this.panelSnow.getContentSize().height));
-        emitter1.setGravity(cc.p(0, -10));
-        emitter1.setSpeed(30);
-        // emitter1.setPosVar(cc.p(100, 100));
-        var batch = new cc.ParticleBatchNode(emitter1.texture);
-        batch.addChild(emitter1);
-        // batch.setPosition(300, 300);
-        // this.panelSnow.addChild(batch);
-        emitter1.setSourcePosition(cc.p(550, -400));
-        emitter1.setStartSize(10);
-
-        //bg.setScale(this._scaleRealX);
-
         this.npc = this.getControl("npc");
         this.panelBgNew = this.getControl("panelBgNew");
 
+        this.initSnow();
         this.initTopLeft();
+        this.initBottom();
         this.initCenterLeft();
         this.initCenterRight();
-        this.initBottom();
-
+        this.loadAnimation();
         // Load Firework Position
         var deltaY = 0;
         if (this._scaleRealX < 1) {
@@ -151,47 +136,36 @@ var LobbyScene = BaseLayer.extend({
             potBreaker.sendEventPotBreaker();
         }
 
-        cc.log("CREATE BUTTON IN LOBBY ");
         eventMgr.createEventInLobby(this);
     },
 
-    initCenterRight: function () {
-        var pRightButton = this.getControl("pRightButton");
-        this.btnCamera = this.customButton("btnCamera", LobbyScene.BTN_SHARE, pRightButton);
-        this.btnSupport = this.customButton("btnSupport", LobbyScene.BTN_SUPPORT, pRightButton);
-
-        this.btnLuckyBonus = new LuckyBonusButton();
-        pRightButton.addChild(this.btnLuckyBonus);
-        LuckyBonusManager.getInstance().lobbyIcon = this.btnLuckyBonus;
-
-        this.btnFortuneCat = new FortuneCatIcon(false);
-        FortuneCatManager.getInstance().lobbyIcon = this.btnFortuneCat;
-        pRightButton.addChild(this.btnFortuneCat);
-
-        this.btnQuickPlay = this.customButton("btnChoingay", LobbyScene.BTN_CHOINGAY, pRightButton);
-        this.btnChooseRoom = this.customButton("btnChonban", LobbyScene.BTN_CHONBAN, pRightButton);
-        this.btnRank = this.customButton("btnRank", LobbyScene.BTN_RANK, pRightButton);
-        this.btnRank.worldPosition = this.btnRank.getWorldPosition();
-        this.btnRank.hot = this.getControl("hot", this.btnRank);
-        this.btnRank.hot.setLocalZOrder(1);
-        this.btnRank.pArrow = this.getControl("pArrow", this.btnRank);
-        this.btnVip = this.customButton("btnVip", LobbyScene.BTN_VIP, pRightButton);
-        this.pTooltipVip = new VipTooltipLobby();
-        this.btnVip.addChild(this.pTooltipVip);
-        this.pTooltipVip.setLocalZOrder(10);
-        this.pTooltipVip.setPosition(-cc.winSize.width + this.btnVip.getContentSize().width * 0.5, -cc.winSize.height);
-
-        this.btnQuickPlay.setPressedActionEnabled(false);
-        this.btnChooseRoom.setPressedActionEnabled(false);
-        this.btnRank.setPressedActionEnabled(false);
-        this.btnVip.setPressedActionEnabled(false);
+    initSnow: function () {
+        this.panelSnow = this.getControl("panelSnow", this.bg);
+        var emitter1 = new cc.ParticleSystem("res/Particles/snow.plist");
+        emitter1.setBlendAdditive(true);
+        emitter1.setPosVar(cc.p(this.panelSnow.getContentSize().width, this.panelSnow.getContentSize().height));
+        emitter1.setGravity(cc.p(0, -10));
+        emitter1.setSpeed(30);
+        // emitter1.setPosVar(cc.p(100, 100));
+        var batch = new cc.ParticleBatchNode(emitter1.texture);
+        batch.addChild(emitter1);
+        // batch.setPosition(300, 300);
+        // this.panelSnow.addChild(batch);
+        emitter1.setSourcePosition(cc.p(550, -400));
+        emitter1.setStartSize(10);
     },
 
     initBottom: function () {
         var pBotButton = this.getControl("bot");//this.getControl("bot");
+        this.arrayBottom = [];
+        this.bar = this.getControl("bar");
+
+        this.btnEvent = this.customButton("pEventButton", LobbyScene.BTN_EVENT, pBotButton);
+        this.pBtnEvent = this.getControl("pButton", this.btnEvent);
+        this.imgEmpty = this.getControl("imgEmpty", this.btnEvent);
+        this.btnEvent.setPressedActionEnabled(false);
 
         this.btnStorage = this.customButton("btnStorage", LobbyScene.BTN_STORAGE, pBotButton);
-
         this.btnHotNews = this.customButton("btnHotNews", LobbyScene.BTN_HOT_NEWS, pBotButton);
         this.btnHotNews.hot = this.getControl("imgNotice", this.btnHotNews);
         this.btnHotNews.hot.setVisible(false);
@@ -213,15 +187,56 @@ var LobbyScene = BaseLayer.extend({
         this.btnGold.hot.setVisible(false);
         this.btnGold.hot.setLocalZOrder(100);
 
-        this.btnEvent = this.customButton("pEventButton", LobbyScene.BTN_EVENT, pBotButton);
-        this.pBtnEvent = this.getControl("pButton", this.pBtnEvent);
-        this.imgEmpty = this.getControl("imgEmpty", this.btnEvent);
-        this.imgEmpty.setVisible(false);
-        this.btnEvent.setPressedActionEnabled(false);
+        this.arrayBottom.push(this.btnEvent);
+        this.arrayBottom.push(this.btnHotNews);
+        this.arrayBottom.push(this.btnNews);
+        this.arrayBottom.push(this.btnGiftCode);
+        this.arrayBottom.push(this.btnStorage);
+        this.arrayBottom.push(this.btnSetting);
+        this.arrayBottom.push(this.btnGold);
     },
+
+    initCenterRight: function () {
+        var pRightButton = this.getControl("pRightButton");
+        pRightButton.setPositionX(cc.winSize.width * 0.5 + this.bar.getContentSize().width * 0.5);
+        this.btnCamera = this.customButton("btnCamera", LobbyScene.BTN_SHARE, pRightButton);
+        this.btnSupport = this.customButton("btnSupport", LobbyScene.BTN_SUPPORT, pRightButton);
+
+        this.btnLuckyBonus = new LuckyBonusButton();
+        pRightButton.addChild(this.btnLuckyBonus);
+        LuckyBonusManager.getInstance().lobbyIcon = this.btnLuckyBonus;
+
+        this.btnFortuneCat = new FortuneCatIcon(false);
+        FortuneCatManager.getInstance().lobbyIcon = this.btnFortuneCat;
+        pRightButton.addChild(this.btnFortuneCat);
+
+        this.btnQuickPlay = this.customButton("btnChoingay", LobbyScene.BTN_CHOINGAY, pRightButton);
+        this.btnChooseRoom = this.customButton("btnChonban", LobbyScene.BTN_CHONBAN, pRightButton);
+        this.btnRank = this.customButton("btnRank", LobbyScene.BTN_RANK, pRightButton);
+        this.btnRank.worldPosition = this.btnRank.getWorldPosition();
+        this.btnRank.hot = this.getControl("hot", this.btnRank);
+        this.btnRank.hot.setLocalZOrder(1);
+        this.btnRank.pArrow = this.getControl("pArrow", this.btnRank);
+        this.btnMinigame = this.customButton("btnMinigame", LobbyScene.BTN_MINIGAME, pRightButton);
+        this.btnVip = this.customButton("btnVip", LobbyScene.BTN_VIP, pRightButton);
+
+        this.btnQuickPlay.setPressedActionEnabled(false);
+        this.btnChooseRoom.setPressedActionEnabled(false);
+        this.btnRank.setPressedActionEnabled(false);
+        this.btnVip.setPressedActionEnabled(false);
+
+        this.arrayCenterRight = [];
+        this.arrayCenterRight.push(this.btnQuickPlay);
+        this.arrayCenterRight.push(this.btnChooseRoom);
+        this.arrayCenterRight.push(this.btnRank);
+        this.arrayCenterRight.push(this.btnMinigame);
+        this.arrayCenterRight.push(this.btnVip);
+    },
+
 
     initTopLeft: function () {
         var pLeftTop = this.getControl("pLeftTop");
+        this.arrayLeftTop = [];
         this.logo = this.getControl("logo", pLeftTop);
         this.initUserInfo();
 
@@ -244,22 +259,14 @@ var LobbyScene = BaseLayer.extend({
         }, this);
     },
 
-    initCenterLeft: function () {
-        var pLeftCenter = this.getControl("pLeftCenter");
-        this.btnShare = this.customButton("btnShare", LobbyScene.BTN_SHARE, pLeftCenter);
-
-        this.pButton = this.getControl("pButton", pLeftCenter);
-        LobbyButtonManager.getInstance().setPButton(this.pButton);
-    },
-
     initUserInfo: function () {
         var pLeftTop = this.getControl("pLeftTop");
+        this.pAvatar = this.getControl("pAvatar", pLeftTop);
 
-        var btnAvatar = this.customButton("btnAvatar", LobbyScene.BTN_AVATAR, pLeftTop, pLeftTop);
+        var btnAvatar = this.customButton("btnAvatar", LobbyScene.BTN_AVATAR, this.pAvatar, this.pAvatar);
         btnAvatar.setPressedActionEnabled(false);
         this.btnAvatar = btnAvatar;
 
-        this.pAvatar = this.getControl("pAvatar", pLeftTop);
         this._uiAvatar = new AvatarUI("Common/defaultAvatar.png", "Common/maskAvatar.png", "");////engine.UIAvatar.create("Common/defaultAvatar.png");
         var size = this.pAvatar.getContentSize();
         this._uiAvatar.setPosition(cc.p(size.width / 2, size.height / 2));
@@ -280,207 +287,71 @@ var LobbyScene = BaseLayer.extend({
         this.imgVip = this.getControl("imgVip", bgVip);
         this.imgVip.ignoreContentAdaptWithSize(true);
         this.lbVip = this.getControl("lbVip", bgVip);
+        this.pTooltipVip = new VipTooltipLobby();
+        this.imgVip.addChild(this.pTooltipVip);
+        this.pTooltipVip.setLocalZOrder(10);
+        this.pTooltipVip.setPosition(-cc.winSize.width + this.pTooltipVip.getContentSize().width * 0.3, -cc.winSize.height);
 
         this.pUserInfo = new UserDetailInfo();
+        // this.pUserInfo.setScale(1.2);
         this.pAvatar.addChild(this.pUserInfo);
-        this.pUserInfo.setPosition(bgName.getPositionX() + bgName.getContentSize().width * 0.6, bgName.getPositionY() - bgName.getContentSize().height * 1.0);
+        this.pUserInfo.setPosition(bgName.getPositionX() + bgName.getContentSize().width * 0.9, bgName.getPositionY() - bgName.getContentSize().height * 0.9);
+        this.arrayLeftTop.push(this.pAvatar);
+        this.arrayLeftTop.push(this.logo);
+        this.arrayLeftTop.push(this.pUserInfo.btnGold);
+        this.arrayLeftTop.push(this.pUserInfo.btnCoin);
+        this.arrayLeftTop.push(this.pUserInfo.btnDiamond);
     },
 
-    waitEffectOneElement: function (parent, element, distanceX, distanceY) {
-        var ret = this.getControl(element, parent);
-        this.resetDefaultPosition(ret);
-        if (distanceY != 0)
-            ret.setPositionY(ret.getPositionY() + distanceY);
-        if (distanceX != 0)
-            ret.setPositionX(ret.getPositionX() + distanceX);
+    initCenterLeft: function () {
+        var pLeftCenter = this.getControl("pLeftCenter");
+        this.btnShare = this.customButton("btnShare", LobbyScene.BTN_SHARE, pLeftCenter);
+
+        this.pButton = this.getControl("pButton", pLeftCenter);
+        LobbyButtonManager.getInstance().setPButton(this.pButton);
     },
 
     defaultPosition: function () {
-        var ret;
-        var pRightButton = this.getControl("pRightButton");
-        var pLeftTop = this.getControl("pLeftTop");
-        var pRightTop = this.getControl("pRightTop");
-        var pBot = this.getControl("bot");
-        var pLeftRank = this.getControl("pLeftRank");
-
-        ret = this.getControl("npc");
-        ret.setOpacity(255);
-
-        // TOP
-        this.waitEffectOneElement(pRightTop, "btnCamera", 0, 0);
-        this.waitEffectOneElement(pRightTop, "btnSupport", 0, 0);
-
-        // LEFT_TOP
-        this.waitEffectOneElement(pLeftTop, "logo", 0, 0);
-        this.waitEffectOneElement(pLeftTop, "bgAvatar", 0, 0);
-        this.waitEffectOneElement(pLeftTop, "btnAvatar", 0, 0);
-        this.waitEffectOneElement(pLeftTop, "bgName", 0, 0);
-        this.waitEffectOneElement(pLeftTop, "name", 0, 0);
-        this.waitEffectOneElement(pLeftTop, "btnG", 0, 0);
-        this.waitEffectOneElement(pLeftTop, "btnGold", 0, 0);
-        // this.waitEffectOneElement(pLeftTop, "imgVip", 0, 150);
-        this.resetDefaultPosition(this.imgVip);
-        this.imgVip.setPositionY(this.imgVip.getPositionY() + 0);
-
-        // BOT
-        this.waitEffectOneElement(this._layout, "bar", 0, -0);
-        this.waitEffectOneElement(pBot, "btnSetting", 0, -0);
-        this.waitEffectOneElement(pBot, "btnDoivang", 0, -0);
-        this.waitEffectOneElement(pBot, "btnGiftCode", 0, -0);
-        this.waitEffectOneElement(pBot, "btnNews", 0, -0);
-        this.waitEffectOneElement(pBot, "btnHotNews", 0, -0);
-
-        //CENTER RIGHT
-        this.waitEffectOneElement(pRightButton, "btnChoingay", 0, 0);
-        this.waitEffectOneElement(pRightButton, "btnChonban", 0, 0);
-        this.waitEffectOneElement(pRightButton, "btnVip", 0, 0);
-        this.waitEffectOneElement(pRightButton, "btnRank", 0, 0);
-
-        // LEFT
-        var pLeftCenter = this.getControl("pLeftCenter");
-
+        this.npc.setOpacity(255);
+        this.setPositionComponent(this.arrayBottom, 0, 0);
+        this.setPositionComponent(this.arrayLeftTop, 0, 0);
+        this.setPositionComponent(this.arrayCenterRight, 0, 0);
     },
 
     waitEffect: function () {
-        var ret;
-        var pRightButton = this.getControl("pRightButton");
-        var pLeftTop = this.getControl("pLeftTop");
-        var pRightTop = this.getControl("pRightTop");
-        var pBot = this.getControl("bot");
-        var pLeftRank = this.getControl("pLeftRank");
+        this.npc.setOpacity(0);
 
-        ret = this.getControl("npc");
-        ret.setOpacity(0);
+        this.setPositionComponent(this.arrayBottom, 0, -200);
+        this.setPositionComponent(this.arrayLeftTop, 0, 200);
+        this.setPositionComponent(this.arrayCenterRight, 200, 0);
+    },
 
-        // TOP
-        this.waitEffectOneElement(pRightTop, "btnCamera", 0, 150);
-        this.waitEffectOneElement(pRightTop, "btnSupport", 0, 150);
-
-        // LEFT_TOP
-        this.waitEffectOneElement(pLeftTop, "logo", 0, 150);
-        this.waitEffectOneElement(pLeftTop, "bgAvatar", 0, 150);
-        this.waitEffectOneElement(pLeftTop, "btnAvatar", 0, 150);
-        this.waitEffectOneElement(pLeftTop, "bgName", 0, 150);
-        this.waitEffectOneElement(pLeftTop, "name", 0, 150);
-        this.waitEffectOneElement(pLeftTop, "btnG", 0, 150);
-        this.waitEffectOneElement(pLeftTop, "btnGold", 0, 150);
-        // this.waitEffectOneElement(pLeftTop, "imgVip", 0, 150);
-        this.resetDefaultPosition(this.imgVip);
-        this.imgVip.setPositionY(this.imgVip.getPositionY() + 150);
-
-        // BOT
-        this.waitEffectOneElement(this._layout, "bar", 0, -150);
-        this.waitEffectOneElement(pBot, "btnSetting", 0, -150);
-        this.waitEffectOneElement(pBot, "btnDoivang", 0, -150);
-        this.waitEffectOneElement(pBot, "btnGiftCode", 0, -150);
-        this.waitEffectOneElement(pBot, "btnNews", 0, -150);
-        this.waitEffectOneElement(pBot, "btnHotNews", 0, -150);
-
-        //CENTER RIGHT
-        this.waitEffectOneElement(pRightButton, "btnChoingay", 400, 0);
-        this.waitEffectOneElement(pRightButton, "btnChonban", 400, 0);
-        this.waitEffectOneElement(pRightButton, "btnVip", 400, 0);
-        this.waitEffectOneElement(pRightButton, "btnRank", 400, 0);
-
-        // LEFT
-        var pLeftCenter = this.getControl("pLeftCenter");
+    setPositionComponent: function (component, dx, dy) {
+        for (var i = 0; i < component.length; i++) {
+            component[i].stopAllActions();
+            this.resetDefaultPosition(component[i]);
+            component[i].setPosition(component[i].getPositionX() + dx, component[i].getPositionY() + dy);
+        }
     },
 
     effect: function () {
-        var time = 0.7;
-
-        var ret;
-        var pRightButton = this.getControl("pRightButton");
-        var pLeftTop = this.getControl("pLeftTop");
-        var pRightTop = this.getControl("pRightTop");
-        var pLeftRank = this.getControl("pLeftRank");
-        var pBot = this.getControl("bot");
-        var pLeftCenter = this.getControl("pLeftCenter");
-
-        ret = this.getControl("npc");
-        ret.runAction(new cc.Sequence(new cc.DelayTime(time), new cc.FadeIn(0.5)));
-
-        // TOP - EFFECT
-        var timeTop = 0.3;
-        ret = this.getControl("logo", pLeftTop);
-        ret.runAction(new cc.Sequence(new cc.DelayTime(timeTop), new cc.EaseBackOut(cc.moveBy(time, cc.p(0, -150)))));
-
-        ret = this.getControl("btnAvatar", pLeftTop);
-        ret.runAction(new cc.Sequence(new cc.DelayTime(timeTop), new cc.EaseBackOut(cc.moveBy(time, cc.p(0, -150)))));
-        ret = this.getControl("bgAvatar", pLeftTop);
-        ret.runAction(new cc.Sequence(new cc.DelayTime(timeTop), new cc.EaseBackOut(cc.moveBy(time, cc.p(0, -150)))));
-        ret = this.getControl("bgName", pLeftTop);
-        ret.runAction(new cc.Sequence(new cc.DelayTime(timeTop), new cc.EaseBackOut(cc.moveBy(time, cc.p(0, -150)))));
-        ret = this.imgVip;
-        ret.runAction(new cc.Sequence(new cc.DelayTime(timeTop), new cc.EaseBackOut(cc.moveBy(time, cc.p(0, -150)))));
-        ret = this.getControl("name", pLeftTop);
-        ret.runAction(new cc.Sequence(new cc.DelayTime(timeTop), new cc.EaseBackOut(cc.moveBy(time, cc.p(0, -150)))));
-
-        timeTop += 0.1;
-        ret = this.getControl("btnGold", pLeftTop);
-        ret.runAction(new cc.Sequence(new cc.DelayTime(timeTop), new cc.EaseBackOut(cc.moveBy(time, cc.p(0, -150)))));
-
-        timeTop += 0.1;
-        ret = this.getControl("btnG", pLeftTop);
-        ret.runAction(new cc.Sequence(new cc.DelayTime(timeTop), new cc.EaseBackOut(cc.moveBy(time, cc.p(0, -150)))));
-
-        // TOP RIGHT
-        timeTop += 0.1;
-        ret = this.getControl("btnCamera", pRightTop);
-        ret.runAction(new cc.Sequence(new cc.DelayTime(timeTop), new cc.EaseBackOut(cc.moveBy(time, cc.p(0, -150)))));
-
-        timeTop += 0.1;
-        ret = this.getControl("btnSupport", pRightTop);
-        ret.runAction(new cc.Sequence(new cc.DelayTime(timeTop), new cc.EaseBackOut(cc.moveBy(time, cc.p(0, -150)))));
-
-        // BOT - EFFECT
-        timeTop = 0;
-        ret = this.getControl("bar");
-        ret.runAction(new cc.Sequence(new cc.DelayTime(timeTop), cc.moveBy(time, cc.p(0, 150))));
-
-        timeTop += 0.1;
-        ret = this.getControl("btnHotNews", pBot);
-        ret.runAction(new cc.Sequence(new cc.DelayTime(timeTop), new cc.EaseBackOut(cc.moveBy(time, cc.p(0, 150)))));
-
-        timeTop += 0.1;
-        ret = this.getControl("btnNews", pBot);
-        ret.runAction(new cc.Sequence(new cc.DelayTime(timeTop), new cc.EaseBackOut(cc.moveBy(time, cc.p(0, 150)))));
-
-        timeTop += 0.1;
-        ret = this.getControl("btnGiftCode", pBot);
-        ret.runAction(new cc.Sequence(new cc.DelayTime(timeTop), new cc.EaseBackOut(cc.moveBy(time, cc.p(0, 150)))));
-
-        timeTop += 0.1;
-        ret = this.getControl("btnSetting", pBot);
-        ret.runAction(new cc.Sequence(new cc.DelayTime(timeTop), new cc.EaseBackOut(cc.moveBy(time, cc.p(0, 150)))));
-
-        timeTop += 0.1;
-        ret = this.getControl("btnDoivang", pBot);
-        ret.runAction(new cc.Sequence(new cc.DelayTime(timeTop), new cc.EaseBackOut(cc.moveBy(time, cc.p(0, 150)))));
-
-        // LEFT - EFFECT
-        timeTop += 0.1;
-        ret = this.getControl("btnShare", pLeftCenter);
-        ret.runAction(new cc.Sequence(new cc.DelayTime(timeTop), new cc.EaseBackOut(cc.moveBy(time, cc.p(400, 0)))));
-
-        // RIGHT - EFFECT
-        timeTop = 0.7;
-        ret = this.getControl("btnChoingay", pRightButton);
-        ret.runAction(new cc.Sequence(new cc.DelayTime(timeTop), new cc.EaseBackOut(cc.moveBy(time, cc.p(-400, 0)))));
-
-        timeTop += 0.1;
-        ret = this.getControl("btnChonban", pRightButton);
-        ret.runAction(new cc.Sequence(new cc.DelayTime(timeTop), new cc.EaseBackOut(cc.moveBy(time, cc.p(-400, 0)))));
-
-        timeTop += 0.1;
-        ret = this.getControl("btnVip", pRightButton);
-        ret.runAction(new cc.Sequence(new cc.DelayTime(timeTop), new cc.EaseBackOut(cc.moveBy(time, cc.p(-400, 0)))));
-
-        timeTop += 0.1;
-        ret = this.getControl("btnRank", pRightButton);
-        ret.runAction(new cc.Sequence(new cc.DelayTime(timeTop), new cc.EaseBackOut(cc.moveBy(time, cc.p(-400, 0)))));
-
+        this.npc.runAction(cc.fadeIn(0.5));
+        this.effectComponent(this.arrayBottom);
+        this.effectComponent(this.arrayLeftTop);
+        this.effectComponent(this.arrayCenterRight);
         setTimeout(this.doFinishEffect.bind(this), 1000);
+    },
+
+    effectComponent: function (component) {
+        var dTime = 0.1;
+        var time = 0.5;
+        for (var i = 0; i < component.length; i++) {
+            var ret = component[i];
+            var pos = ret.defaultPos;
+            ret.setOpacity(0);
+            ret.runAction(new cc.Sequence(new cc.DelayTime(dTime * i), new cc.EaseBackOut(cc.moveTo(time, pos))));
+            ret.runAction(cc.sequence(cc.delayTime(dTime * i), cc.fadeIn(0.5)));
+        }
     },
 
     updateMoreButtonTopRight: function () {
@@ -488,44 +359,46 @@ var LobbyScene = BaseLayer.extend({
     },
 
     loadAnimation: function () {
-       var  effect = this.createAnim(this.btnGold, "shopwithtag");
+      // var  effect = this.createAnim(this.btnGold, "shopwithtag");
         //effect.setScale(0.71);
-        effect.setPosition(effect.getPositionX() + 20, effect.getPositionY() + 15);
+     //   effect.setPosition(effect.getPositionX() + 20, effect.getPositionY() + 15);
+
+        this.effShop = new CustomSkeleton("Armatures/LobbyBtn", "button", 1);
+        this.btnGold.addChild(this.effShop);
+        this.effShop.setPosition(this.btnGold.getContentSize().width * 0.5, this.btnGold.getContentSize().height * 0.8);
+        this.effShop.setAnimation(0, "shop", -1);
+
+        this.effGirl = new CustomSkeleton("Armatures/Girl", "Girl", 1);
+        this.npc.addChild(this.effGirl);
+        this.effGirl.setPosition(this.npc.getContentSize().width * 0.35, this.npc.getContentSize().height * 0.27);
+        this.effGirl.setAnimation(0, "animation", -1);
+
+        this.effPlayNow = new CustomSkeleton("Armatures/Choingay", "choingay", 1);
+        this.btnQuickPlay.addChild(this.effPlayNow);
+        this.effPlayNow.setPosition(this.btnQuickPlay.getContentSize().width * 0.5, this.btnQuickPlay.getContentSize().height * 0.5);
+        this.effPlayNow.setAnimation(0, "run", -1);
+
+        this.effChooseRoom = new CustomSkeleton("Armatures/Chonban", "chonban", 1);
+        this.btnChooseRoom.addChild(this.effChooseRoom);
+        this.effChooseRoom.setPosition(this.btnChooseRoom.getContentSize().width * 0.41, this.btnChooseRoom.getContentSize().height * 0.46);
+        this.effChooseRoom.setAnimation(0, "run", -1);
+
+        this.effRank = new CustomSkeleton("Armatures/RankBTN", "xephang", 1);
+        this.btnRank.addChild(this.effRank);
+        this.effRank.setPosition(this.btnRank.getContentSize().width * 0.5, this.btnRank.getContentSize().height * 0.5);
+        this.effRank.setAnimation(0, "run", -1);
+
+        this.effMiniGame = new CustomSkeleton("Armatures/MinigameBTN", "minigame", 1);
+        this.btnMinigame.addChild(this.effMiniGame);
+        this.effMiniGame.setPosition(this.btnMinigame.getContentSize().width * 0.5, this.btnMinigame.getContentSize().height * 0.5);
+        this.effMiniGame.setAnimation(0, "run", -1);
+
+        this.effVip = new CustomSkeleton("Armatures/VipBTN", "vipclub", 1);
+        this.btnVip.addChild(this.effVip);
+        this.effVip.setPosition(this.btnVip.getContentSize().width * 0.5, this.btnVip.getContentSize().height * 0.5);
+        this.effVip.setAnimation(0, "run", -1);
 
         return;
-        this.createAnim(this.logo, "LogoSmall");
-
-        var effNPC = this.createAnim(this.npc, "Girl");
-        effNPC.setPosition(effNPC.getPosition().x - 300, effNPC.getPosition().y + 280);
-
-        var effect = this.createAnim(this.btnQuickPlay, "Choingay");
-        effect.setScale(0.71);
-        effect = this.createAnim(this.btnChooseRoom, "Chonban");
-        effect.setScale(0.71);
-        effect = this.createAnim(this.btnVip, "bt_vip_xephang");
-        effect.setScale(0.71);
-        effect = this.createAnim(this.btnRank, "bt_vip_xephang", "2");
-        effect.setScale(0.71);
-        effect = this.createAnim(this.btnGold, "shopwithtag");
-        effect.setScale(0.71);
-        effect.setPosition(effect.getPositionX() - 6, effect.getPositionY() + 5);
-
-        effect = this.createAnim(this.btnGoldSmall, "BtnCoin", "2");
-        effect.setPositionX(this.btnGoldSmall.getChildByName("icon").getPositionX());
-        effect.setScale(this.btnGoldSmall.getChildByName("icon").getScale() * 0.95);
-
-        effect = this.createAnim(this.btnG, "BtnCoin");
-        effect.setPositionX(this.btnG.getChildByName("icon").getPositionX());
-        effect.setScale(this.btnG.getChildByName("icon").getScale() * 0.95);
-
-        for (var i = 0; i < this.arPanelFW.length; i++) {
-            var fw = db.DBCCFactory.getInstance().buildArmatureNode("firework" + (i + 1));
-            this.arPanelFW[i].removeAllChildren();
-
-        }
-
-        this.countTimeFirework = 0;
-        this.genTimeFirework = Math.random() * 2;
     },
 
     genFireWork: function (dt) {
@@ -601,8 +474,12 @@ var LobbyScene = BaseLayer.extend({
         this.updateVipInfo();
     },
 
-    doFinishEffect: function () {
+    updateToCurrentData: function () {
+        this.pUserInfo.updateToCurrentData();
+    },
 
+    doFinishEffect: function () {
+        cc.log("doFinishEffect ********* ");
         var cur = sceneMgr.getRunningScene().getMainLayer();
         if (!(cur instanceof LobbyScene)) return;
 
@@ -786,7 +663,10 @@ var LobbyScene = BaseLayer.extend({
                 break;
             }
             case LobbyScene.BTN_EVENT: {
-                eventMgr.openEvent();
+                if (eventMgr.isInEvent())
+                    eventMgr.openEvent();
+                else
+                    ToastFloat.makeToast(ToastFloat.SHORT, "Vui lòng dợi Sự kiện kế tiếp");
                 break;
             }
             case LobbyScene.BTN_HOT_NEWS: {
@@ -794,8 +674,8 @@ var LobbyScene = BaseLayer.extend({
                 break;
             }
             case LobbyScene.BTN_SUPPORT: {
-                //sceneMgr.openGUI(GUISupportInfo.className, GUISupportInfo.tag, GUISupportInfo.tag, false).showGUI(0, supportMgr.numSupport);
-                sceneMgr.openGUI(GUIStartUp.className, GUISupportInfo.tag, GUISupportInfo.tag, false).showGUI(0, supportMgr.numSupport);
+                // sceneMgr.openGUI(GUISupportInfo.className, GUISupportInfo.tag, GUISupportInfo.tag, false).showGUI(0, supportMgr.numSupport);
+                sceneMgr.openGUI(GUIStartUp.className, GUISupportInfo.tag, GUISupportInfo.tag, false);
                 // supportMgr.numSupport = 0;
                 // sceneMgr.openGUI(GUISupportInfo.className, GUISupportInfo.tag, GUISupportInfo.tag, false).showGUI(33330, 1);
                 break;
@@ -885,17 +765,14 @@ var LobbyScene = BaseLayer.extend({
     update: function (dt) {
         this.genFireWork(dt);
         this.pTooltipVip.update(dt);
-        if (eventMgr.haveMainEvent()) {
+        downloadEventManager.updateDownload();
+        if (eventMgr.isInEvent()) {
             this.imgEmpty.setVisible(false);
+            eventMgr.updateEventLoop();
         }
         else {
             this.imgEmpty.setVisible(true);
-        }
 
-        if (Math.random() < 0.05) {
-            var sparkle = new Sparkle();
-            this.addChild(sparkle, 3, 3);
-            sparkle.startEffect();
         }
     },
 

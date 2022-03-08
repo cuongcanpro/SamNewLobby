@@ -31,7 +31,8 @@ var MidAutumnScene = BaseLayer.extend({
         this.nTimeBubbleEffect = 0;
 
         this._super(MD_SCENE_CLASS);
-        this.initWithBinaryFile("res/EventMgr/MidAutumn/MidAutumnScene.json");
+        //this.initWithBinaryFile("res/Event/MidAutumn/MidAutumnScene.json");
+        this.initWithBinaryFileAndOtherSize("res/Event/MidAutumn/MidAutumnScene.json", cc.size(800, 480));
     },
 
     initGUI: function () {
@@ -270,18 +271,19 @@ var MidAutumnScene = BaseLayer.extend({
         );
         var rate1 = pSizeReal.width / pSizeReal.height;
         var rate2 = this.mapComponent.mapSize.width / this.mapComponent.mapSize.height;
+        var scale1;
         if (rate1 > rate2) {
             // lay theo chieu cao
-            var scale = pSizeReal.height / this.mapComponent.mapSize.height;
-            this.bgBoard.setScale(scale);
+            scale1 = pSizeReal.height / this.mapComponent.mapSize.height;
         }
         else {
             // lay theo chieu rong
-            var scale = pSizeReal.width / this.mapComponent.mapSize.width;
-            this.bgBoard.setScale(scale);
+             scale1 = pSizeReal.width / this.mapComponent.mapSize.width;
         }
-        this.bgBoard.setPosition(w * 0.5, cc.winSize.height * 0.5);
-        this.pButtonRoll.setPositionX(w * 0.49);
+        scale1 = scale1 / this._layout.getScale();
+        this.bgBoard.setScale(scale);
+        this.bgBoard.setPosition(w * 0.5 / this._layout.getScale(), cc.winSize.height * 0.5 / this._layout.getScale());
+        this.pButtonRoll.setPositionX(w * 0.49 / this._layout.getScale());
         this.pButtonRoll.posShow = this.pButtonRoll.getPosition();
         this.pRollDice.setPositionX(w / 2);
     },
@@ -531,7 +533,7 @@ var MidAutumnScene = BaseLayer.extend({
         this.light1.runAction(cc.fadeOut(0.5));
         this.light2.runAction(cc.spawn(cc.scaleTo(0.5, 0, 1.0), cc.fadeOut(0.5)));
 
-        // var sp = cc.Sprite.create("res/EventMgr/MidAutumn/MidAutumnUI/dice1.png");
+        // var sp = cc.Sprite.create("res/Event/MidAutumn/MidAutumnUI/dice1.png");
         // var pDesDice = this.diceResult.getPosition();
         // var pStartDice = this.iconDice.getParent().convertToWorldSpace(this.iconDice.getPosition());
         //
@@ -547,7 +549,7 @@ var MidAutumnScene = BaseLayer.extend({
         // this.dice.addChild(sp, 999999);
 
         // this.diceResult.setVisible(false);
-        this.diceResult.loadTexture("res/EventMgr/MidAutumn/MidAutumnUI/dice1.png");
+        this.diceResult.loadTexture("res/Event/MidAutumn/MidAutumnUI/dice1.png");
         // this.diceResult.runAction(cc.sequence(cc.delayTime(MD_UP_DICE_MOVE/2),cc.show()));
     },
 
@@ -661,7 +663,7 @@ var MidAutumnScene = BaseLayer.extend({
 
         var count = 0;
         var numMove = this.cmdResult.numMoves[0];
-        this.diceResult.loadTexture("res/EventMgr/MidAutumn/MidAutumnUI/dice" + numMove + ".png");
+        this.diceResult.loadTexture("res/Event/MidAutumn/MidAutumnUI/dice" + numMove + ".png");
 
         this.upDice.runAction(cc.moveTo(0.5, this.upDice.pos.x, this.upDice.pos.y + 300));
         this.light1.cleanup();
@@ -1315,7 +1317,7 @@ var MidAutumnOpenResultGUI = BaseLayer.extend({
         this.cmd = null;
 
         this._super(MD_RESULT_GUI_CLASS);
-        this.initWithBinaryFile("res/EventMgr/MidAutumn/MidAutumnOpenResultGUI.json");
+        this.initWithBinaryFile("res/Event/MidAutumn/MidAutumnOpenResultGUI.json");
     },
 
     initGUI: function () {
@@ -1921,7 +1923,7 @@ var MidAutumnOpenGiftGUI = BaseLayer.extend({
         this.pEffect = null;
 
         this._super(MD_OPEN_GIFT_GUI_CLASS);
-        this.initWithBinaryFile("res/EventMgr/MidAutumn/MidAutumnOpenGiftGUI.json");
+        this.initWithBinaryFile("res/Event/MidAutumn/MidAutumnOpenGiftGUI.json");
     },
 
     initGUI: function () {
@@ -2099,7 +2101,7 @@ var MidAutumnOpenGiftGUI = BaseLayer.extend({
             var eff = new ImageEffectLayer();
             this.pEffect.addChild(eff);
             eff.setPositionCoin(SceneMgr.convertPosToParent(this.pEffect, this.gift));
-            eff.startEffect(100, ImageEffectLayer.TYPE_FLOW, "res/EventMgr/MidAutumn/MidAutumnUI/iconDiamond.png");
+            eff.startEffect(100, ImageEffectLayer.TYPE_FLOW, "res/Event/MidAutumn/MidAutumnUI/iconDiamond.png");
             eff.setCallbackFinish(this.onBack.bind(this));
         }
         else {
@@ -2266,7 +2268,7 @@ var MidAutumnRegisterInformationGUI = BaseLayer.extend({
         this.btnRegister = null;
 
         this._super(MD_REGISTER_GUI_CLASS);
-        this.initWithBinaryFile("res/EventMgr/MidAutumn/MidAutumnRegisterInformationGUI.json");
+        this.initWithBinaryFile("res/Event/MidAutumn/MidAutumnRegisterInformationGUI.json");
     },
 
     initGUI: function () {
@@ -2552,7 +2554,7 @@ var MidAutumnAccumulateGUI = BaseLayer.extend({
         this.isKeyCoinChange = false;
 
         this._super(MD_ACCUMULATE_GUI_CLASS);
-        this.initWithBinaryFile("res/EventMgr/MidAutumn/MidAutumnAccumulateGUI.json");
+        this.initWithBinaryFile("res/Event/MidAutumn/MidAutumnAccumulateGUI.json");
     },
 
     initGUI: function () {
@@ -2616,7 +2618,7 @@ var MidAutumnAccumulateGUI = BaseLayer.extend({
     effectLight: function () {
         try {
             for (var i = 0; i < parseInt(Math.random() * 100) % 10 + 10; i++) {
-                var sp2 = cc.Sprite.create("res/EventMgr/MidAutumn/MidAutumnUI/bubble.png");
+                var sp2 = cc.Sprite.create("res/Event/MidAutumn/MidAutumnUI/bubble.png");
                 sp2.setVisible(false);
                 sp2.setLocalZOrder(MD_MAP_ITEM_ZODER + 9);
                 sp2.setPosition(this.startPos);
@@ -2835,7 +2837,7 @@ var MidAutumnHelpGUI = BaseLayer.extend({
         this.curPage = -1;
 
         this._super(MD_HELP_GUI_CLASS);
-        this.initWithBinaryFile("res/EventMgr/MidAutumn/MidAutumnHelpGUI.json");
+        this.initWithBinaryFile("res/Event/MidAutumn/MidAutumnHelpGUI.json");
     },
 
     initGUI: function () {
@@ -2853,7 +2855,7 @@ var MidAutumnHelpGUI = BaseLayer.extend({
         }
         // var game = LocalizedString.config("GAME");
         // if (game.indexOf("sam") >= 0 || game.indexOf("binh") >= 0) {
-        //    // page.setBackGroundImage("res/EventMgr/PotBreaker/PotBreakerUI/help1_1.png");
+        //    // page.setBackGroundImage("res/Event/PotBreaker/PotBreakerUI/help1_1.png");
         // }
 
         this._arrPage = [];
@@ -2911,7 +2913,7 @@ var MidAutumnHistoryGUI = BaseLayer.extend({
         this.arTabRequest = [];
 
         this._super(MD_HISTORY_GUI_CLASS);
-        this.initWithBinaryFile("res/EventMgr/MidAutumn/MidAutumnHistoryGUI.json");
+        this.initWithBinaryFile("res/Event/MidAutumn/MidAutumnHistoryGUI.json");
     },
 
     initGUI: function () {
@@ -3021,8 +3023,8 @@ var MidAutumnHistoryGUI = BaseLayer.extend({
         this.pChangePiece.setVisible(id == MD_SCENE_TAB_CHANGE);
 
         // change tab
-        var tHisNormal = "res/EventMgr/MidAutumn/MidAutumnUI/tabSelect.png";
-        var tHisSelect = "res/EventMgr/MidAutumn/MidAutumnUI/tab.png";
+        var tHisNormal = "res/Event/MidAutumn/MidAutumnUI/tabSelect.png";
+        var tHisSelect = "res/Event/MidAutumn/MidAutumnUI/tab.png";
         var cHis = (id == MD_SCENE_TAB_HISTORY);
         this.tabHistory.loadTextures(!cHis ? tHisSelect : tHisNormal, cHis ? tHisSelect : tHisNormal, "");
         this.tabHistory.setPositionY(cHis ? this.tabHistory.ySelect : this.tabHistory.yNormal);
@@ -3174,7 +3176,7 @@ var MidAutumnPieceConvertGUI = BaseLayer.extend({
 
     ctor: function () {
         this._super(MD_CHANGE_LAMP_GUI_CLASS);
-        this.initWithBinaryFile("res/EventMgr/MidAutumn/MidAutumnPieceConvertGUI.json");
+        this.initWithBinaryFile("res/Event/MidAutumn/MidAutumnPieceConvertGUI.json");
     },
 
     initGUI: function () {
@@ -3213,7 +3215,7 @@ var MidAutumnEventNotifyGUI = BaseLayer.extend({
         this.lbTime = null;
 
         this._super(MD_NOTIFY_CLASS);
-        this.initWithBinaryFile("res/EventMgr/MidAutumn/MidAutumnEventNotifyGUI.json");
+        this.initWithBinaryFileAndOtherSize("res/Event/MidAutumn/MidAutumnEventNotifyGUI.json", cc.size(800, 480));
     },
 
     initGUI: function () {
@@ -3262,7 +3264,7 @@ var MidAutumnNapGNotifyGUI = BaseLayer.extend({
         this.lbTime = null;
 
         this._super(MD_NOTIFY_PROMOTE_G_CLASS);
-        this.initWithBinaryFile("res/EventMgr/MidAutumn/MidAutumnNapGNotifyGUI.json");
+        this.initWithBinaryFile("res/Event/MidAutumn/MidAutumnNapGNotifyGUI.json");
     },
 
     initGUI: function () {
@@ -3309,7 +3311,7 @@ var MidAutumnBonusGNotifyPanel = BaseLayer.extend({
 
     ctor : function () {
         this._super();
-        this.initWithBinaryFile("res/EventMgr/MidAutumn/MDNotifyEventGBonus.json");
+        this.initWithBinaryFile("res/Event/MidAutumn/MDNotifyEventGBonus.json");
     },
 
     initGUI : function () {
@@ -3343,7 +3345,7 @@ var MidAutumnBonusTicketDialog = BaseLayer.extend({
 
     ctor: function () {
         this._super(MD_NOTIFY_BONUS_TICKET_CLASS);
-        this.initWithBinaryFile("res/EventMgr/MidAutumn/MidAutumnNotifyBonusTicketGUI.json");
+        this.initWithBinaryFile("res/Event/MidAutumn/MidAutumnNotifyBonusTicketGUI.json");
     },
 
     initGUI: function () {
@@ -3390,7 +3392,7 @@ var MidAutumnHammerEmptyDialog = BaseLayer.extend({
         this.typeGUI = -1;
 
         this._super(MD_HAMMER_EMPTY_CLASS);
-        this.initWithBinaryFile("res/EventMgr/MidAutumn/MidAutumnHammerEmptyDialog.json");
+        this.initWithBinaryFile("res/Event/MidAutumn/MidAutumnHammerEmptyDialog.json");
     },
 
     initGUI: function () {
@@ -3490,7 +3492,7 @@ var MidAutumnPromoTicketGUI = BaseLayer.extend({
         this.lbTime = null;
 
         this._super(MidAutumnPromoTicketGUI.className);
-        this.initWithBinaryFile("res/EventMgr/MidAutumn/MidAutumnPromoTicketGUI.json");
+        this.initWithBinaryFile("res/Event/MidAutumn/MidAutumnPromoTicketGUI.json");
     },
 
     initGUI: function () {

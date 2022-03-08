@@ -809,7 +809,10 @@ OfferManager.buyOffer = function (isInShop, offerId) {
     } else if (typeOffer == OfferManager.TYPE_ZALOPAY) {
         fr.tracker.logStepStart(ConfigLog.ZALO_PAY, ConfigLog.BEGIN + "BUY_ZALO");
         fr.tracker.logStepStart(ConfigLog.ZALO_PAY, "CLICK_OFFER");
-        if (Config.ENABLE_NEW_OFFER) {
+        if (Config.ENABLE_CHEAT && CheatCenter.ENABLE_FAKE_SMS) {
+            PaymentUtils.fakePayment(OfferManager.getValueOfferToBuy(offer), Constant.GOLD_ZALO, Payment.CHEAT_PAYMENT_OFFER);
+        }
+        else {
             if (CheckLogic.checkZaloPay()) {
                 var curGui = sceneMgr.getRunningScene().getMainLayer();
                 var msg = LocalizedString.to("ZALOPAY_MSG");
@@ -824,8 +827,7 @@ OfferManager.buyOffer = function (isInShop, offerId) {
                                 PaymentUtils.fakePayment(offer.getValueToBuy(), Constant.GOLD_ZALO, Payment.CHEAT_PAYMENT_NORMAL);
                             else
                                 PaymentUtils.fakePayment(offer.getValueToBuy(), Constant.GOLD_ZALO, Payment.CHEAT_PAYMENT_OFFER);
-                        }
-                        else {
+                        } else {
                             sceneMgr.addLoading(LocalizedString.to("WAITING")).timeout(5);
                             var cmd = new CmdSendBuyZaloPayV2();
                             if (offer.isNoPrice())
@@ -838,17 +840,6 @@ OfferManager.buyOffer = function (isInShop, offerId) {
                         }
                     }
                 });
-            }
-        }
-        else {
-            if (Config.ENABLE_CHEAT && CheatCenter.ENABLE_FAKE_SMS) {
-                PaymentUtils.fakePayment(OfferManager.getValueOfferToBuy(offer), Constant.GOLD_ZALO, Payment.CHEAT_PAYMENT_OFFER);
-            }
-            else {
-                sceneMgr.addLoading(LocalizedString.to("WAITING")).timeout(15);
-                var cmd = new CmdSendBuyGZalo();
-                cmd.putData(OfferManager.getValueOfferToBuy(offer), 1, Payment.IS_OFFER);
-                GameClient.getInstance().sendPacket(cmd);
             }
         }
     } else if (typeOffer == OfferManager.TYPE_ZING) {

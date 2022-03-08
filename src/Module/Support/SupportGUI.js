@@ -67,6 +67,17 @@ var GUISupportInfo = BaseLayer.extend({
     onEnterFinish: function() {
         this._super();
         this.setShowHideAnimate(this.bg, true);
+        this.scheduleUpdate();
+        this.pEff.removeAllChildren();
+    },
+
+    update: function (dt) {
+        if (Math.random() < 0.1) {
+            var paper = new Paper();
+            paper.setPosition(cc.p(-cc.winSize.width * 0.5 + this.pEff.getContentSize().width * 0.5, 500));
+            this.pEff.addChild(paper);
+            paper.startEffect();
+        }
     },
 
     showGUI: function(money, isSpecial) {
@@ -240,10 +251,11 @@ var GUIStartUp = BaseLayer.extend({
         var bg = this.getControl("bg");
         this.bg = bg;
 
-        this.customizeButton("btnOK",1, bg);
+        this.btnOk = this.customizeButton("btnOK",1, bg);
         this._lbNotice = ccui.Helper.seekWidgetByName(bg,"lbNotice");
         this.lbGold = this.getControl("lbGold");
 
+        this.pEff = this.getControl("pEff");
         this.arrayLight = [];
         this.pLight = this.getControl("pLight");
         for (var i = 0; i < 5; i++) {
@@ -287,7 +299,7 @@ var GUIStartUp = BaseLayer.extend({
         }
         this.timeStar = this.timeStar - dt;
         if (this.timeStar < 0) {
-            this.timeStar = 0.1;
+            this.timeStar = 0.2;
             var star = this.getStar();
             star.stopAllActions();
             star.setPosition(0, 0);
@@ -296,6 +308,11 @@ var GUIStartUp = BaseLayer.extend({
             star.runAction(cc.sequence(cc.moveTo(4.0, cc.p(randomX, randomY)), cc.hide()));
             star.runAction(cc.sequence(cc.delayTime(3.8), cc.fadeOut(0.2)));
             star.runAction(cc.blink(2, 5));
+            star.runAction(cc.sequence(
+                cc.fadeTo(0.1, 125 * Math.random()),
+                cc.delayTime(0.1),
+                cc.fadeIn(0.1)
+            ).repeatForever());
             star.runAction(cc.rotateBy(0.1, 30).repeatForever());
         }
     },
@@ -309,7 +326,7 @@ var GUIStartUp = BaseLayer.extend({
             }
         }
         if (i == this.arrayStar.length) {
-            star = new cc.Sprite("Common/iconLight.png");
+            star = new cc.Sprite("SupportGUI/star.png");
             this.pStar.addChild(star);
         }
         star.setVisible(true);
@@ -321,16 +338,47 @@ var GUIStartUp = BaseLayer.extend({
         this.lbGold.setString(StringUtility.pointNumber(supportMgr.dailyGift) + " GOLD");
     },
 
+    showCoinEffect: function () {
+        this.pEff.removeAllChildren();
+        var size = this.pEff.getBoundingBox();
+        var coinEffect = new CoinFallEffect();
+        coinEffect.setPosition(0, 0);
+        coinEffect.setPositionCoin(cc.p(size.width / 2, size.height / 2));
+        coinEffect.setContentSize(size.width * 0.5, size.height * 0.5);
+        coinEffect.setVisible(false);
+
+        this.pEff.addChild(coinEffect);
+        var num = 150;
+        coinEffect.startEffect(num, CoinFallEffect.TYPE_FLOW);
+        coinEffect.setAutoRemove(true);
+
+        if (settingMgr.sound) {
+            cc.audioEngine.playEffect(lobby_sounds["coinFall"], false);
+        }
+    },
+
     onButtonRelease : function (button, id) {
         if(id == 1) {
-            if(supportMgr.giftIndex >= 0) {
+            if(supportMgr.giftIndex >= 0 || true) {
                 var sendGetDailyGift = new CmdSendGetDailyGift();
                 sendGetDailyGift.putData(supportMgr.giftIndex);
                 GameClient.getInstance().sendPacket(sendGetDailyGift);
                 supportMgr.giftIndex = -1;
+                this.runAction(cc.sequence(
+                    cc.callFunc(function () {
+                        this.showCoinEffect();
+                        this.btnOk.setTouchEnabled(false);
+                        this.btnOk.runAction(cc.fadeOut(0.5));
+                    }.bind(this)),
+                    cc.delayTime(2),
+                    cc.callFunc(function () {
+                        this.bg.stopAllActions();
+                        this.onClose();
+                    }.bind(this))
+                ));
             }
         }
-        this.onClose();
+        //this.onClose();
     }
 });
 GUIStartUp.className= "GUIStartUp";

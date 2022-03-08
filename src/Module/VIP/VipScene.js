@@ -159,11 +159,11 @@ var VipScene = BaseLayer.extend({
                         cc.moveTo(0, this.defaultPos),
                         cc.fadeOut(0),
                         cc.spawn(
-                            cc.fadeIn(2).easing(cc.easeIn(5)),
-                            cc.moveTo(2.5, cc.p(
+                            cc.fadeIn(1.5 * 0.5).easing(cc.easeOut(2.5)),
+                            cc.moveTo(1.5, cc.p(
                                 cc.winSize.width * 0.5 * (1 + this.getScaleX()),
                                 this.defaultPos.y
-                            )).easing(cc.easeIn(5))
+                            )).easing(cc.easeOut(2.5))
                         )
                     ).repeatForever());
                 }.bind(arrow))
@@ -199,8 +199,8 @@ var VipScene = BaseLayer.extend({
         VipManager.checkShowUpLevelVip();
         vipMgr.updateFromSaveData();
         var vipLevel = vipMgr.getVipLevel();
-        var currentVPoint = vipMgr.getVpoint();
-        var targetVPoint = vipMgr.getVpointNeed(vipLevel);
+        var currentVPoint = vipMgr.getVpoint() + vipMgr.getTotalVpointNeeded(vipLevel - 1);
+        var targetVPoint = vipMgr.getTotalVpointNeeded(vipLevel);
         cc.log("SET INFO FOR NEW VIP SCENE", vipLevel, currentVPoint, targetVPoint);
 
         this.snapToNearestVip(vipLevel);
@@ -215,7 +215,7 @@ var VipScene = BaseLayer.extend({
             } else if (i === 0) {
                 this.listImg[i].vPoint.setVisible(false);
             } else {
-                this.listImg[i].vPoint.setString(StringUtility.pointNumber(vipMgr.getVpointNeed(i)));
+                this.listImg[i].vPoint.setString(StringUtility.pointNumber(vipMgr.getTotalVpointNeeded(i - 1)));
             }
             this.listImg[i].vPoint.x = this.listImg[i].vPoint.defaultPos.x
                 - StringUtility.getLabelWidth(this.listImg[i].vPoint) * 0.5
@@ -223,7 +223,7 @@ var VipScene = BaseLayer.extend({
             this.listImg[i].vPoint.setColor(i > vipLevel + 1 ? VipScene.TINT_COLOR : cc.WHITE);
         }
         var posVPoint = this.listImg[vipLevel].defaultPos.x;
-        posVPoint += this.listVip.width * 0.1 * (currentVPoint / targetVPoint);
+        posVPoint += this.listVip.width * 0.1 * (vipMgr.getVpoint() / vipMgr.getVpointNeed(vipLevel));
         this.vipProgress.width = posVPoint + (VipScene.PROGRESS_BG_OFFSET - VipScene.PROGRESS_OFFSET) * 2;
     },
 
@@ -398,7 +398,10 @@ var VipScene = BaseLayer.extend({
             case VipScene.BTN_CHEAT_PROGRESS_LEVEL:
                 break;
             case VipScene.BTN_CHEAT_RECEIVED:
-                sceneMgr.openGUI(ReceivedGUI.className);
+                receivedMgr.onShopGoldSuccess(
+                    "TESTING",
+                    {"shopGG":[0],"shopGoldGold":[10500000],"shopGoldVPoint":[220],"shopGoldVipHour":[21],"purchaseId":["8444a0c6-1326-4020-85a6-1308cc1ff11d"],"createdTime":[1646273936514],"paymentType":[2],"value":[22000],"missionGold":[0],"offerGold":[2000000],"offerDiamond":[1000],"offerVPoint":[0],"offerVipHour":[0],"offerItemType":["0"],"offerItemSubType":["3"],"offerItemId":["6"],"offerItemNumber":["1"],"voucherGold":[0],"voucherVPoint":[0],"vipGold":[0],"shopEventGold":[0],"eventId":["midAutumn;midAutumn"],"eventTicket":["3;3"],"eventReason":["6;3"],"eventVPoint":[0],"eventVipHour":[0],"webGold":[0]}
+                );
                 break;
         }
     },

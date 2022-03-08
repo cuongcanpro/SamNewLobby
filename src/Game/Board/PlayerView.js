@@ -55,8 +55,6 @@ var PlayerView = cc.Node.extend({
 
         var vip = panel.getChildByName("vip");
         vip.ignoreContentAdaptWithSize(true);
-        vip.setVisible(false);
-        vip.ignoreContentAdaptWithSize(true);
         this.vip = ccui.Scale9Sprite.create(VipManager.getIconVip(10));
         this.vip.setAnchorPoint(cc.p(1, 0.5));
         vip.getParent().addChild(this.vip);
@@ -373,21 +371,20 @@ var PlayerView = cc.Node.extend({
         ));
         this.clearSmile();
 
-        // this.vip.setScale(1.5);
-        // this.vip.setOpacity(0);
-        // this.vipParticle.setVisible(false);
+        this.vip.setScale(1.5);
+        this.vipParticle.setVisible(false);
 
-        if (this.vipEfx) this.vipEfx.removeFromParent();
-        this.vip.runAction(cc.sequence(
-            cc.delayTime(0.25),
-            cc.callFunc(function () {
-                this.vipEfx = new VipBoardIcon();
-                this.vip.addChild(this.vipEfx);
-                this.vipEfx.setPosition(cc.p(this.vip.width / 2, this.vip.height / 2));
-                this.vipEfx._layout.setScale(0.5);
-                this.vipEfx.open();
-            }.bind(this))
-        ));
+        // if (this.vipEfx) this.vipEfx.removeFromParent();
+        // this.vip.runAction(cc.sequence(
+        //     cc.delayTime(0.25),
+        //     cc.callFunc(function () {
+        //         this.vipEfx = new VipBoardIcon();
+        //         this.vip.addChild(this.vipEfx);
+        //         this.vipEfx.setPosition(cc.p(this.vip.width / 2, this.vip.height / 2));
+        //         this.vipEfx._layout.setScale(0.5);
+        //         this.vipEfx.open();
+        //     }.bind(this))
+        // ));
     },
 
     efxPlayerOut: function () {

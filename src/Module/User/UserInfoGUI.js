@@ -62,6 +62,7 @@ var UserInfoPanel = BaseLayer.extend({
         var tabInfo = this.getControl("pUserInfo", pUserInfo);
         this.pTab = this.getControl("pTab", this.bg);
         this.iconGirl = this.getControl("iconGirl", pUserInfo);
+        this.bgGrey = this.getControl("bgGrey", this.bg);
 
         //buttons
         this.btnClose = this.customButton("btnClose", UserInfoPanel.BTN_ClOSE, this.bg);
@@ -284,11 +285,13 @@ var UserInfoPanel = BaseLayer.extend({
         if (id == UserInfoTab.TAB_INFROMATION) {
             this.pUserInfo.setVisible(true);
             this.pItem.setVisible(false);
+            this.bgGrey.setVisible(false);
         }
         else {
             this.pUserInfo.setVisible(false);
             this.pItem.setVisible(true);
             this.pItem.selectTab(id);
+            this.bgGrey.setVisible(true);
         }
     },
     /* endregion Tabs Control */
@@ -449,7 +452,7 @@ var UserInfoPanel = BaseLayer.extend({
                 this.btnSendMessage.setVisible(false);
                 this.btnPersonalInfo.setVisible(true);
 
-                this.btnClose.setVisible(true);
+                // this.btnClose.setVisible(true);
                 avatarFramePath = StorageManager.getInstance().getUserAvatarFramePath();
             } else {
                 cc.log("OTHERS INFO");
@@ -457,7 +460,8 @@ var UserInfoPanel = BaseLayer.extend({
                 this.level.setString(this._user.level);
                 this.btnSendMessage.setVisible(CheckLogic.checkInBoard());
                 this.btnPersonalInfo.setVisible(false);
-                this.btnClose.setVisible(!inTable);
+                this.bgGrey.setVisible(true);
+                // this.btnClose.setVisible(!inTable);
 
                 if (StorageManager.getInstance().cacheOtherAvatarId[this._user.uID] != null)
                     avatarFramePath = StorageManager.getAvatarFramePath(StorageManager.getInstance().cacheOtherAvatarId[this._user.uID]);

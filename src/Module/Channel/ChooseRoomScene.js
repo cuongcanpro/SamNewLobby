@@ -152,8 +152,7 @@ var ChooseRoomScene = BaseLayer.extend({
         var pRightTop = this.getControl("pRightTop");
         // user info
         this.pUserInfo = new UserDetailInfo();
-        pRightTop.addChild(this.pUserInfo);
-
+        this._layout.addChild(this.pUserInfo);
 
         // left top
         this.pLeftTop = this.getControl("pLeftTop");
@@ -166,10 +165,10 @@ var ChooseRoomScene = BaseLayer.extend({
             btn.range = this.getControl("range", btn);
             var s = "";
             if (channelMgr.getMaxGoldInChannel(i) > 0) {
-                s = StringUtility.formatNumberSymbol(channelMgr.getMinGoldInChannel(i)) + "-" + StringUtility.formatNumberSymbol(channelMgr.getMaxGoldInChannel(i));
+                s = StringUtility.formatNumberSymbol(channelMgr.getMinGoldInChannel(i)) + " - " + StringUtility.formatNumberSymbol(channelMgr.getMaxGoldInChannel(i));
             }
             else {
-                s = "Above " + StringUtility.formatNumberSymbol(channelMgr.getMinGoldInChannel(i));
+                s = StringUtility.formatNumberSymbol(channelMgr.getMinGoldInChannel(i)) + "+";
             }
             btn.range.setString(s);
             this.tabRooms.push(btn);
@@ -179,7 +178,7 @@ var ChooseRoomScene = BaseLayer.extend({
         this.bgBottom.setLocalZOrder(2);
         this.customButton("btnChoingay", ChooseRoomScene.BTN_CHOINGAY, this.bgBottom);
         this.customButton("btnTaoban", ChooseRoomScene.BTN_TAOBAN, this.bgBottom);
-        this.customButton("btnRefresh", ChooseRoomScene.BTN_REFRESH, this.bgBottom);
+        this.customButton("btnRefresh", ChooseRoomScene.BTN_REFRESH, this.bgBottom).setVisible(false);
 
         this.lbNoRoom = this.getControl("noroom");
 
@@ -221,7 +220,7 @@ var ChooseRoomScene = BaseLayer.extend({
     },
 
     onUpdateGUI: function (data) {
-        this.pUserInfo.updateToCurrentData();
+        this.updateToCurrentData();
         if (!data) {
             if (channelMgr.selectedChanel != -1) {
                 this.switchTab(channelMgr.selectedChanel);
@@ -259,6 +258,11 @@ var ChooseRoomScene = BaseLayer.extend({
         }
 
         sceneMgr.clearLoading();
+    },
+
+    updateToCurrentData: function () {
+        this.pUserInfo.updateToCurrentData();
+        this.pUserInfo.setPosition(cc.winSize.width - this.pUserInfo.getContentSize().width - 20, cc.winSize.height - this.pUserInfo.getContentSize().height - 20);
     },
 
     onButtonRelease: function (button, id) {

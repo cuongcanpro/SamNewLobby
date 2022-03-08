@@ -594,7 +594,7 @@
                     "Scale9Width": 1,
                     "Scale9Height": 1,
                     "AnchorPoint": {
-                      "ScaleX": 0.78
+                      "ScaleX": 0.5
                     },
                     "Position": {
                       "X": 68.0,
@@ -612,11 +612,11 @@
                       "Y": 1.6239
                     },
                     "PreSize": {
-                      "X": 1.25,
+                      "X": 1.4706,
                       "Y": 0.641
                     },
-                    "LeftMargin": -64.6,
-                    "RightMargin": 30.6,
+                    "LeftMargin": -32.0,
+                    "RightMargin": -32.0,
                     "TopMargin": -148.0,
                     "BottomMargin": 190.0,
                     "Tag": 735,
@@ -628,17 +628,18 @@
                           "Path": "Vip/bgGuide.png",
                           "Plist": ""
                         },
+                        "Scale9Enable": true,
                         "Scale9OriginX": 56,
                         "Scale9OriginY": 24,
                         "Scale9Width": 192,
                         "Scale9Height": 161,
                         "AnchorPoint": {
                           "ScaleX": 0.5,
-                          "ScaleY": 0.5
+                          "ScaleY": 1.0
                         },
                         "Position": {
-                          "X": 69.4145,
-                          "Y": 75.4468
+                          "X": 100.0,
+                          "Y": 0.0
                         },
                         "Scale": {
                           "ScaleX": 1.0,
@@ -649,36 +650,34 @@
                         "PositionPercentXEnabled": true,
                         "PositionPercentYEnabled": true,
                         "PrePosition": {
-                          "X": 0.4083,
-                          "Y": 1.006
+                          "X": 0.5,
+                          "Y": 0.0
                         },
                         "PreSize": {
-                          "X": 1.7882,
-                          "Y": 2.7867
+                          "X": 1.0,
+                          "Y": 1.0
                         },
-                        "LeftMargin": -82.5855,
-                        "RightMargin": -51.4145,
-                        "TopMargin": -104.9468,
-                        "BottomMargin": -29.0532,
+                        "TopMargin": 75.0,
+                        "BottomMargin": -75.0,
                         "Tag": 175,
                         "ActionTag": 52169708,
                         "Size": {
-                          "X": 304.0,
-                          "Y": 209.0
+                          "X": 200.0,
+                          "Y": 75.0
                         },
                         "Name": "bg",
                         "ctype": "ImageViewObjectData"
                       },
                       {
                         "IsCustomSize": true,
-                        "FontSize": 13,
+                        "FontSize": 17,
                         "LabelText": "Explain everything in extreme details but still trying to keep it",
                         "FontResource": {
                           "Type": "Normal",
-                          "Path": "Font/tahoma.ttf",
+                          "Path": "Font/robotoLight.ttf",
                           "Plist": ""
                         },
-                        "HorizontalAlignmentType": "HT_Right",
+                        "HorizontalAlignmentType": "HT_Center",
                         "VerticalAlignmentType": "VT_Center",
                         "OutlineColor": {
                           "G": 0,
@@ -692,37 +691,46 @@
                         "ShadowOffsetX": 2.0,
                         "ShadowOffsetY": -2.0,
                         "AnchorPoint": {
-                          "ScaleX": 1.0,
+                          "ScaleX": 0.5,
                           "ScaleY": 0.5
                         },
                         "Position": {
-                          "X": 151.14,
+                          "X": 100.0,
                           "Y": 37.5
                         },
                         "Scale": {
                           "ScaleX": 1.0,
                           "ScaleY": 1.0
                         },
-                        "CColor": {},
+                        "CColor": {
+                          "R": 70,
+                          "G": 91,
+                          "B": 170
+                        },
                         "IconVisible": false,
+                        "PositionPercentXEnabled": true,
                         "PositionPercentYEnabled": true,
                         "PrePosition": {
-                          "X": 0.8891,
+                          "X": 0.5,
                           "Y": 0.5
                         },
+                        "PercentWidthEnable": true,
+                        "PercentHeightEnable": true,
+                        "PercentWidthEnabled": true,
+                        "PercentHeightEnabled": true,
                         "PreSize": {
-                          "X": 0.7647,
-                          "Y": 0.84
+                          "X": 0.9,
+                          "Y": 0.8
                         },
-                        "LeftMargin": 21.14,
-                        "RightMargin": 18.86,
-                        "TopMargin": 6.0,
-                        "BottomMargin": 6.0,
+                        "LeftMargin": 10.0,
+                        "RightMargin": 10.0,
+                        "TopMargin": 7.5,
+                        "BottomMargin": 7.5,
                         "Tag": 176,
                         "ActionTag": 2069871568,
                         "Size": {
-                          "X": 130.0,
-                          "Y": 63.0
+                          "X": 180.0,
+                          "Y": 60.0
                         },
                         "Name": "label",
                         "ctype": "TextObjectData"
@@ -730,10 +738,9 @@
                     ],
                     "ActionTag": -1072121502,
                     "Size": {
-                      "X": 170.0,
+                      "X": 200.0,
                       "Y": 75.0
                     },
-                    "VisibleForFrame": false,
                     "Name": "explain",
                     "ctype": "PanelObjectData"
                   }
@@ -871,7 +878,6 @@
         "Default/Button_Press.png",
         "Font/robotoBold.ttf",
         "Font/robotoLight.ttf",
-        "Font/tahoma.ttf",
         "Vip/benefit/daily.png",
         "Vip/bgBenefit.png",
         "Vip/bgGuide.png",

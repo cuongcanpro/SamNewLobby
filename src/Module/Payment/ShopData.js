@@ -369,15 +369,16 @@ var ShopBonusData = cc.Class.extend({
     },
 
     getScaleRate: function () {
-        if (this.type == ShopSuccessData.TYPE_ITEM) {
-            if (this.typeItem == StorageManager.TYPE_AVATAR) {
-                return 0.5;
-            }
-            else {
-                return 0.7;
-            }
-        } else if (this.type == ShopSuccessData.TYPE_TICKET) {
-            return 0.7;
+        if (this.type == ShopBonusData.TYPE_VPOINT) {
+            return 1.0
+        } else if (this.type == ShopBonusData.TYPE_TICKET) {
+            return 1.0;
+        }
+        else if (this.type == ShopBonusData.TYPE_HOUR_VIP) {
+            return 0.8;
+        }
+        else if (this.type == ShopBonusData.TYPE_UP_VIP) {
+            return 0.8;
         }
         else {
             return 1.0;
@@ -404,11 +405,16 @@ var ShopBonusData = cc.Class.extend({
             case ShopBonusData.TYPE_TICKET:
                 return eventMgr.getTicketTexture(this.idEvent);
                 break;
+            case ShopBonusData.TYPE_UP_VIP:
+                return VipManager.getIconVip(this.num);
+                break;
         }
     },
 
     getTitle: function () {
-        var s = this.num + " ";
+        var s = "";
+        if (this.type != ShopBonusData.TYPE_UP_VIP)
+            s = this.num + " ";
         switch (this.type) {
             case ShopBonusData.TYPE_G:
                 s = s + "G";
@@ -427,6 +433,9 @@ var ShopBonusData = cc.Class.extend({
                 break;
             case ShopBonusData.TYPE_TICKET:
                 s = s + eventMgr.getOfferTicketString(this.idEvent);
+                break;
+            case ShopBonusData.TYPE_UP_VIP:
+                s = "Len Vip " + this.num;
                 break;
         }
         return s;
@@ -454,6 +463,11 @@ ShopBonusData.getArrayBonus = function (shopPackage) {
             arrayBonus.push(new ShopBonusData(ShopBonusData.TYPE_TICKET, arrayBonusTicket[i].numTicket, arrayBonusTicket[i].idEvent));
         }
     }
+    //uptoLevelVip
+    if (shopPackage.uptoLevelVip > 0) {
+        arrayBonus.push(new ShopBonusData(ShopBonusData.TYPE_UP_VIP, shopPackage.uptoLevelVip, ""));
+    }
+
     return arrayBonus;
 }
 
@@ -484,6 +498,8 @@ ShopBonusData.getArrayBonusOffer = function (shopPackage) {
             arrayBonus.push(new ShopBonusData(ShopBonusData.TYPE_TICKET, eOffer["value"], eOffer["eventId"]));
         }
     }
+
+
     return arrayBonus;
 }
 
@@ -493,3 +509,4 @@ ShopBonusData.TYPE_VPOINT = 2;
 ShopBonusData.TYPE_HOUR_VIP = 3;
 ShopBonusData.TYPE_TICKET = 4;
 ShopBonusData.TYPE_DIAMOND = 5;
+ShopBonusData.TYPE_UP_VIP = 6;

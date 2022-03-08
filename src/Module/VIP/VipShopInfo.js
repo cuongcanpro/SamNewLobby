@@ -21,7 +21,6 @@ var VipShopInfo = BaseLayer.extend({
         this.txtVip1 = this.getControl("txtVip1", this.pVip);
         this.txtRemainVipTime = this.getControl("txtRemainTime", this.pVip);
 
-
         this.arrayDot = [];
         var padX = 22;
         var startX = 45;
@@ -45,6 +44,11 @@ var VipShopInfo = BaseLayer.extend({
         // data Effect Dot Vip
         this.timeEffectVip = 0;
         this.stateEffect = 0;
+
+        this.stateEffect = VipShopInfo.STATE_0;
+        this.countDot = 0;
+
+        this.stateLight = 0;
     },
 
     showVipInfo: function (isEffect) {
@@ -77,7 +81,7 @@ var VipShopInfo = BaseLayer.extend({
         var vpoint = VipManager.getInstance().getVpoint();
         // cc.log("vPoint: ", vpoint);
         if (isEffect){
-            VipSceneOld.runEffectProgressVip(this.bgProgressVip, this.progressVip, this.txtProgress, this.imgVpoint, 0.7, 0, vpoint, levelVip, this.iconCurVip, this.iconNextVip);
+            // VipSceneOld.runEffectProgressVip(this.bgProgressVip, this.progressVip, this.txtProgress, this.imgVpoint, 0.7, 0, vpoint, levelVip, this.iconCurVip, this.iconNextVip);
         } else {
             this.txtProgress.setString(StringUtility.pointNumber(vpoint) + " / " +StringUtility.pointNumber(nextLevelExp));
             var percent = vpoint / nextLevelExp * 100;
@@ -91,6 +95,11 @@ var VipShopInfo = BaseLayer.extend({
     },
 
     onEnterFinish: function () {
+        this.stateEffect = VipShopInfo.STATE_0;
+        this.countDot = 0;
+        for (var i = 0; i < this.arrayDot.length; i++) {
+            this.arrayDot[i].loadTexture("Lobby/Common/dotNormal.png");
+        }
     },
 
     update: function (dt) {
@@ -99,16 +108,48 @@ var VipShopInfo = BaseLayer.extend({
         this.txtRemainVipTime.setString(VipManager.getRemainTimeString(remainTime));
         this.timeEffectVip = this.timeEffectVip - dt;
         if (this.timeEffectVip < 0) {
-            this.timeEffectVip = 0.2;
-            this.stateEffect = 1 - this.stateEffect;
-            for (var i = 0; i < this.arrayDot.length; i++) {
-                if (i % 2 == this.stateEffect) {
-                    this.arrayDot[i].loadTexture("Lobby/Common/dotNormal.png");
+            if (this.stateEffect == VipShopInfo.STATE_0) {
+                this.arrayDot[this.countDot].loadTexture("Lobby/Common/dotLight.png");
+                this.countDot++;
+                if (this.countDot >= this.arrayDot.length) {
+                    this.stateEffect = VipShopInfo.STATE_1;
+                    this.timeEffectVip = 0.5;
+                    this.stateLight = 0;
                 }
                 else {
-                    this.arrayDot[i].loadTexture("Lobby/Common/dotLight.png");
+                    this.timeEffectVip = 0.05;
+                }
+            } else if (this.stateEffect == VipShopInfo.STATE_1) {
+                for (var i = 0; i < this.arrayDot.length; i++) {
+                    if (this.stateLight % 2 == 0) {
+                        this.arrayDot[i].loadTexture("Lobby/Common/dotNormal.png");
+                    } else {
+                        this.arrayDot[i].loadTexture("Lobby/Common/dotLight.png");
+                    }
+                }
+                this.stateLight++;
+                if (this.stateLight > 5) {
+                    this.stateEffect = VipShopInfo.STATE_2;
+                    this.timeEffectVip = 0.5;
+                }
+                else {
+                    this.timeEffectVip = 0.4;
+                }
+            } else {
+                this.timeEffectVip = 0.4;
+                this.stateEffect = 1 - this.stateEffect;
+                for (var i = 0; i < this.arrayDot.length; i++) {
+                    if (Math.random() > 0.5) {
+                        this.arrayDot[i].loadTexture("Lobby/Common/dotNormal.png");
+                    } else {
+                        this.arrayDot[i].loadTexture("Lobby/Common/dotLight.png");
+                    }
                 }
             }
         }
     }
 });
+
+VipShopInfo.STATE_0 = 0;
+VipShopInfo.STATE_1 = 1;
+VipShopInfo.STATE_2 = 2;

@@ -46,7 +46,7 @@ var GUIOfferNoPrice = BaseLayer.extend({
             this.arrayBonus.push(offer);
         }
         var w = this.arrayBonus[0].getContentSize().width;
-        var pad = -12;
+        var pad = -24;
         var sumW = w * this.arrayBonus.length + pad * (this.arrayBonus.length - 1);
         var startX = this.btnBuy.getPositionX() - sumW * 0.5;
 

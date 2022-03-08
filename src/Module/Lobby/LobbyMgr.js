@@ -83,6 +83,14 @@ var LobbyMgr = BaseMgr.extend({
         dispatcherMgr.addListener(UserMgr.EVENT_GET_POS_COMPONENT, this, this.getPosComponent);
         dispatcherMgr.addListener(UserMgr.EVENT_GET_VALUE, this, this.getValue);
         dispatcherMgr.addListener(UserMgr.EVENT_EFFECT_LABEL, this, this.getPosComponent);
+        dispatcherMgr.addListener(UserMgr.EVENT_UPDATE_MONEY, this, this.updateMoney);
+    },
+
+    updateMoney: function () {
+        var lobby = sceneMgr.getMainLayer()
+        if (lobby instanceof LobbyScene) {
+            lobby.updateToCurrentData();
+        }
     },
 
     onGetUserInfo: function (eventName, eventData) {

@@ -10,6 +10,14 @@ var PaymentMgr = BaseMgr.extend({
     initListener: function () {
         dispatcherMgr.addListener(UserMgr.EVENT_ON_GET_USER_INFO, this, this.onGetUserInfo);
         dispatcherMgr.addListener(LobbyMgr.EVENT_ON_ENTER_FINISH, this, this.onEnterLobby);
+        dispatcherMgr.addListener(UserMgr.EVENT_UPDATE_MONEY, this, this.updateMoney);
+    },
+
+    updateMoney: function () {
+        var shop = sceneMgr.getMainLayer();
+        if (shop instanceof ShopIapScene) {
+            shop.updateToCurrentData();
+        }
     },
 
     onGetUserInfo: function (eventName, eventData) {
@@ -155,7 +163,7 @@ var PaymentMgr = BaseMgr.extend({
             }
             case PaymentMgr.CMD_BUY_ZALO_V2: {
                 sceneMgr.clearLoading();
-                var cmdBuyGZalo = new CmdReceivedBuyZaloV2(pk);
+                var cmdBuyGZalo = new CmdReceivedBuyZaloV2(p);
                 cc.log("PACKEG " + JSON.stringify(cmdBuyGZalo));
                 if (cmdBuyGZalo.errorCode == 1) {
                     if (fr.platformWrapper.isAndroid()) {
@@ -168,12 +176,40 @@ var PaymentMgr = BaseMgr.extend({
                     var str = LocalizedString.to("ZALOPAY_ERROR_" + cmdBuyGZalo.errorCode) + "\n";
                     var subErrorCode = cmdBuyGZalo.errMsg.substr(cmdBuyGZalo.errMsg.indexOf('(') + 1, 5);
                     if (subErrorCode && subErrorCode == "-1010") {
+                        fr.tracker.logStepStart(ConfigLog.ZALO_PAY, ConfigLog.BEGIN + "TOP_UP");
                         str += LocalizedString.to("ZALOPAY_ERROR_1010");
+                        sceneMgr.showOkCancelDialog(str, this, function (btnId) {
+                            switch (btnId) {
+                                case Dialog.BTN_OK:
+                                    if (this.zalopayPackValue > 0) {
+                                        fr.tracker.logStepStart(ConfigLog.ZALO_PAY, "CLICK_TOPUP");
+                                        fr.tracker.logStepStart(ConfigLog.ZALO_PAY, ConfigLog.END);
+                                        var zlpLink = Config.ZALOPAY_DEEP_LINK;
+                                        zlpLink = StringUtility.replaceAll(zlpLink, "@amount", this.zalopayPackValue);
+                                        var packageName = fr.platformWrapper.getPackageName();
+                                        if(packageName) {
+                                            zlpLink = StringUtility.replaceAll(zlpLink, "@package", packageName);
+                                        }
+                                        cc.log("call deeplink: ", JSON.stringify(zlpLink));
+                                        this.zalopayPackValue = 0;
+                                        NativeBridge.openURLNative(zlpLink);
+                                    }
+                                    break;
+                                case Dialog.BTN_CANCEL:
+                                    fr.tracker.logStepStart(ConfigLog.ZALO_PAY, "CLICK_CANCEL");
+                                    fr.tracker.logStepStart(ConfigLog.ZALO_PAY, ConfigLog.END);
+                                    break;
+                            }
+                        });
+                    } else if (subErrorCode && subErrorCode == "-1800") {
+                        str += LocalizedString.to("ZALOPAY_POPUP_ERROR_0");
+                        str += "(" + subErrorCode + ")";
+                        sceneMgr.showOKDialog(str);
                     } else {
                         str = StringUtility.replaceAll(str, "@n", "\n");
                         str += cmdBuyGZalo.errMsg;
+                        sceneMgr.showOKDialog(str);
                     }
-                    sceneMgr.showOKDialog(str);
                 }
                 break;
             }

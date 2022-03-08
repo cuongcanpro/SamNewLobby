@@ -16,7 +16,7 @@ let ReceivedManager = BaseMgr.extend({
         if (this.arrayReceived <= 0) return;
         var gui = sceneMgr.getGUIByClassName(ReceivedGUI.className);
         if (!gui || !gui.isShow) {
-            sceneMgr.openGUI(ReceivedGUI.className);
+            sceneMgr.openGUI(ReceivedGUI.className, 9999);
         }
     },
 
@@ -38,6 +38,7 @@ let ReceivedManager = BaseMgr.extend({
     },
 
     setShopGoldSuccessInfo: function (cmd) {
+        cc.log("WHY IS THIS MISSING",  JSON.stringify(cmd["purchaseId"]));
         for (var i = 0; i < cmd["purchaseId"].length; i++) {
             var items = [];
             var itemsOffer = [];
@@ -98,7 +99,6 @@ let ReceivedManager = BaseMgr.extend({
                 }
 
             /** VIP HOURS **/
-            cmd["offerVipHour"][i] = 1000;
             textTitle = "Giờ VIP";
             modifyPercent = 0;
             base = 0;
@@ -145,14 +145,17 @@ let ReceivedManager = BaseMgr.extend({
                 var arraySubType = cmd.offerItemSubType[i].split(";");
                 var arrayId = cmd.offerItemId[i].split(";");
                 var arrayNum = cmd.offerItemNumber[i].split(";");
-                for (var i = 0; i < arrayType.length; i++) {
+                for (var j = 0; j < arrayType.length; j++) {
                     context = LocalizedString.to("SHOP_GOLD_SOURCE_2");
+                    var imageNode = new cc.Sprite(StorageManager.getItemIconPath(arrayType[j], arraySubType[j], arrayId[j]));
+                    imageNode.setScale(100 / imageNode.width);
+                    imageNode.retain();
                     receivedGUIData = new ReceivedGUIData(
                         ReceivedCell.TYPE_OBJ,
-                        arrayNum[i],
+                        arrayNum[j],
                         context,
                         "",
-                        new cc.Sprite(StorageManager.getItemIconPath(arrayType[i], arraySubType[i], arrayId[i]))
+                        imageNode
                     );
 
                     if (isShopGold) {
@@ -169,23 +172,28 @@ let ReceivedManager = BaseMgr.extend({
                 var arrayEventId = cmd.eventId[i].split(";");
                 var arrayTicketNum = cmd.eventTicket[i].split(";");
                 var arrayReason = cmd.eventReason[i].split(";");
-                for (var i = 0; i < arrayEventId.length; i++) {
+                for (var j = 0; j < arrayEventId.length; j++) {
                     if (eventMgr.isInEvent(arrayEventId[j])) {
-                        if (arrayNum[j] > 0) {
-                            var bonusTicket = new ShopSuccessData();
+                        if (arrayTicketNum[j] > 0) {
+                            var imageNode = new cc.Sprite(eventMgr.getOfferTicketImage(arrayEventId[j]));
+                            imageNode.setScale(100 / imageNode.width);
+                            imageNode.retain();
+                            textTitle = eventMgr.getOfferTicketString(arrayEventId[j]);
+                            context = LocalizedString.to("SHOP_GOLD_SOURCE_2");
+                            if (arrayReason[j] == 6) textTitle += textTitle + "  " + context;
                             receivedGUIData = new ReceivedGUIData(
                                 ReceivedCell.TYPE_OBJ,
-                                arrayTicketNum[i],
+                                arrayTicketNum[j],
+                                textTitle,
                                 "",
-                                "",
-                                new cc.Sprite(eventMgr.getOfferTicketImage(arrayEventId[i]))
+                                imageNode
                             );
 
                             if (isShopGold) {
-                                if (arrayReason[i] == 6) {// nhan tu Offer
-                                    itemsOffer.push(bonusTicket)
+                                if (arrayReason[j] == 6) {// nhan tu Offer
+                                    itemsOffer.push(receivedGUIData)
                                 } else {
-                                    items.push(bonusTicket);
+                                    items.push(receivedGUIData);
                                 }
                             } else {
                                 items.push(receivedGUIData);
@@ -210,8 +218,6 @@ let ReceivedManager = BaseMgr.extend({
                 });
             }
         }
-
-        cc.log("WHAT IS THIS INFO", JSON.stringify(this.arrayReceived));
     },
 
     shopGoldGetTitle: function (cmd, index, isOffer) {

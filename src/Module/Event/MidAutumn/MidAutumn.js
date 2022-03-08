@@ -78,28 +78,28 @@ MidAutumn = cc.Class.extend({
 
     preloadResource: function () {
         cc.log("MidAutumn::preloadResource");
-        db.DBCCFactory.getInstance().loadDragonBonesData("res/Lobby/EventMgr/midAutumn/EventButton/skeleton.xml","EventButton");
-        db.DBCCFactory.getInstance().loadTextureAtlas("res/Lobby/EventMgr/midAutumn/EventButton/texture.plist", "EventButton");
+        db.DBCCFactory.getInstance().loadDragonBonesData("res/Lobby/Event/midAutumn/EventButton/skeleton.xml","EventButton");
+        db.DBCCFactory.getInstance().loadTextureAtlas("res/Lobby/Event/midAutumn/EventButton/texture.plist", "EventButton");
 
         if (!this.isFinishDownload)
             return;
 
-        LocalizedString.add("res/EventMgr/MidAutumn/MidAutumnRes/MDLocalized_vi");
+        LocalizedString.add("res/Event/MidAutumn/MidAutumnRes/MDLocalized_vi");
 
-        db.DBCCFactory.getInstance().loadDragonBonesData("res/EventMgr/MidAutumn/MidAutumnRes/FX_nhanqua/skeleton.xml","FX_nhanqua");
-        db.DBCCFactory.getInstance().loadTextureAtlas("res/EventMgr/MidAutumn/MidAutumnRes/FX_nhanqua/texture.plist", "FX_nhanqua");
+        db.DBCCFactory.getInstance().loadDragonBonesData("res/Event/MidAutumn/MidAutumnRes/FX_nhanqua/skeleton.xml","FX_nhanqua");
+        db.DBCCFactory.getInstance().loadTextureAtlas("res/Event/MidAutumn/MidAutumnRes/FX_nhanqua/texture.plist", "FX_nhanqua");
 
-        db.DBCCFactory.getInstance().loadDragonBonesData("res/EventMgr/MidAutumn/MidAutumnRes/OBimat/skeleton.xml","OBimat");
-        db.DBCCFactory.getInstance().loadTextureAtlas("res/EventMgr/MidAutumn/MidAutumnRes/OBimat/texture.plist", "OBimat");
+        db.DBCCFactory.getInstance().loadDragonBonesData("res/Event/MidAutumn/MidAutumnRes/OBimat/skeleton.xml","OBimat");
+        db.DBCCFactory.getInstance().loadTextureAtlas("res/Event/MidAutumn/MidAutumnRes/OBimat/texture.plist", "OBimat");
 
-        db.DBCCFactory.getInstance().loadDragonBonesData("res/EventMgr/MidAutumn/MidAutumnRes/Oqua/skeleton.xml","Oqua");
-        db.DBCCFactory.getInstance().loadTextureAtlas("res/EventMgr/MidAutumn/MidAutumnRes/Oqua/texture.plist", "Oqua");
+        db.DBCCFactory.getInstance().loadDragonBonesData("res/Event/MidAutumn/MidAutumnRes/Oqua/skeleton.xml","Oqua");
+        db.DBCCFactory.getInstance().loadTextureAtlas("res/Event/MidAutumn/MidAutumnRes/Oqua/texture.plist", "Oqua");
 
-        db.DBCCFactory.getInstance().loadDragonBonesData("res/EventMgr/MidAutumn/MidAutumnRes/plane/skeleton.xml","plane");
-        db.DBCCFactory.getInstance().loadTextureAtlas("res/EventMgr/MidAutumn/MidAutumnRes/plane/texture.plist", "plane");
+        db.DBCCFactory.getInstance().loadDragonBonesData("res/Event/MidAutumn/MidAutumnRes/plane/skeleton.xml","plane");
+        db.DBCCFactory.getInstance().loadTextureAtlas("res/Event/MidAutumn/MidAutumnRes/plane/texture.plist", "plane");
 
-        db.DBCCFactory.getInstance().loadDragonBonesData("res/EventMgr/MidAutumn/MidAutumnRes/Logo/skeleton.xml","Logo");
-        db.DBCCFactory.getInstance().loadTextureAtlas("res/EventMgr/MidAutumn/MidAutumnRes/Logo/texture.plist", "Logo");
+        db.DBCCFactory.getInstance().loadDragonBonesData("res/Event/MidAutumn/MidAutumnRes/Logo/skeleton.xml","Logo");
+        db.DBCCFactory.getInstance().loadTextureAtlas("res/Event/MidAutumn/MidAutumnRes/Logo/texture.plist", "Logo");
 
         MidAutumnSound.preloadAllSound();
         // var obj = {id:1000010, item: [2, 2, 2, 2], gift: 0, numChange: [0, 0, 0, 0]};
@@ -371,7 +371,7 @@ MidAutumn = cc.Class.extend({
             this.buttonLobby.anim.eff.gotoAndPlay("1", -1, -1, 0);
             this.buttonLobby.notify.setVisible(this.notifyEvent);
             this.buttonLobby.time.setFontSize(16);
-            //  this.buttonLobby.time.setString(midAutumn.getTimeLeft());
+            this.buttonLobby.time.setString(midAutumn.getTimeLeft());
             this.buttonLobby.time.setColor(cc.color(159, 153, 201));
             // this.buttonLobby.time.enableOutline(cc.color(162, 153, 202), 0);
             this.buttonLobby.time.setPositionY(this.buttonLobby.time.getPositionY() - 15);
@@ -388,7 +388,7 @@ MidAutumn = cc.Class.extend({
     },
 
     getTicketTexture: function(){
-        return "res/EventMgr/MidAutumn/MidAutumnUI/hammer.png";
+        return "res/Event/MidAutumn/MidAutumnUI/hammer.png";
     },
 
     getOfferTicketImage: function (id) {
@@ -431,11 +431,11 @@ MidAutumn = cc.Class.extend({
     },
 
     getImgType: function (type) {
-        return "res/EventMgr/MidAutumn/MidAutumnUI/imgType_" + type + ".png";
+        return "res/Event/MidAutumn/MidAutumnUI/imgType_" + type + ".png";
     },
 
     getImgLamp: function (id) {
-        return "res/EventMgr/MidAutumn/MidAutumnUI/lamp" + id + ".png";
+        return "res/Event/MidAutumn/MidAutumnUI/lamp" + id + ".png";
     },
 
     checkNewDay: function () {
@@ -624,10 +624,10 @@ MidAutumn = cc.Class.extend({
     getPieceImage: function (id) {
         cc.log("GetPiece " + id);
         if (this.isLamp(id))
-            return "res/EventMgr/MidAutumn/MidAutumnUI/lamp" + id + ".png";
+            return "res/Event/MidAutumn/MidAutumnUI/lamp" + id + ".png";
         if (this.isItemStored(id))
-            return "res/EventMgr/MidAutumn/MidAutumnUI/e" + id + ".png";
-        return "res/EventMgr/MidAutumn/MidAutumnUI/icon_gold.png";
+            return "res/Event/MidAutumn/MidAutumnUI/e" + id + ".png";
+        return "res/Event/MidAutumn/MidAutumnUI/icon_gold.png";
     },
 
     getItemName: function (id) {
@@ -673,35 +673,35 @@ MidAutumn = cc.Class.extend({
     getGiftImage: function (id) {
         id = this.convertIdNormal(id);
         if (this.isItemStored(id))
-            return "res/EventMgr/MidAutumn/MidAutumnUI/enLarge" + id + ".png";
-        return "res/EventMgr/MidAutumn/MidAutumnUI/en10.png"
+            return "res/Event/MidAutumn/MidAutumnUI/enLarge" + id + ".png";
+        return "res/Event/MidAutumn/MidAutumnUI/en10.png"
     },
 
     getGiftImageOpen: function (id) {
         //id = this.convertIdNormal(id);
         //  if(this.isItemStored(id))
-        return "res/EventMgr/MidAutumn/MidAutumnUI/enLarge" + id + ".png";
-        //  return "res/EventMgr/MidAutumn/MidAutumnUI/en10.png"
+        return "res/Event/MidAutumn/MidAutumnUI/enLarge" + id + ".png";
+        //  return "res/Event/MidAutumn/MidAutumnUI/en10.png"
     },
 
     getEggImage: function (id) {
         id = this.convertIdNormal(id);
         if (this.isItemStored(id))
-            return "res/EventMgr/MidAutumn/MidAutumnUI/s" + id + ".png";
+            return "res/Event/MidAutumn/MidAutumnUI/s" + id + ".png";
         if (id == -2) {
-            return "res/EventMgr/MidAutumn/MidAutumnUI/cell_stone.png";
+            return "res/Event/MidAutumn/MidAutumnUI/cell_stone.png";
         }
         if (id == 0) {
             return "";
         }
-        return "res/EventMgr/MidAutumn/MidAutumnUI/i10.png"
+        return "res/Event/MidAutumn/MidAutumnUI/i10.png"
     },
 
     getGiftBackgroundImage: function (id) {
         id = this.convertIdNormal(id);
         if (this.isItemStored(id))
-            return "res/EventMgr/MidAutumn/MidAutumnUI/eb" + id + ".png"
-        return "res/EventMgr/MidAutumn/MidAutumnUI/eb10.png"
+            return "res/Event/MidAutumn/MidAutumnUI/eb" + id + ".png"
+        return "res/Event/MidAutumn/MidAutumnUI/eb10.png"
     },
 
     getStageId: function () {
@@ -713,22 +713,22 @@ MidAutumn = cc.Class.extend({
         if (!this.mapInfo) stage = 0;
         if (stage === undefined || stage == null) stage = this.mapInfo.stage;
 
-        if (stage < 0 || stage > 2) return "res/EventMgr/MidAutumn/MidAutumnUI/stage0.png";
-        return "res/EventMgr/MidAutumn/MidAutumnUI/stage" + stage + ".png";
+        if (stage < 0 || stage > 2) return "res/Event/MidAutumn/MidAutumnUI/stage0.png";
+        return "res/Event/MidAutumn/MidAutumnUI/stage" + stage + ".png";
     },
 
     getStageBackgroundImage: function (stage) {
         if (!this.mapInfo) stage = 0;
         if (stage === undefined || stage == null) stage = this.mapInfo.stage;
 
-        if (stage < 0 || stage > 2) return "res/EventMgr/MidAutumn/MidAutumnUI/bg_stage0.jpg";
-        return "res/EventMgr/MidAutumn/MidAutumnUI/bg_stage" + stage + ".jpg";
+        if (stage < 0 || stage > 2) return "res/Event/MidAutumn/MidAutumnUI/bg_stage0.jpg";
+        return "res/Event/MidAutumn/MidAutumnUI/bg_stage" + stage + ".jpg";
     },
 
     getStageWaveImage: function () {
-        if (!this.mapInfo) return "res/EventMgr/MidAutumn/MidAutumnUI/wave_stage0.png";
+        if (!this.mapInfo) return "res/Event/MidAutumn/MidAutumnUI/wave_stage0.png";
         if (this.mapInfo.stage < 0 || this.mapInfo.stage > 2) return "";
-        return "res/EventMgr/MidAutumn/MidAutumnUI/wave_stage" + this.mapInfo.stage + ".png";
+        return "res/Event/MidAutumn/MidAutumnUI/wave_stage" + this.mapInfo.stage + ".png";
     },
 
     convertIdNormal: function (id) {
@@ -1663,7 +1663,7 @@ MidAutumn = cc.Class.extend({
         if (!this.isFinishDownload)
             return;
         this.btnSendLamp = new ccui.Button();
-        this.btnSendLamp.loadTextures("res/EventMgr/MidAutumn/MidAutumnUI/btnActionSend.png", "res/EventMgr/MidAutumn/MidAutumnUI/btnActionSend.png", "res/EventMgr/MidAutumn/MidAutumnUI/btnActionSend.png");
+        this.btnSendLamp.loadTextures("res/Event/MidAutumn/MidAutumnUI/btnActionSend.png", "res/Event/MidAutumn/MidAutumnUI/btnActionSend.png", "res/Event/MidAutumn/MidAutumnUI/btnActionSend.png");
         this.btnSendLamp.setPosition(this.btnSendLamp.getContentSize().width * 0.5, this.btnSendLamp.getContentSize().height * 0.5);
         parent.panel.addChild(this.btnSendLamp);
         this.btnSendLamp.guiInteract = parent;
@@ -1719,7 +1719,7 @@ MidAutumn = cc.Class.extend({
 
     // LISTENER
     onReceive: function (cmd, data) {
-        if (gamedata.checkInReview()) return;
+        // if (gamedata.checkInReview()) return;
         switch (cmd) {
             case MD_CMD_EVENT_NOTIFY: {
                 var rEventNotify = new CmdReceiveMidAutumnNotify(data);
@@ -1810,7 +1810,7 @@ MidAutumn = cc.Class.extend({
 
                 cc.log("CMD_EVENT_SHOP_BONUS : " + JSON.stringify(rEventShop));
 
-                event.onEventShopBonusNew(rEventShop, Event.MID_AUTUMN);
+                eventMgr.onEventShopBonusNew(rEventShop, Event.MID_AUTUMN);
                 this.sendCheckNewDay = false;
                 this.saveDay = -1;
                 break;
@@ -2116,21 +2116,21 @@ MidAutumnSound.preloadAllSound = function(){
 };
 
 resSTSound = {
-    bg : "res/EventMgr/MidAutumnRes/beach.mp3",
-    bubble_single : "res/EventMgr/MidAutumnRes/bubble_single.mp3",
-    sound_single : "res/EventMgr/MidAutumnRes/sound_single.mp3",
-    bubble_sequence : "res/EventMgr/MidAutumnRes/bubble_sequence.mp3",
-    bubble_sequence_1 : "res/EventMgr/MidAutumnRes/bubble_sequence_1.mp3",
-    bubble_sequence_2 : "res/EventMgr/MidAutumnRes/bubble_sequence_2.mp3",
-    sound_sequence : "res/EventMgr/MidAutumnRes/sound_sequence.mp3",
-    piece : "res/EventMgr/MidAutumnRes/pieces.mp3",
-    rollPlate1: "res/EventMgr/MidAutumnRes/xoc_dia_001.mp3",
-    rollPlate2: "res/EventMgr/MidAutumnRes/xoc_dia_002.mp3",
-    rollPlate3: "res/EventMgr/MidAutumnRes/xoc_dia_003.mp3",
-    rollPlate4: "res/EventMgr/MidAutumnRes/xoc_dia_004.mp3",
-    closePlate: "res/EventMgr/MidAutumnRes/dong_dia.mp3",
-    //diceFly: "res/EventMgr/MidAutumnRes/dice_fly.mp3",
-    foxJump: "res/EventMgr/MidAutumnRes/fox_jump.mp3",
+    bg : "res/Event/MidAutumnRes/beach.mp3",
+    bubble_single : "res/Event/MidAutumnRes/bubble_single.mp3",
+    sound_single : "res/Event/MidAutumnRes/sound_single.mp3",
+    bubble_sequence : "res/Event/MidAutumnRes/bubble_sequence.mp3",
+    bubble_sequence_1 : "res/Event/MidAutumnRes/bubble_sequence_1.mp3",
+    bubble_sequence_2 : "res/Event/MidAutumnRes/bubble_sequence_2.mp3",
+    sound_sequence : "res/Event/MidAutumnRes/sound_sequence.mp3",
+    piece : "res/Event/MidAutumnRes/pieces.mp3",
+    rollPlate1: "res/Event/MidAutumnRes/xoc_dia_001.mp3",
+    rollPlate2: "res/Event/MidAutumnRes/xoc_dia_002.mp3",
+    rollPlate3: "res/Event/MidAutumnRes/xoc_dia_003.mp3",
+    rollPlate4: "res/Event/MidAutumnRes/xoc_dia_004.mp3",
+    closePlate: "res/Event/MidAutumnRes/dong_dia.mp3",
+    //diceFly: "res/Event/MidAutumnRes/dice_fly.mp3",
+    foxJump: "res/Event/MidAutumnRes/fox_jump.mp3",
 };
 
 MidAutumn._instance = null;

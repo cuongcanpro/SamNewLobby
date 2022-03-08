@@ -25,6 +25,7 @@ BaseTabShop = cc.Layer.extend({
         scrollView.setDirection(ccui.ScrollView.DIR_HORIZONTAL);
         scrollView.setTouchEnabled(true);
         scrollView.setBounceEnabled(true);
+        scrollView.setScrollBarEnabled(false);
         //scrollView.setBackGroundColorType(ccui.Layout.BG_COLOR_SOLID);
         scrollView.setBackGroundColor(cc.color(255,255,255));
         //scrollView.setBackGroundImageScale9Enabled(true);

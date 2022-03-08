@@ -78,12 +78,13 @@ var ShopIapScene = BaseLayer.extend({
         cc.log(" ******* ON ENTER FINISH SHOP IAP SCENE ******* ");
 
         //this.getControl("btnHelp").setVisible(!paymentMgr.checkInReview());
-        this.pUserInfo.updateToCurrentData();
+        this.updateToCurrentData();
 
         // request shop event
         paymentMgr.sendUpdateBuyGold();
         paymentMgr.sendGetConfigShop(CmdSendGetConfigShop.GOLD, paymentMgr.versionShopGold);
         eventMgr.requestShopEventConfig();
+        this.vipInfo.onEnterFinish();
         this.vipInfo.showVipInfo(false);
         this.scheduleUpdate();
         this.reLayoutTab();
@@ -93,6 +94,11 @@ var ShopIapScene = BaseLayer.extend({
         cc.log("VAO DEN DAY *** ");
         this.tabItem.onEnterFinish();
         this.updateEventInfo();
+    },
+
+    updateToCurrentData: function () {
+        this.pUserInfo.updateToCurrentData();
+        this.pUserInfo.setPosition(cc.winSize.width - this.pUserInfo.getContentSize().width - 20, cc.winSize.height - this.pUserInfo.getContentSize().height - 20);
     },
 
     onExit: function () {

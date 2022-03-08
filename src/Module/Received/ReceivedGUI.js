@@ -33,7 +33,8 @@ var ReceivedGUI = BaseLayer.extend({
 
         this.pConfetti = this.getControl("pConfetti", this.bg);
 
-        this.customButton("btn", ReceivedGUI.BTN_CLOSE, this.bg);
+        this.btn = this.customButton("btn", ReceivedGUI.BTN_CLOSE, this.bg);
+        this.btnClose = this.customButton("btnClose", ReceivedGUI.BTN_CLOSE);
         this.customButton("btnReset", ReceivedGUI.BTN_RESET, this.bg).setVisible(Config.ENABLE_CHEAT);
         this.enableFog();
         this._fog.setColor(cc.color("#111b28"));
@@ -90,6 +91,23 @@ var ReceivedGUI = BaseLayer.extend({
         this.doItemEffect();
 
         this.scheduleUpdate();
+
+        this.btn.setVisible(false);
+        this.btnClose.setVisible(false);
+        setTimeout(function () {
+            this.btnClose.setVisible(true);
+            this.btn.stopAllActions();
+            this.btn.setVisible(true);
+            this.btn.setScale(0);
+            this.btn.runAction(cc.sequence(
+                cc.scaleTo(0.1, 1).easing(cc.easeBackOut()),
+                cc.scaleTo(0.5, 0.9).easing(cc.easeBackIn()),
+                cc.scaleTo(0.5, 1).easing(cc.easeBackOut()),
+                cc.scaleTo(0.5, 0.9).easing(cc.easeBackIn()),
+                cc.scaleTo(0.5, 1).easing(cc.easeBackOut()),
+                cc.delayTime(0.25)
+            ).repeatForever())
+        }.bind(this), (0.25 + 0.15 * Math.min(ReceivedGUI.MAX_LENGTH, this.items.length)) * 1000);
     },
 
     doItemEffect: function () {
@@ -240,6 +258,13 @@ var ReceivedGUI = BaseLayer.extend({
         if (Math.random() < 0.05) {
             var sparkle = new Sparkle();
             this.pConfetti.addChild(sparkle);
+            if (Math.random() < 0.5) {
+                sparkle.setPositionY(0);
+                sparkle.setRotation(180);
+            } else {
+                sparkle.setPositionY(this.pConfetti.height);
+                sparkle.setRotation(0);
+            }
             sparkle.startEffect();
         }
     },
@@ -265,14 +290,17 @@ var ReceivedGUI = BaseLayer.extend({
 
     onClose: function () {
         this._fog.stopAllActions();
-        this._fog.setOpacity(0);
-        this._fog.runAction(cc.fadeOut(0.25));
+        this._fog.runAction(cc.fadeOut(0.25).easing(cc.easeOut(2.5)));
 
         this.bg.stopAllActions();
         this.bg.runAction(cc.sequence(
-            cc.scaleTo(0.25, 1, 0).easing(cc.easeBackIn()),
+            cc.fadeOut(0.25).easing(cc.easeOut(2.5)),
             cc.callFunc(this.onCloseDone.bind(this))
         ));
+
+        for (var i = 0; i < this.items.length; i++) {
+            this.items[i].endEffect();
+        }
     },
 
     onCloseDone: function () {
@@ -288,129 +316,6 @@ ReceivedGUI.DECO_LOGO = 8;
 
 ReceivedGUI.BTN_CLOSE = 0;
 ReceivedGUI.BTN_RESET = 1;
-
-//Confetti effect
-var Paper = cc.Node.extend({
-    ctor: function () {
-        this._super();
-        this.initChild();
-    },
-
-    initChild: function () {
-        this.setCascadeOpacityEnabled(true);
-        var file = "res/Lobby/Received/particle/p" + Math.floor(Math.random() * Paper.VARIANT) + ".png";
-        this.spriteImg = new cc.Sprite(file);
-        this.addChild(this.spriteImg);
-        this.spriteImg.setRotation(Math.random() * 360);
-        this.spriteImg.setScale(Math.random() * 0.2 + 1, Math.random() * 0.2 + 1);
-    },
-
-    startEffect: function (delayTime = 0) {
-        var rSpin = Math.random() * 0.25 + 0.25;
-        var p1 = cc.p(-50, (0.5 - Math.random()) * 50);
-        var p2 = cc.p(
-            cc.winSize.width * 0.75 * (0.25 + Math.random()),
-            -250 * Math.random()
-        );
-        var p3 = cc.p(
-            (p1.x + p2.x) / 2 + (0.5 - Math.random()) * 300,
-            (p1.y + p2.y) / 2 + (0.5 - Math.random()) * 150
-        );
-        var rTime = (3.5 + Math.random() * 2.5);
-
-        this.spriteImg.runAction(cc.sequence(
-            cc.delayTime(delayTime + rTime / 5),
-            cc.callFunc(function () {
-                var osX = this.spriteImg.getScaleX();
-                var osY = this.spriteImg.getScaleY();
-                var r1 = Math.round(Math.random());
-                var r2 = Math.round(Math.random());
-                if (r1 == r2 && r1 == 0) {
-                    r1 = 1;
-                }
-                if (r1 == r2 && r1 == 1) {
-                    r1 = 0;
-                }
-                this.spriteImg.runAction(cc.sequence(
-                    cc.scaleTo(rSpin, r1 * osX, r2 * osY),
-                    cc.scaleTo(rSpin, osX, osY)
-                ).repeatForever());
-            }.bind(this))
-        ));
-
-        this.spriteImg.setVisible(false);
-        this.spriteImg.runAction(cc.sequence(
-            cc.delayTime(delayTime),
-            cc.show(),
-            cc.bezierTo(rTime, [p1, p3, p2]).easing(cc.easeOut(2))
-        ));
-
-        this.runAction(cc.sequence(
-            cc.delayTime(delayTime + rTime - 0.1),
-            cc.fadeOut(0.1),
-            cc.removeSelf()
-        ));
-    }
-});
-Paper.VARIANT = 5;
-
-//Sparkle
-var Sparkle = cc.Node.extend({
-    ctor: function () {
-        this._super();
-        this.initChild();
-    },
-
-    initChild: function () {
-        this.setCascadeOpacityEnabled(true);
-        var file = "res/Lobby/Received/particle/spark.png";
-        this.spriteImg = new cc.Sprite(file);
-        this.addChild(this.spriteImg);
-        this.spriteImg.setRotation(Math.random() * 360);
-        this.spriteImg.setScale(Math.random() * 0.75 + 0.75);
-    },
-
-    startEffect: function (delayTime = 0) {
-        if (Math.random() < 0.5) {
-            this.setPositionY(0);
-            this.setRotation(180);
-        } else {
-            this.setPositionY(this.getParent().height);
-            this.setRotation(0);
-        }
-
-        this.setPositionX(Math.random() * cc.winSize.width);
-        var height = 25 + Math.random() * 25;
-        var rTime = (2.5 + Math.random() * 2.5);
-
-        this.spriteImg.runAction(cc.sequence(
-            cc.delayTime(0.5),
-            cc.callFunc(function () {
-                var time = 0.1 + Math.random() * 0.25;
-                this.spriteImg.runAction(cc.sequence(
-                    cc.fadeTo(0.1, 125 * Math.random()),
-                    cc.delayTime(time - 0.1),
-                    cc.fadeIn(0.1)
-                ));
-                this.spriteImg.runAction(cc.rotateBy(0.5, Math.random() * 90 + 90));
-                this.spriteImg.runAction(cc.scaleTo(0.5, Math.random() * 0.75 + 0.75));
-            }.bind(this))
-        ).repeatForever());
-
-        this.spriteImg.setVisible(false);
-        this.spriteImg.runAction(cc.sequence(
-            cc.delayTime(delayTime),
-            cc.show(),
-            cc.moveBy(rTime, 0, height).easing(cc.easeOut(2))
-        ));
-
-        this.runAction(cc.sequence(
-            cc.delayTime(delayTime + rTime - 0.1),
-            cc.fadeOut(0.1),
-            cc.removeSelf()
-        ));
-    }
-});
 
 var ReceivedCell = cc.Node.extend({
     ctor: function (info) {
@@ -440,7 +345,7 @@ var ReceivedCell = cc.Node.extend({
 
     initGUI: function () {
         this.bg = this.getControl("bg");
-        this.bgModify = this.getControl("bgModify", this.bg);
+        this.bgModify = this.getControl("bgModify");
         this.lbModify = this.getControl("label", this.bgModify);
         this.pItem = this.getControl("pItem");
         this.itemImg = this.getControl("itemImg", this.pItem);
@@ -469,24 +374,31 @@ var ReceivedCell = cc.Node.extend({
         switch (parseInt(info.type)) {
             case ReceivedCell.TYPE_GOLD:
                 this.itemImg.loadTexture("res/Lobby/Received/defaultItem/gold.png");
+                if (!info.title) info.title = "Vàng";
                 break;
             case ReceivedCell.TYPE_G:
                 this.itemImg.loadTexture("res/Lobby/Received/defaultItem/g.png");
+                if (!info.title) info.title = "G";
                 break;
             case ReceivedCell.TYPE_VPOINT:
                 this.itemImg.loadTexture("res/Lobby/Received/defaultItem/vPoint.png");
+                if (!info.title) info.title = "VPoint";
                 break;
             case ReceivedCell.TYPE_VHOUR:
                 this.itemImg.loadTexture("res/Lobby/Received/defaultItem/vHour.png");
+                if (!info.title) info.title = "Giờ VIP";
                 subfix = " giờ";
                 break;
             case ReceivedCell.TYPE_DIAMOND:
                 this.itemImg.loadTexture("res/Lobby/Received/defaultItem/diamond.png");
+                if (!info.title) info.title = "Kim cương";
                 break;
             case ReceivedCell.TYPE_OBJ:
                 this.itemImg.setVisible(false);
                 this.pItem.addChild(info.obj);
-                this.itemObj = info.obj;
+                info.obj.setPosition(cc.p(this.pItem.width * 0.5, this.pItem.height * 0.5));
+                info.obj.defaultPos = info.obj.getPosition();
+                this.itemImg = info.obj;
                 prefix = "x";
                 break;
             default:
@@ -504,11 +416,15 @@ var ReceivedCell = cc.Node.extend({
             prefix
             + (info.number > ReceivedCell.MAX_POINT_NUMBER?
             StringUtility.formatNumberSymbol(info.number) : StringUtility.pointNumber(info.number))
-            + subfix);
+            + subfix
+        );
+
+        if (!info.modify) info.modify = "";
         this.lbModify.setString(info.modify);
         this.bgModify.width = StringUtility.getLabelWidth(this.lbModify) + 24;
         this.bgModify.setVisible(info.modify !== "");
 
+        if (!info.title) info.title = "";
         this.name.setString(info.title);
     },
 
@@ -533,49 +449,23 @@ var ReceivedCell = cc.Node.extend({
     },
 
     doEffectItem: function (delay, firstActTime, secondActTime) {
-
-        if (this.rewardType === ReceivedCell.TYPE_OBJ) {
-
-            this.itemObj.setVisible(true);
-            this.itemObj.setPosition(cc.p(100, 0));
-            this.itemObj.setOpacity(0);
-            this.itemObj.setRotation3D(cc.math.vec3(0, 90, 0));
-            let desPos = cc.p(this.pItem.width / 2, this.pItem.height / 2);
-
-            this.itemObj.runAction(cc.sequence(
-                cc.delayTime(delay),
-                cc.spawn(
-                    cc.moveTo(firstActTime, desPos).easing(cc.easeBackOut()),
-                    cc.sequence(
-                        cc.delayTime(firstActTime * 0.5),
-                        cc.spawn(
-                            cc.fadeIn(0.1),
-                            cc.rotateBy(secondActTime * 1.5, cc.math.vec3(0, 270, 0)).easing(cc.easeBackOut())
-                        )
+        this.itemImg.setVisible(true);
+        this.itemImg.setPosition(cc.p(100, 0));
+        this.itemImg.setOpacity(0);
+        this.itemImg.setRotation3D(cc.math.vec3(0, 90, 0));
+        this.itemImg.runAction(cc.sequence(
+            cc.delayTime(delay),
+            cc.spawn(
+                cc.moveTo(firstActTime, this.itemImg.defaultPos).easing(cc.easeBackOut()),
+                cc.sequence(
+                    cc.delayTime(firstActTime * 0.5),
+                    cc.spawn(
+                        cc.fadeIn(0.1),
+                        cc.rotateBy(secondActTime * 1.5, cc.math.vec3(0, 270, 0)).easing(cc.easeBackOut())
                     )
                 )
-            ));
-
-        } else {
-
-            this.itemImg.setVisible(true);
-            this.itemImg.setPosition(cc.p(100, 0));
-            this.itemImg.setOpacity(0);
-            this.itemImg.setRotation3D(cc.math.vec3(0, 90, 0));
-            this.itemImg.runAction(cc.sequence(
-                cc.delayTime(delay),
-                cc.spawn(
-                    cc.moveTo(firstActTime, this.itemImg.defaultPos).easing(cc.easeBackOut()),
-                    cc.sequence(
-                        cc.delayTime(firstActTime * 0.5),
-                        cc.spawn(
-                            cc.fadeIn(0.1),
-                            cc.rotateBy(secondActTime * 1.5, cc.math.vec3(0, 270, 0)).easing(cc.easeBackOut())
-                        )
-                    )
-                )
-            ));
-        }
+            )
+        ));
     },
 
     doEffectBg: function (delay, firstActTime, secondActTime) {
@@ -699,9 +589,19 @@ var ReceivedCell = cc.Node.extend({
                 }.bind(f))
             ));
         }
+    },
+
+    endEffect: function (delay = 0) {
+        var children = this._layout.getChildren();
+        for (var i = 0; i < children.length; i++) {
+            var child = children[i];
+            child.stopAllActions();
+            child.runAction(cc.sequence(
+                cc.delayTime(delay),
+                cc.fadeOut(0.15)
+            ));
+        }
     }
-
-
 });
 ReceivedCell.SIZE = 150;
 ReceivedCell.TYPE_GOLD = 0;

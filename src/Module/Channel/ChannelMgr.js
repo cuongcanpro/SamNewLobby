@@ -129,7 +129,7 @@ var ChannelMgr = BaseMgr.extend({
                         break;
                     }
                     case 2: {
-                        var nameRoom = ChanelConfig.instance().chanelConfig[this.selectedChanel].name;
+                        var nameRoom = this.chanelConfig[this.selectedChanel].name;
                         var fullRoom = LocalizedString.to("CREATE_ROOM_FULL");
                         StringUtility.replaceAll(fullRoom, "%name", nameRoom);
                         sceneMgr.showOKDialog(LocalizedString.to(fullRoom));

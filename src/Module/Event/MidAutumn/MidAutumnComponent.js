@@ -6,7 +6,7 @@ var MidAutumnResultGift = cc.Node.extend({
     ctor: function () {
         this._super();
 
-        var jsonLayout = ccs.load("res/EventMgr/MidAutumn/MDGiftResultNode.json");
+        var jsonLayout = ccs.load("res/Event/MidAutumn/MDGiftResultNode.json");
         this._layout = jsonLayout.node;
         ccui.Helper.doLayout(this._layout);
         this.addChild(this._layout);
@@ -50,7 +50,7 @@ var MidAutumnResultGift = cc.Node.extend({
             sp = new cc.Sprite(midAutumn.getPieceImage(inf.id));
         }
         else {
-            sp = new cc.Sprite("res/EventMgr/MidAutumn/MidAutumnUI/e10.png");
+            sp = new cc.Sprite("res/Event/MidAutumn/MidAutumnUI/e10.png");
         }
         sp.setPosition(this.img.getContentSize().width / 2, this.img.getContentSize().height / 2);
         this.img.addChild(sp);
@@ -66,7 +66,7 @@ var MidAutumnPieceItem = cc.Node.extend({
     ctor: function () {
         this._super();
 
-        var jsonLayout = ccs.load("res/EventMgr/MidAutumn/MDPieceItem.json");
+        var jsonLayout = ccs.load("res/Event/MidAutumn/MDPieceItem.json");
         this._layout = jsonLayout.node;
         ccui.Helper.doLayout(this._layout);
         this.addChild(this._layout);
@@ -240,11 +240,11 @@ var MidAutumnMoney = cc.Node.extend({
         var curX = 0;
         var curY = 0;
 
-        var commaY = (new cc.Sprite("res/EventMgr/MidAutumn/MidAutumnUI/bosogold/so1.png")).getContentSize().height;
+        var commaY = (new cc.Sprite("res/Event/MidAutumn/MidAutumnUI/bosogold/so1.png")).getContentSize().height;
 
         for(var i = 0 ; i < nStr.length ; i++)
         {
-            var nContent = "res/EventMgr/MidAutumn/MidAutumnUI/bosogold/";
+            var nContent = "res/Event/MidAutumn/MidAutumnUI/bosogold/";
             var isComma = false;
             if(nStr.charAt(i) == '.')
             {
@@ -299,14 +299,14 @@ var MidAutumnGrid = cc.Node.extend({
 
     // khoi tao content grid
     initContent: function () {
-        this.bgShadow = new cc.Sprite("res/EventMgr/MidAutumn/MidAutumnUI/bgShadow.png");
+        this.bgShadow = new cc.Sprite("res/Event/MidAutumn/MidAutumnUI/bgShadow.png");
         this.addChild(this.bgShadow);
         this.bgShadow.setPositionY(-8);
 
-        this.bg = new cc.Sprite("res/EventMgr/MidAutumn/MidAutumnUI/cell_0.png");
+        this.bg = new cc.Sprite("res/Event/MidAutumn/MidAutumnUI/cell_0.png");
         this.addChild(this.bg);
 
-        this.imgGift = new cc.Sprite("res/EventMgr/MidAutumn/MidAutumnUI/icon_gold.png");
+        this.imgGift = new cc.Sprite("res/Event/MidAutumn/MidAutumnUI/icon_gold.png");
         this.addChild(this.imgGift);
         this.imgGift.setPositionY(10);
         this.imgGift.defaultPos = this.imgGift.getPosition();
@@ -348,7 +348,7 @@ var MidAutumnGrid = cc.Node.extend({
     },
 
     addEffect: function () {
-        var sprite = new cc.Sprite("res/EventMgr/MidAutumn/MidAutumnUI/star_light.png");
+        var sprite = new cc.Sprite("res/Event/MidAutumn/MidAutumnUI/star_light.png");
         var pX = this.imgGift.getContentSize().width * (Math.random() * 0.8 - 0.4);
         var pY = this.imgGift.getContentSize().height * (Math.random() * 0.6 - 0.3);
         sprite.setPosition(pX, pY);
@@ -374,26 +374,26 @@ var MidAutumnGrid = cc.Node.extend({
         id = parseInt(id);
         // cc.log("cell_normal" + id + ".png");
         if (id <= 1)
-            this.bg.setTexture("res/EventMgr/MidAutumn/MidAutumnUI/cell_" + id + ".png");
+            this.bg.setTexture("res/Event/MidAutumn/MidAutumnUI/cell_" + id + ".png");
         else
-            this.bg.setTexture("res/EventMgr/MidAutumn/MidAutumnUI/cell_" + 2 + ".png");
+            this.bg.setTexture("res/Event/MidAutumn/MidAutumnUI/cell_" + 2 + ".png");
         this.effectGift.setVisible(false);
         this.effectItem.setVisible(false);
         switch (id) {
             case MD_CELL_GOLD:
                 this.stopEffect();
-                this.imgGift.setTexture("res/EventMgr/MidAutumn/MidAutumnUI/iconGoldMap.png");
+                this.imgGift.setTexture("res/Event/MidAutumn/MidAutumnUI/iconGoldMap.png");
                 this.imgGift.setVisible(true);
                 break;
             case MD_CELL_LAMP:
                 this.stopEffect();
-                this.imgGift.setTexture("res/EventMgr/MidAutumn/MidAutumnUI/iconLight.png");
+                this.imgGift.setTexture("res/Event/MidAutumn/MidAutumnUI/iconLight.png");
                 this.imgGift.setVisible(false);
                 this.effectItem.setVisible(true);
                 break;
             default:
                 this.startEffect();
-                this.imgGift.setTexture("res/EventMgr/MidAutumn/MidAutumnUI/enMap" + id + ".png");
+                this.imgGift.setTexture("res/Event/MidAutumn/MidAutumnUI/enMap" + id + ".png");
                 this.imgGift.setVisible(false);
                 //  this.effectGift.setVisible(true);
                 break;
@@ -590,7 +590,7 @@ MidAutumnMap = cc.Node.extend({
     },
 
     initMap: function () {
-        var shadow = new cc.Sprite("res/EventMgr/MidAutumn/MidAutumnUI/shadowMap.png");
+        var shadow = new cc.Sprite("res/Event/MidAutumn/MidAutumnUI/shadowMap.png");
         this.addChild(shadow);
         shadow.setPosition(shadow.getContentSize().width * 0.49, shadow.getContentSize().height * 0.45);
         this.shadow = shadow;
@@ -598,20 +598,20 @@ MidAutumnMap = cc.Node.extend({
         shadow.setVisible(false);
 
 
-        // var deco = new cc.Sprite("res/EventMgr/MidAutumn/MidAutumnUI/deco.png");
+        // var deco = new cc.Sprite("res/Event/MidAutumn/MidAutumnUI/deco.png");
         // this.addChild(deco);
 
         this.deco = resourceManager.loadDragonbone("Logo");
         this.addChild(this.deco, 10, 100);
         this.deco.gotoAndPlay("1", -1, -1, 0);
 
-        //var deco1 = new cc.Sprite("res/EventMgr/MidAutumn/MidAutumnUI/titleEvent.png");
+        //var deco1 = new cc.Sprite("res/Event/MidAutumn/MidAutumnUI/titleEvent.png");
         // this.addChild(deco1);
 
         this.initMascot();
         // this.initArrayOrderGrid();
 
-        var sprite = new cc.Sprite("res/EventMgr/MidAutumn/MidAutumnUI/cell_0.png");
+        var sprite = new cc.Sprite("res/Event/MidAutumn/MidAutumnUI/cell_0.png");
         this.gridSize = sprite.getContentSize();
         this.mapSize = cc.size(MidAutumnMap.WIDTH_ISO * MD_COL, MidAutumnMap.HEIGHT_ISO * MD_ROW);
         this.setContentSize(this.mapSize);
@@ -679,7 +679,7 @@ MidAutumnMap = cc.Node.extend({
             }
         }
         if (cloud == null) {
-            cloud = new cc.Sprite("res/EventMgr/MidAutumn/MidAutumnUI/cloud.png");
+            cloud = new cc.Sprite("res/Event/MidAutumn/MidAutumnUI/cloud.png");
             this.arrayCloud.push(cloud);
             this.addChild(cloud);
             cloud.setLocalZOrder(1000);
@@ -849,7 +849,7 @@ MidAutumnMap = cc.Node.extend({
         var cmd = midAutumn.midAutumnScene.cmdResult;
         MidAutumnSound.playDiceFly();
         //this.numMoveAvailable = numMoveAvailable;
-        var sp = new cc.Sprite("res/EventMgr/MidAutumn/MidAutumnUI/dice" + cmd.numMoves[0] + ".png");
+        var sp = new cc.Sprite("res/Event/MidAutumn/MidAutumnUI/dice" + cmd.numMoves[0] + ".png");
         sp.setPosition(pDice);
         this.pMapEffect.addChild(sp, 999999);
 
@@ -1251,7 +1251,7 @@ var MidAutumnFullCell = cc.TableViewCell.extend({
     ctor: function () {
         this._super();
 
-        var jsonLayout = ccs.load("res/EventMgr/MidAutumn/MDFullItem.json");
+        var jsonLayout = ccs.load("res/Event/MidAutumn/MDFullItem.json");
         this._layout = jsonLayout.node;
         ccui.Helper.doLayout(this._layout);
         this.addChild(this._layout);
@@ -1529,7 +1529,7 @@ var MidAutumnLiteCell = cc.TableViewCell.extend({
     ctor: function () {
         this._super();
 
-        var jsonLayout = ccs.load("res/EventMgr/MidAutumn/MDLiteItem.json");
+        var jsonLayout = ccs.load("res/Event/MidAutumn/MDLiteItem.json");
         this._layout = jsonLayout.node;
         ccui.Helper.doLayout(this._layout);
         this.addChild(this._layout);
@@ -1653,7 +1653,7 @@ var MidAutumnPiecesHistoryCell = cc.TableViewCell.extend({
         this._super();
 
         //var jsonLayout = ccs.load("MidAutumnHistoryItem.json");
-        var jsonLayout = ccs.load("res/EventMgr/MidAutumn/MDPiecesHistoryItem.json");
+        var jsonLayout = ccs.load("res/Event/MidAutumn/MDPiecesHistoryItem.json");
         this._layout = jsonLayout.node;
         ccui.Helper.doLayout(this._layout);
         this.addChild(this._layout);
@@ -1718,7 +1718,7 @@ var MidAutumnGiftHistoryCell = cc.TableViewCell.extend({
     ctor: function () {
         this._super();
 
-        var jsonLayout = ccs.load("res/EventMgr/MidAutumn/MDGiftHistoryItem.json");
+        var jsonLayout = ccs.load("res/Event/MidAutumn/MDGiftHistoryItem.json");
         this._layout = jsonLayout.node;
         ccui.Helper.doLayout(this._layout);
         this.addChild(this._layout);
@@ -1757,7 +1757,7 @@ var MidAutumnGiftCell = cc.TableViewCell.extend({
         this.arInfo = [];
         this.arPos = [];
 
-        var jsonLayout = ccs.load("res/EventMgr/MidAutumn/MDGiftCell.json");
+        var jsonLayout = ccs.load("res/Event/MidAutumn/MDGiftCell.json");
         this._layout = jsonLayout.node;
         ccui.Helper.doLayout(this._layout);
         this.addChild(this._layout);
@@ -1825,7 +1825,7 @@ var MidAutumnGiftCell = cc.TableViewCell.extend({
                     sp = new cc.Sprite(midAutumn.getPieceImage(inf.id));
                 }
                 else {
-                    sp = new cc.Sprite("res/EventMgr/MidAutumn/MidAutumnUI/e10.png");
+                    sp = new cc.Sprite("res/Event/MidAutumn/MidAutumnUI/e10.png");
                 }
 
                 sp.setPosition(item.img.getContentSize().width / 2, item.img.getContentSize().height / 2);
@@ -1980,7 +1980,7 @@ var MidAutumnPanelChangePiece = BaseLayer.extend({
     ctor: function (parent) {
         this._super("");
 
-        var jsonLayout = ccs.load("res/EventMgr/MidAutumn/MDChangePiece.json");
+        var jsonLayout = ccs.load("res/Event/MidAutumn/MDChangePiece.json");
         this._layout = jsonLayout.node;
         ccui.Helper.doLayout(this._layout);
         this.addChild(this._layout);

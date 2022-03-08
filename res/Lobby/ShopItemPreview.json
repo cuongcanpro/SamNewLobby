@@ -86,7 +86,7 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 151.8004,
+              "X": 151.8012,
               "Y": 435.7137
             },
             "Scale": {
@@ -107,8 +107,8 @@
               "X": 0.4933,
               "Y": 0.054
             },
-            "LeftMargin": 78.3004,
-            "RightMargin": 72.6996,
+            "LeftMargin": 78.3012,
+            "RightMargin": 72.6988,
             "TopMargin": 14.7863,
             "BottomMargin": 423.2137,
             "Tag": 879,
@@ -130,12 +130,12 @@
             },
             "PressedFileData": {
               "Type": "Normal",
-              "Path": "ShopItem/btnBuyEmpty.png",
+              "Path": "ShopIAP/ShopItem/btnBuyEmpty.png",
               "Plist": ""
             },
             "NormalFileData": {
               "Type": "Normal",
-              "Path": "ShopItem/btnBuyEmpty.png",
+              "Path": "ShopIAP/ShopItem/btnBuyEmpty.png",
               "Plist": ""
             },
             "Scale9Enable": true,
@@ -179,7 +179,7 @@
               "Y": 0.1598
             },
             "LeftMargin": 39.1098,
-            "RightMargin": 30.8901,
+            "RightMargin": 30.8902,
             "TopMargin": 385.0974,
             "BottomMargin": 3.9026,
             "Tag": 874,
@@ -291,7 +291,7 @@
               {
                 "FileData": {
                   "Type": "Normal",
-                  "Path": "LobbyGUI/iconDiamond.png",
+                  "Path": "Common/iconDiamond.png",
                   "Plist": ""
                 },
                 "Scale9OriginX": 6,
@@ -351,7 +351,7 @@
                     },
                     "Position": {
                       "X": 39.7848,
-                      "Y": 18.8907
+                      "Y": 18.891
                     },
                     "Scale": {
                       "ScaleX": 1.0,
@@ -374,8 +374,8 @@
                     },
                     "LeftMargin": 39.7848,
                     "RightMargin": -118.7848,
-                    "TopMargin": -9.3907,
-                    "BottomMargin": -1.6093,
+                    "TopMargin": -9.391,
+                    "BottomMargin": -1.609,
                     "Tag": 878,
                     "ActionTag": 588832387,
                     "Size": {
@@ -419,6 +419,8 @@
             "ColorVector": {
               "ScaleY": 1.0
             },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
@@ -559,7 +561,7 @@
                     "TouchEnable": true,
                     "AnchorPoint": {},
                     "Position": {
-                      "X": 22.7359,
+                      "X": 33.7359,
                       "Y": 61.334
                     },
                     "Scale": {
@@ -569,15 +571,15 @@
                     "CColor": {},
                     "IconVisible": false,
                     "PrePosition": {
-                      "X": 0.0812,
+                      "X": 0.1205,
                       "Y": 0.5732
                     },
                     "PreSize": {
                       "X": 0.2857,
                       "Y": 0.1869
                     },
-                    "LeftMargin": 22.7359,
-                    "RightMargin": 177.2641,
+                    "LeftMargin": 33.7359,
+                    "RightMargin": 166.2641,
                     "TopMargin": 25.666,
                     "BottomMargin": 61.334,
                     "Tag": 1084,
@@ -631,7 +633,7 @@
                         "ctype": "CheckBoxObjectData"
                       },
                       {
-                        "FontSize": 14,
+                        "FontSize": 16,
                         "LabelText": "1 tháng",
                         "FontResource": {
                           "Type": "Normal",
@@ -674,18 +676,18 @@
                           "Y": 0.5
                         },
                         "PreSize": {
-                          "X": 0.675,
-                          "Y": 0.95
+                          "X": 0.75,
+                          "Y": 1.1
                         },
                         "LeftMargin": 23.0,
-                        "RightMargin": 3.0,
-                        "TopMargin": 0.5,
-                        "BottomMargin": 0.5,
+                        "RightMargin": -3.0,
+                        "TopMargin": -1.0,
+                        "BottomMargin": -1.0,
                         "Tag": 882,
                         "ActionTag": -167411757,
                         "Size": {
-                          "X": 54.0,
-                          "Y": 19.0
+                          "X": 60.0,
+                          "Y": 22.0
                         },
                         "Name": "text",
                         "ctype": "TextObjectData"
@@ -791,7 +793,7 @@
                         "ctype": "CheckBoxObjectData"
                       },
                       {
-                        "FontSize": 14,
+                        "FontSize": 16,
                         "LabelText": "1 tháng",
                         "FontResource": {
                           "Type": "Normal",
@@ -834,18 +836,18 @@
                           "Y": 0.5
                         },
                         "PreSize": {
-                          "X": 0.675,
-                          "Y": 0.95
+                          "X": 0.75,
+                          "Y": 1.1
                         },
                         "LeftMargin": 23.0,
-                        "RightMargin": 3.0,
-                        "TopMargin": 0.5,
-                        "BottomMargin": 0.5,
+                        "RightMargin": -3.0,
+                        "TopMargin": -1.0,
+                        "BottomMargin": -1.0,
                         "Tag": 1087,
                         "ActionTag": -1684273464,
                         "Size": {
-                          "X": 54.0,
-                          "Y": 19.0
+                          "X": 60.0,
+                          "Y": 22.0
                         },
                         "Name": "text",
                         "ctype": "TextObjectData"
@@ -879,7 +881,7 @@
                     "TouchEnable": true,
                     "AnchorPoint": {},
                     "Position": {
-                      "X": 22.7359,
+                      "X": 33.7359,
                       "Y": 18.2683
                     },
                     "Scale": {
@@ -889,15 +891,15 @@
                     "CColor": {},
                     "IconVisible": false,
                     "PrePosition": {
-                      "X": 0.0812,
+                      "X": 0.1205,
                       "Y": 0.1707
                     },
                     "PreSize": {
                       "X": 0.2857,
                       "Y": 0.1869
                     },
-                    "LeftMargin": 22.7359,
-                    "RightMargin": 177.2641,
+                    "LeftMargin": 33.7359,
+                    "RightMargin": 166.2641,
                     "TopMargin": 68.7317,
                     "BottomMargin": 18.2683,
                     "Tag": 1088,
@@ -951,7 +953,7 @@
                         "ctype": "CheckBoxObjectData"
                       },
                       {
-                        "FontSize": 14,
+                        "FontSize": 16,
                         "LabelText": "1 tháng",
                         "FontResource": {
                           "Type": "Normal",
@@ -994,18 +996,18 @@
                           "Y": 0.5
                         },
                         "PreSize": {
-                          "X": 0.675,
-                          "Y": 0.95
+                          "X": 0.75,
+                          "Y": 1.1
                         },
                         "LeftMargin": 23.0,
-                        "RightMargin": 3.0,
-                        "TopMargin": 0.5,
-                        "BottomMargin": 0.5,
+                        "RightMargin": -3.0,
+                        "TopMargin": -1.0,
+                        "BottomMargin": -1.0,
                         "Tag": 1090,
                         "ActionTag": -1857478128,
                         "Size": {
-                          "X": 54.0,
-                          "Y": 19.0
+                          "X": 60.0,
+                          "Y": 22.0
                         },
                         "Name": "text",
                         "ctype": "TextObjectData"
@@ -1111,7 +1113,7 @@
                         "ctype": "CheckBoxObjectData"
                       },
                       {
-                        "FontSize": 14,
+                        "FontSize": 16,
                         "LabelText": "1 tháng",
                         "FontResource": {
                           "Type": "Normal",
@@ -1154,18 +1156,18 @@
                           "Y": 0.5
                         },
                         "PreSize": {
-                          "X": 0.675,
-                          "Y": 0.95
+                          "X": 0.75,
+                          "Y": 1.1
                         },
                         "LeftMargin": 23.0,
-                        "RightMargin": 3.0,
-                        "TopMargin": 0.5,
-                        "BottomMargin": 0.5,
+                        "RightMargin": -3.0,
+                        "TopMargin": -1.0,
+                        "BottomMargin": -1.0,
                         "Tag": 1093,
                         "ActionTag": -161414109,
                         "Size": {
-                          "X": 54.0,
-                          "Y": 19.0
+                          "X": 60.0,
+                          "Y": 22.0
                         },
                         "Name": "text",
                         "ctype": "TextObjectData"
@@ -1504,10 +1506,10 @@
                           "X": 0.549,
                           "Y": 1.2051
                         },
-                        "LeftMargin": 98.9312,
-                        "RightMargin": -52.9312,
-                        "TopMargin": -1.2986,
-                        "BottomMargin": -6.7014,
+                        "LeftMargin": 98.9319,
+                        "RightMargin": -52.9319,
+                        "TopMargin": -1.3001,
+                        "BottomMargin": -6.6999,
                         "Tag": 940,
                         "ActionTag": 1833464804,
                         "Size": {
@@ -1524,11 +1526,6 @@
                           "R": 65,
                           "G": 65,
                           "B": 70
-                        },
-                        "DisabledFileData": {
-                          "Type": "Default",
-                          "Path": "Default/Button_Disable.png",
-                          "Plist": ""
                         },
                         "PressedFileData": {
                           "Type": "Normal",
@@ -1684,7 +1681,7 @@
                       "ScaleY": 0.5
                     },
                     "Position": {
-                      "X": 144.67,
+                      "X": 144.676,
                       "Y": 84.0256
                     },
                     "Scale": {
@@ -1710,8 +1707,8 @@
                       "X": 0.4821,
                       "Y": 0.2056
                     },
-                    "LeftMargin": 77.17,
-                    "RightMargin": 67.83,
+                    "LeftMargin": 77.176,
+                    "RightMargin": 67.824,
                     "TopMargin": 11.9744,
                     "BottomMargin": 73.0256,
                     "Tag": 677,
@@ -1886,7 +1883,7 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 148.6619,
+              "X": 148.6722,
               "Y": 338.8556
             },
             "Scale": {
@@ -1904,8 +1901,8 @@
               "X": 0.443,
               "Y": 0.2851
             },
-            "LeftMargin": 82.6619,
-            "RightMargin": 83.3381,
+            "LeftMargin": 82.6722,
+            "RightMargin": 83.3278,
             "TopMargin": 58.1444,
             "BottomMargin": 272.8556,
             "Tag": 999,
@@ -1940,7 +1937,7 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 149.7105,
+              "X": 149.7152,
               "Y": 332.8749
             },
             "Scale": {
@@ -1958,8 +1955,8 @@
               "X": 0.6711,
               "Y": 0.3456
             },
-            "LeftMargin": 49.7105,
-            "RightMargin": 48.2895,
+            "LeftMargin": 49.7152,
+            "RightMargin": 48.2848,
             "TopMargin": 50.1251,
             "BottomMargin": 252.8749,
             "Tag": 926,
@@ -1994,7 +1991,7 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 156.3016,
+              "X": 156.301,
               "Y": 94.761
             },
             "Scale": {
@@ -2012,8 +2009,8 @@
               "X": 0.6711,
               "Y": 0.0583
             },
-            "LeftMargin": 56.3016,
-            "RightMargin": 41.6984,
+            "LeftMargin": 56.301,
+            "RightMargin": 41.699,
             "TopMargin": 354.739,
             "BottomMargin": 81.261,
             "Tag": 63,
@@ -2679,8 +2676,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 153.6072,
-              "Y": 332.4878
+              "X": 153.619,
+              "Y": 332.4803
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -2698,10 +2695,10 @@
               "X": 0.6275,
               "Y": 0.1339
             },
-            "LeftMargin": 60.1072,
-            "RightMargin": 50.8928,
-            "TopMargin": 99.5122,
-            "BottomMargin": 301.4878,
+            "LeftMargin": 60.119,
+            "RightMargin": 50.881,
+            "TopMargin": 99.5197,
+            "BottomMargin": 301.4803,
             "Tag": 928,
             "ActionTag": -1592369277,
             "Size": {
@@ -2719,21 +2716,11 @@
               "G": 65,
               "B": 70
             },
-            "PressedFileData": {
-              "Type": "Normal",
-              "Path": "ShopItem/iconInfo.png",
-              "Plist": ""
-            },
-            "NormalFileData": {
-              "Type": "Normal",
-              "Path": "ShopItem/iconInfo.png",
-              "Plist": ""
-            },
             "Scale9Enable": true,
-            "Scale9OriginX": 8,
-            "Scale9OriginY": 11,
+            "Scale9OriginX": -8,
+            "Scale9OriginY": -11,
             "Scale9Width": 16,
-            "Scale9Height": 11,
+            "Scale9Height": 22,
             "OutlineColor": {
               "G": 0,
               "B": 0
@@ -2792,22 +2779,20 @@
         "ctype": "LayerObjectData"
       },
       "UsedResources": [
-        "Default/Button_Disable.png",
+        "Common/iconDiamond.png",
         "Font/tahoma.ttf",
         "Font/tahomabd.ttf",
-        "LobbyGUI/iconDiamond.png",
         "ShopIAP/ShopItem/avatarBg.png",
         "ShopIAP/ShopItem/bgNum.png",
         "ShopIAP/ShopItem/bgTime.png",
         "ShopIAP/ShopItem/btnAdd.png",
+        "ShopIAP/ShopItem/btnBuyEmpty.png",
         "ShopIAP/ShopItem/btnFive.png",
         "ShopIAP/ShopItem/btnSub.png",
         "ShopIAP/ShopItem/checkBoxBg.png",
         "ShopIAP/ShopItem/checkBoxTick.png",
         "ShopIAP/ShopItem/lock.png",
-        "ShopIAP/ShopItem/previewBg.png",
-        "ShopItem/btnBuyEmpty.png",
-        "ShopItem/iconInfo.png"
+        "ShopIAP/ShopItem/previewBg.png"
       ],
       "ctype": "GameFileData"
     }

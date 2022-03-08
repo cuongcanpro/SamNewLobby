@@ -119,19 +119,19 @@ var EventData = cc.Class.extend({
     initShopData: function (data) {
         this.arrayConfigTicket = [];
         //this.arrayConfigTicket.push(this.initOnePayment(Payment.TICKET_G, data.gTicketValues, data.gTicketTickets, cc.color(243, 243, 243, 0)));
-        if (gamedata.payments[Payment.GOLD_SMS]) {
+        if (paymentMgr.payments[Payment.GOLD_SMS]) {
             this.initOnePayment(Payment.TICKET_SMS, data.smsTicketValues, data.smsTicketTickets, cc.color(243, 243, 243, 0), data.smsDirectVPoint, data.smsDirectVipHour);
         }
-        if (gamedata.payments[Payment.GOLD_IAP]) {
+        if (paymentMgr.payments[Payment.GOLD_IAP]) {
             this.initOnePayment(Payment.TICKET_IAP, data.iapTicketValues, data.iapTicketTickets, cc.color(243, 243, 243, 0), data.iapDirectVPoint, data.iapDirectVipHour);
         }
-        if (gamedata.payments[Payment.GOLD_ZING]) {
+        if (paymentMgr.payments[Payment.GOLD_ZING]) {
             this.initOnePayment(Payment.TICKET_ZING, data.zingTicketValues, data.zingTicketTickets, cc.color(243, 243, 243, 0), data.zingDirectVPoint, data.zingDirectVipHour);
         }
-        if (gamedata.payments[Payment.GOLD_ATM]) {
+        if (paymentMgr.payments[Payment.GOLD_ATM]) {
             this.initOnePayment(Payment.TICKET_ATM, data.atmTicketValues, data.atmTicketTickets, cc.color(243, 243, 243, 0), data.atmDirectVPoint, data.atmDirectVipHour);
         }
-        if (gamedata.payments[Payment.GOLD_ZALO]) {
+        if (paymentMgr.payments[Payment.GOLD_ZALO]) {
             this.initOnePayment(Payment.TICKET_ZALO, data.zaloTicketValues, data.zaloTicketTickets, cc.color(243, 243, 243, 0), data.zaloPayDirectVPoint, data.zaloPayDirectVipHour);
         }
         cc.log("CONFIG *** " + JSON.stringify(this.arrayConfigTicket));
@@ -141,9 +141,9 @@ var EventData = cc.Class.extend({
         var payment = {};
         var src = [];
         var idx = 0;
-        if (!gamedata.gameConfig)
-            return;
-        var goldIap = gamedata.gameConfig.getShopGoldById(Payment.TICKET_IAP - Payment.BUY_TICKET_FROM);
+        // if (!gamedata.gameConfig)
+        //     return;
+        var goldIap = paymentMgr.getShopGoldById(Payment.TICKET_IAP - Payment.BUY_TICKET_FROM);
         for (var i = 0; i < value.length; i++) {
             if (ticket[i] <= 0)
                 continue;
@@ -165,7 +165,7 @@ var EventData = cc.Class.extend({
                 obj.id_portal = packageShop["portalAndroidId"];
                 obj.id_multi_portal = packageShop["id_gg_portal"];
                 obj.id_multi_ios_portal = packageShop["id_ios_portal"];
-                if (!gamedata.isPortal()) {
+                if (!portalMgr.isPortal()) {
                     obj.cost = iapHandler.getProductPrice(obj.id, obj.id_ios, packageShop["value"]);
                 } else {
                     obj.cost = iapHandler.getProductPrice(obj.id_portal, obj.id_ios_portal, packageShop["value"]);
@@ -188,7 +188,7 @@ var EventData = cc.Class.extend({
             //if (midAutumn.showX2Ticket)
             //    obj.goldNew = sConfig[s].new * 2;
             //else
-            obj.goldNew = ticket[i] * (event.promoTicket / 100 + 1);
+            obj.goldNew = ticket[i] * (eventMgr.promoTicket / 100 + 1);
             obj.star = 0;
             obj.goldOld = ticket[i];
             obj.bonus = "";

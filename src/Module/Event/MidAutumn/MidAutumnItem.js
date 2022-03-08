@@ -24,7 +24,7 @@ var MidAutumnLampInGame = cc.Node.extend({
                 cc.callFunc(function () {
                     var random = Math.random();
                     if (random < Math.random() * 0.2) {
-                        var sprite = new cc.Sprite("res/EventMgr/MidAutumn/MidAutumnUI/firedust.png");
+                        var sprite = new cc.Sprite("res/Event/MidAutumn/MidAutumnUI/firedust.png");
                         sprite.setColor(cc.color(251, 255, 91));
                         sprite.setPosition(-10, -20);
                         pEffect.addChild(sprite);
@@ -93,7 +93,7 @@ var MidAutumnLampItem = cc.Node.extend({
     ctor: function () {
         this._super();
 
-        var jsonLayout = ccs.load("res/EventMgr/MidAutumn/MDLampItem.json");
+        var jsonLayout = ccs.load("res/Event/MidAutumn/MDLampItem.json");
         this._layout = jsonLayout.node;
         ccui.Helper.doLayout(this._layout);
         this.addChild(this._layout);
@@ -193,7 +193,7 @@ var MidAutumnLampItem = cc.Node.extend({
                 this.bgNum.setVisible(true);
                 this.lbNum.setString(info.num);
                 this.lbSender.setVisible(false);
-                this.bg.loadTexture("res/EventMgr/MidAutumn/MidAutumnUI/bgLampRoll.png");
+                this.bg.loadTexture("res/Event/MidAutumn/MidAutumnUI/bgLampRoll.png");
                 this.btnMessage.setVisible(false);
             }
             else {
@@ -201,7 +201,7 @@ var MidAutumnLampItem = cc.Node.extend({
                 this.bgNum.setVisible(false);
                 this.lbSender.setVisible(true);
                 this.lbSender.setString(StringUtility.subStringTextLength(info.fromUserName));
-                this.bg.loadTexture("res/EventMgr/MidAutumn/MidAutumnUI/bgLampFriend.png");
+                this.bg.loadTexture("res/Event/MidAutumn/MidAutumnUI/bgLampFriend.png");
             }
             cc.log("ID Lamp " + info.id);
 
@@ -211,10 +211,10 @@ var MidAutumnLampItem = cc.Node.extend({
         }
         else {
             if (info.fromId < 0) {
-                this.bg.loadTexture("res/EventMgr/MidAutumn/MidAutumnUI/bgLampRollEmpty.png");
+                this.bg.loadTexture("res/Event/MidAutumn/MidAutumnUI/bgLampRollEmpty.png");
             }
             else {
-                this.bg.loadTexture("res/EventMgr/MidAutumn/MidAutumnUI/bgLampFriendEmpty.png");
+                this.bg.loadTexture("res/Event/MidAutumn/MidAutumnUI/bgLampFriendEmpty.png");
             }
             this.btnUse.setVisible(false);
             this.lbSender.setVisible(false);
@@ -231,7 +231,7 @@ var MidAutumnLampSendCell = cc.TableViewCell.extend({
     ctor: function () {
         this._super();
 
-        var jsonLayout = ccs.load("res/EventMgr/MidAutumn/MDLampSendItem.json");
+        var jsonLayout = ccs.load("res/Event/MidAutumn/MDLampSendItem.json");
         this._layout = jsonLayout.node;
         ccui.Helper.doLayout(this._layout);
         this.addChild(this._layout);
@@ -372,7 +372,7 @@ var MidAutumnLampGUI = BaseLayer.extend({
 
     ctor: function () {
         this._super(MidAutumnLampGUI.className);
-        this.initWithBinaryFile("res/EventMgr/MidAutumn/MidAutumnLampGUI.json");
+        this.initWithBinaryFile("res/Event/MidAutumn/MidAutumnLampGUI.json");
     },
 
     initGUI: function () {
@@ -402,8 +402,8 @@ var MidAutumnLampGUI = BaseLayer.extend({
         this.addChild(this.friendMessage);
         this.friendMessage.setVisible(false);
 
-        var tHisNormal = "res/EventMgr/MidAutumn/MidAutumnUI/tabSelect.png";
-        var tHisSelect = "res/EventMgr/MidAutumn/MidAutumnUI/tab.png";
+        var tHisNormal = "res/Event/MidAutumn/MidAutumnUI/tabSelect.png";
+        var tHisSelect = "res/Event/MidAutumn/MidAutumnUI/tab.png";
         this.tabStorage.loadTextures(tHisNormal, tHisNormal, tHisSelect);
         this.tabStorage.setContentSize(this.tabStorage.oldSize);
         this.tabStorage.lbTitle.setColor(cc.color(35, 106, 42, 255));
@@ -439,8 +439,8 @@ var MidAutumnLampGUI = BaseLayer.extend({
         MidAutumnSound.playBubbleSingle();
         switch (id) {
             case MidAutumnLampGUI.BTN_STORAGE:
-                var tHisNormal = "res/EventMgr/MidAutumn/MidAutumnUI/tabSelect.png";
-                var tHisSelect = "res/EventMgr/MidAutumn/MidAutumnUI/tab.png";
+                var tHisNormal = "res/Event/MidAutumn/MidAutumnUI/tabSelect.png";
+                var tHisSelect = "res/Event/MidAutumn/MidAutumnUI/tab.png";
                 this.tabStorage.loadTextures(tHisNormal, tHisNormal, tHisSelect);
                 this.tabStorage.setContentSize(this.tabStorage.oldSize);
                 this.tabStorage.lbTitle.setColor(cc.color(35, 106, 42, 255));
@@ -454,8 +454,8 @@ var MidAutumnLampGUI = BaseLayer.extend({
                 this.storage.updateListLamp();
                 break;
             case MidAutumnLampGUI.BTN_CHANGE_LAMP:
-                var tHisNormal = "res/EventMgr/MidAutumn/MidAutumnUI/tabSelect.png";
-                var tHisSelect = "res/EventMgr/MidAutumn/MidAutumnUI/tab.png";
+                var tHisNormal = "res/Event/MidAutumn/MidAutumnUI/tabSelect.png";
+                var tHisSelect = "res/Event/MidAutumn/MidAutumnUI/tab.png";
                 this.tabChangeLamp.loadTextures(tHisNormal, tHisNormal, tHisSelect);
                 this.tabChangeLamp.setContentSize(this.tabChangeLamp.oldSize);
                 this.tabChangeLamp.lbTitle.setColor(cc.color(35, 106, 42, 255));
@@ -485,7 +485,7 @@ var MidAutumnSendLampGUI = BaseLayer.extend({
 
     ctor: function () {
         this._super(MidAutumnSendLampGUI.className);
-        this.initWithBinaryFile("res/EventMgr/MidAutumn/MidAutumnSendLampGUI.json");
+        this.initWithBinaryFile("res/Event/MidAutumn/MidAutumnSendLampGUI.json");
     },
 
     initGUI: function () {
@@ -625,7 +625,7 @@ var MidAutumnReceiveLampGUI = BaseLayer.extend({
 
     ctor: function () {
         this._super(MidAutumnSendLampGUI.className);
-        this.initWithBinaryFile("res/EventMgr/MidAutumn/MidAutumnReceiveLampGUI.json");
+        this.initWithBinaryFile("res/Event/MidAutumn/MidAutumnReceiveLampGUI.json");
     },
 
     initGUI: function () {
@@ -685,7 +685,7 @@ var MidAutumnLampChangeItem = cc.Node.extend({
     ctor: function () {
         this._super();
 
-        var jsonLayout = ccs.load("res/EventMgr/MidAutumn/MDLampSendItem.json");
+        var jsonLayout = ccs.load("res/Event/MidAutumn/MDLampSendItem.json");
         this._layout = jsonLayout.node;
         ccui.Helper.doLayout(this._layout);
         this.addChild(this._layout);
@@ -881,7 +881,7 @@ var MDChangeLamp = BaseLayer.extend({
     ctor: function () {
         this._super("");
 
-        var jsonLayout = ccs.load("res/EventMgr/MidAutumn/MDChangeLamp.json");
+        var jsonLayout = ccs.load("res/Event/MidAutumn/MDChangeLamp.json");
         this._layout = jsonLayout.node;
         ccui.Helper.doLayout(this._layout);
         this.addChild(this._layout);
@@ -994,7 +994,7 @@ MDChangeLamp.CHANGE = 2;
 var MDFriendMessage = cc.Node.extend({
     ctor: function () {
         this._super();
-        var jsonLayout = ccs.load("res/EventMgr/MidAutumn/MDFriendMessage.json");
+        var jsonLayout = ccs.load("res/Event/MidAutumn/MDFriendMessage.json");
         this._layout = jsonLayout.node;
         ccui.Helper.doLayout(this._layout);
         this.addChild(this._layout);

@@ -125,6 +125,7 @@ var GameMgr = cc.Class.extend({
         this.loadUserDefault();
         this.loadSetting();
         this.loadGameService();
+        eventMgr.startDownloadContent();
     },
 
     loadUserDefault: function () {

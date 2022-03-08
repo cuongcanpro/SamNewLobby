@@ -237,7 +237,11 @@ var PanelIapItem = BaseLayer.extend({
                 cc.log("TYPE BUY ZALO " + typeBuy);
                 fr.tracker.logStepStart(ConfigLog.ZALO_PAY, ConfigLog.BEGIN + "BUY_ZALO");
                 fr.tracker.logStepStart(ConfigLog.ZALO_PAY, "CLICK_SHOP");
-                if (Config.ENABLE_NEW_OFFER) {
+                if (Config.ENABLE_CHEAT && CheatCenter.ENABLE_FAKE_SMS) {
+                    sceneMgr.addLoading(LocalizedString.to("WAITING")).timeout(3);
+                    PaymentUtils.fakePayment(info.cost, Constant.GOLD_ZALO, typeCheat);
+                }
+                else {
                     if (CheckLogic.checkZaloPay()) {
                         var msg = LocalizedString.to("ZALOPAY_MSG");
                         msg = StringUtility.replaceAll(msg, "@value", StringUtility.pointNumber(info.cost));
@@ -250,19 +254,9 @@ var PanelIapItem = BaseLayer.extend({
                                 cmd.putData(info.cost, 1, typeBuy, -1, packageName);
                                 GameClient.getInstance().sendPacket(cmd);
                                 cmd.clean();
+                                this.zalopayPackValue = info.cost;
                             }
                         });
-                    }
-                }
-                else {
-                    if (Config.ENABLE_CHEAT&& CheatCenter.ENABLE_FAKE_SMS) {
-                        PaymentUtils.fakePayment(info.cost, Constant.GOLD_ZALO, typeCheat);
-                    }
-                    else {
-                        sceneMgr.addLoading(LocalizedString.to("WAITING")).timeout(15);
-                        var cmd = new CmdSendBuyGZalo();
-                        cmd.putData(info.cost, 1, typeBuy);
-                        GameClient.getInstance().sendPacket(cmd);
                     }
                 }
                 break;

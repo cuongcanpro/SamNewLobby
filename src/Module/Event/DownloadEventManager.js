@@ -31,9 +31,9 @@ var DownloadEventManager = cc.Class.extend({
 
                     // user nay da tung download fail
                     var log = " Download Fail lan thu " + convert;
-                    var s = "JavaScript error: assets/src/Lobby/EventMgr/DownloadEventManager.js line 2222TypeError: " + log + " " + (new Error()).stack;
+                    var s = "JavaScript error: assets/src/Lobby/Event/DownloadEventManager.js line 2222TypeError: " + log + " " + (new Error()).stack;
                     cc.log(s);
-                    NativeBridge.logJSManual("assets/src/Lobby/EventMgr/DownloadEventManager.js", "2222", s, NativeBridge.getVersionString());
+                    NativeBridge.logJSManual("assets/src/Lobby/Event/DownloadEventManager.js", "2222", s, NativeBridge.getVersionString());
                     convert++;
                     cc.sys.localStorage.setItem(DownloadEventManager.KEY_NEED_LOG_DOWNLOAD, convert);
                 }
@@ -103,7 +103,7 @@ var DownloadEventManager = cc.Class.extend({
                         var percent = downloadEventManager.countFileDownload / downloadEventManager._am.getTotalToDownload();
                         if (percent > 1)
                             percent = 1;
-                        Event.instance().updateDownload(downloadEventManager.currentIdDownload, percent * 100);
+                        EventMgr.instance().updateDownload(downloadEventManager.currentIdDownload, percent * 100);
                        // cc.log("FILE DOWNLOAD SUCCESS " + downloadEventManager.countFileDownload);
                         break;
                     case jsb.EventAssetsManager.ERROR_DOWNLOAD_MANIFEST:
@@ -175,7 +175,7 @@ var DownloadEventManager = cc.Class.extend({
         var idDownload = this.currentIdDownload;
         this.currentIdDownload = "";
 
-        Event.instance().finishDownload(true, idDownload);
+        EventMgr.instance().finishDownload(true, idDownload);
     },
 
     pauseDownload: function ()
@@ -274,7 +274,7 @@ var DownloadEventManager = cc.Class.extend({
     },
 })
 
-DownloadEventManager.LOCAL_PATH = "res/Lobby/EventMgr/";
+DownloadEventManager.LOCAL_PATH = "res/Lobby/Event/";
 DownloadEventManager.STORAGE_PATH = "contentEventCardLive/";
 DownloadEventManager.STORAGE_PATH_PRIVATE = "contentEventCardPrivate/";
 DownloadEventManager.KEY_NEED_LOG_DOWNLOAD = "needToLogDownload1";

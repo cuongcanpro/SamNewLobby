@@ -26,6 +26,7 @@ var UserInfo = cc.Class.extend({
     },
 
     setGold: function (gold) {
+        gamedata.userData.bean = gold;
         this.gold = gold;
     },
 
@@ -66,6 +67,7 @@ var UserInfo = cc.Class.extend({
     },
 
     setUID: function (uID) {
+        gamedata.userData.uID = uID;
         this.uID = uID;
     },
 
@@ -153,6 +155,7 @@ var UserInfo = cc.Class.extend({
         this.setLevel(info.level);
         this.setDiamond(info.diamond);
 
+
         // this.isShopBonus = info.isShopBonus;
         // this.isShopIAPBonus = info.isShopIAPBonus;
         // this.userData.openID = this.openID;
@@ -173,5 +176,6 @@ var UserInfo = cc.Class.extend({
         this.goldMedal = rankInfo.goldMedal;
         this.silverMedal = rankInfo.silverMedal;
         this.bronzeMedal = rankInfo.bronzeMedal;
+
     }
 })

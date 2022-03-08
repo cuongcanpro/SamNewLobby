@@ -164,12 +164,11 @@ var FortuneCatManager = BaseMgr.extend({
 
             this.lobbyIcon.notifyFinishUnlocking(false);
 
-            var gui = sceneMgr.openGUI(FortuneCatUnlockedReward.className, FortuneCatUnlockedReward.TAG, FortuneCatUnlockedReward.TAG);
-            var bonusData = new BonusData(pk.gold, ShopSuccessData.TYPE_GOLD);
-            var array = [];
-
-            array.push(bonusData);
-            gui.pushArrayBonus(array, localized("RECEIVE_GIFT"));
+            receivedMgr.setReceivedGUIInfo(
+                [new ReceivedGUIData(ReceivedCell.TYPE_GOLD, pk.gold)],
+                "Phần thưởng rước Mèo may mắn"
+            );
+            receivedMgr.openGUI();
         }
     },
 

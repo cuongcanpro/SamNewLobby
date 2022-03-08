@@ -96,114 +96,6 @@
                 },
                 "Name": "efxOutline",
                 "ctype": "ImageViewObjectData"
-              },
-              {
-                "FileData": {
-                  "Type": "Normal",
-                  "Path": "Received/bgDetails.png",
-                  "Plist": ""
-                },
-                "Scale9Enable": true,
-                "Scale9OriginX": 12,
-                "Scale9OriginY": 9,
-                "Scale9Width": 85,
-                "Scale9Height": 11,
-                "AnchorPoint": {
-                  "ScaleX": 1.0,
-                  "ScaleY": 0.5
-                },
-                "Position": {
-                  "X": 139.5,
-                  "Y": 125.0
-                },
-                "Scale": {
-                  "ScaleX": 1.0,
-                  "ScaleY": 1.0
-                },
-                "CColor": {},
-                "IconVisible": false,
-                "PrePosition": {
-                  "X": 1.125,
-                  "Y": 1.0
-                },
-                "PreSize": {
-                  "X": 0.9919,
-                  "Y": 0.232
-                },
-                "LeftMargin": 16.5,
-                "RightMargin": -15.5,
-                "TopMargin": -14.5,
-                "BottomMargin": 110.5,
-                "Tag": 28,
-                "Children": [
-                  {
-                    "IsCustomSize": true,
-                    "FontSize": 18,
-                    "LabelText": "+150% VIP3",
-                    "FontResource": {
-                      "Type": "Normal",
-                      "Path": "Font/robotoBold.ttf",
-                      "Plist": ""
-                    },
-                    "VerticalAlignmentType": "VT_Center",
-                    "OutlineColor": {
-                      "G": 0,
-                      "B": 0
-                    },
-                    "ShadowColor": {
-                      "R": 110,
-                      "G": 110,
-                      "B": 110
-                    },
-                    "ShadowOffsetX": 2.0,
-                    "ShadowOffsetY": -2.0,
-                    "AnchorPoint": {
-                      "ScaleY": 0.5
-                    },
-                    "Position": {
-                      "X": 12.0,
-                      "Y": 14.5001
-                    },
-                    "Scale": {
-                      "ScaleX": 1.0,
-                      "ScaleY": 1.0
-                    },
-                    "CColor": {},
-                    "IconVisible": false,
-                    "PositionPercentYEnabled": true,
-                    "PrePosition": {
-                      "X": 0.0976,
-                      "Y": 0.5
-                    },
-                    "PercentWidthEnable": true,
-                    "PercentHeightEnable": true,
-                    "PercentWidthEnabled": true,
-                    "PercentHeightEnabled": true,
-                    "PreSize": {
-                      "X": 2.0,
-                      "Y": 1.0
-                    },
-                    "LeftMargin": 12.0,
-                    "RightMargin": -135.0,
-                    "TopMargin": -0.0001,
-                    "BottomMargin": 0.0001,
-                    "Tag": 29,
-                    "ActionTag": -1332886347,
-                    "Size": {
-                      "X": 246.0,
-                      "Y": 29.0
-                    },
-                    "Name": "label",
-                    "ctype": "TextObjectData"
-                  }
-                ],
-                "ActionTag": 1386655432,
-                "Size": {
-                  "X": 123.0,
-                  "Y": 29.0
-                },
-                "Name": "bgModify",
-                "ctype": "ImageViewObjectData"
               }
             ],
             "ActionTag": 239717124,
@@ -572,7 +464,7 @@
                 },
                 "Scale": {
                   "ScaleX": 1.0,
-                  "ScaleY": 1.0
+                  "ScaleY": 0.5
                 },
                 "RotationSkewX": -45.0,
                 "RotationSkewY": -45.0,
@@ -585,18 +477,18 @@
                   "Y": 1.0
                 },
                 "PreSize": {
-                  "X": 3.0603,
-                  "Y": 0.2672
+                  "X": 2.9397,
+                  "Y": 0.7241
                 },
-                "LeftMargin": -177.5,
-                "RightMargin": -61.5,
-                "TopMargin": -31.0,
+                "LeftMargin": -170.5,
+                "RightMargin": -54.5,
+                "TopMargin": -84.0,
                 "BottomMargin": 116.0,
                 "Tag": 64,
                 "ActionTag": 1685492447,
                 "Size": {
-                  "X": 355.0,
-                  "Y": 31.0
+                  "X": 341.0,
+                  "Y": 84.0
                 },
                 "Name": "light_0",
                 "ctype": "SpriteObjectData"
@@ -620,7 +512,7 @@
                 },
                 "Scale": {
                   "ScaleX": 1.0,
-                  "ScaleY": 1.0
+                  "ScaleY": 0.5
                 },
                 "RotationSkewX": -45.0,
                 "RotationSkewY": -45.0,
@@ -633,18 +525,18 @@
                   "Y": 1.0
                 },
                 "PreSize": {
-                  "X": 3.0603,
-                  "Y": 0.2672
+                  "X": 2.9397,
+                  "Y": 0.7241
                 },
-                "LeftMargin": -177.5,
-                "RightMargin": -61.5,
-                "TopMargin": -31.0,
+                "LeftMargin": -170.5,
+                "RightMargin": -54.5,
+                "TopMargin": -84.0,
                 "BottomMargin": 116.0,
                 "Tag": 65,
                 "ActionTag": -854253990,
                 "Size": {
-                  "X": 355.0,
-                  "Y": 31.0
+                  "X": 341.0,
+                  "Y": 84.0
                 },
                 "Name": "light_1",
                 "ctype": "SpriteObjectData"
@@ -657,19 +549,19 @@
                 },
                 "Scale9OriginX": 44,
                 "Scale9OriginY": 44,
-                "Scale9Width": 46,
-                "Scale9Height": 46,
+                "Scale9Width": 36,
+                "Scale9Height": 37,
                 "AnchorPoint": {
                   "ScaleX": 0.5,
-                  "ScaleY": 0.5
+                  "ScaleY": 1.0
                 },
                 "Position": {
                   "X": 58.0,
-                  "Y": 58.0
+                  "Y": 116.0
                 },
                 "Scale": {
-                  "ScaleX": 1.0,
-                  "ScaleY": 1.0
+                  "ScaleX": 0.9342,
+                  "ScaleY": 0.9342
                 },
                 "CColor": {},
                 "IconVisible": false,
@@ -677,7 +569,7 @@
                 "PositionPercentYEnabled": true,
                 "PrePosition": {
                   "X": 0.5,
-                  "Y": 0.5
+                  "Y": 1.0
                 },
                 "PreSize": {
                   "X": 1.1552,
@@ -685,8 +577,7 @@
                 },
                 "LeftMargin": -9.0,
                 "RightMargin": -9.0,
-                "TopMargin": -9.0,
-                "BottomMargin": -9.0,
+                "BottomMargin": -18.0,
                 "Tag": 42,
                 "ActionTag": 30289070,
                 "Size": {
@@ -704,6 +595,112 @@
             },
             "Name": "efxFlash",
             "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Received/bgDetails.png",
+              "Plist": ""
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 12,
+            "Scale9OriginY": 9,
+            "Scale9Width": 85,
+            "Scale9Height": 11,
+            "AnchorPoint": {
+              "ScaleX": 1.0,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 79.0875,
+              "Y": 65.5774
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -43.9125,
+            "RightMargin": -79.0875,
+            "TopMargin": -80.0774,
+            "BottomMargin": 51.0774,
+            "Tag": 28,
+            "Children": [
+              {
+                "IsCustomSize": true,
+                "FontSize": 18,
+                "LabelText": "+150% VIP3",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/robotoBold.ttf",
+                  "Plist": ""
+                },
+                "VerticalAlignmentType": "VT_Center",
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 12.0,
+                  "Y": 14.5
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.0976,
+                  "Y": 0.5
+                },
+                "PercentWidthEnable": true,
+                "PercentHeightEnable": true,
+                "PercentWidthEnabled": true,
+                "PercentHeightEnabled": true,
+                "PreSize": {
+                  "X": 2.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 12.0,
+                "RightMargin": -135.0,
+                "Tag": 29,
+                "ActionTag": -1332886347,
+                "Size": {
+                  "X": 246.0,
+                  "Y": 29.0
+                },
+                "Name": "label",
+                "ctype": "TextObjectData"
+              }
+            ],
+            "ActionTag": 1386655432,
+            "Size": {
+              "X": 123.0,
+              "Y": 29.0
+            },
+            "Name": "bgModify",
+            "ctype": "ImageViewObjectData"
           },
           {
             "IsCustomSize": true,

@@ -288,7 +288,7 @@ var VipManager = BaseMgr.extend({
                 folder += "effect.png";
                 break;
             case VipManager.BENEFIT_SPECIAL_INTERACTION:
-                folder += "gold.png";
+                folder += "interact.png";
                 break;
             case VipManager.BENEFIT_BONUS_TAX:
                 folder += "tax.png";
@@ -412,6 +412,20 @@ var VipManager = BaseMgr.extend({
             return parseFloat(this.vipConfig[level + 1].price);
         } catch (e) {
             cc.error("getVpointNeed: ", e);
+            return 1;
+        }
+    },
+
+    getTotalVpointNeeded: function (level) {
+        try {
+            if (level >= VipManager.NUMBER_VIP) level = VipManager.NUMBER_VIP - 1;
+            var result = 0;
+            for (var i = 0; i <= level; i++) {
+                result += parseInt(this.vipConfig[i + 1].price);
+            }
+            return result;
+        } catch (e) {
+            cc.error("getTotalVpointNeed: ", e);
             return 1;
         }
     },

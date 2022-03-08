@@ -235,18 +235,18 @@ var MD_BUBBLE_EFFECT_COUNT_DOWN = 5;
 var MD_NOTIFY_BONUS_G_COUNT_DOWN = 300000;    // 5p
 
 // image
-var MD_IMAGE_CELL_MOVE = "res/EventMgr/MidAutumn/MidAutumnUI/cell_move.png";
-var MD_IMAGE_CHARACTER_SHADOW = "res/EventMgr/MidAutumn/MidAutumnUI/mascotZP.png";
-var MD_IMAGE_CHARACTER_SHADOW_LIGHT = "res/EventMgr/MidAutumn/MidAutumnUI/shadow_mascot.png";
-var MD_IMAGE_BUBBLE = "res/EventMgr/MidAutumn/MidAutumnUI/bubble.png";
-var MD_IMAGE_CELL_NORMAL = "res/EventMgr/MidAutumn/MidAutumnUI/cell_normal.png";
-var MD_IMAGE_STONE_REMAIN = "res/EventMgr/MidAutumn/MidAutumnUI/stone_remain_move.png";
-var MD_IMAGE_STONE = "res/EventMgr/MidAutumn/MidAutumnUI/cell_stone.png";
-var MD_IMAGE_BG_GIFT = "res/EventMgr/MidAutumn/MidAutumnUI/cell_gift.png";
-var MD_IMAGE_CELL_NORMAL_LEVEL = "res/EventMgr/MidAutumn/MidAutumnUI/cell_normal";
-var MD_IMAGE_BG_GIFT_LEVEL = "res/EventMgr/MidAutumn/MidAutumnUI/cell_gift";
-var MD_IMAGE_STONE_LEVEL = "res/EventMgr/MidAutumn/MidAutumnUI/stone";
-var MD_IMAGE_BUTTON_IN_GAME = "res/EventMgr/MidAutumn/MidAutumnUI/btnEventInGame.png";
+var MD_IMAGE_CELL_MOVE = "res/Event/MidAutumn/MidAutumnUI/cell_move.png";
+var MD_IMAGE_CHARACTER_SHADOW = "res/Event/MidAutumn/MidAutumnUI/mascotZP.png";
+var MD_IMAGE_CHARACTER_SHADOW_LIGHT = "res/Event/MidAutumn/MidAutumnUI/shadow_mascot.png";
+var MD_IMAGE_BUBBLE = "res/Event/MidAutumn/MidAutumnUI/bubble.png";
+var MD_IMAGE_CELL_NORMAL = "res/Event/MidAutumn/MidAutumnUI/cell_normal.png";
+var MD_IMAGE_STONE_REMAIN = "res/Event/MidAutumn/MidAutumnUI/stone_remain_move.png";
+var MD_IMAGE_STONE = "res/Event/MidAutumn/MidAutumnUI/cell_stone.png";
+var MD_IMAGE_BG_GIFT = "res/Event/MidAutumn/MidAutumnUI/cell_gift.png";
+var MD_IMAGE_CELL_NORMAL_LEVEL = "res/Event/MidAutumn/MidAutumnUI/cell_normal";
+var MD_IMAGE_BG_GIFT_LEVEL = "res/Event/MidAutumn/MidAutumnUI/cell_gift";
+var MD_IMAGE_STONE_LEVEL = "res/Event/MidAutumn/MidAutumnUI/stone";
+var MD_IMAGE_BUTTON_IN_GAME = "res/Event/MidAutumn/MidAutumnUI/btnEventInGame.png";
 
 // Type Item
 var MD_ITEM_IN_MAIN_SCENE = 0;

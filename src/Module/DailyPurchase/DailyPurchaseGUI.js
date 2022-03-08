@@ -355,12 +355,12 @@ var DailyPurchaseGUI = BaseLayer.extend({
                 this.removeFromParent();
                 popUpManager.removePopUp(PopUpManager.DAILY_PURCHASE);
                 if (this.waitOpenShop) {
-                    var shopTabIdx = gamedata.gameConfig.getShopGoldIndexById(dailyPurchaseManager.getPromoChannel());
+                    var shopTabIdx = paymentMgr.getShopGoldIndexById(dailyPurchaseManager.getPromoChannel());
                     var shop = sceneMgr.getMainLayer();
                     if (shop instanceof ShopIapScene)
                         shop.selectTabPaymentInGold(shopTabIdx);
                     else
-                        gamedata.openShop(LobbyScene.className, true, shopTabIdx);
+                        paymentMgr.openShop(LobbyScene.className, true, shopTabIdx);
                 }
                 else{
                     VipManager.checkShowUpLevelVip();
@@ -452,14 +452,14 @@ var DailyPurchaseGUI = BaseLayer.extend({
                 cc.callFunc(function(){
                     if (gift.gold > 0){
                         this.createGiftNode("Lobby/DailyPurchase/iconGold.png", 1, this.giftCell.getGoldIconPosition(), lobby.getGoldIconPosition());
-                        effectMgr.runLabelPoint(lobby._uiBean, gamedata.userData.bean - gift.gold, gamedata.userData.bean, 0.75, null, true);
+                        effectMgr.runLabelPoint(lobby.pUserInfo.lbGold, userMgr.getGold() - gift.gold, userMgr.getGold(), 0.75, null, true);
                     }
                     if (gift.vPoint > 0){
                         this.createGiftNode("Lobby/DailyPurchase/iconVPoint.png", 1, this.giftCell.getVPointIconPosition(), lobby.getVipButtonPosition());
                     }
                     if (gift.diamond > 0){
                         this.createGiftNode("Lobby/DailyPurchase/iconDiamond.png", 1, this.giftCell.getDiamondIconPosition(), lobby.getDiamondIconPosition());
-                        effectMgr.runLabelPoint(lobby._uiDiamond, gamedata.userData.diamond - gift.diamond, gamedata.userData.diamond, 0.75, null, false);
+                        effectMgr.runLabelPoint(lobby.pUserInfo.lbDiamond, userMgr.getDiamond() - gift.diamond, userMgr.getDiamond(), 0.75, null, false);
                     }
                     if (gift.items.length > 0){
                         var item = gift.items[0];
@@ -519,7 +519,7 @@ var DailyPurchaseGUI = BaseLayer.extend({
                     effect.setScale(0.5);
                 }
 
-                if (gamedata.sound) {
+                if (settingMgr.sound) {
                     var rnd = Math.floor(Math.random() * 3) + 1;
                     cc.audioEngine.playEffect(lobby_sounds["coin" + rnd], false);
                 }

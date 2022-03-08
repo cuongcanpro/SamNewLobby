@@ -56,6 +56,52 @@
             "Tag": 2,
             "Children": [
               {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "Common/bgGrey.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 231,
+                "Scale9OriginY": 95,
+                "Scale9Width": 239,
+                "Scale9Height": 98,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 316.0,
+                  "Y": 241.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.5016,
+                  "Y": 0.5356
+                },
+                "PreSize": {
+                  "X": 0.9206,
+                  "Y": 0.5556
+                },
+                "LeftMargin": 26.0,
+                "RightMargin": 24.0,
+                "TopMargin": 84.0,
+                "BottomMargin": 116.0,
+                "Tag": 12,
+                "ActionTag": -2102629240,
+                "Size": {
+                  "X": 580.0,
+                  "Y": 250.0
+                },
+                "Name": "bgGrey",
+                "ctype": "ImageViewObjectData"
+              },
+              {
                 "FontSize": 35,
                 "LabelText": "Thông báo",
                 "FontResource": {
@@ -94,18 +140,18 @@
                   "Y": 0.9117
                 },
                 "PreSize": {
-                  "X": 0.273,
-                  "Y": 0.0911
+                  "X": 0.2952,
+                  "Y": 0.1067
                 },
-                "LeftMargin": 229.0,
-                "RightMargin": 229.0,
-                "TopMargin": 19.2379,
-                "BottomMargin": 389.7621,
+                "LeftMargin": 222.0,
+                "RightMargin": 222.0,
+                "TopMargin": 15.7379,
+                "BottomMargin": 386.2621,
                 "Tag": 152,
                 "ActionTag": 313385095,
                 "Size": {
-                  "X": 172.0,
-                  "Y": 41.0
+                  "X": 186.0,
+                  "Y": 48.0
                 },
                 "Name": "lbTitle",
                 "ctype": "TextObjectData"
@@ -156,7 +202,7 @@
                   "ScaleY": 0.5
                 },
                 "Position": {
-                  "X": 595.0431,
+                  "X": 595.035,
                   "Y": 414.4202
                 },
                 "Scale": {
@@ -175,8 +221,8 @@
                 },
                 "HorizontalEdge": "BothEdge",
                 "VerticalEdge": "BottomEdge",
-                "LeftMargin": 577.5431,
-                "RightMargin": 17.4569,
+                "LeftMargin": 577.535,
+                "RightMargin": 17.465,
                 "TopMargin": 18.0798,
                 "BottomMargin": 396.9202,
                 "Tag": 7,
@@ -298,18 +344,18 @@
                       "Y": 0.5
                     },
                     "PreSize": {
-                      "X": 0.3448,
-                      "Y": 0.493
+                      "X": 0.375,
+                      "Y": 0.5634
                     },
-                    "LeftMargin": 76.0,
-                    "RightMargin": 76.0,
-                    "TopMargin": 18.0,
-                    "BottomMargin": 18.0,
+                    "LeftMargin": 72.5,
+                    "RightMargin": 72.5,
+                    "TopMargin": 15.5,
+                    "BottomMargin": 15.5,
                     "Tag": 155,
                     "ActionTag": 498572164,
                     "Size": {
-                      "X": 80.0,
-                      "Y": 35.0
+                      "X": 87.0,
+                      "Y": 40.0
                     },
                     "Name": "Text_4",
                     "ctype": "TextObjectData"
@@ -438,18 +484,18 @@
                       "Y": 0.5504
                     },
                     "PreSize": {
-                      "X": 0.4009,
-                      "Y": 0.493
+                      "X": 0.431,
+                      "Y": 0.5634
                     },
-                    "LeftMargin": 69.5,
-                    "RightMargin": 69.5,
-                    "TopMargin": 14.4242,
-                    "BottomMargin": 21.5758,
+                    "LeftMargin": 66.0,
+                    "RightMargin": 66.0,
+                    "TopMargin": 11.9242,
+                    "BottomMargin": 19.0758,
                     "Tag": 154,
                     "ActionTag": 1116074442,
                     "Size": {
-                      "X": 93.0,
-                      "Y": 35.0
+                      "X": 100.0,
+                      "Y": 40.0
                     },
                     "Name": "lbCancel",
                     "ctype": "TextObjectData"
@@ -578,18 +624,18 @@
                       "Y": 0.543
                     },
                     "PreSize": {
-                      "X": 0.7931,
-                      "Y": 0.5211
+                      "X": 0.8707,
+                      "Y": 0.5915
                     },
-                    "LeftMargin": 24.0,
-                    "RightMargin": 24.0,
-                    "TopMargin": 13.9452,
-                    "BottomMargin": 20.0548,
+                    "LeftMargin": 15.0,
+                    "RightMargin": 15.0,
+                    "TopMargin": 11.4452,
+                    "BottomMargin": 17.5548,
                     "Tag": 153,
                     "ActionTag": -456063283,
                     "Size": {
-                      "X": 184.0,
-                      "Y": 37.0
+                      "X": 202.0,
+                      "Y": 42.0
                     },
                     "Name": "lbOk",
                     "ctype": "TextObjectData"
@@ -685,6 +731,7 @@
       },
       "UsedResources": [
         "Common/bgDialog.png",
+        "Common/bgGrey.png",
         "Common/btnBlue.png",
         "Common/btnClose.png",
         "Common/btnGreen.png",
