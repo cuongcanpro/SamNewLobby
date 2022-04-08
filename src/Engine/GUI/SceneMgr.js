@@ -220,6 +220,7 @@ var SceneMgr = cc.Class.extend({
             if (this._isWaitingCallBack && !direct) {
                 layer = this._waitingScene;
 
+                cc.log("____CHANGE___TO__GUI___" + layer);
                 this._isWaitingCallBack = false;
                 this._waitingScene = "";
             }
@@ -448,13 +449,18 @@ var SceneMgr = cc.Class.extend({
         if(popup && popup instanceof WebviewUI) {
             popup.closeUI();
         }
+    },
+
+    checkInBoard: function() {
+        var board = this.getMainLayer();
+        return board && board instanceof BoardScene;
     }
 });
 
 SceneMgr.sharedInstance = null;
 
-SceneMgr.FONT_NORMAL = cc.sys.isNative ? "fonts/tahoma.ttf" : "tahoma";
-SceneMgr.FONT_BOLD = cc.sys.isNative ? "fonts/tahomabd.ttf" : "tahoma";
+SceneMgr.FONT_NORMAL = cc.sys.isNative ? "fonts/robotoLight.ttf" : "tahoma";
+SceneMgr.FONT_BOLD = cc.sys.isNative ? "fonts/robotoBold.ttf" : "tahoma";
 SceneMgr.FONT_SIZE_DEFAULT = 17;
 
 SceneMgr.convertPosToParent = function (parent, target) {
@@ -635,7 +641,6 @@ var Waiting = cc.Layer.extend({
 
 // Toast Float center scene
 var ToastFloat = cc.Node.extend({
-
     ctor: function () {
         this._super();
 
@@ -662,7 +667,10 @@ var ToastFloat = cc.Node.extend({
         this.bg.runAction(cc.fadeIn(0.5));
         this.lb.runAction(cc.fadeIn(0.5));
 
-        this.runAction(cc.sequence(cc.delayTime(0.5), cc.callFunc(this.finishEffect.bind(this))));
+        this.runAction(cc.sequence(
+            cc.delayTime(0.5),
+            cc.callFunc(this.finishEffect.bind(this))
+        ));
     },
 
     finishEffect: function () {
@@ -672,21 +680,23 @@ var ToastFloat = cc.Node.extend({
     setToast: function (txt, time) {
         if (txt) {
             this.lb = BaseLayer.createLabelText(txt);
+            this.lb.setFontSize(25);
             this.lb.setTextHorizontalAlignment(cc.TEXT_ALIGNMENT_CENTER);
             this.lb.setTextVerticalAlignment(cc.TEXT_ALIGNMENT_CENTER);
-            this.lb.ignoreContentAdaptWithSize(false);
+            this.lb.ignoreContentAdaptWithSize(true);
             this.addChild(this.lb);
             var winSize = cc.director.getWinSize();
 
             var lbSize = this.lb.getContentSize();
             var deltaWidth = winSize.width * ToastFloat.DELTA_WIDTH;
-            if(lbSize.width > deltaWidth)
-            {
-
+            if(lbSize.width > deltaWidth) {
                 this.lb.setContentSize(cc.size(deltaWidth, lbSize.height * 2));
             }
 
-            this.bg.setContentSize(this.lb.getContentSize().width + ToastFloat.PAD_SIZE, this.lb.getContentSize().height + ToastFloat.PAD_SIZE);
+            this.bg.setContentSize(
+                this.lb.getContentSize().width + ToastFloat.PAD_SIZE,
+                this.lb.getContentSize().height + ToastFloat.PAD_SIZE
+            );
         }
 
         if (time === undefined || time == null) time = ToastFloat.SHORT;
@@ -702,7 +712,10 @@ var ToastFloat = cc.Node.extend({
         this.bg.runAction(cc.fadeOut(0.5));
         this.lb.runAction(cc.fadeOut(0.5));
 
-        this.runAction(cc.sequence(cc.delayTime(0.5), cc.callFunc(this.removeFromParent.bind(this))));
+        this.runAction(cc.sequence(
+            cc.delayTime(0.5),
+            cc.callFunc(this.removeFromParent.bind(this))
+        ));
     },
 
     update: function (dt) {
@@ -731,7 +744,7 @@ ToastFloat.MEDIUM = 2.0;
 
 ToastFloat.POSITION_Y = 1 / 3;
 ToastFloat.DELTA_WIDTH = 0.8;
-ToastFloat.PAD_SIZE = 35;
+ToastFloat.PAD_SIZE = 45;
 
 // Loading Float center scene
 var LoadingFloat = cc.Node.extend({

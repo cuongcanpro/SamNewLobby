@@ -20,14 +20,7 @@
             <Image Name="iconVip9.png" />
             <Image Name="imgUp.png" />
           </Folder>
-          <Folder Name="light">
-            <Image Name="grand_lightRotate.png" />
-            <Image Name="light.png" />
-            <Image Name="light_2.png" />
-            <Image Name="star_light.png" />
-          </Folder>
           <Image Name="9patch.png" />
-          <Image Name="bgAvatarSmallCircle.png" />
           <Image Name="bgBroadcast.png" />
           <Image Name="bgChooseRoom.jpg" />
           <Image Name="bgColumn.png" />
@@ -35,65 +28,38 @@
           <Image Name="bgGrey.png" />
           <Image Name="bgLoading.jpg" />
           <Image Name="bgMoney.png" />
-          <Image Name="bgSub.png" />
-          <Image Name="bgSubBot.png" />
-          <Image Name="bgSubTop.png" />
-          <Image Name="bgSubTransperance.png" />
           <Image Name="black.png" />
           <Image Name="borderAvatar.png" />
           <Image Name="btn_cheat.png" />
-          <Image Name="btnAddG.png" />
-          <Image Name="btnAddGold.png" />
-          <Image Name="btnAvatar.png" />
           <Image Name="btnBack.png" />
           <Image Name="btnBlue.png" />
-          <Image Name="btnCancel.png" />
           <Image Name="btnClose.png" />
-          <Image Name="btnConfirm.png" />
-          <Image Name="btnF5.png" />
           <Image Name="btnGreen.png" />
           <Image Name="btnHelp.png" />
-          <Image Name="btnReceiveSorry.png" />
-          <Image Name="btnUse.png" />
           <Image Name="btnYellow.png" />
-          <Image Name="buttonOK.png" />
-          <Image Name="camera.png" />
           <Audio Name="coin_01.mp3" />
           <Audio Name="coin_02.mp3" />
           <Audio Name="coin_03.mp3" />
           <Audio Name="coinFall.mp3" />
-          <Image Name="CommonBg.jpg" />
-          <Image Name="CommonMask.png" />
           <Image Name="defaultAvatar.png" />
           <Image Name="dot.png" />
           <Image Name="dotLight.png" />
           <Image Name="dotNormal.png" />
-          <Image Name="gamecenter.png" />
           <Image Name="iconDiamond.png" />
           <Image Name="iconG.png" />
           <Image Name="iconGold.png" />
           <Image Name="iconGoldBig.png" />
-          <Image Name="iconGoldDisable.png" />
-          <Image Name="iconStar.png" />
-          <Image Name="iconStarBig.png" />
           <Image Name="iconXu.png" />
-          <Image Name="iconXuBig.png" />
-          <Image Name="infoRoom.png" />
           <Image Name="loading.png" />
           <Image Name="logo_zp.png" />
           <Image Name="maskAvatar.png" />
           <Image Name="maskEmpty.png" />
-          <Image Name="separateLine.png" />
-          <Image Name="text.png" />
-          <Image Name="titleGiftStartup.png" />
-          <Image Name="titleGiftSupport.png" />
           <Image Name="touchDeco.png" />
           <Image Name="touchIcon0.png" />
           <Image Name="touchIcon1.png" />
           <Image Name="touchIcon2.png" />
           <Image Name="touchIcon3.png" />
           <Image Name="touchSquare.png" />
-          <Image Name="zingplay.png" />
         </Folder>
         <Folder Name="Font">
           <Fnt Name="detail_jackpot.fnt" />
@@ -132,13 +98,13 @@
             <Image Name="3.png" />
             <Image Name="4.png" />
             <Image Name="5.png" />
-            <Image Name="rowBg.png" />
             <Image Name="7.png" />
             <Image Name="8.png" />
             <Image Name="9.png" />
             <Image Name="demo 1.jpg" />
             <Image Name="demo 2.jpg" />
             <Fnt Name="LBPopUpFont.fnt" />
+            <Image Name="rowBg.png" />
           </Folder>
           <Folder Name="token">
             <Image Name="1.png" />
@@ -175,7 +141,6 @@
           <Image Name="18.png" />
           <Image Name="19.png" />
           <Image Name="2.png" />
-          <Image Name="20.png" />
           <Image Name="21.png" />
           <Image Name="22.png" />
           <Image Name="3.png" />
@@ -185,13 +150,12 @@
           <Image Name="7.png" />
           <Image Name="8.png" />
           <Image Name="9.png" />
-          <Image Name="demo 1.jpg" />
-          <Image Name="demo 2.jpg" />
           <Image Name="Ellipse 1.png" />
           <Image Name="hand.png" />
           <Fnt Name="LBFont.fnt" />
-          <TTF Name="tahoma.ttf" />
-          <TTF Name="tahomabd.ttf" />
+          <Image Name="streakBonus.png" />
+          <Image Name="streakPass.png" />
+          <Image Name="tooltip.png" />
         </Folder>
         <Folder Name="GUIVipNew">
           <Folder Name="benefit">
@@ -288,15 +252,89 @@
           </Folder>
           <Folder Name="vipRes">
             <Folder Name="Gem">
-              <PlistImageFolder Image="texture.png" PListFile="texture.plist" Name=".texture_PList.Dir" />
+              <PlistImageFolder Image="texture.png" PListFile="texture.plist" Name=".texture_PList.Dir">
+                <PlistImageFile Name="Ngocvip1_lv10_Layer 31.png" Key="Ngocvip1/lv10/Layer 31.png" />
+                <PlistImageFile Name="Ngocvip1_lv10_Layer 32.png" Key="Ngocvip1/lv10/Layer 32.png" />
+                <PlistImageFile Name="Ngocvip1_lv10_Layer 33.png" Key="Ngocvip1/lv10/Layer 33.png" />
+                <PlistImageFile Name="Ngocvip1_lv10_Layer 34.png" Key="Ngocvip1/lv10/Layer 34.png" />
+                <PlistImageFile Name="Ngocvip1_lv10_Layer 35.png" Key="Ngocvip1/lv10/Layer 35.png" />
+                <PlistImageFile Name="Ngocvip1_lv10_Layer 36.png" Key="Ngocvip1/lv10/Layer 36.png" />
+                <PlistImageFile Name="Ngocvip1_lv10_Layer 37.png" Key="Ngocvip1/lv10/Layer 37.png" />
+                <PlistImageFile Name="Ngocvip1_lv10_Layer 38.png" Key="Ngocvip1/lv10/Layer 38.png" />
+                <PlistImageFile Name="Ngocvip1_lv10_Layer 39.png" Key="Ngocvip1/lv10/Layer 39.png" />
+                <PlistImageFile Name="Ngocvip1_lv10_Layer 40.png" Key="Ngocvip1/lv10/Layer 40.png" />
+                <PlistImageFile Name="Ngocvip1_lv10_Layer 41.png" Key="Ngocvip1/lv10/Layer 41.png" />
+                <PlistImageFile Name="Ngocvip1_lv10_Layer 42.png" Key="Ngocvip1/lv10/Layer 42.png" />
+                <PlistImageFile Name="Ngocvip1_lv10_Vector Smart Object copy 8.png" Key="Ngocvip1/lv10/Vector Smart Object copy 8.png" />
+                <PlistImageFile Name="Ngocvip1_lv10_Vector Smart Object copy 8_1.png" Key="Ngocvip1/lv10/Vector Smart Object copy 8_1.png" />
+                <PlistImageFile Name="Ngocvip1_lv3.png" Key="Ngocvip1/lv3.png" />
+                <PlistImageFile Name="Ngocvip1_lv4.png" Key="Ngocvip1/lv4.png" />
+                <PlistImageFile Name="Ngocvip1_lv6_Layer 1.png" Key="Ngocvip1/lv6/Layer 1.png" />
+                <PlistImageFile Name="Ngocvip1_lv6_Layer 2.png" Key="Ngocvip1/lv6/Layer 2.png" />
+                <PlistImageFile Name="Ngocvip1_lv6_Layer 3.png" Key="Ngocvip1/lv6/Layer 3.png" />
+                <PlistImageFile Name="Ngocvip1_lv6_Layer 4.png" Key="Ngocvip1/lv6/Layer 4.png" />
+                <PlistImageFile Name="Ngocvip1_lv6_Layer 5.png" Key="Ngocvip1/lv6/Layer 5.png" />
+                <PlistImageFile Name="Ngocvip1_lv6_Layer 6.png" Key="Ngocvip1/lv6/Layer 6.png" />
+                <PlistImageFile Name="Ngocvip1_lv6_Vector Smart Object copy 12.png" Key="Ngocvip1/lv6/Vector Smart Object copy 12.png" />
+                <PlistImageFile Name="Ngocvip1_lv7_Layer 10.png" Key="Ngocvip1/lv7/Layer 10.png" />
+                <PlistImageFile Name="Ngocvip1_lv7_Layer 11.png" Key="Ngocvip1/lv7/Layer 11.png" />
+                <PlistImageFile Name="Ngocvip1_lv7_Layer 12.png" Key="Ngocvip1/lv7/Layer 12.png" />
+                <PlistImageFile Name="Ngocvip1_lv7_Layer 13.png" Key="Ngocvip1/lv7/Layer 13.png" />
+                <PlistImageFile Name="Ngocvip1_lv7_Layer 7.png" Key="Ngocvip1/lv7/Layer 7.png" />
+                <PlistImageFile Name="Ngocvip1_lv7_Layer 8.png" Key="Ngocvip1/lv7/Layer 8.png" />
+                <PlistImageFile Name="Ngocvip1_lv7_Layer 9.png" Key="Ngocvip1/lv7/Layer 9.png" />
+                <PlistImageFile Name="Ngocvip1_lv7_Vector Smart Object copy 11.png" Key="Ngocvip1/lv7/Vector Smart Object copy 11.png" />
+                <PlistImageFile Name="Ngocvip1_lv8_Layer 14.png" Key="Ngocvip1/lv8/Layer 14.png" />
+                <PlistImageFile Name="Ngocvip1_lv8_Layer 15.png" Key="Ngocvip1/lv8/Layer 15.png" />
+                <PlistImageFile Name="Ngocvip1_lv8_Layer 16.png" Key="Ngocvip1/lv8/Layer 16.png" />
+                <PlistImageFile Name="Ngocvip1_lv8_Layer 17.png" Key="Ngocvip1/lv8/Layer 17.png" />
+                <PlistImageFile Name="Ngocvip1_lv8_Layer 18.png" Key="Ngocvip1/lv8/Layer 18.png" />
+                <PlistImageFile Name="Ngocvip1_lv8_Layer 19.png" Key="Ngocvip1/lv8/Layer 19.png" />
+                <PlistImageFile Name="Ngocvip1_lv8_Layer 20.png" Key="Ngocvip1/lv8/Layer 20.png" />
+                <PlistImageFile Name="Ngocvip1_lv8_Layer 21.png" Key="Ngocvip1/lv8/Layer 21.png" />
+                <PlistImageFile Name="Ngocvip1_lv8_Layer 43.png" Key="Ngocvip1/lv8/Layer 43.png" />
+                <PlistImageFile Name="Ngocvip1_lv8_Vector Smart Object copy 10.png" Key="Ngocvip1/lv8/Vector Smart Object copy 10.png" />
+                <PlistImageFile Name="Ngocvip1_lv8_Vector Smart Object copy 10_1.png" Key="Ngocvip1/lv8/Vector Smart Object copy 10_1.png" />
+                <PlistImageFile Name="Ngocvip1_lv9_Layer 22.png" Key="Ngocvip1/lv9/Layer 22.png" />
+                <PlistImageFile Name="Ngocvip1_lv9_Layer 23.png" Key="Ngocvip1/lv9/Layer 23.png" />
+                <PlistImageFile Name="Ngocvip1_lv9_Layer 24.png" Key="Ngocvip1/lv9/Layer 24.png" />
+                <PlistImageFile Name="Ngocvip1_lv9_Layer 25.png" Key="Ngocvip1/lv9/Layer 25.png" />
+                <PlistImageFile Name="Ngocvip1_lv9_Layer 26.png" Key="Ngocvip1/lv9/Layer 26.png" />
+                <PlistImageFile Name="Ngocvip1_lv9_Layer 27.png" Key="Ngocvip1/lv9/Layer 27.png" />
+                <PlistImageFile Name="Ngocvip1_lv9_Layer 28.png" Key="Ngocvip1/lv9/Layer 28.png" />
+                <PlistImageFile Name="Ngocvip1_lv9_Layer 29.png" Key="Ngocvip1/lv9/Layer 29.png" />
+                <PlistImageFile Name="Ngocvip1_lv9_Layer 30.png" Key="Ngocvip1/lv9/Layer 30.png" />
+                <PlistImageFile Name="Ngocvip1_ngoc5.png" Key="Ngocvip1/ngoc5.png" />
+                <PlistImageFile Name="Ngocvip1_Ngocvip1_lv1.png" Key="Ngocvip1/Ngocvip1/lv1.png" />
+                <PlistImageFile Name="Ngocvip1_Ngocvip1_lv2.png" Key="Ngocvip1/Ngocvip1/lv2.png" />
+                <PlistImageFile Name="sao.png" Key="sao.png" />
+              </PlistImageFolder>
               <File Name="skeleton.xml" />
             </Folder>
             <Folder Name="Highlight">
-              <PlistImageFolder Image="texture.png" PListFile="texture.plist" Name=".texture_PList.Dir" />
+              <PlistImageFolder Image="texture.png" PListFile="texture.plist" Name=".texture_PList.Dir">
+                <PlistImageFile Name="cau_vong.png" Key="cau_vong.png" />
+                <PlistImageFile Name="effect_tia_vang.png" Key="effect_tia_vang.png" />
+                <PlistImageFile Name="flare.png" Key="flare.png" />
+                <PlistImageFile Name="G_D.png" Key="G_D.png" />
+                <PlistImageFile Name="G_H.png" Key="G_H.png" />
+                <PlistImageFile Name="g_n.png" Key="g_n.png" />
+                <PlistImageFile Name="g_v.png" Key="g_v.png" />
+                <PlistImageFile Name="g_x.png" Key="g_x.png" />
+                <PlistImageFile Name="sun.png" Key="sun.png" />
+                <PlistImageFile Name="tia_be.png" Key="tia_be.png" />
+                <PlistImageFile Name="toa.png" Key="toa.png" />
+                <PlistImageFile Name="tron_xoay.png" Key="tron_xoay.png" />
+              </PlistImageFolder>
               <File Name="skeleton.xml" />
             </Folder>
             <Folder Name="HighlightBig">
-              <PlistImageFolder Image="texture.png" PListFile="texture.plist" Name=".texture_PList.Dir" />
+              <PlistImageFolder Image="texture.png" PListFile="texture.plist" Name=".texture_PList.Dir">
+                <PlistImageFile Name="cau_vong.png" Key="cau_vong.png" />
+                <PlistImageFile Name="effect_tia.png" Key="effect_tia.png" />
+                <PlistImageFile Name="tia_sau.png" Key="tia_sau.png" />
+                <PlistImageFile Name="tron_xoay.png" Key="tron_xoay.png" />
+              </PlistImageFolder>
               <File Name="skeleton.xml" />
             </Folder>
             <File Name="VipLocalized_vi" />

@@ -8,7 +8,7 @@ var EggBreakerCell = cc.TableViewCell.extend({
     ctor: function () {
         this._super();
 
-        var jsonLayout = ccs.load("res/EventMgr/EggBreaker/EggFullItem.json");
+        var jsonLayout = ccs.load("res/Event/EggBreaker/EggFullItem.json");
         this._layout = jsonLayout.node;
         ccui.Helper.doLayout(this._layout);
         this.addChild(this._layout);
@@ -146,7 +146,7 @@ var EggBreakerPieceConvertCell = cc.TableViewCell.extend({
     ctor: function () {
         this._super();
 
-        var jsonLayout = ccs.load("res/EventMgr/EggBreaker/EggBreakerConvertPieceItem.json");
+        var jsonLayout = ccs.load("res/Event/EggBreaker/EggBreakerConvertPieceItem.json");
         this._layout = jsonLayout.node;
         ccui.Helper.doLayout(this._layout);
         this.addChild(this._layout);
@@ -202,7 +202,7 @@ var EggBreakerGiftCell = cc.TableViewCell.extend({
         this.arInfo = [];
         this.arPos = [];
 
-        var jsonLayout = ccs.load("res/EventMgr/EggBreaker/EggBreakerGiftCell.json");
+        var jsonLayout = ccs.load("res/Event/EggBreaker/EggBreakerGiftCell.json");
         this._layout = jsonLayout.node;
         ccui.Helper.doLayout(this._layout);
         this.addChild(this._layout);
@@ -254,7 +254,7 @@ var EggBreakerGiftCell = cc.TableViewCell.extend({
 
                 item.img.removeAllChildren();
 
-                var sp = new cc.Sprite(inf.isStored ? eggBreaker.getPieceImage(inf.id) : "res/EventMgr/EggBreaker/EggBreakerUI/e10.png");
+                var sp = new cc.Sprite(inf.isStored ? eggBreaker.getPieceImage(inf.id) : "res/Event/EggBreaker/EggBreakerUI/e10.png");
                 sp.setPosition(item.img.getContentSize().width/2,item.img.getContentSize().height/2);
                 item.img.addChild(sp);
 
@@ -307,7 +307,7 @@ var EggBreakerImage = cc.Node.extend({
         this.pX = i;
         this.pY = j;
 
-        var jsonLayout = ccs.load("res/EventMgr/EggBreaker/EggImageItem.json");
+        var jsonLayout = ccs.load("res/Event/EggBreaker/EggImageItem.json");
         this._layout = jsonLayout.node;
         ccui.Helper.doLayout(this._layout);
         this.addChild(this._layout);
@@ -475,7 +475,7 @@ var EggBreakerImage = cc.Node.extend({
     },
 
     generatePieceImage: function (pie) {
-        return ("res/EventMgr/EggBreaker/EggBreakerUI/br" + (eggBreaker.isItemOutGame(this.itemId) ? "0" : "1") + "" + pie + ".png");
+        return ("res/Event/EggBreaker/EggBreakerUI/br" + (eggBreaker.isItemOutGame(this.itemId) ? "0" : "1") + "" + pie + ".png");
     },
 
     randomRange: function (min, max) {
@@ -591,7 +591,7 @@ var EggBreakerGift = cc.Node.extend({
         var ar = ["icon_gold.png", "i1000010.png", "icon_gold.png", "i1000020.png",
             "i1000030.png", "icon_gold.png", "i1000040.png", "i1000050.png",
             "icon_gold.png", "i1000060.png"];
-        var strImg = "res/EventMgr/EggBreakerUI/" + ar[parseInt(Math.random() * 10) % ar.length];
+        var strImg = "res/Event/EggBreakerUI/" + ar[parseInt(Math.random() * 10) % ar.length];
         this.image = new cc.Sprite(strImg);
         this.addChild(this.image);
 
@@ -676,7 +676,7 @@ var EggBreakerResultGift = cc.Node.extend({
     ctor: function () {
         this._super();
 
-        var jsonLayout = ccs.load("res/EventMgr/EggBreaker/EggBreakerGiftResultNode.json");
+        var jsonLayout = ccs.load("res/Event/EggBreaker/EggBreakerGiftResultNode.json");
         this._layout = jsonLayout.node;
         ccui.Helper.doLayout(this._layout);
         this.addChild(this._layout);
@@ -710,7 +710,7 @@ var EggBreakerResultGift = cc.Node.extend({
 
         this.img.removeAllChildren();
 
-        var sp = new cc.Sprite(inf.isStored ? eggBreaker.getPieceImage(inf.id) : "res/EventMgr/EggBreaker/EggBreakerUI/e10.png");
+        var sp = new cc.Sprite(inf.isStored ? eggBreaker.getPieceImage(inf.id) : "res/Event/EggBreaker/EggBreakerUI/e10.png");
         sp.setPosition(this.img.getContentSize().width/2,this.img.getContentSize().height/2);
         this.img.addChild(sp);
 
@@ -728,10 +728,10 @@ var EggBreakerResultGift = cc.Node.extend({
         var pad = 0.75;
         var scaleItem = eggBreaker.isItemStored(inf.id) ? 0.85 : 0.5;
 
-        var bg = new cc.Sprite("res/EventMgr/EggBreakerUI/bg_item_result.png");
+        var bg = new cc.Sprite("res/Event/EggBreakerUI/bg_item_result.png");
         bg.setScale(scale);
 
-        var sp = new cc.Sprite(inf.isStored ? eggBreaker.getPieceImage(inf.id) : "res/EventMgr/EggBreaker/EggBreakerUI/e10.png");
+        var sp = new cc.Sprite(inf.isStored ? eggBreaker.getPieceImage(inf.id) : "res/Event/EggBreaker/EggBreakerUI/e10.png");
 
         //var scaleX = bg.getContentSize().width*scale*pad/sp.getContentSize().width;
         //var scaleY = bg.getContentSize().height*scale*pad/sp.getContentSize().height;
@@ -967,7 +967,7 @@ var EggBreakerStarEffect = cc.Sprite.extend({
     ctor: function () {
         this._super();
 
-        this.setTexture("res/EventMgr/EggBreakerUI/star_light.png");
+        this.setTexture("res/Event/EggBreakerUI/star_light.png");
         this.setScale(0.5);
 
         this.speedY = 0.5;
@@ -1021,7 +1021,7 @@ var EggBreakerScene = BaseLayer.extend({
         this.arPiece = [];
 
         this._super(EggBreakerScene.className);
-        this.initWithBinaryFile("res/EventMgr/EggBreaker/EggBreakerScene.json");
+        this.initWithBinaryFile("res/Event/EggBreaker/EggBreakerScene.json");
     },
 
     initGUI: function () {
@@ -1159,10 +1159,10 @@ var EggBreakerScene = BaseLayer.extend({
         this.customButton("sound",EggBreakerScene.BTN_SOUND,this.pMore);
         this.iconSound = this.getControl("iconSound",this.pMore);
         if (EggBreakerSound.musicOn) {
-            this.iconSound.loadTexture("res/EventMgr/EggBreaker/EggBreakerUI/btnSoundOn.png");
+            this.iconSound.loadTexture("res/Event/EggBreaker/EggBreakerUI/btnSoundOn.png");
         }
         else {
-            this.iconSound.loadTexture("res/EventMgr/EggBreaker/EggBreakerUI/btnSoundOff.png");
+            this.iconSound.loadTexture("res/Event/EggBreaker/EggBreakerUI/btnSoundOff.png");
         }
 
         var bgMoreListenter = cc.EventListener.create({
@@ -1589,7 +1589,7 @@ var EggBreakerScene = BaseLayer.extend({
                 for (var j = 0; j < EggBreakerScene.MAX_COL; j++) {
                     if (EGG_MODE_EDITOR) {
                         var sp = new EggBreakerEditorButton(i, j);
-                        sp.loadTextures("res/EventMgr/EggBreaker/EggBreakerUI/eb.png", "res/EventMgr/EggBreaker/EggBreakerUI/eb.png");
+                        sp.loadTextures("res/Event/EggBreaker/EggBreakerUI/eb.png", "res/Event/EggBreaker/EggBreakerUI/eb.png");
                         sp.setPressedActionEnabled(true);
                         sp.setTag(1000 + i * EggBreakerScene.MAX_COL + j);
                         sp.addTouchEventListener(this.onTouchEventHandler, this);
@@ -1762,7 +1762,7 @@ var EggBreakerScene = BaseLayer.extend({
         var delTime = timeMove / numShadow;
         var curTime = 0;
         for (var i = 0; i < numShadow; i++) {
-            var sp = new cc.Sprite("res/EventMgr/EggBreaker/EggBreakerUI/mascotZP.png");
+            var sp = new cc.Sprite("res/Event/EggBreaker/EggBreakerUI/mascotZP.png");
             sp.setScale(this._scale);
             sp.setFlippedX(flipX);
             this.pBoard.addChild(sp);
@@ -1812,7 +1812,7 @@ var EggBreakerScene = BaseLayer.extend({
             case EggBreaker.ROLL_NORMAL_XTREME:
             case EggBreaker.ROLL_NORMAL_ONCE:
             {
-                this.costImage.loadTexture("res/EventMgr/EggBreakerUI/xu.png");
+                this.costImage.loadTexture("res/Event/EggBreakerUI/xu.png");
                 this.costImage.lb.setString("-" + costRoll);
 
                 isRoll = (costRoll <= gamedata.userData.coin);
@@ -1834,7 +1834,7 @@ var EggBreakerScene = BaseLayer.extend({
             case EggBreaker.ROLL_ONCE:
             case EggBreaker.ROLL_XTREME:
             {
-                this.costImage.loadTexture("res/EventMgr/EggBreakerUI/hammer.png");
+                this.costImage.loadTexture("res/Event/EggBreakerUI/hammer.png");
                 this.costImage.lb.setString("-" + costRoll);
 
                 if (costRoll > eggBreaker.keyCoin) {
@@ -2050,12 +2050,12 @@ var EggBreakerScene = BaseLayer.extend({
                 if (EggBreakerSound.musicOn) {
                     //   this.iconSound.loadTexture("EggBreaker/btnSoundOn.png");
                     cc.log("ON ");
-                    this.iconSound.loadTexture("res/EventMgr/EggBreaker/EggBreakerUI/btnSoundOn.png");
+                    this.iconSound.loadTexture("res/Event/EggBreaker/EggBreakerUI/btnSoundOn.png");
                 }
                 else {
                     //this.iconSound.loadTexture("EggBreaker/btnSoundOff.png");
                     cc.log("OFF");
-                    this.iconSound.loadTexture("res/EventMgr/EggBreaker/EggBreakerUI/btnSoundOff.png");
+                    this.iconSound.loadTexture("res/Event/EggBreaker/EggBreakerUI/btnSoundOff.png");
                 }
                 cc.sys.localStorage.setItem("eventEggBreakerMusic", EggBreakerSound.musicOn ? 1 : 0);
                 break;
@@ -2346,7 +2346,7 @@ var EggBreakerLiteCell = cc.TableViewCell.extend({
     ctor: function () {
         this._super();
 
-        var jsonLayout = ccs.load("res/EventMgr/EggBreaker/EggLiteItem.json");
+        var jsonLayout = ccs.load("res/Event/EggBreaker/EggLiteItem.json");
         this._layout = jsonLayout.node;
         ccui.Helper.doLayout(this._layout);
         this.addChild(this._layout);
@@ -2469,7 +2469,7 @@ var EggBreakerPieceConvertGUI = BaseLayer.extend({
         this.arPiece = [];
 
         this._super(EggBreakerPieceConvertGUI.className);
-        this.initWithBinaryFile("res/EventMgr/EggBreaker/EggBreakerConvertPieceGUI.json");
+        this.initWithBinaryFile("res/Event/EggBreaker/EggBreakerConvertPieceGUI.json");
     },
 
     initGUI : function () {
@@ -2583,7 +2583,7 @@ var EggBreakerOpenResultGUI = BaseLayer.extend({
         this.cmd = null;
 
         this._super(EggBreakerOpenResultGUI.className);
-        this.initWithBinaryFile("res/EventMgr/EggBreaker/EggBreakerOpenResultGUI.json");
+        this.initWithBinaryFile("res/Event/EggBreaker/EggBreakerOpenResultGUI.json");
     },
 
     initGUI: function () {
@@ -2938,7 +2938,7 @@ var EggBreakerOpenResultGUI = BaseLayer.extend({
         num = (num < 10) ? num : (10 + parseInt(num/5));
 
         for (var i = 0; i < num; i++) {
-            //var sp = new cc.Sprite("res/EventMgr/EggBreakerUI/icon_gold.png");
+            //var sp = new cc.Sprite("res/Event/EggBreakerUI/icon_gold.png");
             var sp = new EggBreakerCoinEffect();
             sp.start();
 
@@ -3161,7 +3161,7 @@ var EggBreakerOpenGiftGUI = BaseLayer.extend({
         this.pEffect = null;
 
         this._super(EggBreakerOpenGiftGUI.className);
-        this.initWithBinaryFile("res/EventMgr/EggBreaker/EggBreakerOpenGiftGUI.json");
+        this.initWithBinaryFile("res/Event/EggBreaker/EggBreakerOpenGiftGUI.json");
     },
 
     initGUI: function () {
@@ -3517,7 +3517,7 @@ var EggBreakerAccumulateGUI = BaseLayer.extend({
         this.isKeyCoinChange = false;
 
         this._super(EggBreakerAccumulateGUI.className);
-        this.initWithBinaryFile("res/EventMgr/EggBreaker/EggBreakerAccumulateGUI.json");
+        this.initWithBinaryFile("res/Event/EggBreaker/EggBreakerAccumulateGUI.json");
     },
 
     initGUI: function () {
@@ -3797,7 +3797,7 @@ var EggBreakerEventNotifyGUI = BaseLayer.extend({
         this.lbTime = null;
 
         this._super(EggBreakerEventNotifyGUI.className);
-        this.initWithBinaryFile("res/EventMgr/EggBreaker/EggBreakerEventNotifyGUI.json");
+        this.initWithBinaryFile("res/Event/EggBreaker/EggBreakerEventNotifyGUI.json");
     },
 
     initGUI: function () {
@@ -3898,7 +3898,7 @@ var EggBreakerNapGNotifyGUI = BaseLayer.extend({
         this.lbTime = null;
 
         this._super(EggBreakerNapGNotifyGUI.className);
-        this.initWithBinaryFile("res/EventMgr/EggBreaker/EggBreakerNapGNotifyGUI.json");
+        this.initWithBinaryFile("res/Event/EggBreaker/EggBreakerNapGNotifyGUI.json");
     },
 
     initGUI: function () {
@@ -3950,7 +3950,7 @@ var EggBreakerHelpGUI = BaseLayer.extend({
         this.curPage = -1;
 
         this._super(EggBreakerHelpGUI.className);
-        this.initWithBinaryFile("res/EventMgr/EggBreaker/EggBreakerHelpGUI.json");
+        this.initWithBinaryFile("res/Event/EggBreaker/EggBreakerHelpGUI.json");
     },
 
     initGUI: function () {
@@ -4023,7 +4023,7 @@ var EggBreakerRegisterInformationGUI = BaseLayer.extend({
         this.btnRegister = null;
 
         this._super(EggBreakerRegisterInformationGUI.className);
-        this.initWithBinaryFile("res/EventMgr/EggBreaker/EggBreakerRegisterInformationGUI.json");
+        this.initWithBinaryFile("res/Event/EggBreaker/EggBreakerRegisterInformationGUI.json");
     },
 
     initGUI: function () {
@@ -4298,7 +4298,7 @@ var EggBreakerReceiveGratefulTicket = BaseLayer.extend({
 
     ctor: function () {
         this._super(EggBreakerReceiveGratefulTicket.className);
-        this.initWithBinaryFile("res/EventMgr/EggBreaker/EggBreakerGratefulTicket.json");
+        this.initWithBinaryFile("res/Event/EggBreaker/EggBreakerGratefulTicket.json");
     },
 
     onEnterFinish: function(){
@@ -4350,7 +4350,7 @@ var EggBreakerHammerDialog = BaseLayer.extend({
 
     ctor : function () {
         this._super(EggBreakerHammerDialog.className);
-        this.initWithBinaryFile("res/EventMgr/EggBreaker/EggBreakerHammerDialog.json");
+        this.initWithBinaryFile("res/Event/EggBreaker/EggBreakerHammerDialog.json");
     },
 
     initGUI : function () {
@@ -4451,7 +4451,7 @@ var EggBreakerPromoTicketGUI = BaseLayer.extend({
         this.lbTime = null;
 
         this._super(EggBreakerPromoTicketGUI.className);
-        this.initWithBinaryFile("res/EventMgr/EggBreaker/EggBreakerPromoTicketGUI.json");
+        this.initWithBinaryFile("res/Event/EggBreaker/EggBreakerPromoTicketGUI.json");
     },
 
     initGUI: function () {
@@ -4509,7 +4509,7 @@ EggBreakerScene.createMessageBroadcast = function (message) {
     if (message == "")
         return null;
 
-    var sprite = new cc.Sprite("res/EventMgr/EggBreaker/EggBreakerUI/bgBroadcast.png");
+    var sprite = new cc.Sprite("res/Event/EggBreaker/EggBreakerUI/bgBroadcast.png");
     sprite.y = 10;
 
     var length = cc.winSize.width * 0.2;

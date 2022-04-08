@@ -1,6 +1,24 @@
 /**
  * Send Packet
  */
+
+// USER PACKET
+CmdBuyGold = CmdSendCommon.extend({
+    ctor: function () {
+        this._super();
+        this.initData(100);
+        this.setControllerId(1);
+        this.setCmdId(PaymentMgr.CMD_SHOP_GOLD);
+    },
+
+    putData: function (id) {
+        this.packHeader();
+        this.putByte(id);
+        this.updateSize();
+    }
+});
+
+
 CmdSendGetConfigShop = CmdSendCommon.extend({
     ctor: function () {
         this._super();

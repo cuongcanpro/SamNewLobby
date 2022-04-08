@@ -144,21 +144,26 @@
                     "ctype": "ImageViewObjectData"
                   },
                   {
-                    "FileData": {
-                      "Type": "Normal",
-                      "Path": "Storage/avatarBg.png",
-                      "Plist": ""
+                    "ClipAble": false,
+                    "BackColorAlpha": 102,
+                    "SingleColor": {
+                      "R": 150,
+                      "G": 200
                     },
-                    "Scale9OriginX": 18,
-                    "Scale9OriginY": 18,
-                    "Scale9Width": 94,
-                    "Scale9Height": 94,
+                    "FirstColor": {
+                      "R": 150,
+                      "G": 200
+                    },
+                    "EndColor": {},
+                    "ColorVector": {
+                      "ScaleY": 1.0
+                    },
                     "AnchorPoint": {
                       "ScaleX": 0.5,
                       "ScaleY": 0.5
                     },
                     "Position": {
-                      "X": 121.0003,
+                      "X": 121.0,
                       "Y": 52.5
                     },
                     "Scale": {
@@ -176,11 +181,11 @@
                       "X": 0.1561,
                       "Y": 1.2381
                     },
-                    "LeftMargin": 56.0003,
-                    "RightMargin": 646.9997,
+                    "LeftMargin": 56.0,
+                    "RightMargin": 647.0,
                     "TopMargin": -12.5,
                     "BottomMargin": -12.5,
-                    "Tag": 196,
+                    "Tag": 1518,
                     "Children": [
                       {
                         "FontSize": 14,
@@ -251,58 +256,59 @@
                       },
                       {
                         "FileData": {
-                          "Type": "PlistSubImage",
-                          "Path": "bgAvatar.png",
-                          "Plist": "Ranking/newRank.plist"
+                          "Type": "Normal",
+                          "Path": "Ranking/bgAvatar.png",
+                          "Plist": ""
                         },
                         "Scale9OriginX": 18,
                         "Scale9OriginY": 18,
-                        "Scale9Width": 19,
-                        "Scale9Height": 19,
+                        "Scale9Width": 47,
+                        "Scale9Height": 47,
                         "AnchorPoint": {
                           "ScaleX": 0.5,
                           "ScaleY": 0.5
                         },
                         "Position": {
-                          "X": 65.0,
-                          "Y": 59.0
+                          "X": 63.986,
+                          "Y": 60.606
                         },
                         "Scale": {
-                          "ScaleX": 2.75,
-                          "ScaleY": 2.75
+                          "ScaleX": 1.85,
+                          "ScaleY": 1.85
                         },
                         "CColor": {},
                         "IconVisible": false,
                         "PositionPercentXEnabled": true,
+                        "PositionPercentYEnabled": true,
                         "PrePosition": {
-                          "X": 0.5,
-                          "Y": 0.4538
+                          "X": 0.4922,
+                          "Y": 0.4662
                         },
                         "PreSize": {
-                          "X": 0.4231,
-                          "Y": 0.4231
+                          "X": 0.6385,
+                          "Y": 0.6385
                         },
-                        "LeftMargin": 37.5,
-                        "RightMargin": 37.5,
-                        "TopMargin": 43.5,
-                        "BottomMargin": 31.5,
+                        "LeftMargin": 22.486,
+                        "RightMargin": 24.514,
+                        "TopMargin": 27.894,
+                        "BottomMargin": 19.106,
                         "Tag": 197,
                         "ActionTag": -286062908,
                         "Size": {
-                          "X": 55.0,
-                          "Y": 55.0
+                          "X": 83.0,
+                          "Y": 83.0
                         },
                         "Name": "border",
                         "ctype": "ImageViewObjectData"
                       }
                     ],
-                    "ActionTag": -1614581136,
+                    "ActionTag": -1562719378,
                     "Size": {
                       "X": 130.0,
                       "Y": 130.0
                     },
                     "Name": "bgAvatar",
-                    "ctype": "ImageViewObjectData"
+                    "ctype": "PanelObjectData"
                   },
                   {
                     "IsCustomSize": true,
@@ -1030,13 +1036,11 @@
         "Items/emoticon/small/1.png",
         "LobbyGUI/iconDiamondSmall.png",
         "LobbyGUI/iconGold.png",
+        "Ranking/bgAvatar.png",
         "Ranking/bgGoldWin.png",
         "Ranking/bgRankOther.png",
         "Ranking/borderBgMe.png",
-        "Ranking/iconCup.png",
-        "Ranking/newRank.plist",
-        "Ranking/newRank.png",
-        "Storage/avatarBg.png"
+        "Ranking/iconCup.png"
       ],
       "ctype": "GameFileData"
     }

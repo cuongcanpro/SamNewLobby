@@ -953,6 +953,7 @@ var MidAutumnScene = BaseLayer.extend({
             this.popupItem.setVisible(true);
             this.popupItem.lbInfo.setString(LocalizedString.to("MD_COLLECTION_PIECE"));
             this.popupItem.lbName.setString(midAutumn.getItemName(inf.id));
+            pos = this._layout.convertToNodeSpace(pos);
             this.popupItem.setPosition(pos.x - 45, pos.y);
         }
     },
@@ -1317,7 +1318,10 @@ var MidAutumnOpenResultGUI = BaseLayer.extend({
         this.cmd = null;
 
         this._super(MD_RESULT_GUI_CLASS);
-        this.initWithBinaryFile("res/Event/MidAutumn/MidAutumnOpenResultGUI.json");
+        if (CheckLogic.isNewLobby())
+            this.initWithBinaryFileAndOtherSize("res/Event/MidAutumn/MidAutumnOpenResultGUI.json", cc.size(800, 480));
+        else
+            this.initWithBinaryFile("res/Event/MidAutumn/MidAutumnOpenResultGUI.json");
     },
 
     initGUI: function () {
@@ -1368,7 +1372,7 @@ var MidAutumnOpenResultGUI = BaseLayer.extend({
         //var listSize = cc.size(winSize.width - iLeft.getContentSize().width*2*this._scale);
         this.uiGift = new cc.TableView(this, pSize);
         this.uiGift.setDirection(cc.SCROLLVIEW_DIRECTION_HORIZONTAL);
-        this.uiGift.setVerticalFillOrder(1);
+        this.uiGift.setVerticalFillOrder(cc.TABLEVIEW_FILL_BOTTOMUP);
         this.uiGift.setDelegate(this);
         this.list.addChild(this.uiGift);
         this.uiGift.reloadData();
@@ -1923,7 +1927,10 @@ var MidAutumnOpenGiftGUI = BaseLayer.extend({
         this.pEffect = null;
 
         this._super(MD_OPEN_GIFT_GUI_CLASS);
-        this.initWithBinaryFile("res/Event/MidAutumn/MidAutumnOpenGiftGUI.json");
+        if (CheckLogic.isNewLobby())
+            this.initWithBinaryFileAndOtherSize("res/Event/MidAutumn/MidAutumnOpenGiftGUI.json", cc.size(800, 480));
+        else
+            this.initWithBinaryFile("res/Event/MidAutumn/MidAutumnOpenGiftGUI.json");
     },
 
     initGUI: function () {
@@ -2268,7 +2275,10 @@ var MidAutumnRegisterInformationGUI = BaseLayer.extend({
         this.btnRegister = null;
 
         this._super(MD_REGISTER_GUI_CLASS);
-        this.initWithBinaryFile("res/Event/MidAutumn/MidAutumnRegisterInformationGUI.json");
+        if (CheckLogic.isNewLobby())
+            this.initWithBinaryFileAndOtherSize("res/Event/MidAutumn/MidAutumnRegisterInformationGUI.json", cc.size(800, 480));
+        else
+            this.initWithBinaryFile("res/Event/MidAutumn/MidAutumnRegisterInformationGUI.json");
     },
 
     initGUI: function () {
@@ -2570,7 +2580,7 @@ var MidAutumnAccumulateGUI = BaseLayer.extend({
         this.coin.posStart = this.coin.getPosition();
 
         this.progress = this.getControl("progress");
-        this.progress.setPositionY(this.progress.getPositionY() + 80);
+        this.progress.setPositionY(cc.winSize.height - 50);
         this.progress.defaultPos = this.progress.getPosition();
 
         this.coin.posDes = SceneMgr.convertPosToParent(this._layout, this.getControl("ico", this.progress));
@@ -2644,18 +2654,30 @@ var MidAutumnAccumulateGUI = BaseLayer.extend({
     },
 
     showAccumulate: function (cmd) {
-        //midAutumn.curLevelExp = 8000;
-        //midAutumn.nextLevelExp = 10000;
-        //midAutumn.keyCoin = 1;
-        //
-        //cmd = {};
-        //cmd.keyCoinAdd = 20;
-        //cmd.keyCoin = 20;
-        //cmd.keyCoinAward = 2;
-        //
-        //cmd.additionExp = 13500;
-        //cmd.currentLevelExp = 13500;
-        //cmd.nextLevelExp = 20000;
+        this.stopAllActions();
+        var timeMove = 0;
+        if (!cmd) {
+            cmd = {
+                keyCoin: midAutumn.keyCoin,
+                keyCoinAdd: 0,
+                keyCoinAward: 0,
+                additionExp: 0,
+                nextLevelExp: midAutumn.nextLevelExp,
+                currentLevelExp: midAutumn.curLevelExp
+            }
+            timeMove = MD_ACCUMULATE_TIME_MOVE;
+            this.runAction(cc.sequence(
+                cc.delayTime(2),
+                cc.callFunc(this.onCloseGUI.bind(this))
+            ));
+            this.progress.setVisible(true);
+        } else {
+            this.progress.setVisible(false);
+            var gui = sceneMgr.getRunningScene().getMainLayer();
+            if (gui instanceof BoardScene) {
+                gui.effectButtonEvent(cmd);
+            }
+        }
 
         this.result = cmd;
 
@@ -2674,7 +2696,10 @@ var MidAutumnAccumulateGUI = BaseLayer.extend({
 
         MidAutumnSound.playBubbleSequence1();
 
-        this.progress.runAction(cc.sequence(new cc.EaseExponentialOut(cc.moveTo(MD_ACCUMULATE_TIME_MOVE, cc.p(cc.winSize.width,this.progress.defaultPos.y))), cc.callFunc(this.endMoving.bind(this))));
+        this.progress.runAction(cc.sequence(
+            new cc.EaseExponentialOut(cc.moveTo(timeMove, cc.p(cc.winSize.width,this.progress.defaultPos.y))),
+            cc.callFunc(this.endMoving.bind(this))
+        ));
 
         // effect coin
         if (this.result.keyCoinAward > 0) {
@@ -2710,9 +2735,11 @@ var MidAutumnAccumulateGUI = BaseLayer.extend({
     endMoving: function () {
 
         // bonus
-        this.bonus.setVisible(true);
-        this.bonus.setString("+" + StringUtility.pointNumber(this.result.additionExp));
-        this.bonus.runAction(cc.sequence(cc.scaleTo(0.15, 1.25), cc.scaleTo(0.15, 0.8), cc.scaleTo(0.15, 1)));
+        this.bonus.setVisible(this.result.additionExp > 0);
+        if (this.result.additionExp > 0) {
+            this.bonus.setString("+" + StringUtility.pointNumber(this.result.additionExp));
+            this.bonus.runAction(cc.sequence(cc.scaleTo(0.15, 1.25), cc.scaleTo(0.15, 0.8), cc.scaleTo(0.15, 1)));
+        }
 
         // effect bar progress
         this.perLoad = [];
@@ -2837,7 +2864,10 @@ var MidAutumnHelpGUI = BaseLayer.extend({
         this.curPage = -1;
 
         this._super(MD_HELP_GUI_CLASS);
-        this.initWithBinaryFile("res/Event/MidAutumn/MidAutumnHelpGUI.json");
+        if (CheckLogic.isNewLobby())
+            this.initWithBinaryFileAndOtherSize("res/Event/MidAutumn/MidAutumnHelpGUI.json", cc.size(800, 480));
+        else
+            this.initWithBinaryFile("res/Event/MidAutumn/MidAutumnHelpGUI.json");
     },
 
     initGUI: function () {
@@ -2845,8 +2875,7 @@ var MidAutumnHelpGUI = BaseLayer.extend({
         var bg = this.getControl("bg");
         this._bg = bg;
 
-        var btnClose = this.customButton("btnClose", MD_HELP_NUM_PAGE + 1, bg);
-        1000010
+        this.customButton("btnClose", MD_HELP_NUM_PAGE + 1, bg);
         this._pageHelp = this.getControl("pageHelp", bg);
         var page = this._pageHelp.getPage(0);
         for (var i = 0; i < 6; i++) {
@@ -2913,7 +2942,10 @@ var MidAutumnHistoryGUI = BaseLayer.extend({
         this.arTabRequest = [];
 
         this._super(MD_HISTORY_GUI_CLASS);
-        this.initWithBinaryFile("res/Event/MidAutumn/MidAutumnHistoryGUI.json");
+        if (CheckLogic.isNewLobby())
+            this.initWithBinaryFileAndOtherSize("res/Event/MidAutumn/MidAutumnHistoryGUI.json", cc.size(800, 480));
+        else
+            this.initWithBinaryFile("res/Event/MidAutumn/MidAutumnHistoryGUI.json");
     },
 
     initGUI: function () {
@@ -2941,7 +2973,7 @@ var MidAutumnHistoryGUI = BaseLayer.extend({
         this.pHistory = this.getControl("pHistory", bg);
         this.listHistory = new cc.TableView(this, this.pHistory.getContentSize());
         this.listHistory.setDirection(cc.SCROLLVIEW_DIRECTION_VERTICAL);
-        this.listHistory.setVerticalFillOrder(1);
+        this.listHistory.setVerticalFillOrder(cc.TABLEVIEW_FILL_BOTTOMUP);
         this.listHistory.setDelegate(this);
         this.pHistory.addChild(this.listHistory);
         this.pHistory.notice = this.getControl("notice", this.pHistory);
@@ -3136,7 +3168,7 @@ var MidAutumnPanelGift = BaseLayer.extend({
 
         this.listHistory = new cc.TableView(this, parent.getContentSize());
         this.listHistory.setDirection(cc.SCROLLVIEW_DIRECTION_HORIZONTAL);
-        this.listHistory.setVerticalFillOrder(1);
+        this.listHistory.setVerticalFillOrder(cc.TABLEVIEW_FILL_BOTTOMUP);
         this.listHistory.setDelegate(this);
         this.addChild(this.listHistory);
         this.listHistory.reloadData();
@@ -3176,7 +3208,10 @@ var MidAutumnPieceConvertGUI = BaseLayer.extend({
 
     ctor: function () {
         this._super(MD_CHANGE_LAMP_GUI_CLASS);
-        this.initWithBinaryFile("res/Event/MidAutumn/MidAutumnPieceConvertGUI.json");
+        if (CheckLogic.isNewLobby())
+            this.initWithBinaryFileAndOtherSize("res/Event/MidAutumn/MidAutumnPieceConvertGUI.json", cc.size(800, 480));
+        else
+            this.initWithBinaryFile("res/Event/MidAutumn/MidAutumnPieceConvertGUI.json");
     },
 
     initGUI: function () {
@@ -3202,6 +3237,7 @@ var MidAutumnPieceConvertGUI = BaseLayer.extend({
 
     onButtonRelease: function (btn, id) {
         MidAutumnSound.playBubbleSingle();
+        gamedata.updateUserInfoNow();
         this.onClose();
     },
 });
@@ -3215,7 +3251,10 @@ var MidAutumnEventNotifyGUI = BaseLayer.extend({
         this.lbTime = null;
 
         this._super(MD_NOTIFY_CLASS);
-        this.initWithBinaryFileAndOtherSize("res/Event/MidAutumn/MidAutumnEventNotifyGUI.json", cc.size(800, 480));
+        if (CheckLogic.isNewLobby())
+            this.initWithBinaryFileAndOtherSize("res/Event/MidAutumn/MidAutumnEventNotifyGUI.json", cc.size(800, 480));
+        else
+            this.initWithBinaryFile("res/Event/MidAutumn/MidAutumnEventNotifyGUI.json");
     },
 
     initGUI: function () {
@@ -3345,7 +3384,10 @@ var MidAutumnBonusTicketDialog = BaseLayer.extend({
 
     ctor: function () {
         this._super(MD_NOTIFY_BONUS_TICKET_CLASS);
-        this.initWithBinaryFile("res/Event/MidAutumn/MidAutumnNotifyBonusTicketGUI.json");
+        if (CheckLogic.isNewLobby())
+            this.initWithBinaryFileAndOtherSize("res/Event/MidAutumn/MidAutumnNotifyBonusTicketGUI.json", cc.size(800, 480));
+        else
+            this.initWithBinaryFile("res/Event/MidAutumn/MidAutumnNotifyBonusTicketGUI.json");
     },
 
     initGUI: function () {
@@ -3392,7 +3434,10 @@ var MidAutumnHammerEmptyDialog = BaseLayer.extend({
         this.typeGUI = -1;
 
         this._super(MD_HAMMER_EMPTY_CLASS);
-        this.initWithBinaryFile("res/Event/MidAutumn/MidAutumnHammerEmptyDialog.json");
+        if (CheckLogic.isNewLobby())
+            this.initWithBinaryFileAndOtherSize("res/Event/MidAutumn/MidAutumnHammerEmptyDialog.json", cc.size(800, 480));
+        else
+            this.initWithBinaryFile("res/Event/MidAutumn/MidAutumnHammerEmptyDialog.json");
     },
 
     initGUI: function () {
@@ -3458,7 +3503,7 @@ var MidAutumnHammerEmptyDialog = BaseLayer.extend({
     },
 
     onClosePlay: function () {
-        if (CheckLogic.checkQuickPlay()) {
+        if (CheckLogic.checkEnoughGold()) {
             var pk = new CmdSendQuickPlay();
             GameClient.getInstance().sendPacket(pk);
             pk.clean();

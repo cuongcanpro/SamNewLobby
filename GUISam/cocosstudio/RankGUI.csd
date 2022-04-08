@@ -357,7 +357,7 @@
                         <CColor A="255" R="255" G="255" B="255" />
                         <PrePosition X="0.5000" Y="1.0396" />
                         <PreSize X="0.6653" Y="0.4455" />
-                        <FileData Type="Normal" Path="Ranking/level2.png" Plist="" />
+                        <FileData Type="Normal" Path="Ranking/level1.png" Plist="" />
                       </AbstractNodeData>
                     </Children>
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
@@ -380,17 +380,27 @@
                     <OutlineColor A="255" R="255" G="0" B="0" />
                     <ShadowColor A="255" R="110" G="110" B="110" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="txtCurRank" ActionTag="1584216980" Tag="178" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="55.0000" RightMargin="55.0000" TopMargin="345.4999" BottomMargin="127.5001" FontSize="27" LabelText="NHẬP MÔN" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                  <AbstractNodeData Name="txtCurRank" ActionTag="1584216980" VisibleForFrame="False" Tag="178" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="55.0000" RightMargin="55.0000" TopMargin="285.5722" BottomMargin="187.4278" FontSize="27" LabelText="NHẬP MÔN" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                     <Size X="155.0000" Y="37.0000" />
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                    <Position X="132.5000" Y="146.0001" />
+                    <Position X="132.5000" Y="205.9278" />
                     <Scale ScaleX="1.0000" ScaleY="1.0000" />
                     <CColor A="255" R="255" G="255" B="255" />
-                    <PrePosition X="0.5000" Y="0.2863" />
+                    <PrePosition X="0.5000" Y="0.4038" />
                     <PreSize X="0.5849" Y="0.0725" />
                     <FontResource Type="Normal" Path="Font/tahomabd.ttf" Plist="" />
                     <OutlineColor A="255" R="255" G="0" B="0" />
                     <ShadowColor A="255" R="110" G="110" B="110" />
+                  </AbstractNodeData>
+                  <AbstractNodeData Name="imgRankTitle" ActionTag="-1088165191" Tag="4625" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="45.5000" RightMargin="45.5000" TopMargin="350.7858" BottomMargin="113.2142" LeftEage="61" RightEage="61" TopEage="17" BottomEage="17" Scale9OriginX="61" Scale9OriginY="17" Scale9Width="52" Scale9Height="12" ctype="ImageViewObjectData">
+                    <Size X="174.0000" Y="46.0000" />
+                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                    <Position X="132.5000" Y="136.2142" />
+                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                    <CColor A="255" R="255" G="255" B="255" />
+                    <PrePosition X="0.5000" Y="0.2671" />
+                    <PreSize X="0.6566" Y="0.0902" />
+                    <FileData Type="Normal" Path="Ranking/rankTitle/rank0_0.png" Plist="" />
                   </AbstractNodeData>
                   <AbstractNodeData Name="processBg" ActionTag="1544560247" Tag="180" IconVisible="False" LeftMargin="54.5000" RightMargin="14.5000" TopMargin="407.9997" BottomMargin="74.0003" LeftEage="42" RightEage="42" TopEage="5" BottomEage="5" Scale9OriginX="42" Scale9OriginY="5" Scale9Width="112" Scale9Height="18" ctype="ImageViewObjectData">
                     <Size X="196.0000" Y="28.0000" />
@@ -498,17 +508,27 @@
                     <PreSize X="0.9132" Y="1.1348" />
                     <FileData Type="Normal" Path="Ranking/rank0.png" Plist="" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="nameNextRank" ActionTag="279256420" Tag="172" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="118.0000" RightMargin="12.0000" TopMargin="57.9337" BottomMargin="50.0663" IsCustomSize="True" FontSize="23" LabelText="NHẬP MÔN" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                  <AbstractNodeData Name="nameNextRank" ActionTag="279256420" VisibleForFrame="False" Tag="172" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="118.0000" RightMargin="12.0000" TopMargin="27.0000" BottomMargin="81.0000" IsCustomSize="True" FontSize="23" LabelText="NHẬP MÔN" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                     <Size X="135.0000" Y="70.0000" />
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                    <Position X="185.5000" Y="85.0663" />
+                    <Position X="185.5000" Y="116.0000" />
                     <Scale ScaleX="1.0000" ScaleY="1.0000" />
                     <CColor A="255" R="255" G="255" B="255" />
-                    <PrePosition X="0.7000" Y="0.4779" />
+                    <PrePosition X="0.7000" Y="0.6517" />
                     <PreSize X="0.5094" Y="0.3933" />
                     <FontResource Type="Normal" Path="Font/tahomabd.ttf" Plist="" />
                     <OutlineColor A="255" R="255" G="0" B="0" />
                     <ShadowColor A="255" R="110" G="110" B="110" />
+                  </AbstractNodeData>
+                  <AbstractNodeData Name="imgRankTitle" ActionTag="349178573" Tag="4666" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="98.5000" RightMargin="-7.5000" TopMargin="79.9999" BottomMargin="52.0001" LeftEage="15" RightEage="15" TopEage="17" BottomEage="17" Scale9OriginX="15" Scale9OriginY="17" Scale9Width="144" Scale9Height="12" ctype="ImageViewObjectData">
+                    <Size X="174.0000" Y="46.0000" />
+                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                    <Position X="185.5000" Y="75.0001" />
+                    <Scale ScaleX="0.7500" ScaleY="0.7500" />
+                    <CColor A="255" R="255" G="255" B="255" />
+                    <PrePosition X="0.7000" Y="0.4213" />
+                    <PreSize X="0.6566" Y="0.2584" />
+                    <FileData Type="Normal" Path="Ranking/rankTitle/rank0_0.png" Plist="" />
                   </AbstractNodeData>
                 </Children>
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
@@ -582,15 +602,15 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="Image_2" ActionTag="-1423544302" Tag="75" IconVisible="False" LeftMargin="30.0000" RightMargin="290.0000" TopMargin="34.0000" BottomMargin="168.0000" LeftEage="26" RightEage="26" TopEage="4" BottomEage="4" Scale9OriginX="26" Scale9OriginY="4" Scale9Width="28" Scale9Height="6" ctype="ImageViewObjectData">
-                <Size X="80.0000" Y="14.0000" />
+              <AbstractNodeData Name="Image_2" ActionTag="-1423544302" Tag="75" IconVisible="False" LeftMargin="-6.0000" RightMargin="254.0000" TopMargin="30.5000" BottomMargin="164.5000" LeftEage="26" RightEage="26" TopEage="4" BottomEage="4" Scale9OriginX="26" Scale9OriginY="4" Scale9Width="100" Scale9Height="13" ctype="ImageViewObjectData">
+                <Size X="152.0000" Y="21.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="70.0000" Y="175.0000" />
-                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <Scale ScaleX="0.6700" ScaleY="0.6700" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.1750" Y="0.8102" />
-                <PreSize X="0.2000" Y="0.0648" />
-                <FileData Type="PlistSubImage" Path="titleResult.png" Plist="Ranking/newRank.plist" />
+                <PreSize X="0.3800" Y="0.0972" />
+                <FileData Type="Normal" Path="Ranking/titleResult.png" Plist="" />
               </AbstractNodeData>
               <AbstractNodeData Name="txtCheatGold" ActionTag="323164925" Tag="72" IconVisible="False" LeftMargin="19.0000" RightMargin="231.0000" TopMargin="58.5009" BottomMargin="134.4991" TouchEnable="True" FontSize="16" IsCustomSize="True" LabelText="" PlaceHolderText="Cheat EXP" MaxLengthText="10" ctype="TextFieldObjectData">
                 <Size X="150.0000" Y="23.0000" />
@@ -632,55 +652,55 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="Image_2_0" ActionTag="-835763744" Tag="76" IconVisible="False" LeftMargin="271.0002" RightMargin="42.9998" TopMargin="33.9999" BottomMargin="168.0001" LeftEage="26" RightEage="26" TopEage="4" BottomEage="4" Scale9OriginX="26" Scale9OriginY="4" Scale9Width="34" Scale9Height="6" ctype="ImageViewObjectData">
-                <Size X="86.0000" Y="14.0000" />
+              <AbstractNodeData Name="Image_2_0" ActionTag="-835763744" Tag="76" IconVisible="False" LeftMargin="238.0002" RightMargin="9.9998" TopMargin="30.4999" BottomMargin="164.5001" LeftEage="26" RightEage="26" TopEage="4" BottomEage="4" Scale9OriginX="26" Scale9OriginY="4" Scale9Width="100" Scale9Height="13" ctype="ImageViewObjectData">
+                <Size X="152.0000" Y="21.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="314.0002" Y="175.0001" />
-                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <Scale ScaleX="0.6700" ScaleY="0.6700" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.7850" Y="0.8102" />
-                <PreSize X="0.2150" Y="0.0648" />
-                <FileData Type="PlistSubImage" Path="titleUser.png" Plist="Ranking/newRank.plist" />
+                <PreSize X="0.3800" Y="0.0972" />
+                <FileData Type="Normal" Path="Ranking/titleUser.png" Plist="" />
               </AbstractNodeData>
-              <AbstractNodeData Name="Image_2_1" ActionTag="1747805856" Tag="77" IconVisible="False" LeftMargin="235.6595" RightMargin="142.3405" TopMargin="60.3809" BottomMargin="136.6191" LeftEage="7" RightEage="7" TopEage="4" BottomEage="4" Scale9OriginX="7" Scale9OriginY="4" Scale9Width="8" Scale9Height="11" ctype="ImageViewObjectData">
-                <Size X="22.0000" Y="19.0000" />
+              <AbstractNodeData Name="Image_2_1" ActionTag="1747805856" Tag="77" IconVisible="False" LeftMargin="230.1595" RightMargin="136.8405" TopMargin="55.8809" BottomMargin="132.1191" LeftEage="7" RightEage="7" TopEage="4" BottomEage="4" Scale9OriginX="7" Scale9OriginY="4" Scale9Width="19" Scale9Height="20" ctype="ImageViewObjectData">
+                <Size X="33.0000" Y="28.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="246.6595" Y="146.1191" />
-                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <Scale ScaleX="0.6700" ScaleY="0.6700" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.6166" Y="0.6765" />
-                <PreSize X="0.0550" Y="0.0880" />
-                <FileData Type="PlistSubImage" Path="iconCup.png" Plist="Ranking/newRank.plist" />
+                <PreSize X="0.0825" Y="0.1296" />
+                <FileData Type="Normal" Path="Ranking/iconCup.png" Plist="" />
               </AbstractNodeData>
-              <AbstractNodeData Name="Image_2_2" ActionTag="1189298520" Tag="78" IconVisible="False" LeftMargin="203.3440" RightMargin="107.6560" TopMargin="40.0159" BottomMargin="63.9841" LeftEage="26" RightEage="26" TopEage="4" BottomEage="4" Scale9OriginX="26" Scale9OriginY="4" Scale9Width="37" Scale9Height="104" ctype="ImageViewObjectData">
-                <Size X="89.0000" Y="112.0000" />
+              <AbstractNodeData Name="Image_2_2" ActionTag="1189298520" Tag="78" IconVisible="False" LeftMargin="158.3440" RightMargin="62.6560" TopMargin="13.5159" BottomMargin="37.4841" LeftEage="26" RightEage="26" TopEage="4" BottomEage="4" Scale9OriginX="26" Scale9OriginY="4" Scale9Width="127" Scale9Height="157" ctype="ImageViewObjectData">
+                <Size X="179.0000" Y="165.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="247.8440" Y="119.9841" />
-                <Scale ScaleX="0.2500" ScaleY="0.2500" />
+                <Scale ScaleX="0.1660" ScaleY="0.1660" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.6196" Y="0.5555" />
-                <PreSize X="0.2225" Y="0.5185" />
-                <FileData Type="PlistSubImage" Path="iconMedalBig2.png" Plist="Ranking/newRank.plist" />
+                <PreSize X="0.4475" Y="0.7639" />
+                <FileData Type="Normal" Path="Ranking/iconMedalBig2.png" Plist="" />
               </AbstractNodeData>
-              <AbstractNodeData Name="Image_2_2_0" ActionTag="-1795720500" Tag="80" IconVisible="False" LeftMargin="207.2802" RightMargin="111.7198" TopMargin="70.6508" BottomMargin="33.3492" LeftEage="26" RightEage="26" TopEage="4" BottomEage="4" Scale9OriginX="26" Scale9OriginY="4" Scale9Width="29" Scale9Height="104" ctype="ImageViewObjectData">
-                <Size X="81.0000" Y="112.0000" />
+              <AbstractNodeData Name="Image_2_2_0" ActionTag="-1795720500" Tag="80" IconVisible="False" LeftMargin="158.2802" RightMargin="62.7198" TopMargin="44.1508" BottomMargin="6.8492" LeftEage="26" RightEage="26" TopEage="4" BottomEage="4" Scale9OriginX="26" Scale9OriginY="4" Scale9Width="127" Scale9Height="157" ctype="ImageViewObjectData">
+                <Size X="179.0000" Y="165.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="247.7802" Y="89.3492" />
-                <Scale ScaleX="0.2500" ScaleY="0.2500" />
+                <Scale ScaleX="0.1660" ScaleY="0.1660" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.6195" Y="0.4137" />
-                <PreSize X="0.2025" Y="0.5185" />
-                <FileData Type="PlistSubImage" Path="iconMedalBig1.png" Plist="Ranking/newRank.plist" />
+                <PreSize X="0.4475" Y="0.7639" />
+                <FileData Type="Normal" Path="Ranking/iconMedalBig1.png" Plist="" />
               </AbstractNodeData>
-              <AbstractNodeData Name="Image_2_2_0_0" ActionTag="-1739335381" Tag="81" IconVisible="False" LeftMargin="207.8087" RightMargin="111.1913" TopMargin="102.7856" BottomMargin="5.2144" LeftEage="26" RightEage="26" TopEage="4" BottomEage="4" Scale9OriginX="26" Scale9OriginY="4" Scale9Width="29" Scale9Height="100" ctype="ImageViewObjectData">
-                <Size X="81.0000" Y="108.0000" />
+              <AbstractNodeData Name="Image_2_2_0_0" ActionTag="-1739335381" Tag="81" IconVisible="False" LeftMargin="158.8087" RightMargin="62.1913" TopMargin="74.2856" BottomMargin="-23.2856" LeftEage="26" RightEage="26" TopEage="4" BottomEage="4" Scale9OriginX="26" Scale9OriginY="4" Scale9Width="127" Scale9Height="157" ctype="ImageViewObjectData">
+                <Size X="179.0000" Y="165.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="248.3087" Y="59.2144" />
-                <Scale ScaleX="0.2500" ScaleY="0.2500" />
+                <Scale ScaleX="0.1660" ScaleY="0.1660" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.6208" Y="0.2741" />
-                <PreSize X="0.2025" Y="0.5000" />
-                <FileData Type="PlistSubImage" Path="iconMedalBig0.png" Plist="Ranking/newRank.plist" />
+                <PreSize X="0.4475" Y="0.7639" />
+                <FileData Type="Normal" Path="Ranking/iconMedalBig0.png" Plist="" />
               </AbstractNodeData>
               <AbstractNodeData Name="txtCheatCup" ActionTag="916930881" Tag="82" IconVisible="False" LeftMargin="269.3858" RightMargin="-19.3858" TopMargin="57.8586" BottomMargin="135.1414" TouchEnable="True" FontSize="16" IsCustomSize="True" LabelText="" PlaceHolderText="Cheat cup" MaxLengthText="10" ctype="TextFieldObjectData">
                 <Size X="150.0000" Y="23.0000" />

@@ -813,7 +813,7 @@ OfferManager.buyOffer = function (isInShop, offerId) {
             PaymentUtils.fakePayment(OfferManager.getValueOfferToBuy(offer), Constant.GOLD_ZALO, Payment.CHEAT_PAYMENT_OFFER);
         }
         else {
-            if (CheckLogic.checkZaloPay()) {
+            if (paymentMgr.checkZaloPay()) {
                 var curGui = sceneMgr.getRunningScene().getMainLayer();
                 var msg = LocalizedString.to("ZALOPAY_MSG");
                 msg = StringUtility.replaceAll(msg, "@value", StringUtility.pointNumber(offer.getValueToShow(offer)));

@@ -16,14 +16,14 @@
             <PreSize X="1.0000" Y="1.0000" />
             <FileData Type="Normal" Path="Storage/itemBg.png" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="name" ActionTag="-666892193" Tag="357" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" LeftMargin="33.3310" RightMargin="24.6690" TopMargin="5.3668" BottomMargin="126.6332" FontSize="16" LabelText="Khẩu trang" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" OutlineSize="2" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-            <Size X="87.0000" Y="22.0000" />
+          <AbstractNodeData Name="name" ActionTag="-666892193" Tag="357" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" LeftMargin="-11.0000" RightMargin="-11.0000" TopMargin="4.8596" BottomMargin="126.1404" FontSize="20" LabelText="Khẩu trangfsdffsd" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" OutlineSize="2" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+            <Size X="169.0000" Y="27.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="77.8310" Y="139.6332" />
+            <Position X="73.5000" Y="139.6404" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="71" G="93" B="178" />
-            <PrePosition X="0.5295" Y="0.8838" />
-            <PreSize X="0.6054" Y="0.1646" />
+            <PrePosition X="0.5000" Y="0.8838" />
+            <PreSize X="1.1497" Y="0.1709" />
             <FontResource Type="Normal" Path="Font/tahoma.ttf" Plist="" />
             <OutlineColor A="255" R="98" G="68" B="175" />
             <ShadowColor A="255" R="110" G="110" B="110" />
@@ -48,22 +48,22 @@
             <PreSize X="0.3129" Y="0.2911" />
             <FileData Type="Default" Path="Default/ImageFile.png" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="num" ActionTag="-1345246372" Tag="356" IconVisible="False" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" HorizontalEdge="RightEdge" VerticalEdge="BottomEdge" LeftMargin="61.1540" RightMargin="7.8460" TopMargin="123.0554" BottomMargin="8.9446" FontSize="16" LabelText="1,000,000" HorizontalAlignmentType="HT_Right" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-            <Size X="77.0000" Y="24.0000" />
+          <AbstractNodeData Name="num" ActionTag="-1345246372" Tag="356" IconVisible="False" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" HorizontalEdge="RightEdge" VerticalEdge="BottomEdge" LeftMargin="32.1540" RightMargin="7.8460" TopMargin="117.0554" BottomMargin="8.9446" FontSize="22" LabelText="1,000,000" HorizontalAlignmentType="HT_Right" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+            <Size X="107.0000" Y="32.0000" />
             <AnchorPoint ScaleX="1.0000" />
             <Position X="139.1540" Y="8.9446" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.9466" Y="0.0566" />
-            <PreSize X="0.5306" Y="0.1646" />
+            <PreSize X="0.7279" Y="0.2025" />
             <FontResource Type="Normal" Path="Font/tahomabd.ttf" Plist="" />
             <OutlineColor A="255" R="71" G="93" B="178" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="labelUsing" Visible="False" ActionTag="76055647" Alpha="191" Tag="299" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" LeftMargin="47.6579" RightMargin="1.3421" TopMargin="120.2378" BottomMargin="6.7622" LeftEage="32" RightEage="32" TopEage="10" BottomEage="10" Scale9OriginX="32" Scale9OriginY="10" Scale9Width="34" Scale9Height="11" ctype="ImageViewObjectData">
-            <Size X="98.0000" Y="31.0000" />
+          <AbstractNodeData Name="labelUsing" Visible="False" ActionTag="76055647" Alpha="191" Tag="299" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" LeftMargin="47.6501" RightMargin="1.3450" TopMargin="120.2380" BottomMargin="6.7624" LeftEage="32" RightEage="32" TopEage="10" BottomEage="10" Scale9OriginX="32" Scale9OriginY="10" Scale9Width="34" Scale9Height="11" ctype="ImageViewObjectData">
+            <Size X="98.0049" Y="30.9996" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="96.6579" Y="22.2622" />
+            <Position X="96.6525" Y="22.2622" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.6575" Y="0.1409" />

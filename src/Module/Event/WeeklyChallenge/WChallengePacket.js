@@ -52,6 +52,14 @@ var CmdReceivedWChallengeConfig = CommonCmdReceivedWChallenge.extend({
                 }
             }
             this.diamondRewards = this.getInts();
+
+            var length = this.getShort();
+            this.arrayClover = [];
+            this.arrayGold = [];
+            for (var i = 0; i < length; i++) {
+                this.arrayClover[i] = this.getInt();
+                this.arrayGold[i] = this.getLong();
+            }
         }
     }
 });
@@ -71,6 +79,10 @@ var CmdReceivedWChallengeUserInfo = CommonCmdReceivedWChallenge.extend({
             this.taskProgresses = this.getInts();
             this.isAnimatedUnlockPremium = this.getInt();
             this.enteredGUI = this.getInts();
+            var length = this.getShort();
+            this.giftLists = [];
+            for (var i = 0; i < length; i++)
+                this.giftLists[i] = this.getByte();
         }
     }
 });
@@ -102,6 +114,21 @@ var CmdReceivedBuyGoldBonus = CommonCmdReceivedWChallenge.extend({
     }
 });
 
+
+var CmdReceivedGiftProgress = CommonCmdReceivedWChallenge.extend({
+    ctor: function (pkg) {
+        this._super(pkg);
+        this.readData();
+    },
+    readData: function () {
+        this.gold = this.getLong();
+        var length = this.getShort();
+        this.giftLists = [];
+        for (var i = 0; i < length; i++)
+            this.giftLists[i] = this.getByte();
+    }
+});
+
 var CmdReceivedWChallengeAutoTakeReward = CmdReceivedWChallengeTakeAllReward;
 
 var CmdReceivedBuyPremium = CommonCmdReceivedWChallenge.extend({
@@ -127,6 +154,7 @@ var CmdSendWChallengeGetReward = engine.OutPacket.extend({
         this.updateSize();
     }
 });
+
 
 var CmdSendWChallengeAnimatedUnlockPremium = engine.OutPacket.extend({
     ctor: function () {
@@ -245,6 +273,23 @@ var CmdSendCheatDay = engine.OutPacket.extend({
     putData: function(day) {
         this.packHeader();
         this.putInt(day);
+        this.updateSize();
+    }
+});
+
+
+var CmdSendGetGiftProgress = engine.OutPacket.extend({
+    ctor: function () {
+        this._super();
+        this.initData(100);
+        this.setControllerId(1);
+        this.setCmdId(WChallenge.CMD_GET_GIFT_PROGRESS);
+    },
+
+    putData: function(index, isAll) {
+        this.packHeader();
+        this.putInt(index);
+        this.putByte(isAll);
         this.updateSize();
     }
 });

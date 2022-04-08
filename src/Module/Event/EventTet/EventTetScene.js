@@ -75,7 +75,7 @@ var EventTetScene = BaseLayer.extend({
         // ADD PROGRESS EXP
         this.bgProgress = this.getControl("bgExp", this.panelMenu);
         this.labelExp = this.getControl("labelExp", this.panelMenu);
-        var batchNode_scaled_with_insets = new cc.SpriteBatchNode("res/EventMgr/EventTet/EventTetUI/progress.png");
+        var batchNode_scaled_with_insets = new cc.SpriteBatchNode("res/Event/EventTet/EventTetUI/progress.png");
         this.progress = new cc.Scale9Sprite();
         this.progress.updateWithBatchNode(batchNode_scaled_with_insets, cc.rect(0, 0, 24, 21), false, cc.rect(10, 10, 4, 1));
         this.bgProgress.addChild(this.progress);
@@ -701,10 +701,10 @@ var EventTetScene = BaseLayer.extend({
             if (randomValue == EventTet.NUM_GIFT * 3)
                 randomValue = EventTet.NUM_GIFT * 3 - 1;
             if (randomValue >= EventTet.NUM_GIFT * 2) {
-                img.setTexture("res/EventMgr/EventTet/EventTetUI/ticket" + Math.floor((randomValue % EventTet.NUM_GIFT)) + ".png");
+                img.setTexture("res/Event/EventTet/EventTetUI/ticket" + Math.floor((randomValue % EventTet.NUM_GIFT)) + ".png");
             }
             else {
-                img.setTexture("res/EventMgr/EventTet/EventTetUI/lixi" + Math.floor((randomValue % EventTet.NUM_GIFT)) + ".png");
+                img.setTexture("res/Event/EventTet/EventTetUI/lixi" + Math.floor((randomValue % EventTet.NUM_GIFT)) + ".png");
             }
         }
     },
@@ -3297,7 +3297,7 @@ var EventTetReceiveVibrateGiftGUI = BaseLayer.extend({
             num = 50;
 
         for (var i = 0; i < num; i++) {
-            //var sp = new cc.Sprite("EventMgr/EventTetUI/icon_gold.png");
+            //var sp = new cc.Sprite("Event/EventTetUI/icon_gold.png");
             var sp = new EventTetCoinEffect();
             sp.start();
 

@@ -53,6 +53,7 @@ var ShopData = cc.Class.extend({
                 if (idx > maxSize) idx = maxSize;
                 obj.img = "ShopIAP/IconGold/coin" + idx + ".png";
                 obj.id = i;
+                obj.index = i;
                 obj.goldColor = color;
                 var missionObj;
                 var typeGetBonus = type;
@@ -212,8 +213,10 @@ var ShopData = cc.Class.extend({
                 var packageShop = goldIap["packages"][i];
                 var idx = (i > maxSize) ? maxSize : i;
                 obj.img = "ShopIAP/IconG/xu" + idx + ".png";
+                obj.index = i;
                 this.initInfoPackageG(obj, goldIap, packageShop, true);
                 obj.goldColor = color;
+                obj.type = type;
                 // obj.bonusGachaCoin = event.getEventBonusTicket(type, packageShop["value"]);
 
                 src.push(obj);
@@ -321,6 +324,7 @@ var ShopData = cc.Class.extend({
     },
 
     getDataByPaymentId: function (id) {
+        cc.log("getDataByPaymentId", id, JSON.stringify(this.arrayShopData));
         return this.arrayShopData[id];
     }
 });
@@ -353,10 +357,11 @@ ChannelPaymentData = cc.Class.extend({
 })
 
 var ShopBonusData = cc.Class.extend({
-    ctor: function (type, num, idEvent) {
+    ctor: function (type, num, idEvent, numOld) {
         this.type = type;
         this.num = num;
         this.idEvent = idEvent;
+        this.numOld = numOld;
     },
 
     getSource: function (index) {
@@ -369,15 +374,7 @@ var ShopBonusData = cc.Class.extend({
     },
 
     getScaleRate: function () {
-        if (this.type == ShopBonusData.TYPE_VPOINT) {
-            return 1.0
-        } else if (this.type == ShopBonusData.TYPE_TICKET) {
-            return 1.0;
-        }
-        else if (this.type == ShopBonusData.TYPE_HOUR_VIP) {
-            return 0.8;
-        }
-        else if (this.type == ShopBonusData.TYPE_UP_VIP) {
+        if (this.type == ShopBonusData.TYPE_UP_VIP) {
             return 0.8;
         }
         else {
@@ -394,16 +391,16 @@ var ShopBonusData = cc.Class.extend({
                 return "res/Lobby/ShopIAP/ShopSuccess/iconGold.png";
                 break;
             case ShopBonusData.TYPE_VPOINT:
-                return "res/Lobby/GUIVipNew/iconVpoint.png";
+                return "res/Lobby/ShopIAP/ShopIcon/iconVPoint.png";
                 break;
             case ShopBonusData.TYPE_HOUR_VIP:
-                return "res/Lobby/GUIVipNew/iconTime.png";
+                return "res/Lobby/ShopIAP/ShopIcon/iconHourVip.png";
                 break;
             case ShopBonusData.TYPE_DIAMOND:
-                return "res/Lobby/LobbyGUI/iconDiamond.png";
+                return "res/Lobby/ShopIAP/ShopIcon/iconDiamond.png";
                 break;
             case ShopBonusData.TYPE_TICKET:
-                return eventMgr.getTicketTexture(this.idEvent);
+                return "res/Lobby/ShopIAP/ShopIcon/icon_" + this.idEvent + ".png";
                 break;
             case ShopBonusData.TYPE_UP_VIP:
                 return VipManager.getIconVip(this.num);
@@ -413,8 +410,6 @@ var ShopBonusData = cc.Class.extend({
 
     getTitle: function () {
         var s = "";
-        if (this.type != ShopBonusData.TYPE_UP_VIP)
-            s = this.num + " ";
         switch (this.type) {
             case ShopBonusData.TYPE_G:
                 s = s + "G";
@@ -435,7 +430,7 @@ var ShopBonusData = cc.Class.extend({
                 s = s + eventMgr.getOfferTicketString(this.idEvent);
                 break;
             case ShopBonusData.TYPE_UP_VIP:
-                s = "Len Vip " + this.num;
+                s = localized("UP_VIP") + this.num;
                 break;
         }
         return s;
@@ -446,7 +441,7 @@ ShopBonusData.getArrayBonus = function (shopPackage) {
     var arrayBonus = [];
     //vip points
     if (shopPackage.vPoint > 0) {
-        arrayBonus.push(new ShopBonusData(ShopBonusData.TYPE_VPOINT, shopPackage.vPoint, ""));
+        arrayBonus.push(new ShopBonusData(ShopBonusData.TYPE_VPOINT, shopPackage.vPoint, "", shopPackage.vPointOld));
     }
 
     //time vip
@@ -498,7 +493,6 @@ ShopBonusData.getArrayBonusOffer = function (shopPackage) {
             arrayBonus.push(new ShopBonusData(ShopBonusData.TYPE_TICKET, eOffer["value"], eOffer["eventId"]));
         }
     }
-
 
     return arrayBonus;
 }

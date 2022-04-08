@@ -146,21 +146,26 @@
                     "ctype": "ImageViewObjectData"
                   },
                   {
-                    "FileData": {
-                      "Type": "Normal",
-                      "Path": "Storage/avatarBg.png",
-                      "Plist": ""
+                    "ClipAble": false,
+                    "BackColorAlpha": 102,
+                    "SingleColor": {
+                      "R": 150,
+                      "G": 200
                     },
-                    "Scale9OriginX": 18,
-                    "Scale9OriginY": 18,
-                    "Scale9Width": 94,
-                    "Scale9Height": 94,
+                    "FirstColor": {
+                      "R": 150,
+                      "G": 200
+                    },
+                    "EndColor": {},
+                    "ColorVector": {
+                      "ScaleY": 1.0
+                    },
                     "AnchorPoint": {
                       "ScaleX": 0.5,
                       "ScaleY": 0.5
                     },
                     "Position": {
-                      "X": 121.9999,
+                      "X": 122.0,
                       "Y": 52.5
                     },
                     "Scale": {
@@ -178,11 +183,11 @@
                       "X": 0.1988,
                       "Y": 1.2381
                     },
-                    "LeftMargin": 56.9999,
-                    "RightMargin": 467.0001,
+                    "LeftMargin": 57.0,
+                    "RightMargin": 467.0,
                     "TopMargin": -12.5,
                     "BottomMargin": -12.5,
-                    "Tag": 196,
+                    "Tag": 1517,
                     "Children": [
                       {
                         "FontSize": 14,
@@ -298,13 +303,13 @@
                         "ctype": "ImageViewObjectData"
                       }
                     ],
-                    "ActionTag": -1614581136,
+                    "ActionTag": 694587424,
                     "Size": {
                       "X": 130.0,
                       "Y": 130.0
                     },
                     "Name": "bgAvatar",
-                    "ctype": "ImageViewObjectData"
+                    "ctype": "PanelObjectData"
                   },
                   {
                     "IsCustomSize": true,
@@ -617,8 +622,7 @@
         "Font/tahomabd.ttf",
         "Ranking/bgGoldWin.png",
         "Ranking/bgRank1.png",
-        "Ranking/borderBgMe.png",
-        "Storage/avatarBg.png"
+        "Ranking/borderBgMe.png"
       ],
       "ctype": "GameFileData"
     }

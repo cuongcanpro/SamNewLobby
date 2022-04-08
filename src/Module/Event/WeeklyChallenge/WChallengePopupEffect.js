@@ -10,31 +10,31 @@ WChallengeGetRewardEffect = cc.Layer.extend({
         this.initGUI();
     },
     initGUI: function () {
-        this.goldEffect = new cc.Sprite('res/EventMgr/WeeklyChallenge/Popup/Icons/GoldIcon.png');
+        this.goldEffect = new cc.Sprite('res/Event/WeeklyChallenge/Popup/Icons/GoldIcon.png');
         this.goldEffect.setPosition(-20, 0);
         this.addChild(this.goldEffect, 1);
 
-        this.cloverEffect = new cc.Sprite('res/EventMgr/WeeklyChallenge/Popup/Icons/CloverIcon.png');
+        this.cloverEffect = new cc.Sprite('res/Event/WeeklyChallenge/Popup/Icons/CloverIcon.png');
         this.cloverEffect.setPosition(40, 0);
         this.addChild(this.cloverEffect, 1);
 
-        this.diamondEffect = new cc.Sprite('res/EventMgr/WeeklyChallenge/Popup/Icons/iconDiamond.png');
+        this.diamondEffect = new cc.Sprite('res/Event/WeeklyChallenge/Popup/Icons/iconDiamond.png');
         this.diamondEffect.setPosition(100, 0);
         this.addChild(this.diamondEffect, 1);
 
-        this.goldRewardValEffect = new ccui.Text('200K', 'res/EventMgr/WeeklyChallenge/Fonts/UTM_HelveBold.ttf', 18);
+        this.goldRewardValEffect = new ccui.Text('200K', 'res/Event/WeeklyChallenge/Fonts/UTM_HelveBold.ttf', 18);
         this.goldRewardValEffect.anchorX = 1;
         this.goldRewardValEffect.color = cc.color(237, 237, 0);
         this.goldRewardValEffect.setPosition(-5, this.goldEffect.height/2);
         this.goldEffect.addChild(this.goldRewardValEffect, 0);
 
-        this.cloverRewardValEffect = new ccui.Text('30', 'res/EventMgr/WeeklyChallenge/Fonts/UTM_HelveBold.ttf', 18);
+        this.cloverRewardValEffect = new ccui.Text('30', 'res/Event/WeeklyChallenge/Fonts/UTM_HelveBold.ttf', 18);
         this.cloverRewardValEffect.anchorX = 1;
         this.cloverRewardValEffect.color = cc.color(11, 220, 0);
         this.cloverRewardValEffect.setPosition( - 5, this.cloverEffect.height/2);
         this.cloverEffect.addChild(this.cloverRewardValEffect, 0);
 
-        this.diamondRewardValEffect = new ccui.Text('30', 'res/EventMgr/WeeklyChallenge/Fonts/UTM_HelveBold.ttf', 18);
+        this.diamondRewardValEffect = new ccui.Text('30', 'res/Event/WeeklyChallenge/Fonts/UTM_HelveBold.ttf', 18);
         this.diamondRewardValEffect.anchorX = 1;
         this.diamondRewardValEffect.color = cc.color(205, 60, 97);
         this.diamondRewardValEffect.setPosition( - 5, this.diamondEffect.height/2);
@@ -139,7 +139,7 @@ WChallengeGetRewardEffect = cc.Layer.extend({
         ));
         var goldBubbleTime = 3;
         var bubbleGold = BaseLayer.createLabelText("+" + StringUtility.standartNumber(this.goldVal), cc.color(255,238,89));
-        bubbleGold.setFontName("res/EventMgr/WeeklyChallenge/Fonts/UTM_HelveBold.ttf");
+        bubbleGold.setFontName("res/Event/WeeklyChallenge/Fonts/UTM_HelveBold.ttf");
         bubbleGold.setFontSize(30);
         bubbleGold.enableOutline(cc.color(108,57,27), 1);
         bubbleGold.setAnchorPoint(0, 0.5);

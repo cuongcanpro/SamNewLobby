@@ -109,21 +109,21 @@ EventTetSound.playStep = function () {
 };
 
 rEventTetSound = {
-    bg: "res/res/EventMgr/EventTet/EventTetRes/music.mp3",
-    coinFall: "res/res/EventMgr/EventTet/EventTetRes/coinFall.mp3",
-    coin_1 : "res/EventMgr/EventTet/EventTetRes/coin_01.mp3",
-    coin_2 : "res/EventMgr/EventTet/EventTetRes/coin_02.mp3",
-    coin_3 : "res/EventMgr/EventTet/EventTetRes/coin_03.mp3",
-    end_break : "res/EventMgr/EventTet/EventTetRes/finish_daptrung.mp3",
-    gift : "res/EventMgr/EventTet/EventTetRes/gifteffect.mp3",
-    coinIn : "res/EventMgr/EventTet/EventTetRes/coinIn.mp3",
-    firework : "res/EventMgr/EventTet/EventTetRes/firework.mp3",
-    foxSay : "res/EventMgr/EventTet/EventTetRes/fox_say_hello_",
-    oneTouch : "res/EventMgr/EventTet/EventTetRes/1Touch.mp3",
-    tenTouch : "res/EventMgr/EventTet/EventTetRes/10Touch.mp3",
-    baolixi : "res/EventMgr/EventTet/EventTetRes/baolixi.mp3",
-    clickFox : "res/EventMgr/EventTet/EventTetRes/clickonFox.mp3",
-    step : "res/EventMgr/EventTet/EventTetRes/step.mp3"
+    bg: "res/res/Event/EventTet/EventTetRes/music.mp3",
+    coinFall: "res/res/Event/EventTet/EventTetRes/coinFall.mp3",
+    coin_1 : "res/Event/EventTet/EventTetRes/coin_01.mp3",
+    coin_2 : "res/Event/EventTet/EventTetRes/coin_02.mp3",
+    coin_3 : "res/Event/EventTet/EventTetRes/coin_03.mp3",
+    end_break : "res/Event/EventTet/EventTetRes/finish_daptrung.mp3",
+    gift : "res/Event/EventTet/EventTetRes/gifteffect.mp3",
+    coinIn : "res/Event/EventTet/EventTetRes/coinIn.mp3",
+    firework : "res/Event/EventTet/EventTetRes/firework.mp3",
+    foxSay : "res/Event/EventTet/EventTetRes/fox_say_hello_",
+    oneTouch : "res/Event/EventTet/EventTetRes/1Touch.mp3",
+    tenTouch : "res/Event/EventTet/EventTetRes/10Touch.mp3",
+    baolixi : "res/Event/EventTet/EventTetRes/baolixi.mp3",
+    clickFox : "res/Event/EventTet/EventTetRes/clickonFox.mp3",
+    step : "res/Event/EventTet/EventTetRes/step.mp3"
 };
 
 
@@ -186,38 +186,38 @@ var EventTet = cc.Class.extend({
             EventTetSound.musicOn = musicOn == 1;
         }
 
-        LocalizedString.add("res/EventMgr/EventTet/EventTetRes/Localized_vi");
+        LocalizedString.add("res/Event/EventTet/EventTetRes/Localized_vi");
 
-        db.DBCCFactory.getInstance().loadDragonBonesData("res/EventMgr/EventTet/EventTetRes/Cayvang/skeleton.xml", "Cayvang");
-        db.DBCCFactory.getInstance().loadTextureAtlas("res/EventMgr/EventTet/EventTetRes/Cayvang/texture.plist", "Cayvang");
+        db.DBCCFactory.getInstance().loadDragonBonesData("res/Event/EventTet/EventTetRes/Cayvang/skeleton.xml", "Cayvang");
+        db.DBCCFactory.getInstance().loadTextureAtlas("res/Event/EventTet/EventTetRes/Cayvang/texture.plist", "Cayvang");
 
-        db.DBCCFactory.getInstance().loadDragonBonesData("res/EventMgr/EventTet/EventTetRes/CoinTet/skeleton.xml", "CoinTet");
-        db.DBCCFactory.getInstance().loadTextureAtlas("res/EventMgr/EventTet/EventTetRes/CoinTet/texture.plist", "CoinTet");
+        db.DBCCFactory.getInstance().loadDragonBonesData("res/Event/EventTet/EventTetRes/CoinTet/skeleton.xml", "CoinTet");
+        db.DBCCFactory.getInstance().loadTextureAtlas("res/Event/EventTet/EventTetRes/CoinTet/texture.plist", "CoinTet");
 
-        db.DBCCFactory.getInstance().loadDragonBonesData("res/EventMgr/EventTet/EventTetRes/iconEvent/skeleton.xml", "iconEvent");
-        db.DBCCFactory.getInstance().loadTextureAtlas("res/EventMgr/EventTet/EventTetRes/iconEvent/texture.plist", "iconEvent");
+        db.DBCCFactory.getInstance().loadDragonBonesData("res/Event/EventTet/EventTetRes/iconEvent/skeleton.xml", "iconEvent");
+        db.DBCCFactory.getInstance().loadTextureAtlas("res/Event/EventTet/EventTetRes/iconEvent/texture.plist", "iconEvent");
 
-        db.DBCCFactory.getInstance().loadDragonBonesData("res/EventMgr/EventTet/EventTetRes/Molixi/skeleton.xml", "Molixi");
-        db.DBCCFactory.getInstance().loadTextureAtlas("res/EventMgr/EventTet/EventTetRes/Molixi/texture.plist", "Molixi");
+        db.DBCCFactory.getInstance().loadDragonBonesData("res/Event/EventTet/EventTetRes/Molixi/skeleton.xml", "Molixi");
+        db.DBCCFactory.getInstance().loadTextureAtlas("res/Event/EventTet/EventTetRes/Molixi/texture.plist", "Molixi");
 
-        db.DBCCFactory.getInstance().loadDragonBonesData("res/EventMgr/EventTet/EventTetRes/phaohoa1/skeleton.xml", "phaohoa1");
-        db.DBCCFactory.getInstance().loadTextureAtlas("res/EventMgr/EventTet/EventTetRes/phaohoa1/texture.plist", "phaohoa1");
+        db.DBCCFactory.getInstance().loadDragonBonesData("res/Event/EventTet/EventTetRes/phaohoa1/skeleton.xml", "phaohoa1");
+        db.DBCCFactory.getInstance().loadTextureAtlas("res/Event/EventTet/EventTetRes/phaohoa1/texture.plist", "phaohoa1");
 
         //for (var i = 0; i < 3; i++) {
-        //db.DBCCFactory.getInstance().loadDragonBonesData("res/EventMgr/EventTet/EventTetRes/phaohoa" + (i + 1) + "/skeleton.xml", "phaohoa" + (i + 1));
-        //db.DBCCFactory.getInstance().loadTextureAtlas("res/EventMgr/EventTet/EventTetRes/phaohoa" + (i + 1) + "/texture.plist", "phaohoa" + (i + 1));
+        //db.DBCCFactory.getInstance().loadDragonBonesData("res/Event/EventTet/EventTetRes/phaohoa" + (i + 1) + "/skeleton.xml", "phaohoa" + (i + 1));
+        //db.DBCCFactory.getInstance().loadTextureAtlas("res/Event/EventTet/EventTetRes/phaohoa" + (i + 1) + "/texture.plist", "phaohoa" + (i + 1));
         //}
 
         //
-        //db.DBCCFactory.getInstance().loadDragonBonesData("EventMgr/XmasRes/XmasLeaf/skeleton.xml", "XmasLeaf");
-        //db.DBCCFactory.getInstance().loadTextureAtlas("EventMgr/XmasRes/XmasLeaf/texture.plist", "XmasLeaf");
+        //db.DBCCFactory.getInstance().loadDragonBonesData("Event/XmasRes/XmasLeaf/skeleton.xml", "XmasLeaf");
+        //db.DBCCFactory.getInstance().loadTextureAtlas("Event/XmasRes/XmasLeaf/texture.plist", "XmasLeaf");
         //
-        //db.DBCCFactory.getInstance().loadDragonBonesData("EventMgr/XmasRes/XmasHeart/skeleton.xml", "XmasHeart");
-        //db.DBCCFactory.getInstance().loadTextureAtlas("EventMgr/XmasRes/XmasHeart/texture.plist", "XmasHeart");
+        //db.DBCCFactory.getInstance().loadDragonBonesData("Event/XmasRes/XmasHeart/skeleton.xml", "XmasHeart");
+        //db.DBCCFactory.getInstance().loadTextureAtlas("Event/XmasRes/XmasHeart/texture.plist", "XmasHeart");
         //
         //for(var i = 1; i <= 8 ; i++) {
-        //    db.DBCCFactory.getInstance().loadDragonBonesData("EventMgr/XmasRes/Deer" + i + "/skeleton.xml", "Deer" + i);
-        //    db.DBCCFactory.getInstance().loadTextureAtlas("EventMgr/XmasRes/Deer" + i + "/texture.plist", "Deer" + i);
+        //    db.DBCCFactory.getInstance().loadDragonBonesData("Event/XmasRes/Deer" + i + "/skeleton.xml", "Deer" + i);
+        //    db.DBCCFactory.getInstance().loadTextureAtlas("Event/XmasRes/Deer" + i + "/texture.plist", "Deer" + i);
         //}
     },
 

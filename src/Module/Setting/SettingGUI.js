@@ -64,6 +64,7 @@ var SettingGUI = BaseLayer.extend({
             }
             case SettingGUI.BTN_SOUND: {
                 settingMgr.sound = !settingMgr.sound;
+                gameSound.on = settingMgr.sound;
                 cc.sys.localStorage.setItem("sound", settingMgr.sound ? 3 : 1);
                 this.updateButton(this.btnSound, settingMgr.sound);
                 break;
@@ -113,15 +114,15 @@ var SettingGUI = BaseLayer.extend({
                 break;
             }
             case SettingGUI.BTN_SUPPORT: {
-                if (gamedata.isAppSupport) {
-                    NativeBridge.openHotro(gamedata.support, gamedata.userData.zName);
+                if (gameMgr.isAppSupport) {
+                    NativeBridge.openHotro(gameMgr.support, userMgr.getUserName());
                 } else {
-                    NativeBridge.openWebView(gamedata.support);
+                    NativeBridge.openWebView(gameMgr.support);
                 }
                 break;
             }
             case SettingGUI.BTN_FANPAGE: {
-                NativeBridge.openWebView(gamedata.forum);
+                NativeBridge.openWebView(gameMgr.forum);
                 break;
             }
         }

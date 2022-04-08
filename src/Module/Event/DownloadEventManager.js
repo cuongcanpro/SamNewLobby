@@ -122,9 +122,9 @@ var DownloadEventManager = cc.Class.extend({
                             if (convert > 1) {
                                 // user nay da tung download fail, ghi log Download thanh cong sau khi da tung that bai
                                 var log = " Download thanh cong sau lan thu " + convert;
-                                var s = "JavaScript error: assets/src/Lobby/EventMgr/DownloadEventManager.js line 3333TypeError: " + log + " " + (new Error()).stack;
+                                var s = "JavaScript error: assets/src/Lobby/Event/DownloadEventManager.js line 3333TypeError: " + log + " " + (new Error()).stack;
                                 cc.log(s);
-                                NativeBridge.logJSManual("assets/src/Lobby/EventMgr/DownloadEventManager.js", "3333", s, NativeBridge.getVersionString());
+                                NativeBridge.logJSManual("assets/src/Lobby/Event/DownloadEventManager.js", "3333", s, NativeBridge.getVersionString());
                             }
                         }
                         cc.sys.localStorage.setItem(DownloadEventManager.KEY_NEED_LOG_DOWNLOAD, 0);
@@ -132,22 +132,22 @@ var DownloadEventManager = cc.Class.extend({
                         // gui log len server
                         var isLog = cc.sys.localStorage.getItem("writeLogDownload");
                         if (!isLog || isLog == undefined || isLog == "") {
-                            cc.log("SEND LOG DOWNLOAD ");
-                             var time = (new Date()).getTime();
-                             time = time - downloadEventManager.startTime;
-                            var logDownload = new CmdSendClientInfo();
-                            logDownload.putData(time + "", 3);
-                            GameClient.getInstance().sendPacket(logDownload);
-                            cc.sys.localStorage.setItem("writeLogDownload", 1);
+                            // cc.log("SEND LOG DOWNLOAD ");
+                            //  var time = (new Date()).getTime();
+                            //  time = time - downloadEventManager.startTime;
+                            // var logDownload = new CmdSendClientInfo();
+                            // logDownload.putData(time + "", 3);
+                            // GameClient.getInstance().sendPacket(logDownload);
+                            // cc.sys.localStorage.setItem("writeLogDownload", 1);
                         }
                         // logDownload.clean();
                         break;
                     case jsb.EventAssetsManager.UPDATE_FAILED:
                         cc.log("Update failed. " + event.getMessage());
                         var log = " Download Fail ";
-                        var s = "JavaScript error: assets/src/Lobby/EventMgr/DownloadEventManager.js line 5555TypeError: " + log + " " + (new Error()).stack;
+                        var s = "JavaScript error: assets/src/Lobby/Event/DownloadEventManager.js line 5555TypeError: " + log + " " + (new Error()).stack;
                         cc.log(s);
-                        //NativeBridge.logJSManual("assets/src/Lobby/EventMgr/DownloadEventManager.js", "5555", s, NativeBridge.getVersionString());
+                        //NativeBridge.logJSManual("assets/src/Lobby/Event/DownloadEventManager.js", "5555", s, NativeBridge.getVersionString());
                         downloadEventManager.pauseDownload();
                         downloadEventManager.reDownload();
                         break;

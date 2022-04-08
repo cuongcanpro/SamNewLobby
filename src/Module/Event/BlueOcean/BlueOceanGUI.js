@@ -647,7 +647,7 @@ var BlueOceanScene = BaseLayer.extend({
 
         var count = 0;
         var numMove = this.cmdResult.numMoves;
-        this.diceResult.loadTexture("res/EventMgr/BlueOcean/BlueOceanUI/dice" + numMove + ".png");
+        this.diceResult.loadTexture("res/Event/BlueOcean/BlueOceanUI/dice" + numMove + ".png");
 
         this.upDice.runAction(cc.moveTo(0.5, this.upDice.pos.x, this.upDice.pos.y + 300));
         this.light1.cleanup();
@@ -2349,7 +2349,7 @@ var BlueOceanRegisterInformationGUI = BaseLayer.extend({
         this.btnRegister = null;
 
         this._super(BO_REGISTER_GUI_CLASS);
-        this.initWithBinaryFile("res/EventMgr/BlueOcean/BlueOceanRegisterInformationGUI.json");
+        this.initWithBinaryFile("res/Event/BlueOcean/BlueOceanRegisterInformationGUI.json");
     },
 
     initGUI: function () {
@@ -2935,7 +2935,7 @@ var BlueOceanHelpGUI = BaseLayer.extend({
 
         // var game = LocalizedString.config("GAME");
         // if (game.indexOf("sam") >= 0 || game.indexOf("binh") >= 0) {
-        //    // page.setBackGroundImage("res/EventMgr/PotBreaker/PotBreakerUI/help1_1.png");
+        //    // page.setBackGroundImage("res/Event/PotBreaker/PotBreakerUI/help1_1.png");
         // }
 
         this._arrPage = [];
@@ -2993,7 +2993,7 @@ var BlueOceanHistoryGUI = BaseLayer.extend({
         this.arTabRequest = [];
 
         this._super(BO_HISTORY_GUI_CLASS);
-        this.initWithBinaryFile("res/EventMgr/BlueOcean/BlueOceanHistoryGUI.json");
+        this.initWithBinaryFile("res/Event/BlueOcean/BlueOceanHistoryGUI.json");
     },
 
     initGUI: function () {
@@ -3448,7 +3448,7 @@ var BlueOceanNapGNotifyGUI = BaseLayer.extend({
         this.lbTime = null;
 
         this._super(BO_NOTIFY_PROMOTE_G_CLASS);
-        this.initWithBinaryFile("res/EventMgr/BlueOcean/BlueOceanNapGNotifyGUI.json");
+        this.initWithBinaryFile("res/Event/BlueOcean/BlueOceanNapGNotifyGUI.json");
     },
 
     initGUI: function () {
@@ -3529,7 +3529,7 @@ var BlueOceanBonusTicketDialog = BaseLayer.extend({
 
     ctor: function () {
         this._super(BO_NOTIFY_BONUS_TICKET_CLASS);
-        this.initWithBinaryFile("res/EventMgr/BlueOcean/BlueOceanNotifyBonusTicketGUI.json");
+        this.initWithBinaryFile("res/Event/BlueOcean/BlueOceanNotifyBonusTicketGUI.json");
     },
 
     initGUI: function () {
@@ -3675,7 +3675,7 @@ var BlueOceanPromoTicketGUI = BaseLayer.extend({
         this.lbTime = null;
 
         this._super(BlueOceanPromoTicketGUI.className);
-        this.initWithBinaryFile("res/EventMgr/BlueOcean/BlueOceanPromoTicketGUI.json");
+        this.initWithBinaryFile("res/Event/BlueOcean/BlueOceanPromoTicketGUI.json");
     },
 
     initGUI: function () {
@@ -4216,7 +4216,7 @@ var BlueOceanChestInfoGUI = BaseLayer.extend({
         this.scrollView.setInnerContainerSize(cc.size(this.totalWidthProgress + BlueOceanBonusAll.WIDTH + pad, this.scrollView.getInnerContainerSize().height));
 
         for (var i = 0; i < 3; i++) {
-            var icon = cc.Sprite.create("res/EventMgr/BlueOcean/BlueOceanUI/chest" + (i + 1) + ".png");
+            var icon = cc.Sprite.create("res/Event/BlueOcean/BlueOceanUI/chest" + (i + 1) + ".png");
             this.scrollView.addChild(icon);
             var index = blueOcean.arrayLevelTreasure[i];
             icon.setPosition(this.arrayInfo[index].getPosition());

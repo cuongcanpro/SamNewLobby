@@ -4,7 +4,7 @@ var SupportMgr = BaseMgr.extend({
         this.giftIndex = -1;
     },
 
-    initListener: function () {
+    init: function () {
         dispatcherMgr.addListener(UserMgr.EVENT_ON_GET_USER_INFO, this, this.sendGetSupport);
         dispatcherMgr.addListener(UserMgr.EVENT_UPDATE_MONEY, this, this.updateMoney);
         dispatcherMgr.addListener(LobbyMgr.EVENT_ON_ENTER_FINISH, this, this.checkShowSupportStartUp);
@@ -93,8 +93,41 @@ var SupportMgr = BaseMgr.extend({
 
     showSupportBean: function (bean, isSpecial) {
         if (popUpManager.canShow(PopUpManager.SUPPORT)) {
+            if (isSpecial) {
+                var sp = sceneMgr.openGUI(GUISupportSpecial.className, PopUpManager.SUPPORT, PopUpManager.SUPPORT, false);
+                if (sp) sp.showInfo(bean);
+            }
+            else {
+                var sp = sceneMgr.openGUI(GUISupportInfo.className, PopUpManager.SUPPORT, PopUpManager.SUPPORT, false);
+                if (sp) sp.showGUI(bean, isSpecial);
+            }
+        }
+    },
+
+    showSupportInLobby: function () {
+        var specialSupport = this.specialSupport.bonusGold;
+        if (this.numSupport <= 0){
+            // het so lan ho tro, kiem tra xem show ho tro dac biet
+            var checkSpecial = this.checkInSpecialTimeSupport();
+
+            if (checkSpecial && checkSpecial.error == 0) {       //not special time yet
+                var sp = sceneMgr.openGUI(GUISupportSpecial.className, PopUpManager.SUPPORT, PopUpManager.SUPPORT, false);
+                if (sp) sp.showInfo(0);
+            }
+            else if (checkSpecial && checkSpecial.error == 1){  //in special time
+                var sp = sceneMgr.openGUI(GUISupportSpecial.className, PopUpManager.SUPPORT, PopUpManager.SUPPORT, false);
+                if (sp) sp.showInfo(0);
+            }
+            else {   //special time over
+                // show GUI Support thong thuong
+                var sp = sceneMgr.openGUI(GUISupportInfo.className, PopUpManager.SUPPORT, PopUpManager.SUPPORT, false);
+                if (sp) sp.showGUI(0);
+            }
+        }
+        else {
+            // van con lan ho tro, nhung chua du dieu kien nhan
             var sp = sceneMgr.openGUI(GUISupportInfo.className, PopUpManager.SUPPORT, PopUpManager.SUPPORT, false);
-            if (sp) sp.showGUI(bean, isSpecial);
+            if (sp) sp.showGUI(0);
         }
     },
 
@@ -201,8 +234,6 @@ var SupportMgr = BaseMgr.extend({
             pk.clean();
         }
     },
-
-
 
     sharePhoto: function (isShareImage, image) {
         if (!gameMgr.checkOldNativeVersion()) {

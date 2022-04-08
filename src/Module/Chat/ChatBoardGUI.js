@@ -30,7 +30,6 @@ var ChatPanelGUI = BaseLayer.extend({
     },
 
     initGUI: function () {
-
         this.bg = this.getControl("bg");
         this.pChat = this.getControl("pChat");
         this.pChat.setVisible(true);
@@ -341,7 +340,7 @@ var ChatPanelGUI = BaseLayer.extend({
         var tab = this.listTab[this.selectedTab];
         var tabData = tab.id == 0 ? chatMgr.chatRoom.dialog : chatMgr.chatUsers[tab.id].dialog;
         var chatInfo = tabData[tabData.length - cell.getIdx() - 1];
-        if (chatInfo.uId == gamedata.userData.uID) {
+        if (chatInfo.uId == userMgr.getUID()) {
             var gui = sceneMgr.openGUI(UserInfoPanel.className, LobbyScene.GUI_USER_INFO, LobbyScene.GUI_USER_INFO);
             gui.setInfo(gamedata.userData);
             this.onBack();
@@ -369,7 +368,7 @@ var ChatPanelGUI = BaseLayer.extend({
                 dialog = chatMgr.chatRoom.dialog;
             else if (this.selectedTab > 0 && this.selectedTab < this.listTab.length)
                 dialog = chatMgr.chatUsers[this.listTab[this.selectedTab].id].dialog;
-            if (dialog.length > 0 && dialog[dialog.length - 1].uId == gamedata.userData.uID && message == dialog[dialog.length - 1].message) {
+            if (dialog.length > 0 && dialog[dialog.length - 1].uId == userMgr.getUID() && message == dialog[dialog.length - 1].message) {
                 Toast.makeToast(Toast.SHORT, LocalizedString.to("CHATSAME"));
                 return;
             }
@@ -439,7 +438,7 @@ var ChatItemCell = cc.TableViewCell.extend({
     },
 
     setInfo: function (chatInfo) {
-        var isMine = chatInfo.uId === gamedata.userData.uID;
+        var isMine = chatInfo.uId === userMgr.getUID();
 
         this.txtName.setString(chatInfo.userName !== "" ? chatInfo.userName + ":" : "");
         this.txtMess.setString(ChatItemCell.getFullMessage(chatInfo.userName, chatInfo.message));

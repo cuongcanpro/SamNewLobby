@@ -34,5 +34,7 @@ var fortuneCatRes = {
     bell: "res/Lobby/FortuneCat/bell.png",
     bigBell: "res/Lobby/FortuneCat/bell_big.png",
     bgTime: "res/Lobby/FortuneCat/bgTime.png",
-    ingameTooltip: "res/Lobby/FortuneCat/tooltip_progress_ingame.png"
+    ingameTooltip: "res/Lobby/FortuneCat/tooltip_progress_ingame.png",
+    progressBg: "res/Lobby/FortuneCat/progressBg.png",
+    progressBar: "res/Lobby/FortuneCat/progressBar.png"
 }

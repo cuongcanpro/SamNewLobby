@@ -32,49 +32,29 @@
           <Image Name="9patch.png" />
           <Image Name="bgBroadcast.png" />
           <Image Name="bgLoading.jpg" />
-          <Image Name="bgSub.png" />
-          <Image Name="bgSubBot.png" />
-          <Image Name="bgSubTop.png" />
-          <Image Name="bgSubTransperance.png" />
           <Image Name="black.png" />
           <Image Name="btn_cheat.png" />
-          <Image Name="btnAddG.png" />
-          <Image Name="btnAddGold.png" />
           <Image Name="btnBack.png" />
-          <Image Name="btnCancel.png" />
           <Image Name="btnClose.png" />
-          <Image Name="btnConfirm.png" />
-          <Image Name="btnF5.png" />
           <Image Name="btnHelp.png" />
-          <Image Name="btnUse.png" />
-          <Image Name="buttonOK.png" />
           <Audio Name="coin_01.mp3" />
           <Audio Name="coin_02.mp3" />
           <Audio Name="coin_03.mp3" />
           <Audio Name="coinFall.mp3" />
-          <Image Name="CommonBg.jpg" />
           <Image Name="defaultAvatar.png" />
           <Image Name="dot.png" />
-          <Image Name="gamecenter.png" />
           <Image Name="iconGold.png" />
           <Image Name="iconGoldBig.png" />
-          <Image Name="iconStar.png" />
-          <Image Name="iconStarBig.png" />
           <Image Name="iconXu.png" />
-          <Image Name="iconXuBig.png" />
           <Image Name="loading.png" />
           <Image Name="logo_zp.png" />
           <Image Name="maskAvatar.png" />
-          <Image Name="text.png" />
-          <Image Name="titleGiftStartup.png" />
-          <Image Name="titleGiftSupport.png" />
           <Image Name="touchDeco.png" />
           <Image Name="touchIcon0.png" />
           <Image Name="touchIcon1.png" />
           <Image Name="touchIcon2.png" />
           <Image Name="touchIcon3.png" />
           <Image Name="touchSquare.png" />
-          <Image Name="zingplay.png" />
         </Folder>
         <Folder Name="Font">
           <Fnt Name="detail_jackpot.fnt" />
@@ -85,12 +65,15 @@
         </Folder>
         <Folder Name="FortuneCat">
           <Image Name="bell.png" />
+          <Image Name="bell_big.png" />
           <Image Name="bg.png" />
           <Image Name="bg_gold.png" />
           <Image Name="bg_guide.png" />
           <Image Name="bg_prize.png" />
           <Image Name="bg_progress.png" />
           <Image Name="bg_slot.png" />
+          <Image Name="bgIngameTooltip.png" />
+          <Image Name="bgTime.png" />
           <Image Name="btn_close.png" />
           <Image Name="btn_close_guide.png" />
           <Image Name="btn_guide.png" />
@@ -102,15 +85,21 @@
           <Image Name="cat_2_unlocking.png" />
           <Image Name="cat_3_locked.png" />
           <Image Name="cat_3_unlocking.png" />
+          <Image Name="cat_cry.png" />
           <Image Name="cat_title_1.png" />
           <Image Name="cat_title_2.png" />
           <Image Name="cat_title_3.png" />
           <Image Name="clock.png" />
+          <Image Name="exclamation.png" />
           <Image Name="finger.png" />
           <Image Name="finger_trait.png" />
           <Image Name="firework_1.png" />
           <Image Name="firework_2.png" />
+          <Image Name="fullGuide.png" />
           <Image Name="guide.png" />
+          <Image Name="icon.png" />
+          <Image Name="icon_ingame.png" />
+          <Image Name="icon_lobby.png" />
           <Image Name="label_guide_title.png" />
           <Image Name="label_title.png" />
           <Image Name="sandclock.png" />
@@ -123,33 +112,12 @@
           <Image Name="sun_3.png" />
           <Image Name="sun_4.png" />
           <Image Name="tooltip_countdown.png" />
+          <Image Name="tooltip_find_cat.png" />
           <Image Name="tooltip_no_cat.png" />
           <Image Name="tooltip_progress.png" />
+          <Image Name="tooltip_progress_ingame.png" />
+          <Image Name="wave.png" />
         </Folder>
-        <Folder Name="FortuneCatIngameReward">
-          <Image Name="banner.png" />
-          <Image Name="btnOk.png" />
-          <Image Name="btnReceive.png" />
-          <Image Name="circleLight.png" />
-          <Image Name="dot.png" />
-          <Image Name="imgGold.png" />
-          <Image Name="light.png" />
-          <Image Name="n0.png" />
-          <Image Name="n1.png" />
-          <Image Name="n2.png" />
-          <Image Name="n3.png" />
-          <Image Name="n4.png" />
-          <Image Name="n5.png" />
-          <Image Name="n6.png" />
-          <Image Name="n7.png" />
-          <Image Name="n8.png" />
-          <Image Name="n9.png" />
-          <Image Name="plus.png" />
-          <Image Name="star.png" />
-          <Image Name="title.png" />
-          <Image Name="titleBg.png" />
-        </Folder>
-        <Project Name="FortuneCatIngameReward.csd" Type="Scene" />
         <Project Name="GUIFortuneCat.csd" Type="Scene" />
       </RootFolder>
     </Group>

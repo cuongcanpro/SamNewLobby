@@ -22,14 +22,14 @@ var DailyPurchaseButton = cc.Node.extend({
         }.bind(this), this);
         this.addChild(this.btn);
 
-        this.txtTime = new ccui.Text("23:59:59", "fonts/tahomabd.ttf", 18);
+        this.txtTime = new ccui.Text("23:59:59", "fonts/tahoma.ttf", 16);
         this.txtTime.ignoreContentAdaptWithSize(true);
         this.txtTime.setTextHorizontalAlignment(cc.TEXT_ALIGNMENT_CENTER);
         this.txtTime.setTextVerticalAlignment(cc.VERTICAL_TEXT_ALIGNMENT_CENTER);
         this.txtTime.setAnchorPoint(0.5, 0.5);
         this.txtTime.setPosition(0, -50);
-        this.txtTime.setColor(cc.color(239, 217, 108));
-        this.txtTime.enableOutline(cc.color(131, 73, 52), 1);
+        //this.txtTime.setColor(cc.color(239, 217, 108));
+        //this.txtTime.enableOutline(cc.color(131, 73, 52), 1);
         this.addChild(this.txtTime);
 
         this.hot = new cc.Node();

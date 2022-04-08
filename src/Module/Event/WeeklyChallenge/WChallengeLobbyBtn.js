@@ -66,11 +66,11 @@ WChallengeLobbyBtn = cc.Layer.extend({
     initGUI: function () {
         // GUI for in challenge
         this.inChallengeLayer = new cc.Layer();
-        this.inChallengeBg = new ccui.Button('res/Lobby/EventMgr/weeklyChallenge/Lobby/Background2.png');
+        this.inChallengeBg = new ccui.Button('res/Lobby/Event/weeklyChallenge/Lobby/Background2.png');
         this.handleTouchBtn(this.inChallengeBg);
         this.inChallengeBg.setPosition(0, 0);
         this.inChallengeLayer.addChild(this.inChallengeBg, 0);
-        this.titleInChallenge = new cc.Sprite('res/Lobby/EventMgr/weeklyChallenge/Lobby/WeeklyChallenge.png');
+        this.titleInChallenge = new cc.Sprite('res/Lobby/Event/weeklyChallenge/Lobby/WeeklyChallenge.png');
         this.titleInChallenge.setPosition(0, -this.inChallengeBg.height/4);
         this.inChallengeLayer.addChild(this.titleInChallenge, 5);
         this.taskUpperTitle = new ccui.Text('Scoop', SceneMgr.FONT_BOLD, 12);
@@ -85,10 +85,10 @@ WChallengeLobbyBtn = cc.Layer.extend({
         this.taskLowerTitle.enableOutline(cc.color(247,90,75), 1);
         this.taskLowerTitle.setVisible(false);
         this.inChallengeLayer.addChild(this.taskLowerTitle, 5);
-        this.blankProgress = new cc.Sprite('res/Lobby/EventMgr/weeklyChallenge/Lobby/BlankProgress.png');
+        this.blankProgress = new cc.Sprite('res/Lobby/Event/weeklyChallenge/Lobby/BlankProgress.png');
         this.blankProgress.setPosition(0, - this.inChallengeBg.height/2 - 8);
         this.inChallengeLayer.addChild(this.blankProgress, 10);
-        this.archivedProgress = new ccui.LoadingBar('res/Lobby/EventMgr/weeklyChallenge/Lobby/ArchivedProgress.png');
+        this.archivedProgress = new ccui.LoadingBar('res/Lobby/Event/weeklyChallenge/Lobby/ArchivedProgress.png');
         this.archivedProgress.setPosition(this.blankProgress.getPosition());
         this.inChallengeLayer.addChild(this.archivedProgress, 11);
 
@@ -97,7 +97,7 @@ WChallengeLobbyBtn = cc.Layer.extend({
         if (!WChallenge.getInstance().isFinishDownload)
             claimText = "Nhan thuong";
         this.claimRewardLayer = new cc.Layer();
-        this.claimRewardBg = new ccui.Button('res/Lobby/EventMgr/weeklyChallenge/Lobby/Background2.png');
+        this.claimRewardBg = new ccui.Button('res/Lobby/Event/weeklyChallenge/Lobby/Background2.png');
         this.handleTouchBtn(this.claimRewardBg);
         this.claimRewardBg.setPosition(0, 0);
         this.claimRewardLayer.addChild(this.claimRewardBg, 0);
@@ -115,10 +115,10 @@ WChallengeLobbyBtn = cc.Layer.extend({
 
         // GUI for cleared challenge
         this.clearedLayer = new cc.Layer();
-        this.clearedBg = new ccui.Button('res/Lobby/EventMgr/weeklyChallenge/Lobby/Background1.png');
+        this.clearedBg = new ccui.Button('res/Lobby/Event/weeklyChallenge/Lobby/Background1.png');
         this.handleTouchBtn(this.clearedBg);
         this.clearedLayer.addChild(this.clearedBg, 0);
-        this.clearedLowerTitle = new cc.Sprite('res/Lobby/EventMgr/weeklyChallenge/Lobby/Cleared.png');
+        this.clearedLowerTitle = new cc.Sprite('res/Lobby/Event/weeklyChallenge/Lobby/Cleared.png');
         this.clearedLowerTitle.setScale(0.7);
         this.clearedLowerTitle.setPosition(0, -this.clearedBg.height/4 - 5);
         this.clearedLayer.addChild(this.clearedLowerTitle, 5);
@@ -316,7 +316,7 @@ WChallengeLobbyBtn = cc.Layer.extend({
             if(self.isLayerExited) {
                 return;
             }
-            var goldIcon = new cc.Sprite('res/EventMgr/WeeklyChallenge/Popup/Icons/GoldIcon.png');
+            var goldIcon = new cc.Sprite('res/Event/WeeklyChallenge/Popup/Icons/GoldIcon.png');
             goldIcon.setPosition(-30, -50);
             self.layerEffect.addChild(goldIcon, 100);
             goldIcon.runAction(cc.sequence(
@@ -339,7 +339,7 @@ WChallengeLobbyBtn = cc.Layer.extend({
             if(self.isLayerExited) {
                 return;
             }
-            var cloverIcon = new cc.Sprite('res/EventMgr/WeeklyChallenge/Popup/Icons/CloverIcon.png');
+            var cloverIcon = new cc.Sprite('res/Event/WeeklyChallenge/Popup/Icons/CloverIcon.png');
             cloverIcon.setPosition(30, -50);
             self.addChild(cloverIcon, 100);
             cloverIcon.runAction(cc.sequence(
@@ -365,7 +365,7 @@ WChallengeLobbyBtn = cc.Layer.extend({
             if(self.isLayerExited) {
                 return;
             }
-            var cloverIcon = new cc.Sprite('res/EventMgr/WeeklyChallenge/Popup/Icons/iconDiamond.png');
+            var cloverIcon = new cc.Sprite('res/Event/WeeklyChallenge/Popup/Icons/iconDiamond.png');
             cloverIcon.setPosition(50, -50);
             self.addChild(cloverIcon, 100);
             cloverIcon.runAction(cc.sequence(

@@ -1,0 +1,91 @@
+<Solution>
+  <PropertyGroup Name="GiftCode" Version="3.10.0.0" Type="CocosStudio" />
+  <SolutionFolder>
+    <Group ctype="ResourceGroup">
+      <RootFolder Name=".">
+        <Folder Name="Common">
+          <PlistImageFolder Image="coin.png" PListFile="coin.plist" Name=".coin_PList.Dir" />
+          <PlistImageFolder Image="coinNew.png" PListFile="coinNew.plist" Name=".coinNew_PList.Dir" />
+          <PlistImageFolder Image="gold.png" PListFile="gold.plist" Name=".gold_PList.Dir" />
+          <Folder Name="IconVip">
+            <Image Name="iconVip1.png" />
+            <Image Name="iconVip10.png" />
+            <Image Name="iconVip2.png" />
+            <Image Name="iconVip3.png" />
+            <Image Name="iconVip4.png" />
+            <Image Name="iconVip5.png" />
+            <Image Name="iconVip6.png" />
+            <Image Name="iconVip7.png" />
+            <Image Name="iconVip8.png" />
+            <Image Name="iconVip9.png" />
+            <Image Name="imgUp.png" />
+          </Folder>
+          <Image Name="9patch.png" />
+          <Image Name="bgBroadcast.png" />
+          <Image Name="bgChooseRoom.jpg" />
+          <Image Name="bgColumn.png" />
+          <Image Name="bgDialog.png" />
+          <Image Name="bgGrey.png" />
+          <Image Name="bgLoading.jpg" />
+          <Image Name="bgMoney.png" />
+          <Image Name="black.png" />
+          <Image Name="borderAvatar.png" />
+          <Image Name="btn_cheat.png" />
+          <Image Name="btnBack.png" />
+          <Image Name="btnBlue.png" />
+          <Image Name="btnClose.png" />
+          <Image Name="btnGreen.png" />
+          <Image Name="btnHelp.png" />
+          <Image Name="btnYellow.png" />
+          <Audio Name="coin_01.mp3" />
+          <Audio Name="coin_02.mp3" />
+          <Audio Name="coin_03.mp3" />
+          <Audio Name="coinFall.mp3" />
+          <Image Name="defaultAvatar.png" />
+          <Image Name="dot.png" />
+          <Image Name="dotLight.png" />
+          <Image Name="dotNormal.png" />
+          <Image Name="iconDiamond.png" />
+          <Image Name="iconG.png" />
+          <Image Name="iconGold.png" />
+          <Image Name="iconGoldBig.png" />
+          <Image Name="iconVPoint.png" />
+          <Image Name="iconXu.png" />
+          <Image Name="loading.png" />
+          <Image Name="logo_zp.png" />
+          <Image Name="maskAvatar.png" />
+          <Image Name="maskEmpty.png" />
+          <Image Name="touchDeco.png" />
+          <Image Name="touchIcon0.png" />
+          <Image Name="touchIcon1.png" />
+          <Image Name="touchIcon2.png" />
+          <Image Name="touchIcon3.png" />
+          <Image Name="touchSquare.png" />
+        </Folder>
+        <Folder Name="Font">
+          <Fnt Name="detail_jackpot.fnt" />
+          <Fnt Name="jackpot.fnt" />
+          <TTF Name="robotoBold.ttf" />
+          <TTF Name="robotoLight.ttf" />
+          <TTF Name="tahoma.ttf" />
+          <TTF Name="tahomabd.ttf" />
+        </Folder>
+        <Folder Name="GiftCodeGUI">
+          <Image Name="bgGift.png" />
+          <Image Name="bgGiftCodeCell.png" />
+          <Image Name="bgInput.png" />
+          <Image Name="bgPanelInput.png" />
+          <Image Name="iconEmpty.png" />
+          <Image Name="iconGift.png" />
+          <Image Name="iconGold.png" />
+          <Image Name="tabGet.png" />
+          <Image Name="tabGetDisable.png" />
+          <Image Name="tabInput.png" />
+          <Image Name="tabInputDisable.png" />
+        </Folder>
+        <Project Name="GiftCodeCell.csd" Type="Layer" />
+        <Project Name="GiftCodeGUI.csd" Type="Scene" />
+      </RootFolder>
+    </Group>
+  </SolutionFolder>
+</Solution>

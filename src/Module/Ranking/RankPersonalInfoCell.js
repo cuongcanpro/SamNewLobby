@@ -80,14 +80,13 @@ var RankPersonalInfoCell = cc.TableViewCell.extend({
     onButtonRelease: function () {
         if (this.userData.isUser) {
             if (this.userData.userId == userMgr.getUID()){
-                var guiInfo = sceneMgr.openGUI(UserInfoPanel.className, LobbyScene.GUI_USER_INFO, LobbyScene.GUI_USER_INFO);
-                guiInfo.setInfo(gamedata.userData);
-            }
-            else {
+                userMgr.openUserInfoGUI(userMgr.userInfo, UserInfoTab.TAB_INFROMATION);
+            } else {
                 var otherInfo = new CmdSendGetOtherRankInfo();
                 otherInfo.putData(this.userData.userId);
                 GameClient.getInstance().sendPacket(otherInfo);
                 otherInfo.clean();
+                sceneMgr.openGUI(UserInfoPanel.className, LobbyScene.GUI_USER_INFO, LobbyScene.GUI_USER_INFO);
                 sceneMgr.addLoading().timeout(5);
             }
         }

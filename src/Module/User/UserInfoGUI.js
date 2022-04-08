@@ -139,6 +139,8 @@ var UserInfoPanel = BaseLayer.extend({
         this.levelRank.ignoreContentAdaptWithSize(true);
         this.txtRank = this.getControl("text", this.imgRank);
         this.txtRank.ignoreContentAdaptWithSize(true);
+        this.titleRank = this.getControl("rank", this.imgRank);
+        this.titleRank.ignoreContentAdaptWithSize(true);
         this.pMedal = this.getControl("pMedal",tabInfo);
         this.rankNotice = this.getControl("rankNotice", tabInfo);
         this.rankNotice.ignoreContentAdaptWithSize(true);
@@ -179,6 +181,8 @@ var UserInfoPanel = BaseLayer.extend({
         this.selectTab(UserInfoTab.TAB_INFROMATION);
         this.enableFog();
         this.setBackEnable(true);
+
+        dispatcherMgr.addListener(RankData.EVENT_RECEIVED_DATA, this, this.onReceivedRankData);
     },
 
     onEnterFinish: function() {
@@ -263,7 +267,7 @@ var UserInfoPanel = BaseLayer.extend({
     onCloseDone: function() {
         this._super();
         if (this.waitOpenStorage){
-            if (CheckLogic.checkInBoard()) {
+            if (inGameMgr.checkInBoard()) {
                 var gui = sceneMgr.openGUI(InboardStorageGUI.className, InboardStorageGUI.GUI_TAG, InboardStorageGUI.GUI_TAG);
                 gui.show();
             }
@@ -403,7 +407,7 @@ var UserInfoPanel = BaseLayer.extend({
         else{
             if (interact.num != 0){
                 if (this.canUseInteract) {
-                    if (this._user.uID != userMgr.getUID() && CheckLogic.checkInBoard()) {
+                    if (this._user.uID != userMgr.getUID() && inGameMgr.checkInBoard()) {
                         var nChair = null;
                         for (var i = 0; i < inGameMgr.gameLogic._players.length; i++) {
                             if ((inGameMgr.gameLogic._players[i]._info != null) && (this._user.getUID() == inGameMgr.gameLogic._players[i]._info["uID"])) {
@@ -458,7 +462,7 @@ var UserInfoPanel = BaseLayer.extend({
                 cc.log("OTHERS INFO");
                 var inTable = sceneMgr.getMainLayer() instanceof BoardScene;
                 this.level.setString(this._user.level);
-                this.btnSendMessage.setVisible(CheckLogic.checkInBoard());
+                this.btnSendMessage.setVisible(inGameMgr.checkInBoard());
                 this.btnPersonalInfo.setVisible(false);
                 this.bgGrey.setVisible(true);
                 // this.btnClose.setVisible(!inTable);
@@ -510,15 +514,24 @@ var UserInfoPanel = BaseLayer.extend({
             // this.loadInteractData();
             // this.tbInteract.reloadData();
 
-
             for (var i = 1; i < UserInfoPanel.NUM_TAB; i++) {
                 this.arrayTab[i].setVisible(true);
+            }
+            if (inGameMgr.checkInBoard()) {
+                for (var i = 1; i < UserInfoPanel.NUM_TAB; i++) {
+                    this.arrayTab[i].setVisible(false);
+                }
             }
         } else {
             this.btnChangeAvatar.setVisible(false);
             //load interact data
-            this.iconGirl.setVisible(false);
-            this.pInteract.setVisible(true);
+            if (inGameMgr.checkInBoard()) {
+                this.iconGirl.setVisible(false);
+                this.pInteract.setVisible(true);
+            } else {
+                this.iconGirl.setVisible(true);
+                this.pInteract.setVisible(false);
+            }
             this.loadInteractData();
             this.tbInteract.reloadData();
             for (var i = 1; i < UserInfoPanel.NUM_TAB; i++) {
@@ -527,14 +540,13 @@ var UserInfoPanel = BaseLayer.extend({
             this.pItem.setVisible(false);
             this.pUserInfo.setVisible(true);
         }
-
-        //this.selectTab(this._user.uID == gamedata.userData.uID ? UserInfoPanel.BTN_TAB_INFO : UserInfoPanel.BTN_TAB_INTERACT);
     },
 
     setInfoRank: function() {
         var canJoinRank = this._user.level >= RankData.MIN_LEVEL_JOIN_RANK && !Config.ENABLE_TESTING_NEW_RANK && Config.ENABLE_NEW_RANK;
         this.rankNotice.setVisible(!canJoinRank);
         this.txtRank.setVisible(canJoinRank);
+        this.titleRank.setVisible(canJoinRank);
         this.pMedal.setVisible(canJoinRank);
         this.imgRank.setColor((canJoinRank) ? cc.color("#ffffff") : cc.color("#000000"));
         var conditionKey = (this._user.getUID() === userMgr.getUID()) ? "NEW_RANK_MY_CONDITION" : "NEW_RANK_OTHER_CONDITION";
@@ -564,6 +576,7 @@ var UserInfoPanel = BaseLayer.extend({
         this.silverMedal.setString(StringUtility.pointNumber(silverMedal));
         this.bronzeMedal.setString(StringUtility.pointNumber(bronzeMedal));
         this.txtRank.setString(RankData.getRankName(rank).toUpperCase());
+        this.titleRank.loadTexture(RankData.getRankNameImg(rank));
         //this.imgRank.loadTexture(RankData.getRankImg(rank), ccui.Widget.PLIST_TEXTURE);
         //this.levelRank.loadTexture(RankData.getRankLevelImg(rank), ccui.Widget.PLIST_TEXTURE);
         this.levelRank.setVisible(rank < RankData.MAX_RANK);
@@ -582,6 +595,13 @@ var UserInfoPanel = BaseLayer.extend({
         }
     },
     /* endregion Tab Info */
+
+    onReceivedRankData: function (eventString, otherInfo) {
+        if (!this.isShow) return;
+        var info = new UserInfo();
+        info.setInfoFromRankInfo(otherInfo);
+        this.setInfo(info);
+    },
 
     updateInfoItem: function () {
         this.pItem.onUpdateGUI();
@@ -616,13 +636,10 @@ var UserInfoPanelInteractCell = cc.TableViewCell.extend({
     },
 
     initGUI: function() {
-        //this._layout = new cc.Layer(this.cellSize.width, this.cellSize.height);
-        //this.addChild(this._layout);
-
         for (var i = 0; i < this.numColumn; i++){
             var itemNode = ccs.load("Lobby/InteractItemCell.json").node;
             itemNode.setPosition(
-                itemNode.getContentSize().width * i,
+                (this.cellSize.width / this.numColumn) * i,
                 0
             );
             this.addChild(itemNode, 0, i);

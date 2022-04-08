@@ -11,7 +11,7 @@ var WChallengeAutoGetRewardGUI = BaseLayer.extend({
         var H = cc.winSize.height;
         this.disabledLayer = new WChallengeDisabledLayer();
         this.addChild(this.disabledLayer, 0);
-        this.titleText = new cc.Sprite('res/EventMgr/WeeklyChallenge/congratulation-get-reward.png');
+        this.titleText = new cc.Sprite('res/Event/WeeklyChallenge/congratulation-get-reward.png');
         this.titleText.setPosition(W/2, H - 70);
         this.addChild(this.titleText, 5);
         this.descriptionText = BaseLayer.createLabelText("Chuc mung", cc.color(210, 210, 210));
@@ -22,12 +22,12 @@ var WChallengeAutoGetRewardGUI = BaseLayer.extend({
         this.goiVang = new cc.Sprite();
         this.goiVang.setPosition(W/2, H/2);
         this.addChild(this.goiVang, 5);
-        this.shiningBg = new cc.Sprite('res/EventMgr/WeeklyChallenge/Popup/Shining.png');
+        this.shiningBg = new cc.Sprite('res/Event/WeeklyChallenge/Popup/Shining.png');
         this.shiningBg.setPosition(W/2, H/2);
         this.shiningBg.setScale(1.5);
         this.shiningBg.runAction(cc.rotateBy(8, 360).repeatForever());
         this.addChild(this.shiningBg, 2);
-        this.goldIcon = new cc.Sprite('res/EventMgr/WeeklyChallenge/Popup/Icons/GoldIcon.png');
+        this.goldIcon = new cc.Sprite('res/Event/WeeklyChallenge/Popup/Icons/GoldIcon.png');
         this.goldIcon.setPosition(W/2 - 30, H/2 - 100);
         this.goldIcon.setScale(1.3);
         this.addChild(this.goldIcon, 5);
@@ -37,7 +37,7 @@ var WChallengeAutoGetRewardGUI = BaseLayer.extend({
         this.goldRewardText.setFontSize(24);
         this.goldRewardText.setFontName(SceneMgr.FONT_BOLD);
         this.goldIcon.addChild(this.goldRewardText, 1);
-        this.cloverIcon = new cc.Sprite('res/EventMgr/WeeklyChallenge/Popup/Icons/CloverIcon.png');
+        this.cloverIcon = new cc.Sprite('res/Event/WeeklyChallenge/Popup/Icons/CloverIcon.png');
         this.cloverIcon.setPosition(W/2 - 30, H/2 - 140);
         this.cloverIcon.setScale(1.3);
         this.addChild(this.cloverIcon, 5);
@@ -47,7 +47,7 @@ var WChallengeAutoGetRewardGUI = BaseLayer.extend({
         this.cloverRewardText.setFontSize(24);
         this.cloverRewardText.setFontName(SceneMgr.FONT_BOLD);
         this.cloverIcon.addChild(this.cloverRewardText, 5);
-        this.claimRewardBtn = ccui.Button('res/EventMgr/WeeklyChallenge/Popup/Buttons/ClaimRewards.png');
+        this.claimRewardBtn = ccui.Button('res/Event/WeeklyChallenge/Popup/Buttons/ClaimRewards.png');
         this.claimRewardBtn.setPosition(W/2, 50);
         this.addChild(this.claimRewardBtn, 5);
     },
@@ -62,6 +62,12 @@ var WChallengeAutoGetRewardGUI = BaseLayer.extend({
         this.claimRewardBtn.addTouchEventListener(function(render, eventType){
             if(eventType === ccui.Widget.TOUCH_ENDED) {
                 this.removeFromParent();
+                try {
+                    gamedata.updateUserInfoNow();
+                }
+                catch (e) {
+
+                }
             }
         }.bind(this));
     },
@@ -82,7 +88,7 @@ var WChallengeAutoGetRewardGUI = BaseLayer.extend({
         } else if (val >= 3) {
             goiVangId = 2
         }
-        var goiVangPath = 'res/EventMgr/WeeklyChallenge/VangLaTo/GoiVang%s.png'.replace('%s', goiVangId.toString());
+        var goiVangPath = 'res/Event/WeeklyChallenge/VangLaTo/GoiVang%s.png'.replace('%s', goiVangId.toString());
         this.goiVang.setScale(0.5 + goiVangId * 0.05);
         this.goiVang.setTexture(goiVangPath);
     }

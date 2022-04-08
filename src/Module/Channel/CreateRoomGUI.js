@@ -64,21 +64,24 @@ var CreateRoomGUI = BaseLayer.extend({
         else if(x > select.maxX)
             x = select.maxX;
         select.setPositionX(x);
+        var index;
         for (var i = 1; i < select.listBetX.length; i++) {
             if (x < select.listBetX[i].x) {
-                var index;
                 if (x < (select.listBetX[i].x - select.deltaX/2) ){
                     index = i - 1;
                 }
                 else {
                     index = i;
                 }
-                select.selectedBet = select.listBetX[index].betidx;
-                if (isTouchEnd) {
-                    this.updateSelectBet(select.selectedBet);
-                }
                 break;
             }
+            else if (i == select.listBetX.length - 1) {
+                index = i;
+            }
+        }
+        select.selectedBet = select.listBetX[index].betidx;
+        if (isTouchEnd) {
+            this.updateSelectBet(select.selectedBet);
         }
     },
 
@@ -113,7 +116,7 @@ var CreateRoomGUI = BaseLayer.extend({
         this.listbet = channelMgr.getListBet();
         this.select.listBetX = [];
         this.select.selectedBet = 0;
-        this.select.deltaX = (this.select.maxX - this.select.minX) / (this.listbet.length-1);
+        this.select.deltaX = (this.select.maxX - this.select.minX) / (this.listbet.length - 1);
         for (var i = this.listDot.length - 1; i >= 0; i--){
             if (this.listDot[i]) this.listDot[i].removeFromParent(true);
         }

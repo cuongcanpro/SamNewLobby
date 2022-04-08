@@ -38,30 +38,6 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="promoBg" ActionTag="876254611" Tag="855" IconVisible="False" LeftMargin="3.7511" RightMargin="154.2489" TopMargin="1.2331" BottomMargin="267.7669" LeftEage="18" RightEage="18" TopEage="13" BottomEage="13" Scale9OriginX="18" Scale9OriginY="13" Scale9Width="19" Scale9Height="14" ctype="ImageViewObjectData">
-            <Size X="55.0000" Y="40.0000" />
-            <Children>
-              <AbstractNodeData Name="promo" ActionTag="276410957" Tag="948" RotationSkewX="-45.0000" RotationSkewY="-45.0000" IconVisible="False" LeftMargin="-4.5000" RightMargin="22.5000" TopMargin="6.4999" BottomMargin="14.5001" FontSize="14" LabelText="-50%" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                <Size X="37.0000" Y="19.0000" />
-                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="14.0000" Y="24.0001" />
-                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.2545" Y="0.6000" />
-                <PreSize X="0.6727" Y="0.4750" />
-                <FontResource Type="Normal" Path="Font/tahomabd.ttf" Plist="" />
-                <OutlineColor A="255" R="255" G="0" B="0" />
-                <ShadowColor A="255" R="110" G="110" B="110" />
-              </AbstractNodeData>
-            </Children>
-            <AnchorPoint ScaleY="0.5000" />
-            <Position X="3.7511" Y="287.7669" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-            <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.0176" Y="0.9313" />
-            <PreSize X="0.2582" Y="0.1294" />
-            <FileData Type="Normal" Path="ShopIAP/ShopItem/promoBg.png" Plist="" />
-          </AbstractNodeData>
           <AbstractNodeData Name="timeLimit" ActionTag="521142903" Tag="26" IconVisible="False" LeftMargin="170.5092" RightMargin="-2.5092" TopMargin="-1.3573" BottomMargin="265.3573" LeftEage="8" RightEage="8" TopEage="9" BottomEage="9" Scale9OriginX="8" Scale9OriginY="9" Scale9Width="29" Scale9Height="27" ctype="ImageViewObjectData">
             <Size X="45.0000" Y="45.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
@@ -72,17 +48,17 @@
             <PreSize X="0.2113" Y="0.1456" />
             <FileData Type="Normal" Path="ShopIAP/ShopItem/tagLimitItem.png" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="priceBg" ActionTag="-689157939" Tag="854" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="5.3632" RightMargin="2.6368" TopMargin="236.1612" BottomMargin="6.8388" LeftEage="37" RightEage="37" TopEage="10" BottomEage="10" Scale9OriginX="37" Scale9OriginY="10" Scale9Width="131" Scale9Height="46" ctype="ImageViewObjectData">
-            <Size X="205.0000" Y="66.0000" />
+          <AbstractNodeData Name="priceBg" ActionTag="-689157939" Tag="854" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="4.5000" RightMargin="4.5000" TopMargin="236.1612" BottomMargin="6.8388" LeftEage="37" RightEage="37" TopEage="10" BottomEage="10" Scale9OriginX="37" Scale9OriginY="10" Scale9Width="131" Scale9Height="46" ctype="ImageViewObjectData">
+            <Size X="204.0000" Y="66.0000" />
             <AnchorPoint ScaleX="0.5000" />
-            <Position X="107.8632" Y="6.8388" />
+            <Position X="106.5000" Y="6.8388" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.5064" Y="0.0221" />
-            <PreSize X="0.9624" Y="0.2136" />
+            <PrePosition X="0.5000" Y="0.0221" />
+            <PreSize X="0.9577" Y="0.2136" />
             <FileData Type="Normal" Path="ShopIAP/ShopItem/priceBg.png" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="iconDiamond" ActionTag="-1793648145" Tag="858" IconVisible="False" LeftMargin="74.9111" RightMargin="104.0889" TopMargin="260.8173" BottomMargin="18.1827" LeftEage="6" RightEage="6" TopEage="6" BottomEage="6" Scale9OriginX="6" Scale9OriginY="6" Scale9Width="22" Scale9Height="18" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="iconDiamond" Visible="False" ActionTag="-1793648145" Tag="858" IconVisible="False" LeftMargin="74.9111" RightMargin="104.0889" TopMargin="260.8173" BottomMargin="18.1827" LeftEage="6" RightEage="6" TopEage="6" BottomEage="6" Scale9OriginX="6" Scale9OriginY="6" Scale9Width="22" Scale9Height="18" ctype="ImageViewObjectData">
             <Size X="34.0000" Y="30.0000" />
             <Children>
               <AbstractNodeData Name="diamond" ActionTag="1938995687" Tag="861" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="35.7099" RightMargin="-37.7099" TopMargin="-8.7940" BottomMargin="-2.2060" FontSize="30" LabelText="60" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
@@ -129,6 +105,30 @@
             <PrePosition X="0.3238" Y="0.1533" />
             <PreSize X="0.1408" Y="0.1294" />
             <FileData Type="Normal" Path="ShopIAP/ShopItem/lock.png" Plist="" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="promoBg" Visible="False" ActionTag="876254611" Tag="855" IconVisible="False" LeftMargin="100.8007" RightMargin="-1.8007" TopMargin="208.5581" BottomMargin="57.4419" LeftEage="18" RightEage="18" TopEage="13" BottomEage="13" Scale9OriginX="18" Scale9OriginY="13" Scale9Width="78" Scale9Height="17" ctype="ImageViewObjectData">
+            <Size X="114.0000" Y="43.0000" />
+            <Children>
+              <AbstractNodeData Name="promo" ActionTag="276410957" Tag="948" IconVisible="False" LeftMargin="33.3250" RightMargin="32.6750" TopMargin="3.5339" BottomMargin="13.4661" FontSize="19" LabelText="-50%" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                <Size X="48.0000" Y="26.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="57.3250" Y="26.4661" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition X="0.5029" Y="0.6155" />
+                <PreSize X="0.4211" Y="0.6047" />
+                <FontResource Type="Normal" Path="Font/tahomabd.ttf" Plist="" />
+                <OutlineColor A="255" R="255" G="0" B="0" />
+                <ShadowColor A="255" R="110" G="110" B="110" />
+              </AbstractNodeData>
+            </Children>
+            <AnchorPoint ScaleY="0.5000" />
+            <Position X="100.8007" Y="78.9419" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.4732" Y="0.2555" />
+            <PreSize X="0.5352" Y="0.1392" />
+            <FileData Type="Normal" Path="ShopIAP/ShopItem/promoBg.png" Plist="" />
           </AbstractNodeData>
         </Children>
       </ObjectData>

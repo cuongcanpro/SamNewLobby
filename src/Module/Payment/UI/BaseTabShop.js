@@ -45,7 +45,7 @@ BaseTabShop = cc.Layer.extend({
     },
 
     loadArrayChannel: function (arrayChannelData) {
-        cc.log("Load array Channel " + arrayChannelData.length);
+        cc.log("Load array Channel " + arrayChannelData.length, JSON.stringify(arrayChannelData));
         this.arrayChannelData = arrayChannelData;
         for (var i = 0; i < this.arrayChannelButton.length; i++)
             this.arrayChannelButton[i].setVisible(false);
@@ -79,6 +79,7 @@ BaseTabShop = cc.Layer.extend({
         for (var i = 0; i < this.arrayChannelData.length; i++) {
             this.arrayChannelButton[i].setSelect(index == i);
         }
+        this.selectedTab = index;
     },
 
     showMaintain: function (maintain) {
@@ -104,6 +105,7 @@ var ChannelPaymentButton = ccui.Button.extend({
         this.imgHot = new cc.Sprite("Lobby/ShopIAP/iconHot.png");
         this.addChild(this.imgHot);
         this.imgHot.setPosition(28, 32);
+        this.setCascadeOpacityEnabled(true);
     },
 
     onClickPaymentButton: function () {

@@ -1,15 +1,17 @@
 var UserDetailInfo = cc.Node.extend({
-    ctor: function () {
+    ctor: function (isAnchorRight = false) {
         this._super();
+        this.isAnchorRight = isAnchorRight;
         var itemNode = ccs.load("Lobby/UserDetailInfo.json").node;
-        //itemNode.setPosition(this.itemSpace + i * (this.itemSpace + StorageItemCell.WIDTH * this.itemScale), this.itemSpace/2);
         this.addChild(itemNode, 0, i);
         this.pInfo = itemNode;
         this.setContentSize(itemNode.getContentSize());
         this.initGUI();
     },
+
     initGUI: function () {
         this.btnGold = this.pInfo.getChildByName("btnGold");
+        this.btnGold.defaultPos = this.btnGold.getPosition();
         this.iconGold = this.btnGold.getChildByName("icon");
         this.btnAddGold = this.btnGold.getChildByName("btn");
         this.bgGold = this.btnGold.getChildByName("bg");
@@ -19,13 +21,16 @@ var UserDetailInfo = cc.Node.extend({
         this.effGold.setAnimation(0, "gold", -1);
 
         this.btnCoin = this.pInfo.getChildByName("btnCoin");
+        this.btnCoin.defaultPos = this.btnCoin.getPosition();
         this.iconCoin = this.btnCoin.getChildByName("icon");
+        this.btnAddCoin = this.btnCoin.getChildByName("btn");
         this.effCoin = new CustomSkeleton("Armatures/LobbyBtn", "button", 1);
         this.iconCoin.addChild(this.effCoin);
         this.effCoin.setPosition(this.iconCoin.getContentSize().width * 0.5, this.iconCoin.getContentSize().height * 0.5);
         this.effCoin.setAnimation(0, "G", -1);
 
         this.btnDiamond = this.pInfo.getChildByName("btnDiamond");
+        this.btnDiamond.defaultPos = this.btnDiamond.getPosition();
         this.iconDiamond = this.btnDiamond.getChildByName("icon");
         this.effDiamond = new CustomSkeleton("Armatures/LobbyBtn", "button", 1);
         this.iconDiamond.addChild(this.effDiamond);
@@ -73,30 +78,56 @@ var UserDetailInfo = cc.Node.extend({
     updateGold: function (gold) {
         this.lbGold.gold = gold;
         if (this.lbGold) this.lbGold.setString(StringUtility.pointNumber(this.lbGold.gold));
-        var wGold = this.lbGold.getAutoRenderSize().width + UserDetailInfo.PAD_TEXT * 2;
-        if (wGold < UserDetailInfo.WIDTH_BTN) {
-            wGold = UserDetailInfo.WIDTH_BTN;
-        }
-        this.btnAddGold.setPositionX(wGold - 10);
-        this.lbGold.setPositionX(wGold * 0.5);
-        this.btnGold.setPositionX(wGold * 0.5);
-        this.btnGold.setContentSize(wGold, this.bgGold.getContentSize().height);
-        this.bgGold.setPositionX(wGold * 0.5);
-        this.bgGold.setContentSize(wGold, this.bgGold.getContentSize().height);
-
-        this.btnCoin.setPositionX(wGold + UserDetailInfo.WIDTH_BTN * 0.5 + UserDetailInfo.PAD_BTN);
-        this.btnDiamond.setPositionX(this.btnCoin.getPositionX() + UserDetailInfo.WIDTH_BTN + UserDetailInfo.PAD_BTN);
-        this.setContentSize(this.btnDiamond.getPositionX() + this.btnDiamond.getContentSize().width * 0.5 + 10, this.getContentSize().height);
+        this.updateSizeAndPosition();
     },
 
     updateDiamond: function (diamond) {
         this.lbDiamond.diamond = diamond;
         if (this.lbDiamond) this.lbDiamond.setString(StringUtility.pointNumber(this.lbDiamond.diamond));
+        this.updateSizeAndPosition();
     },
 
     updateCoin: function (coin) {
         this.lbCoin.coin = coin;
         if (this.lbCoin) this.lbCoin.setString(StringUtility.pointNumber(this.lbCoin.coin));
+        this.updateSizeAndPosition();
+    },
+
+    updateSizeAndPosition: function () {
+        var labelWidth;
+
+        //Gold
+        labelWidth = this.lbGold.getAutoRenderSize().width + UserDetailInfo.PAD_TEXT * 2;
+        this.btnGold.width = Math.max(labelWidth, UserDetailInfo.WIDTH_BTN);
+        this.btnAddGold.x = this.btnGold.width + UserDetailInfo.PAD_ICON;
+        this.lbGold.x = this.btnGold.width * 0.5;
+
+        //G
+        labelWidth = this.lbCoin.getAutoRenderSize().width + UserDetailInfo.PAD_TEXT * 2;
+        this.btnCoin.width = Math.max(labelWidth, UserDetailInfo.WIDTH_BTN);
+        this.btnAddCoin.x = this.btnCoin.width + UserDetailInfo.PAD_ICON;
+        this.lbCoin.x = this.btnCoin.width * 0.5;
+
+        //Diamond
+        labelWidth = this.lbDiamond.getAutoRenderSize().width + UserDetailInfo.PAD_TEXT * 2;
+        this.btnDiamond.width = Math.max(labelWidth, UserDetailInfo.WIDTH_BTN);
+        this.lbDiamond.x = this.btnDiamond.width * 0.5 + UserDetailInfo.PAD_ICON;
+
+        if (this.isAnchorRight) {
+            this.btnDiamond.x = - (this.btnDiamond.width + UserDetailInfo.PAD_BTN * 0.5);
+            this.btnCoin.x = this.btnDiamond.x - (this.btnCoin.width + UserDetailInfo.PAD_BTN);
+            this.btnGold.x = this.btnCoin.x - (this.btnGold.width + UserDetailInfo.PAD_BTN);
+        } else {
+            this.btnGold.x = 0;
+            this.btnCoin.x = this.btnGold.x + this.btnGold.width + UserDetailInfo.PAD_BTN;
+            this.btnDiamond.x = this.btnCoin.x + this.btnCoin.width + UserDetailInfo.PAD_BTN;
+            cc.log("WHAT IS THE PLACE", this.btnGold.width , this.btnCoin.width);
+            cc.log("WHAT IS THE PLACE", this.btnGold.x, this.btnCoin.x, this.btnDiamond.x);
+        }
+
+        this.btnGold.defaultPos.x = this.btnGold.getPosition().x;
+        this.btnCoin.defaultPos.x = this.btnCoin.getPosition().x;
+        this.btnDiamond.defaultPos.x = this.btnDiamond.getPosition().x;
     },
 
     getPosGold: function () {
@@ -160,7 +191,6 @@ var UserDetailInfo = cc.Node.extend({
                 break;
         }
         effectMgr.runLabelPoint(lb, start, end, delayTime, 50, EffectMgr.LABEL_RUN_NUMBER);
-
     },
 })
 
@@ -170,6 +200,8 @@ UserDetailInfo.BTN_DIAMOND = 2;
 UserDetailInfo.BTN_VPOINT = 3;
 
 UserDetailInfo.PAD_TEXT = 30;
-UserDetailInfo.PAD_BTN = 50;
+UserDetailInfo.PAD_BTN = 35;
+UserDetailInfo.PAD_ICON = 5;
+UserDetailInfo.PAD_TOP = 40;
 UserDetailInfo.WIDTH_BTN = 132;
 

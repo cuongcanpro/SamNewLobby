@@ -198,13 +198,14 @@ var EventData = cc.Class.extend({
             else
                 obj.bonus = "";
             obj.bonusValue = "";
-            obj.hourBonus = hourVip[i];
-            obj.vPoint = vPoint[i];
+            // obj.hourBonus = hourVip[i];
+            // obj.vPoint = vPoint[i];
             src.push(obj);
         }
         payment["type"] = typePayment;
         payment["data"] = src;
-        this.arrayConfigTicket.push(payment);
+        if (src.length > 0)
+            this.arrayConfigTicket.push(payment);
         return payment;
     },
 

@@ -24,7 +24,13 @@ var ReceivedGUI = BaseLayer.extend({
         this.pLight = this.getControl("pLight", this.pTitle);
         this.bigLight = this.getControl("bigLight", this.pTitle);
         this.pItems = this.getControl("pItems", this.bg);
-        cc.log("WHERE IS PITEMS");
+        
+        this.bgScaleX = 1;
+        if (cc.winSize.width > this.bg.getContentSize().width) {
+            this.bgScaleX = cc.winSize.width / this.bg.getContentSize().width;
+            this.bg.setScaleX(this.bgScaleX);
+            this.pItems.setScaleX(1 / this.bgScaleX);
+        }
 
         this.lightBurst = db.DBCCFactory.getInstance().buildArmatureNode("lightBurst");
         this.lightBurst.setVisible(false);
@@ -81,6 +87,8 @@ var ReceivedGUI = BaseLayer.extend({
         } else {
             this.desciption.setVisible(false);
         }
+
+        this.callback = receivedGUIInfo.callback;
     },
 
     runAnimation: function (isOpened) {
@@ -126,7 +134,7 @@ var ReceivedGUI = BaseLayer.extend({
         this.bg.setScale(0.75);
         this.bg.runAction(cc.spawn(
             cc.fadeIn(0.1),
-            cc.scaleTo(0.1, 1).easing(cc.easeBackOut())
+            cc.scaleTo(0.1, this.bgScaleX, 1).easing(cc.easeBackOut())
         ));
     },
 
@@ -258,13 +266,6 @@ var ReceivedGUI = BaseLayer.extend({
         if (Math.random() < 0.05) {
             var sparkle = new Sparkle();
             this.pConfetti.addChild(sparkle);
-            if (Math.random() < 0.5) {
-                sparkle.setPositionY(0);
-                sparkle.setRotation(180);
-            } else {
-                sparkle.setPositionY(this.pConfetti.height);
-                sparkle.setRotation(0);
-            }
             sparkle.startEffect();
         }
     },
@@ -272,7 +273,6 @@ var ReceivedGUI = BaseLayer.extend({
     onButtonRelease: function (btn, id) {
         switch (id) {
             case ReceivedGUI.BTN_CLOSE:
-
                 receivedMgr.removeReceivedGUIInfo();
                 if (receivedMgr.isFinishData()) {
                     this.onClose();
@@ -305,8 +305,7 @@ var ReceivedGUI = BaseLayer.extend({
 
     onCloseDone: function () {
         dispatcherMgr.dispatchEvent(ReceivedManager.EVENT_CLOSE_GUI);
-        let callBack = receivedMgr.getCallbackOnClose();
-        callBack();
+        if (this.callback) this.callback();
         this._super();
     },
 });
@@ -316,6 +315,129 @@ ReceivedGUI.DECO_LOGO = 8;
 
 ReceivedGUI.BTN_CLOSE = 0;
 ReceivedGUI.BTN_RESET = 1;
+
+//Confetti effect
+var Paper = cc.Node.extend({
+    ctor: function () {
+        this._super();
+        this.initChild();
+    },
+
+    initChild: function () {
+        this.setCascadeOpacityEnabled(true);
+        var file = "res/Lobby/Received/particle/p" + Math.floor(Math.random() * Paper.VARIANT) + ".png";
+        this.spriteImg = new cc.Sprite(file);
+        this.addChild(this.spriteImg);
+        this.spriteImg.setRotation(Math.random() * 360);
+        this.spriteImg.setScale(Math.random() * 0.2 + 1, Math.random() * 0.2 + 1);
+    },
+
+    startEffect: function (delayTime = 0) {
+        var rSpin = Math.random() * 0.25 + 0.25;
+        var p1 = cc.p(-50, (0.5 - Math.random()) * 50);
+        var p2 = cc.p(
+            cc.winSize.width * 0.75 * (0.25 + Math.random()),
+            -250 * Math.random()
+        );
+        var p3 = cc.p(
+            (p1.x + p2.x) / 2 + (0.5 - Math.random()) * 300,
+            (p1.y + p2.y) / 2 + (0.5 - Math.random()) * 150
+        );
+        var rTime = (3.5 + Math.random() * 2.5);
+
+        this.spriteImg.runAction(cc.sequence(
+            cc.delayTime(delayTime + rTime / 5),
+            cc.callFunc(function () {
+                var osX = this.spriteImg.getScaleX();
+                var osY = this.spriteImg.getScaleY();
+                var r1 = Math.round(Math.random());
+                var r2 = Math.round(Math.random());
+                if (r1 == r2 && r1 == 0) {
+                    r1 = 1;
+                }
+                if (r1 == r2 && r1 == 1) {
+                    r1 = 0;
+                }
+                this.spriteImg.runAction(cc.sequence(
+                    cc.scaleTo(rSpin, r1 * osX, r2 * osY),
+                    cc.scaleTo(rSpin, osX, osY)
+                ).repeatForever());
+            }.bind(this))
+        ));
+
+        this.spriteImg.setVisible(false);
+        this.spriteImg.runAction(cc.sequence(
+            cc.delayTime(delayTime),
+            cc.show(),
+            cc.bezierTo(rTime, [p1, p3, p2]).easing(cc.easeOut(2))
+        ));
+
+        this.runAction(cc.sequence(
+            cc.delayTime(delayTime + rTime - 0.1),
+            cc.fadeOut(0.1),
+            cc.removeSelf()
+        ));
+    }
+});
+Paper.VARIANT = 5;
+
+//Sparkle
+var Sparkle = cc.Node.extend({
+    ctor: function () {
+        this._super();
+        this.initChild();
+    },
+
+    initChild: function () {
+        this.setCascadeOpacityEnabled(true);
+        var file = "res/Lobby/Received/particle/spark.png";
+        this.spriteImg = new cc.Sprite(file);
+        this.addChild(this.spriteImg);
+        this.spriteImg.setRotation(Math.random() * 360);
+        this.spriteImg.setScale(Math.random() * 0.75 + 0.75);
+    },
+
+    startEffect: function (delayTime = 0) {
+        if (Math.random() < 0.5) {
+            this.setPositionY(0);
+            this.setRotation(180);
+        } else {
+            this.setPositionY(this.getParent().height);
+            this.setRotation(0);
+        }
+
+        this.setPositionX(Math.random() * cc.winSize.width);
+        var height = 25 + Math.random() * 25;
+        var rTime = (2.5 + Math.random() * 2.5);
+
+        this.spriteImg.runAction(cc.sequence(
+            cc.delayTime(0.5),
+            cc.callFunc(function () {
+                var time = 0.1 + Math.random() * 0.25;
+                this.spriteImg.runAction(cc.sequence(
+                    cc.fadeTo(0.1, 125 * Math.random()),
+                    cc.delayTime(time - 0.1),
+                    cc.fadeIn(0.1)
+                ));
+                this.spriteImg.runAction(cc.rotateBy(0.5, Math.random() * 90 + 90));
+                this.spriteImg.runAction(cc.scaleTo(0.5, Math.random() * 0.75 + 0.75));
+            }.bind(this))
+        ).repeatForever());
+
+        this.spriteImg.setVisible(false);
+        this.spriteImg.runAction(cc.sequence(
+            cc.delayTime(delayTime),
+            cc.show(),
+            cc.moveBy(rTime, 0, height).easing(cc.easeOut(2))
+        ));
+
+        this.runAction(cc.sequence(
+            cc.delayTime(delayTime + rTime - 0.1),
+            cc.fadeOut(0.1),
+            cc.removeSelf()
+        ));
+    }
+});
 
 var ReceivedCell = cc.Node.extend({
     ctor: function (info) {
@@ -374,7 +496,7 @@ var ReceivedCell = cc.Node.extend({
         switch (parseInt(info.type)) {
             case ReceivedCell.TYPE_GOLD:
                 this.itemImg.loadTexture("res/Lobby/Received/defaultItem/gold.png");
-                if (!info.title) info.title = "Vàng";
+                if (!info.title) info.title = "Gold";
                 break;
             case ReceivedCell.TYPE_G:
                 this.itemImg.loadTexture("res/Lobby/Received/defaultItem/g.png");
@@ -410,22 +532,18 @@ var ReceivedCell = cc.Node.extend({
                 }
                 break;
         }
+        if (!info.title) info.title = "";
+        this.name.setString(info.title);
 
         this.rewardType = info.type;
         this.num.setString(
             prefix
             + (info.number > ReceivedCell.MAX_POINT_NUMBER?
             StringUtility.formatNumberSymbol(info.number) : StringUtility.pointNumber(info.number))
-            + subfix
-        );
-
-        if (!info.modify) info.modify = "";
+            + subfix);
         this.lbModify.setString(info.modify);
         this.bgModify.width = StringUtility.getLabelWidth(this.lbModify) + 24;
         this.bgModify.setVisible(info.modify !== "");
-
-        if (!info.title) info.title = "";
-        this.name.setString(info.title);
     },
 
     startEffect: function (delay) {

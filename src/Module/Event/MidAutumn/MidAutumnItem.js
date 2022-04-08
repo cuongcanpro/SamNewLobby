@@ -372,7 +372,10 @@ var MidAutumnLampGUI = BaseLayer.extend({
 
     ctor: function () {
         this._super(MidAutumnLampGUI.className);
-        this.initWithBinaryFile("res/Event/MidAutumn/MidAutumnLampGUI.json");
+        if (CheckLogic.isNewLobby())
+            this.initWithBinaryFileAndOtherSize("res/Event/MidAutumn/MidAutumnLampGUI.json", cc.size(800, 480));
+        else
+            this.initWithBinaryFile("res/Event/MidAutumn/MidAutumnLampGUI.json");
     },
 
     initGUI: function () {

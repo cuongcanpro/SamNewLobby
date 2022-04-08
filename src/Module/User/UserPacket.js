@@ -22,21 +22,38 @@ CmdReceivedUserInfo = CmdReceivedCommon.extend({
     },
 
     readData: function () {
+        this.getPlayerInit = this.getByte();
+        // this.isShopBonus = this.getBool();
+        // this.showBonusNotice = this.getByte();
+        this.avatar = this.getString();
         this.uId = this.getInt();
         this.userName = this.getString();
-        this.zName = this.getString();
-        this.avatar = this.getString();
         this.gold = this.getDouble();
         this.zMoney = this.getDouble();
         this.levelScore = this.getDouble();
+        this.getInt();
+        this.getInt();
+        this.getString();
+        this.getByte();
+        this.getInt();
+
         this.winCount = this.getInt();
         this.lostCount = this.getInt();
-        //this.isShopBonus = this.getByte();
-        //this.isShopIAPBonus = this.getByte();
+        this.zName = this.getString();
 
-        this.isHolding = this.getBool();
+        this.getInt();
+        //  this.isShopIAPBonus = this.getByte();
 
-        this.payments = this.getBools();
+        this.totalGIAP = this.getInt();
+        cc.log("TOTAL GIAP " + this.totalGIAP);
+        this.idPackage = this.getInt();
+        this.totalDayIAP = this.getInt();
+        this.dayReceivedIAP = this.getInt();
+        this.arrayPackageIAP = this.getBools();
+        //
+        for (var i = 0; i < this.arrayPackageIAP.length; i++) {
+            cc.log("PACKAGE ***** " + this.arrayPackageIAP[i]);
+        }
 
         if (Config.ENABLE_IAP_LIMIT_TIME) {
             this.totalGIAP = this.getInt();
@@ -47,10 +64,8 @@ CmdReceivedUserInfo = CmdReceivedCommon.extend({
             this.arrayPackageTime = this.getLongs();
         }
 
-        this.enablePayment = this.getBool();
-
         this.level = this.getInt();
-        this.levelExp = Number(this.getLong());
+        this.levelExp = this.getDouble();
         this.diamond = this.getDouble();
     }
 });

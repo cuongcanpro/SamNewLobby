@@ -1,21 +1,11 @@
 var InGameMgr = BaseMgr.extend({
     ctor: function () {
         this._super();
-        this.preloadResource();
     },
 
     preloadResource: function () {
         var game_animations = [
-            {folderpath:"res/Armatures/5doi/",skeleton:"skeleton.xml",texture:"texture.plist",key:"5Doi"},
-            {folderpath:"res/Armatures/baosamthatbai/",skeleton:"skeleton.xml",texture:"texture.plist",key:"Baosamthatbai"},
-            {folderpath:"res/Armatures/chansamthanhcong/",skeleton:"skeleton.xml",texture:"texture.plist",key:"Chansamthanhcong"},
-            {folderpath:"res/Armatures/dongmau/",skeleton:"skeleton.xml",texture:"texture.plist",key:"Dongmau"},
-            {folderpath:"res/Armatures/samdinh/",skeleton:"skeleton.xml",texture:"texture.plist",key:"Samdinh"},
-            {folderpath:"res/Armatures/sanhtoicot/",skeleton:"skeleton.xml",texture:"texture.plist",key:"Sanhtoicot"},
-            {folderpath:"res/Armatures/tuquy/",skeleton:"skeleton.xml",texture:"texture.plist",key:"Tuquy"},
-            {folderpath:"res/Armatures/tuquyheo/",skeleton:"skeleton.xml",texture:"texture.plist",key:"Tuquyheo"},
             {folderpath:"res/Armatures/light/",skeleton:"skeleton.xml",texture:"texture.plist",key:"BG_light_bai"},
-            {folderpath:"res/Armatures/doituquy/",skeleton:"skeleton.xml",texture:"texture.plist",key:"Haituquy"},
             {folderpath:"res/Armatures/jackpot/",skeleton:"skeleton.xml",texture:"texture.plist",key:"Jackpot"},
             {folderpath:"res/Armatures/bang/",skeleton:"skeleton.xml",texture:"texture.plist",key:"BangJackpot"},
             {folderpath:"res/Armatures/diamond/",skeleton:"skeleton.xml",texture:"texture.plist",key:"Diamond"},
@@ -35,13 +25,14 @@ var InGameMgr = BaseMgr.extend({
         }
     },
 
-    initListener: function () {
-
+    init: function () {
+        this.preloadResource();
+        dispatcherMgr.addListener(UserMgr.EVENT_UPDATE_MONEY, this, this.updateMoney);
     },
 
     onReceived: function (cmd, p) {
         switch (cmd) {
-            case CMD.CMD_JOIN_ROOM_SUCCESS: {
+            case InGameMgr.CMD_JOIN_ROOM_SUCCESS: {
                 var join = new CmdReceivedJoinRoomSuccess(p);
                 this.gameLogic = new GameLogic();
                 this.gameLogic.initWith(join);
@@ -63,24 +54,7 @@ var InGameMgr = BaseMgr.extend({
                 //SceneMgr.getInstance().openWithScene(gameLayer);
                 return true;
             }
-            case CMD.JOIN_ROOM_FAIL: {
-                var join = new CmdReceivedJoinRoomFail(p);
-                //cc.log("fail " + join.reason + "    " + sceneMgr.getRunningScene().getMainLayer()._id);
-                sceneMgr.clearLoading();
-                join.clean();
-                if (sceneMgr.getRunningScene().getMainLayer() instanceof GameLayer) {
-
-                    sceneMgr.showOkCancelDialog("Thông báo", "Kết nối lại bàn chơi thất bại", null, function () {
-                        sceneMgr.getRunningScene().getMainLayer().quitGame();
-                    });
-                }
-                else {
-                    sceneMgr.showOkCancelDialog("Thông báo", "Bạn không thể vào bàn chơi này", null, null);
-                }
-
-                return true;
-            }
-            case CMD.CMD_REG_QUIT: {
+            case InGameMgr.CMD_REG_QUIT: {
                 var reg = new CmdReceivedRegQuitRoom(p);
                 if (reg.reg) {
                     Toast.makeToast(2.5, "Bạn sẽ được thoát khỏi phòng khi ván chơi kết thúc. Nhấn lần nữa để hủy!!!");
@@ -93,7 +67,7 @@ var InGameMgr = BaseMgr.extend({
 
                 return true;
             }
-            case CMD.CMD_UPDATEGAMEINFO: {
+            case InGameMgr.CMD_UPDATEGAMEINFO: {
                 var continuePlay = new CmdReceivedGameInfo(p);
                 this.gameLogic = new GameLogic();
                 this.gameLogic.continueWith(continuePlay);
@@ -118,7 +92,7 @@ var InGameMgr = BaseMgr.extend({
                 continuePlay.clean();
                 return true;
             }
-            case CMD.CMD_USER_JOIN_ROOM:
+            case InGameMgr.CMD_USER_JOIN_ROOM:
             {
                 var join = new CmdReceivedUserJoinRoom(p);
                 this.gameLogic.userJoinRoom(join);
@@ -127,7 +101,7 @@ var InGameMgr = BaseMgr.extend({
                 sceneMgr.updateCurrentGUI();
                 return true;
             }
-            case CMD.CMD_UPDATE_OWNERROOM:
+            case InGameMgr.CMD_UPDATE_OWNERROOM:
             {
                 var pk = new CmdReceivedUpdateOwnerRoom(p);
                 this.gameLogic.updateOwnerRoom(pk);
@@ -135,17 +109,17 @@ var InGameMgr = BaseMgr.extend({
                 sceneMgr.updateCurrentGUI(pk);
                 return true;
             }
-            case CMD.CMD_AUTO_START:
+            case InGameMgr.CMD_AUTO_START:
             {
                 var auto = new CmdReceivedAutoStart(p);
                 this.gameLogic.autoStart(auto);
-                cc.log("CMD.CMD_AUTO_START", JSON.stringify(auto));
+                cc.log("InGameMgr.CMD_AUTO_START", JSON.stringify(auto));
 
                 sceneMgr.updateCurrentGUI(auto);
                 auto.clean();
                 return true;
             }
-            case CMD.CMD_FIRSTTURN:
+            case InGameMgr.CMD_FIRSTTURN:
             {
                 var pk = new CmdReceivedFirstTurn(p);
                 this.gameLogic.firstTurn(pk);
@@ -153,7 +127,7 @@ var InGameMgr = BaseMgr.extend({
                 pk.clean();
                 return true;
             }
-            case CMD.CMD_CHIABAI:
+            case InGameMgr.CMD_CHIABAI:
             {
                 var pk = new CmdReceivedChiaBai(p);
                 cc.log("CMD_CHIABAI " + JSON.stringify(pk));
@@ -163,7 +137,7 @@ var InGameMgr = BaseMgr.extend({
 
                 return true;
             }
-            case CMD.CMD_DANHBAI:
+            case InGameMgr.CMD_DANHBAI:
             {
                 var pk = new CmdReceivedDanhBai(p);
                 cc.log("CMD_DANHBAI " + JSON.stringify(pk));
@@ -173,7 +147,7 @@ var InGameMgr = BaseMgr.extend({
 
                 return true;
             }
-            case CMD.CMD_BOLUOT:
+            case InGameMgr.CMD_BOLUOT:
             {
                 var pk = new CmdReceivedBoluot(p);
                 this.gameLogic.boluot(pk);
@@ -181,7 +155,7 @@ var InGameMgr = BaseMgr.extend({
                 pk.clean();
                 return true;
             }
-            case CMD.CMD_CHANGETURN:
+            case InGameMgr.CMD_CHANGETURN:
             {
                 var pk = new CmdReceivedChangeTurn(p);
                 this.gameLogic.changeturn(pk);
@@ -190,7 +164,7 @@ var InGameMgr = BaseMgr.extend({
                 pk.clean();
                 return true;
             }
-            case CMD.CMD_QUIT_ROOM:
+            case InGameMgr.CMD_QUIT_ROOM:
             {
                 var pk = new CmdReceivedUserExitRoom(p);
                 this.gameLogic.userLeave(pk);
@@ -199,7 +173,7 @@ var InGameMgr = BaseMgr.extend({
                 pk.clean();
                 return true;
             }
-            case CMD.CMD_QUIT_REASON:
+            case InGameMgr.CMD_QUIT_REASON:
             {
                 var pk = new CmdReceivedQuitroomReason(p);
                 this.gameLogic._gameState = GameState.REASONQUIT;
@@ -207,13 +181,13 @@ var InGameMgr = BaseMgr.extend({
                 pk.clean();
                 return true;
             }
-            case CMD.CMD_QUIT_ROOM_SUCCESS:
+            case InGameMgr.CMD_QUIT_ROOM_SUCCESS:
             {
                 this.gameLogic.quitRoom();
                 sceneMgr.updateCurrentGUI();
                 return true;
             }
-            case CMD.CMD_QUYETDINHSAM:
+            case InGameMgr.CMD_QUYETDINHSAM:
             {
                 var pk = new CmdReceivedQuyetDinhSam(p);
                 this.gameLogic.quyetdinhsam(pk);
@@ -222,7 +196,7 @@ var InGameMgr = BaseMgr.extend({
                 pk.clean();
                 return true;
             }
-            case CMD.CMD_BAOSAM:
+            case InGameMgr.CMD_BAOSAM:
             {
                 var pk = new CmdReceivedBaoSam(p);
                 this.gameLogic.baosam(pk);
@@ -231,7 +205,7 @@ var InGameMgr = BaseMgr.extend({
                 pk.clean();
                 return true;
             }
-            case CMD.CMD_HUYBAOSAM:
+            case InGameMgr.CMD_HUYBAOSAM:
             {
                 var pk = new CmdReceivedHuyBaoSam(p);
                 this.gameLogic.huybaosam(pk);
@@ -240,7 +214,7 @@ var InGameMgr = BaseMgr.extend({
                 pk.clean();
                 return true;
             }
-            case CMD.CMD_CHATCHONG:
+            case InGameMgr.CMD_CHATCHONG:
             {
                 var pk = new CmdReceivedChatChong(p);
                 this.gameLogic.chatchong(pk);
@@ -249,7 +223,7 @@ var InGameMgr = BaseMgr.extend({
                 pk.clean();
                 return true;
             }
-            case CMD.CMD_ENDGAME:
+            case InGameMgr.CMD_ENDGAME:
             {
                 var pk = new CmdReceivedEndGame(p);
                 cc.log("CMD_ENDGAME:", JSON.stringify(pk));
@@ -261,17 +235,17 @@ var InGameMgr = BaseMgr.extend({
                 pk.clean();
                 return true;
             }
-            case CMD.CMD_UPDATEMATH:
+            case InGameMgr.CMD_UPDATEMATH:
             {
                 var pk = new CmdReceivedUpdateMath(p);
                 this.gameLogic.updateMath(pk);
-                cc.log("CMD.CMD_UPDATEMATH", JSON.stringify(pk));
+                cc.log("InGameMgr.CMD_UPDATEMATH", JSON.stringify(pk));
 
                 sceneMgr.updateCurrentGUI(pk);
                 pk.clean();
                 return true;
             }
-            case CMD.CMD_RECEIVE_JACKPOT:
+            case InGameMgr.CMD_RECEIVE_JACKPOT:
             {
                 var pk = new CmdReceivedJackpot(p);
                 this.gameLogic.jackpot(pk);
@@ -280,7 +254,7 @@ var InGameMgr = BaseMgr.extend({
                 pk.clean();
                 return true;
             }
-            case CMD.CMD_GETPLAYERS:
+            case InGameMgr.CMD_GETPLAYERS:
             {
                 var pk = new CmdReceivedGetPlayers(p);
                 sceneMgr.updateCurrentGUI(pk);
@@ -290,6 +264,30 @@ var InGameMgr = BaseMgr.extend({
         }
         return false;
     },
+
+    checkInBoard: function () {
+        var gui = sceneMgr.getRunningScene().getMainLayer();
+        return (gui instanceof BoardScene);
+    },
+
+    updateMoney: function (key, update) {
+        if (this.checkInBoard() && this.gameLogic) {
+            var localChair = this.gameLogic.convertChair(update.nChair);
+            if ((localChair >= 0) && (localChair <= 4) && (this.gameLogic._players[localChair]._info)) {
+                this.gameLogic._players[localChair]._info["bean"] = update.bean;
+                this.gameLogic._players[localChair]._info["exp"] = update.levelScore;
+                this.gameLogic._players[localChair]._info["winCount"] = update.winCount;
+                this.gameLogic._players[localChair]._info["lostCount"] = update.lostCount;
+                this.gameLogic._players[localChair]._info["level"] = update.level;
+                this.gameLogic._players[localChair]._info["levelExp"] = update.levelExp;
+                this.gameLogic._players[localChair]._info["diamond"] = update.diamond;
+                this.gameLogic._players[localChair]._active = true;
+            }
+            this.gameLogic._gameState = GameState.NONE;
+            var gui = sceneMgr.getRunningScene().getMainLayer();
+            gui.onUpdateGUI();
+        }
+    }
 })
 
 InGameMgr.instance = null;
@@ -301,3 +299,33 @@ InGameMgr.getInstance = function () {
 };
 var inGameMgr = InGameMgr.getInstance();
 
+
+InGameMgr.CMD_QUIT_ROOM = 3008;
+InGameMgr.CMD_QUIT_REASON = 3010;
+InGameMgr.CMD_QUIT_ROOM_SUCCESS = 3009;
+InGameMgr.CMD_AUTO_START = 3107;
+InGameMgr.CMD_STARTGAME = 3102;
+InGameMgr.CMD_USER_JOIN_ROOM = 3004;
+InGameMgr.CMD_UPDATE_OWNERROOM = 3011;
+InGameMgr.CMD_FIRSTTURN = 3108;
+InGameMgr.CMD_CHIABAI = 3105;
+InGameMgr.CMD_CHEATBAI = 3115;
+
+InGameMgr.CMD_GET_INFO_CLIENT = 3205;
+InGameMgr.CMD_REG_QUIT = 3026;
+
+InGameMgr.CMD_DANHBAI = 3101;
+InGameMgr.CMD_BOLUOT = 3106;
+InGameMgr.CMD_CHANGETURN = 3112;
+InGameMgr.CMD_BAOSAM = 3109;
+InGameMgr.CMD_HUYBAOSAM = 3114;
+InGameMgr.CMD_QUYETDINHSAM = 3100;
+InGameMgr.CMD_ENDGAME = 3103;
+InGameMgr.CMD_UPDATEMATH = 3053;
+InGameMgr.CMD_UPDATEGAMEINFO = 3110;
+InGameMgr.CMD_CHATCHONG = 3113;
+InGameMgr.CMD_HOLD = 3116;
+InGameMgr.CMD_NEW_USER_JOIN = 3004;
+InGameMgr.CMD_JOIN_ROOM_SUCCESS = 3005;
+InGameMgr.CMD_ADD_BOT = 3117;
+InGameMgr.CMD_GETPLAYERS = 3200;

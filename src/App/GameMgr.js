@@ -22,7 +22,7 @@ var GameMgr = cc.Class.extend({
         this.initFramework();
         this.initForWeb();
         this.initEmulatorDectector();
-        this.initListener();
+        this.initModule();
         GameWrapper.addIgnoreSceneCache();
         CheatCenter.checkEnableCheat();
         NativeBridge.getTelephoneInfo();
@@ -33,9 +33,9 @@ var GameMgr = cc.Class.extend({
             cc.director.runScene(makeScene(new LoginScene()));
     },
 
-    initListener: function () {
+    initModule: function () {
         for (var i = 0; i < this.arrayMgr.length; i++) {
-            this.arrayMgr[i].initListener();
+            this.arrayMgr[i].init();
         }
     },
 

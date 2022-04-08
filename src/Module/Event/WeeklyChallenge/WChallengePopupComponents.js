@@ -47,7 +47,7 @@ WChallengeItem = cc.Class.extend({
                 goiVangLevel = 6;
             }
         }
-        var spriteGoiVangLink = 'res/EventMgr/WeeklyChallenge/Popup/GoiVang/GoiVang' + goiVangLevel + '.png';
+        var spriteGoiVangLink = 'res/Event/WeeklyChallenge/Popup/GoiVang/GoiVang' + goiVangLevel + '.png';
         this.goiVangButton.loadTextures(spriteGoiVangLink, spriteGoiVangLink, spriteGoiVangLink);
     },
     initGUI: function () {
@@ -99,7 +99,7 @@ WChallengeItem = cc.Class.extend({
         // wait for animation
         setTimeout(function(){
             GameClient.getInstance().sendPacket(cmd);
-        }.bind(this), 1300);
+        }.bind(this), 2600);
     },
     onTouchEnd: function (cb) {
         this.onTouchEndCbs.push(cb);
@@ -171,7 +171,7 @@ WChallengeItem = cc.Class.extend({
 WChallengeItemTooltip = cc.Layer.extend({
     ctor: function () {
         this._super();
-        var jsonLayout = ccs.load('res/EventMgr/WeeklyChallenge/WeeklyChallengeTooltipItem.json');
+        var jsonLayout = ccs.load('res/Event/WeeklyChallenge/WeeklyChallengeTooltipItem.json');
         this._layout = jsonLayout.node;
         this.addChild(this._layout);
         this.initGUI();
@@ -186,23 +186,23 @@ WChallengeItemTooltip = cc.Layer.extend({
         this.panelGift = this._layout.getChildByName('PanelGift');
 
         this.goldText = this.panelGift.getChildByName('GoldText');
-        this.goldText.setFontName('res/EventMgr/WeeklyChallenge/Fonts/UTM_HelveBold.ttf');
+        this.goldText.setFontName('res/Event/WeeklyChallenge/Fonts/UTM_HelveBold.ttf');
         this.goldText.ignoreContentAdaptWithSize(true);
 
         this.cloverText = this.panelGift.getChildByName('CloverText');
-        this.cloverText.setFontName('res/EventMgr/WeeklyChallenge/Fonts/UTM_HelveBold.ttf');
+        this.cloverText.setFontName('res/Event/WeeklyChallenge/Fonts/UTM_HelveBold.ttf');
         this.cloverText.ignoreContentAdaptWithSize(true);
 
         this.diamondText = this.panelGift.getChildByName('DiamondText');
-        this.diamondText.setFontName('res/EventMgr/WeeklyChallenge/Fonts/UTM_HelveBold.ttf');
+        this.diamondText.setFontName('res/Event/WeeklyChallenge/Fonts/UTM_HelveBold.ttf');
         this.diamondText.ignoreContentAdaptWithSize(true);
 
         this.plusSign = this.panelGift.getChildByName('PlusSign');
-        this.plusSign.setFontName('res/EventMgr/WeeklyChallenge/Fonts/UTM_HelveBold.ttf');
+        this.plusSign.setFontName('res/Event/WeeklyChallenge/Fonts/UTM_HelveBold.ttf');
         this.plusSign.ignoreContentAdaptWithSize(true);
 
         this.plusSign0 = this.panelGift.getChildByName('PlusSign_0');
-        this.plusSign0.setFontName('res/EventMgr/WeeklyChallenge/Fonts/UTM_HelveBold.ttf');
+        this.plusSign0.setFontName('res/Event/WeeklyChallenge/Fonts/UTM_HelveBold.ttf');
         this.plusSign0.ignoreContentAdaptWithSize(true);
 
         this.iconDiamond = this.panelGift.getChildByName('DiamondIcon');
@@ -266,7 +266,7 @@ WChallengeBarItem  = cc.Layer.extend({
     initGUI: function () {
         this.bar = this.guiNode.getChildByName('ArchivedDailyBar');
         this.title = this.guiNode.getChildByName('BarTitle');
-        this.title.setFontName('res/EventMgr/WeeklyChallenge/Fonts/UTM_HelveBold_Italic.ttf');
+        this.title.setFontName('res/Event/WeeklyChallenge/Fonts/UTM_HelveBold_Italic.ttf');
         this.title.ignoreContentAdaptWithSize(true);
     },
     setTitle: function (text) {
@@ -335,25 +335,25 @@ WChallengeAsidePopup = cc.Class.extend({
     },
     initGUI: function () {
         this.youHaveText = this.guiNode.getChildByName('YouHave');
-        this.youHaveText.setFontName('res/EventMgr/WeeklyChallenge/Fonts/UTM_HelveBold_Italic.ttf');
+        this.youHaveText.setFontName('res/Event/WeeklyChallenge/Fonts/UTM_HelveBold_Italic.ttf');
         this.youHaveText.ignoreContentAdaptWithSize(true);
         this.finalTextText = this.guiNode.getChildByName('FinalDay');
         var str = LocalizedString.to("WC_DAY_X");
         str = StringUtility.replaceAll(str, "@day", (WChallenge.getInstance().nbOfBasicRewards + 1).toString());
         this.finalTextText.setString(str);
-        this.finalTextText.setFontName('res/EventMgr/WeeklyChallenge/Fonts/UTM_HelveBold_Italic.ttf');
+        this.finalTextText.setFontName('res/Event/WeeklyChallenge/Fonts/UTM_HelveBold_Italic.ttf');
         this.finalTextText.ignoreContentAdaptWithSize(true);
         this.tickIcon = this.guiNode.getChildByName('TickIcon');
         this.currClover = this.guiNode.getChildByName('CurrCloverVal');
         this.imgClover = this.guiNode.getChildByName("imgClover");
-        this.currClover.setFontName('res/EventMgr/WeeklyChallenge/Fonts/UTM_HelveBold.ttf');
+        this.currClover.setFontName('res/Event/WeeklyChallenge/Fonts/UTM_HelveBold.ttf');
         this.currClover.ignoreContentAdaptWithSize(true);
         this.currGoldExchanged = this.guiNode.getChildByName('CurrGoldExchanged');
-        this.currGoldExchanged.setFontName('res/EventMgr/WeeklyChallenge/Fonts/UTM_HelveBold.ttf');
+        this.currGoldExchanged.setFontName('res/Event/WeeklyChallenge/Fonts/UTM_HelveBold.ttf');
         this.currGoldExchanged.ignoreContentAdaptWithSize(true);
         this.cloverExchange = this.guiNode.getChildByName('CloverExchange');
         this.nodeArrow = this.guiNode.getChildByName("nodeArrow");
-        this.imgArrow = new cc.ProgressTimer(new cc.Sprite("res/EventMgr/WeeklyChallenge/Popup/arrow.png"));
+        this.imgArrow = new cc.ProgressTimer(new cc.Sprite("res/Event/WeeklyChallenge/Popup/arrow.png"));
         this.imgArrow.type = cc.ProgressTimer.TYPE_BAR;
         this.imgArrow.midPoint = cc.p(0.5, 1);
         this.imgArrow.barChangeRate = cc.p(0, 1);
@@ -371,16 +371,16 @@ WChallengeAsidePopup = cc.Class.extend({
 
         // this.pnTooltip = this.guiNode.getChildByName("pnTooltip");
         // this.tooltipText = this.pnTooltip.getChildByName("lblTooltip");
-        // this.tooltipText.setFontName("res/EventMgr/WeeklyChallenge/Fonts/UTM_Helve.ttf");
+        // this.tooltipText.setFontName("res/Event/WeeklyChallenge/Fonts/UTM_Helve.ttf");
         // this.tooltipText.ignoreContentAdaptWithSize(true);
         // this.cloverText = this.pnTooltip.getChildByName("cloverText");
-        // this.cloverText.setFontName("res/EventMgr/WeeklyChallenge/Fonts/UTM_HelveBold.ttf");
+        // this.cloverText.setFontName("res/Event/WeeklyChallenge/Fonts/UTM_HelveBold.ttf");
         // this.cloverText.ignoreContentAdaptWithSize(true);
         // this.goldText = this.pnTooltip.getChildByName("goldText");
-        // this.goldText.setFontName("res/EventMgr/WeeklyChallenge/Fonts/UTM_HelveBold.ttf");
+        // this.goldText.setFontName("res/Event/WeeklyChallenge/Fonts/UTM_HelveBold.ttf");
         // this.goldText.ignoreContentAdaptWithSize(true);
         // this.equalSign = this.pnTooltip.getChildByName("equalSign");
-        // this.equalSign.setFontName("res/EventMgr/WeeklyChallenge/Fonts/UTM_HelveBold.ttf");
+        // this.equalSign.setFontName("res/Event/WeeklyChallenge/Fonts/UTM_HelveBold.ttf");
         // this.equalSign.ignoreContentAdaptWithSize(true);
         // this.btnShowTooltip = this.guiNode.getChildByName("btnTooltip");
         // this.btnShowTooltip.addTouchEventListener((render, eventType) => {
@@ -580,7 +580,7 @@ WChallengeDisabledLayer = cc.Layer.extend({
 WChallengeDailyItem = BaseLayer.extend({
     ctor: function () {
         this._super(WChallengeDailyItem.className);
-        this.initWithBinaryFile('res/EventMgr/WeeklyChallenge/WeeklyChallengeDailyItem.json');
+        this.initWithBinaryFile('res/Event/WeeklyChallenge/WeeklyChallengeDailyItem.json');
         this.isActive = null;
     },
     onEnter: function () {

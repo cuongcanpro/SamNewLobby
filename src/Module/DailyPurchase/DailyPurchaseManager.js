@@ -5,9 +5,11 @@
 var DailyPurchaseManager = BaseMgr.extend({
     ctor: function(){
         this._super();
+    },
+
+    init: function () {
         this.btnLobby = new DailyPurchaseButton();
         this.btnLobby.retain();
-
         this.resetData();
     },
 
@@ -156,7 +158,7 @@ var DailyPurchaseManager = BaseMgr.extend({
             setTimeout(function(){
                 var gui = sceneMgr.getGUI(DailyPurchaseGUI.GUI_TAG);
                 if (!gui){
-                    if (!CheckLogic.checkInBoard()) {
+                    if (!inGameMgr.checkInBoard()) {
                         VipManager.checkShowUpLevelVip();
                     }
                     else VipManager.getInstance().setWaiting(false);

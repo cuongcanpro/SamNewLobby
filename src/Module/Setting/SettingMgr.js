@@ -6,7 +6,9 @@ var SettingMgr = BaseMgr.extend({
         this.vibrate = true;
         this.acceptFriend = true;
         this.acceptInvite = true;
+    },
 
+    init: function () {
         // load storage variable
         if (cc.sys.localStorage.getItem("sound")) {
             var sound = cc.sys.localStorage.getItem("sound");

@@ -25,15 +25,15 @@ var EventButton = cc.Node.extend({
         this.notify.setPosition(this.isMainEvent ? this.button.getContentSize().width * 0.4 : 30, this.isMainEvent ? this.button.getContentSize().height * 0.4 : 20);
 
         // label time
-        this.time = new ccui.Text("fsdfds", SceneMgr.FONT_BOLD, 13);
+        this.time = new ccui.Text("fsdfds", SceneMgr.FONT_NORMAL, 16);
         this.addChild(this.time);
         this.time.ignoreContentAdaptWithSize(true);
         this.time.setTextHorizontalAlignment(cc.TEXT_ALIGNMENT_CENTER);
         this.time.setTextVerticalAlignment(cc.VERTICAL_TEXT_ALIGNMENT_CENTER);
         this.time.setPosition(0, this.isMainEvent ? -this.button.getContentSize().height * 0.35 : -32);
         this.time.setAnchorPoint(0.5, 0.5);
-        this.time.setColor(cc.color(247, 233, 187));
-        this.time.enableOutline(cc.color(131, 73, 52), 1);
+        //this.time.setColor(cc.color(247, 233, 187));
+        //this.time.enableOutline(cc.color(131, 73, 52), 1);
         this.time.pos = this.time.getPosition();
 
         this.nodeDownload = new cc.Node();

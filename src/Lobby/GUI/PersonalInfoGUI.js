@@ -47,7 +47,7 @@ var PersonalInfoGUI = BaseLayer.extend({
     },
 
     loadPersonalInfo: function(){
-        var personalInfo = cc.sys.localStorage.getItem(PersonalInfoGUI.KEY_SAVE_PERSONAL_INFO + gamedata.userData.uID);
+        var personalInfo = cc.sys.localStorage.getItem(PersonalInfoGUI.KEY_SAVE_PERSONAL_INFO + userMgr.getUID());
 
         var hadInfo = true;
         if (personalInfo && personalInfo !== ""){
@@ -114,7 +114,7 @@ var PersonalInfoGUI = BaseLayer.extend({
         personalInfo.phone = this.txPhoneNumber.getString();
         personalInfo.address = this.txAddress.getString();
 
-        cc.sys.localStorage.setItem(PersonalInfoGUI.KEY_SAVE_PERSONAL_INFO + gamedata.userData.uID, JSON.stringify(personalInfo));
+        cc.sys.localStorage.setItem(PersonalInfoGUI.KEY_SAVE_PERSONAL_INFO + userMgr.getUID(), JSON.stringify(personalInfo));
         this.onClose();
     },
 
@@ -266,7 +266,7 @@ PersonalInfoGUI.openGUI = function () {
 
 PersonalInfoGUI.checkOpenGuiFirstTime = function(){
     if (gamedata.userData.winCount + gamedata.userData.lostCount === 0){
-        var hasOpened = cc.sys.localStorage.getItem(PersonalInfoGUI.KEY_CHECK_HAS_OPEN_PERSONAL_GUI + gamedata.userData.uID);
+        var hasOpened = cc.sys.localStorage.getItem(PersonalInfoGUI.KEY_CHECK_HAS_OPEN_PERSONAL_GUI + userMgr.getUID());
         if (hasOpened && hasOpened === "1"){
             cc.log("hasOpen: " + hasOpened);
             return;
@@ -274,7 +274,7 @@ PersonalInfoGUI.checkOpenGuiFirstTime = function(){
 
         if (popUpManager.canShow(PopUpManager.INPUT_INFORMATION)) {
             PersonalInfoGUI.openGUI();
-            cc.sys.localStorage.setItem(PersonalInfoGUI.KEY_CHECK_HAS_OPEN_PERSONAL_GUI + gamedata.userData.uID, "1");
+            cc.sys.localStorage.setItem(PersonalInfoGUI.KEY_CHECK_HAS_OPEN_PERSONAL_GUI + userMgr.getUID(), "1");
         }
     }
 };

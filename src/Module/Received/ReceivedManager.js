@@ -7,7 +7,7 @@ let ReceivedManager = BaseMgr.extend({
         this.arrayReceived = [];
     },
 
-    initListener: function () {
+    init: function () {
         dispatcherMgr.addListener(PaymentMgr.EVENT_SHOP_GOLD_SUCCESS, this, this.onShopGoldSuccess);
         dispatcherMgr.addListener(LobbyMgr.EVENT_ON_ENTER_FINISH, this, this.openGUI);
     },
@@ -49,8 +49,20 @@ let ReceivedManager = BaseMgr.extend({
             var isShopGold = cmd["shopGoldGold"][i] > 0;
             var receivedGUIData;
 
+            /** G **/
+            textTitle = "G";
+            for (var key in ReceivedManager.SUBTYPE_G)
+                if (cmd[key][i]) {
+                receivedGUIData = new ReceivedGUIData(
+                    ReceivedCell.TYPE_G,
+                    cmd[key][i],
+                    textTitle
+                );
+                items.push(receivedGUIData);
+            }
+
             /** GOLD **/
-            textTitle = "Vàng";
+            textTitle = "Gold";
             modifyPercent = 0;
             base = 0;
             for (var key in ReceivedManager.SUBTYPE_GOLD)
@@ -285,11 +297,13 @@ let ReceivedManager = BaseMgr.extend({
     /**
      * @param {[ReceivedGUIData]} info
      * @param {String} title
+     * @param {Function} callback
      */
-    setReceivedGUIInfo: function (info, title) {
+    setReceivedGUIInfo: function (info, title, callback) {
         this.arrayReceived.push({
             info: info,
-            title: title
+            title: title,
+            callback: callback
         });
     },
 
@@ -313,15 +327,7 @@ let ReceivedManager = BaseMgr.extend({
 
     isFinishData: function () {
         return this.arrayReceived.length <= 0;
-    },
-
-    setCallbackOnClose: function (callback) {
-        this._callbackOnClose = callback;
-    },
-
-    getCallbackOnClose: function () {
-        return this._callbackOnClose;
-    },
+    }
 });
 ReceivedManager._instance = null;
 ReceivedManager.getInstance = function () {
@@ -336,6 +342,10 @@ var receivedMgr = ReceivedManager.getInstance();
 ReceivedManager.EVENT_RECEIVED_PRIZE = "receivedMgrReceivedPrize"
 ReceivedManager.EVENT_SHOP_GOLD_SUCCESS = "receivedMgrShopGoldSuccess"
 ReceivedManager.EVENT_CLOSE_GUI = "receivedMgrCloseGUI"
+
+ReceivedManager.SUBTYPE_G = {
+    shopGG: 0
+}
 
 ReceivedManager.SUBTYPE_GOLD = {
     shopGoldGold: 0,

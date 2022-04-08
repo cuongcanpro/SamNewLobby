@@ -304,7 +304,6 @@
               "X": 300.0,
               "Y": 375.0
             },
-            "Alpha": 127,
             "Name": "vip",
             "ctype": "ButtonObjectData"
           },
@@ -352,6 +351,557 @@
             },
             "Name": "lock",
             "ctype": "ImageViewObjectData"
+          },
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 102,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 27.9022,
+              "Y": -84.1326
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 27.9022,
+            "RightMargin": -27.9022,
+            "TopMargin": 84.1326,
+            "BottomMargin": -84.1326,
+            "Tag": 85,
+            "Children": [
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "Vip/bgExpiredBig.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 100,
+                "Scale9OriginY": 25,
+                "Scale9Width": 307,
+                "Scale9Height": 130,
+                "TouchEnable": true,
+                "AnchorPoint": {},
+                "Position": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "PreSize": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "RightMargin": -507.0,
+                "TopMargin": -180.0,
+                "Tag": 371,
+                "Children": [
+                  {
+                    "FontSize": 23,
+                    "LabelText": "Đã hết hạn VIP 88",
+                    "FontResource": {
+                      "Type": "Normal",
+                      "Path": "Font/robotoBold.ttf",
+                      "Plist": ""
+                    },
+                    "VerticalAlignmentType": "VT_Center",
+                    "OutlineColor": {
+                      "G": 0,
+                      "B": 0
+                    },
+                    "ShadowColor": {
+                      "R": 110,
+                      "G": 110,
+                      "B": 110
+                    },
+                    "ShadowOffsetX": 2.0,
+                    "ShadowOffsetY": -2.0,
+                    "AnchorPoint": {
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 16.0,
+                      "Y": 148.63
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {
+                      "R": 76,
+                      "G": 77,
+                      "B": 199
+                    },
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.0316,
+                      "Y": 0.8257
+                    },
+                    "PreSize": {
+                      "X": 0.3728,
+                      "Y": 0.15
+                    },
+                    "LeftMargin": 16.0,
+                    "RightMargin": 302.0,
+                    "TopMargin": 17.87,
+                    "BottomMargin": 135.13,
+                    "Tag": 86,
+                    "ActionTag": -1331282938,
+                    "Size": {
+                      "X": 189.0,
+                      "Y": 27.0
+                    },
+                    "Name": "label",
+                    "ctype": "TextObjectData"
+                  },
+                  {
+                    "FontSize": 21,
+                    "LabelText": "Mua gói Gold bấy kỳ hoặc tham\ngia các hoạt động để gia \nhạn và nhận những đặc \nquyền của VIP",
+                    "FontResource": {
+                      "Type": "Normal",
+                      "Path": "Font/robotoLight.ttf",
+                      "Plist": ""
+                    },
+                    "VerticalAlignmentType": "VT_Center",
+                    "OutlineColor": {
+                      "G": 0,
+                      "B": 0
+                    },
+                    "ShadowColor": {
+                      "R": 110,
+                      "G": 110,
+                      "B": 110
+                    },
+                    "ShadowOffsetX": 2.0,
+                    "ShadowOffsetY": -2.0,
+                    "AnchorPoint": {},
+                    "Position": {
+                      "X": 16.0,
+                      "Y": 20.8902
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {
+                      "R": 79,
+                      "G": 81,
+                      "B": 167
+                    },
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.0316,
+                      "Y": 0.1161
+                    },
+                    "PreSize": {
+                      "X": 0.5779,
+                      "Y": 0.5556
+                    },
+                    "LeftMargin": 16.0,
+                    "RightMargin": 198.0,
+                    "TopMargin": 59.1098,
+                    "BottomMargin": 20.8902,
+                    "Tag": 373,
+                    "ActionTag": -518478549,
+                    "Size": {
+                      "X": 293.0,
+                      "Y": 100.0
+                    },
+                    "Name": "labelLong",
+                    "ctype": "TextObjectData"
+                  },
+                  {
+                    "FontSize": 35,
+                    "ButtonText": "Mua Gold",
+                    "FontResource": {
+                      "Type": "Normal",
+                      "Path": "Font/robotoBold.ttf",
+                      "Plist": ""
+                    },
+                    "TextColor": {
+                      "G": 249,
+                      "B": 233
+                    },
+                    "DisabledFileData": {
+                      "Type": "Normal",
+                      "Path": "Common/btnYellow.png",
+                      "Plist": ""
+                    },
+                    "PressedFileData": {
+                      "Type": "Normal",
+                      "Path": "Common/btnYellow.png",
+                      "Plist": ""
+                    },
+                    "NormalFileData": {
+                      "Type": "Normal",
+                      "Path": "Common/btnYellow.png",
+                      "Plist": ""
+                    },
+                    "Scale9Enable": true,
+                    "Scale9OriginX": 15,
+                    "Scale9OriginY": 29,
+                    "Scale9Width": 202,
+                    "Scale9Height": 31,
+                    "OutlineColor": {
+                      "G": 0,
+                      "B": 0
+                    },
+                    "ShadowColor": {
+                      "R": 110,
+                      "G": 110,
+                      "B": 110
+                    },
+                    "ShadowOffsetX": 2.0,
+                    "ShadowOffsetY": -2.0,
+                    "TouchEnable": true,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 401.0,
+                      "Y": 41.8256
+                    },
+                    "Scale": {
+                      "ScaleX": 0.75,
+                      "ScaleY": 0.75
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.7909,
+                      "Y": 0.2324
+                    },
+                    "PreSize": {
+                      "X": 0.4576,
+                      "Y": 0.3944
+                    },
+                    "LeftMargin": 285.0,
+                    "RightMargin": -10.0,
+                    "TopMargin": 102.6744,
+                    "BottomMargin": 6.3256,
+                    "Tag": 372,
+                    "ActionTag": -1743315382,
+                    "Size": {
+                      "X": 232.0,
+                      "Y": 71.0
+                    },
+                    "Name": "btn",
+                    "ctype": "ButtonObjectData"
+                  },
+                  {
+                    "FontSize": 14,
+                    "ButtonText": "",
+                    "TextColor": {
+                      "R": 65,
+                      "G": 65,
+                      "B": 70
+                    },
+                    "DisabledFileData": {
+                      "Type": "Normal",
+                      "Path": "Common/btnClose.png",
+                      "Plist": ""
+                    },
+                    "PressedFileData": {
+                      "Type": "Normal",
+                      "Path": "Common/btnClose.png",
+                      "Plist": ""
+                    },
+                    "NormalFileData": {
+                      "Type": "Normal",
+                      "Path": "Common/btnClose.png",
+                      "Plist": ""
+                    },
+                    "Scale9Enable": true,
+                    "Scale9OriginX": 15,
+                    "Scale9OriginY": 11,
+                    "Scale9Width": 5,
+                    "Scale9Height": 13,
+                    "OutlineColor": {
+                      "G": 0,
+                      "B": 0
+                    },
+                    "ShadowColor": {
+                      "R": 110,
+                      "G": 110,
+                      "B": 110
+                    },
+                    "ShadowOffsetX": 2.0,
+                    "ShadowOffsetY": -2.0,
+                    "TouchEnable": true,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 473.6469,
+                      "Y": 141.3025
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.9342,
+                      "Y": 0.785
+                    },
+                    "PreSize": {
+                      "X": 0.069,
+                      "Y": 0.1944
+                    },
+                    "LeftMargin": 456.1469,
+                    "RightMargin": 15.8531,
+                    "TopMargin": 21.1975,
+                    "BottomMargin": 123.8025,
+                    "Tag": 91,
+                    "ActionTag": -2123983318,
+                    "Size": {
+                      "X": 35.0,
+                      "Y": 35.0
+                    },
+                    "Name": "btnClose",
+                    "ctype": "ButtonObjectData"
+                  }
+                ],
+                "ActionTag": -1220013796,
+                "Size": {
+                  "X": 507.0,
+                  "Y": 180.0
+                },
+                "Name": "big",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "Vip/bgExpired.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 100,
+                "Scale9OriginY": 25,
+                "Scale9Width": 26,
+                "Scale9Height": 1,
+                "TouchEnable": true,
+                "AnchorPoint": {},
+                "Position": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "PreSize": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "RightMargin": -226.0,
+                "TopMargin": -51.0,
+                "Tag": 87,
+                "Children": [
+                  {
+                    "FontSize": 14,
+                    "ButtonText": "",
+                    "TextColor": {
+                      "R": 65,
+                      "G": 65,
+                      "B": 70
+                    },
+                    "DisabledFileData": {
+                      "Type": "Default",
+                      "Path": "Default/Button_Disable.png",
+                      "Plist": ""
+                    },
+                    "PressedFileData": {
+                      "Type": "Default",
+                      "Path": "Default/Button_Press.png",
+                      "Plist": ""
+                    },
+                    "NormalFileData": {
+                      "Type": "Default",
+                      "Path": "Default/Button_Normal.png",
+                      "Plist": ""
+                    },
+                    "Scale9Enable": true,
+                    "Scale9OriginX": 15,
+                    "Scale9OriginY": 11,
+                    "Scale9Width": 16,
+                    "Scale9Height": 14,
+                    "OutlineColor": {
+                      "G": 0,
+                      "B": 0
+                    },
+                    "ShadowColor": {
+                      "R": 110,
+                      "G": 110,
+                      "B": 110
+                    },
+                    "ShadowOffsetX": 2.0,
+                    "ShadowOffsetY": -2.0,
+                    "TouchEnable": true,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 113.0,
+                      "Y": 25.5
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PositionPercentXEnabled": true,
+                    "PositionPercentYEnabled": true,
+                    "PrePosition": {
+                      "X": 0.5,
+                      "Y": 0.5
+                    },
+                    "PercentWidthEnable": true,
+                    "PercentHeightEnable": true,
+                    "PercentWidthEnabled": true,
+                    "PercentHeightEnabled": true,
+                    "PreSize": {
+                      "X": 1.0,
+                      "Y": 1.0
+                    },
+                    "Tag": 92,
+                    "ActionTag": 199953379,
+                    "Size": {
+                      "X": 226.0,
+                      "Y": 51.0
+                    },
+                    "Alpha": 0,
+                    "Name": "btnOpen",
+                    "ctype": "ButtonObjectData"
+                  },
+                  {
+                    "IsCustomSize": true,
+                    "FontSize": 23,
+                    "LabelText": "Đã hết hạn VIP 88",
+                    "FontResource": {
+                      "Type": "Normal",
+                      "Path": "Font/robotoBold.ttf",
+                      "Plist": ""
+                    },
+                    "VerticalAlignmentType": "VT_Center",
+                    "OutlineColor": {
+                      "G": 0,
+                      "B": 0
+                    },
+                    "ShadowColor": {
+                      "R": 110,
+                      "G": 110,
+                      "B": 110
+                    },
+                    "ShadowOffsetX": 2.0,
+                    "ShadowOffsetY": -2.0,
+                    "AnchorPoint": {
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 16.0,
+                      "Y": 24.5
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {
+                      "R": 76,
+                      "G": 77,
+                      "B": 199
+                    },
+                    "IconVisible": false,
+                    "PositionPercentYEnabled": true,
+                    "PrePosition": {
+                      "X": 0.0708,
+                      "Y": 0.4804
+                    },
+                    "PreSize": {
+                      "X": 0.8363,
+                      "Y": 0.5294
+                    },
+                    "LeftMargin": 16.0,
+                    "RightMargin": 21.0,
+                    "TopMargin": 13.0,
+                    "BottomMargin": 11.0,
+                    "Tag": 88,
+                    "ActionTag": -1440271401,
+                    "Size": {
+                      "X": 189.0,
+                      "Y": 27.0
+                    },
+                    "Name": "label",
+                    "ctype": "TextObjectData"
+                  }
+                ],
+                "ActionTag": -1099985550,
+                "Size": {
+                  "X": 226.0,
+                  "Y": 51.0
+                },
+                "Name": "small",
+                "ctype": "ImageViewObjectData"
+              }
+            ],
+            "ActionTag": 1753653825,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "expired",
+            "ctype": "PanelObjectData"
           }
         ],
         "Size": {
@@ -362,11 +912,15 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
+        "Common/btnClose.png",
+        "Common/btnYellow.png",
         "Default/Button_Disable.png",
         "Default/Button_Normal.png",
         "Default/Button_Press.png",
         "Font/robotoBold.ttf",
         "Font/robotoLight.ttf",
+        "Vip/bgExpired.png",
+        "Vip/bgExpiredBig.png",
         "Vip/iconLocker.png",
         "Vip/iconVpoint.png",
         "Vip/imgVipFree.png"

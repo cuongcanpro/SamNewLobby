@@ -75,7 +75,6 @@ var LocalNotification = cc.Class.extend({
     },
 
     cancelAllNotification: function () {
-        cc.log("cancel all notification")
         fr.platformWrapper.cancelAllNotification();
     },
 

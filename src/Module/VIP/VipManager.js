@@ -13,6 +13,14 @@ var VipManager = BaseMgr.extend({
         this.ratioGstarToVpoint = 1;
         this.benefitConfig = null;
         this.beanNeedSupportConfig = null;
+
+    },
+
+    init: function () {
+        //Add function to others event
+        dispatcherMgr.addListener(LobbyMgr.EVENT_ON_ENTER_FINISH, this, this.onEnterLobby);
+        dispatcherMgr.addListener(ReceivedManager.EVENT_CLOSE_GUI, this, VipManager.checkShowUpLevelVip);
+
         VipManager.preloadResource();
     },
 
@@ -20,17 +28,10 @@ var VipManager = BaseMgr.extend({
         this.updateTimeVip(dt);
     },
 
-    initListener: function () {
-        //Add function to others event
-        dispatcherMgr.addListener(LobbyMgr.EVENT_ON_ENTER_FINISH, this, this.onEnterLobby);
-        dispatcherMgr.addListener(ReceivedManager.EVENT_CLOSE_GUI, this, VipManager.checkShowUpLevelVip);
-
-        //Add event to my functions
-    },
-
     onEnterLobby: function () {
         this.checkShowDailyBonus();
         this.sendGetVipInfo();
+        this.vipTooltipLobby()
     },
 
     setConfig: function (config) {
@@ -46,7 +47,7 @@ var VipManager = BaseMgr.extend({
             vipData.price = vObj["" + i]["price"];
             vipData.rate = vObj["" + i]["rate"];
 
-            vipData.support = spObj["" + i];
+            //vipData.support = spObj["" + i];
 
             this.vipConfig.push(vipData);
         }
@@ -126,6 +127,20 @@ var VipManager = BaseMgr.extend({
             );
             this.saveDailyBonusGold(0);
         }
+    },
+
+    vipTooltipLobby: function () {
+        var scene = sceneMgr.getRunningScene().getMainLayer();
+        if (scene instanceof LobbyScene) {
+            cc.log("LobbyScene vipTooltipLobby");
+            if (!scene.vipTooltip) {
+                cc.log("CREATED vipTooltipLobby");
+                scene.vipTooltip = new VipTooltipLobby();
+                scene.vipTooltip.setPosition(cc.p(scene.imgVip.x, -10));
+                scene.getControl("bgVip", scene.pAvatar).addChild(scene.vipTooltip);
+            }
+        }
+        scene.vipTooltip.onEnterLobby();
     },
 
     getDailyBonusGold: function () {
@@ -263,6 +278,16 @@ var VipManager = BaseMgr.extend({
         switch (parseInt(type)) {
             case VipManager.BENEFIT_GOLD_INSTANT:
             case VipManager.BENEFIT_HOUR_INSTANT:
+                return true;
+        }
+        return false;
+    },
+
+    getIsUnlocked: function (type) {
+        switch (parseInt(type)) {
+            case VipManager.BENEFIT_SPECIAL_EFFECT:
+            case VipManager.BENEFIT_SPECIAL_INTERACTION:
+            case VipManager.BENEFIT_BONUS_FANPAGE:
                 return true;
         }
         return false;
@@ -568,19 +593,19 @@ VipManager.getRemainTimeString = function (remainTime, isNewFormat) {
     var enoughInfoTime = false;
     if (totalDay > 0) {
         remainTimeStr += strDays;
-        remainTimeStr += strHours;
+        remainTimeStr += " " + strHours;
         enoughInfoTime = true;
     }
 
     if (numHours > 0 && !enoughInfoTime) {
         remainTimeStr += strHours;
-        remainTimeStr += strMinutes;
+        remainTimeStr += " " + strMinutes;
         enoughInfoTime = true;
     }
 
     if (numMinutes > 0 && !enoughInfoTime) {
         remainTimeStr += strMinutes;
-        remainTimeStr += strSeconds;
+        remainTimeStr += " " + strSeconds;
         enoughInfoTime = true;
     }
 
@@ -691,7 +716,6 @@ VipManager.effectVipShopInfo = function (scene, isEffect) {
     scene.customButton("btnEnterVip", ShopIapScene.BTN_VIP, scene.pVip);
     scene.bgProgressVip = scene.getControl("bgProgress", scene.pVip);
     scene.imgVpoint = scene.getControl("imgVpoint", scene.pVip);
-    scene.imgVpoint.setVisible(false);
     scene.progressVip = scene.getControl("progressVip", scene.pVip);
     scene.txtProgress = scene.getControl("txtProgress", scene.pVip);
     scene.iconNextVip = scene.getControl("iconNextVip", scene.pVip);
@@ -784,7 +808,7 @@ VipManager.showUpLevelVipBonus = function (oldLevel, newLevel) {
                         info.push(new ReceivedGUIData(
                             ReceivedCell.TYPE_GOLD,
                             listBenefit[j]["value"],
-                            "Vàng"
+                            "Gold"
                         ));
                         break;
                     case VipManager.BENEFIT_HOUR_INSTANT:
@@ -889,6 +913,18 @@ VipManager.getInstance = function () {
 };
 
 var vipMgr = VipManager.getInstance();
+
+var NewVipManager = cc.Class.extend({
+
+})
+
+NewVipManager.checkShowUpLevelVip = function () {
+    VipManager.checkShowUpLevelVip();
+}
+
+NewVipManager.setWaiting = function (isWaiting) {
+
+}
 
 //----------------------------------------------------------------------------------------------------------------------
 

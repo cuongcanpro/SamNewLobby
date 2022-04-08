@@ -179,23 +179,23 @@ GameClient.destroyInstance = function () {
 
 GameClient.disconnectHandle = function () {
     fr.crashLytics.logGameClient("disconnectHandle");
-    if (!CheckLogic.checkInBoard()) {
-        sceneMgr.showOkCancelDialog(LocalizedString.to("_CONNECTFAILED_"), null, function (btnID) {
-            var checkPortal = false;
+    if (!inGameMgr.checkInBoard()) {
+        var dlg = sceneMgr.openGUI(GUIDisconnect.className, GUIDisconnect.ZODER, GUIDisconnect.TAG);
+        dlg.setMessage(LocalizedString.to("_CONNECTFAILED_"), null, function (btnID) {
+            var autoConnect = true;
             if (btnID == 0) {
                 // no action
             }
             else {
                 cc.sys.localStorage.setItem("autologin", -1);
-                checkPortal = true;
+                autoConnect = false;
             }
 
-            loginMgr.backToLoginScene(checkPortal);
+            loginMgr.backToLoginScene(autoConnect);
         });
     }
     else {
         CheckLogic.showNotifyNetworkSlow(true);
-
         GameClient.processRetryConnect();
     }
 };
@@ -207,20 +207,20 @@ GameClient.connectFailedHandle = function () {
     GameClient.destroyInstance();
 
     // notify
-    if (!CheckLogic.checkInBoard()) {
+    if (!inGameMgr.checkInBoard()) {
         sceneMgr.clearLoading();
         socialMgr.clearSession();
 
-        sceneMgr.showOkCancelDialog(LocalizedString.to("CONFIRM_CONNECT"), null, function (btnID) {
-            var checkPortal = false;
+        var dlg = sceneMgr.openGUI(GUIDisconnect.className, GUIDisconnect.ZODER, GUIDisconnect.TAG);
+        dlg.setMessage(LocalizedString.to("_CONNECTFAILED_"), null, function (btnID) {
+            var autoConnect = true;
             if (btnID == 0) {
             }
             else {
                 cc.sys.localStorage.setItem("autologin", -1);
-                checkPortal = true;
+                autoConnect = false;
             }
-
-            loginMgr.backToLoginScene(checkPortal);
+            loginMgr.backToLoginScene(autoConnect);
         });
     }
     else {
@@ -268,14 +268,15 @@ GameClient.showNetworkFail = function () {
         msg = LocalizedString.to("CHECK_NETWORK");
     }
 
-    sceneMgr.showOkCancelDialog(msg, null, function (btnID) {
+    var dlg = sceneMgr.openGUI(GUIDisconnect.className, GUIDisconnect.ZODER, GUIDisconnect.TAG);
+    dlg.setMessage(LocalizedString.to("_CONNECTFAILED_"), null, function (btnID) {
         if (btnID == 0) {
             GameClient.connectCount = 0;
             GameClient.getInstance().connect();
         }
         else {
             cc.sys.localStorage.setItem("autologin", -1);
-            loginMgr.backToLoginScene(true);
+            loginMgr.backToLoginScene(false);
         }
     });
 };

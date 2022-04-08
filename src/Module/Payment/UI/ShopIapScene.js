@@ -3,7 +3,6 @@
  */
 
 var ShopIapScene = BaseLayer.extend({
-
     ctor: function () {
         this.tabGold = null;
         this.tabG = null;
@@ -16,7 +15,11 @@ var ShopIapScene = BaseLayer.extend({
 
     initGUI: function () {
         this.bg = this.getControl("bg");
-        this.bg.setScale(cc.winSize.height / this.bg.getContentSize().height);
+        if (cc.winSize.width > this.bg.getContentSize().width) {
+            this.bg.setScaleX(cc.winSize.width / this.bg.getContentSize().width);
+        }
+        this.bg.setScaleY(cc.winSize.height / this.bg.getContentSize().height);
+        this.bg.setVisible(true);
 
         //main parts
         this.panelTop = this.getControl("panelTop");
@@ -24,17 +27,19 @@ var ShopIapScene = BaseLayer.extend({
         this.panelMaintain.setVisible(false);
 
         //top buttons
+        this.topButtons =[];
         this.btnGold = this.customButton("btnGold", ShopIapScene.BTN_GOLD, this.panelTop);
         this.btnGold.setPressedActionEnabled(false);
-
+        this.topButtons.push(this.btnGold);
         this.btnG = this.customButton("btnG", ShopIapScene.BTN_G, this.panelTop);
         this.btnG.setPressedActionEnabled(false);
-
-        this.btnTicket = this.customButton("btnTicket", ShopIapScene.BTN_TICKET, this.panelTop);
-        this.btnTicket.setPressedActionEnabled(false);
-
+        this.topButtons.push(this.btnG);
         this.btnItem = this.customButton("btnItem", ShopIapScene.BTN_ITEM, this.panelTop);
         this.btnItem.setPressedActionEnabled(false);
+        this.topButtons.push(this.btnItem);
+        this.btnTicket = this.customButton("btnTicket", ShopIapScene.BTN_TICKET, this.panelTop);
+        this.btnTicket.setPressedActionEnabled(false);
+        this.topButtons.push(this.btnTicket);
 
         this.btnGold.pos = this.btnGold.getPosition();
         this.btnG.pos = this.btnG.getPosition();
@@ -47,9 +52,12 @@ var ShopIapScene = BaseLayer.extend({
         this.title = this.getControl("title", this.panelTop);
 
         //user info layer
-        this.pUserInfo = new UserDetailInfo();
+        this.pUserInfo = new UserDetailInfo(true);
         this.addChild(this.pUserInfo);
-        this.pUserInfo.setPosition(cc.winSize.width - this.pUserInfo.getContentSize().width - 20, cc.winSize.height - this.pUserInfo.getContentSize().height - 20);
+        this.arrayTopRight = [];
+        this.arrayTopRight.push(this.pUserInfo.btnGold);
+        this.arrayTopRight.push(this.pUserInfo.btnCoin);
+        this.arrayTopRight.push(this.pUserInfo.btnDiamond);
 
         this.iconTicket = this.getControl("iconTicket");
         this._uiTicket = this.getControl("ticket");
@@ -68,14 +76,18 @@ var ShopIapScene = BaseLayer.extend({
 
         this.vipInfo = new VipShopInfo();
         this.panelTop.addChild(this.vipInfo);
-        this.vipInfo.setPosition(cc.winSize.width - this.vipInfo.getContentSize().width, 0);
+        this.vipInfo.setPosition(
+            cc.winSize.width - this.vipInfo.getContentSize().width - 15, 0);
 
         // config common
         this.setBackEnable(true);
+
+        dispatcherMgr.addListener(ReceivedManager.EVENT_CLOSE_GUI, this, this.updateVipInfo);
     },
 
     onEnterFinish: function () {
         cc.log(" ******* ON ENTER FINISH SHOP IAP SCENE ******* ");
+        this.effectIn();
 
         //this.getControl("btnHelp").setVisible(!paymentMgr.checkInReview());
         this.updateToCurrentData();
@@ -91,14 +103,85 @@ var ShopIapScene = BaseLayer.extend({
         this.tabGold.onEnterFinish();
         this.tabG.onEnterFinish();
         this.tabTicket.onEnterFinish();
-        cc.log("VAO DEN DAY *** ");
         this.tabItem.onEnterFinish();
         this.updateEventInfo();
     },
 
+    effectIn: function () {
+        var effectTime = 0.5;
+        var delayTime = 0;
+
+        var btnClose = this.getControl("btnClose", this.panelTop);
+        btnClose.stopAllActions();
+        btnClose.setPosition(cc.p(btnClose.defaultPos.x, this.panelTop.height + btnClose.width * 0.5));
+        btnClose.setOpacity(0);
+        btnClose.runAction(cc.sequence(
+            cc.delayTime(delayTime),
+            cc.spawn(
+                cc.fadeIn(effectTime * 0.5).easing(cc.easeOut(2.5)),
+                cc.moveTo(effectTime, btnClose.defaultPos).easing(cc.easeBackOut())
+            )
+        ));
+        delayTime += 0.1;
+
+        this.title.stopAllActions();
+        this.title.setPosition(cc.p(this.title.defaultPos.x, this.panelTop.height + this.title.width * 0.5));
+        this.title.setOpacity(0);
+        this.title.runAction(cc.sequence(
+            cc.delayTime(delayTime),
+            cc.spawn(
+                cc.fadeIn(effectTime * 0.5).easing(cc.easeOut(2.5)),
+                cc.moveTo(effectTime, this.title.defaultPos).easing(cc.easeBackOut())
+            )
+        ));
+        delayTime += 0.1;
+
+        for (var i = 0; i < this.arrayTopRight.length; i++) {
+            var comp = this.arrayTopRight[i];
+            comp.y = 200;
+            comp.setOpacity(0);
+            comp.runAction(cc.sequence(
+                cc.delayTime(delayTime),
+                cc.spawn(
+                    cc.fadeIn(effectTime * 0.5).easing(cc.easeOut(2.5)),
+                    cc.moveBy(effectTime, 0, -200).easing(cc.easeBackOut())
+                )
+            ));
+            delayTime += 0.1;
+        }
+
+        this.vipInfo.stopAllActions();
+        this.vipInfo.setPosition(cc.p(this.vipInfo.x, this.panelTop.height));
+        this.vipInfo.setOpacity(0);
+        this.vipInfo.runAction(cc.sequence(
+            cc.delayTime(delayTime),
+            cc.spawn(
+                cc.fadeIn(effectTime * 0.5).easing(cc.easeOut(2.5)),
+                cc.moveTo(effectTime, cc.p(this.vipInfo.x, 0)).easing(cc.easeBackOut())
+            )
+        ));
+        delayTime += 0.1;
+
+        for (var i = 0; i < this.topButtons.length; i++) {
+            var tab = this.topButtons[i];
+            tab.stopAllActions();
+            tab.y = -tab.height / 2;
+            tab.runAction(cc.sequence(
+                cc.delayTime(0.1 * i),
+                cc.callFunc(function () {
+                    this.runAction(cc.moveTo(0.1, this.isEnabled()?
+                        cc.p(this.defaultPos.x, this.defaultPos.y - 15) : this.defaultPos).easing(cc.easeOut(2.5))
+                    );
+                }.bind(tab))
+            ));
+        }
+    },
+
     updateToCurrentData: function () {
         this.pUserInfo.updateToCurrentData();
-        this.pUserInfo.setPosition(cc.winSize.width - this.pUserInfo.getContentSize().width - 20, cc.winSize.height - this.pUserInfo.getContentSize().height - 20);
+        this.pUserInfo.setPosition(
+            cc.winSize.width,
+            cc.winSize.height - UserDetailInfo.PAD_TOP);
     },
 
     onExit: function () {
@@ -182,19 +265,25 @@ var ShopIapScene = BaseLayer.extend({
         this.tabGold.setVisible(false);
         this.tabTicket.setVisible(false);
         this.tabItem.setVisible(false);
-        var resourceGold = (idTab == ShopIapScene.BTN_GOLD ? "ShopIAP/BtnTab/btnTabGoldActive.png" : "ShopIAP/BtnTab/btnTabGoldInactive.png");
-        var resourceG = (idTab == ShopIapScene.BTN_G ? "ShopIAP/BtnTab/btnTabGActive.png" : "ShopIAP/BtnTab/btnTabGInactive.png");
-        var resourceTicket = (idTab == ShopIapScene.BTN_TICKET ? "ShopIAP/BtnTab/btnTabEventActive.png" : "ShopIAP/BtnTab/btnTabEventInactive.png");
-        var resourceItem = (idTab == ShopIapScene.BTN_ITEM) ? "ShopIAP/BtnTab/btnTabItemActive.png" : "ShopIAP/BtnTab/btnTabItemInactive.png";
-        this.btnGold.loadTextures(resourceGold, resourceGold, resourceGold);
-        this.btnG.loadTextures(resourceG, resourceG, resourceG);
-        this.btnTicket.loadTextures(resourceTicket, resourceTicket, resourceTicket);
-        this.btnItem.loadTextures(resourceItem, resourceItem, resourceItem);
-        this.btnGold.setLocalZOrder(idTab == ShopIapScene.BTN_GOLD ? 5 : 4);
-        this.btnG.setLocalZOrder(idTab == ShopIapScene.BTN_G ? 5 : 3);
-        this.btnItem.setLocalZOrder(idTab == ShopIapScene.BTN_ITEM ? 5 : 2);
-        this.btnTicket.setLocalZOrder(idTab == ShopIapScene.BTN_TICKET ? 5 : 1);
+
+        for (var i = 0; i < this.topButtons.length; i++) {
+            var isSelected = idTab === this.topButtons[i].getTag();
+            this.topButtons[i].setEnabled(!isSelected);
+            this.topButtons[i].setLocalZOrder(this.topButtons.length - Math.abs(this.topButtons[i].getTag() - idTab));
+
+            this.topButtons[i].stopAllActions();
+            if (!isSelected) {
+                this.topButtons[i].runAction(cc.moveTo(0.1,
+                    this.topButtons[i].defaultPos.x,
+                    this.topButtons[i].defaultPos.y - 15
+                ).easing(cc.easeOut(2.5)));
+            } else {
+                this.topButtons[i].runAction(cc.moveTo(0.15, this.topButtons[i].defaultPos).easing(cc.easeOut(2.5)));
+            }
+        }
+
         this.currentIdTab = idTab;
+
         if (this.currentIdTab == ShopIapScene.BTN_TICKET) {
             this.iconTicket.setVisible(true);
             this.pUserInfo.setVisible(false);
@@ -202,6 +291,7 @@ var ShopIapScene = BaseLayer.extend({
             this.iconTicket.setVisible(false);
             this.pUserInfo.setVisible(true);
         }
+
         switch (idTab) {
             case ShopIapScene.BTN_GOLD:
                 this.currentTab = this.tabGold;
@@ -243,14 +333,20 @@ var ShopIapScene = BaseLayer.extend({
 
     },
 
+    onButtonTouched: function (btn, id) {
+        switch (id) {
+            case ShopIapScene.BTN_GOLD:
+            case ShopIapScene.BTN_G:
+            case ShopIapScene.BTN_TICKET: {
+                break;
+            }
+        }
+    },
+
     onButtonRelease: function (btn, id) {
         switch (id) {
             case ShopIapScene.BTN_CLOSE: {
                 this.onBack();
-                break;
-            }
-            case ShopIapScene.BTN_HELP: {
-                sceneMgr.openGUI(VipHelpScene.className, VipHelpScene.TAG, VipHelpScene.TAG);
                 break;
             }
             case ShopIapScene.BTN_VIP: {
@@ -349,8 +445,8 @@ ShopIapScene.BTN_VIP = 3;
 ShopIapScene.BTN_USERINFO = 4;
 ShopIapScene.BTN_GOLD = 10;
 ShopIapScene.BTN_G = 11;
-ShopIapScene.BTN_TICKET = 12;
-ShopIapScene.BTN_ITEM = 13;
+ShopIapScene.BTN_ITEM = 12;
+ShopIapScene.BTN_TICKET = 13;
 
 ShopIapScene.TAB_GPLAY = 11;
 ShopIapScene.TAB_NAPG = 12;

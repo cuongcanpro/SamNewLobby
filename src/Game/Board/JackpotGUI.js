@@ -8,8 +8,8 @@ var JackpotGUI = BaseLayer.extend({
     },
 
     customizeGUI: function () {
-        this.bg = this.getControl("panel", this._layout)
-        //this.bg = this.getControl("bg", this._layout);
+        // this.bg = this.getControl("panel", this._layout)
+        this.bg = this.getControl("bg", this._layout);
         this.customButton("btnQuit", ChooseRoomScene.BTN_QUIT, this.bg);
         var jpTitle = this.getControl("jptitle", this.bg);
         this.createAnim(jpTitle, "JackpotLogo");
@@ -19,7 +19,7 @@ var JackpotGUI = BaseLayer.extend({
 
     onEnterFinish: function () {
         this.onUpdateGUI();
-        this.setShowHideAnimate(this.bg, true);
+        this.setShowHideAnimate(this.bg);
     },
 
     createAnim: function (control, anim) {
@@ -35,6 +35,7 @@ var JackpotGUI = BaseLayer.extend({
         if (eff) {
             control.addChild(eff);
             eff.setPosition(control.getContentSize().width / 2, control.getContentSize().height / 2);
+            eff.setScale(1.5);
             control.anim = eff;
         }
         return eff;
@@ -87,10 +88,24 @@ var JackpotGUI = BaseLayer.extend({
                     if (count <= 10 + this.n * 3) {
                         this.setString((l % 10).toString());
                         this.y = 1;
-                        this.runAction(new cc.Sequence(new cc.Spawn(new cc.ScaleTo(0, 1, 0.15), new cc.MoveTo(0, this.x, this.yy + 24))
-                            , new cc.Spawn(new cc.ScaleTo(0.02, 1, 1), new cc.MoveTo(0.025, this.x, this.yy + 3))
-                            , new cc.Spawn(new cc.ScaleTo(0.01, 1, 1), new cc.MoveTo(0.025, this.x, this.yy - 3))
-                            , new cc.Spawn(new cc.ScaleTo(0.02, 1, 0.25), new cc.MoveTo(0.025, this.x, this.yy - 16))));
+                        this.runAction(cc.sequence(
+                            cc.spawn(
+                                cc.scaleTo(0, 1, 0.15),
+                                cc.moveTo(0, this.x, this.yy + 24)
+                            ),
+                            cc.spawn(
+                                cc.scaleTo(0.02, 1, 1),
+                                cc.moveTo(0.025, this.x, this.yy + 3)
+                            ),
+                            cc.spawn(
+                                cc.scaleTo(0.01, 1, 1),
+                                cc.moveTo(0.025, this.x, this.yy - 3)
+                            ),
+                            cc.spawn(
+                                cc.scaleTo(0.02, 1, 0.25),
+                                cc.moveTo(0.025, this.x, this.yy - 16)
+                            )
+                        ));
                     } else {
                         this.setString(this.g.toString());
                         this.stopAllActions();
@@ -251,7 +266,7 @@ var JackpotWinGUI = BaseLayer.extend({
                     1,
                     [startPos, cc.p(startPos.x / 2 + pos.x / 2, -pos.y), pos]
                 ).easing(cc.easeIn(2)),
-                cc.scaleTo(1, 0.2)
+                cc.scaleTo(1, 0.3)
             ),
             cc.callFunc(function () {
                 UPDATING_JACKPOT = false;
@@ -259,6 +274,7 @@ var JackpotWinGUI = BaseLayer.extend({
                     sceneMgr.getRunningScene().getMainLayer().updateJackpotGUI();
             }),
             cc.delayTime(0.5),
+            cc.fadeOut(0.25),
             cc.callFunc(function () {
                 this.onClose();
             }, this)
@@ -306,7 +322,7 @@ var JackpotWin5GUI = BaseLayer.extend({
 
     customizeGUI: function () {
         var bg = this.getControl("bg", this._layout);
-        this.win5 = bg.getChildByTag(JackpotWin5GUI.TAG_WIN5);
+        this.win5 = this.getControl("Win5", bg);
         this.win5.setLocalZOrder(1000);
         this.win5.setVisible(false);
         this.customButton("btnQuit", JackpotWin5GUI.BTN_QUIT, bg);
@@ -335,40 +351,43 @@ var JackpotWin5GUI = BaseLayer.extend({
     onUpdateGUI: function (status, data) {
         if (status == "win5") {// an dc vien thu 5
             this.setFog(true);
-            this.runAction(new cc.Sequence(cc.delayTime(3), new cc.CallFunc(function () {
-                if (sceneMgr.getRunningScene().getMainLayer().updateJackpotGUI)
-                    sceneMgr.getRunningScene().getMainLayer().updateJackpotGUI();
-                this.setVisible(true);
-                this.getControl("bg", this._layout).setVisible(false);
-                this.createAnim(this, "FiveDiamond");
-                this.anim.setVisible(true);
-                this.anim.gotoAndPlay((channelMgr.getSelectedChannel() + 1).toString(), -1);
-                this.anim.setCompleteListener(function () {
-                    this.anim.setVisible(false);
-                    this.win5.setVisible(true);
-                    var bg = this.getControl("bg", this._layout);
-                    bg.setVisible(true);
-                    this.createAnim(bg, "Jackpot");
-                    bg.anim.getAnimation().gotoAndPlay("1", -1);
-                    this.setChannel(channelMgr.getSelectedChannel());
-                    this.setJackpotTotalUI(data.jackpot);
-                    this.runAction(new cc.Sequence(cc.delayTime(1), new cc.CallFunc(function () {
-                        effectMgr.dropCoinEffect(this, 200, cc.p(cc.winSize.width / 2, cc.winSize.height / 3));
-                    }, this)));
-                }.bind(this));
-
-            }, this)));
-
+            this.runAction(cc.sequence(
+                cc.delayTime(3),
+                cc.callFunc(function () {
+                    if (sceneMgr.getRunningScene().getMainLayer().updateJackpotGUI)
+                        sceneMgr.getRunningScene().getMainLayer().updateJackpotGUI();
+                    this.setVisible(true);
+                    this.getControl("bg", this._layout).setVisible(false);
+                    this.createAnim(this, "FiveDiamond");
+                    this.anim.setVisible(true);
+                    this.anim.gotoAndPlay((channelMgr.getSelectedChannel() + 1).toString(), -1);
+                    this.anim.setCompleteListener(function () {
+                        this.anim.setVisible(false);
+                        this.win5.setVisible(true);
+                        var bg = this.getControl("bg", this._layout);
+                        bg.setVisible(true);
+                        this.createAnim(bg, "Jackpot");
+                        bg.anim.setScale(1.5);
+                        bg.anim.getAnimation().gotoAndPlay("1", -1);
+                        this.setChannel(channelMgr.getSelectedChannel());
+                        this.setJackpotTotalUI(data.jackpot);
+                        this.runAction(cc.sequence(
+                            cc.delayTime(1),
+                            cc.callFunc(function () {
+                                effectMgr.dropCoinEffect(this, 200, cc.p(cc.winSize.width / 2, cc.winSize.height / 3));
+                            }, this)
+                        ));
+                    }.bind(this));
+                }, this)
+            ));
         }
     },
     setChannel: function (channel) {
-        var bg = this.getControl("bg", this._layout);
         var config = jackpotMgr.getJackpotConfig(channel);
         var channelGUI = this.getControl("channel", this.win5);
         channelGUI.loadTexture(config.channel);
     },
     setJackpotTotalUI: function (jackpot) {
-        var bg = this.getControl("bg", this._layout);
         var jackpotGUI = this.getControl("jackpot", this.win5);
         jackpotGUI.setString("$" + StringUtility.standartNumber(jackpot.toString()));
     },
@@ -453,15 +472,6 @@ var JackpotInBoardGUI = BaseLayer.extend({
         this.initWithBinaryFile("JackpotInBoardGUI.json");
     },
 
-    onEnterFinish: function () {
-        //this.onUpdateGUI();
-        //this.setFog(true);
-    },
-
-    customizeGUI: function () {
-    }
-    ,
-
     createAnim: function (control, anim) {
         cc.log(anim);
         if (control === undefined || control == null || anim === undefined || anim == "") return null;
@@ -481,39 +491,48 @@ var JackpotInBoardGUI = BaseLayer.extend({
     },
 
     onUpdateGUI: function (data) {
-        this.runAction(new cc.Sequence(cc.delayTime(3), new cc.CallFunc(function () {
-            if (sceneMgr.getRunningScene().getMainLayer().updateJackpotGUI)
-                sceneMgr.getRunningScene().getMainLayer().updateJackpotGUI();
-            var localChair = inGameMgr.gameLogic.convertChair(data.chair);
-            var gameBoard = sceneMgr.getRunningScene().getMainLayer();
-            var playerPanel = null;
-            if (gameBoard instanceof BoardScene) {
-                playerPanel = ccui.Helper.seekWidgetByName(gameBoard._layout, "panel" + localChair.toString());
-            }
-            cc.log("local chair", localChair);
-            var node = this._layout.getChildByTag(190);
-            var jp = ccui.Helper.seekWidgetByName(node, localChair.toString());
-            if (playerPanel) {
-                var icon = playerPanel.getChildByName("btn");
-                var deltaPosY = icon.getContentSize().height / 4;
-                var wPos = playerPanel.convertToWorldSpace(icon.getPosition());
-                var nPos = node.convertToNodeSpace(wPos);
-                nPos.y += deltaPosY;
-                jp.setPosition(nPos);
-            }
-            this.createAnim(jp, "GetJackpot");
-            jp.anim.getAnimation().gotoAndPlay((channelMgr.getSelectedChannel() + 1).toString());
-            var jptotal = ccui.Helper.seekWidgetByName(jp, "jp" + localChair.toString());
-            jptotal.setString("$" + StringUtility.standartNumber(data.jackpot));
-            jptotal.setLocalZOrder(1000);
-            jp.setVisible(true);
-            jp.runAction(new cc.Sequence(cc.delayTime(5), cc.callFunc(function () {
-                this.setVisible(false);
-            }, jp), cc.callFunc(function () {
-                this.onClose();
-            }, this)));
-
-        }, this)));
+        this.runAction(cc.sequence(
+            cc.delayTime(3),
+            cc.callFunc(function () {
+                if (sceneMgr.getRunningScene().getMainLayer().updateJackpotGUI)
+                    sceneMgr.getRunningScene().getMainLayer().updateJackpotGUI();
+                var localChair = inGameMgr.gameLogic.convertChair(data.chair);
+                var gameBoard = sceneMgr.getRunningScene().getMainLayer();
+                var playerPanel = null;
+                if (gameBoard instanceof BoardScene) {
+                    playerPanel = ccui.Helper.seekWidgetByName(gameBoard._layout, "panel" + localChair.toString());
+                }
+                cc.log("local chair", localChair);
+                var node = this._layout.getChildByName("imgGetJackpot");
+                var jp = ccui.Helper.seekWidgetByName(node, localChair.toString());
+                if (playerPanel) {
+                    var icon = playerPanel.getChildByName("btn");
+                    var deltaPosY = icon.getContentSize().height / 4;
+                    var wPos = playerPanel.convertToWorldSpace(icon.getPosition());
+                    var nPos = node.convertToNodeSpace(wPos);
+                    nPos.y += deltaPosY;
+                    jp.setPosition(nPos);
+                }
+                this.createAnim(jp, "GetJackpot");
+                jp.anim.getAnimation().gotoAndPlay((channelMgr.getSelectedChannel() + 1).toString());
+                var jptotal = ccui.Helper.seekWidgetByName(jp, "jp" + localChair.toString());
+                jptotal.setString("$" + StringUtility.standartNumber(data.jackpot));
+                jptotal.setLocalZOrder(1000);
+                jp.stopAllActions();
+                jp.setVisible(true);
+                jp.setOpacity(255);
+                jp.runAction(cc.sequence(
+                    cc.delayTime(5),
+                    cc.fadeOut(0.25),
+                    cc.callFunc(function () {
+                        this.setVisible(false);
+                    }, jp),
+                    cc.callFunc(function () {
+                        this.onClose();
+                    }, this)
+                ));
+            }, this)
+        ));
     },
 
     setJackpotTotalUI: function (jackpot) {

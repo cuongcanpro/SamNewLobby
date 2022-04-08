@@ -9,6 +9,7 @@ TabGoldPayment = BaseTabShop.extend({
 
     onEnterFinish: function () {
         this._super();
+        cc.log("SHOP GOLD SELECT " + this.selectedTab);
         if (this.selectedTab < 0) {
             this.selectTabMostBought();
         } else {

@@ -2,7 +2,7 @@ var WChallengeBonusPopup = BaseLayer.extend({
     ctor: function () {
         this._super(WChallengeBonusPopup.className);
 
-        this.initWithBinaryFile("res/EventMgr/WeeklyChallenge/WeeklyChallengeBonusPopup.json");
+        this.initWithBinaryFile("res/Event/WeeklyChallenge/WeeklyChallengeBonusPopup.json");
 
     },
 

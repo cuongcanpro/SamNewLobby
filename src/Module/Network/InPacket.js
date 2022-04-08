@@ -188,29 +188,6 @@ var CmdReceivedCommon = engine.InPacket.extend({
     }
 });
 
-CmdReceiveMobile = CmdReceivedCommon.extend({
-    ctor: function (pkg) {
-        this._super(pkg);
-        this.readData();
-    },
-    readData: function () {
-        this.version = this.getString();
-        this.enablepayment = this.getBool();
-
-        try {
-            this.payments = this.getBools();
-
-            if (this.payments.length <= 3)
-                this.payments.push(false);
-            //   this.payments[3] = false;
-            cc.log(" Payments : " + JSON.stringify(this.payments));
-        } catch (e) {
-            cc.log("Server old: " + e);
-            this.payments = [false, false, true];
-        }
-
-    }
-});
 
 CmdReceiveBuyGold = CmdReceivedCommon.extend({
     ctor: function (pkg) {
@@ -480,26 +457,3 @@ CmdReceivedTrackLogZaloPay.PAY = 3;
 
 
 
-CmdReceivedNotifyEventRegister = CmdReceivedCommon.extend({
-    ctor: function (pkg) {
-        this._super(pkg);
-        this.readData();
-    },
-    readData: function () {
-        this.eventId = this.getString();
-        this.giftId = this.getInt();
-        this.giftName = this.getString();
-    }
-});
-
-CmdReceivedSendEventRegister = CmdReceivedCommon.extend({
-    ctor: function (pkg) {
-        this._super(pkg);
-        this.readData();
-    },
-    readData: function () {
-        this.eventId = this.getString();
-        this.giftId = this.getInt();
-        this.giftName = this.getString();
-    }
-});

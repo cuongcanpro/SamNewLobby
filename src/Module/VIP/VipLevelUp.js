@@ -141,7 +141,6 @@ var VipLevelUp = BaseLayer.extend({
 
     onButtonRelease: function (button, id) {
         this.btnClose.setVisible(false);
-        this.lbGuide.setVisible(false);
         vipMgr.checkShowDailyBonus();
         VipManager.showUpLevelVipBonus(this.oldLevel, this.newLevel);
     },
@@ -155,6 +154,7 @@ var VipLevelUp = BaseLayer.extend({
     },
 
     effectReceived: function () {
+        this.lbGuide.setVisible(false);
         this.benefit.runEffectReceive();
         setTimeout(function () {
             this.onClose();

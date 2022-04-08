@@ -105,15 +105,19 @@ var GiftCodeScene = BaseLayer.extend({
     },
 
     customizeGUI : function () {
-        var bg = ccui.Helper.seekWidgetByName(this._layout,"bg");
-        this._bg = bg;
+        var panel = ccui.Helper.seekWidgetByName(this._layout,"panel");
+        this._bg = panel;
 
-        this.customizeButton("btnClose",GiftCodeScene.BTN_CLOSE,bg);
-        this.customizeButton("btnInput",GiftCodeScene.BTN_INPUT,bg);
-        this.customizeButton("btnGet",GiftCodeScene.BTN_GET,bg);
+        var bg = ccui.Helper.seekWidgetByName(this._bg,"bg");
+        bg.setLocalZOrder(3);
 
-        this._btnGet = ccui.Helper.seekWidgetByName(bg,"btnGet");
-        this._btnInput = ccui.Helper.seekWidgetByName(bg,"btnInput");
+        this.customizeButton("btnClose", GiftCodeScene.BTN_CLOSE, bg);
+        this.customizeButton("btnInput", GiftCodeScene.BTN_INPUT, panel);
+        this.customizeButton("btnGet", GiftCodeScene.BTN_GET, panel);
+
+        this._btnGet = this.getControl("btnGet", panel);
+        this._btnInput = this.getControl("btnInput", panel);
+
         this._btnGet.setPressedActionEnabled(false);
         this._btnInput.setPressedActionEnabled(false);
 
@@ -137,6 +141,8 @@ var GiftCodeScene = BaseLayer.extend({
         if (!cc.sys.isNative){
             this._lbNotice.setColor(cc.color(182, 186, 229));
         }
+
+        this._bg.y = cc.winSize.height * 0.5 - this._btnGet.height * 0.5;
 
         this.setFog(true);
         this.setBackEnable(true);
@@ -166,16 +172,24 @@ var GiftCodeScene = BaseLayer.extend({
         this._panelGet.setVisible(tab == GiftCodeScene.TAB_GET);
         this._panelInput.setVisible(tab == GiftCodeScene.TAB_INPUT);
 
-        if(tab == GiftCodeScene.TAB_GET)
-        {
+        if(tab == GiftCodeScene.TAB_GET) {
             this._btnGet.loadTextures("GiftCodeGUI/tabGet.png","GiftCodeGUI/tabGet.png","");
-            this._btnInput.loadTextures("GiftCodeGUI/tabInputDisable.png","GiftCodeGUI/tabInputDisable.png","");
-        }
+            this._btnGet.setLocalZOrder(2);
+            this._btnGet.runAction(cc.moveTo(0.1, this._btnGet.defaultPos.x, this._btnGet.defaultPos.y));
 
-        if(tab == GiftCodeScene.TAB_INPUT)
+            this._btnInput.loadTextures("GiftCodeGUI/tabInputDisable.png","GiftCodeGUI/tabInputDisable.png","");
+            this._btnInput.setLocalZOrder(1);
+            this._btnInput.runAction(cc.moveTo(0.1, this._btnInput.defaultPos.x, this._btnInput.defaultPos.y - 8));
+        }
+        else if(tab == GiftCodeScene.TAB_INPUT)
         {
             this._btnGet.loadTextures("GiftCodeGUI/tabGetDisable.png","GiftCodeGUI/tabGetDisable.png","");
+            this._btnGet.setLocalZOrder(1);
+            this._btnGet.runAction(cc.moveTo(0.1, this._btnGet.defaultPos.x, this._btnGet.defaultPos.y - 8));
+
             this._btnInput.loadTextures("GiftCodeGUI/tabInput.png","GiftCodeGUI/tabInput.png","");
+            this._btnInput.setLocalZOrder(2);
+            this._btnInput.runAction(cc.moveTo(0.1, this._btnInput.defaultPos.x, this._btnInput.defaultPos.y));
         }
     },
 

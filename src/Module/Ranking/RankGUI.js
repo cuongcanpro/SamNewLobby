@@ -24,6 +24,8 @@ var RankGUI = BaseLayer.extend({
         this.pCurLevel.level.ignoreContentAdaptWithSize(true);
         this.pCurLevel.txtRank = this.getControl("txtCurRank", this.pCurLevel);
         this.pCurLevel.txtRank.ignoreContentAdaptWithSize(true);
+        this.pCurLevel.imgRankTitle = this.getControl("imgRankTitle", this.pCurLevel);
+        this.pCurLevel.imgRankTitle.ignoreContentAdaptWithSize(true);
         this.pCurLevel.pLayer = this.getControl("pLayer", this.pCurLevel);
         var processBg = this.getControl("processBg", this.pCurLevel);
         this.pCurLevel.process = this.getControl("processImg", processBg);
@@ -34,6 +36,8 @@ var RankGUI = BaseLayer.extend({
         //pNextLevel
         this.pNextLevel = this.getControl("pNextLevel", this.bg);
         this.pNextLevel.imgRank = this.getControl("imgNextRank", this.pNextLevel);
+        this.pNextLevel.imgRankTitle = this.getControl("imgRankTitle", this.pNextLevel);
+        this.pNextLevel.imgRankTitle.ignoreContentAdaptWithSize(true);
         this.pNextLevel.level = this.getControl("level", this.pNextLevel.imgRank);
         this.pNextLevel.level.ignoreContentAdaptWithSize(true);
         this.pNextLevel.txtRank = this.getControl("nameNextRank", this.pNextLevel);
@@ -337,10 +341,11 @@ var RankGUI = BaseLayer.extend({
                 break;
             }
             case RankGUI.BTN_CHEAT_EFX_RESULT: {
-                var gui = sceneMgr.openGUI(RankResultGUI.className, RankResultGUI.TAG, RankResultGUI.TAG, false);
+                // this.runEffectChangeCup(1000, 3000, 3, 8);
 
+                var gui = sceneMgr.openGUI(RankResultGUI.className, RankResultGUI.TAG, RankResultGUI.TAG, false);
                 // var dataTruCup = {
-                //     cup: 20000,
+                //     cup: 2500,
                 //     oldCup: 21000,
                 //     offlineWeek: 5
                 // };
@@ -350,14 +355,15 @@ var RankGUI = BaseLayer.extend({
                     oldCup: 1000,
                     cup: 1500,
                     goldGift: 25000,
-                    packId: 2,
-                    rankIdx: 5,
+                    packId: 0,
+                    rankIdx: 10,
                     goldWinLastWeek: 15000,
                     silverMedal: 1,
                     bronzeMedal: 5,
                     goldMedal: 2
                 };
                 gui.updateResult(resultLastWeek);
+
                 break;
             }
             case RankGUI.BTN_CHEAT_MINI_RANK: {
@@ -451,6 +457,7 @@ var RankGUI = BaseLayer.extend({
         var levelTexture = RankData.getRankLevelImg(rank);
         panel.level.loadTexture(levelTexture, ccui.Widget.LOCAL_TEXTURE);
         panel.txtRank.setString(RankData.getRankName(rank));
+        panel.imgRankTitle.loadTexture(RankData.getRankNameImg(rank));
     },
 
     updateDetailRankInfo: function (isCurWeek) {
@@ -585,7 +592,7 @@ var RankGUI = BaseLayer.extend({
             idx
         );
         var bg = new ccui.ImageView("Ranking/" + bgTexture, ccui.Widget.LOCAL_TEXTURE);
-        cc.log("tableCellSizeForIndex", bgTexture, this.sTableRank.getViewSize().width, bg.height + RankGUI.PADDING_CELL)
+        cc.log("tableCellSizeForIndex", idx);
         return cc.size(this.sTableRank.getViewSize().width, bg.height + RankGUI.PADDING_CELL);
     },
 
@@ -843,8 +850,8 @@ var RankGUI = BaseLayer.extend({
     makeIconRank: function (curRank, isUpLevel) {
         var texture = RankData.getRankImg(curRank);
         var levelTexture = RankData.getRankLevelImg(curRank);
-        var curRankSprite = new cc.Sprite("#" + texture);
-        var curLevelSprite = new cc.Sprite("#" + levelTexture);
+        var curRankSprite = new cc.Sprite(texture);
+        var curLevelSprite = new cc.Sprite(levelTexture);
         if (isUpLevel)
             curRankSprite.addChild(curLevelSprite);
         curLevelSprite.setPosition(curRankSprite.getContentSize().width / 2, curRankSprite.getContentSize().height * 1.05);
@@ -863,33 +870,6 @@ var RankGUI = BaseLayer.extend({
         nextBtn.loadTextures(textureNextBtn, textureNextBtn, "", ccui.Widget.LOCAL_TEXTURE);
         curBtn.setTouchEnabled(true);
         nextBtn.setTouchEnabled(false);
-
-        // curBtn.removeAllChildren();
-        // curBtn.stopAllActions();
-        // curBtn.setPositionX(this.btnIndividual.defaultPos.x);
-        // curBtn.setLocalZOrder(1);
-        // curBtn.addChild(new ccui.ImageView(this.getButtonTexture(curBtn.getTag(), true), ccui.Widget.LOCAL_TEXTURE), 0, 0);
-        // curBtn.getChildByTag(0).setAnchorPoint(0, 0);
-        // curBtn.getChildByTag(0).runAction(cc.sequence(cc.fadeOut(duration), cc.removeSelf()));
-        // curBtn.runAction(cc.sequence(
-        //     cc.moveBy(duration/5, -12, 0),
-        //     cc.callFunc(function(){this.setLocalZOrder(0);}.bind(curBtn)),
-        //     cc.moveTo(duration * 4/5, this.btnTop.defaultPos),
-        //     cc.callFunc(function(){this.setTouchEnabled(true);}.bind(curBtn))
-        // ));
-
-        // nextBtn.removeAllChildren();
-        // nextBtn.stopAllActions();
-        // nextBtn.setPositionX(this.btnTop.defaultPos.x);
-        // nextBtn.setLocalZOrder(0);
-        // nextBtn.addChild(new ccui.ImageView(this.getButtonTexture(nextBtn.getTag(), false), ccui.Widget.LOCAL_TEXTURE), 0, 0);
-        // nextBtn.getChildByTag(0).setAnchorPoint(0, 0);
-        // nextBtn.getChildByTag(0).runAction(cc.sequence(cc.fadeOut(duration), cc.removeSelf()));
-        // nextBtn.runAction(cc.sequence(
-        //     cc.moveBy(duration/5, 12, 0),
-        //     cc.callFunc(function(){this.setLocalZOrder(1);}.bind(nextBtn)),
-        //     cc.moveTo(duration * 4/5, this.btnIndividual.defaultPos)
-        // ));
     },
 
     updateBackground: function(isTopRank) {
@@ -1077,7 +1057,7 @@ var ItemDecor = cc.Node.extend({
         this._super();
 
         var randomIdx = Math.floor(Math.random() * 3.99);
-        this.item = new cc.Sprite("#iconLayer" + randomIdx + ".png");
+        this.item = new cc.Sprite("res/Lobby/Ranking/iconLayer" + randomIdx + ".png");
         this.addChild(this.item);
         this.item.setOpacity(50 + Math.random() * 100);
         this.scheduleUpdate();

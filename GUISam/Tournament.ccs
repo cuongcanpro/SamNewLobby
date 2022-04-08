@@ -1,0 +1,224 @@
+<Solution>
+  <PropertyGroup Name="Tournament" Version="3.10.0.0" Type="CocosStudio" />
+  <SolutionFolder>
+    <Group ctype="ResourceGroup">
+      <RootFolder Name=".">
+        <Folder Name="Font">
+          <TTF Name="tahoma.ttf" />
+          <TTF Name="tahomabd.ttf" />
+        </Folder>
+        <Folder Name="Tournament">
+          <Folder Name="Help">
+            <Image Name="bgHelp.png" />
+            <Image Name="btnRewardInactive.png" />
+            <Image Name="btnTabReward.png" />
+            <Image Name="btnTabRule.png" />
+            <Image Name="btnTabRuleInactive.png" />
+            <Image Name="rewardDaily.png" />
+            <Image Name="rewardSNG1.png" />
+            <Image Name="rewardSNG2.png" />
+            <Image Name="rewardSNG3.png" />
+            <Image Name="rewardSNGFree.png" />
+            <Image Name="rewardWeekly.png" />
+            <Image Name="ruleDaily.png" />
+            <Image Name="ruleSNG1.png" />
+            <Image Name="ruleSNG2.png" />
+            <Image Name="ruleSNG3.png" />
+            <Image Name="ruleSNGFree.png" />
+            <Image Name="ruleWeekly.png" />
+          </Folder>
+          <Folder Name="History">
+            <Image Name="bg.png" />
+            <Image Name="bgTop.png" />
+            <Image Name="bgTop1.png" />
+            <Image Name="bgTop2.png" />
+            <Image Name="bgTop3.png" />
+            <Image Name="btnHall.png" />
+            <Image Name="btnHallInactive.png" />
+            <Image Name="btnHistory.png" />
+            <Image Name="btnHistoryInactive.png" />
+            <Image Name="historyEmpty.png" />
+            <Image Name="iconGift.png" />
+            <Image Name="iconGreenClock.png" />
+            <Image Name="iconPerson.png" />
+            <Image Name="iconTicket.png" />
+            <Image Name="iconYellowClock.png" />
+            <Image Name="sep.png" />
+            <Image Name="timeline.png" />
+          </Folder>
+          <Folder Name="Matching">
+            <Image Name="bg.png" />
+            <Image Name="deco0.png" />
+            <Image Name="deco1.png" />
+            <Image Name="deco2.png" />
+            <Image Name="deco3.png" />
+            <Image Name="reel0.png" />
+            <Image Name="reel1.png" />
+            <Image Name="reel2.png" />
+            <Image Name="title.png" />
+          </Folder>
+          <Folder Name="PopUp">
+            <Image Name="bg.png" />
+            <Image Name="btnNext.png" />
+            <Image Name="btnX.png" />
+            <Image Name="center0.png" />
+            <Image Name="center1.png" />
+            <Image Name="center2.png" />
+            <Image Name="left0.png" />
+            <Image Name="left1.png" />
+            <Image Name="left2.png" />
+            <Image Name="pageIndex.png" />
+            <Image Name="pagination.png" />
+            <Image Name="right0.png" />
+            <Image Name="right1.png" />
+            <Image Name="right2.png" />
+            <Image Name="title0.png" />
+            <Image Name="title1.png" />
+            <Image Name="title2.png" />
+          </Folder>
+          <Folder Name="Result">
+            <Folder Name="Lose">
+              <Image Name="0.png" />
+              <Image Name="1.png" />
+              <Image Name="2.png" />
+              <Image Name="3.png" />
+              <Image Name="4.png" />
+              <Image Name="5.png" />
+              <Image Name="6.png" />
+              <Image Name="7.png" />
+              <Image Name="8.png" />
+              <Image Name="9.png" />
+              <Image Name="bg.png" />
+              <Image Name="bgReward.png" />
+              <Image Name="btnShare.png" />
+              <Image Name="decoDiamond.png" />
+              <Image Name="decoTriangle.png" />
+              <Image Name="iconCup.png" />
+              <Image Name="iconGift.png" />
+              <Image Name="laurel.png" />
+              <Image Name="part0.png" />
+              <Image Name="part1.png" />
+              <Image Name="part2.png" />
+              <Image Name="part3.png" />
+              <Image Name="part4.png" />
+              <Image Name="part5.png" />
+              <Image Name="title.png" />
+            </Folder>
+            <Folder Name="Win">
+              <Image Name="0.png" />
+              <Image Name="1.png" />
+              <Image Name="2.png" />
+              <Image Name="3.png" />
+              <Image Name="4.png" />
+              <Image Name="5.png" />
+              <Image Name="6.png" />
+              <Image Name="7.png" />
+              <Image Name="8.png" />
+              <Image Name="9.png" />
+              <Image Name="bg.png" />
+              <Image Name="bgReward.png" />
+              <Image Name="btnShare.png" />
+              <Image Name="decoDiamond.png" />
+              <Image Name="decoTriangle.png" />
+              <Image Name="iconCup.png" />
+              <Image Name="iconGift.png" />
+              <Image Name="laurel.png" />
+              <Image Name="part0.png" />
+              <Image Name="part1.png" />
+              <Image Name="part2.png" />
+              <Image Name="part3.png" />
+              <Image Name="part4.png" />
+              <Image Name="part5.png" />
+              <Image Name="title.png" />
+            </Folder>
+            <Image Name="btnClaim.png" />
+            <Image Name="btnConfirm.png" />
+            <Image Name="rewardDiamond.png" />
+            <Image Name="rewardGold.png" />
+          </Folder>
+          <Image Name="avatarFrame.png" />
+          <Image Name="bannerDaily.png" />
+          <Image Name="bannerPromoDaily.png" />
+          <Image Name="bannerPromoQuick.png" />
+          <Image Name="bannerPromoWeekly.png" />
+          <Image Name="bannerQuick.png" />
+          <Image Name="bannerShadow.png" />
+          <Image Name="bannerWeekly.png" />
+          <Image Name="bg.jpg" />
+          <Image Name="bgConfirm.png" />
+          <Image Name="bgDiamond.png" />
+          <Image Name="bgGold.png" />
+          <Image Name="bgListUser.png" />
+          <Image Name="bgMore.png" />
+          <Image Name="bgNoti.png" />
+          <Image Name="bgPagination.png" />
+          <Image Name="bgRanking.png" />
+          <Image Name="bgRewardTop.png" />
+          <Image Name="bgTimeWait.png" />
+          <Image Name="bgTitle.png" />
+          <Image Name="btnAccept.png" />
+          <Image Name="btnAdd.png" />
+          <Image Name="btnBack.png" />
+          <Image Name="btnCancel.png" />
+          <Image Name="btnCancelReg.png" />
+          <Image Name="btnConfirm.png" />
+          <Image Name="btnDetail.png" />
+          <Image Name="btnHelp.png" />
+          <Image Name="btnHistory.png" />
+          <Image Name="btnInfo.png" />
+          <Image Name="btnInstruction.png" />
+          <Image Name="btnJoin.png" />
+          <Image Name="btnReg.png" />
+          <Image Name="btnReg0.png" />
+          <Image Name="btnReg1.png" />
+          <Image Name="btnReg2.png" />
+          <Image Name="btnReg3.png" />
+          <Image Name="btnX.png" />
+          <Image Name="defaultAvatar.png" />
+          <Image Name="iconClock.png" />
+          <Image Name="iconDeco.png" />
+          <Image Name="iconDiamond.png" />
+          <Image Name="iconGold.png" />
+          <Image Name="iconGoldReward.png" />
+          <Image Name="iconNoti.png" />
+          <Image Name="iconPerson0.png" />
+          <Image Name="iconPerson1.png" />
+          <Image Name="iconPerson2.png" />
+          <Image Name="iconPerson3.png" />
+          <Image Name="imgCancel.png" />
+          <Image Name="lock.png" />
+          <Image Name="pagination.png" />
+          <Image Name="quickTour0.png" />
+          <Image Name="quickTour1.png" />
+          <Image Name="quickTour2.png" />
+          <Image Name="quickTour3.png" />
+          <Image Name="quickTour4.png" />
+          <Image Name="rewardTop1.png" />
+          <Image Name="rewardTop2.png" />
+          <Image Name="rewardTop3.png" />
+          <Image Name="titleDaily.png" />
+          <Image Name="titleQuick.png" />
+          <Image Name="titleQuickTour.png" />
+          <Image Name="titleWeekly.png" />
+          <Image Name="titleZingplayTour.png" />
+        </Folder>
+        <Project Name="TournamentBanner.csd" Type="Node" />
+        <Project Name="TournamentConfirmGUI.csd" Type="Scene" />
+        <Project Name="TournamentDailyPromoBanner.csd" Type="Node" />
+        <Project Name="TournamentHallCell.csd" Type="Layer" />
+        <Project Name="TournamentHelpGUI.csd" Type="Scene" />
+        <Project Name="TournamentHistoryCell.csd" Type="Layer" />
+        <Project Name="TournamentHistoryGUI.csd" Type="Scene" />
+        <Project Name="TournamentLobby.csd" Type="Scene" />
+        <Project Name="TournamentLoseGUI.csd" Type="Scene" />
+        <Project Name="TournamentMatchingGUI.csd" Type="Scene" />
+        <Project Name="TournamentPromoteGUI.csd" Type="Scene" />
+        <Project Name="TournamentQuickBanner.csd" Type="Node" />
+        <Project Name="TournamentQuickPromoBanner.csd" Type="Node" />
+        <Project Name="TournamentRefundGUI.csd" Type="Scene" />
+        <Project Name="TournamentWeeklyPromoBanner.csd" Type="Node" />
+        <Project Name="TournamentWinGUI.csd" Type="Scene" />
+      </RootFolder>
+    </Group>
+  </SolutionFolder>
+</Solution>

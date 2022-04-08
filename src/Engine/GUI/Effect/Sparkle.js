@@ -22,7 +22,6 @@ var Sparkle = cc.Node.extend({
 
     startEffect: function (delayTime = 0) {
 
-
         this.setPositionX(Math.random() * cc.winSize.width);
         var rTime = (2.5 + Math.random() * 2.5);
 

@@ -9,11 +9,15 @@ var EventMgr = BaseMgr.extend({
         this.btnMainEvent = null;
         this.arrayEvent = [];
         this.arrayBtnEvent = [];
-        // this.arrayEvent.push(this.createEvent(EventMgr.WEEKLY_CHALLENGE, EventMgr.WEEKLY_CHALLENGE_NAME, false, WChallenge.getInstance(), false, true, 2));
+        this.checkedDeepLink = false;
+    },
+
+    init: function () {
+// this.arrayEvent.push(this.createEvent(EventMgr.WEEKLY_CHALLENGE, EventMgr.WEEKLY_CHALLENGE_NAME, false, WChallenge.getInstance(), false, true, 2));
         // this.arrayEvent.push(this.createEvent(EventMgr.LUCKY_CARD, EventMgr.LUCKY_CARD_NAME, false, luckyCard, false, true, 1));
-        // this.arrayEvent.push(this.createEvent(EventMgr.POT_BREAKER, EventMgr.POT_BREAKER_NAME, false, potBreaker, false, true, 2));
+        this.arrayEvent.push(this.createEvent(EventMgr.POT_BREAKER, EventMgr.POT_BREAKER_NAME, false, potBreaker, false, true, 2));
         // this.arrayEvent.push(this.createEvent(EventMgr.BLUE_OCEAN, EventMgr.BLUE_OCEAN_NAME, true, blueOcean, true, true, 1));
-        // this.arrayEvent.push(this.createEvent(EventMgr.MID_AUTUMN, EventMgr.MID_AUTUMN_NAME, true, midAutumn, false, true, 1));
+        this.arrayEvent.push(this.createEvent(EventMgr.MID_AUTUMN, EventMgr.MID_AUTUMN_NAME, true, midAutumn, false, true, 2));
 
         // this.arrayEvent.push(this.createEvent(EventMgr.EGG_BREAKER, EventMgr.EGG_BREAKER_NAME, true, eggBreaker, false, true, 3));
 
@@ -21,7 +25,6 @@ var EventMgr = BaseMgr.extend({
         // this.arrayEvent.push(this.createEvent(EventMgr.EVENT_TET, EventMgr.EVENT_TET_NAME, true, eventTet, true));
         //this.startDownloadContent();
         cc.log("VO DAy nay 2 ***** ");
-        this.checkedDeepLink = false;
     },
 
     createEvent: function (id, name, isMain, event, isFinishDownload, isActive, contentVersion) {
@@ -129,7 +132,7 @@ var EventMgr = BaseMgr.extend({
         this.btnMainEvent.nodeDownload.setScale(1.0);
         btn.removeAllChildren();
         btn.addChild(this.btnMainEvent);
-
+        this.btnMainEvent.setVisible(false);
         this.btnMainEvent.setPosition(btn.getContentSize().width * 0.5, btn.getContentSize().height * 0.5);
         var event = this.getEventById();
         if (event && !event.isFinishDownload) {
@@ -349,13 +352,13 @@ var EventMgr = BaseMgr.extend({
         }
 
         switch (cmd) {
-            case CMD.CMD_NOTIFY_EVENT_REGISTER: {
+            case EventMgr.CMD_NOTIFY_EVENT_REGISTER: {
                 var cmd = new CmdReceivedNotifyEventRegister(pkg);
                 cc.log("CMD_NOTIFY_EVENT_REGISTER", JSON.stringify(cmd));
                 this.notifyEventRegister(cmd);
                 return true;
             }
-            case CMD.CMD_SEND_EVENT_REGISTER: {
+            case EventMgr.CMD_SEND_EVENT_REGISTER: {
                 var cmd = new CmdReceivedSendEventRegister(pkg);
                 var message = localized("REGISTER_GIFT_" + cmd.getError());
                 cc.log("MESSAGE CMD_SEND_EVENT_REGISTER  " + message);
@@ -395,6 +398,7 @@ var EventMgr = BaseMgr.extend({
         for (var i = 0; i < this.arrayEvent.length; i++) {
             if (this.isInEvent(this.arrayEvent[i].dataEvent.idEvent) && this.arrayEvent[i].isFinishDownload) {
                 var bonus = this.arrayEvent[i].dataEvent.getEventBonusTicket(type, value);
+                cc.log("lfjsl getEventBonusTicket " + bonus + " type " + type + " value " + value);
                 if (bonus)
                     arrayBonusTicket.push(bonus);
             }
@@ -633,7 +637,9 @@ Event.EGG_BREAKER_NAME = "eggBreaker";
 Event.WEEKLY_CHALLENGE_NAME = "weeklyChallenge";
 Event.BLUE_OCEAN_NAME = "summer";
 
-//EventMgr.LUCKY_CARD_PATH = "res/Lobby/EventMgr/WishingStar/project.manifest";
+
+
+//EventMgr.LUCKY_CARD_PATH = "res/Lobby/Event/WishingStar/project.manifest";
 
 EventMgr._inst = null;
 EventMgr.instance = function () {
@@ -644,3 +650,62 @@ EventMgr.instance = function () {
 };
 var eventMgr = EventMgr.instance();
 var event = eventMgr;
+Event.instance = function () {
+    return EventMgr._inst;
+}
+EventMgr.CMD_NOTIFY_EVENT_REGISTER = 1600;
+EventMgr.CMD_SEND_EVENT_REGISTER = 1601;
+
+CmdReceivedNotifyEventRegister = CmdReceivedCommon.extend({
+    ctor: function (pkg) {
+        this._super(pkg);
+        this.readData();
+    },
+    readData: function () {
+        this.eventId = this.getString();
+        this.giftId = this.getInt();
+        this.giftName = this.getString();
+    }
+});
+
+CmdReceivedSendEventRegister = CmdReceivedCommon.extend({
+    ctor: function (pkg) {
+        this._super(pkg);
+        this.readData();
+    },
+    readData: function () {
+        this.eventId = this.getString();
+        this.giftId = this.getInt();
+        this.giftName = this.getString();
+    }
+});
+
+var CmdSendEventChangeAward = CmdSendCommon.extend({
+    ctor: function () {
+        this._super();
+        this.initData(100);
+        this.setControllerId(1);
+        this.setCmdId(EventMgr.CMD_SEND_EVENT_REGISTER);
+    },
+
+    putData: function (idEvent, id, name, add, cmnd, phone, email) {
+        if (name === undefined) name = "";
+        if (phone === undefined) phone = "";
+        if (cmnd === undefined) cmnd = "";
+        if (add === undefined) add = "";
+        if (email === undefined) email = "";
+
+        cc.log("#SendChangeAward : " + idEvent + "," + id + "," + name + " , " + phone + " , " + cmnd + " , " + add + " , " + email);
+
+        this.packHeader();
+        this.putString(idEvent);
+        this.putInt(id);
+
+        this.putString(name);
+        this.putString(phone);
+        this.putString(cmnd);
+        this.putString(add);
+        this.putString(email);
+        this.updateSize();
+    },
+});

@@ -70,6 +70,7 @@ var GameConfig = cc.Class.extend({
 
     parseConfig: function () {
         channelMgr.setConfig(this.config["Channel"], this.config["chankenh"]);
+        channelMgr.setNewConfig(this.config["channelConfig"]);
         vipMgr.setConfig(this.config);
         supportMgr.setConfig(this.config);
        // football.loadConfig(this.config);

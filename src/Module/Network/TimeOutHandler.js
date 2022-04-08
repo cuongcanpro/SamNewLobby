@@ -27,7 +27,7 @@ var TimeoutConnectHandler = cc.Class.extend({
 
         sceneMgr.clearLoading();
 
-        if(CheckLogic.checkInBoard()) {
+        if(inGameMgr.checkInBoard()) {
             GameClient.processRetryConnect();
         }
         else {

@@ -1,5 +1,5 @@
 var BoardVoucherGUI = BaseLayer.extend({
-    ctor: function() {
+    ctor: function () {
         this._super(BoardVoucherGUI.className);
 
         this.time = null;
@@ -8,95 +8,104 @@ var BoardVoucherGUI = BaseLayer.extend({
         this.voucherRef = null;
         this.hasVoucher = false;
 
-        this.initWithBinaryFile("Lobby/BoardVoucherGUI.json");
+        this.initWithBinaryFile("Lobby/BoardVoucher.json");
     },
 
-    initGUI: function() {
+    initGUI: function () {
         this.btnVoucher = this.getControl("btnVoucher");
-        this.btnVoucher.defaultPosition = this.btnVoucher.getPosition();
+        this.btnVoucher.setPosition(cc.p(0, 0));
         this.img = this.getControl("img");
         this.img.ignoreContentAdaptWithSize(true);
         this.time = this.getControl("time");
         this.time.ignoreContentAdaptWithSize(true);
     },
 
-    onEnterFinish: function() {
+    onEnterFinish: function () {
+        cc.log(
+            "BoardVoucherGUI",
+            JSON.stringify(this.btnVoucher.getPosition()),
+            JSON.stringify(this._layout.getPosition()),
+            JSON.stringify(this.getPosition())
+        );
         this.hasVoucher = false;
         this.voucherRef = null;
         this.btnVoucher.setVisible(false);
+        this.defaultScale = 0.75;
         this.onUpdateGUI();
+
+        var scene = sceneMgr.getMainLayer();
+        if (scene instanceof BoardScene) {
+            var position = scene._players[0].getVoucherPosition();
+            cc.log("THE POSITION", JSON.stringify(position));
+            this.setPosition(position);
+        }
     },
 
-    onUpdateGUI: function() {
+    onUpdateGUI: function () {
         this.unschedule(this.update);
         var currentVoucher = StorageManager.getInstance().getCurrentBoardVoucher();
         if (currentVoucher) this.voucherRef = currentVoucher.ref;
         else this.voucherRef = null;
-        if (this.voucherRef){
+        if (this.voucherRef) {
             this.img.loadTexture(currentVoucher.imgPath);
             this.setTime(this.voucherRef.remainTime);
-            if (!this.hasVoucher){
+            if (!this.hasVoucher) {
                 this.hasVoucher = true;
-                this.btnVoucher.setVisible(true);
-                this.btnVoucher.setPositionX(cc.winSize.width + this.btnVoucher.width);
-                this.btnVoucher.setOpacity(0);
                 this.btnVoucher.stopAllActions();
+                this.btnVoucher.setVisible(true);
+                this.btnVoucher.setOpacity(0);
+                this.btnVoucher.setScale(0);
                 this.btnVoucher.runAction(cc.spawn(
                     cc.fadeIn(1),
-                    cc.moveTo(1, this.btnVoucher.defaultPosition.x, this.btnVoucher.defaultPosition.y).easing(cc.easeBackOut())
+                    cc.scaleTo(1, this.defaultScale).easing(cc.easeBackOut())
                 ));
             }
             this.schedule(this.update, 1);
-        }
-        else{
+        } else {
             this.setTime(0);
-            if (this.hasVoucher){
+            if (this.hasVoucher) {
                 this.hasVoucher = false;
-                this.btnVoucher.setVisible(true);
-                this.btnVoucher.setPositionX(this.btnVoucher.defaultPosition.x);
-                this.btnVoucher.setOpacity(255);
                 this.btnVoucher.stopAllActions();
+                this.btnVoucher.setVisible(true);
+                this.btnVoucher.setOpacity(255);
+                this.btnVoucher.setScale(this.defaultScale);
                 this.btnVoucher.runAction(cc.sequence(
-                    cc.spawn(
-                        cc.fadeOut(1),
-                        cc.moveTo(1, cc.winSize.width + this.btnVoucher.width, this.btnVoucher.defaultPosition.y).easing(cc.easeBackIn())
-                    )
+                    cc.spawn(cc.fadeOut(1)).easing(cc.easeOut(2.5)),
+                    cc.scaleTo(1, 0).easing(cc.easeBackIn())
                 ));
             }
         }
     },
 
-    onButtonRelease: function(button, id) {
-        switch(id) {
+    onButtonRelease: function (button, id) {
+        switch (id) {
             case BoardVoucherGUI.BTN_VOUCHER:
                 break;
         }
     },
 
-    update: function(dt) {
-        if (this.voucherRef && this.voucherRef.remainTime){
+    update: function (dt) {
+        if (this.voucherRef && this.voucherRef.remainTime) {
             this.setTime(this.voucherRef.remainTime);
-        }
-        else this.setTime(0);
+        } else this.setTime(0);
     },
 
-    setTime: function(remainTime) {
+    setTime: function (remainTime) {
         var s = Math.ceil(remainTime / 1000);
         var m = Math.floor(s / 60);
         s -= m * 60;
         var h = Math.floor(m / 60);
         m -= h * 60;
-        var textColor;
-        if (h > 0){
-            this.time.setString((h < 10 ? "0" : "") + h + "h:" + (m < 10 ? "0" : "") + m + "p");
-            textColor = cc.color("#4FFF95");
+        var d = Math.floor(h / 24);
+        h -= d * 24;
+
+        if (d > 0) {
+            this.time.setString(d + " ngày");
+        } else if (h > 0) {
+            this.time.setString((h < 10 ? "0" : "") + h + ":" + (m < 10 ? "0" : "") + m);
+        } else {
+            this.time.setString((m < 10 ? "0" : "") + m + ":" + (s < 10 ? "0" : "") + s);
         }
-        else{
-            this.time.setString((m < 10 ? "0" : "") + m + "p:" + (s < 10 ? "0" : "") + s + "s");
-            if (m >= 5) textColor = cc.color("#4FFF95");
-            else textColor = cc.color("#FF6A6A");
-        }
-        this.time.setTextColor(textColor);
     }
 });
 BoardVoucherGUI.className = "BoardVoucherGUI";

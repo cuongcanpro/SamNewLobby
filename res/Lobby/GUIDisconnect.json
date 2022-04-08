@@ -1,0 +1,610 @@
+{
+  "ID": "c82c16b8-88ec-4fa5-8b0e-6e97d11fdeb5",
+  "Version": "2.3.4",
+  "Name": "GUIDisconnect",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Common/bgDialogContent.png",
+              "Plist": ""
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 283,
+            "Scale9OriginY": 210,
+            "Scale9Width": 213,
+            "Scale9Height": 61,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 600.0,
+              "Y": 376.488
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.5229
+            },
+            "PreSize": {
+              "X": 0.6492,
+              "Y": 0.6681
+            },
+            "VerticalEdge": "BothEdge",
+            "LeftMargin": 210.5,
+            "RightMargin": 210.5,
+            "TopMargin": 103.012,
+            "BottomMargin": 135.988,
+            "UserData": "scale",
+            "Tag": 2,
+            "Children": [
+              {
+                "FontSize": 32,
+                "LabelText": "Thông báo",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahomabd.ttf",
+                  "Plist": ""
+                },
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 389.5,
+                  "Y": 439.2631
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.9132
+                },
+                "PreSize": {
+                  "X": 0.2182,
+                  "Y": 0.0915
+                },
+                "LeftMargin": 304.5,
+                "RightMargin": 304.5,
+                "TopMargin": 19.7369,
+                "BottomMargin": 417.2631,
+                "Tag": 152,
+                "ActionTag": 313385095,
+                "Size": {
+                  "X": 170.0,
+                  "Y": 44.0
+                },
+                "Name": "lbTitle",
+                "ctype": "TextObjectData"
+              },
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Default",
+                  "Path": "Default/Button_Disable.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "Normal",
+                  "Path": "Common/btnClose.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "Common/btnClose.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 5,
+                "Scale9Height": 13,
+                "OutlineSize": 0,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 0.0,
+                "ShadowOffsetY": 0.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 721.7435,
+                  "Y": 437.4196
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.9265,
+                  "Y": 0.9094
+                },
+                "PreSize": {
+                  "X": 0.0449,
+                  "Y": 0.0728
+                },
+                "HorizontalEdge": "BothEdge",
+                "VerticalEdge": "BottomEdge",
+                "LeftMargin": 704.2435,
+                "RightMargin": 39.7565,
+                "TopMargin": 26.0804,
+                "BottomMargin": 419.9196,
+                "Tag": 7,
+                "ActionTag": 1923246242,
+                "Size": {
+                  "X": 35.0,
+                  "Y": 35.0
+                },
+                "Name": "btnQuit",
+                "ctype": "ButtonObjectData"
+              },
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Default",
+                  "Path": "Default/Button_Disable.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "Normal",
+                  "Path": "Common/btnBlue.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "Common/btnBlue.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 202,
+                "Scale9Height": 49,
+                "OutlineSize": 0,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 0.0,
+                "ShadowOffsetY": 0.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 514.14,
+                  "Y": 55.8107
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PrePosition": {
+                  "X": 0.66,
+                  "Y": 0.116
+                },
+                "PreSize": {
+                  "X": 0.2978,
+                  "Y": 0.1476
+                },
+                "VerticalEdge": "BottomEdge",
+                "LeftMargin": 398.14,
+                "RightMargin": 148.86,
+                "TopMargin": 389.6893,
+                "BottomMargin": 20.3107,
+                "Tag": 4,
+                "Children": [
+                  {
+                    "FontSize": 28,
+                    "LabelText": "Hủy bỏ",
+                    "FontResource": {
+                      "Type": "Normal",
+                      "Path": "Font/tahomabd.ttf",
+                      "Plist": ""
+                    },
+                    "HorizontalAlignmentType": "HT_Center",
+                    "VerticalAlignmentType": "VT_Center",
+                    "OutlineColor": {
+                      "R": 56,
+                      "G": 102,
+                      "B": 234
+                    },
+                    "OutlineEnabled": true,
+                    "ShadowColor": {
+                      "R": 110,
+                      "G": 110,
+                      "B": 110
+                    },
+                    "ShadowOffsetX": 2.0,
+                    "ShadowOffsetY": -2.0,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 116.0,
+                      "Y": 39.0758
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PositionPercentXEnabled": true,
+                    "PrePosition": {
+                      "X": 0.5,
+                      "Y": 0.5504
+                    },
+                    "PreSize": {
+                      "X": 0.431,
+                      "Y": 0.5634
+                    },
+                    "LeftMargin": 66.0,
+                    "RightMargin": 66.0,
+                    "TopMargin": 11.9242,
+                    "BottomMargin": 19.0758,
+                    "Tag": 154,
+                    "ActionTag": 1116074442,
+                    "Size": {
+                      "X": 100.0,
+                      "Y": 40.0
+                    },
+                    "Name": "lbCancel",
+                    "ctype": "TextObjectData"
+                  }
+                ],
+                "ActionTag": -6985513,
+                "Size": {
+                  "X": 232.0,
+                  "Y": 71.0
+                },
+                "Name": "btnCancel",
+                "ctype": "ButtonObjectData"
+              },
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Default",
+                  "Path": "Default/Button_Disable.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "Normal",
+                  "Path": "Common/btnYellow.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "Common/btnYellow.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 202,
+                "Scale9Height": 49,
+                "OutlineSize": 0,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 0.0,
+                "ShadowOffsetY": 0.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 264.86,
+                  "Y": 57.2073
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PrePosition": {
+                  "X": 0.34,
+                  "Y": 0.1189
+                },
+                "PreSize": {
+                  "X": 0.2978,
+                  "Y": 0.1476
+                },
+                "VerticalEdge": "BottomEdge",
+                "LeftMargin": 148.86,
+                "RightMargin": 398.14,
+                "TopMargin": 388.2927,
+                "BottomMargin": 21.7073,
+                "Tag": 3,
+                "Children": [
+                  {
+                    "FontSize": 28,
+                    "LabelText": "Đồng ý",
+                    "FontResource": {
+                      "Type": "Normal",
+                      "Path": "Font/tahomabd.ttf",
+                      "Plist": ""
+                    },
+                    "HorizontalAlignmentType": "HT_Center",
+                    "VerticalAlignmentType": "VT_Center",
+                    "OutlineSize": 2,
+                    "OutlineColor": {
+                      "R": 231,
+                      "G": 172,
+                      "B": 45
+                    },
+                    "OutlineEnabled": true,
+                    "ShadowColor": {
+                      "R": 110,
+                      "G": 110,
+                      "B": 110
+                    },
+                    "ShadowOffsetX": 2.0,
+                    "ShadowOffsetY": -2.0,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 116.0,
+                      "Y": 38.5548
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PositionPercentXEnabled": true,
+                    "PrePosition": {
+                      "X": 0.5,
+                      "Y": 0.543
+                    },
+                    "PreSize": {
+                      "X": 0.4397,
+                      "Y": 0.5915
+                    },
+                    "LeftMargin": 65.0,
+                    "RightMargin": 65.0,
+                    "TopMargin": 11.4452,
+                    "BottomMargin": 17.5548,
+                    "Tag": 153,
+                    "ActionTag": -456063283,
+                    "Size": {
+                      "X": 102.0,
+                      "Y": 42.0
+                    },
+                    "Name": "lbOk",
+                    "ctype": "TextObjectData"
+                  }
+                ],
+                "ActionTag": -1664205097,
+                "Size": {
+                  "X": 232.0,
+                  "Y": 71.0
+                },
+                "Name": "btnOK",
+                "ctype": "ButtonObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "Common/iconEmpty.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 94,
+                "Scale9OriginY": 44,
+                "Scale9Width": 99,
+                "Scale9Height": 48,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 389.5,
+                  "Y": 293.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.6091
+                },
+                "PreSize": {
+                  "X": 0.3684,
+                  "Y": 0.2827
+                },
+                "LeftMargin": 246.0,
+                "RightMargin": 246.0,
+                "TopMargin": 120.0,
+                "BottomMargin": 225.0,
+                "Tag": 23,
+                "ActionTag": 301763430,
+                "Size": {
+                  "X": 287.0,
+                  "Y": 136.0
+                },
+                "Name": "Image_1",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "IsCustomSize": true,
+                "FontSize": 27,
+                "LabelText": "Bạn đã bị mất kết nối",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahoma.ttf",
+                  "Plist": ""
+                },
+                "HorizontalAlignmentType": "HT_Center",
+                "VerticalAlignmentType": "VT_Center",
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 389.5,
+                  "Y": 171.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "R": 208,
+                  "G": 211,
+                  "B": 241
+                },
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.3555
+                },
+                "PreSize": {
+                  "X": 0.8344,
+                  "Y": 0.2079
+                },
+                "LeftMargin": 64.5,
+                "RightMargin": 64.5,
+                "TopMargin": 260.0,
+                "BottomMargin": 121.0,
+                "UserData": "wrapText",
+                "Tag": 177,
+                "ActionTag": -218826193,
+                "Size": {
+                  "X": 650.0,
+                  "Y": 100.0
+                },
+                "Name": "lb_message",
+                "ctype": "TextObjectData"
+              }
+            ],
+            "ActionTag": -11455243,
+            "Size": {
+              "X": 779.0,
+              "Y": 481.0
+            },
+            "Name": "bg",
+            "ctype": "ImageViewObjectData"
+          }
+        ],
+        "Size": {
+          "X": 1200.0,
+          "Y": 720.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "Common/bgDialogContent.png",
+        "Common/btnBlue.png",
+        "Common/btnClose.png",
+        "Common/btnYellow.png",
+        "Common/iconEmpty.png",
+        "Default/Button_Disable.png",
+        "Font/tahoma.ttf",
+        "Font/tahomabd.ttf"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

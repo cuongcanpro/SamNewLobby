@@ -42,14 +42,14 @@
                       <AbstractNodeData Name="bonusTime" ActionTag="1056891846" Tag="15" RotationSkewX="17.0688" RotationSkewY="17.0724" IconVisible="False" LeftMargin="369.5782" RightMargin="-139.5782" TopMargin="-74.5598" BottomMargin="-62.4402" LeftEage="75" RightEage="75" TopEage="80" BottomEage="80" Scale9OriginX="75" Scale9OriginY="80" Scale9Width="170" Scale9Height="227" ctype="ImageViewObjectData">
                         <Size X="320.0000" Y="387.0000" />
                         <Children>
-                          <AbstractNodeData Name="lbNum" ActionTag="57842644" Tag="44" RotationSkewX="0.0044" RotationSkewY="0.0035" IconVisible="False" LeftMargin="59.9507" RightMargin="38.0493" TopMargin="22.2971" BottomMargin="316.7029" FontSize="35" LabelText="10000000000" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                            <Size X="222.0000" Y="48.0000" />
+                          <AbstractNodeData Name="lbNum" ActionTag="57842644" Tag="44" RotationSkewX="0.0044" RotationSkewY="0.0035" IconVisible="False" LeftMargin="1.9507" RightMargin="-3.9507" TopMargin="22.2972" BottomMargin="316.7028" FontSize="35" LabelText="1000000000000000" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                            <Size X="322.0000" Y="48.0000" />
                             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                            <Position X="170.9507" Y="340.7029" />
+                            <Position X="162.9507" Y="340.7028" />
                             <Scale ScaleX="1.0000" ScaleY="1.0000" />
                             <CColor A="255" R="113" G="123" B="140" />
-                            <PrePosition X="0.5342" Y="0.8804" />
-                            <PreSize X="0.6938" Y="0.1240" />
+                            <PrePosition X="0.5092" Y="0.8804" />
+                            <PreSize X="1.0063" Y="0.1240" />
                             <FontResource Type="Normal" Path="Font/tahomabd.ttf" Plist="" />
                             <OutlineColor A="255" R="255" G="0" B="0" />
                             <ShadowColor A="255" R="110" G="110" B="110" />
@@ -66,14 +66,14 @@
                       <AbstractNodeData Name="bonusGold" ActionTag="1451339646" Tag="17" IconVisible="False" LeftMargin="74.9999" RightMargin="115.0001" TopMargin="-122.4993" BottomMargin="-23.5007" LeftEage="75" RightEage="75" TopEage="80" BottomEage="80" Scale9OriginX="75" Scale9OriginY="80" Scale9Width="210" Scale9Height="236" ctype="ImageViewObjectData">
                         <Size X="360.0000" Y="396.0000" />
                         <Children>
-                          <AbstractNodeData Name="lbNum" ActionTag="610481303" Tag="45" RotationSkewX="2.7454" RotationSkewY="2.7462" IconVisible="False" LeftMargin="96.8967" RightMargin="41.1033" TopMargin="29.2582" BottomMargin="318.7418" FontSize="35" LabelText="10000000000" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                            <Size X="222.0000" Y="48.0000" />
+                          <AbstractNodeData Name="lbNum" ActionTag="610481303" Tag="45" RotationSkewX="2.7454" RotationSkewY="2.7462" IconVisible="False" LeftMargin="40.8967" RightMargin="-2.8967" TopMargin="29.2582" BottomMargin="318.7418" FontSize="35" LabelText="1000000000000000" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                            <Size X="322.0000" Y="48.0000" />
                             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                            <Position X="207.8967" Y="342.7418" />
+                            <Position X="201.8967" Y="342.7418" />
                             <Scale ScaleX="1.0000" ScaleY="1.0000" />
                             <CColor A="255" R="113" G="123" B="140" />
-                            <PrePosition X="0.5775" Y="0.8655" />
-                            <PreSize X="0.6167" Y="0.1212" />
+                            <PrePosition X="0.5608" Y="0.8655" />
+                            <PreSize X="0.8944" Y="0.1212" />
                             <FontResource Type="Normal" Path="Font/tahomabd.ttf" Plist="" />
                             <OutlineColor A="255" R="255" G="0" B="0" />
                             <ShadowColor A="255" R="110" G="110" B="110" />
@@ -129,14 +129,14 @@
                       <AbstractNodeData Name="bonusTime" ActionTag="-2117250818" Tag="176" RotationSkewX="11.6286" RotationSkewY="11.6321" IconVisible="False" LeftMargin="176.3260" RightMargin="53.6740" TopMargin="-148.2322" BottomMargin="11.2322" LeftEage="75" RightEage="75" TopEage="80" BottomEage="80" Scale9OriginX="75" Scale9OriginY="80" Scale9Width="170" Scale9Height="227" ctype="ImageViewObjectData">
                         <Size X="320.0000" Y="387.0000" />
                         <Children>
-                          <AbstractNodeData Name="lbNum" ActionTag="1094583691" Tag="177" IconVisible="False" LeftMargin="46.7859" RightMargin="51.2141" TopMargin="23.2200" BottomMargin="315.7800" FontSize="35" LabelText="10000000000" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                            <Size X="222.0000" Y="48.0000" />
+                          <AbstractNodeData Name="lbNum" ActionTag="1094583691" Tag="177" IconVisible="False" LeftMargin="-3.2141" RightMargin="1.2141" TopMargin="23.2200" BottomMargin="315.7800" FontSize="35" LabelText="1000000000000000" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                            <Size X="322.0000" Y="48.0000" />
                             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                             <Position X="157.7859" Y="339.7800" />
                             <Scale ScaleX="1.0000" ScaleY="1.0000" />
                             <CColor A="255" R="113" G="123" B="140" />
                             <PrePosition X="0.4931" Y="0.8780" />
-                            <PreSize X="0.6938" Y="0.1240" />
+                            <PreSize X="1.0063" Y="0.1240" />
                             <FontResource Type="Normal" Path="Font/tahomabd.ttf" Plist="" />
                             <OutlineColor A="255" R="255" G="0" B="0" />
                             <ShadowColor A="255" R="110" G="110" B="110" />
@@ -153,14 +153,14 @@
                       <AbstractNodeData Name="bonusGold" ActionTag="918011614" Tag="178" IconVisible="False" LeftMargin="-44.0359" RightMargin="234.0359" TopMargin="-174.6338" BottomMargin="28.6338" LeftEage="75" RightEage="75" TopEage="80" BottomEage="80" Scale9OriginX="75" Scale9OriginY="80" Scale9Width="210" Scale9Height="236" ctype="ImageViewObjectData">
                         <Size X="360.0000" Y="396.0000" />
                         <Children>
-                          <AbstractNodeData Name="lbNum" ActionTag="-1024557261" Tag="179" RotationSkewX="2.7454" RotationSkewY="2.7462" IconVisible="False" LeftMargin="90.3498" RightMargin="47.6502" TopMargin="32.5752" BottomMargin="315.4248" FontSize="35" LabelText="10000000000" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                            <Size X="222.0000" Y="48.0000" />
+                          <AbstractNodeData Name="lbNum" ActionTag="-1024557261" Tag="179" RotationSkewX="2.7454" RotationSkewY="2.7462" IconVisible="False" LeftMargin="50.3498" RightMargin="7.6502" TopMargin="32.5752" BottomMargin="315.4248" FontSize="35" LabelText="100000000000000" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                            <Size X="302.0000" Y="48.0000" />
                             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                             <Position X="201.3498" Y="339.4248" />
                             <Scale ScaleX="1.0000" ScaleY="1.0000" />
                             <CColor A="255" R="113" G="123" B="140" />
                             <PrePosition X="0.5593" Y="0.8571" />
-                            <PreSize X="0.6167" Y="0.1212" />
+                            <PreSize X="0.8389" Y="0.1212" />
                             <FontResource Type="Normal" Path="Font/tahomabd.ttf" Plist="" />
                             <OutlineColor A="255" R="255" G="0" B="0" />
                             <ShadowColor A="255" R="110" G="110" B="110" />
@@ -177,25 +177,25 @@
                       <AbstractNodeData Name="bonusEmpty" ActionTag="-906705672" Tag="180" RotationSkewX="19.5173" RotationSkewY="19.5176" IconVisible="False" LeftMargin="334.8388" RightMargin="-104.8388" TopMargin="-134.4626" BottomMargin="-2.5374" LeftEage="75" RightEage="75" TopEage="80" BottomEage="80" Scale9OriginX="75" Scale9OriginY="80" Scale9Width="170" Scale9Height="227" ctype="ImageViewObjectData">
                         <Size X="320.0000" Y="387.0000" />
                         <Children>
-                          <AbstractNodeData Name="lbNum" ActionTag="1147936994" Tag="181" RotationSkewX="2.7454" RotationSkewY="2.7462" IconVisible="False" LeftMargin="54.9835" RightMargin="43.0165" TopMargin="22.5809" BottomMargin="316.4191" FontSize="35" LabelText="10000000000" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                            <Size X="222.0000" Y="48.0000" />
+                          <AbstractNodeData Name="lbNum" ActionTag="1147936994" Tag="181" RotationSkewX="2.7454" RotationSkewY="2.7462" IconVisible="False" LeftMargin="14.9835" RightMargin="3.0165" TopMargin="22.5809" BottomMargin="316.4191" FontSize="35" LabelText="100000000000000" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                            <Size X="302.0000" Y="48.0000" />
                             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                             <Position X="165.9835" Y="340.4191" />
                             <Scale ScaleX="1.0000" ScaleY="1.0000" />
                             <CColor A="255" R="113" G="123" B="140" />
                             <PrePosition X="0.5187" Y="0.8796" />
-                            <PreSize X="0.6938" Y="0.1240" />
+                            <PreSize X="0.9438" Y="0.1240" />
                             <FontResource Type="Normal" Path="Font/tahomabd.ttf" Plist="" />
                             <OutlineColor A="255" R="255" G="0" B="0" />
                             <ShadowColor A="255" R="110" G="110" B="110" />
                           </AbstractNodeData>
-                          <AbstractNodeData Name="imgBonus" ActionTag="504160831" Tag="182" IconVisible="False" LeftMargin="28.6700" RightMargin="245.3300" TopMargin="295.6642" BottomMargin="45.3358" Scale9Width="46" Scale9Height="46" ctype="ImageViewObjectData">
+                          <AbstractNodeData Name="imgBonus" ActionTag="504160831" Tag="182" IconVisible="False" LeftMargin="128.7205" RightMargin="145.2795" TopMargin="192.5624" BottomMargin="148.4376" Scale9Width="46" Scale9Height="46" ctype="ImageViewObjectData">
                             <Size X="46.0000" Y="46.0000" />
                             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                            <Position X="51.6700" Y="68.3358" />
+                            <Position X="151.7205" Y="171.4376" />
                             <Scale ScaleX="1.0000" ScaleY="1.0000" />
                             <CColor A="255" R="255" G="255" B="255" />
-                            <PrePosition X="0.1615" Y="0.1766" />
+                            <PrePosition X="0.4741" Y="0.4430" />
                             <PreSize X="0.1437" Y="0.1189" />
                             <FileData Type="Default" Path="Default/ImageFile.png" Plist="" />
                           </AbstractNodeData>

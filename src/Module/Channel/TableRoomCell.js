@@ -5,6 +5,7 @@ var TableRoomCell = cc.TableViewCell.extend({
         this._super();
         var jsonLayout = ccs.load("RoomItemCell.json");
         this._layout = jsonLayout.node;
+        this._layout.setCascadeOpacityEnabled(true);
         this._layout.setContentSize(cc.winSize.width, this._layout.getContentSize().height);
         ccui.Helper.doLayout(this._layout);
         this.addChild(this._layout);
@@ -17,11 +18,12 @@ var TableRoomCell = cc.TableViewCell.extend({
         scale = (scale > 1) ? 1 : scale;
 
         var bg = ccui.Helper.seekWidgetByName(this._layout, "bg");
+        this.bg = bg;
         sceneMgr.getRunningScene().getMainLayer()._listButton.push(bg);
         var pInfo = ccui.Helper.seekWidgetByName(this._layout, "pInfo");
         var pBet = ccui.Helper.seekWidgetByName(this._layout, "pBet");
         var pNum = ccui.Helper.seekWidgetByName(this._layout, "pNum");
-
+        this.iconSolo = ccui.Helper.seekWidgetByName(pNum, "iconSolo");
         this.id = ccui.Helper.seekWidgetByName(this._layout, "id");
 
         this.name = ccui.Helper.seekWidgetByName(pInfo, "name");
@@ -30,10 +32,10 @@ var TableRoomCell = cc.TableViewCell.extend({
         this.star = ccui.Helper.seekWidgetByName(pBet, "star");
 
         this.arrayNum = [];
-        for (var i = 0; i < 5; i++) {
+        for (var i = 0; i < 4; i++) {
             this.arrayNum[i] = new cc.Sprite("ChooseRoomGUI/imgPeople.png");
             pNum.addChild(this.arrayNum[i]);
-            this.arrayNum[i].setPosition(40 * (i + 0.5), 20);
+            this.arrayNum[i].setPosition(50 * (i + 0.5), 20);
         }
         this.type = ccui.Helper.seekWidgetByName(pInfo, "type");
 
@@ -51,22 +53,40 @@ var TableRoomCell = cc.TableViewCell.extend({
     setInfo: function (inf) {
         this.id.setString(inf.tableIndex);
         BaseLayer.subLabelText(this.name, decodeURI(inf.tableName));
-        if (inf.type != 1) {
-            this.bet.setString(StringUtility.formatNumberSymbol(channelMgr.getBet(inf.bet)));
+        var txtRange = channelMgr.getBetRangeInChannel(channelMgr.getSelectedChannel());
+        this.bet.setString(txtRange);
+        if (inf.isModeSolo) {
+            this.bg.loadTexture("ChooseRoomGUI/roomBgSolo.png");
+            this.iconSolo.setVisible(true);
+            for (var i = 0; i < 4; i++) {
+                if (i < 2) {
+                    this.arrayNum[i].setVisible(false);
+                }
+                else {
+                    if (i < inf.personCount + 2) {
+                        this.arrayNum[i].setTexture("ChooseRoomGUI/imgPeople.png");
+                    }
+                    else {
+                        this.arrayNum[i].setTexture("ChooseRoomGUI/imgPeopleEmpty.png");
+                    }
+                }
+            }
         }
         else {
-            this.bet.setString(StringUtility.formatNumberSymbol(channelMgr.getBetAdvance(inf.bet)));
+            this.iconSolo.setVisible(false);
+            this.bg.loadTexture("ChooseRoomGUI/bgCell.png");
+            for (var i = 0; i < 4; i++) {
+                this.arrayNum[i].setVisible(true);
+                if (i < inf.personCount) {
+                    this.arrayNum[i].setTexture("ChooseRoomGUI/imgPeople.png");
+                }
+                else {
+                    this.arrayNum[i].setTexture("ChooseRoomGUI/imgPeopleEmpty.png");
+                }
+            }
         }
-
         this.star.setVisible(inf.bigBet);
-        cc.log("TOTAL COUNT " + inf.to)
-        for (var i = 0; i < 5; i++) {
-            if (i < inf.personCount) {
-                this.arrayNum[i].setTexture("ChooseRoomGUI/imgPeople.png");
-            }
-            else {
-                this.arrayNum[i].setTexture("ChooseRoomGUI/imgPeopleEmpty.png");
-            }
-        }
+
+
     }
 });

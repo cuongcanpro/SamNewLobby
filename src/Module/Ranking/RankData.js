@@ -1,6 +1,7 @@
 var RankData = BaseMgr.extend({
     ctor: function () {
         this._super();
+        this.tag = "RankData";
         this.rankConfig = null;
         this.curRankInfo = null;
         this.dataCurWeek = null;
@@ -10,7 +11,10 @@ var RankData = BaseMgr.extend({
         this.numberOldCup = 0;
         this.dataTruCup = null;
         this.topUsersData = null;
+    },
 
+    init: function () {
+        cc.log("INIT RANK DATA");
         RankData.preloadResources();
     },
     
@@ -31,11 +35,7 @@ var RankData = BaseMgr.extend({
                 var otherInfo = new CmdReceivedOtherRankInfo(pk);
                 cc.log("otherInfo: ", JSON.stringify(otherInfo));
                 sceneMgr.clearLoading();
-                var otherInfoGUI = sceneMgr.openGUI(UserInfoPanel.className, LobbyScene.GUI_USER_INFO, LobbyScene.GUI_USER_INFO);
-                var info = new UserInfo();
-                info.setInfoFromRankInfo(otherInfo);
-                otherInfoGUI.setInfo(info);
-                otherInfo.clean();
+                dispatcherMgr.dispatchEvent(RankData.EVENT_RECEIVED_DATA, otherInfo);
                 return;
             }
         }
@@ -293,12 +293,13 @@ RankData.detectUpdateGoldWin = function(expChange, positionChange){
 
 RankData.getRankImg = function(rank){
     var indexRank = Math.floor(rank/ 3);
-    return "rank" + indexRank + ".png";
+    return "res/Lobby/Ranking/rank" + indexRank + ".png";
 };
 
 RankData.getRankLevelImg = function(rank){
     var indexLevel = (rank) % 3;
-    return "level" + indexLevel + ".png";
+    cc.log("WHAT getRankLevelImg NOW", "level" + indexLevel + ".png");
+    return "res/Lobby/Ranking/level" + indexLevel + ".png";
 };
 
 RankData.getRankName = function(rank){
@@ -308,6 +309,13 @@ RankData.getRankName = function(rank){
         return level[rank]["name"];
     }
     return "Tân thủ";
+};
+
+RankData.getRankNameImg = function(rank){
+    var prefix = "res/Lobby/Ranking/rankTitle/rank";
+    var subfix = ".png";
+    cc.log("WHAT RANK NOW", rank, prefix + (Math.floor((rank - 1) / 3) + 1) + "_" + ((rank - 1) % 3 + 1) + subfix);
+    return prefix + Math.floor(rank / 3) + "_" + (rank % 3) + subfix;
 };
 
 RankData.getRankPointNeed = function(rank){
@@ -554,7 +562,7 @@ RankData.getOpenResultLastWeek = function(){
 RankData.checkNotifyOpenRank = function(newLevel){
     if (userMgr.getLevel() < RankData.MIN_LEVEL_JOIN_RANK){
         if (newLevel >= RankData.MIN_LEVEL_JOIN_RANK){
-            if (CheckLogic.checkInBoard()){
+            if (inGameMgr.checkInBoard()){
                 userMgr.setLevel(newLevel);
                 RankData.addMiniRankGUI(true);
                 RankData.isEnoughLevelJoinRank = true;
@@ -570,7 +578,7 @@ RankData.addMiniRankGUI = function(isTooltip){
             cc.log("addMiniRankGUI");
             var miniRank = sceneMgr.openGUI(RankMiniGUI.className, RankData.MINI_RANK_GUI_TAG, RankData.MINI_RANK_GUI_TAG, false);
             if (isTooltip) miniRank.showTooltipOpenRank();
-            miniRank.btnMiniRank.setVisible(!CheckLogic.checkInBoard());
+            miniRank.btnMiniRank.setVisible(!inGameMgr.checkInBoard());
             RankData.waitOpenMiniRank = false;
         }
     }
@@ -621,7 +629,6 @@ RankData.disconnectServer = function(){
 RankData.preloadResources = function(){
     cc.spriteFrameCache.addSpriteFrames("res/Lobby/Ranking/Rank.plist");
     LocalizedString.add("res/Lobby/Ranking/Rank_Localize_vi");
-
     var forderAnim = "res/Lobby/Ranking/Animation/";
 
     db.DBCCFactory.getInstance().loadDragonBonesData(forderAnim + "HighlightBig/skeleton.xml","HighlightBig");
@@ -653,6 +660,7 @@ RankData.getInstance = function () {
     }
     return RankData.instance;
 };
+var rankData = RankData.getInstance();
 RankData.TEMPORARY_SCALE = 1.5;
 
 RankData.MAX_RANK = 9;
@@ -689,6 +697,8 @@ RankData.CMD_RANK_INFO_OTHER_USER = 17001;
 RankData.CMD_CHEAT_GOLD_WIN = 1011;
 RankData.CMD_CHEAT_INFO = 1010;
 RankData.CMD_PINGPONG = 50;
+
+RankData.EVENT_RECEIVED_DATA = "eventReceivedData";
 
 RankData.KEY_SAVE_NUMBER_OPEN_GUI = "keySaveNumberOpenGUI";
 RankData.TEMP_CONFIG = "{\"isMaintain\":true,\"minLevelRanking\":3,\"level\":{\"0\":{\"prizeFactor\":1,\"name\":\"Tân Thủ\",\"cup\":0},\"1\":{\"prizeFactor\":2,\"name\":\"Tập Sự\",\"cup\":250},\"2\":{\"prizeFactor\":3,\"name\":\"NΓng Cao\",\"cup\":500},\"3\":{\"prizeFactor\":4,\"name\":\"Nghiệp Dư\",\"cup\":1000},\"4\":{\"prizeFactor\":5,\"name\":\"Chuyên Nghiệp\",\"cup\":2000},\"5\":{\"prizeFactor\":6,\"name\":\"Tinh Anh\",\"cup\":3500},\"6\":{\"prizeFactor\":7,\"name\":\"╨?i Cao Th?\",\"cup\":5000},\"7\":{\"prizeFactor\":8,\"name\":\"Thiên Tài\",\"cup\":7000},\"8\":{\"prizeFactor\":9,\"name\":\"Đỉnh Cao\",\"cup\":10000},\"9\":{\"prizeFactor\":10,\"name\":\"Thần Bài\",\"cup\":-1}},\"numLevel\":10,\"prize\":{\"winCup\":[1000,900,800,600,500,450,400,350,300,250],\"winGold\":[1500000,1000000,800000,700000,600000,350000,250000,150000,100000,50000],\"lostCup\":[200,200,200,200,200,100,100,100,100,100]}}";

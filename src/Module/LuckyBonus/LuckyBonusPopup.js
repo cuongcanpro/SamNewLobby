@@ -18,6 +18,11 @@ var NotEnoughGPopup = BaseLayer.extend({
         this.enableFog();
     },
 
+    onEnterFinish: function () {
+        this.setBackEnable(true);
+        this.setShowHideAnimate(this.bg, true);
+    },
+
     onButtonRelease: function(btn, id){
         switch (id){
             case NotEnoughGPopup.BTN_CLOSE:
@@ -245,6 +250,11 @@ var PrizeDetailPopup = BaseLayer.extend({
         this.loadPrizeDetail();
     },
 
+    onEnterFinish: function () {
+        this.setBackEnable(true);
+        this.setShowHideAnimate(this.bg, true);
+    },
+
     loadPrizeDetail: function(){
         this.prizeDetail = this.getControl("prizeDetail", this.bg);
         this.row = this.getControl("row", this.prizeDetail);
@@ -323,8 +333,3 @@ PrizeDetailPopup.PRIZE_VALUE_SCALE = 0.6;
 PrizeDetailPopup.TABLE_WIDTH = 525;
 PrizeDetailPopup.TABLE_HEIGHT = 250;
 PrizeDetailPopup.TABLE_CELL_SIZE = cc.size(525, 60);
-
-
-
-
-

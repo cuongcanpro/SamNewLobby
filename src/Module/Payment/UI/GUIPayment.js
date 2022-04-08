@@ -15,9 +15,9 @@ var SimOperatorPopup = BaseLayer.extend({
         var p = this.getControl("bg");
         this._bg = p;
 
-        this.btnViettel = this.customButton("viettel", PanelCard.BTN_VIETTEL, p);
-        this.btnMobi = this.customButton("mobifone", PanelCard.BTN_MOBIFONE, p);
-        this.btnVina = this.customButton("vinaphone", PanelCard.BTN_VINAPHONE, p);
+        this.btnViettel = this.customButton("viettel", Payment.OPERATOR_VIETTEL, p);
+        this.btnMobi = this.customButton("mobifone", Payment.OPERATOR_MOBIFONE, p);
+        this.btnVina = this.customButton("vinaphone", Payment.OPERATOR_VINAPHONE, p);
         this.customButton("btnClose", PanelCard.BTN_CLOSE, p);
 
         this.iconViettel = this.getControl("iconMaintainViettel", p);
@@ -28,11 +28,16 @@ var SimOperatorPopup = BaseLayer.extend({
         this.setBackEnable(true);
     },
 
-    setAmount: function (a, b) {
-        this.amount = parseInt(a);
-        this.type = parseInt(b);
-        this.typeBuy = this.type; // loai mua SMS: Gold, Ve, Offer : 0, 1, 2
+    setAmount: function (amount, typePayment) {
+        this.amount = parseInt(amount);
+        this.typePayment = parseInt(typePayment); // loai mua SMS: Gold, Ve, Offer : 0, 1, 2
         this.updateMaintain();
+        if (this.amount == 5000) {
+            this.btnVina.setOpacity(180);
+        }
+        else {
+            this.btnVina.setOpacity(255);
+        }
     },
 
     onEnterFinish: function () {
@@ -55,46 +60,50 @@ var SimOperatorPopup = BaseLayer.extend({
 
     onButtonRelease: function (btn, id) {
         switch (id) {
-            case PanelCard.BTN_VIETTEL:
+            case Payment.OPERATOR_VIETTEL:
                 if (this.iconViettel.isVisible()) {
-
                     cc.log("TYPE NE " + this.type);
                     ToastFloat.makeToast(ToastFloat.SHORT, localized("MAINTAIN_SERVICE"));
                     return;
                 } else {
-                    this.type = Payment.GOLD_SMS_VIETTEL;
+                    this.typeSMS = Payment.GOLD_SMS_VIETTEL;
                 }
 
                 break;
-            case PanelCard.BTN_VINAPHONE:
+            case Payment.OPERATOR_VINAPHONE:
+                if (this.amount == 5000) {
+                    ToastFloat.makeToast(ToastFloat.SHORT, localized("MAINTAIN_SERVICE"));
+                    return;
+                }
                 if (this.iconVina.isVisible()) {
 
                     cc.log("TYPE NE " + this.type);
                     ToastFloat.makeToast(ToastFloat.SHORT, localized("MAINTAIN_SERVICE"));
                     return;
                 } else {
-                    this.type = Payment.GOLD_SMS_VINA;
+                    this.typeSMS = Payment.GOLD_SMS_VINA;
                 }
                 break;
-            case PanelCard.BTN_MOBIFONE:
+            case Payment.OPERATOR_MOBIFONE:
                 if (this.iconMobi.isVisible()) {
-
                     cc.log("TYPE NE " + this.type);
                     ToastFloat.makeToast(ToastFloat.SHORT, localized("MAINTAIN_SERVICE"));
                     return;
                 } else {
-                    this.type = Payment.GOLD_SMS_MOBI;
+                    this.typeSMS = Payment.GOLD_SMS_MOBI;
                 }
                 break;
         }
         this.onClose();
         if (id == PanelCard.BTN_CLOSE)
             return;
-        cc.log("TYPE NE " + this.type);
-        if (this.typeBuy == Payment.CHEAT_PAYMENT_OFFER)
-            PaymentUtils.requestSMSSyntax(id, parseInt(this.amount), Payment.CHEAT_PAYMENT_OFFER, parseInt(this.type), Payment.IS_OFFER);
+        // type SMS la sms_viettel, sms_vina.... de dung cho link cheat payment
+        // id la operator nha mang kieu 0,1,2,3.....
+        cc.log("TYPE SMS NE " + this.typeSMS);
+        if (this.typePayment == Payment.CHEAT_PAYMENT_OFFER)
+            PaymentUtils.requestSMSSyntax(id, parseInt(this.amount), Payment.CHEAT_PAYMENT_OFFER, parseInt(this.typeSMS), Payment.IS_OFFER);
         else
-            PaymentUtils.requestSMSSyntax(id, parseInt(this.amount), Payment.CHEAT_PAYMENT_EVENT, parseInt(this.type), Payment.NO_OFFER);
+            PaymentUtils.requestSMSSyntax(id, parseInt(this.amount), this.typePayment, parseInt(this.typeSMS), Payment.NO_OFFER);
 
         cc.log("##SimOperator::purchaseSMS : " + id + "/" + this.amount);
     },
@@ -263,6 +272,7 @@ var GUIBank = BaseLayer.extend({
             var button = new ccui.Button();
             button.setTouchEnabled(true);
             button.loadTextures("ShopIAP/IconBank/Bank" + this.arrayImage[i] + ".png", "ShopIAP/IconBank/Bank" + this.arrayImage[i] + ".png", "");
+            cc.log("ShopIAP/IconBank/Bank" + this.arrayImage[i] + ".png");
             if (padX == -100) {
                 padX = (this.panelCenter.getContentSize().width - 4 * button.getContentSize().width) / 3;
                 padY = (this.panelCenter.getContentSize().height - 6 * button.getContentSize().height) / 5;

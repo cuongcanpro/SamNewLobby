@@ -60,7 +60,7 @@
             "ctype": "ImageViewObjectData"
           },
           {
-            "ClipAble": false,
+            "ClipAble": true,
             "BackColorAlpha": 102,
             "SingleColor": {
               "R": 150,
@@ -108,341 +108,6 @@
             "Tag": 200,
             "Children": [
               {
-                "FileData": {
-                  "Type": "Normal",
-                  "Path": "ShopIAP/iconShop.png",
-                  "Plist": ""
-                },
-                "Scale9OriginX": 82,
-                "Scale9OriginY": 13,
-                "Scale9Width": 10,
-                "Scale9Height": 12,
-                "AnchorPoint": {
-                  "ScaleX": 0.5,
-                  "ScaleY": 0.5
-                },
-                "Position": {
-                  "X": 168.0412,
-                  "Y": 119.5688
-                },
-                "Scale": {
-                  "ScaleX": 0.8,
-                  "ScaleY": 0.8
-                },
-                "CColor": {},
-                "IconVisible": false,
-                "PositionPercentYEnabled": true,
-                "PrePosition": {
-                  "X": 0.14,
-                  "Y": 0.7427
-                },
-                "PreSize": {
-                  "X": 0.145,
-                  "Y": 0.236
-                },
-                "HorizontalEdge": "LeftEdge",
-                "LeftMargin": 81.0412,
-                "RightMargin": 944.9588,
-                "TopMargin": 22.4232,
-                "BottomMargin": 100.5688,
-                "Tag": 184,
-                "ActionTag": -987782656,
-                "Size": {
-                  "X": 174.0,
-                  "Y": 38.0
-                },
-                "Name": "title",
-                "ctype": "ImageViewObjectData"
-              },
-              {
-                "FontSize": 14,
-                "ButtonText": "",
-                "TextColor": {
-                  "R": 65,
-                  "G": 65,
-                  "B": 70
-                },
-                "PressedFileData": {
-                  "Type": "Normal",
-                  "Path": "ShopIAP/BtnTab/btnTabGoldActive.png",
-                  "Plist": ""
-                },
-                "NormalFileData": {
-                  "Type": "Normal",
-                  "Path": "ShopIAP/BtnTab/btnTabGoldActive.png",
-                  "Plist": ""
-                },
-                "Scale9Enable": true,
-                "Scale9OriginX": 15,
-                "Scale9OriginY": 11,
-                "Scale9Width": 238,
-                "Scale9Height": 52,
-                "OutlineColor": {
-                  "G": 0,
-                  "B": 0
-                },
-                "ShadowColor": {
-                  "R": 110,
-                  "G": 110,
-                  "B": 110
-                },
-                "ShadowOffsetX": 2.0,
-                "ShadowOffsetY": -2.0,
-                "TouchEnable": true,
-                "AnchorPoint": {
-                  "ScaleX": 0.5,
-                  "ScaleY": 0.5
-                },
-                "Position": {
-                  "X": 127.9937,
-                  "Y": 36.5
-                },
-                "Scale": {
-                  "ScaleX": 1.0,
-                  "ScaleY": 1.0
-                },
-                "CColor": {},
-                "IconVisible": false,
-                "PrePosition": {
-                  "X": 0.1067,
-                  "Y": 0.2267
-                },
-                "PreSize": {
-                  "X": 0.2233,
-                  "Y": 0.4597
-                },
-                "HorizontalEdge": "LeftEdge",
-                "VerticalEdge": "BottomEdge",
-                "LeftMargin": -6.0063,
-                "RightMargin": 938.0063,
-                "TopMargin": 87.492,
-                "BottomMargin": -0.5,
-                "Tag": 185,
-                "ActionTag": -1027041622,
-                "Size": {
-                  "X": 268.0,
-                  "Y": 74.0
-                },
-                "Name": "btnGold",
-                "ctype": "ButtonObjectData"
-              },
-              {
-                "FontSize": 14,
-                "ButtonText": "",
-                "TextColor": {
-                  "R": 65,
-                  "G": 65,
-                  "B": 70
-                },
-                "PressedFileData": {
-                  "Type": "Normal",
-                  "Path": "ShopIAP/BtnTab/btnTabGActive.png",
-                  "Plist": ""
-                },
-                "NormalFileData": {
-                  "Type": "Normal",
-                  "Path": "ShopIAP/BtnTab/btnTabGActive.png",
-                  "Plist": ""
-                },
-                "Scale9Enable": true,
-                "Scale9OriginX": 15,
-                "Scale9OriginY": 11,
-                "Scale9Width": 238,
-                "Scale9Height": 52,
-                "OutlineColor": {
-                  "G": 0,
-                  "B": 0
-                },
-                "ShadowColor": {
-                  "R": 110,
-                  "G": 110,
-                  "B": 110
-                },
-                "ShadowOffsetX": 2.0,
-                "ShadowOffsetY": -2.0,
-                "TouchEnable": true,
-                "AnchorPoint": {
-                  "ScaleX": 0.5,
-                  "ScaleY": 0.5
-                },
-                "Position": {
-                  "X": 335.5436,
-                  "Y": 36.532
-                },
-                "Scale": {
-                  "ScaleX": 1.0,
-                  "ScaleY": 1.0
-                },
-                "CColor": {},
-                "IconVisible": false,
-                "PrePosition": {
-                  "X": 0.2796,
-                  "Y": 0.2269
-                },
-                "PreSize": {
-                  "X": 0.2233,
-                  "Y": 0.4597
-                },
-                "HorizontalEdge": "LeftEdge",
-                "VerticalEdge": "BottomEdge",
-                "LeftMargin": 201.5436,
-                "RightMargin": 730.4564,
-                "TopMargin": 87.46,
-                "BottomMargin": -0.468,
-                "Tag": 186,
-                "ActionTag": 1633075764,
-                "Size": {
-                  "X": 268.0,
-                  "Y": 74.0
-                },
-                "Name": "btnG",
-                "ctype": "ButtonObjectData"
-              },
-              {
-                "FontSize": 14,
-                "ButtonText": "",
-                "TextColor": {
-                  "R": 65,
-                  "G": 65,
-                  "B": 70
-                },
-                "PressedFileData": {
-                  "Type": "Normal",
-                  "Path": "ShopIAP/BtnTab/btnTabItemActive.png",
-                  "Plist": ""
-                },
-                "NormalFileData": {
-                  "Type": "Normal",
-                  "Path": "ShopIAP/BtnTab/btnTabItemActive.png",
-                  "Plist": ""
-                },
-                "Scale9Enable": true,
-                "Scale9OriginX": 15,
-                "Scale9OriginY": 11,
-                "Scale9Width": 238,
-                "Scale9Height": 52,
-                "OutlineColor": {
-                  "G": 0,
-                  "B": 0
-                },
-                "ShadowColor": {
-                  "R": 110,
-                  "G": 110,
-                  "B": 110
-                },
-                "ShadowOffsetX": 2.0,
-                "ShadowOffsetY": -2.0,
-                "TouchEnable": true,
-                "AnchorPoint": {
-                  "ScaleX": 0.5,
-                  "ScaleY": 0.5
-                },
-                "Position": {
-                  "X": 544.9989,
-                  "Y": 36.5319
-                },
-                "Scale": {
-                  "ScaleX": 1.0,
-                  "ScaleY": 1.0
-                },
-                "CColor": {},
-                "IconVisible": false,
-                "PrePosition": {
-                  "X": 0.4542,
-                  "Y": 0.2269
-                },
-                "PreSize": {
-                  "X": 0.2233,
-                  "Y": 0.4597
-                },
-                "HorizontalEdge": "LeftEdge",
-                "VerticalEdge": "BottomEdge",
-                "LeftMargin": 410.9989,
-                "RightMargin": 521.0011,
-                "TopMargin": 87.4601,
-                "BottomMargin": -0.4681,
-                "Tag": 727,
-                "ActionTag": 36952928,
-                "Size": {
-                  "X": 268.0,
-                  "Y": 74.0
-                },
-                "Name": "btnItem",
-                "ctype": "ButtonObjectData"
-              },
-              {
-                "FontSize": 14,
-                "ButtonText": "",
-                "TextColor": {
-                  "R": 65,
-                  "G": 65,
-                  "B": 70
-                },
-                "PressedFileData": {
-                  "Type": "Normal",
-                  "Path": "ShopIAP/BtnTab/btnTabEventActive.png",
-                  "Plist": ""
-                },
-                "NormalFileData": {
-                  "Type": "Normal",
-                  "Path": "ShopIAP/BtnTab/btnTabEventActive.png",
-                  "Plist": ""
-                },
-                "Scale9Enable": true,
-                "Scale9OriginX": 15,
-                "Scale9OriginY": 11,
-                "Scale9Width": 238,
-                "Scale9Height": 52,
-                "OutlineColor": {
-                  "G": 0,
-                  "B": 0
-                },
-                "ShadowColor": {
-                  "R": 110,
-                  "G": 110,
-                  "B": 110
-                },
-                "ShadowOffsetX": 2.0,
-                "ShadowOffsetY": -2.0,
-                "TouchEnable": true,
-                "AnchorPoint": {
-                  "ScaleX": 0.5,
-                  "ScaleY": 0.5
-                },
-                "Position": {
-                  "X": 753.7462,
-                  "Y": 36.532
-                },
-                "Scale": {
-                  "ScaleX": 1.0,
-                  "ScaleY": 1.0
-                },
-                "CColor": {},
-                "IconVisible": false,
-                "PrePosition": {
-                  "X": 0.6281,
-                  "Y": 0.2269
-                },
-                "PreSize": {
-                  "X": 0.2233,
-                  "Y": 0.4597
-                },
-                "HorizontalEdge": "LeftEdge",
-                "VerticalEdge": "BottomEdge",
-                "LeftMargin": 619.7462,
-                "RightMargin": 312.2538,
-                "TopMargin": 87.46,
-                "BottomMargin": -0.468,
-                "Tag": 187,
-                "ActionTag": 1906661806,
-                "Size": {
-                  "X": 268.0,
-                  "Y": 74.0
-                },
-                "Name": "btnTicket",
-                "ctype": "ButtonObjectData"
-              },
-              {
                 "FontSize": 14,
                 "ButtonText": "",
                 "TextColor": {
@@ -483,11 +148,11 @@
                 "ShadowOffsetY": -2.0,
                 "TouchEnable": true,
                 "AnchorPoint": {
-                  "ScaleY": 1.0
+                  "ScaleY": 0.5
                 },
                 "Position": {
-                  "X": 5.0,
-                  "Y": 154.987
+                  "X": 0.0,
+                  "Y": 119.992
                 },
                 "Scale": {
                   "ScaleX": 1.0,
@@ -495,20 +160,19 @@
                 },
                 "CColor": {},
                 "IconVisible": false,
-                "PositionPercentYEnabled": true,
                 "PrePosition": {
-                  "X": 0.0042,
-                  "Y": 0.9627
+                  "X": 0.0,
+                  "Y": 0.7453
                 },
                 "PreSize": {
                   "X": 0.0658,
                   "Y": 0.3851
                 },
                 "HorizontalEdge": "LeftEdge",
-                "LeftMargin": 5.0,
-                "RightMargin": 1116.0,
-                "TopMargin": 6.005,
-                "BottomMargin": 92.987,
+                "VerticalEdge": "TopEdge",
+                "RightMargin": 1121.0,
+                "TopMargin": 10.0,
+                "BottomMargin": 88.992,
                 "UserData": "scale",
                 "Tag": 66,
                 "ActionTag": -2018780999,
@@ -517,6 +181,360 @@
                   "Y": 62.0
                 },
                 "Name": "btnClose",
+                "ctype": "ButtonObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "ShopIAP/iconShop.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 82,
+                "Scale9OriginY": 13,
+                "Scale9Width": 10,
+                "Scale9Height": 12,
+                "AnchorPoint": {
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 100.0,
+                  "Y": 118.992
+                },
+                "Scale": {
+                  "ScaleX": 0.8,
+                  "ScaleY": 0.8
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0833,
+                  "Y": 0.7391
+                },
+                "PreSize": {
+                  "X": 0.145,
+                  "Y": 0.236
+                },
+                "HorizontalEdge": "LeftEdge",
+                "VerticalEdge": "TopEdge",
+                "LeftMargin": 100.0,
+                "RightMargin": 926.0,
+                "TopMargin": 23.0,
+                "BottomMargin": 99.992,
+                "Tag": 184,
+                "ActionTag": -987782656,
+                "Size": {
+                  "X": 174.0,
+                  "Y": 38.0
+                },
+                "Name": "title",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Normal",
+                  "Path": "ShopIAP/BtnTab/btnTabGoldActive.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "Normal",
+                  "Path": "ShopIAP/BtnTab/btnTabGoldActive.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "ShopIAP/BtnTab/btnTabGoldInactive.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 238,
+                "Scale9Height": 126,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 127.9937,
+                  "Y": 0.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.1067,
+                  "Y": 0.0
+                },
+                "PreSize": {
+                  "X": 0.2233,
+                  "Y": 0.9193
+                },
+                "HorizontalEdge": "LeftEdge",
+                "VerticalEdge": "BottomEdge",
+                "LeftMargin": -6.0063,
+                "RightMargin": 938.0063,
+                "TopMargin": 86.992,
+                "BottomMargin": -74.0,
+                "Tag": 185,
+                "ActionTag": -1027041622,
+                "Size": {
+                  "X": 268.0,
+                  "Y": 148.0
+                },
+                "Name": "btnGold",
+                "ctype": "ButtonObjectData"
+              },
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Normal",
+                  "Path": "ShopIAP/BtnTab/btnTabGActive.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "Normal",
+                  "Path": "ShopIAP/BtnTab/btnTabGActive.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "ShopIAP/BtnTab/btnTabGInactive.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 238,
+                "Scale9Height": 126,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 335.5436,
+                  "Y": 0.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.2796,
+                  "Y": 0.0
+                },
+                "PreSize": {
+                  "X": 0.2233,
+                  "Y": 0.9193
+                },
+                "HorizontalEdge": "LeftEdge",
+                "VerticalEdge": "BottomEdge",
+                "LeftMargin": 201.5436,
+                "RightMargin": 730.4564,
+                "TopMargin": 86.992,
+                "BottomMargin": -74.0,
+                "Tag": 186,
+                "ActionTag": 1633075764,
+                "Size": {
+                  "X": 268.0,
+                  "Y": 148.0
+                },
+                "Name": "btnG",
+                "ctype": "ButtonObjectData"
+              },
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Normal",
+                  "Path": "ShopIAP/BtnTab/btnTabItemActive.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "Normal",
+                  "Path": "ShopIAP/BtnTab/btnTabItemActive.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "ShopIAP/BtnTab/btnTabItemInactive.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 238,
+                "Scale9Height": 126,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 544.9989,
+                  "Y": 0.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.4542,
+                  "Y": 0.0
+                },
+                "PreSize": {
+                  "X": 0.2233,
+                  "Y": 0.9193
+                },
+                "HorizontalEdge": "LeftEdge",
+                "VerticalEdge": "BottomEdge",
+                "LeftMargin": 410.9989,
+                "RightMargin": 521.0011,
+                "TopMargin": 86.992,
+                "BottomMargin": -74.0,
+                "Tag": 727,
+                "ActionTag": 36952928,
+                "Size": {
+                  "X": 268.0,
+                  "Y": 148.0
+                },
+                "Name": "btnItem",
+                "ctype": "ButtonObjectData"
+              },
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Normal",
+                  "Path": "ShopIAP/BtnTab/btnTabEventActive.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "Normal",
+                  "Path": "ShopIAP/BtnTab/btnTabEventActive.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "ShopIAP/BtnTab/btnTabEventInactive.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 238,
+                "Scale9Height": 126,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 753.7462,
+                  "Y": 0.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.6281,
+                  "Y": 0.0
+                },
+                "PreSize": {
+                  "X": 0.2233,
+                  "Y": 0.9193
+                },
+                "HorizontalEdge": "LeftEdge",
+                "VerticalEdge": "BottomEdge",
+                "LeftMargin": 619.7462,
+                "RightMargin": 312.2538,
+                "TopMargin": 86.992,
+                "BottomMargin": -74.0,
+                "Tag": 187,
+                "ActionTag": 1906661806,
+                "Size": {
+                  "X": 268.0,
+                  "Y": 148.0
+                },
+                "Name": "btnTicket",
                 "ctype": "ButtonObjectData"
               }
             ],
@@ -609,14 +627,14 @@
           },
           {
             "FileData": {
-              "Type": "Normal",
-              "Path": "ShopIAP/iconTicket0.png",
+              "Type": "Default",
+              "Path": "Default/ImageFile.png",
               "Plist": ""
             },
             "Scale9OriginX": 11,
             "Scale9OriginY": 4,
-            "Scale9Width": 8,
-            "Scale9Height": 7,
+            "Scale9Width": 24,
+            "Scale9Height": 38,
             "AnchorPoint": {
               "ScaleX": 0.5,
               "ScaleY": 0.5
@@ -923,14 +941,18 @@
         "Common/btnBack.png",
         "Common/btnHelp.png",
         "Default/Button_Disable.png",
+        "Default/ImageFile.png",
         "Font/tahoma.ttf",
         "ShopIAP/BtnTab/btnTabEventActive.png",
+        "ShopIAP/BtnTab/btnTabEventInactive.png",
         "ShopIAP/BtnTab/btnTabGActive.png",
+        "ShopIAP/BtnTab/btnTabGInactive.png",
         "ShopIAP/BtnTab/btnTabGoldActive.png",
+        "ShopIAP/BtnTab/btnTabGoldInactive.png",
         "ShopIAP/BtnTab/btnTabItemActive.png",
+        "ShopIAP/BtnTab/btnTabItemInactive.png",
         "ShopIAP/iconMaintainG.png",
-        "ShopIAP/iconShop.png",
-        "ShopIAP/iconTicket0.png"
+        "ShopIAP/iconShop.png"
       ],
       "ctype": "GameFileData"
     }

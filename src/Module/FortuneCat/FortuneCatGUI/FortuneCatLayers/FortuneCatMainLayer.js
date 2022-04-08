@@ -14,7 +14,6 @@ var FortuneCatMainLayer = BaseLayer.extend({
         this.flipClockCounter = 0;
 
         ///user interaction info
-        this.catTouched = null;
         this.catTouchedIndex = null;
         this.catTouchedLocation = null;
 
@@ -48,8 +47,13 @@ var FortuneCatMainLayer = BaseLayer.extend({
         this.guide = this.getControl("guide", this._layout);
 
         this.mainCatSilhouette = this.getControl("silhouette", this.mainCat);
+        this.silhouetteTooltip = this.getControl("tooltip", this.mainCatSilhouette);
+        this.findCatTooltip = this.getControl("tooltip_find_cat", this.mainCatSilhouette);
         this.mainCatBody = this.getControl("cat", this.mainCat);
         this.mainCatImage = this.getControl("catImg", this.mainCatBody);
+        this.mainCatTooltip = this.getControl("ingameTooltip", this.mainCatBody);
+        this.mainCatClock = this.getControl("clock", this.mainCatBody);
+        this.mainCatTooltip.setVisible(false);
         this.sandClockIcon = this.getControl("icon", this.mainCatBody);
         this.getControl("btnReceiveReward", this.mainCat).setVisible(false);
 
@@ -82,11 +86,11 @@ var FortuneCatMainLayer = BaseLayer.extend({
         this.btnReceiveReward = this.customButton("btnReceiveReward", FortuneCatMainLayer.BTN_RECEIVE_REWARD, this.mainCat);
         this.btnCloseGuide = this.customButton("btnCloseGuide", FortuneCatMainLayer.BTN_CLOSE_GUIDE, this.guide);
 
-        ///action listeners
-        this.addTouchCatListener();
-        this.addTouchProgressToolTipListener();
-
         ///finger tooltip
+        this.fingerWave = [];
+        this.fingerWave.push(this.getControl("wave_0", this.fingerTooltip));
+        this.fingerWave.push(this.getControl("wave_1", this.fingerTooltip));
+        this.fingerWave.push(this.getControl("wave_2", this.fingerTooltip));
         this.finger = this.getControl("finger", this.fingerTooltip);
         this.fingerTrait = this.getControl("fingerTrait", this.fingerTooltip);
         this.finger.setVisible(false);
@@ -106,9 +110,16 @@ var FortuneCatMainLayer = BaseLayer.extend({
         this.resetFingerTooltip();
         this.resetProgressTooltip();
         this.resetSandClock();
+        this.resetClockView();
+        this.resetMainCatTooltip();
         this.resetBtnReceiveRewardScale();
         this.resetSunPosition();
         this.resetLayoutScale();
+        this.checkShowGuideBtn();
+
+        ///action listeners
+        this.addTouchCatListener();
+        this.addTouchProgressToolTipListener();
 
         ///if no cat then show guide
         this.checkShowGuide();
@@ -143,7 +154,6 @@ var FortuneCatMainLayer = BaseLayer.extend({
 
         ///add animation
         this.animateSun();
-        this.animateLayoutIn();
         this.animatePlayNowButton();
     },
 
@@ -185,18 +195,41 @@ var FortuneCatMainLayer = BaseLayer.extend({
 
         ///numbers based on feeling when run animation
         this._layout.runAction(cc.sequence(
-            cc.scaleTo(0.2, 1.05).easing(cc.easeBackOut()),
-            cc.scaleTo(0.2, 1).easing(cc.easeBackOut())
+            cc.scaleTo(0.2, 0.95).easing(cc.easeBackOut()),
+            cc.scaleTo(0.2, 0.9).easing(cc.easeBackOut())
             ));
+    },
+
+    ///animate ingame GUI when open
+    animateIngameLayoutIn: function(){
+        var winSize = cc.director.getWinSize();
+
+        this._layout.setPosition(winSize.width * 0.8, winSize.height * 1);
+        this._layout.setAnchorPoint(0.8, 1);
+        this._layout.setScale(0.25);
+
+        ///numbers based on feeling when run animation
+        this._layout.runAction(cc.sequence(
+            cc.scaleTo(0.2, 0.95).easing(cc.easeBackOut()),
+            cc.scaleTo(0.2, 0.9).easing(cc.easeBackOut())
+        ));
     },
 
     ///animate main GUI when close
     animateLayoutOut: function(){
         ///numbers based on feeling when run animation
-        this._layout.runAction(cc.sequence(
-            cc.scaleTo(0.1, 1.05).easing(cc.easeBackOut()),
-            cc.scaleTo(0.1, 0.5)
-        ));
+        if (FortuneCatManager.getInstance().isIngameIcon){
+            this._layout.runAction(cc.sequence(
+                cc.scaleTo(0.1, 1.05).easing(cc.easeBackOut()),
+                cc.scaleTo(0.1, 0.5)
+            ));
+        }
+        else {
+            this._layout.runAction(cc.sequence(
+                cc.scaleTo(0.1, 1.05).easing(cc.easeBackOut()),
+                cc.scaleTo(0.1, 0.5)
+            ));
+        }
     },
 
     resetLayoutScale: function(){
@@ -204,7 +237,36 @@ var FortuneCatMainLayer = BaseLayer.extend({
     },
 
     animatePlayNowButton: function(){
-        this.btnPlay.runAction(cc.sequence(cc.scaleTo(0.5, 1.1), cc.scaleTo(0.5, 1)).repeatForever());
+        if (
+            FortuneCatManager.getInstance().userCatIdList !== null &&
+            FortuneCatManager.getInstance().userCatIdList.length === 0 &&
+            FortuneCatManager.getInstance().userOpenCatId == -1
+        ){
+            this.findCatTooltip.setVisible(false);
+            if (FortuneCatManager.getInstance().isIngameIcon){
+                this.silhouetteTooltip.setVisible(true);
+                this.btnPlay.setVisible(false);
+            }
+            else {
+                this.silhouetteTooltip.setVisible(true);
+                this.btnPlay.setVisible(true);
+                this.btnPlay.runAction(cc.sequence(cc.scaleTo(0.5, 1.1), cc.scaleTo(0.5, 1)).repeatForever());
+            }
+        }
+        else if (
+            FortuneCatManager.getInstance().userCatIdList !== null &&
+            FortuneCatManager.getInstance().userCatIdList.length !== 0 &&
+            FortuneCatManager.getInstance().userOpenCatId == -1
+        ){
+            this.findCatTooltip.setVisible(true);
+            this.silhouetteTooltip.setVisible(false);
+            this.btnPlay.setVisible(false);
+        }
+        else {
+            this.findCatTooltip.setVisible(false);
+            this.silhouetteTooltip.setVisible(false);
+            this.btnPlay.setVisible(false);
+        }
     },
     ///end - animate decoration
 
@@ -220,6 +282,7 @@ var FortuneCatMainLayer = BaseLayer.extend({
 
     ///tooltip animation each time it's showed
     animateTooltip: function(){
+        /*
         this.finger.setVisible(true);
         this.fingerTrait.setTextureRect(cc.rect(0, 0, 0, 0));
         this.fingerTrait.setVisible(true);
@@ -234,6 +297,30 @@ var FortuneCatMainLayer = BaseLayer.extend({
             this.finger.setPosition(FortuneCatMainLayer.FINGER_START_X, FortuneCatMainLayer.FINGER_START_Y);
             this.finger.runAction(cc.RotateBy(0.01, FortuneCatMainLayer.FINGER_ROTATE_DEGREE));
         }.bind(this), fingerAnimationExpectedDuration);
+
+         */
+        this.finger.stopAllActions();
+        this.finger.runAction(cc.sequence(
+            cc.callFunc(function(){
+                this.finger.setVisible(true);
+            }.bind(this)),
+            cc.sequence(
+                cc.moveBy(0.5, 15, -15),
+                cc.moveBy(0.5, -15, 15),
+                cc.callFunc(function(){
+                    for (var i = 0; i < this.fingerWave.length; i++){
+                        this.fingerWave[i].runAction(cc.sequence(
+                            cc.fadeTo(0.15 * i, 255 - 75 * i),
+                            cc.fadeOut(0.15)
+                        ));
+                    }
+                }.bind(this))
+            ).repeat(3),
+            cc.delayTime(0.5),
+            cc.callFunc(function(){
+                this.finger.setVisible(false);
+            }.bind(this))
+        ));
     },
 
     ///determine how the finger moves and how the trait is revealed
@@ -280,6 +367,7 @@ var FortuneCatMainLayer = BaseLayer.extend({
 
     ///reset finger original position and angle, hide the trait, reset current loop
     resetFingerTooltip: function(){
+        /*
         var fingerOriginalAngle = 30;
 
         this.finger.setVisible(false);
@@ -288,6 +376,14 @@ var FortuneCatMainLayer = BaseLayer.extend({
         this.finger.setPosition(FortuneCatMainLayer.FINGER_START_X, FortuneCatMainLayer.FINGER_START_Y);
         this.finger.runAction(cc.rotateTo(0.01, fingerOriginalAngle));
         this.currentLoop = 0;
+         */
+
+        this.finger.setVisible(false);
+        this.finger.setPosition(FortuneCatMainLayer.FINGER_START_X, FortuneCatMainLayer.FINGER_START_Y);
+
+        for (var i = 0; i < this.fingerWave.length; i++){
+            this.fingerWave[i].setOpacity(0);
+        }
     },
 
     ///reset progress tooltip original state (invisible)
@@ -336,7 +432,6 @@ var FortuneCatMainLayer = BaseLayer.extend({
             var silhouette = this.getControl("silhouette", slot);
 
             if (typeof userCatIdList[i] !== "undefined"){
-                cc.log("userCatIdList" + userCatIdList[i] + " " + i);
                 silhouette.loadTexture(FortuneCatSilhouetteSlotPathList[userCatIdList[i]]);
                 cat.setVisible(true);
                 cat.loadTexture(FortuneCatImageSlotPathList[userCatIdList[i]]);
@@ -405,6 +500,7 @@ var FortuneCatMainLayer = BaseLayer.extend({
 
     onTouchCatBegan: function(touch, event){
         var touchLocation = this.catSlots.convertToNodeSpace(touch.getLocation());
+        cc.log("Touch location: " + JSON.stringify(this._layout.convertToNodeSpace(touch.getLocation())));
 
         for (var i = 0; i < this.catSlotRects.length; i++){
             if (
@@ -413,21 +509,30 @@ var FortuneCatMainLayer = BaseLayer.extend({
                 typeof this.catSlotImageList[i] !== 'undefined' &&
                 this.catSlotImageList[i].isVisible()
             ){
-                this.fingerTooltip.setVisible(false);
-                this.unschedule(this.showTooltipFinger);
-                this.unschedule(this.animateFinger);
-
-                ///update cat position
-                this.catTouchedLocation = this.catSlotList[i].convertToNodeSpace(touch.getLocation());
-                this.catSlotImageList[i].setPosition(this.catTouchedLocation);
-
-                var slot = this.getControl("slot_" + (i + 1).toString(), this.catSlots);
-                slot.setLocalZOrder(100);
-
                 ///update relevant/affected variables/GUI components
                 this.catTouchedIndex = i;
                 this.fingerTooltip.setVisible(false);
-                return true;
+                if (FortuneCatManager.getInstance().userOpenCatId === -1){
+                    FortuneCatManager.getInstance().sendUnlockFortuneCat(this.catTouchedIndex);
+
+                    this.catSlotImageList[this.catTouchedIndex].setVisible(false);
+                    this.catSlotBgTimeList[this.catTouchedIndex].setVisible(false);
+                    this.catSlotTimeList[this.catTouchedIndex].setVisible(false);
+                }
+            }
+            ///click components on GUI
+            else if (cc.rectContainsPoint(cc.rect(0, 0, this.width, this.height), this._layout.convertToNodeSpace(touch.getLocation()))){
+                ///do nothing
+            }
+            ///click area outside GUI
+            else {
+                ///close GUI
+                this.animateLayoutOut();
+                var animationFinishDelay = 200;
+
+                setTimeout(function(){
+                    this.onClose();
+                }.bind(this), animationFinishDelay);
             }
         }
         return false;
@@ -593,12 +698,29 @@ var FortuneCatMainLayer = BaseLayer.extend({
 
     ///show receive reward button after finish unlocking
     runFinishUnlockingAnimation: function(){
-        this.btnReceiveReward.setVisible(true);
-        this.btnReceiveReward.runAction(cc.sequence(cc.scaleTo(0.5, 1.1), cc.scaleTo(0.5, 1)).repeatForever());
+        if (FortuneCatManager.getInstance().isIngameIcon){
+            this.mainCatClock.setVisible(false);
+            this.btnReceiveReward.setVisible(false);
+            this.mainCatTooltip.setVisible(true);
+        }
+        else {
+            this.mainCatClock.setVisible(false);
+            this.btnReceiveReward.setVisible(true);
+            this.mainCatTooltip.setVisible(false);
+            this.btnReceiveReward.runAction(cc.sequence(cc.scaleTo(0.5, 1.1), cc.scaleTo(0.5, 1)).repeatForever());
+        }
     },
 
     resetBtnReceiveRewardScale: function(){
         this.btnReceiveReward.setScale(1);
+    },
+
+    resetClockView: function(){
+        this.mainCatClock.setVisible(true);
+    },
+
+    resetMainCatTooltip: function(){
+        this.mainCatTooltip.setVisible(false);
     },
 
     ///show image of unlocking cat
@@ -660,6 +782,15 @@ var FortuneCatMainLayer = BaseLayer.extend({
             this.guide.setVisible(false);
         }
     },
+
+    checkShowGuideBtn: function(){
+        if (FortuneCatManager.getInstance().isIngameIcon){
+            this.btnGuide.setVisible(false);
+        }
+        else {
+            this.btnGuide.setVisible(true);
+        }
+    },
     ///end - logic show guide
 
     onButtonRelease: function(btn, id){
@@ -683,7 +814,7 @@ var FortuneCatMainLayer = BaseLayer.extend({
 
             case FortuneCatMainLayer.BTN_PLAY:
                 this.onClose();
-                if (CheckLogic.checkQuickPlay()) {
+                if (channelMgr.checkQuickPlay()) {
                     var pk = new CmdSendQuickPlay();
                     GameClient.getInstance().sendPacket(pk);
                     pk.clean();
@@ -755,12 +886,18 @@ var FortuneCatMainLayer = BaseLayer.extend({
         }
     },
 
+    removeListener: function(){
+        cc.eventManager.removeListener(this.touchCatListener);
+        cc.eventManager.removeListener(this.touchProgressTooltipListener);
+    },
+
     onBack: function(){
         this.onClose();
     },
 
     onExit: function(){
         this._super();
+        this.removeListener();
         this.stopAllActions();
         this.unscheduleAllCallbacks();
         this.clearAllTimeout();
@@ -783,8 +920,8 @@ FortuneCatMainLayer.BTN_CHEAT_BELL = 8;
 FortuneCatMainLayer.BTN_CHEAT_UNLOCK = 9;
 
 ///position config
-FortuneCatMainLayer.FINGER_START_X = 180;
-FortuneCatMainLayer.FINGER_START_Y = 15;
+FortuneCatMainLayer.FINGER_START_X = 195;
+FortuneCatMainLayer.FINGER_START_Y = 30;
 FortuneCatMainLayer.FINGER_MOVE_DISTANCE_X = 120;
 FortuneCatMainLayer.FINGER_MOVE_DISTANCE_Y = 25;
 FortuneCatMainLayer.FINGER_ROTATE_DEGREE = 40;
@@ -797,7 +934,7 @@ FortuneCatMainLayer.SUN_3_POS = cc.p(496, 272);
 FortuneCatMainLayer.SUN_4_POS = cc.p(568, 193);
 
 ///animation config
-FortuneCatMainLayer.AFK_THRESHOLD = 2;
+FortuneCatMainLayer.AFK_THRESHOLD = 5;
 FortuneCatMainLayer.UPDATE_FINGER_TOOLTIP_INTERVAL = 0.5;
 FortuneCatMainLayer.UPDATE_FINGER_ANIMATION_INTERVAL = 0.025;
 FortuneCatMainLayer.UPDATE_REMAIN_TIME_INTERVAL = 0.5;

@@ -60,6 +60,7 @@ var StorageCheatGUI = BaseLayer.extend({
         //load tab
         this.selectBox.listOption.removeAllChildren();
         var itemConfig = StorageManager.getInstance().itemConfig;
+        cc.log("itemConfig", JSON.stringify(itemConfig));
         if (itemConfig){
             for (var type in itemConfig){
                 var panel = new ccui.Layout();
@@ -70,7 +71,12 @@ var StorageCheatGUI = BaseLayer.extend({
                     if (type == ccui.Widget.TOUCH_ENDED)
                         this.selectType(panel.type);
                 }.bind(this), this);
-                var text = new ccui.Text(StorageCheatGUI.TYPE_NAMES[type], "fonts/tahomabd.ttf", 20);
+                cc.log("WHY IS THIS WRONG", StorageCheatGUI.TYPE_NAMES[type]);
+                var text = new ccui.Text(
+                    StorageCheatGUI.TYPE_NAMES[type]? StorageCheatGUI.TYPE_NAMES[type] : "Unknow",
+                    "res/fonts/tahomabd.ttf",
+                    20
+                );
                 text.setAnchorPoint(0, 0.5);
                 text.setPosition(10, panel.height/2);
                 panel.addChild(text);
@@ -211,7 +217,7 @@ var StorageCheatGUI = BaseLayer.extend({
         this.pPreview.addChild(sprite);
 
         var itemConfig = StorageManager.getInstance().itemConfig[this.data.type][this.data.id];
-        this.boxUnlocked.setSelected(NewVipManager.getInstance().getRealVipLevel() >= itemConfig.vip && gamedata.userData.level >= itemConfig.level);
+        this.boxUnlocked.setSelected(vipMgr.getRealVipLevel() >= itemConfig.vip && gamedata.userData.level >= itemConfig.level);
         if (this.data.index >= 0){
             this.boxHad.setSelected(true);
             var itemInfo = StorageManager.getInstance().userItemInfo[this.data.type][this.data.id][this.data.index];

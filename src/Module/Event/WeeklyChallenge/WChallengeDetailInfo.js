@@ -13,7 +13,7 @@ WChallengeDetailInfo = cc.Class.extend({
         this.challengeEnded = this.guiNode.getChildByName('ChallengeEnded');
         this.challengeEnded.oldX = this.challengeEnded.x;
         this.playNowBtn = this.guiNode.getChildByName('PlayNowBtn');
-        this.playNowPulseEff = new cc.Sprite('res/EventMgr/WeeklyChallenge/Popup/Buttons/PlayNow.png');
+        this.playNowPulseEff = new cc.Sprite('res/Event/WeeklyChallenge/Popup/Buttons/PlayNow.png');
         this.playNowPulseEff.setPosition(this.playNowBtn.x, this.playNowBtn.y);
         this.guiNode.addChild(this.playNowPulseEff, 10);
         this.playNowPulseEff.runAction(cc.sequence(
@@ -30,52 +30,52 @@ WChallengeDetailInfo = cc.Class.extend({
             cc.delayTime(3),
             cc.fadeOut(1)
         ).repeatForever());
-        this.getDailyRewardBtn = new ccui.Button('res/EventMgr/WeeklyChallenge/Popup/Buttons/ClaimRewards.png');
+        this.getDailyRewardBtn = new ccui.Button('res/Event/WeeklyChallenge/Popup/Buttons/ClaimRewards.png');
         this.getDailyRewardBtn.setPosition(this.playNowBtn.x, this.playNowBtn.y);
         this.guiNode.addChild(this.getDailyRewardBtn, 10);
         this.timeRemain = this.guiNode.getChildByName('TimeRemainVal');
         this.timeRemain.oldX = this.timeRemain.x;
         this.timeRemain.oldY = this.timeRemain.y;
         this.middleTitle = this.dailyDetail.getChildByName('MiddleTitle');
-        this.middleTitle.setFontName('res/EventMgr/WeeklyChallenge/Fonts/UTM_HelveBold.ttf');
+        this.middleTitle.setFontName('res/Event/WeeklyChallenge/Fonts/UTM_HelveBold.ttf');
         this.middleTitle.ignoreContentAdaptWithSize(true);
 
         this.panelGift = this.dailyDetail.getChildByName("panelGift");
         this.goldRewardVal = this.panelGift.getChildByName('GoldVal');
-        this.goldRewardVal.setFontName('res/EventMgr/WeeklyChallenge/Fonts/UTM_HelveBold.ttf');
+        this.goldRewardVal.setFontName('res/Event/WeeklyChallenge/Fonts/UTM_HelveBold.ttf');
         this.goldRewardVal.ignoreContentAdaptWithSize(true);
 
         this.cloverRewardVal = this.panelGift.getChildByName('CloverVal');
-        this.cloverRewardVal.setFontName('res/EventMgr/WeeklyChallenge/Fonts/UTM_HelveBold.ttf');
+        this.cloverRewardVal.setFontName('res/Event/WeeklyChallenge/Fonts/UTM_HelveBold.ttf');
         this.cloverRewardVal.ignoreContentAdaptWithSize(true);
 
         this.diamondRewardVal = this.panelGift.getChildByName('DiamondVal');
-        this.diamondRewardVal.setFontName('res/EventMgr/WeeklyChallenge/Fonts/UTM_HelveBold.ttf');
+        this.diamondRewardVal.setFontName('res/Event/WeeklyChallenge/Fonts/UTM_HelveBold.ttf');
         this.diamondRewardVal.ignoreContentAdaptWithSize(true);
 
         this.leftTitle = this.dailyDetail.getChildByName('ChallengeTitle');
-        this.leftTitle.setFontName('res/EventMgr/WeeklyChallenge/Fonts/UTM_HelveBold.ttf');
+        this.leftTitle.setFontName('res/Event/WeeklyChallenge/Fonts/UTM_HelveBold.ttf');
         this.leftTitle.ignoreContentAdaptWithSize(true);
         this.contentChallenge = this.dailyDetail.getChildByName('ChallengeContent');
-        this.contentChallenge.setFontName('res/EventMgr/WeeklyChallenge/Fonts/UTM_Helve.ttf');
+        this.contentChallenge.setFontName('res/Event/WeeklyChallenge/Fonts/UTM_Helve.ttf');
         this.contentChallenge.ignoreContentAdaptWithSize(true);
         this.archivedMainBar = this.dailyDetail.getChildByName('ArchivedMainBar');
         this.progressText = this.dailyDetail.getChildByName('ProgressTaskVal');
-        this.progressText.setFontName('res/EventMgr/WeeklyChallenge/Fonts/UTM_HelveBold.ttf');
+        this.progressText.setFontName('res/Event/WeeklyChallenge/Fonts/UTM_HelveBold.ttf');
         this.progressText.ignoreContentAdaptWithSize(true);
 
         // day final end event message
         this.timeTitle = this.guiNode.getChildByName('TimeTitle');
         this.timeTitle.oldX = this.timeTitle.x;
-        this.timeTitle.setFontName('res/EventMgr/WeeklyChallenge/Fonts/UTM_Helve.ttf');
+        this.timeTitle.setFontName('res/Event/WeeklyChallenge/Fonts/UTM_Helve.ttf');
         this.timeTitle.ignoreContentAdaptWithSize(true);
-        this.timeRemain.setFontName('res/EventMgr/WeeklyChallenge/Fonts/UTM_HelveBold.ttf');
+        this.timeRemain.setFontName('res/Event/WeeklyChallenge/Fonts/UTM_HelveBold.ttf');
         this.timeRemain.ignoreContentAdaptWithSize(true);
         this.lowerEndEventTitle = this.challengeEnded.getChildByName('LowerEndEventTitle');
-        this.lowerEndEventTitle.setFontName('res/EventMgr/WeeklyChallenge/Fonts/UTM_HelveBold.ttf');
+        this.lowerEndEventTitle.setFontName('res/Event/WeeklyChallenge/Fonts/UTM_HelveBold.ttf');
         this.lowerEndEventTitle.ignoreContentAdaptWithSize(true);
         this.upperEndEventTitle = this.challengeEnded.getChildByName('UpperEndEventTitle');
-        this.upperEndEventTitle.setFontName('res/EventMgr/WeeklyChallenge/Fonts/UTM_HelveBold.ttf');
+        this.upperEndEventTitle.setFontName('res/Event/WeeklyChallenge/Fonts/UTM_HelveBold.ttf');
         this.upperEndEventTitle.ignoreContentAdaptWithSize(true);
         this.claimRewardBtn = this.guiNode.getChildByName('ClaimRewards');
 
@@ -241,21 +241,27 @@ WChallengeDetailInfo = cc.Class.extend({
             this.challengeEnded.setVisible(true);
             var endEventText = "";
             if (day === wChallenge.nbOfBasicRewards) {
-                endEventText = LocalizedString.to("WC_COMPLETED_ALL_QUEST");
+                // endEventText = LocalizedString.to("WC_RECEIVED_REWARD");
+                // this.claimRewardBtn.setVisible(false);
+                // this.timeTitle.setVisible(false);
+                // this.timeRemain.setVisible(false);
+                // this.timeTitle.runAction(cc.sequence(
+                //     cc.delayTime(0.5),
+                //     cc.callFunc(function () {
+                //         this.timeTitle.setVisible(true);
+                //         this.timeRemain.setVisible(true);
+                //         this.timeTitle.setString(LocalizedString.to("WC_TIME_REMAIN_TO_RECEIVE_REWARD"));
+                //         this.timeTitle.setPositionX(this.playNowBtn.x);
+                //         this.timeRemain.setPosition(this.playNowBtn.x, this.playNowBtn.y + this.playNowBtn.height/3);
+                //     }.bind(this))
+                // ));
+                // this.challengeEnded.setPositionX(this.challengeEnded.oldX);
+
                 this.claimRewardBtn.setVisible(false);
+                endEventText = LocalizedString.to("WC_RECEIVED_REWARD");
                 this.timeTitle.setVisible(false);
                 this.timeRemain.setVisible(false);
-                this.timeTitle.runAction(cc.sequence(
-                    cc.delayTime(0.5),
-                    cc.callFunc(function () {
-                        this.timeTitle.setVisible(true);
-                        this.timeRemain.setVisible(true);
-                        this.timeTitle.setString(LocalizedString.to("WC_TIME_REMAIN_TO_RECEIVE_REWARD"));
-                        this.timeTitle.setPositionX(this.playNowBtn.x);
-                        this.timeRemain.setPosition(this.playNowBtn.x, this.playNowBtn.y + this.playNowBtn.height/3);
-                    }.bind(this))
-                ));
-                this.challengeEnded.setPositionX(this.challengeEnded.oldX);
+                this.challengeEnded.setPositionX(this.guiNode.x);
             }
             else if(day === wChallenge.nbOfBasicRewards + 1 && wChallenge.isExchangedCloverGold === 0 && !this.isExchangingClover && wChallenge.currClovers > 0) {
                 this.claimRewardBtn.setVisible(true);

@@ -4,9 +4,11 @@ var JackpotMgr = BaseMgr.extend({
         this.jackpotJson = null;
         this.jackpot = [];
         this.hasJackpot = false;
+    },
+
+    init: function () {
         this.loadJackpotJson();
         this.preloadResource();
-
     },
 
     preloadResource: function () {

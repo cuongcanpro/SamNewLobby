@@ -2,8 +2,9 @@
  * Created by HunterPC on 3/2/2016.
  */
 
-var ChatMgr = cc.Class.extend({
+var ChatMgr = BaseMgr.extend({
     ctor: function () {
+        this._super();
         this.chatTotal = [];
         this.chatRoom = {notify: false, dialog: []};
         this.chatUsers = {};
@@ -49,8 +50,8 @@ var ChatMgr = cc.Class.extend({
             return;
         }
 
-        var chatId = (sender.uId == gamedata.userData.uID) ? toId : sender.uId;
-        if (!(chatId in this.chatUsers))    //message init from other user
+        var chatId = (sender.uId == userMgr.getUID()) ? toId : sender.uId;
+        if ((sender.uId != userMgr.getUID()) && !(sender.uId in this.chatUsers))    //message init from other user
             this.addTabUser(sender.uId, sender.uName);
         if (this.chatUsers[chatId].dialog.length >= ChatMgr.DIALOG_MAX_LENGTH)
             this.chatUsers[chatId].dialog.splice(0, 5);
@@ -61,11 +62,16 @@ var ChatMgr = cc.Class.extend({
         this.userTrack.splice(this.userTrack.indexOf(chatId), 1);
         this.userTrack.unshift(chatId);
 
-        if (CheckLogic.checkInBoard() && gamedata.gameLogic) {
-            for (var i = 0; i < gamedata.gameLogic._players.length; i++) {
-                if (gamedata.gameLogic._players[i]._ingame && gamedata.gameLogic._players[i]._info != null && sender.uId == gamedata.gameLogic._players[i]._info["uID"]) {
+        if (CheckLogic.checkInBoard() && inGameMgr.gameLogic) {
+            for (var i = 0; i < inGameMgr.gameLogic._players.length; i++) {
+                if (inGameMgr.gameLogic._players[i]._ingame && inGameMgr.gameLogic._players[i]._info != null && sender.uId == inGameMgr.gameLogic._players[i]._info["uID"]) {
                     var mess = LocalizedString.to("CHAT_PRIVATE");
-                    mess = StringUtility.replaceAll(mess, "@user", toId == gamedata.userData.uID ? LocalizedString.to("BAN").toLowerCase() : this.chatUsers[chatId].userName);
+                    mess = StringUtility.replaceAll(
+                        mess,
+                        "@user",
+                        toId == userMgr.getUID() ?
+                            LocalizedString.to("BAN").toLowerCase() : this.chatUsers[chatId].userName
+                    );
                     mess = StringUtility.replaceAll(mess, "@mess", message);
                     ChatMgr.playChatEffect(i, mess);
                     break;
@@ -132,7 +138,7 @@ var ChatMgr = cc.Class.extend({
     /* endregion GUI controllers */
 
     /* region listeners */
-    onReceive: function (cmd, data) {
+    onReceived: function (cmd, data) {
         switch (cmd) {
             case CMD.CMD_CHAT_TOTAL:
                 var pk = new CmdReceiveChatTong(data);
@@ -175,7 +181,7 @@ var ChatMgr = cc.Class.extend({
                             message = StringUtility.replaceAll("message error (code: @error)", "@error", error);
                             break;
                     }
-                    this.addChatUser({uId: pk.toID, uName: ""}, gamedata.userData.uID, message);
+                    this.addChatUser(pk.sender, pk.toID, message);
                     return;
                 }
             }
@@ -189,13 +195,13 @@ var ChatMgr = cc.Class.extend({
             case ChatMgr.MSG_USER:
                 if (pk.sender != null) {
                     if ((pk.content = pk.content.trim()) == "") return;
-                    if (pk.sender.uId != gamedata.userData.uID && pk.toID != gamedata.userData.uID) return;
+                    if (pk.sender.uId != userMgr.getUID() && pk.toID != userMgr.getUID()) return;
                     this.addChatUser(pk.sender, pk.toID, pk.content);
                 }
                 break;
             case ChatMgr.MSG_SYSTEM:
                 if (pk.sender != null) {
-                    if (pk.sender.uId == gamedata.userData.uID || pk.toID != gamedata.userData.uID) return;
+                    if (pk.sender.uId == userMgr.getUID() || pk.toID != userMgr.getUID()) return;
                     var message = StringUtility.replaceAll(LocalizedString.to("CHAT_NOTE2"), "@name", pk.sender.uName);
                     this.addChatUser(pk.sender, pk.toID, message);
                 }
@@ -226,15 +232,18 @@ var ChatMgr = cc.Class.extend({
         if (!CheckLogic.checkInBoard()) return;
         if (interactPlayer.detectInteractMessage(pk.message) || (pk.message = pk.message.trim()) == "") return;
         pk.message = ChatFilter.filterString(pk.message);
-
-        if (gamedata.gameLogic) {
+        if (inGameMgr.gameLogic) {
             var uId = -1;
             var username = "";
-            for (var i = 0; i < gamedata.gameLogic._players.length; i++) {
-                if (gamedata.gameLogic._players[i]._ingame && gamedata.gameLogic._players[i]._chairInServer != null && pk.playerId == gamedata.gameLogic._players[i]._chairInServer) {
+            cc.log("inGameMgr.gameLogic._players", inGameMgr.gameLogic._players.length);
+            for (var i = 0; i < inGameMgr.gameLogic._players.length; i++) {
+                if (inGameMgr.gameLogic._players[i]._ingame &&
+                    inGameMgr.gameLogic._players[i]._chairInServer != null &&
+                    pk.playerId == inGameMgr.gameLogic._players[i]._chairInServer
+                ) {
                     ChatMgr.playChatEffect(i, pk.message);
-                    uId = gamedata.gameLogic._players[i]._info["uID"];
-                    username = gamedata.gameLogic._players[i]._info["uName"];
+                    uId = inGameMgr.gameLogic._players[i]._info["uID"];
+                    username = inGameMgr.gameLogic._players[i]._info["uName"];
                     break;
                 }
             }
@@ -284,6 +293,7 @@ ChatMgr.DIALOG_MAX_LENGTH = 30;
 ChatMgr.MAX_DIALOG_KEEP = 5;
 
 ChatMgr.playChatEffect = function (index, message) {
+    cc.log("playChatEffect", index, JSON.stringify(message));
     var isMine = index === 0;
 
     if (message.length > ChatMgr.MAX_MESSAGE_DISPLAY_LENGTH)
@@ -327,8 +337,8 @@ ChatMgr.playChatEffect = function (index, message) {
         case 0: //self
             txt.setAnchorPoint(0, 0);
             txt.setPosition(ChatMgr.CHAT_PADDING_WIDTH, ChatMgr.CHAT_PADDING_HEIGHT);
-            avatarPos.y += 20;
-            avatarPos.x += 45;
+            avatarPos.y += 50;
+            avatarPos.x += 60;
             chatBg.setScaleX(-1);
             chatBg.setPosition(chatBg.width / 2, 0);
             break;
@@ -336,8 +346,8 @@ ChatMgr.playChatEffect = function (index, message) {
         case 2:
             txt.setAnchorPoint(1, 0);
             txt.setPosition(-ChatMgr.CHAT_PADDING_WIDTH, ChatMgr.CHAT_PADDING_HEIGHT);
-            avatarPos.y += 20;
-            avatarPos.x -= 45;
+            avatarPos.y += 50;
+            avatarPos.x -= 60;
             chatBg.setScaleX(-1);
             chatBg.setPosition(-chatBg.width / 2, 0);
             break;
@@ -345,8 +355,8 @@ ChatMgr.playChatEffect = function (index, message) {
         case 4:
             txt.setAnchorPoint(0, 0);
             txt.setPosition(ChatMgr.CHAT_PADDING_WIDTH, ChatMgr.CHAT_PADDING_HEIGHT);
-            avatarPos.y += 20;
-            avatarPos.x += 45;
+            avatarPos.y += 50;
+            avatarPos.x += 60;
             chatBg.setScaleX(1);
             chatBg.setPosition(chatBg.width / 2, 0);
             break;

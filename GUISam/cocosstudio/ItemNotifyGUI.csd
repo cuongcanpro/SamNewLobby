@@ -49,22 +49,22 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="text" ActionTag="-722559407" Tag="1139" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="123.1200" RightMargin="78.8800" TopMargin="74.8166" BottomMargin="344.1834" FontSize="20" LabelText="Chuc mung ban da dat level 5!&#xA;Tinh nang tuong tac trong ban choi da duoc mo khoa!&#xA;Xin gui ban mot mon qua dung thu" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                <Size X="498.0000" Y="81.0000" />
+              <AbstractNodeData Name="text" ActionTag="-722559407" Tag="1139" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="88.6200" RightMargin="44.3800" TopMargin="70.3166" BottomMargin="339.6834" FontSize="22" LabelText="Chuc mung ban da dat level 5!&#xA;Tinh nang tuong tac trong ban choi da duoc mo khoa!&#xA;Xin gui ban mot mon qua dung thu" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                <Size X="567.0000" Y="90.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="372.1200" Y="384.6834" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="250" G="245" B="255" />
                 <PrePosition X="0.5316" Y="0.7694" />
-                <PreSize X="0.7114" Y="0.1620" />
+                <PreSize X="0.8100" Y="0.1800" />
                 <FontResource Type="Normal" Path="Font/tahoma.ttf" Plist="" />
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="listView" ActionTag="247760022" Tag="1140" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="47.1860" RightMargin="52.8140" TopMargin="185.6832" BottomMargin="154.3168" TouchEnable="True" ClipAble="True" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ScrollDirectionType="0" ItemMargin="10" ctype="ListViewObjectData">
+              <AbstractNodeData Name="listView" ActionTag="247760022" Tag="1140" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="47.2000" RightMargin="52.8000" TopMargin="185.6832" BottomMargin="154.3168" TouchEnable="True" ClipAble="True" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ScrollDirectionType="0" ItemMargin="10" ctype="ListViewObjectData">
                 <Size X="600.0000" Y="160.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="347.1860" Y="234.3168" />
+                <Position X="347.2000" Y="234.3168" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.4960" Y="0.4686" />

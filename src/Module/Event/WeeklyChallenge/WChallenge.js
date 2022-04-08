@@ -33,21 +33,25 @@ var WChallenge = cc.Class.extend({
         this.delayOpenMainGuiFlag = false;
         this.claimRewardInGameFlag = false;
 
+        this.arrayCloverProgress = [];
+        this.arrayGoldProgress = [];
+        this.arrayGiftProgress = [];
+
         //this.preloadResource();
     },
     preloadResource: function () {
         if (!this.isFinishDownload)
             return;
-        LocalizedString.add("res/EventMgr/WeeklyChallenge/Localized/WC_Localized_vi");
+        LocalizedString.add("res/Event/WeeklyChallenge/Localized/WC_Localized_vi");
 
-        db.DBCCFactory.getInstance().loadDragonBonesData("res/EventMgr/WeeklyChallenge/Popup/anim/Light_shop/skeleton.xml", "FX_Light");
-        db.DBCCFactory.getInstance().loadTextureAtlas("res/EventMgr/WeeklyChallenge/Popup/anim/Light_shop/texture.plist", "FX_Light");
+        db.DBCCFactory.getInstance().loadDragonBonesData("res/Event/WeeklyChallenge/Popup/anim/Light_shop/skeleton.xml", "FX_Light");
+        db.DBCCFactory.getInstance().loadTextureAtlas("res/Event/WeeklyChallenge/Popup/anim/Light_shop/texture.plist", "FX_Light");
 
-        db.DBCCFactory.getInstance().loadDragonBonesData("res/EventMgr/WeeklyChallenge/Popup/anim/Shop_Muala/skeleton.xml", "Muala");
-        db.DBCCFactory.getInstance().loadTextureAtlas("res/EventMgr/WeeklyChallenge/Popup/anim/Shop_Muala/texture.plist", "Muala");
+        db.DBCCFactory.getInstance().loadDragonBonesData("res/Event/WeeklyChallenge/Popup/anim/Shop_Muala/skeleton.xml", "Muala");
+        db.DBCCFactory.getInstance().loadTextureAtlas("res/Event/WeeklyChallenge/Popup/anim/Shop_Muala/texture.plist", "Muala");
 
-        db.DBCCFactory.getInstance().loadDragonBonesData("res/EventMgr/WeeklyChallenge/Popup/anim/bt_lock/skeleton.xml", "Lock");
-        db.DBCCFactory.getInstance().loadTextureAtlas("res/EventMgr/WeeklyChallenge/Popup/anim/bt_lock/texture.plist", "Lock");
+        db.DBCCFactory.getInstance().loadDragonBonesData("res/Event/WeeklyChallenge/Popup/anim/bt_lock/skeleton.xml", "Lock");
+        db.DBCCFactory.getInstance().loadTextureAtlas("res/Event/WeeklyChallenge/Popup/anim/bt_lock/texture.plist", "Lock");
     },
     setInEvent: function (inEvent) {
         if(inEvent === this.inEvent) {
@@ -65,7 +69,7 @@ var WChallenge = cc.Class.extend({
                 this.buttonLobby.setVisible(false);
             }
         }
-        event.reloadLayoutButton();
+        //event.reloadLayoutButton();
     },
     isInEvent: function () {
         if(this.inEvent === false) {
@@ -98,10 +102,20 @@ var WChallenge = cc.Class.extend({
                 this.startTime = pk.startTime + Math.round(Date.now() / 1000) - pk.currTime;
                 this.buyGoldToClover = pk.buyGoldToClover;
                 this.challengeDay = Math.ceil((Date.now() / 1000 - this.startTime) / 86400);
+                cc.log("CHALLENGE DAY " + this.challengeDay);
+                if (this.challengeDay == 8) {
+                    this.setInEvent(false);
+                    this.haveEvent = false;
+                    if (this.buttonLobby)
+                        this.buttonLobby.setVisible(false);
+                    return;
+                }
                 this.scheduleLoadUserInfo();
                 this.updateCurrTask();
                 this.setInEvent(true);
                 this.haveEvent = true;
+                this.arrayCloverProgress = pk.arrayClover;
+                this.arrayGoldProgress = pk.arrayGold;
                 this.openEvent();
                 pk.clean();
                 var event = new cc.EventCustom(WChallenge.EVENT.WCHALLENGE_LOAD_CONFIG);
@@ -122,25 +136,26 @@ var WChallenge = cc.Class.extend({
 
                 for (var r in this.buyGoldToClover[Payment.GOLD_SMS]) {
                     rEventShop.smsGoldFirstValue.push(r);
-                    rEventShop.smsGoldFirstTicket.push(StringUtility.standartNumber(this.buyGoldToClover[Payment.GOLD_SMS][r]));
+                    rEventShop.smsGoldFirstTicket.push(this.buyGoldToClover[Payment.GOLD_SMS][r]);
                 }
                 for (var r in this.buyGoldToClover[Payment.GOLD_IAP]) {
                     rEventShop.iapGoldFirstValue.push(r);
-                    rEventShop.iapGoldFirstTicket.push(StringUtility.standartNumber(this.buyGoldToClover[Payment.GOLD_IAP][r]));
+                    rEventShop.iapGoldFirstTicket.push(this.buyGoldToClover[Payment.GOLD_IAP][r]);
                 }
                 for (var r in this.buyGoldToClover[Payment.GOLD_ZING]) {
                     rEventShop.zingGoldFirstValue.push(r);
-                    rEventShop.zingGoldFirstTicket.push(StringUtility.standartNumber(this.buyGoldToClover[Payment.GOLD_ZING][r]));
+                    rEventShop.zingGoldFirstTicket.push(this.buyGoldToClover[Payment.GOLD_ZING][r]);
                 }
                 for (var r in this.buyGoldToClover[Payment.GOLD_ATM]) {
                     rEventShop.atmGoldFirstValue.push(r);
-                    rEventShop.atmGoldFirstTicket.push(StringUtility.standartNumber(this.buyGoldToClover[Payment.GOLD_ATM][r]));
+                    rEventShop.atmGoldFirstTicket.push(this.buyGoldToClover[Payment.GOLD_ATM][r]);
                 }
                 for (var r in this.buyGoldToClover[Payment.GOLD_ZALO]) {
                     rEventShop.zaloPayGoldFirstValue.push(r);
-                    rEventShop.zaloPayGoldFirstTicket.push(StringUtility.standartNumber(this.buyGoldToClover[Payment.GOLD_ZALO][r]));
+                    rEventShop.zaloPayGoldFirstTicket.push(this.buyGoldToClover[Payment.GOLD_ZALO][r]);
                 }
                 Event.instance().onEventShopBonusNew(rEventShop, Event.WEEKLY_CHALLENGE);
+
                 break;
             }
             case WChallenge.CMD_USER_INFO: {
@@ -160,19 +175,21 @@ var WChallenge = cc.Class.extend({
                 this.enteredGUI = pk.enteredGUI;
                 this.updateCurrTask();
                 // schedule for change day
-                if (this.buttonLobby) {
-                    try {
-                        this.buttonLobby.setVisible(true);
-                        Event.instance().reloadLayoutButton();
-                    }
-                    catch (e) {
+                if (this.challengeDay < 8) {
+                    if (this.buttonLobby) {
+                        try {
+                            this.buttonLobby.setVisible(true);
+                            Event.instance().reloadLayoutButton();
+                        } catch (e) {
 
+                        }
                     }
                 }
                 pk.clean();
+                this.arrayGiftProgress = pk.giftLists;
                 var event = new cc.EventCustom(WChallenge.EVENT.WCHALLENGE_LOAD_USER_INFO);
                 cc.eventManager.dispatchEvent(event);
-                // cc.log('WChalenge::', JSON.stringify(pk));
+
                 break;
             }
             case WChallenge.CMD_TAKE_ALL_REWARDS: {
@@ -191,9 +208,12 @@ var WChallenge = cc.Class.extend({
                 });
                 cc.eventManager.dispatchEvent(event);
                 this.claimRewardInGameFlag = false;
+
                 break;
             }
             case WChallenge.CMD_AUTO_TAKE_REWARD: {
+                if (!this.isFinishDownload)
+                    return;
                 // show popup auto take reward
                 var pk = new CmdReceivedWChallengeAutoTakeReward(data);
                 this.autoTakeGoldReward = pk.goldReceived;
@@ -220,11 +240,37 @@ var WChallenge = cc.Class.extend({
                 var pk = new CmdReceivedBuyGoldBonus(data);
                 if (pk.isOffer)
                     return;
+                return;
                 if (pk.clovers > 0) {
                     var popup = sceneMgr.openGUI(WChallengeBonusPopup.className);
                     popup.setCloversBonus(pk.clovers);
                 }
                 break;
+            }
+            case WChallenge.CMD_GET_GIFT_PROGRESS: {
+                var pk = new CmdReceivedGiftProgress(data);
+                cc.log("CMD_GET_GIFT_PROGRESS" + JSON.stringify(pk));
+                this.arrayGiftProgress = pk.giftLists;
+                if (pk.gold > 0) {
+                    var gui = sceneMgr.openGUI(GUIReceiveGift.className, GUIReceiveGift.TAG, GUIReceiveGift.TAG);
+
+                    var pEndGold = cc.p(-1, -1);
+                    try {
+                        if (this.gui && this.gui.isShow) {
+                            this.gui.pCloverProgress.updateInfo();
+                            this.gui.pCloverInfo.updateInfo();
+                            pEndGold = this.gui.getPositionGold();
+                        }
+                    }
+                    catch (e) {
+                        cc.log("ERROR " + e.stack);
+                    }
+
+                    var bonusData = new BonusData(pk.gold, ShopSuccessData.TYPE_GOLD, pEndGold);
+                    var array = [];
+                    array.push(bonusData);
+                    gui.pushArrayBonus(array, localized("RECEIVE_GIFT"));
+                }
             }
         }
     },
@@ -280,7 +326,7 @@ var WChallenge = cc.Class.extend({
         if(!this.buttonLobby)return;
         this.buttonLobby.hideComponent();
         try {
-            if (!this.buttonLobby) return;
+            this.buttonLobby.setScale(0.85);
             this.buttonLobby.anim.removeAllChildren();
             this.wChallengeLobbyBtn = new WChallengeLobbyBtn(WChallengeLobbyBtn.LOBBY_CTX);
             this.wChallengeLobbyBtn.setPosition(this.buttonLobby.width * 0.0, this.buttonLobby.height * 0.1);
@@ -327,12 +373,14 @@ var WChallenge = cc.Class.extend({
 
     checkRewardNotReceive: function () {
         cc.log("REWARD STATE " + JSON.stringify(this.rewardStates));
-        for (var i = 0; i < 7; i++) {
-            if (this.rewardStates[i * 2] == WChallenge.SERVER_REWARD_STATE.CAN_RECEIVE_REWARD ||
-                this.rewardStates[i * 2 + 1] == WChallenge.SERVER_REWARD_STATE.CAN_RECEIVE_REWARD)
-                return true;
-        }
-        return false;
+        return (this.rewardStates[(this.challengeDay - 1) * 2] == WChallenge.SERVER_REWARD_STATE.CAN_RECEIVE_REWARD ||
+            this.rewardStates[(this.challengeDay - 1) * 2 + 1] == WChallenge.SERVER_REWARD_STATE.CAN_RECEIVE_REWARD);
+        // for (var i = 0; i < 7; i++) {
+        //     if (this.rewardStates[i * 2] == WChallenge.SERVER_REWARD_STATE.CAN_RECEIVE_REWARD ||
+        //         this.rewardStates[i * 2 + 1] == WChallenge.SERVER_REWARD_STATE.CAN_RECEIVE_REWARD)
+        //         return true;
+        // }
+        // return false;
     },
 
     openUnlockPremiumGUI: function () {
@@ -361,6 +409,7 @@ var WChallenge = cc.Class.extend({
             this.setInEvent(false);
             this.haveEvent = false;
         } else {
+            cc.log("LOAD USER INFO *");
             var cmd = new CmdSendWChallengeLoadUserInfo();
             GameClient.getInstance().sendPacket(cmd);
             cmd = new CmdSendWChallengeLoadConfig();
@@ -405,6 +454,10 @@ var WChallenge = cc.Class.extend({
         }
     },
 
+    isSpecialAccumulate: function () {
+        return true;
+    },
+
     removeAccumulateGUI: function () {
         if (!this.isFinishDownload)
             return;
@@ -423,7 +476,7 @@ var WChallenge = cc.Class.extend({
     },
 
     getTicketTexture: function() {
-        return "res/EventMgr/WeeklyChallenge/Popup/Icons/CloverIcon.png";
+        return "res/Event/WeeklyChallenge/Popup/Icons/CloverIcon.png";
     },
 
     getOfferTicketImage: function (id) {
@@ -432,6 +485,12 @@ var WChallenge = cc.Class.extend({
 
     getOfferTicketString: function () {
         return "Cỏ";
+    },
+
+    sendGetPogressGift: function(index, isAll) {
+        var cmd = new CmdSendGetGiftProgress();
+        cmd.putData(index, isAll);
+        GameClient.getInstance().sendPacket(cmd);
     }
 });
 
@@ -456,6 +515,7 @@ WChallenge.CMD_OPEN_GUI = 31009;
 WChallenge.CMD_BONUS_CLOVER_FROM_SHOP = 31010;
 WChallenge.CMD_CHEAT_RESET_INFO = 31011;
 WChallenge.CMD_CHEAT_DAY = 31012;
+WChallenge.CMD_GET_GIFT_PROGRESS = 31020;
 WChallenge.EVENT = {};
 WChallenge.EVENT.WCHALLENGE_LOAD_CONFIG = 'WCHALLENGE_LOAD_CONFIG';
 WChallenge.EVENT.WCHALLENGE_LOAD_USER_INFO = 'WCHALLENGE_LOAD_USER_INFO';
@@ -468,3 +528,7 @@ WChallenge.SERVER_REWARD_STATE = {
     MISS_REWARD: 3
 };
 WChallenge.LAST_OPENED_DAY_KEY = 'WCHALLENGE_LAST_OPEND_DAY_KEY';
+
+WChallenge.NO_GIFT = -1;
+WChallenge.HAVE_GIFT = 0;
+WChallenge.RECEIVED_GIFT = 0;

@@ -22,7 +22,6 @@ var LobbyScene = BaseLayer.extend({
         this.btnGold = null;
         this.btnGiftCode = null;
         this.btnG = null;
-        this.btnGoldSmall = null;
 
         this.btnEvent = null;
         this.btnNews = null;
@@ -40,6 +39,7 @@ var LobbyScene = BaseLayer.extend({
     },
 
     onEnterFinish: function () {
+        dispatcherMgr.dispatchEvent(LobbyMgr.EVENT_ON_ENTER_FINISH);
         this.setBackEnable(true);
 
         // load payment default
@@ -56,9 +56,7 @@ var LobbyScene = BaseLayer.extend({
             this.pUserInfo.btnCoin.setVisible(false);
             this.pUserInfo.btnGold.setVisible(false);
         }
-        this.btnCamera.setVisible(!userMgr.checkDisableSocialViral() && cc.sys.isNative && cc.sys.isNative);
 
-        // this.btnCamera.setVisible(false);
         this.updateMoreButtonTopRight();
         this.onUpdateGUI();
         this.updateToCurrentData();
@@ -79,18 +77,7 @@ var LobbyScene = BaseLayer.extend({
         // hide event button
         this.scheduleUpdate();
         LobbyButtonManager.getInstance().scheduleUpdate();
-        dispatcherMgr.dispatchEvent(LobbyMgr.EVENT_ON_ENTER_FINISH);
-
-        //init lucky bonus
-        this.btnCamera.setVisible(false);
-        if (this.btnCamera.isVisible())
-            this.btnLuckyBonus.setPosition(this.btnCamera.getPositionX() - 110, this.btnCamera.getPositionY());
-        else
-            this.btnLuckyBonus.setPosition(this.btnSupport.getPositionX() - 110, this.btnCamera.getPositionY());
-        this.btnFortuneCat.setPosition(this.btnLuckyBonus.getPositionX() - 110, this.btnLuckyBonus.getPositionY());
-
     },
-
 
     onExit: function () {
         this._super();
@@ -103,8 +90,10 @@ var LobbyScene = BaseLayer.extend({
     initGUI: function () {
         // Background
         var bg = this.getControl("bg");
-        var scale = cc.winSize.height / bg.getContentSize().height;
-        bg.setScale(scale);
+        // if (cc.winSize.width > bg.getContentSize().width) {
+        //     bg.setScaleX(cc.winSize.width / bg.getContentSize().width);
+        // }
+        bg.setScale(cc.winSize.height / bg.getContentSize().height);
         bg.setVisible(true);
         this.bg = bg;
 
@@ -167,8 +156,11 @@ var LobbyScene = BaseLayer.extend({
 
         this.btnStorage = this.customButton("btnStorage", LobbyScene.BTN_STORAGE, pBotButton);
         this.btnHotNews = this.customButton("btnHotNews", LobbyScene.BTN_HOT_NEWS, pBotButton);
-        this.btnHotNews.hot = this.getControl("imgNotice", this.btnHotNews);
-        this.btnHotNews.hot.setVisible(false);
+        this.btnHotNews.hot = this.getControl("pNotice", this.btnHotNews);
+        var anim = db.DBCCFactory.getInstance().buildArmatureNode("Notify");
+        anim.gotoAndPlay("1", -1, -1, 0);
+        this.btnHotNews.hot.addChild(anim);
+       this.btnHotNews.hot.setVisible(false);
 
         this.btnGold = this.customButton("btnDoivang", LobbyScene.BTN_DOIVANG, pBotButton);
         this.btnGold.setPressedActionEnabled(false);
@@ -183,8 +175,11 @@ var LobbyScene = BaseLayer.extend({
         this.btnGiftCode = this.customButton("btnGiftCode", LobbyScene.BTN_GUI_GIFTCODE, pBotButton);
         this.btnSetting = this.customButton("btnSetting", LobbyScene.BTN_SETTING, pBotButton);
 
-        this.btnGold.hot = this.getControl("hot", this.btnGold);
+        this.btnGold.hot = this.getControl("pNotice", this.btnGold);
         this.btnGold.hot.setVisible(false);
+        var anim = db.DBCCFactory.getInstance().buildArmatureNode("Notify");
+        anim.gotoAndPlay("1", -1, -1, 0);
+        this.btnGold.hot.addChild(anim);
         this.btnGold.hot.setLocalZOrder(100);
 
         this.arrayBottom.push(this.btnEvent);
@@ -197,33 +192,32 @@ var LobbyScene = BaseLayer.extend({
     },
 
     initCenterRight: function () {
-        var pRightButton = this.getControl("pRightButton");
-        pRightButton.setPositionX(cc.winSize.width * 0.5 + this.bar.getContentSize().width * 0.5);
-        this.btnCamera = this.customButton("btnCamera", LobbyScene.BTN_SHARE, pRightButton);
-        this.btnSupport = this.customButton("btnSupport", LobbyScene.BTN_SUPPORT, pRightButton);
+        this.pRightButton = this.getControl("pRightButton");
+        this.pRightButton.setPositionX(cc.winSize.width * 0.5 + this.bar.getContentSize().width * 0.5);
+        this.arrayTopRight = [];
+        this.btnSupport = this.customButton("btnSupport", LobbyScene.BTN_SUPPORT, this.pRightButton);
+        this.arrayTopRight.push(this.btnSupport);
+        this.btnCamera = this.customButton("btnCamera", LobbyScene.BTN_SHARE, this.pRightButton);
+        this.btnCamera.setVisible(false);
+        this.arrayTopRight.push(this.btnCamera);
 
-        this.btnLuckyBonus = new LuckyBonusButton();
-        pRightButton.addChild(this.btnLuckyBonus);
-        LuckyBonusManager.getInstance().lobbyIcon = this.btnLuckyBonus;
-
-        this.btnFortuneCat = new FortuneCatIcon(false);
-        FortuneCatManager.getInstance().lobbyIcon = this.btnFortuneCat;
-        pRightButton.addChild(this.btnFortuneCat);
-
-        this.btnQuickPlay = this.customButton("btnChoingay", LobbyScene.BTN_CHOINGAY, pRightButton);
-        this.btnChooseRoom = this.customButton("btnChonban", LobbyScene.BTN_CHONBAN, pRightButton);
-        this.btnRank = this.customButton("btnRank", LobbyScene.BTN_RANK, pRightButton);
+        this.btnQuickPlay = this.customButton("btnChoingay", LobbyScene.BTN_CHOINGAY, this.pRightButton);
+        this.btnChooseRoom = this.customButton("btnChonban", LobbyScene.BTN_CHONBAN, this.pRightButton);
+        this.btnRank = this.customButton("btnRank", LobbyScene.BTN_RANK, this.pRightButton);
         this.btnRank.worldPosition = this.btnRank.getWorldPosition();
         this.btnRank.hot = this.getControl("hot", this.btnRank);
         this.btnRank.hot.setLocalZOrder(1);
+        this.btnRank.hot.setVisible(false);
         this.btnRank.pArrow = this.getControl("pArrow", this.btnRank);
-        this.btnMinigame = this.customButton("btnMinigame", LobbyScene.BTN_MINIGAME, pRightButton);
-        this.btnVip = this.customButton("btnVip", LobbyScene.BTN_VIP, pRightButton);
+        this.btnRank.pArrow.setLocalZOrder(10);
+        this.btnMinigame = this.customButton("btnMinigame", LobbyScene.BTN_MINIGAME, this.pRightButton);
+        this.btnVip = this.customButton("btnVip", LobbyScene.BTN_VIP, this.pRightButton);
 
         this.btnQuickPlay.setPressedActionEnabled(false);
         this.btnChooseRoom.setPressedActionEnabled(false);
         this.btnRank.setPressedActionEnabled(false);
         this.btnVip.setPressedActionEnabled(false);
+        this.btnMinigame.setPressedActionEnabled(false);
 
         this.arrayCenterRight = [];
         this.arrayCenterRight.push(this.btnQuickPlay);
@@ -232,7 +226,6 @@ var LobbyScene = BaseLayer.extend({
         this.arrayCenterRight.push(this.btnMinigame);
         this.arrayCenterRight.push(this.btnVip);
     },
-
 
     initTopLeft: function () {
         var pLeftTop = this.getControl("pLeftTop");
@@ -263,22 +256,21 @@ var LobbyScene = BaseLayer.extend({
         var pLeftTop = this.getControl("pLeftTop");
         this.pAvatar = this.getControl("pAvatar", pLeftTop);
 
-        var btnAvatar = this.customButton("btnAvatar", LobbyScene.BTN_AVATAR, this.pAvatar, this.pAvatar);
-        btnAvatar.setPressedActionEnabled(false);
-        this.btnAvatar = btnAvatar;
+        this.btnAvatar = this.customButton("btnAvatar", LobbyScene.BTN_AVATAR, this.pAvatar);
+        this.btnAvatar.setLocalZOrder(10);
 
         this._uiAvatar = new AvatarUI("Common/defaultAvatar.png", "Common/maskAvatar.png", "");////engine.UIAvatar.create("Common/defaultAvatar.png");
         var size = this.pAvatar.getContentSize();
         this._uiAvatar.setPosition(cc.p(size.width / 2, size.height / 2));
+        this._uiAvatar.setScale(1);
         this.pAvatar.addChild(this._uiAvatar, 0);
-        this._uiAvatar.setScale(0.77);
 
         this.defaultFrame = this.getControl("border", this.pAvatar);
         this.defaultFrame.setLocalZOrder(1);
         this.avatarFrame = new UIAvatarFrame();
         this.avatarFrame.setPosition(cc.p(size.width / 2, size.height / 2));
+        this.avatarFrame.setScale(0.48);
         this.pAvatar.addChild(this.avatarFrame, 2);
-        this.avatarFrame.setScale(0.39);
 
         var bgName = this.getControl("bgName", this.pAvatar);
         this.lbName = this.getControl("lbName", bgName);
@@ -287,15 +279,14 @@ var LobbyScene = BaseLayer.extend({
         this.imgVip = this.getControl("imgVip", bgVip);
         this.imgVip.ignoreContentAdaptWithSize(true);
         this.lbVip = this.getControl("lbVip", bgVip);
-        this.pTooltipVip = new VipTooltipLobby();
-        this.imgVip.addChild(this.pTooltipVip);
-        this.pTooltipVip.setLocalZOrder(10);
-        this.pTooltipVip.setPosition(-cc.winSize.width + this.pTooltipVip.getContentSize().width * 0.3, -cc.winSize.height);
 
         this.pUserInfo = new UserDetailInfo();
-        // this.pUserInfo.setScale(1.2);
+        this.pUserInfo.setPosition(
+            bgName.getPositionX() + bgName.getContentSize().width * 0.5 + UserDetailInfo.PAD_BTN,
+            bgName.getPositionY()
+        );
         this.pAvatar.addChild(this.pUserInfo);
-        this.pUserInfo.setPosition(bgName.getPositionX() + bgName.getContentSize().width * 0.9, bgName.getPositionY() - bgName.getContentSize().height * 0.9);
+
         this.arrayLeftTop.push(this.pAvatar);
         this.arrayLeftTop.push(this.logo);
         this.arrayLeftTop.push(this.pUserInfo.btnGold);
@@ -305,17 +296,32 @@ var LobbyScene = BaseLayer.extend({
 
     initCenterLeft: function () {
         var pLeftCenter = this.getControl("pLeftCenter");
-        this.btnShare = this.customButton("btnShare", LobbyScene.BTN_SHARE, pLeftCenter);
-
         this.pButton = this.getControl("pButton", pLeftCenter);
+        pLeftCenter.setPositionX(cc.winSize.width * 0.5 - this.bar.getContentSize().width * 0.5);
         LobbyButtonManager.getInstance().setPButton(this.pButton);
+    },
+
+    initTopRightPosition: function () {
+        var defaultX = this.arrayTopRight[0].x;
+        var defaultY = this.arrayTopRight[0].y;
+        var distance = -110;
+        for (var i = 0; i < this.arrayTopRight.length; i++) {
+            this.arrayTopRight[i].defaultPos = cc.p(defaultX, defaultY);
+            cc.log("POSITION", i, JSON.stringify(this.arrayTopRight[i].defaultPos));
+            if (this.arrayTopRight[i].isVisible()) {
+                defaultX += distance;
+            }
+        }
     },
 
     defaultPosition: function () {
         this.npc.setOpacity(255);
+        this.initTopRightPosition();
+
         this.setPositionComponent(this.arrayBottom, 0, 0);
         this.setPositionComponent(this.arrayLeftTop, 0, 0);
         this.setPositionComponent(this.arrayCenterRight, 0, 0);
+        this.setPositionComponent(this.arrayTopRight, 0, 0);
     },
 
     waitEffect: function () {
@@ -324,6 +330,7 @@ var LobbyScene = BaseLayer.extend({
         this.setPositionComponent(this.arrayBottom, 0, -200);
         this.setPositionComponent(this.arrayLeftTop, 0, 200);
         this.setPositionComponent(this.arrayCenterRight, 200, 0);
+        this.setPositionComponent(this.arrayTopRight, 200, 0);
     },
 
     setPositionComponent: function (component, dx, dy) {
@@ -339,6 +346,7 @@ var LobbyScene = BaseLayer.extend({
         this.effectComponent(this.arrayBottom);
         this.effectComponent(this.arrayLeftTop);
         this.effectComponent(this.arrayCenterRight);
+        this.effectComponent(this.arrayTopRight);
         setTimeout(this.doFinishEffect.bind(this), 1000);
     },
 
@@ -348,9 +356,16 @@ var LobbyScene = BaseLayer.extend({
         for (var i = 0; i < component.length; i++) {
             var ret = component[i];
             var pos = ret.defaultPos;
+            ret.runAction(new cc.Sequence(
+                new cc.DelayTime(dTime * i),
+                new cc.EaseBackOut(cc.moveTo(time, pos))
+            ));
+
             ret.setOpacity(0);
-            ret.runAction(new cc.Sequence(new cc.DelayTime(dTime * i), new cc.EaseBackOut(cc.moveTo(time, pos))));
-            ret.runAction(cc.sequence(cc.delayTime(dTime * i), cc.fadeIn(0.5)));
+            ret.runAction(cc.sequence(
+                cc.delayTime(dTime * i),
+                cc.fadeIn(0.5)
+            ));
         }
     },
 
@@ -359,13 +374,9 @@ var LobbyScene = BaseLayer.extend({
     },
 
     loadAnimation: function () {
-      // var  effect = this.createAnim(this.btnGold, "shopwithtag");
-        //effect.setScale(0.71);
-     //   effect.setPosition(effect.getPositionX() + 20, effect.getPositionY() + 15);
-
         this.effShop = new CustomSkeleton("Armatures/LobbyBtn", "button", 1);
         this.btnGold.addChild(this.effShop);
-        this.effShop.setPosition(this.btnGold.getContentSize().width * 0.5, this.btnGold.getContentSize().height * 0.8);
+        this.effShop.setPosition(this.btnGold.getContentSize().width * 0.5, this.btnGold.getContentSize().height * 0.9);
         this.effShop.setAnimation(0, "shop", -1);
 
         this.effGirl = new CustomSkeleton("Armatures/Girl", "Girl", 1);
@@ -533,38 +544,49 @@ var LobbyScene = BaseLayer.extend({
     },
 
     effectChangeLevelRank: function (positionChange) {
-        var timeDelay1 = 0.5;
-        var timeMove = 0.7;
+        var timeMove = 1;
         var pHeight = this.btnRank.pArrow.getContentSize().height;
-        var btnWidth = this.btnRank.getContentSize().width / 2;
-        var actionMove = cc.moveBy(timeMove, 0, pHeight * 2);
         var spriteName, posY, anchorY, actionRun;
         if (positionChange > 0) { // bi tut hang
-            spriteName = "#iconDownLevel.png";
+            spriteName = "res/Lobby/Ranking/iconLevelDown.png";
             posY = pHeight;
             anchorY = 0;
-            actionRun = actionMove.reverse();
+            actionRun = -pHeight;
         } else {
-            spriteName = "#iconUpLevel.png";
+            spriteName = "res/Lobby/Ranking/iconLevelUp.png";
             posY = 0;
             anchorY = 1;
-            actionRun = actionMove;
+            actionRun = pHeight;
         }
         for (var i = 0; i < 5; i++) {
             var iconDown = new cc.Sprite(spriteName);
             iconDown.setAnchorPoint(0.5, anchorY);
-            iconDown.setPositionY(posY);
-            iconDown.setScale(0.7);
-            iconDown.setPositionX(this.btnRank.pArrow.getContentSize().width / 2 - btnWidth / 2 + btnWidth * Math.random());
+            iconDown.setOpacity(0);
             this.btnRank.pArrow.addChild(iconDown);
-            iconDown.runAction(cc.sequence(cc.delayTime(timeDelay1 + 0.2 * i), actionRun.clone(),
-                cc.fadeOut(0.5), cc.removeSelf()));
+            iconDown.runAction(cc.sequence(
+                cc.delayTime(0.25 * i),
+                cc.callFunc(function () {
+                    this.runAction(cc.sequence(
+                        cc.callFunc(function () {
+                            var pArrow = this.getParent();
+                            this.setPositionX(pArrow.getContentSize().width * Math.random());
+                            this.setOpacity(255);
+                            this.y = posY;
+                            this.setScale(0.5 + 0.5 * Math.random());
+                        }.bind(this)),
+                        cc.spawn(
+                            cc.fadeOut(timeMove).easing(cc.easeIn(2.5)),
+                            cc.moveBy(timeMove, 0, actionRun).easing(cc.easeOut(2))
+                        )
+                    ).repeatForever());
+                }.bind(iconDown))
+            ));
         }
     },
 
     effectGold: function (goldChange, pStart) {
         if (!goldChange) return;
-        var pEnd = this.btnGoldSmall.convertToWorldSpace(this.btnGoldSmall.getChildByName("icon").getPosition());
+        var pEnd = this.getGoldIconPosition();
 
         effectMgr.flyCoinEffect(sceneMgr.layerGUI, goldChange, 500000, pStart, pEnd);
         if (this._uiBean)
@@ -573,7 +595,7 @@ var LobbyScene = BaseLayer.extend({
 
     effectDiamond: function(diamondChange, pStart){
         if (!diamondChange) return;
-        var pEnd = this.btnDiamond.convertToWorldSpace(this.btnDiamond.getChildByName("icon").getPosition());
+        var pEnd = this.getDiamondIconPosition();
 
         effectMgr.flyItemEffect(sceneMgr.layerGUI, "Lobby/LobbyGUI/iconDiamond.png", diamondChange, pStart, pEnd, 0, true, false);
         if (this._uiDiamond)
@@ -581,7 +603,7 @@ var LobbyScene = BaseLayer.extend({
     },
 
     getGoldIconPosition: function(){
-        return this.btnGoldSmall.convertToWorldSpace(this.btnGoldSmall.getChildByName("icon").getPosition());
+        return this.pUserInfo.btnGold.convertToWorldSpace(this.pUserInfo.iconGold.getPosition());
     },
 
     getCoinIconPosition: function(){
@@ -589,7 +611,7 @@ var LobbyScene = BaseLayer.extend({
     },
 
     getDiamondIconPosition: function(){
-        return this.btnDiamond.convertToWorldSpace(this.btnDiamond.getChildByName("icon").getPosition());
+        return this.pUserInfo.btnDiamond.convertToWorldSpace(this.pUserInfo.iconDiamond.getPosition());
     },
 
     getVipButtonPosition: function(){
@@ -605,6 +627,7 @@ var LobbyScene = BaseLayer.extend({
     },
 
     onButtonRelease: function (button, id) {
+        cc.log("LOBBY BUTTON PRESS", button.getName(), id);
         switch (id) {
             case LobbyScene.BTN_QUIT: {
                 this.onBack();
@@ -650,6 +673,10 @@ var LobbyScene = BaseLayer.extend({
                 //VipManager.openVip();
                 break;
             }
+            case LobbyScene.BTN_MINIGAME: {
+                Toast.makeToast(ToastFloat.MEDIUM, localized("COMING_SOON"));
+                break;
+            }
             case LobbyScene.BTN_DOIVANG: {
                 paymentMgr.openShop();
                 break;
@@ -666,7 +693,7 @@ var LobbyScene = BaseLayer.extend({
                 if (eventMgr.isInEvent())
                     eventMgr.openEvent();
                 else
-                    ToastFloat.makeToast(ToastFloat.SHORT, "Vui lòng dợi Sự kiện kế tiếp");
+                    ToastFloat.makeToast(ToastFloat.SHORT, "Vui lòng đợi Sự kiện kế tiếp");
                 break;
             }
             case LobbyScene.BTN_HOT_NEWS: {
@@ -674,8 +701,9 @@ var LobbyScene = BaseLayer.extend({
                 break;
             }
             case LobbyScene.BTN_SUPPORT: {
-                // sceneMgr.openGUI(GUISupportInfo.className, GUISupportInfo.tag, GUISupportInfo.tag, false).showGUI(0, supportMgr.numSupport);
-                sceneMgr.openGUI(GUIStartUp.className, GUISupportInfo.tag, GUISupportInfo.tag, false);
+                supportMgr.showSupportInLobby();
+                //sceneMgr.openGUI(GUISupportInfo.className, GUISupportInfo.tag, GUISupportInfo.tag, false).showGUI(0, supportMgr.numSupport);
+                // sceneMgr.openGUI(GUIStartUp.className, GUISupportInfo.tag, GUISupportInfo.tag, false);
                 // supportMgr.numSupport = 0;
                 // sceneMgr.openGUI(GUISupportInfo.className, GUISupportInfo.tag, GUISupportInfo.tag, false).showGUI(33330, 1);
                 break;
@@ -699,6 +727,7 @@ var LobbyScene = BaseLayer.extend({
                 } else {
                     Toast.makeToast(ToastFloat.MEDIUM, localized("COMING_SOON"));
                 }
+                this.btnRank.pArrow.removeAllChildren();
                 break;
             }
             case LobbyScene.BTN_STORAGE: {
@@ -749,22 +778,21 @@ var LobbyScene = BaseLayer.extend({
                 this.imgVip.loadTexture(texture);
                 this.imgVip.setVisible(true);
                 this.lbVip.setString("VIP " + vipLevel);
+                this.lbVip.setPositionX(this.lbVip.defaultPos.x);
             } catch (e) {
                 this.imgVip.setVisible(false);
             }
         }
 
         if (vipLevel === 0) {
-            this.lbVip.setString("No Vip");
+            this.lbVip.setString("Free");
+            this.lbVip.setPositionX(this.lbVip.defaultPos.x - 5);
             this.imgVip.setVisible(false);
-            return;
         }
-        this.pTooltipVip.updateVipInfo();
     },
 
     update: function (dt) {
         this.genFireWork(dt);
-        this.pTooltipVip.update(dt);
         downloadEventManager.updateDownload();
         if (eventMgr.isInEvent()) {
             this.imgEmpty.setVisible(false);
@@ -794,7 +822,7 @@ var LobbyScene = BaseLayer.extend({
     getPositionComponent: function (type) {
         switch (type) {
             case ShopSuccessData.TYPE_GOLD:
-                return this.btnGoldSmall.convertToWorldSpace(cc.p(this.btnGoldSmall.getContentSize().width * 0.5, this.btnGoldSmall.getContentSize().height * 0.5));
+                return this.getGoldIconPosition();
                 break;
             case ShopSuccessData.TYPE_VPOINT:
                 return this.btnAvatar.convertToWorldSpace(cc.p(this.btnAvatar.getContentSize().width * 0.5, this.btnAvatar.getContentSize().height * 0.5));
@@ -812,7 +840,7 @@ var LobbyScene = BaseLayer.extend({
                 return this.btnAvatar.convertToWorldSpace(cc.p(this.btnAvatar.getContentSize().width * 0.5, this.btnAvatar.getContentSize().height * 0.5));
                 break;
             case ShopSuccessData.TYPE_DIAMOND:
-                return this._uiDiamond.convertToWorldSpace(cc.p(this._uiDiamond.getContentSize().width * 0.5, this._uiDiamond.getContentSize().height * 0.5));
+                return this.getDiamondIconPosition();
                 break;
         }
     },

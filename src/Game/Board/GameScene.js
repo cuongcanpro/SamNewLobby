@@ -24,11 +24,9 @@ var BoardScene = BaseLayer.extend({
         this.hintIndex = 0;
         this.hintType = GroupCard.kType_BAIRAC;
         this.logHeight = 0;
+        this.sendSam = false;
 
-        //Log bugs
-        this.pressedHuyBao = false;
-
-        this.initWithBinaryFileAndOtherSize("GameGUI.json", cc.size(GameLayer.DESIGN_WIDTH, GameLayer.DESIGN_HEIGHT));
+        this.initWithBinaryFile("GameGUI.json");
     },
 
     initGUI: function () {
@@ -56,7 +54,10 @@ var BoardScene = BaseLayer.extend({
         this.onUpdateGUI();
         this.setBackEnable(true);
 
-        this.pressedHuyBao = false;
+        this.btnCamera.setEnabled(true);
+        this.btnCamera.setOpacity(255);
+
+        this.sendSam = false;
 
         //RankData
         RankData.addMiniRankGUI(false);
@@ -130,6 +131,7 @@ var BoardScene = BaseLayer.extend({
         for (var i = 0; i < 5; i++) {
             this._players[i].resetAction();
         }
+        this.notiBg.setVisible(false);
         this._effect2D.clearAll();
         this.deckCard.stopAllActions();
         this.deckCard.setVisible(false);
@@ -345,11 +347,12 @@ var BoardScene = BaseLayer.extend({
     customizeGUI: function () {
         var btnCheat = this.customizeButton("btnCheat", GameLayer.BTN_CHEAT);
         cc.log("BTN CHEAT " + btnCheat);
-        btnCheat.setVisible(Config.ENABLE_CHEAT);
-        btnCheat.setOpacity(0);
+       btnCheat.setVisible(Config.ENABLE_CHEAT);
+        btnCheat.setOpacity(255);
+        // btnCheat.setScale(10);
         var btnAddBot = this.customizeButton("btnAddBot", GameLayer.BTN_ADD_BOT);
         btnAddBot.setVisible(Config.ENABLE_CHEAT)
-        btnAddBot.setOpacity(0);
+        btnAddBot.setOpacity(255);
 
         this.customizeButton("btnQuit", GameLayer.BTN_QUIT);
         this.btnSort = this.customizeButton("btnXepbai", GameLayer.BTN_XEPBAI);
@@ -359,9 +362,9 @@ var BoardScene = BaseLayer.extend({
 
         this.pTopRight = this.getControl("panel_button");
         this.listTopRight = [];
-        var btnCamera = this.customizeButton("btnCamera", GameLayer.BTN_CAMERA, this.pTopRight);
-        btnCamera.setVisible(cc.sys.isNative);
-        this.listTopRight.push(btnCamera);
+        this.btnCamera = this.customizeButton("btnCamera", GameLayer.BTN_CAMERA, this.pTopRight);
+        this.btnCamera.setVisible(cc.sys.isNative);
+        this.listTopRight.push(this.btnCamera);
         this.btnMiniRank = this.customizeButton("btnNewRank", GameLayer.BTN_NEW_RANK, this.pTopRight);
         this.listTopRight.push(this.btnMiniRank);
         this.btnMiniRank.pArrow = this.getControl("pArrow", this.btnMiniRank);
@@ -571,7 +574,6 @@ var BoardScene = BaseLayer.extend({
         switch (inGameMgr.gameLogic._gameState) {
             case GameState.JOINROOM:
             {
-                this.pressedHuyBao = false;
                 var muccuoc = this.getControl("muccuoc");
                 var ban = this.getControl("ban");
 
@@ -626,7 +628,6 @@ var BoardScene = BaseLayer.extend({
             }
             case GameState.PLAYCONTINUE:
             {
-                this.pressedHuyBao = false;
                 // Cap nhat thong tin phong choi
                 var muccuoc = this.getControl("muccuoc");
                 var ban = this.getControl("ban");
@@ -835,7 +836,10 @@ var BoardScene = BaseLayer.extend({
                 this.notiBg.setOpacity(0);
                 this.notiBg.runAction(cc.sequence(
                     cc.delayTime(delayToolTip),
-                    cc.fadeIn(.25)
+                    cc.fadeIn(.25),
+                    cc.delayTime(3),
+                    cc.fadeOut(.5),
+                    cc.hide()
                 ));
                 this.effectTooltip(this.notiBg, delayToolTip + 0.25);
                 this.stopAutoStart();
@@ -844,7 +848,6 @@ var BoardScene = BaseLayer.extend({
             }
             case GameState.CHIABAI:
             {
-                this.pressedHuyBao = false;
                 try {
                     this.stopAction(this.clearResultAction);c
                 } catch (e) {}
@@ -868,8 +871,6 @@ var BoardScene = BaseLayer.extend({
                 ));
 
                 /** Game sound */
-                this.notiBg.stopAllActions();
-                this.notiBg.runAction(cc.fadeOut(0.1));
                 for (var i = 1; i < 5; i++) {
                     if (inGameMgr.gameLogic._players[i]._ingame && (inGameMgr.gameLogic._players[i]._status > 1)) {
                         this._players[i].resetAction();
@@ -967,26 +968,12 @@ var BoardScene = BaseLayer.extend({
                         cc.hide()
                     ));
                     this.effectTooltip(this.notiBg, 0.5);
-
-                    if (localChair === 0 && this.pressedHuyBao) {
-                        //Log bug
-                        var log = "User pressed Huy Bao nhung van bao Sam";
-                        var s = "JavaScript error: assets/src/Game/Board/GameScene.js line 10000TypeError: "
-                            + log + " " + (new Error()).stack;
-                        NativeBridge.logJSManual(
-                            "assets/src/Game/Board/GameScene.js",
-                            "10100",
-                            s
-                        );
-                    }
                 }
 
                 for (var i = 0; i < 5; i++) {
                     this._players[i].stopEffectTime();
                     if (localChair === -1 || localChair !== i) this._players[i].clearBao();
                 }
-
-                this.pressedHuyBao = false;
                 break;
             }
             case GameState.DANHBAI:
@@ -1005,7 +992,6 @@ var BoardScene = BaseLayer.extend({
                         }
                     }
 
-                    if (this.newRound) this._effect2D.clearEffect();
                     var cards = [];
                     for (var i = 0; i < inGameMgr.gameLogic._cardDanhbai.length; i++) {
                         cards.push(new Card(inGameMgr.gameLogic._cardDanhbai[i]));
@@ -1159,7 +1145,6 @@ var BoardScene = BaseLayer.extend({
             case GameState.BOLUOT:
             {
                 if (data) {
-                    this._effect2D.clearEffect();
                     this._players[inGameMgr.gameLogic.convertChair(data.chair)].boluot();
                     this._players[inGameMgr.gameLogic.convertChair(data.chair)].autoing(data.isAuto);
                     if (inGameMgr.gameLogic.convertChair(data.chair) === 0 && this.nguoikhacdanhbobaito) {
@@ -1234,7 +1219,7 @@ var BoardScene = BaseLayer.extend({
                 this._players[winner].removeResult(5);
 
                 var loser = inGameMgr.gameLogic.convertChair(data.lostChair);
-                this._players[loser].addDecreaseMoney(data.lostGold, 0);
+                this._players[loser].addDecreaseMoney(data.lostGold, 0, "Bị Chặt Tứ quý");
                 this._players[loser].removeResult(5);
 
                 effectMgr.flyCoinEffect(
@@ -1390,6 +1375,7 @@ var BoardScene = BaseLayer.extend({
                     this._players[i].clearThangThua();
                     this._players[i].removeBao1();
                 }
+                this.notiBg.setVisible(false);
                 this._effect2D.clearAll();
 
                 this.updateStartButton();
@@ -1510,6 +1496,8 @@ var BoardScene = BaseLayer.extend({
                     otherInfo.putData(uID);
                     GameClient.getInstance().sendPacket(otherInfo);
                     otherInfo.clean();
+                    sceneMgr.openGUI(UserInfoPanel.className, LobbyScene.GUI_USER_INFO, LobbyScene.GUI_USER_INFO);
+                    sceneMgr.addLoading().timeout(2.5);
                 }
                 break;
             }
@@ -1532,11 +1520,12 @@ var BoardScene = BaseLayer.extend({
             }
             case GameLayer.BTN_CAMERA:
             {
-                // RankData.getInstance().fakeMyDataInWeek();
-                // break;
+                this.btnCamera.setEnabled(false);
+                this.btnCamera.setOpacity(50);
+
                 this.addAvatarFixShare();
 
-                if (!gamedata.checkOldNativeVersion()) {
+                if (!gameMgr.checkOldNativeVersion()) {
                     var imgPath = sceneMgr.takeScreenShot();
                     setTimeout(function () {
                         fr.facebook.shareScreenShoot(imgPath, function (result) {
@@ -1555,6 +1544,12 @@ var BoardScene = BaseLayer.extend({
                                 message = localized("FACEBOOK_ERROR");
                             }
                             Toast.makeToast(Toast.SHORT, message);
+
+                            var scene = sceneMgr.getMainLayer();
+                            if (scene instanceof BoardScene) {
+                                scene.btnCamera.setEnabled(true);
+                                scene.btnCamera.setOpacity(255);
+                            }
                         });
                     }, 500);
                 } else {
@@ -1571,15 +1566,14 @@ var BoardScene = BaseLayer.extend({
                         else if (dom["error"] == 0) {
                             message = localized("FACEBOOK_DELAY");
                             GameLayer.sharedPhoto = true;
-
                         }
                         else {
                             message = localized("FACEBOOK_ERROR");
                         }
                         Toast.makeToast(2.5, message);
-
+                        this.btnCamera.setEnabled(true);
+                        this.btnCamera.setOpacity(255);
                     }
-
 
                     socialMgr.set(this, this.onShareImg);
                     socialMgr.shareImage(socialMgr._currentSocial);
@@ -1773,7 +1767,8 @@ var BoardScene = BaseLayer.extend({
             }
             case GameLayer.BTN_HUYBAO:
             {
-                this.pressedHuyBao = true;
+                if (this.sendSam) break;
+                this.sendSam = true;
 
                 var pk = new CmdSendHuyBaoSam();
                 pk.putData(true);
@@ -1791,6 +1786,9 @@ var BoardScene = BaseLayer.extend({
             }
             case GameLayer.BTN_BAOSAM:
             {
+                if (this.sendSam) break;
+                this.sendSam = true;
+
                 var pk = new CmdSendBaoSam();
                 pk.putData(true);
                 GameClient.getInstance().sendPacket(pk);
@@ -1807,12 +1805,14 @@ var BoardScene = BaseLayer.extend({
             }
             case GameLayer.BTN_QUICK_CHAT:
             {
+                cc.log("BTN GameLayer.BTN_QUICK_CHAT");
                 sceneMgr.openGUI(ChatPanelGUI.className, ChatPanelGUI.TAG, ChatPanelGUI.TAG)
                     .emotePanel.setVisible(false);
                 break;
             }
             case GameLayer.BTN_QUICK_EMO:
             {
+                cc.log("BTN GameLayer.BTN_QUICK_EMO");
                 sceneMgr.openGUI(ChatPanelGUI.className, ChatPanelGUI.TAG, ChatPanelGUI.TAG)
                     .onButtonRelease(null, ChatPanelGUI.BTN_EMOTE);
                 break;
@@ -1999,11 +1999,11 @@ var BoardScene = BaseLayer.extend({
         // );
 
         // Effect in out
-        var playerPos = id - GameLayer.BTN_AVATAR_0;
-        inGameMgr.gameLogic._players[playerPos + 1]._ingame = true;
-        this._players[playerPos + 1].updateWithPlayer(inGameMgr.gameLogic._players[playerPos + 1]);
-        this._players[playerPos + 1].setVisible(true);
-        this._players[playerPos + 1].efxPlayerIn();
+        // var playerPos = id - GameLayer.BTN_AVATAR_0;
+        // inGameMgr.gameLogic._players[playerPos + 1]._ingame = true;
+        // this._players[playerPos + 1].updateWithPlayer(inGameMgr.gameLogic._players[playerPos + 1]);
+        // this._players[playerPos + 1].setVisible(true);
+        // this._players[playerPos + 1].efxPlayerIn();
 
         // //Chat chong
         // var gold = 12345677;
@@ -2036,7 +2036,7 @@ var BoardScene = BaseLayer.extend({
         // var jackpotGui = sceneMgr.getGUI(GameLayer.JACKPOT);
         // if (jackpotGui)
         //     jackpotGui.onUpdateGUI();
-        // //Get total jackpot
+        //Get total jackpot
         // var jackpot = {
         //     jackpot: 15000000,
         //     chair: inGameMgr.gameLogic._myChair
@@ -2116,6 +2116,12 @@ var BoardScene = BaseLayer.extend({
         //useEmoticon:
         // var playerPos = id - GameLayer.BTN_AVATAR_0;
         // this._players[playerPos].useEmoticon(0, 6);
+
+        // //My Money effect
+        // var playerPos = id - GameLayer.BTN_AVATAR_0;
+        // this._players[playerPos].addDecreaseMoney(123456789, 0, "Bị Chặt Tứ quý");
+
+        gameSound.playMoisam();
     },
 
     updateOwnerRoom: function (_roomOwnerID) {
@@ -2405,9 +2411,10 @@ var BoardScene = BaseLayer.extend({
     },
 
     addBaoSamLayer: function (time, typeToiTrang) {
+        this.sendSam = false;
         gameSound.playMoisam();
         var layer = new BaseLayer("BaoSam");
-        layer.initWithBinaryFileAndOtherSize("BaoSamLayer.json", cc.size(GameLayer.DESIGN_WIDTH, GameLayer.DESIGN_HEIGHT));
+        layer.initWithBinaryFile("BaoSamLayer.json");
         layer._layout.setScale(1);
         this._layout.addChild(layer, 2);
         layer.fog = layer.getControl("fog");
@@ -2558,7 +2565,7 @@ var BoardScene = BaseLayer.extend({
         }
         else {
             this.btnStart.setVisible(false);
-            ccui.Helper.seekWidgetByName(this._layout, "btnCheat").setVisible(false);
+            // ccui.Helper.seekWidgetByName(this._layout, "btnCheat").setVisible(false);
         }
     },
 
@@ -2876,11 +2883,11 @@ var BoardScene = BaseLayer.extend({
         var actionMove = cc.moveBy(1.5, 0, pArrowSize.height * 2);
         var spriteName, posY, actionRun;
         if (positionChange > 0) { // bi tut hang
-            spriteName = "#iconDownLevel.png";
+            spriteName = "res/Lobby/Ranking/iconDownLevel.png";
             posY = pArrowSize.height * 1.5;
             actionRun = actionMove.reverse().easing(cc.easeIn(3));
         } else {
-            spriteName = "#iconUpLevel.png";
+            spriteName = "res/Lobby/Ranking/iconUpLevel.png";
             posY = -pArrowSize.height * 0.5;
             actionRun = actionMove.easing(cc.easeOut(3));
         }
@@ -3053,8 +3060,12 @@ var LayerCHEAT = BaseLayer.extend({
 
     customizeGUI: function () {
         this.bg = this.getControl("bg");
-        this.customizeButton("btnOK", 1);
-        this.customizeButton("btnQuit", 2);
+        var btn = this.customizeButton("btnOK", 1);
+        btn.setPosition(100, 100);
+        btn.loadTextures("Common/btnGreen.png", "Common/btnGreen.png", "Common/btnGreen.png");
+
+        var btnQuit = this.customizeButton("btnQuit", 2);
+        btnQuit.loadTextures("Common/btnClose.png", "Common/btnClose.png", "Common/btnClose.png")
 
         this.panels = [];
         this.cards = [];
@@ -3078,6 +3089,7 @@ var LayerCHEAT = BaseLayer.extend({
         this.setFog(true);
 
         var node = bg.getChildByName("node");
+        node.setPositionX(node.getPositionX() + 200);
         var xx = 0;
         var deltaY = -30;
         for (var i = 8; i < 21; i++) {

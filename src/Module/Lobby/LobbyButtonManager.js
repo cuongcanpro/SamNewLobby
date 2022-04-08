@@ -3,6 +3,8 @@ var LobbyButtonManager = cc.Class.extend({
         this.pButton = null;
         this.buttonMap = {};    //store ref to buttons
         this.buttonArray = [];  //store buttons order
+        this.isRunningEffect = false;
+        dispatcherMgr.addListener(LobbyMgr.EVENT_ON_ENTER_FINISH, this, this.effectIn);
     },
 
     setPButton: function(pButton){
@@ -52,6 +54,7 @@ var LobbyButtonManager = cc.Class.extend({
         this.buttonArray.sort(function(a, b){
             return a.type - b.type;
         });
+        this.updatePos();
     },
 
     /**
@@ -74,6 +77,12 @@ var LobbyButtonManager = cc.Class.extend({
     },
 
     update: function(){
+        if (this.isRunningEffect)
+            return;
+        this.updatePos();
+    },
+
+    updatePos: function () {
         var count = 0;
         for (var i = 0; i < this.buttonArray.length; i++){
             var type = this.buttonArray[i].type;
@@ -83,6 +92,29 @@ var LobbyButtonManager = cc.Class.extend({
             var row = count % LobbyButtonManager.MAX_ROW;
             var col = Math.floor(count / LobbyButtonManager.MAX_ROW);
             button.setPosition(col * LobbyButtonManager.OFFSET.x, -row * LobbyButtonManager.OFFSET.y);
+            count++;
+        }
+    },
+
+    effectIn: function () {
+        this.isRunningEffect = true;
+        var count = 0;
+        for (var i = 0; i < this.buttonArray.length; i++){
+            var type = this.buttonArray[i].type;
+            var id = this.buttonArray[i].id;
+            var button = this.buttonMap[type][id];
+            if (!button.isVisible()) continue;
+            button.setPositionX(button.getPositionX() - 300);
+            button.runAction(new cc.Sequence(
+                new cc.DelayTime(0.1 * count),
+                new cc.EaseBackOut(cc.moveBy(0.5, 300, 0))
+            ));
+
+            button.setOpacity(0);
+            button.runAction(cc.sequence(
+                new cc.DelayTime(0.1 * count),
+                cc.fadeIn(0.5)
+            ));
             count++;
         }
     }

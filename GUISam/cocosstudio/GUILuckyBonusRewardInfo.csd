@@ -6,20 +6,20 @@
       <ObjectData Name="Scene" Tag="67" ctype="GameNodeObjectData">
         <Size X="1200.0000" Y="720.0000" />
         <Children>
-          <AbstractNodeData Name="bg" ActionTag="213534895" Tag="680" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="178.5000" RightMargin="178.5000" TopMargin="78.0000" BottomMargin="78.0000" LeftEage="185" RightEage="185" TopEage="124" BottomEage="124" Scale9OriginX="185" Scale9OriginY="124" Scale9Width="473" Scale9Height="316" ctype="ImageViewObjectData">
-            <Size X="843.0000" Y="564.0000" />
+          <AbstractNodeData Name="bg" ActionTag="213534895" Tag="680" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="179.5000" RightMargin="179.5000" TopMargin="78.5000" BottomMargin="78.5000" LeftEage="185" RightEage="185" TopEage="124" BottomEage="124" Scale9OriginX="185" Scale9OriginY="124" Scale9Width="471" Scale9Height="315" ctype="ImageViewObjectData">
+            <Size X="841.0000" Y="563.0000" />
             <Children>
-              <AbstractNodeData Name="prizeLabel" ActionTag="-458235562" Tag="692" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="329.0000" RightMargin="329.0000" TopMargin="19.9800" BottomMargin="505.0200" LeftEage="40" RightEage="40" TopEage="8" BottomEage="8" Scale9OriginX="40" Scale9OriginY="8" Scale9Width="105" Scale9Height="23" ctype="ImageViewObjectData">
-                <Size X="185.0000" Y="39.0000" />
+              <AbstractNodeData Name="prizeLabel" ActionTag="-458235562" Tag="692" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="312.5000" RightMargin="312.5000" TopMargin="16.4100" BottomMargin="500.5900" LeftEage="40" RightEage="40" TopEage="8" BottomEage="8" Scale9OriginX="40" Scale9OriginY="8" Scale9Width="136" Scale9Height="30" ctype="ImageViewObjectData">
+                <Size X="216.0000" Y="46.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="421.5000" Y="524.5200" />
+                <Position X="420.5000" Y="523.5900" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.5000" Y="0.9300" />
-                <PreSize X="0.2195" Y="0.0691" />
+                <PreSize X="0.2568" Y="0.0817" />
                 <FileData Type="Normal" Path="GUILuckyBonus/popup/3.png" Plist="" />
               </AbstractNodeData>
-              <AbstractNodeData Name="menu" ActionTag="1468315103" Tag="694" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="27.4996" RightMargin="27.5004" TopMargin="90.0462" BottomMargin="420.9538" LeftEage="173" RightEage="173" TopEage="11" BottomEage="11" Scale9OriginX="173" Scale9OriginY="11" Scale9Width="442" Scale9Height="31" ctype="ImageViewObjectData">
+              <AbstractNodeData Name="menu" ActionTag="1468315103" Tag="694" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="26.5000" RightMargin="26.5000" TopMargin="89.0462" BottomMargin="420.9538" LeftEage="173" RightEage="173" TopEage="11" BottomEage="11" Scale9OriginX="173" Scale9OriginY="11" Scale9Width="442" Scale9Height="31" ctype="ImageViewObjectData">
                 <Size X="788.0000" Y="53.0000" />
                 <Children>
                   <AbstractNodeData Name="combinationLabel" ActionTag="957130753" Tag="695" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" RightMargin="514.0000" TopMargin="12.5000" BottomMargin="12.5000" IsCustomSize="True" FontSize="24" LabelText="Bộ trúng thưởng" HorizontalAlignmentType="HT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
@@ -46,7 +46,7 @@
                     <OutlineColor A="255" R="255" G="0" B="0" />
                     <ShadowColor A="255" R="110" G="110" B="110" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="prizeGLabel" ActionTag="1183495439" Tag="697" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="491.0015" RightMargin="22.9985" TopMargin="13.0264" BottomMargin="11.9736" IsCustomSize="True" FontSize="24" LabelText="Quay 20" HorizontalAlignmentType="HT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                  <AbstractNodeData Name="prizeGLabel" ActionTag="1183495439" Tag="697" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="490.9904" RightMargin="23.0096" TopMargin="13.0264" BottomMargin="11.9736" IsCustomSize="True" FontSize="24" LabelText="Quay 20" HorizontalAlignmentType="HT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                     <Size X="274.0000" Y="28.0000" />
                     <Children>
                       <AbstractNodeData Name="gIcon" ActionTag="-1534979028" Tag="698" IconVisible="False" LeftMargin="186.6221" RightMargin="51.3779" TopMargin="-5.1806" BottomMargin="-2.8194" LeftEage="7" RightEage="7" TopEage="7" BottomEage="7" Scale9OriginX="7" Scale9OriginY="7" Scale9Width="22" Scale9Height="22" ctype="ImageViewObjectData">
@@ -61,7 +61,7 @@
                       </AbstractNodeData>
                     </Children>
                     <AnchorPoint ScaleX="1.0000" ScaleY="0.5000" />
-                    <Position X="765.0015" Y="25.9736" />
+                    <Position X="764.9904" Y="25.9736" />
                     <Scale ScaleX="1.0000" ScaleY="1.0000" />
                     <CColor A="255" R="204" G="246" B="255" />
                     <PrePosition X="0.9708" Y="0.4901" />
@@ -72,27 +72,27 @@
                   </AbstractNodeData>
                 </Children>
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="421.4996" Y="447.4538" />
+                <Position X="420.5000" Y="447.4538" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.5000" Y="0.7934" />
-                <PreSize X="0.9348" Y="0.0940" />
+                <PrePosition X="0.5000" Y="0.7948" />
+                <PreSize X="0.9370" Y="0.0941" />
                 <FileData Type="Normal" Path="GUILuckyBonus/popup/5.png" Plist="" />
               </AbstractNodeData>
-              <AbstractNodeData Name="closeBtn" ActionTag="1408515874" Tag="699" IconVisible="False" LeftMargin="760.2195" RightMargin="7.7805" TopMargin="58.8940" BottomMargin="421.1060" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="45" Scale9Height="62" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+              <AbstractNodeData Name="closeBtn" ActionTag="1408515874" Tag="699" IconVisible="False" LeftMargin="760.2195" RightMargin="5.7805" TopMargin="57.8940" BottomMargin="421.1060" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="45" Scale9Height="62" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                 <Size X="75.0000" Y="84.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="797.7195" Y="463.1060" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.9463" Y="0.8211" />
-                <PreSize X="0.0890" Y="0.1489" />
+                <PrePosition X="0.9485" Y="0.8226" />
+                <PreSize X="0.0892" Y="0.1492" />
                 <TextColor A="255" R="65" G="65" B="70" />
                 <NormalFileData Type="Normal" Path="GUILuckyBonus/popup/2.png" Plist="" />
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="prizeDetail" ActionTag="-1671689172" Tag="700" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="27.5000" RightMargin="27.5000" TopMargin="153.0000" BottomMargin="18.0000" TouchEnable="True" ClipAble="True" BackColorAlpha="127" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
+              <AbstractNodeData Name="prizeDetail" ActionTag="-1671689172" Tag="700" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="26.5000" RightMargin="26.5000" TopMargin="152.0000" BottomMargin="18.0000" TouchEnable="True" ClipAble="True" BackColorAlpha="127" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
                 <Size X="788.0000" Y="393.0000" />
                 <Children>
                   <AbstractNodeData Name="row" ActionTag="-719544620" VisibleForFrame="False" Tag="759" IconVisible="False" PositionPercentXEnabled="True" TopMargin="130.0000" BottomMargin="177.0000" LeftEage="173" RightEage="173" TopEage="18" BottomEage="18" Scale9OriginX="173" Scale9OriginY="18" Scale9Width="442" Scale9Height="50" ctype="ImageViewObjectData">
@@ -472,7 +472,7 @@
                             <CColor A="255" R="255" G="255" B="255" />
                             <PrePosition X="0.8036" Y="0.5014" />
                             <PreSize X="0.2571" Y="0.5745" />
-                            <FontResource Type="Normal" Path="GUILuckyBonus/tahomabd.ttf" Plist="" />
+                            <FontResource Type="Normal" Path="" Plist="" />
                             <OutlineColor A="255" R="255" G="0" B="0" />
                             <ShadowColor A="255" R="110" G="110" B="110" />
                           </AbstractNodeData>
@@ -644,11 +644,11 @@
                   </AbstractNodeData>
                 </Children>
                 <AnchorPoint ScaleX="0.5000" />
-                <Position X="421.5000" Y="18.0000" />
+                <Position X="420.5000" Y="18.0000" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.5000" Y="0.0319" />
-                <PreSize X="0.9348" Y="0.6968" />
+                <PrePosition X="0.5000" Y="0.0320" />
+                <PreSize X="0.9370" Y="0.6980" />
                 <SingleColor A="255" R="150" G="200" B="255" />
                 <FirstColor A="255" R="150" G="200" B="255" />
                 <EndColor A="255" R="255" G="255" B="255" />
@@ -660,7 +660,7 @@
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.5000" Y="0.5000" />
-            <PreSize X="0.7025" Y="0.7833" />
+            <PreSize X="0.7008" Y="0.7819" />
             <FileData Type="Normal" Path="GUILuckyBonus/popup/1.png" Plist="" />
           </AbstractNodeData>
         </Children>

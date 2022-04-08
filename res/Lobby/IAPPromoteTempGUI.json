@@ -121,18 +121,18 @@
                   "B": 70
                 },
                 "DisabledFileData": {
-                  "Type": "Normal",
-                  "Path": "ShopIAP/join_shop_temp.jpg",
+                  "Type": "Default",
+                  "Path": "Default/Button_Disable.png",
                   "Plist": ""
                 },
                 "PressedFileData": {
-                  "Type": "Normal",
-                  "Path": "ShopIAP/join_shop_temp.jpg",
+                  "Type": "Default",
+                  "Path": "Default/Button_Press.png",
                   "Plist": ""
                 },
                 "NormalFileData": {
-                  "Type": "Normal",
-                  "Path": "ShopIAP/join_shop_temp.jpg",
+                  "Type": "Default",
+                  "Path": "Default/Button_Normal.png",
                   "Plist": ""
                 },
                 "Scale9Enable": true,
@@ -280,9 +280,11 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
+        "Default/Button_Disable.png",
+        "Default/Button_Normal.png",
+        "Default/Button_Press.png",
         "Font/tahomabd.ttf",
         "ShopIAP/close_promote_temp.jpg",
-        "ShopIAP/join_shop_temp.jpg",
         "ShopIAP/popup_promote_temp.png"
       ],
       "ctype": "GameFileData"

@@ -1,0 +1,139 @@
+<Solution>
+  <PropertyGroup Name="LobbyGUI" Version="3.10.0.0" Type="CocosStudio" />
+  <SolutionFolder>
+    <Group ctype="ResourceGroup">
+      <RootFolder Name=".">
+        <Folder Name="Common">
+          <PlistImageFolder Image="coin.png" PListFile="coin.plist" Name=".coin_PList.Dir" />
+          <PlistImageFolder Image="coinNew.png" PListFile="coinNew.plist" Name=".coinNew_PList.Dir" />
+          <PlistImageFolder Image="gold.png" PListFile="gold.plist" Name=".gold_PList.Dir" />
+          <Folder Name="IconVip">
+            <Image Name="iconVip1.png" />
+            <Image Name="iconVip10.png" />
+            <Image Name="iconVip2.png" />
+            <Image Name="iconVip3.png" />
+            <Image Name="iconVip4.png" />
+            <Image Name="iconVip5.png" />
+            <Image Name="iconVip6.png" />
+            <Image Name="iconVip7.png" />
+            <Image Name="iconVip8.png" />
+            <Image Name="iconVip9.png" />
+            <Image Name="imgUp.png" />
+          </Folder>
+          <Image Name="9patch.png" />
+          <Image Name="bgBroadcast.png" />
+          <Image Name="bgChooseRoom.jpg" />
+          <Image Name="bgColumn.png" />
+          <Image Name="bgDialog.png" />
+          <Image Name="bgGrey.png" />
+          <Image Name="bgLoading.jpg" />
+          <Image Name="bgMoney.png" />
+          <Image Name="black.png" />
+          <Image Name="borderAvatar.png" />
+          <Image Name="btn_cheat.png" />
+          <Image Name="btnBack.png" />
+          <Image Name="btnBlue.png" />
+          <Image Name="btnClose.png" />
+          <Image Name="btnGreen.png" />
+          <Image Name="btnHelp.png" />
+          <Image Name="btnYellow.png" />
+          <Audio Name="coin_01.mp3" />
+          <Audio Name="coin_02.mp3" />
+          <Audio Name="coin_03.mp3" />
+          <Audio Name="coinFall.mp3" />
+          <Image Name="defaultAvatar.png" />
+          <Image Name="dot.png" />
+          <Image Name="dotLight.png" />
+          <Image Name="dotNormal.png" />
+          <Image Name="iconDiamond.png" />
+          <Image Name="iconG.png" />
+          <Image Name="iconGold.png" />
+          <Image Name="iconGoldBig.png" />
+          <Image Name="iconXu.png" />
+          <Image Name="loading.png" />
+          <Image Name="logo_zp.png" />
+          <Image Name="maskAvatar.png" />
+          <Image Name="maskEmpty.png" />
+          <Image Name="touchDeco.png" />
+          <Image Name="touchIcon0.png" />
+          <Image Name="touchIcon1.png" />
+          <Image Name="touchIcon2.png" />
+          <Image Name="touchIcon3.png" />
+          <Image Name="touchSquare.png" />
+        </Folder>
+        <Folder Name="Font">
+          <Fnt Name="detail_jackpot.fnt" />
+          <Fnt Name="jackpot.fnt" />
+          <TTF Name="robotoBold.ttf" />
+          <TTF Name="robotoLight.ttf" />
+          <TTF Name="tahoma.ttf" />
+          <TTF Name="tahomabd.ttf" />
+        </Folder>
+        <Folder Name="LobbyGUI">
+          <Image Name="adult.png" />
+          <Image Name="agreeInvite.png" />
+          <Image Name="bar.png" />
+          <Image Name="bgAvatar.png" />
+          <Image Name="bgG.png" />
+          <Image Name="bgGold.png" />
+          <Image Name="bgInvite.png" />
+          <Image Name="bgLobby.jpg" />
+          <Image Name="bgName.png" />
+          <Image Name="bgNotifyCapture.png" />
+          <Image Name="bgSetting.png" />
+          <Image Name="bgVip.png" />
+          <Image Name="borderAvatar.png" />
+          <Image Name="btnAdd.png" />
+          <Image Name="btnCamera.png" />
+          <Image Name="btnDoiVang.png" />
+          <Image Name="btnGiftCode.png" />
+          <Image Name="btnHelpLobby.png" />
+          <Image Name="btnHotNews.png" />
+          <Image Name="btnMainEvent.png" />
+          <Image Name="btnMinigame.png" />
+          <Image Name="btnMore.png" />
+          <Image Name="btnNapG.png" />
+          <Image Name="btnNews.png" />
+          <Image Name="btnNotice.png" />
+          <Image Name="btnOffer.png" />
+          <Image Name="btnold.png" />
+          <Image Name="btnSetting.png" />
+          <Image Name="btnShareFace.png" />
+          <Image Name="btnStorage.png" />
+          <Image Name="btnSupport.png" />
+          <Image Name="btnTop.png" />
+          <Image Name="btnVip.png" />
+          <Image Name="buttonDailyMission.png" />
+          <Image Name="choingay.png" />
+          <Image Name="chonban.png" />
+          <Image Name="closeInvite.png" />
+          <Image Name="gold1.png" />
+          <Image Name="gold2.png" />
+          <Image Name="GUIMainLogo.png" />
+          <Image Name="hot.png" />
+          <Image Name="icoInvite.png" />
+          <Image Name="iconDiamond.png" />
+          <Image Name="iconDiamondSmall.png" />
+          <Image Name="iconEvent.png" />
+          <Image Name="iconG.png" />
+          <Image Name="iconGirl.png" />
+          <Image Name="iconGold.png" />
+          <Image Name="iconMoney.png" />
+          <Image Name="iconNum.png" />
+          <Image Name="iconRankLobby.png" />
+          <Image Name="iconSettingNew.png" />
+          <Image Name="iconStar.png" />
+          <Image Name="iconVip.png" />
+          <Image Name="iconVPoint.png" />
+          <Image Name="iconX2.png" />
+          <Image Name="iconXu.png" />
+          <Image Name="moreBg.png" />
+          <Image Name="separator.png" />
+          <Image Name="splitVertical.png" />
+        </Folder>
+        <Project Name="LobbyGUI.csd" Type="Scene" />
+        <Project Name="UserDetailInfo.csd" Type="Layer" />
+      </RootFolder>
+    </Group>
+  </SolutionFolder>
+</Solution>

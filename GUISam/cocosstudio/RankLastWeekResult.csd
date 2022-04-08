@@ -65,15 +65,15 @@
                     <PreSize X="0.2831" Y="0.1667" />
                     <FileData Type="Normal" Path="Ranking/titleReceiveGift.png" Plist="" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="txtWin" ActionTag="816680077" Tag="99" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="265.5000" RightMargin="265.5000" TopMargin="75.9998" BottomMargin="425.0002" IsCustomSize="True" FontSize="24" LabelText="Bạn đã đạt Hạng 1 trong Bảng xếp hạng tuần trước!" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                    <Size X="624.0000" Y="33.0000" />
-                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                    <Position X="577.5000" Y="441.5002" />
+                  <AbstractNodeData Name="txtWin" ActionTag="816680077" Tag="99" IconVisible="False" LeftMargin="274.4998" RightMargin="274.5002" TopMargin="77.5000" BottomMargin="426.5000" IsCustomSize="True" FontSize="26" LabelText="Bạn đã đạt Hạng 1 trong Bảng xếp hạng tuần trước!" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                    <Size X="606.0000" Y="30.0000" />
+                    <AnchorPoint />
+                    <Position X="274.4998" Y="426.5000" />
                     <Scale ScaleX="1.0000" ScaleY="1.0000" />
                     <CColor A="255" R="255" G="255" B="255" />
-                    <PrePosition X="0.5000" Y="0.8268" />
-                    <PreSize X="0.5403" Y="0.0618" />
-                    <FontResource Type="Normal" Path="Font/tahomabd.ttf" Plist="" />
+                    <PrePosition X="0.2377" Y="0.7987" />
+                    <PreSize X="0.5247" Y="0.0562" />
+                    <FontResource Type="Normal" Path="Font/robotoBold.ttf" Plist="" />
                     <OutlineColor A="255" R="255" G="0" B="0" />
                     <ShadowColor A="255" R="110" G="110" B="110" />
                   </AbstractNodeData>
@@ -100,14 +100,14 @@
                   <AbstractNodeData Name="imgMedal" ActionTag="1445884994" Tag="377" IconVisible="False" LeftMargin="-93.0000" RightMargin="1062.0000" TopMargin="354.9992" BottomMargin="63.0008" LeftEage="40" RightEage="40" TopEage="25" BottomEage="25" Scale9OriginX="40" Scale9OriginY="25" Scale9Width="106" Scale9Height="66" ctype="ImageViewObjectData">
                     <Size X="186.0000" Y="116.0000" />
                     <Children>
-                      <AbstractNodeData Name="medal" ActionTag="-651119476" Tag="378" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="3.5000" RightMargin="3.5000" TopMargin="-68.5000" BottomMargin="19.5000" LeftEage="29" RightEage="29" TopEage="36" BottomEage="36" Scale9OriginX="29" Scale9OriginY="36" Scale9Width="121" Scale9Height="93" ctype="ImageViewObjectData">
-                        <Size X="179.0000" Y="165.0000" />
+                      <AbstractNodeData Name="medal" ActionTag="-651119476" Tag="378" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="23.0000" RightMargin="23.0000" TopMargin="-25.5727" BottomMargin="17.5727" LeftEage="29" RightEage="29" TopEage="36" BottomEage="36" Scale9OriginX="29" Scale9OriginY="36" Scale9Width="82" Scale9Height="52" ctype="ImageViewObjectData">
+                        <Size X="140.0000" Y="124.0000" />
                         <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                        <Position X="93.0000" Y="102.0000" />
+                        <Position X="93.0000" Y="79.5727" />
                         <Scale ScaleX="1.0000" ScaleY="1.0000" />
                         <CColor A="255" R="255" G="255" B="255" />
-                        <PrePosition X="0.5000" Y="0.8793" />
-                        <PreSize X="0.9624" Y="1.4224" />
+                        <PrePosition X="0.5000" Y="0.6860" />
+                        <PreSize X="0.7527" Y="1.0690" />
                         <FileData Type="Normal" Path="Ranking/iconMedalBig2.png" Plist="" />
                       </AbstractNodeData>
                       <AbstractNodeData Name="txtMedal" ActionTag="-1701042157" Tag="95" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="30.5000" RightMargin="30.5000" TopMargin="119.5000" BottomMargin="-36.5000" FontSize="24" LabelText="Text Label" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
@@ -134,14 +134,14 @@
                   <AbstractNodeData Name="imgCup" ActionTag="1214816514" Tag="88" IconVisible="False" LeftMargin="107.0000" RightMargin="862.0000" TopMargin="354.9992" BottomMargin="63.0008" LeftEage="40" RightEage="40" TopEage="25" BottomEage="25" Scale9OriginX="40" Scale9OriginY="25" Scale9Width="106" Scale9Height="66" ctype="ImageViewObjectData">
                     <Size X="186.0000" Y="116.0000" />
                     <Children>
-                      <AbstractNodeData Name="iconCupWin" ActionTag="-1788938816" Tag="89" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="3.5000" RightMargin="3.5000" TopMargin="-63.3031" BottomMargin="14.3031" LeftEage="29" RightEage="29" TopEage="36" BottomEage="36" Scale9OriginX="29" Scale9OriginY="36" Scale9Width="121" Scale9Height="93" ctype="ImageViewObjectData">
-                        <Size X="179.0000" Y="165.0000" />
+                      <AbstractNodeData Name="iconCupWin" ActionTag="-1788938816" Tag="89" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="22.5000" RightMargin="22.5000" TopMargin="-20.3763" BottomMargin="12.3763" LeftEage="29" RightEage="29" TopEage="36" BottomEage="36" Scale9OriginX="29" Scale9OriginY="36" Scale9Width="83" Scale9Height="52" ctype="ImageViewObjectData">
+                        <Size X="141.0000" Y="124.0000" />
                         <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                        <Position X="93.0000" Y="96.8031" />
+                        <Position X="93.0000" Y="74.3763" />
                         <Scale ScaleX="1.0000" ScaleY="1.0000" />
                         <CColor A="255" R="255" G="255" B="255" />
-                        <PrePosition X="0.5000" Y="0.8345" />
-                        <PreSize X="0.9624" Y="1.4224" />
+                        <PrePosition X="0.5000" Y="0.6412" />
+                        <PreSize X="0.7581" Y="1.0690" />
                         <FileData Type="Normal" Path="Ranking/iconCupBig.png" Plist="" />
                       </AbstractNodeData>
                       <AbstractNodeData Name="txtCup" ActionTag="329929177" Tag="94" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="30.5000" RightMargin="30.5000" TopMargin="119.5000" BottomMargin="-36.5000" FontSize="24" LabelText="Text Label" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
@@ -202,15 +202,15 @@
                   <AbstractNodeData Name="imgDiamond" ActionTag="1246196314" Tag="335" IconVisible="False" LeftMargin="507.0000" RightMargin="462.0000" TopMargin="354.9992" BottomMargin="63.0008" LeftEage="40" RightEage="40" TopEage="25" BottomEage="25" Scale9OriginX="40" Scale9OriginY="25" Scale9Width="106" Scale9Height="66" ctype="ImageViewObjectData">
                     <Size X="186.0000" Y="116.0000" />
                     <Children>
-                      <AbstractNodeData Name="img" ActionTag="781812894" Tag="336" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="-22.5000" RightMargin="-22.5000" TopMargin="-33.0000" BottomMargin="3.0000" LeftEage="9" RightEage="9" TopEage="9" BottomEage="9" Scale9OriginX="9" Scale9OriginY="9" Scale9Width="213" Scale9Height="128" ctype="ImageViewObjectData">
-                        <Size X="231.0000" Y="146.0000" />
+                      <AbstractNodeData Name="img" ActionTag="781812894" Tag="336" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="-22.0000" RightMargin="-22.0000" TopMargin="-78.0000" BottomMargin="-10.0000" LeftEage="9" RightEage="9" TopEage="9" BottomEage="9" Scale9OriginX="9" Scale9OriginY="9" Scale9Width="212" Scale9Height="186" ctype="ImageViewObjectData">
+                        <Size X="230.0000" Y="204.0000" />
                         <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                        <Position X="93.0000" Y="76.0000" />
+                        <Position X="93.0000" Y="92.0000" />
                         <Scale ScaleX="0.7000" ScaleY="0.7000" />
-                        <CColor A="255" R="30" G="144" B="255" />
-                        <PrePosition X="0.5000" Y="0.6552" />
-                        <PreSize X="1.2419" Y="1.2586" />
-                        <FileData Type="Normal" Path="Ranking/iconGold.png" Plist="" />
+                        <CColor A="255" R="255" G="255" B="255" />
+                        <PrePosition X="0.5000" Y="0.7931" />
+                        <PreSize X="1.2366" Y="1.7586" />
+                        <FileData Type="Normal" Path="Ranking/iconDiamond.png" Plist="" />
                       </AbstractNodeData>
                       <AbstractNodeData Name="txtDiamond" ActionTag="-122915326" Tag="337" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="30.5000" RightMargin="30.5000" TopMargin="119.5000" BottomMargin="-36.5000" FontSize="24" LabelText="Text Label" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                         <Size X="125.0000" Y="33.0000" />
@@ -292,7 +292,7 @@
                 <EndColor A="255" R="255" G="255" B="255" />
                 <ColorVector ScaleY="1.0000" />
               </AbstractNodeData>
-              <AbstractNodeData Name="pNoWin" ActionTag="-84339930" Tag="100" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" TouchEnable="True" ClipAble="False" BackColorAlpha="0" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
+              <AbstractNodeData Name="pNoWin" Visible="False" ActionTag="-84339930" Tag="100" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" TouchEnable="True" ClipAble="False" BackColorAlpha="0" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
                 <Size X="1155.0000" Y="534.0000" />
                 <Children>
                   <AbstractNodeData Name="imgNoLose1" ActionTag="1583006524" Tag="393" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="721.2500" RightMargin="143.7500" TopMargin="-78.5000" BottomMargin="469.5000" LeftEage="63" RightEage="63" TopEage="31" BottomEage="31" Scale9OriginX="63" Scale9OriginY="31" Scale9Width="164" Scale9Height="81" ctype="ImageViewObjectData">
@@ -315,15 +315,15 @@
                     <PreSize X="0.2978" Y="0.2416" />
                     <FileData Type="Normal" Path="Ranking/decorateReceiveGift1.png" Plist="" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="imgBgNoWin" ActionTag="-1858260400" VisibleForFrame="False" Tag="103" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="364.5000" RightMargin="364.5000" TopMargin="294.5148" BottomMargin="133.4852" LeftEage="140" RightEage="140" TopEage="34" BottomEage="34" Scale9OriginX="140" Scale9OriginY="34" Scale9Width="146" Scale9Height="38" ctype="ImageViewObjectData">
-                    <Size X="426.0000" Y="106.0000" />
+                  <AbstractNodeData Name="imgBgNoWin" ActionTag="-1858260400" VisibleForFrame="False" Tag="103" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="258.0000" RightMargin="258.0000" TopMargin="268.0148" BottomMargin="106.9852" LeftEage="140" RightEage="140" TopEage="34" BottomEage="34" Scale9OriginX="140" Scale9OriginY="34" Scale9Width="359" Scale9Height="91" ctype="ImageViewObjectData">
+                    <Size X="639.0000" Y="159.0000" />
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                     <Position X="577.5000" Y="186.4852" />
                     <Scale ScaleX="1.0000" ScaleY="1.0000" />
                     <CColor A="255" R="255" G="255" B="255" />
                     <PrePosition X="0.5000" Y="0.3492" />
-                    <PreSize X="0.3688" Y="0.1985" />
-                    <FileData Type="PlistSubImage" Path="bgGiftRankInfo.png" Plist="Ranking/newRank.plist" />
+                    <PreSize X="0.5532" Y="0.2978" />
+                    <FileData Type="Normal" Path="Ranking/bgGiftRankInfo.png" Plist="" />
                   </AbstractNodeData>
                   <AbstractNodeData Name="titleNoWin" ActionTag="1805846655" Tag="104" IconVisible="False" PositionPercentXEnabled="True" VerticalEdge="TopEdge" LeftMargin="371.0000" RightMargin="371.0000" TopMargin="-50.0000" BottomMargin="531.0000" LeftEage="71" RightEage="71" TopEage="11" BottomEage="11" Scale9OriginX="71" Scale9OriginY="11" Scale9Width="271" Scale9Height="31" ctype="ImageViewObjectData">
                     <Size X="413.0000" Y="53.0000" />
@@ -335,45 +335,45 @@
                     <PreSize X="0.3576" Y="0.0993" />
                     <FileData Type="Normal" Path="Ranking/titleNoGift.png" Plist="" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="imgTruCup" ActionTag="1142143631" Tag="150" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="483.0000" RightMargin="483.0000" TopMargin="149.5022" BottomMargin="142.4978" LeftEage="41" RightEage="41" TopEage="53" BottomEage="53" Scale9OriginX="41" Scale9OriginY="53" Scale9Width="107" Scale9Height="136" ctype="ImageViewObjectData">
+                  <AbstractNodeData Name="imgTruCup" ActionTag="1142143631" Tag="150" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="483.0000" RightMargin="483.0000" TopMargin="136.5021" BottomMargin="155.4979" LeftEage="41" RightEage="41" TopEage="53" BottomEage="53" Scale9OriginX="41" Scale9OriginY="53" Scale9Width="107" Scale9Height="136" ctype="ImageViewObjectData">
                     <Size X="189.0000" Y="242.0000" />
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                    <Position X="577.5000" Y="263.4978" />
+                    <Position X="577.5000" Y="276.4979" />
                     <Scale ScaleX="1.0000" ScaleY="1.0000" />
                     <CColor A="255" R="255" G="255" B="255" />
-                    <PrePosition X="0.5000" Y="0.4934" />
+                    <PrePosition X="0.5000" Y="0.5178" />
                     <PreSize X="0.1636" Y="0.4532" />
                     <FileData Type="Normal" Path="Ranking/imgTruCup.png" Plist="" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="txtInfo" ActionTag="-564966691" Tag="105" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="265.5000" RightMargin="265.5000" TopMargin="69.2962" BottomMargin="431.7038" IsCustomSize="True" FontSize="24" LabelText="Bạn đã đạt Hạng 1 trong Bảng xếp hạng tuần trước!" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                  <AbstractNodeData Name="txtInfo" ActionTag="-564966691" Tag="105" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="265.5345" RightMargin="265.4655" TopMargin="69.2962" BottomMargin="431.7038" IsCustomSize="True" FontSize="24" LabelText="Bạn đã đạt Hạng 1 trong Bảng xếp hạng tuần trước!" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                     <Size X="624.0000" Y="33.0000" />
-                    <AnchorPoint ScaleX="0.5000" />
-                    <Position X="577.5000" Y="431.7038" />
+                    <AnchorPoint />
+                    <Position X="265.5345" Y="431.7038" />
                     <Scale ScaleX="1.0000" ScaleY="1.0000" />
                     <CColor A="255" R="255" G="255" B="255" />
-                    <PrePosition X="0.5000" Y="0.8084" />
+                    <PrePosition X="0.2299" Y="0.8084" />
                     <PreSize X="0.5403" Y="0.0618" />
                     <FontResource Type="Normal" Path="Font/tahomabd.ttf" Plist="" />
                     <OutlineColor A="255" R="255" G="0" B="0" />
                     <ShadowColor A="255" R="110" G="110" B="110" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="infoNoWin" ActionTag="-1078176756" Tag="106" IconVisible="True" PositionPercentXEnabled="True" LeftMargin="577.5000" RightMargin="577.5000" TopMargin="409.9986" BottomMargin="124.0014" StretchWidthEnable="False" StretchHeightEnable="False" InnerActionSpeed="1.0000" CustomSizeEnabled="False" ctype="ProjectNodeObjectData">
+                  <AbstractNodeData Name="infoNoWin" ActionTag="-1078176756" Tag="106" IconVisible="True" PositionPercentXEnabled="True" LeftMargin="577.5000" RightMargin="577.5000" TopMargin="382.9981" BottomMargin="151.0019" StretchWidthEnable="False" StretchHeightEnable="False" InnerActionSpeed="1.0000" CustomSizeEnabled="False" ctype="ProjectNodeObjectData">
                     <Size X="0.0000" Y="0.0000" />
                     <AnchorPoint />
-                    <Position X="577.5000" Y="124.0014" />
+                    <Position X="577.5000" Y="151.0019" />
                     <Scale ScaleX="1.0000" ScaleY="1.0000" />
                     <CColor A="255" R="255" G="255" B="255" />
-                    <PrePosition X="0.5000" Y="0.2322" />
+                    <PrePosition X="0.5000" Y="0.2828" />
                     <PreSize X="0.0000" Y="0.0000" />
                     <FileData Type="Normal" Path="RankPersonalInfoInGame.csd" Plist="" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="btnUnderstood" ActionTag="17613699" Tag="129" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="453.0000" RightMargin="453.0000" TopMargin="516.5020" BottomMargin="-71.5020" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="219" Scale9Height="67" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+                  <AbstractNodeData Name="btnUnderstood" ActionTag="17613699" Tag="129" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="453.0000" RightMargin="453.0000" TopMargin="489.5019" BottomMargin="-44.5019" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="219" Scale9Height="67" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                     <Size X="249.0000" Y="89.0000" />
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                    <Position X="577.5000" Y="-27.0020" />
+                    <Position X="577.5000" Y="-0.0019" />
                     <Scale ScaleX="1.0000" ScaleY="1.0000" />
                     <CColor A="255" R="255" G="255" B="255" />
-                    <PrePosition X="0.5000" Y="-0.0506" />
+                    <PrePosition X="0.5000" Y="0.0000" />
                     <PreSize X="0.2156" Y="0.1667" />
                     <TextColor A="255" R="65" G="65" B="70" />
                     <NormalFileData Type="Normal" Path="Ranking/btnUnderstood.png" Plist="" />
@@ -392,7 +392,7 @@
                     <OutlineColor A="255" R="255" G="0" B="0" />
                     <ShadowColor A="255" R="110" G="110" B="110" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="txtLoseCup" ActionTag="2100020865" Tag="244" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="453.5000" RightMargin="453.5000" TopMargin="479.5028" BottomMargin="21.4972" FontSize="24" LabelText="Ban bi tru 10000 Cup" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                  <AbstractNodeData Name="txtLoseCup" ActionTag="2100020865" Tag="244" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="453.5000" RightMargin="453.5000" TopMargin="452.5025" BottomMargin="48.4975" FontSize="24" LabelText="Ban bi tru 10000 Cup" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                     <Size X="248.0000" Y="33.0000" />
                     <Children>
                       <AbstractNodeData Name="iconCup" ActionTag="-846090671" Tag="468" IconVisible="False" LeftMargin="253.1095" RightMargin="-38.1095" TopMargin="-2.5000" BottomMargin="6.5000" LeftEage="7" RightEage="7" TopEage="6" BottomEage="6" Scale9OriginX="7" Scale9OriginY="6" Scale9Width="19" Scale9Height="16" ctype="ImageViewObjectData">
@@ -407,10 +407,10 @@
                       </AbstractNodeData>
                     </Children>
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                    <Position X="577.5000" Y="37.9972" />
+                    <Position X="577.5000" Y="64.9975" />
                     <Scale ScaleX="1.0000" ScaleY="1.0000" />
                     <CColor A="255" R="255" G="255" B="255" />
-                    <PrePosition X="0.5000" Y="0.0712" />
+                    <PrePosition X="0.5000" Y="0.1217" />
                     <PreSize X="0.2147" Y="0.0618" />
                     <FontResource Type="Normal" Path="Font/tahomabd.ttf" Plist="" />
                     <OutlineColor A="255" R="255" G="0" B="0" />

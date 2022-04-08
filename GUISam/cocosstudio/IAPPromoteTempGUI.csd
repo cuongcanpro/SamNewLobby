@@ -30,9 +30,9 @@
                 <PrePosition X="0.7546" Y="0.2103" />
                 <PreSize X="0.2566" Y="0.1491" />
                 <TextColor A="255" R="65" G="65" B="70" />
-                <DisabledFileData Type="Normal" Path="ShopIAP/join_shop_temp.jpg" Plist="" />
-                <PressedFileData Type="Normal" Path="ShopIAP/join_shop_temp.jpg" Plist="" />
-                <NormalFileData Type="Normal" Path="ShopIAP/join_shop_temp.jpg" Plist="" />
+                <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
+                <PressedFileData Type="Default" Path="Default/Button_Press.png" Plist="" />
+                <NormalFileData Type="Default" Path="Default/Button_Normal.png" Plist="" />
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>

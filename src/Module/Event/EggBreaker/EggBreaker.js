@@ -119,8 +119,8 @@ var EggBreaker = cc.Class.extend({
 
     preloadResource : function () {
         // preload
-        db.DBCCFactory.getInstance().loadDragonBonesData("res/Lobby/EventMgr/eggBreaker/EggBreakerButton/skeleton.xml","EggBreakerButton");
-        db.DBCCFactory.getInstance().loadTextureAtlas("res/Lobby/EventMgr/eggBreaker/EggBreakerButton/texture.plist", "EggBreakerButton");
+        db.DBCCFactory.getInstance().loadDragonBonesData("res/Lobby/Event/eggBreaker/EggBreakerButton/skeleton.xml","EggBreakerButton");
+        db.DBCCFactory.getInstance().loadTextureAtlas("res/Lobby/Event/eggBreaker/EggBreakerButton/texture.plist", "EggBreakerButton");
 
         var musicOn = cc.sys.localStorage.getItem("eventEggBreakerMusic");
         cc.log("eventEggBreakerMusic" + EggBreakerSound.musicOn);
@@ -132,20 +132,20 @@ var EggBreaker = cc.Class.extend({
         }
         if (!this.isFinishDownload)
             return;
-        LocalizedString.add("res/EventMgr/EggBreaker/EggBreakerRes/EggLocalized_vi");
+        LocalizedString.add("res/Event/EggBreaker/EggBreakerRes/EggLocalized_vi");
 
-        db.DBCCFactory.getInstance().loadDragonBonesData("res/EventMgr/EggBreaker/EggBreakerRes/zingplaymascot/skeleton.xml","zingplaymascot");
-        db.DBCCFactory.getInstance().loadTextureAtlas("res/EventMgr/EggBreaker/EggBreakerRes/zingplaymascot/texture.plist", "zingplaymascot");
+        db.DBCCFactory.getInstance().loadDragonBonesData("res/Event/EggBreaker/EggBreakerRes/zingplaymascot/skeleton.xml","zingplaymascot");
+        db.DBCCFactory.getInstance().loadTextureAtlas("res/Event/EggBreaker/EggBreakerRes/zingplaymascot/texture.plist", "zingplaymascot");
 
 
 
-        db.DBCCFactory.getInstance().loadDragonBonesData("res/EventMgr/EggBreaker/EggBreakerRes/EggBreakerBg/skeleton.xml","EggBreakerBg");
-        db.DBCCFactory.getInstance().loadTextureAtlas("res/EventMgr/EggBreaker/EggBreakerRes/EggBreakerBg/texture.plist", "EggBreakerBg");
+        db.DBCCFactory.getInstance().loadDragonBonesData("res/Event/EggBreaker/EggBreakerRes/EggBreakerBg/skeleton.xml","EggBreakerBg");
+        db.DBCCFactory.getInstance().loadTextureAtlas("res/Event/EggBreaker/EggBreakerRes/EggBreakerBg/texture.plist", "EggBreakerBg");
 
-        db.DBCCFactory.getInstance().loadDragonBonesData("res/EventMgr/EggBreaker/EggBreakerRes/EggBreakerGold/skeleton.xml","EggBreakerGold");
-        db.DBCCFactory.getInstance().loadTextureAtlas("res/EventMgr/EggBreaker/EggBreakerRes/EggBreakerGold/texture.plist", "EggBreakerGold");
+        db.DBCCFactory.getInstance().loadDragonBonesData("res/Event/EggBreaker/EggBreakerRes/EggBreakerGold/skeleton.xml","EggBreakerGold");
+        db.DBCCFactory.getInstance().loadTextureAtlas("res/Event/EggBreaker/EggBreakerRes/EggBreakerGold/texture.plist", "EggBreakerGold");
 
-        cc.spriteFrameCache.addSpriteFrames("res/EventMgr/EggBreaker/EggBreakerRes/gold.plist");
+        cc.spriteFrameCache.addSpriteFrames("res/Event/EggBreaker/EggBreakerRes/gold.plist");
 
         EggBreakerSound.preloadAllSound();
     },
@@ -232,13 +232,13 @@ var EggBreaker = cc.Class.extend({
         //if(!this.buttonLobby.notify) {
         //    btn.removeAllChildren();
         //
-        //    var sp = new cc.Sprite("res/EventMgr/XmasUI/btn_event_button.png");
+        //    var sp = new cc.Sprite("res/Event/XmasUI/btn_event_button.png");
         //    btn.addChild(sp);
         //    sp.setPosition(btn.getContentSize().width / 2 + sp.getContentSize().width/3, btn.getContentSize().height / 2);
         //    btn.icon = sp;
         //    btn.icon.pos = sp.getPosition();
         //
-        //    var notify = new cc.Sprite("res/EventMgr/XmasUI/icon_notify_event.png");
+        //    var notify = new cc.Sprite("res/Event/XmasUI/icon_notify_event.png");
         //    btn.addChild(notify);
         //    notify.setPosition(btn.icon.getPositionX() + btn.icon.getContentSize().width / 2,
         //        btn.icon.getPositionY() + btn.icon.getContentSize().height / 2 - notify.getContentSize().height/2);
@@ -265,9 +265,11 @@ var EggBreaker = cc.Class.extend({
             }
             event.openFromZalo = false;
         }
-
-        if(this.isEndEvent()) {
+        else if (this.isEndEvent()) {
             this.showEventButton();
+        }
+        else {
+            this.buttonLobby.setVisible(false);
         }
     },
 
@@ -337,7 +339,7 @@ var EggBreaker = cc.Class.extend({
             // this.buttonLobby.anim.eff.setPosition(0, 20);
             // this.buttonLobby.anim.eff.gotoAndPlay("1", -1, -1, 0);
 
-            this.buttonLobby.anim.eff = new CustomSkeleton("Lobby/EventMgr/eggBreaker/Logo_Daptrung_2021", "Logo_Daptrung_2021", 1);
+            this.buttonLobby.anim.eff = new CustomSkeleton("Lobby/Event/eggBreaker/Logo_Daptrung_2021", "Logo_Daptrung_2021", 1);
             this.buttonLobby.anim.addChild(this.buttonLobby.anim.eff);
             this.buttonLobby.anim.eff.setPosition(30, -30);
             this.buttonLobby.anim.eff.setAnimation(0, "animation", -1);
@@ -483,8 +485,8 @@ var EggBreaker = cc.Class.extend({
 
     getPieceImage : function (id) {
         if(this.isItemStored(id))
-            return "res/EventMgr/EggBreaker/EggBreakerUI/e" + id + ".png";
-        return "res/EventMgr/EggBreaker/EggBreakerUI/icon_gold.png";
+            return "res/Event/EggBreaker/EggBreakerUI/e" + id + ".png";
+        return "res/Event/EggBreaker/EggBreakerUI/icon_gold.png";
     },
 
     getItemName: function (id) {
@@ -533,12 +535,12 @@ var EggBreaker = cc.Class.extend({
     getGiftImage: function (id) {
         id = this.convertIdNormal(id);
         if(this.isItemStored(id))
-            return "res/EventMgr/EggBreaker/EggBreakerUI/en" + id + ".png";
-        return "res/EventMgr/EggBreaker/EggBreakerUI/en10.png";
+            return "res/Event/EggBreaker/EggBreakerUI/en" + id + ".png";
+        return "res/Event/EggBreaker/EggBreakerUI/en10.png";
     },
 
     getTicketTexture: function () {
-        return "res/EventMgr/EggBreaker/EggBreakerUI/hammer.png";
+        return "res/Event/EggBreaker/EggBreakerUI/hammer.png";
     },
 
     resetEventButton: function () {
@@ -546,7 +548,7 @@ var EggBreaker = cc.Class.extend({
     },
 
     getOfferTicketImage: function () {
-        return "res/EventMgr/EggBreaker/EggBreakerUI/offerTicket.png";
+        return "res/Event/EggBreaker/EggBreakerUI/offerTicket.png";
     },
 
     getOfferTicketString: function () {
@@ -558,28 +560,28 @@ var EggBreaker = cc.Class.extend({
     },
 
     getImgInShop: function (idx) {
-        return  "res/EventMgr/EggBreaker/EggBreakerUI/shop_hammer_" + idx + ".png";
+        return  "res/Event/EggBreaker/EggBreakerUI/shop_hammer_" + idx + ".png";
     },
 
     // getGiftImageOpen: function (id) {
     //     //id = this.convertIdNormal(id);
     //   //  if(this.isItemStored(id))
-    //     return "res/EventMgr/EggBreaker/EggBreakerUI/enLarge" + id + ".png";
-    //   //  return "res/EventMgr/EggBreaker/EggBreakerUI/en10.png"
+    //     return "res/Event/EggBreaker/EggBreakerUI/enLarge" + id + ".png";
+    //   //  return "res/Event/EggBreaker/EggBreakerUI/en10.png"
     // },
 
     getEggImage : function (id) {
         id = this.convertIdNormal(id);
         if(this.isItemStored(id))
-            return "res/EventMgr/EggBreaker/EggBreakerUI/en" + id + ".png";
-        return "res/EventMgr/EggBreaker/EggBreakerUI/i10.png"
+            return "res/Event/EggBreaker/EggBreakerUI/en" + id + ".png";
+        return "res/Event/EggBreaker/EggBreakerUI/i10.png"
     },
 
     getGiftBackgroundImage: function (id) {
         id = this.convertIdNormal(id);
         if(this.isItemStored(id))
-            return "res/EventMgr/EggBreaker/EggBreakerUI/eb" + id + ".png";
-        return "res/EventMgr/EggBreaker/EggBreakerUI/eb10.png";
+            return "res/Event/EggBreaker/EggBreakerUI/eb" + id + ".png";
+        return "res/Event/EggBreaker/EggBreakerUI/eb10.png";
     },
 
     convertIdNormal : function (id) {
@@ -700,6 +702,7 @@ var EggBreaker = cc.Class.extend({
     },
 
     isEndEvent : function () {
+        cc.log("is EEND EVENT " + this.eventTime + " " + (EggBreaker.WEEK_4 + 1));
         return this.eventTime == (EggBreaker.WEEK_4 + 1);
     },
 
@@ -937,8 +940,6 @@ var EggBreaker = cc.Class.extend({
 
     // LISTENER
     onReceive: function (cmd, data) {
-        if (gamedata.checkInReview()) return;
-
         switch (cmd) {
             case EggBreaker.CMD_EVENT_NOTIFY:
             {
@@ -1156,16 +1157,16 @@ EggBreakerSound.preloadAllSound = function (){
 };
 
 rEggSound = {
-    bg : "res/EventMgr/EggBreaker/EggBreakerRes/music_minigame.mp3",
-    break1 : "res/EventMgr/EggBreaker/EggBreakerRes/daptrung_01.mp3",
-    break2 : "res/EventMgr/EggBreaker/EggBreakerRes/daptrung_02.mp3",
-    gift : "res/EventMgr/EggBreaker/EggBreakerRes/gifteffect.mp3",
-    end_break : "res/EventMgr/EggBreaker/EggBreakerRes/finish_daptrung.mp3",
-    coin : "res/EventMgr/EggBreaker/EggBreakerRes/coinFall.mp3",
-    coin_1 : "res/EventMgr/EggBreaker/EggBreakerRes/coin_01.mp3",
-    coin_2 : "res/EventMgr/EggBreaker/EggBreakerRes/coin_02.mp3",
-    coin_3 : "res/EventMgr/EggBreaker/EggBreakerRes/coin_03.mp3",
-    pieces : "res/EventMgr/EggBreaker/EggBreakerRes/pieces.mp3"
+    bg : "res/Event/EggBreaker/EggBreakerRes/music_minigame.mp3",
+    break1 : "res/Event/EggBreaker/EggBreakerRes/daptrung_01.mp3",
+    break2 : "res/Event/EggBreaker/EggBreakerRes/daptrung_02.mp3",
+    gift : "res/Event/EggBreaker/EggBreakerRes/gifteffect.mp3",
+    end_break : "res/Event/EggBreaker/EggBreakerRes/finish_daptrung.mp3",
+    coin : "res/Event/EggBreaker/EggBreakerRes/coinFall.mp3",
+    coin_1 : "res/Event/EggBreaker/EggBreakerRes/coin_01.mp3",
+    coin_2 : "res/Event/EggBreaker/EggBreakerRes/coin_02.mp3",
+    coin_3 : "res/Event/EggBreaker/EggBreakerRes/coin_03.mp3",
+    pieces : "res/Event/EggBreaker/EggBreakerRes/pieces.mp3"
 };
 
 EggBreaker._instance = null;

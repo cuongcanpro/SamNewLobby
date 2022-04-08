@@ -70,7 +70,7 @@ var BlueOceanPieceItem = cc.Node.extend({
     ctor: function () {
         this._super();
 
-        var jsonLayout = ccs.load("res/EventMgr/BlueOcean/BOPieceItem.json");
+        var jsonLayout = ccs.load("res/Event/BlueOcean/BOPieceItem.json");
         this._layout = jsonLayout.node;
         ccui.Helper.doLayout(this._layout);
         this.addChild(this._layout);
@@ -239,7 +239,7 @@ var BlueOceanMoney = cc.Node.extend({
 
         for(var i = 0 ; i < nStr.length ; i++)
         {
-            var nContent = "res/EventMgr/BlueOcean/BlueOceanUI/bosogold/";
+            var nContent = "res/Event/BlueOcean/BlueOceanUI/bosogold/";
             var isComma = false;
             if(nStr.charAt(i) == '.')
             {
@@ -294,7 +294,7 @@ var BlueOceanGrid = cc.Node.extend({
 
     // khoi tao content grid
     initContent: function () {
-        // this.bgShadow = new cc.Sprite("res/EventMgr/BlueOcean/BlueOceanUI/bgShadow.png");
+        // this.bgShadow = new cc.Sprite("res/Event/BlueOcean/BlueOceanUI/bgShadow.png");
         // this.addChild(this.bgShadow);
         // this.bgShadow.setPositionY(-8);
 
@@ -307,7 +307,7 @@ var BlueOceanGrid = cc.Node.extend({
         this.imgGift.defaultPos = this.imgGift.getPosition();
         this.imgGift.setLocalZOrder(1);
 
-        this.effectGift = new CustomSkeleton("res/EventMgr/BlueOcean/BlueOceanRes/Spine", "kimcuong", 1);
+        this.effectGift = new CustomSkeleton("res/Event/BlueOcean/BlueOceanRes/Spine", "kimcuong", 1);
         this.effectGift.setScale(0.8);
         this.addChild(this.effectGift, 1, 100);
         //  this.effectGift.setPosition(this.bg.getContentSize().width * 0.5, this.bg.getContentSize().height * 0.5);
@@ -399,9 +399,9 @@ var BlueOceanGrid = cc.Node.extend({
         id = parseInt(id);
         // cc.log("cell_normal" + id + ".png");
         // if (id <= 1)
-        //     this.bg.setTexture("res/EventMgr/BlueOcean/BlueOceanUI/cell_" + id + ".png");
+        //     this.bg.setTexture("res/Event/BlueOcean/BlueOceanUI/cell_" + id + ".png");
         // else
-        //     this.bg.setTexture("res/EventMgr/BlueOcean/BlueOceanUI/cell_" + 2 + ".png");
+        //     this.bg.setTexture("res/Event/BlueOcean/BlueOceanUI/cell_" + 2 + ".png");
         this.effectGift.setVisible(false);
         this.lbNum.setVisible(false);
         this.bg.setTexture("res/Event/BlueOcean/BlueOceanUI/cellNormal.png");
@@ -426,7 +426,7 @@ var BlueOceanGrid = cc.Node.extend({
                 break;
             case BO_CELL_CHEST:
                 this.imgGift.setVisible(false);
-               // this.bg.setTexture("res/EventMgr/BlueOcean/BlueOceanUI/cellCNormal.png");
+               // this.bg.setTexture("res/Event/BlueOcean/BlueOceanUI/cellCNormal.png");
                 break;
             case BO_CELL_MAP:
                 this.imgGift.setVisible(true);
@@ -453,13 +453,13 @@ var BlueOceanGrid = cc.Node.extend({
             case 1000060:
             case 1000070:
                 this.imgGift.setVisible(true);
-                this.imgGift.setTexture("res/EventMgr/BlueOcean/BlueOceanUI/enMap" + id + ".png");
+                this.imgGift.setTexture("res/Event/BlueOcean/BlueOceanUI/enMap" + id + ".png");
                 //this.effectGift.setVisible(true);
                 //this.effectGift.setAnimation(0, "" + id, -1, CustomSkeleton.SCALE_ACTION, id);
                 break;
             default:
                 this.startEffect();
-                this.imgGift.setTexture("res/EventMgr/BlueOcean/BlueOceanUI/enMap" + id + ".png");
+                this.imgGift.setTexture("res/Event/BlueOcean/BlueOceanUI/enMap" + id + ".png");
                 this.imgGift.setVisible(true);
                 //  this.effectGift.setVisible(true);
                 break;
@@ -901,7 +901,7 @@ BlueOceanMap = cc.Node.extend({
         var cmd = blueOcean.blueOceanScene.cmdResult;
         BlueOceanSound.playDiceFly();
         //this.numMoveAvailable = numMoveAvailable;
-        var sp = new cc.Sprite("res/EventMgr/BlueOcean/BlueOceanUI/dice" + cmd.numMoves + ".png");
+        var sp = new cc.Sprite("res/Event/BlueOcean/BlueOceanUI/dice" + cmd.numMoves + ".png");
         sp.setPosition(pDice);
         this.pMapEffect.addChild(sp, 999999);
         this.numMoveAvailable = cmd.numMoves;
@@ -1912,7 +1912,7 @@ var BlueOceanPiecesHistoryCell = cc.TableViewCell.extend({
         this._super();
 
         //var jsonLayout = ccs.load("BlueOceanHistoryItem.json");
-        var jsonLayout = ccs.load("res/EventMgr/BlueOcean/BOPiecesHistoryItem.json");
+        var jsonLayout = ccs.load("res/Event/BlueOcean/BOPiecesHistoryItem.json");
         this._layout = jsonLayout.node;
         ccui.Helper.doLayout(this._layout);
         this.addChild(this._layout);
@@ -2257,7 +2257,7 @@ var BlueOceanChest = cc.Node.extend({
         this.addChild(btn);
         this.btnChest = btn;
 
-        this.chestEffect = new CustomSkeleton("res/EventMgr/BlueOcean/BlueOceanRes/Spine", "ruong", 1);
+        this.chestEffect = new CustomSkeleton("res/Event/BlueOcean/BlueOceanRes/Spine", "ruong", 1);
         this.addChild(this.chestEffect);
         this.chestEffect.setAnimation(0, "1", 0);
         this.chestEffect.setScale(0.45);
@@ -2265,7 +2265,7 @@ var BlueOceanChest = cc.Node.extend({
         this.chestEffect.pos = this.chestEffect.getPosition();
         this.chestEffect.rScaleY = this.chestEffect.getScaleY();
 
-        this.levelEffect = new CustomSkeleton("res/EventMgr/BlueOcean/BlueOceanRes/Spine", "FX_LevelUp", 1);
+        this.levelEffect = new CustomSkeleton("res/Event/BlueOcean/BlueOceanRes/Spine", "FX_LevelUp", 1);
         this.addChild(this.levelEffect);
         this.levelEffect.setAnimation(0, "1", 0);
         this.levelEffect.setScale(0.45);

@@ -60,45 +60,57 @@ var EffectMgr = cc.Class.extend({
         var winSize = cc.director.getWinSize();
         var rangeX = [-50, 50];
         var rangeY = [-50, 50];
+        var rangeCX = [-150, 150];
+        var rangeCY = [-150, 150];
 
         num = (num < 10) ? num : (10 + parseInt(num / 5));
         num = (num < 200) ? num : 200;
 
+        var pCX = Math.random() * winSize.width;
+        var pCY = Math.random() * winSize.height;
+
         for (var i = 0; i < num; i++) {
             var sp = new CoinEffect();
-            sp.start();
 
             // random pos start
             var rndX = Math.random() * (rangeX[1] - rangeX[0]) + rangeX[0];
             var rndY = Math.random() * (rangeY[1] - rangeY[0]) + rangeY[0];
+            var posStart = cc.p(pStart.x + rndX, pStart.y + rndY);
+
+            rndX = Math.random() * (rangeCX[1] - rangeCX[0]) + rangeCX[0];
+            rndY = Math.random() * (rangeCY[1] - rangeCY[0]) + rangeCY[0];
+            var posCenter = cc.p(pCX + rndX, pCY + rndY);
 
             var rndRotate = -(Math.random() * 360);
-
-            var pCX = Math.random() * winSize.width;
-            var pCY = Math.random() * winSize.height;
-
-            var posStart = cc.p(pStart.x + rndX, pStart.y + rndY);
-            var posCenter = cc.p(pCX, pCY);
 
             var actShow = new cc.EaseBackOut(cc.scaleTo(timeShow, 0.4));
             var actMove = new cc.EaseSineOut(cc.BezierTo.create(timeMove, [posStart, posCenter, pEnd]));
             var actHide = cc.spawn(new cc.EaseBackIn(cc.scaleTo(timeHide, 0)), cc.fadeOut(timeHide));
             sp.setPosition(posStart);
             sp.setRotation(rndRotate);
-            parent.addChild(sp);
             sp.setScale(0);
+            parent.addChild(sp);
 
-            sp.runAction(cc.sequence(cc.delayTime(Math.random() * dTime),
+            sp.runAction(cc.sequence(
+                cc.delayTime(Math.random() * dTime),
                 actShow,
-                cc.spawn(actMove,
-                    cc.sequence(cc.delayTime(1.5 * Math.random()), cc.callFunc(function () {
-                        //if (gamedata.sound) {
-                        //    if (this % 3 === 0){
-                        //        var rnd = parseInt(Math.random() * 10) % 3 + 1;
-                        //        cc.audioEngine.playEffect(lobby_sounds["coin" + rnd], false);
-                        //    }
-                        //}
-                    }.bind(i)))), cc.callFunc(function () {
+                cc.callFunc(function () {
+                    this.start();
+                }.bind(sp)),
+                cc.spawn(
+                    actMove,
+                    cc.sequence(
+                        cc.delayTime(1.5 * Math.random()),
+                        cc.callFunc(function () {
+                            //if (gamedata.sound) {
+                            //    if (this % 3 === 0){
+                            //        var rnd = parseInt(Math.random() * 10) % 3 + 1;
+                            //        cc.audioEngine.playEffect(lobby_sounds["coin" + rnd], false);
+                            //    }
+                            //}
+                        }.bind(i)))
+                ),
+                cc.callFunc(function () {
                     if (fGoldDone) fGoldDone.apply(this, arguments);
                 }.bind(this, goldReturn)), actHide));
         }
@@ -660,7 +672,6 @@ var CoinEffectLayer = cc.Layer.extend({
 });
 
 var CoinEffect = cc.Sprite.extend({
-
     ctor: function () {
         this._super();
         var animation = cc.animationCache.getAnimation(CoinEffectLayer.NAME_ANIMATION_COIN);
@@ -676,11 +687,12 @@ var CoinEffect = cc.Sprite.extend({
             //     aniFrame = new cc.AnimationFrame(cache.getSpriteFrame(CoinEffectLayer.NAME_ANIMATION_COIN + i + ".png"), CoinEffectLayer.TIME_ANIMATION_COIN);
             //     arr.push(aniFrame);
             // }
-            for (var i = 0; i < 8; i++) {
-                aniFrame = new cc.AnimationFrame(cache.getSpriteFrame("coin" + i + ".png"), CoinEffectLayer.TIME_ANIMATION_COIN);
+            for (var i = 0; i < 6; i++) {
+                aniFrame = new cc.AnimationFrame(cache.getSpriteFrame("coinNew" + i + ".png"), CoinEffectLayer.TIME_ANIMATION_COIN);
                 arr.push(aniFrame);
             }
             animation = new cc.Animation(arr, CoinEffectLayer.TIME_ANIMATION_COIN);
+            animation.setDelayPerUnit(0.1);
             cc.animationCache.addAnimation(animation, CoinEffectLayer.NAME_ANIMATION_COIN);
         }
         this.anim = animation;
@@ -757,19 +769,19 @@ var CoinEffectAnim = cc.Sprite.extend({
 
         time = time || CoinEffectLayer.TIME_ANIMATION_COIN;
 
-        var animation = cc.animationCache.getAnimation("coin");
+        var animation = cc.animationCache.getAnimation("coinNew");
         if (!animation) {
             var arr = [];
             var cache = cc.spriteFrameCache;
             var aniFrame;
-            for (var i = 0; i < 8; i++) {
-                aniFrame = new cc.AnimationFrame(cache.getSpriteFrame("coin" + i + ".png"), time);
+            for (var i = 0; i < 6; i++) {
+                aniFrame = new cc.AnimationFrame(cache.getSpriteFrame("coinNew" + i + ".png"), time);
                 arr.push(aniFrame);
             }
-            aniFrame = new cc.AnimationFrame(cache.getSpriteFrame("coin0.png"), time);
+            aniFrame = new cc.AnimationFrame(cache.getSpriteFrame("coinNew0.png"), time);
             arr.push(aniFrame);
             animation = new cc.Animation(arr,time);
-            cc.animationCache.addAnimation(animation, "coin");
+            cc.animationCache.addAnimation(animation, "coinNew");
         }
         this.anim = animation;
     },

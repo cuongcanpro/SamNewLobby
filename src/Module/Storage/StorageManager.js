@@ -5,8 +5,19 @@
 var StorageManager = BaseMgr.extend({
     ctor: function() {
         this._super();
+    },
+
+    init: function () {
         this.resetData();
-        cc.director.getScheduler().schedule(this.update, this, 1, cc.REPEAT_FOREVER, 0, false, "StorageUpdate");
+        cc.director.getScheduler().schedule(
+            this.update,
+            this,
+            500,
+            cc.REPEAT_FOREVER,
+            0,
+            false,
+            "StorageUpdate"
+        );
     },
 
     /* region Data Manipulating */
@@ -75,7 +86,7 @@ var StorageManager = BaseMgr.extend({
 
     /* region GUI Controllers */
     openStorage: function() {
-        if (CheckLogic.checkInBoard()){
+        if (inGameMgr.checkInBoard()){
             this.openInboardStorageGUI();
         }
         else this.openStorageScene();
@@ -768,7 +779,7 @@ var StorageManager = BaseMgr.extend({
                             }
                             break;
                         case StorageManager.SUBTYPE_VOUCHER.USE_IN_ROOM:
-                            imgPath = "Lobby/Items/voucher/" + voucherId + ".png";
+                            imgPath = "Lobby/Items/voucher/b" + voucherId + ".png";
                             break;
                     }
                     var remainTime = voucher.remainTime;

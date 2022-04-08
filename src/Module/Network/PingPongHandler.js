@@ -74,7 +74,7 @@ var PingPongHandler = cc.Class.extend({
         GameClient.destroyInstance();
         GameClient.disconnectHandle();
 
-        GameClient.connectLai = !!CheckLogic.checkInBoard();
+        GameClient.connectLai = !!inGameMgr.checkInBoard();
 
         RankData.disconnectServer();
     },

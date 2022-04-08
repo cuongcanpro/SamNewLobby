@@ -5,11 +5,12 @@ var LoginMgr = BaseMgr.extend({
         this.sessionKey = "";
         this.sessionExpiredTime = 0;
         this.openID = "";
-        this.preloadResource();
+
     },
 
-    initListener: function () {
+    init: function () {
         dispatcherMgr.addListener(UserMgr.EVENT_ON_GET_USER_INFO, this, this.onGetUserInfo);
+        this.preloadResource();
     },
 
     preloadResource: function () {
@@ -74,13 +75,20 @@ var LoginMgr = BaseMgr.extend({
                     GameClient.getInstance().startPingPong();
                     GameClient.getInstance().connectState = ConnectState.CONNECTED;
 
-                    var request = new CmdSendGameInfo();
-                    request.putData(NativeBridge.getDeviceModel(), NativeBridge.getOsVersion(),
-                        NativeBridge.getPlatform(), NativeBridge.getDeviceID(), gameMgr.appVersion, "aa", "aa",
-                        Constant.APP_FOOTBALL, gameMgr.detectVersionUpdate(), gameMgr.getInstallDate(),
-                        gameConfig.configVersion, !GameClient.isWaitingReconnect);
-                    this.sendPacket(request);
-                    request.clean();
+                    var mobile = new CmdSendMobile();
+                    var platform = 0;
+                    if (cc.sys.os == cc.sys.OS_ANDROID) {
+                        platform = 3;
+                    } else if (cc.sys.os == cc.sys.OS_IOS) {
+                        platform = 1;
+                    } else if (!cc.sys.isNative) {
+                        platform = 0;
+                    } else {
+                        platform = 3;
+                    }
+                    mobile.putData(NativeBridge.getDeviceModel(), NativeBridge.getOsVersion(), platform, NativeBridge.getDeviceID(), gameMgr.detectVersionUpdate(), gameMgr.getInstallDate());
+                    GameClient.getInstance().sendPacket(mobile);
+                    mobile.clean();
 
                     RankData.connectToServerRank();
                     broadcastMgr.onStart();
@@ -135,20 +143,99 @@ var LoginMgr = BaseMgr.extend({
                 RankData.disconnectServer();
                 return true;
             }
+            case LoginMgr.CMD_MOBILE: {
+                var rMobile = new CmdReceiveMobile(pk);
+                rMobile.clean();
+
+                cc.log("CMD_MOBILE : " + JSON.stringify(rMobile));
+
+                if (!Config.ENABLE_PAYMENT_SERVICE) {
+                    paymentMgr.enablepayment = rMobile.enablepayment;
+                    paymentMgr.payments = rMobile.payments;
+                }
+
+                if (portalMgr.isPortal()) {
+                    if (Config.DISABLE_IAP_PORTAL) {
+                        gamedata.payments[Payment.GOLD_IAP] = false;
+                        gamedata.payments[Payment.G_IAP] = false;
+                    }
+                    for (var i = 0; i < gamedata.payments.length; i++) {
+                        if (i == Payment.GOLD_IAP || i == Payment.G_IAP) {
+                            if (fr && fr.NativePortal && fr.NativePortal.getInstance().isShowInappShop) {
+                                gamedata.payments[i] = fr.NativePortal.getInstance().isShowInappShop() && gamedata.payments[i];
+                            }
+                        } else {
+                            if (fr && fr.NativePortal && fr.NativePortal.getInstance().isShowLocalShop) {
+                                gamedata.payments[i] = fr.NativePortal.getInstance().isShowLocalShop() && gamedata.payments[i];
+                            }
+                        }
+                    }
+
+                    if (cc.sys.os == cc.sys.OS_IOS) {
+                        gamedata.payments[Payment.GOLD_IAP] = false;
+                        gamedata.payments[Payment.G_IAP] = false;
+                        var n = 0;
+                        for (var i = 0; i < gamedata.payments.length; i++) {
+                            if (i != Payment.GOLD_G && gamedata.payments[i]) n = 1;
+                        }
+                        if (n == 0) gamedata.payments[Payment.GOLD_G] = false;
+                    }
+                }
+                //gamedata.payments = [true, true, false, false];
+                //gamedata.payments[Payment.G_ZALO] = false;
+                //gamedata.payments[Payment.G_ATM] = false;
+                //gamedata.payments[Payment.GOLD_ZALO] = false;
+                //gamedata.payments[Payment.GOLD_ZING] = false;
+                //gamedata.payments[Payment.GOLD_ATM] = false;
+                paymentMgr.payments[Payment.G_CARD] = false;
+                if (!cc.sys.isNative) {
+                    paymentMgr.payments[Payment.G_IAP] = false;
+                    paymentMgr.payments[Payment.GOLD_IAP] = false;
+                    paymentMgr.payments[Payment.G_ZALO] = false;
+                    paymentMgr.payments[Payment.GOLD_ZALO] = false;
+                }
+                // gamedata.payments[Payment.G_ZALO] = false;
+                // gamedata.payments[Payment.GOLD_ZALO] = false;
+
+                if (Config.ENABLE_CHEAT) {
+                    if (CheatCenter.ENABLE_PAYMENT) {
+                        for (var s in paymentMgr.payments) {
+                            paymentMgr.payments[s] = true;
+                        }
+                    }
+                    //gamedata.payments = [false, false, false, false, false, false, false, false, false, false, false, false];
+                    paymentMgr.payments[Payment.G_ZALO] = true;
+                    paymentMgr.payments[Payment.GOLD_ZALO] = true;
+                }
+                cc.log("***PAYMENT : " + paymentMgr.payments.join());
+                var pk = new CmdSendGetConfig();
+                GameClient.getInstance().sendPacket(pk);
+                pk.clean();
+
+                break;
+            }
         }
     },
 
-    backToLoginScene: function (checkPortal) {
-        if (checkPortal && portalMgr.isPortal()) {
-            gameMgr.endGame();
-            return;
+    backToLoginScene: function (autoConnect) {
+        if (autoConnect) {
+            if (portalMgr.isPortal()) {
+                sceneMgr.openScene(LoadingScene.className);
+                loginMgr.setSessionKey(portalMgr.getSessionKeyPortal());
+                loginMgr.setOpenId("");
+                GameClient.getInstance().connect();
+            }
+            else {
+                sceneMgr.openScene(LoginScene.className);
+            }
         }
-
-        var curScene = sceneMgr.getMainLayer();
-        if (curScene instanceof LoginScene && (portalMgr.isPortal() || !cc.sys.isNative)) {
-            curScene.autoLoginPortal();
-        } else {
-            sceneMgr.openScene(LoginScene.className);
+        else {
+            if (portalMgr.isPortal()) {
+                gameMgr.endGame();
+            }
+            else {
+                sceneMgr.openScene(LoginScene.className);
+            }
         }
     },
 
@@ -193,3 +280,4 @@ var loginMgr = LoginMgr.getInstance();
 
 LoginMgr.CMD_LOGIN = 1;
 LoginMgr.CMD_LOGIN_FAIL = 2;
+LoginMgr.CMD_MOBILE = 1011;

@@ -26,7 +26,7 @@ TabItemPayment = cc.Layer.extend({
         var heightTableView = this.panelSize.height - this.bgChannel.getContentSize().height;
         this.listButton = new ccui.ListView();
         this.listButton.setAnchorPoint(cc.p(0, 0));
-        this.listButton.setPosition(0, heightTableView);
+        this.listButton.setPosition(10, heightTableView);
         this.listButton.setContentSize(cc.size(cc.winSize.width, this.bgChannel.getContentSize().height));
         this.listButton.setDirection(ccui.ScrollView.DIR_HORIZONTAL);
         this.listButton.setBounceEnabled(true);
@@ -37,18 +37,11 @@ TabItemPayment = cc.Layer.extend({
             panel.setContentSize(210, this.bgChannel.getContentSize().height);
 
             var tabImage = new cc.Sprite(this.getButtonImage(tabId));
-            tabImage.setPosition(tabImage.width/2, this.bgChannel.getContentSize().height * 0.5);
+            tabImage.setPosition(
+                tabImage.width/2,
+                this.bgChannel.getContentSize().height * 0.5);
             tabImage.setTag(1);
-
-            var effect = db.DBCCFactory.getInstance().buildArmatureNode("IconHot");
-            effect.setPosition(tabImage.getContentSize().width * 0.6, tabImage.getContentSize().height);
-            effect.setScale(1.5);
-            //effect.setTag(2);
-            effect.getAnimation().gotoAndPlay("1", -1, -1, -1);
-            effect.setVisible(false);
-
             panel.addChild(tabImage);
-            panel.addChild(effect);
 
             this.imgHot = new cc.Sprite("Lobby/ShopIAP/iconHot.png");
             panel.addChild(this.imgHot, 2, 2);

@@ -2,7 +2,7 @@ WChallengeBuyPremiumPopup = BaseLayer.extend({
     ctor: function () {
         this._super(WChallengeBuyPremiumPopup.className);
         this.setPosition(cc.winSize.width*0.6, cc.winSize.height/2);
-        this.initWithBinaryFile('res/EventMgr/WeeklyChallenge/BuyPremiumPopup.json');
+        this.initWithBinaryFile('res/Event/WeeklyChallenge/BuyPremiumPopup.json');
         this.btnClose.addTouchEventListener(function(render, eventType){
             if(eventType === ccui.Widget.TOUCH_ENDED) {
                 this.close();

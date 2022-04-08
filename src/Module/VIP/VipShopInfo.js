@@ -8,10 +8,9 @@ var VipShopInfo = BaseLayer.extend({
         this.pVip = this.getControl("pVip");
         this.setContentSize(this.pVip.getContentSize());
         this.pVip.setLocalZOrder(1);
-        // this.customButton("btnEnterVip", ShopIapthis.BTN_VIP, this.pVip);
+        this.customButton("btnEnterVip", 1, this.pVip);
         this.bgProgressVip = this.getControl("bgProgress", this.pVip);
         this.imgVpoint = this.getControl("imgVpoint", this.pVip);
-        this.imgVpoint.setVisible(false);
         this.progressVip = this.getControl("progressVip", this.pVip);
         this.txtProgress = this.getControl("txtProgress", this.pVip);
         this.iconNextVip = this.getControl("iconNextVip", this.pVip);
@@ -30,15 +29,16 @@ var VipShopInfo = BaseLayer.extend({
                 this.arrayDot[i] = new ccui.ImageView("Lobby/Common/dotNormal.png");
                 this.arrayDot[i].setPosition(startX + padX * i, startY);
                 this.pVip.addChild(this.arrayDot[i]);
-            }
-            else if (i > 16 && i < 29) {
+            } else if (i > 16 && i < 29) {
                 this.arrayDot[i] = new ccui.ImageView("Lobby/Common/dotNormal.png");
                 this.arrayDot[i].setPosition(startX + padX * (28 - i), startY + 71);
                 this.pVip.addChild(this.arrayDot[i]);
-            }
-            else {
+            } else {
                 this.arrayDot[i] = this.getControl("dot" + i, this.pVip);
             }
+            this.arrayDot[i].light = new ccui.ImageView("Lobby/Common/dotLight.png");
+            this.arrayDot[i].light.setPosition(cc.p(this.arrayDot[i].width * 0.5, this.arrayDot[i].height * 0.5));
+            this.arrayDot[i].addChild(this.arrayDot[i].light);
         }
 
         // data Effect Dot Vip
@@ -49,32 +49,52 @@ var VipShopInfo = BaseLayer.extend({
         this.countDot = 0;
 
         this.stateLight = 0;
+        this.length = 1;
+        this.base = 2;
+        this.excess = 0;
+        this.timeBase = 0.25;
     },
 
     showVipInfo: function (isEffect) {
         var levelVip = VipManager.getInstance().getVipLevel();
-        this.txtVip1.setVisible(levelVip > 0);
-        this.iconCurVip.setVisible(levelVip > 0);
         this.txtRemainVipTime.setVisible(levelVip > 0);
-        var titvarime = StringUtility.replaceAll(localized("VIP_SHOP_TEXT_0"), "@level", levelVip);
-        this.txtVip1.setString(titvarime);
+        if (levelVip > 0) {
+            var remainTimeLabel = StringUtility.replaceAll(localized("VIP_SHOP_TEXT_0"), "@level", levelVip);
+            this.txtVip1.setString(remainTimeLabel);
+        } else {
+            this.txtVip1.setString(LocalizedString.to("VIP_SHOP_NO"));
+        }
         this.txtRemainVipTime.setString(VipManager.getRemainTimeString(VipManager.getInstance().getRemainTime()));
         var txtTemp = BaseLayer.createLabelText(this.txtVip1.getString());
         txtTemp.setFontSize(this.txtVip1.getFontSize());
-        this.txtRemainVipTime.setPositionX(this.txtVip1.getPositionX() + txtTemp.getContentSize().width + 3);
+        this.txtRemainVipTime.setPositionX(this.txtVip1.getPositionX() + txtTemp.getContentSize().width + 7.5);
 
         var texture = VipManager.getIconVip(levelVip);
-        if (texture !== ""){
+        if (texture !== "") {
             this.iconCurVip.loadTexture(texture);
+            this.iconCurVip.setScale(1);
+        } else {
+            this.iconCurVip.loadTexture(VipManager.getImageVip(levelVip));
+            this.iconCurVip.setScale(0.37);
         }
         if (levelVip >= VipManager.NUMBER_VIP){
             this.iconNextVip.setVisible(false);
+
+            var deltaWidth = this.iconCurVip.width * 0.5;
+            this.iconCurVip.x += deltaWidth;
+            this.bgProgressVip.x += deltaWidth;
+            this.txtVip1.x += deltaWidth;
+            this.txtRemainVipTime.x += deltaWidth;
         } else {
             var texture2 = VipManager.getIconVip(levelVip + 1);
             if (texture2 !== ""){
                 this.iconNextVip.loadTexture(texture2);
             }
             this.iconNextVip.setVisible(true);
+
+            this.iconCurVip.x = this.iconCurVip.defaultPos.x;
+            this.bgProgressVip.x = this.bgProgressVip.defaultPos.x;
+            this.txtVip1.x = this.txtVip1.defaultPos.x;
         }
 
         var nextLevelExp = VipManager.getInstance().getVpointNeed(levelVip);
@@ -90,7 +110,6 @@ var VipShopInfo = BaseLayer.extend({
                 percent = 100;
             }
             this.progressVip.setPercent(percent);
-            this.imgVpoint.setPositionX(this.bgProgressVip.getContentSize().width * percent / 100);
         }
     },
 
@@ -98,7 +117,33 @@ var VipShopInfo = BaseLayer.extend({
         this.stateEffect = VipShopInfo.STATE_0;
         this.countDot = 0;
         for (var i = 0; i < this.arrayDot.length; i++) {
-            this.arrayDot[i].loadTexture("Lobby/Common/dotNormal.png");
+            this.turnLight(i, false);
+        }
+    },
+
+    onButtonRelease: function (button, id) {
+        cc.log("PRESS THE BUTTON");
+        if (vipMgr.getVipLevel() <= 0) {
+            VipManager.openVip(ShopIapScene.className);
+        }
+    },
+
+    turnLight: function (index, isOn) {
+        if (index >= this.arrayDot.length || index < 0) return;
+
+        var efxTime = 0.15;
+        var light = this.arrayDot[index].light;
+        light.stopAllActions();
+        if (isOn) {
+            light.runAction(cc.spawn(
+                cc.fadeIn(efxTime).easing(cc.easeOut(2.5)),
+                cc.scaleTo(efxTime, 1).easing(cc.easeBackOut())
+            ));
+        } else {
+            light.runAction(cc.spawn(
+                cc.fadeOut(efxTime).easing(cc.easeIn(2.5)),
+                cc.scaleTo(efxTime, 0).easing(cc.easeBackIn())
+            ));
         }
     },
 
@@ -109,7 +154,7 @@ var VipShopInfo = BaseLayer.extend({
         this.timeEffectVip = this.timeEffectVip - dt;
         if (this.timeEffectVip < 0) {
             if (this.stateEffect == VipShopInfo.STATE_0) {
-                this.arrayDot[this.countDot].loadTexture("Lobby/Common/dotLight.png");
+                this.turnLight(this.countDot, true);
                 this.countDot++;
                 if (this.countDot >= this.arrayDot.length) {
                     this.stateEffect = VipShopInfo.STATE_1;
@@ -121,11 +166,7 @@ var VipShopInfo = BaseLayer.extend({
                 }
             } else if (this.stateEffect == VipShopInfo.STATE_1) {
                 for (var i = 0; i < this.arrayDot.length; i++) {
-                    if (this.stateLight % 2 == 0) {
-                        this.arrayDot[i].loadTexture("Lobby/Common/dotNormal.png");
-                    } else {
-                        this.arrayDot[i].loadTexture("Lobby/Common/dotLight.png");
-                    }
+                    this.turnLight(i, this.stateLight % 2 !== 0);
                 }
                 this.stateLight++;
                 if (this.stateLight > 5) {
@@ -136,14 +177,25 @@ var VipShopInfo = BaseLayer.extend({
                     this.timeEffectVip = 0.4;
                 }
             } else {
-                this.timeEffectVip = 0.4;
+                this.timeEffectVip = this.timeBase;
                 this.stateEffect = 1 - this.stateEffect;
+                if (Math.random() < (1 - this.timeBase) * 0.5) {
+                    this.length = 1 + Math.floor(Math.random() * 3);
+                    this.base = Math.floor(Math.random() * 3) + 1 + this.length;
+                    this.excess = Math.floor(Math.random() * this.base);
+                    this.timeBase = 0.2 + Math.random() * 0.1;
+                } else {
+                    this.excess++;
+                    this.excess = this.excess % this.base;
+                }
                 for (var i = 0; i < this.arrayDot.length; i++) {
-                    if (Math.random() > 0.5) {
-                        this.arrayDot[i].loadTexture("Lobby/Common/dotNormal.png");
-                    } else {
-                        this.arrayDot[i].loadTexture("Lobby/Common/dotLight.png");
-                    }
+                    var isOn = false;
+                    for (var j = 0; j < this.length; j++)
+                        if (this.excess + j === i % this.base) {
+                            isOn = true;
+                            break;
+                        }
+                    this.turnLight(i, isOn);
                 }
             }
         }

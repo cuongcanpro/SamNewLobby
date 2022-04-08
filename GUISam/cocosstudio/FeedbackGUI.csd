@@ -24,14 +24,14 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="textField" ActionTag="-549939126" Tag="81" IconVisible="False" LeftMargin="511.5016" RightMargin="148.4984" TopMargin="219.4835" BottomMargin="247.5165" TouchEnable="True" FontSize="22" IsCustomSize="True" LabelText="" PlaceHolderText="Nhập nội dung..." MaxLengthText="10" ctype="TextFieldObjectData">
-                <Size X="500.0000" Y="200.0000" />
+              <AbstractNodeData Name="textField" ActionTag="-549939126" Tag="81" IconVisible="False" LeftMargin="524.5016" RightMargin="155.4984" TopMargin="223.4835" BottomMargin="243.5165" TouchEnable="True" FontSize="22" IsCustomSize="True" LabelText="" PlaceHolderText="Nhập nội dung..." MaxLengthText="10" ctype="TextFieldObjectData">
+                <Size X="480.0000" Y="200.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="761.5016" Y="347.5165" />
+                <Position X="764.5016" Y="343.5165" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="129" G="118" B="89" />
-                <PrePosition X="0.6565" Y="0.5210" />
-                <PreSize X="0.4310" Y="0.2999" />
+                <PrePosition X="0.6591" Y="0.5150" />
+                <PreSize X="0.4138" Y="0.2999" />
                 <FontResource Type="Normal" Path="Font/tahoma.ttf" Plist="" />
               </AbstractNodeData>
               <AbstractNodeData Name="btnSend" ActionTag="14293136" Tag="82" IconVisible="False" LeftMargin="680.0191" RightMargin="291.9809" TopMargin="450.2212" BottomMargin="141.7788" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="158" Scale9Height="53" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">

@@ -37,11 +37,11 @@ var GUIOffer = BaseLayer.extend({
         cc.log("SPLIT " + JSON.stringify(arrayS));
         var s1 = arrayS[0] + "<" + "color = YELLOW" + ">" + "200k" + "<" + "/color>" + arrayS[1];
         cc.log(s1);
-        var customLabel = new CustomLabel(cc.size(400, 200));
+        var customLabel = new CustomLabel(cc.size(600, 200));
         this.bg.addChild(customLabel);
         customLabel.setDefaultAlignHorizontal(RichTextAlignment.CENTER);
         customLabel.setDefaultAlignVertical(RichTextAlignment.MIDDLE);
-        customLabel.setDefaultSize(14);
+        customLabel.setDefaultSize(20);
         customLabel.setDefaultColor(cc.color(249,186,156));
         customLabel.setDefaultFont(SceneMgr.FONT_BOLD);
         customLabel.setString(s1);
@@ -65,7 +65,7 @@ var GUIOffer = BaseLayer.extend({
         this.arrayBonus = [];
         for (var i = 0; i < offerData.listBonus.length; i++) {
             var bonus = offerData.listBonus[i];
-            if (bonus.type == OfferManager.TYPE_TIME && NewVipManager.getInstance().getRealVipLevel() <= 0){
+            if (bonus.type == OfferManager.TYPE_TIME && VipManager.getInstance().getRealVipLevel() <= 0){
                 continue;
             }
             var offer = this.genOffer();
@@ -81,9 +81,8 @@ var GUIOffer = BaseLayer.extend({
         for (var i = 0; i < this.arrayBonus.length; i++) {
             this.arrayBonus[i].setPosition(startX + w * (0.5 + i) + pad * i, startY);
             this.arrayBonus[i].showEffect(i * 0.3);
+            cc.log("WHY ITS OUT OF SCREEN", sumW, this.arrayBonus[i].x, startX, w);
         }
-        //this.lbTitle.setString(offerManager.title);
-        //this.lbPackage.setString(offerManager.description);
         var arrayS = offerData.description.split("@money");
         if (arrayS.length > 1) {
             var s = LocalizedString.to("FORMAT_DESCRIPTION_OFFER");
@@ -139,8 +138,6 @@ var GUIOffer = BaseLayer.extend({
     onEnterFinish: function () {
         this.setShowHideAnimate(this.bg, true);
         this.scheduleUpdate();
-
-
     },
 
     onBack: function () {
@@ -195,8 +192,8 @@ var GroupOfferBonus = cc.Node.extend({
         this.labelDescrible.setFontName(SceneMgr.FONT_NORMAL);
         this.labelDescrible.setTextHorizontalAlignment(cc.TEXT_ALIGNMENT_CENTER);
         this.labelDescrible.setAnchorPoint(cc.p(0.5, 0.5));
-        this.labelDescrible.setFontSize(13);
-        this.labelDescrible.setPosition(this.bg.getContentSize().width * 0.5, this.bg.getContentSize().height * 0.7);
+        this.labelDescrible.setFontSize(18);
+        this.labelDescrible.setPosition(this.bg.getContentSize().width * 0.5, this.bg.getContentSize().height * 0.75);
         this.labelDescrible.setContentSize(cc.size(this.bg.getContentSize().width * 0.9, 80));
         this.labelDescrible.ignoreContentAdaptWithSize(false);
         this.labelDescrible.setSkewX(10);
@@ -207,7 +204,7 @@ var GroupOfferBonus = cc.Node.extend({
         this.labelValue.setFontName(SceneMgr.FONT_BOLD);
         this.labelValue.setTextHorizontalAlignment(cc.TEXT_ALIGNMENT_CENTER);
         this.labelValue.setAnchorPoint(cc.p(0.5, 0.5));
-        this.labelValue.setFontSize(20);
+        this.labelValue.setFontSize(30);
         this.labelValue.setPosition(this.bg.getContentSize().width * 0.5, this.bg.getContentSize().height * 0.22);
         this.bg.addChild(this.labelValue);
 
@@ -216,7 +213,7 @@ var GroupOfferBonus = cc.Node.extend({
         this.labelOldValue.setTextHorizontalAlignment(cc.TEXT_ALIGNMENT_CENTER);
         this.labelOldValue.setTextVerticalAlignment(cc.VERTICAL_TEXT_ALIGNMENT_CENTER);
         this.labelOldValue.setAnchorPoint(cc.p(0.5, 0.5));
-        this.labelOldValue.setFontSize(20);
+        this.labelOldValue.setFontSize(30);
         this.labelOldValue.setPosition(this.bg.getContentSize().width * 0.5, this.labelValue.getPositionY() - 25);
         this.bg.addChild(this.labelOldValue);
 
@@ -235,12 +232,12 @@ var GroupOfferBonus = cc.Node.extend({
         this.labelSale.setString("100%");
         this.labelSale.setTextHorizontalAlignment(cc.TEXT_ALIGNMENT_CENTER);
         this.labelSale.setAnchorPoint(cc.p(0.5, 0.5));
-        this.labelSale.setFontSize(16);
+        this.labelSale.setFontSize(22);
         this.labelSale.setPosition(this.bgSale.getContentSize().width * 0.55, this.bgSale.getContentSize().height * 0.65);
         this.bgSale.addChild(this.labelSale);
         this.labelSale.setColor(cc.color(254, 245, 209, 255));
 
-        this.setContentSize(this.icon.getContentSize());
+        this.setContentSize(this.bg.getContentSize());
     },
 
     showEffect: function (delayTime) {
@@ -250,8 +247,21 @@ var GroupOfferBonus = cc.Node.extend({
         this.iconEffect.setScale(1.0);
         this.pos = this.getPositionY();
         this.setPositionY(this.getPositionY() + 400);
-        this.runAction(cc.sequence(cc.delayTime(delayTime), cc.moveTo(0.1, this.getPositionX(), this.pos), cc.delayTime(0.2), cc.callFunc(this.callbackShowEffect.bind(this))));
-        this.runAction(cc.sequence(cc.delayTime(delayTime+ 0.1), cc.scaleTo(0.2, 1.0, 0.8), new cc.EaseBackOut(cc.scaleTo(0.4, 1.0, 1.0))));
+        this.setOpacity(0);
+        this.runAction(cc.sequence(
+            cc.delayTime(delayTime),
+            cc.spawn(
+                cc.fadeIn(0.1),
+                cc.moveTo(0.1, this.getPositionX(), this.pos)
+            ),
+            cc.delayTime(0.2),
+            cc.callFunc(this.callbackShowEffect.bind(this))
+        ));
+        this.runAction(cc.sequence(
+            cc.delayTime(delayTime + 0.1),
+            cc.scaleTo(0.2, 1.0, 0.8),
+            new cc.EaseBackOut(cc.scaleTo(0.4, 1.0, 1.0))
+        ));
     },
 
     callbackShowEffect: function () {

@@ -22,7 +22,7 @@
                     <PreSize X="1.0000" Y="1.0476" />
                     <FileData Type="Normal" Path="Ranking/borderBgMe.png" Plist="" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="bgAvatar" ActionTag="-1614581136" Tag="196" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="56.9999" RightMargin="467.0001" TopMargin="-12.5000" BottomMargin="-12.5000" LeftEage="18" RightEage="18" TopEage="18" BottomEage="18" Scale9OriginX="18" Scale9OriginY="18" Scale9Width="94" Scale9Height="94" ctype="ImageViewObjectData">
+                  <AbstractNodeData Name="bgAvatar" ActionTag="694587424" Tag="1517" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="57.0000" RightMargin="467.0000" TopMargin="-12.5000" BottomMargin="-12.5000" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" ctype="PanelObjectData">
                     <Size X="130.0000" Y="130.0000" />
                     <Children>
                       <AbstractNodeData Name="btnAvatar" Visible="False" ActionTag="-1883405957" Tag="161" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="5" BottomEage="5" Scale9OriginX="-15" Scale9OriginY="-5" Scale9Width="30" Scale9Height="10" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
@@ -50,12 +50,15 @@
                       </AbstractNodeData>
                     </Children>
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                    <Position X="121.9999" Y="52.5000" />
+                    <Position X="122.0000" Y="52.5000" />
                     <Scale ScaleX="0.5500" ScaleY="0.5500" />
                     <CColor A="255" R="255" G="255" B="255" />
                     <PrePosition X="0.1865" Y="0.5000" />
                     <PreSize X="0.1988" Y="1.2381" />
-                    <FileData Type="Normal" Path="Storage/avatarBg.png" Plist="" />
+                    <SingleColor A="255" R="150" G="200" B="255" />
+                    <FirstColor A="255" R="150" G="200" B="255" />
+                    <EndColor A="255" R="255" G="255" B="255" />
+                    <ColorVector ScaleY="1.0000" />
                   </AbstractNodeData>
                   <AbstractNodeData Name="txtName" ActionTag="-2037264847" Tag="198" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="170.0002" RightMargin="258.9998" TopMargin="37.0000" BottomMargin="37.0000" IsCustomSize="True" FontSize="23" LabelText="Text Label" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                     <Size X="225.0000" Y="31.0000" />

@@ -4,10 +4,8 @@
  */
 
 var GameClientListener = cc.Class.extend({
-
     ctor: function () {
         this._listenerID = 0;
-        this.inGame = new BoardListener();
     },
 
     onFinishConnect: function (isSuccess) {
@@ -59,7 +57,7 @@ var GameClientListener = cc.Class.extend({
             RankData.disconnectServer();
         }
 
-        GameClient.connectLai = !!CheckLogic.checkInBoard();
+        GameClient.connectLai = !!inGameMgr.checkInBoard();
     },
 
     onReceived: function (cmd, pk) {
@@ -101,14 +99,14 @@ var GameClientListener = cc.Class.extend({
                         GameClient.getInstance().disconnect();
                         GameClient.destroyInstance();
                         sceneMgr.showOkCancelDialog(LocalizedString.to("DISCONNECT_LOGIN"), null, function (btnID) {
-                            var checkPortal = false;
+                            var autoConnect = true;
                             if (btnID == 0) {
                             } else {
                                 cc.sys.localStorage.setItem("autologin", -1);
                                 cc.sys.localStorage.setItem("session", "");
-                                checkPortal = true;
+                                autoConnect = true;
                             }
-                            loginMgr.backToLoginScene(checkPortal);
+                            loginMgr.backToLoginScene(autoConnect);
                         });
                         RankData.disconnectServer();
                     }

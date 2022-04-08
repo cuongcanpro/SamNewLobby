@@ -31,45 +31,57 @@ CmdSendLogin = CmdSendCommon.extend({
 });
 
 
-CmdSendGameInfo = CmdSendCommon.extend({
+var CmdSendMobile = CmdSendCommon.extend({
+    ctor: function () {
+        this._super();
+        this.initData(100);
+        this.setControllerId(1);
+        this.setCmdId(LoginMgr.CMD_MOBILE);
+
+    },
+    putData: function (deviceModel, osVersion, mobile, deviceID, update, installDate) {
+        cc.log("SendMobile : " + gamedata.appVersion + "/" + deviceModel + "/" + osVersion + "/" + mobile + "/" + deviceID + "/" + update + "/" + installDate);
+        this.packHeader();
+        this.putString("" + deviceModel);
+        this.putString("" + osVersion);
+        this.putByte(mobile);
+        this.putString("" + deviceID);
+        this.putString(gameMgr.appVersion);
+        this.putString("aa");
+        this.putString("aa");
+        this.putInt(Constant.APP_FOOTBALL);
+
+        this.putByte(update);
+        // this.putByte(true);
+        this.putString(installDate);
+
+        if (gamedata.networkOperator != "") {
+            this.putShort(1);
+            if (Config.ENABLE_PAYMENT_SERVICE) {
+                this.putString("12345");
+            } else {
+                this.putString("");
+            }
+        } else {
+            this.putShort(0);
+        }
+        this.putInt(1); // version de phan biet ban IOS cu
+        this.updateSize();
+    }
+});
+
+CmdSendGetConfig = CmdSendCommon.extend({
     ctor: function () {
         this._super();
         this.initData(100);
         this.setControllerId(1);
         this.setCmdId(UserMgr.CMD_GET_CONFIG);
+
+        this.putData();
     },
-
-    putData: function (deviceName, osVersion, platform, deviceId, appVersion, trackingSource, mac, footballVersion, isUpdateApp, installDate, configVersion, quickConnect) {
-        cc.log("++GameInfo " + JSON.stringify(arguments));
-
+    putData: function () {
         //pack
         this.packHeader();
-
-        this.putString(deviceName);
-        this.putString(osVersion);
-        this.putByte(platform);
-        this.putString(deviceId);
-        this.putString(appVersion);
-        this.putString(trackingSource);
-        this.putString(mac);
-        this.putInt(footballVersion);
-        this.putByte(isUpdateApp ? 1 : 0);
-        this.putString(installDate);
-
-        this.putInt(configVersion);
-        this.putByte(quickConnect ? 1 : 0);
-
-        var networkInfo = NativeBridge.getTelephoneInfo();
-        if (networkInfo && networkInfo != "") {
-            this.putShort(1);
-            this.putString(networkInfo);
-            cc.log("Sim Operator : " + networkInfo);
-        } else {
-            this.putShort(0);
-            this.putString("");
-        }
-        this.putInt(1); // version de phan biet ban IOS cu
-
         //update
         this.updateSize();
     }
@@ -83,5 +95,30 @@ CmdReceiveConnectFail = CmdReceivedCommon.extend({
     readData: function () {
         this.ip = this.getString();
         this.port = this.getInt();
+    }
+});
+
+
+CmdReceiveMobile = CmdReceivedCommon.extend({
+    ctor: function (pkg) {
+        this._super(pkg);
+        this.readData();
+    },
+    readData: function () {
+        this.version = this.getString();
+        this.enablepayment = this.getBool();
+
+        try {
+            this.payments = this.getBools();
+
+            if (this.payments.length <= 3)
+                this.payments.push(false);
+            //   this.payments[3] = false;
+            cc.log(" Payments : " + JSON.stringify(this.payments));
+        } catch (e) {
+            cc.log("Server old: " + e);
+            this.payments = [false, false, true];
+        }
+
     }
 });

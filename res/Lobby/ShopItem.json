@@ -162,110 +162,6 @@
           {
             "FileData": {
               "Type": "Normal",
-              "Path": "ShopIAP/ShopItem/promoBg.png",
-              "Plist": ""
-            },
-            "Scale9OriginX": 18,
-            "Scale9OriginY": 13,
-            "Scale9Width": 19,
-            "Scale9Height": 14,
-            "AnchorPoint": {
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 3.7511,
-              "Y": 287.7669
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.0176,
-              "Y": 0.9313
-            },
-            "PreSize": {
-              "X": 0.2582,
-              "Y": 0.1294
-            },
-            "LeftMargin": 3.7511,
-            "RightMargin": 154.2489,
-            "TopMargin": 1.2331,
-            "BottomMargin": 267.7669,
-            "Tag": 855,
-            "Children": [
-              {
-                "FontSize": 14,
-                "LabelText": "-50%",
-                "FontResource": {
-                  "Type": "Normal",
-                  "Path": "Font/tahomabd.ttf",
-                  "Plist": ""
-                },
-                "HorizontalAlignmentType": "HT_Center",
-                "VerticalAlignmentType": "VT_Center",
-                "OutlineColor": {
-                  "G": 0,
-                  "B": 0
-                },
-                "ShadowColor": {
-                  "R": 110,
-                  "G": 110,
-                  "B": 110
-                },
-                "ShadowOffsetX": 2.0,
-                "ShadowOffsetY": -2.0,
-                "AnchorPoint": {
-                  "ScaleX": 0.5,
-                  "ScaleY": 0.5
-                },
-                "Position": {
-                  "X": 14.0,
-                  "Y": 24.0001
-                },
-                "Scale": {
-                  "ScaleX": 1.0,
-                  "ScaleY": 1.0
-                },
-                "RotationSkewX": -45.0,
-                "RotationSkewY": -45.0,
-                "CColor": {},
-                "IconVisible": false,
-                "PrePosition": {
-                  "X": 0.2545,
-                  "Y": 0.6
-                },
-                "PreSize": {
-                  "X": 0.6727,
-                  "Y": 0.475
-                },
-                "LeftMargin": -4.5,
-                "RightMargin": 22.5,
-                "TopMargin": 6.4999,
-                "BottomMargin": 14.5001,
-                "Tag": 948,
-                "ActionTag": 276410957,
-                "Size": {
-                  "X": 37.0,
-                  "Y": 19.0
-                },
-                "Name": "promo",
-                "ctype": "TextObjectData"
-              }
-            ],
-            "ActionTag": 876254611,
-            "Size": {
-              "X": 55.0,
-              "Y": 40.0
-            },
-            "Name": "promoBg",
-            "ctype": "ImageViewObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "Normal",
               "Path": "ShopIAP/ShopItem/tagLimitItem.png",
               "Plist": ""
             },
@@ -322,7 +218,7 @@
               "ScaleX": 0.5
             },
             "Position": {
-              "X": 107.8632,
+              "X": 106.5,
               "Y": 6.8388
             },
             "Scale": {
@@ -333,21 +229,21 @@
             "IconVisible": false,
             "PositionPercentXEnabled": true,
             "PrePosition": {
-              "X": 0.5064,
+              "X": 0.5,
               "Y": 0.0221
             },
             "PreSize": {
-              "X": 0.9624,
+              "X": 0.9577,
               "Y": 0.2136
             },
-            "LeftMargin": 5.3632,
-            "RightMargin": 2.6368,
+            "LeftMargin": 4.5,
+            "RightMargin": 4.5,
             "TopMargin": 236.1612,
             "BottomMargin": 6.8388,
             "Tag": 854,
             "ActionTag": -689157939,
             "Size": {
-              "X": 205.0,
+              "X": 204.0,
               "Y": 66.0
             },
             "Name": "priceBg",
@@ -557,6 +453,108 @@
               "Y": 40.0
             },
             "Name": "iconLock",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ShopIAP/ShopItem/promoBg.png",
+              "Plist": ""
+            },
+            "Scale9OriginX": 18,
+            "Scale9OriginY": 13,
+            "Scale9Width": 78,
+            "Scale9Height": 17,
+            "AnchorPoint": {
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 100.8007,
+              "Y": 78.9419
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4732,
+              "Y": 0.2555
+            },
+            "PreSize": {
+              "X": 0.5352,
+              "Y": 0.1392
+            },
+            "LeftMargin": 100.8007,
+            "RightMargin": -1.8007,
+            "TopMargin": 208.5581,
+            "BottomMargin": 57.4419,
+            "Tag": 855,
+            "Children": [
+              {
+                "FontSize": 19,
+                "LabelText": "-50%",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahomabd.ttf",
+                  "Plist": ""
+                },
+                "HorizontalAlignmentType": "HT_Center",
+                "VerticalAlignmentType": "VT_Center",
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 57.325,
+                  "Y": 26.4661
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.5029,
+                  "Y": 0.6155
+                },
+                "PreSize": {
+                  "X": 0.4211,
+                  "Y": 0.6047
+                },
+                "LeftMargin": 33.325,
+                "RightMargin": 32.675,
+                "TopMargin": 3.5339,
+                "BottomMargin": 13.4661,
+                "Tag": 948,
+                "ActionTag": 276410957,
+                "Size": {
+                  "X": 48.0,
+                  "Y": 26.0
+                },
+                "Name": "promo",
+                "ctype": "TextObjectData"
+              }
+            ],
+            "ActionTag": 876254611,
+            "Size": {
+              "X": 114.0,
+              "Y": 43.0
+            },
+            "Name": "promoBg",
             "ctype": "ImageViewObjectData"
           }
         ],

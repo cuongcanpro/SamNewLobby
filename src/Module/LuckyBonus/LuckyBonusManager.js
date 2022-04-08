@@ -37,7 +37,8 @@ var LuckyBonusManager = BaseMgr.extend({
         this.gToGoldFactor = null;
     },
 
-    initListener: function () {
+    init: function () {
+        cc.log("INIT LISTENER LuckyBonusManager");
         dispatcherMgr.addListener(LobbyMgr.EVENT_ON_ENTER_FINISH, this, this.checkShowNotify);
     },
 
@@ -227,6 +228,16 @@ var LuckyBonusManager = BaseMgr.extend({
 
     ///called every time user enter lobby GUI
     checkShowNotify: function(){
+        if (!this.lobbyIcon) {
+            var gui = sceneMgr.getRunningScene().getMainLayer();
+            if (gui instanceof LobbyScene) {
+                this.lobbyIcon = new LuckyBonusButton();
+                gui.pRightButton.addChild(this.lobbyIcon);
+                gui.arrayTopRight.push(this.lobbyIcon);
+            }
+        }
+        if (!this.lobbyIcon) return;
+
         var luckyBonusMgr = LuckyBonusManager.getInstance();
         this.sendGetUserInfo(0);
         var btn = this.lobbyIcon;
@@ -253,6 +264,7 @@ LuckyBonusManager.getInstance = function() {
     }
     return LuckyBonusManager._instance;
 };
+luckyBonusMgr = LuckyBonusManager.getInstance();
 
 //CMD
 //SEND PACKET

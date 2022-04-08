@@ -100,7 +100,7 @@ var LuckyCardCollectionItem = cc.TableViewCell.extend({
         this.startClickY = 0;
 
         this._super();
-        var jsonLayout = ccs.load("res/EventMgr/LuckyCard/LuckyCardCollectItem.json");
+        var jsonLayout = ccs.load("res/Event/LuckyCard/LuckyCardCollectItem.json");
         this._layout = jsonLayout.node;
         this._layout.setContentSize(this._layout.getContentSize().width, this._layout.getContentSize().height);
         ccui.Helper.doLayout(this._layout);
@@ -141,18 +141,18 @@ var LuckyCardCollectionItem = cc.TableViewCell.extend({
             if (giftInfo.gift > 0) {
                 this.bgNum.txt.setString(StringUtility.pointNumber(giftInfo.gift));
                 for (var i = 0; i < 4; i++) {
-                    this.gifts[i].loadTexture("res/EventMgr/LuckyCard/WishStar/bgPiece.png");
+                    this.gifts[i].loadTexture("res/Event/LuckyCard/WishStar/bgPiece.png");
                     this.gifts[i].gift.setVisible(true);
                     this.gifts[i].gift.loadTexture(luckyCard.getItemImage(giftInfo.id));
                 }
             } else {
                 for (var i = 0; i < 4; i++) {
-                    this.gifts[i].loadTexture("res/EventMgr/LuckyCard/WishStar/bgPieceBlank.png");
+                    this.gifts[i].loadTexture("res/Event/LuckyCard/WishStar/bgPieceBlank.png");
                     this.gifts[i].gift.setVisible(false);
                 }
                 for (var i = 0; i < giftInfo.item.length; i++) {
                     var index = parseInt(giftInfo.item[i]);
-                    this.gifts[index].loadTexture("res/EventMgr/LuckyCard/WishStar/bgPiece.png");
+                    this.gifts[index].loadTexture("res/Event/LuckyCard/WishStar/bgPiece.png");
                     this.gifts[index].gift.setVisible(true);
                     this.gifts[index].gift.loadTexture(luckyCard.getItemImage(giftInfo.id));
                 }
@@ -226,7 +226,7 @@ var LuckyCardCollectItemFlashUI = cc.TableViewCell.extend({
         this.panel = [];
 
         this._super();
-        var jsonLayout = ccs.load("res/EventMgr/LuckyCard/LuckyCardCollectItemFlashUI.json");
+        var jsonLayout = ccs.load("res/Event/LuckyCard/LuckyCardCollectItemFlashUI.json");
         this._layout = jsonLayout.node;
         this._layout.setContentSize(this._layout.getContentSize().width, this._layout.getContentSize().height);
         ccui.Helper.doLayout(this._layout);
@@ -366,7 +366,7 @@ var MoveStar = cc.Class.extend({
         this.moc = 0;
         this.loop = true;
         for (var i = 0; i < 9; i++)
-            this.listStar.push("res/EventMgr/LuckyCard/WishStar/Star/star" + i + ".png");
+            this.listStar.push("res/Event/LuckyCard/WishStar/Star/star" + i + ".png");
     },
     rotate: function () {
         this.star.setTexture(this.listStar[0]);
@@ -400,14 +400,14 @@ var MoveStar = cc.Class.extend({
             if (this.curFrm > 8)
                 this.curFrm = 0;
             if (!this.loop && this.curFrm == 2)
-                this.star.setTexture("res/EventMgr/LuckyCard/WishStar/star_00.png");
+                this.star.setTexture("res/Event/LuckyCard/WishStar/star_00.png");
             else
                 this.star.setTexture(this.listStar[this.curFrm]);
         }
     },
     stop: function () {
         this.star.unschedule(this.bindCallback);
-        this.star.setTexture("res/EventMgr/LuckyCard/WishStar/star_00.png");
+        this.star.setTexture("res/Event/LuckyCard/WishStar/star_00.png");
     }
 });
 
@@ -415,7 +415,7 @@ var LuckyCardObject = cc.Node.extend({
     ctor: function (itemId, justPrize) {
         this._super();
 
-        this._layout = ccs.load("res/EventMgr/LuckyCard/LuckyCardObject.json").node;
+        this._layout = ccs.load("res/Event/LuckyCard/LuckyCardObject.json").node;
         this.addChild(this._layout);
 
         this.index = -1;
@@ -434,12 +434,12 @@ var LuckyCardObject = cc.Node.extend({
         this.setPrize(itemId);
 
         if (!justPrize) {
-            this.luckyCard.default = cc.Sprite.create("res/EventMgr/LuckyCard/WishStar/Star/star2.png");
+            this.luckyCard.default = cc.Sprite.create("res/Event/LuckyCard/WishStar/Star/star2.png");
             this.luckyCard.default.setAnchorPoint(0.5, 0.5);
             this.luckyCard.default.setPosition(cc.p(0, 0));
             this.luckyCard.addChild(this.luckyCard.default);
 
-            this.luckyCard.explode = cc.Sprite.create("res/EventMgr/LuckyCard/WishStar/Bong-bong-sao.png");
+            this.luckyCard.explode = cc.Sprite.create("res/Event/LuckyCard/WishStar/Bong-bong-sao.png");
             this.luckyCard.explode.setPosition(cc.p(0, 0));
             this.luckyCard.explode.setScale(LuckyCardObject.EXPLODE_SCALE);
             this.luckyCard.explode.setLocalZOrder(-1);
@@ -458,7 +458,7 @@ var LuckyCardObject = cc.Node.extend({
             this.posBall = [cc.p(60, 60), cc.p(30, -80), cc.p(-70, -60), cc.p(-50, 40)];
             var scale = [0.45, 0.6, 0.5, 0.75];
             for (i = 0; i < 4; i++) {
-                var ball = cc.Sprite("res/EventMgr/LuckyCard/WishStar/ballJelly.png");
+                var ball = cc.Sprite("res/Event/LuckyCard/WishStar/ballJelly.png");
                 ball.setPosition(this.posBall[i]);
                 ball.setScale(scale[i]);
                 ball.setVisible(false);
@@ -518,7 +518,7 @@ var LuckyCardObject = cc.Node.extend({
         this.luckyCard.prize.label.setVisible(true);
 
         //Add effect and particle
-        this.outGameImage = cc.Sprite("res/EventMgr/LuckyCard/WishStar/bgPiece.png");
+        this.outGameImage = cc.Sprite("res/Event/LuckyCard/WishStar/bgPiece.png");
         this.luckyCard.prize.addChild(this.outGameImage);
         this.outGameImage.setPosition(this.luckyCard.prize.bg.getPosition());
         this.outGameImage.setVisible(false);
@@ -831,7 +831,7 @@ var LuckyCardScene = BaseLayer.extend({
         this.freeCoin = null;
 
         this._super(LuckyCardScene.className);
-        this.initWithBinaryFile("res/EventMgr/LuckyCard/LuckyCardScene.json");
+        this.initWithBinaryFile("res/Event/LuckyCard/LuckyCardScene.json");
     },
 
     initGUI: function () {
@@ -1043,7 +1043,7 @@ var LuckyCardScene = BaseLayer.extend({
         this.listStar = [];
         var bg = this.getControl("bg");
         for (var i = 0; i < 10; i++) {
-            var star = cc.Sprite("res/EventMgr/LuckyCard/WishStar/lightstar.png");
+            var star = cc.Sprite("res/Event/LuckyCard/WishStar/lightstar.png");
             bg.addChild(star);
             var starLight = new StarLight(star, true);
             starLight.RunAction();
@@ -1840,17 +1840,17 @@ var LuckyCardScene = BaseLayer.extend({
             var orgScale;
 
             if (luckyCard.isVPoint(id)) {
-                droplet = new cc.Sprite("res/EventMgr/LuckyCard/WishStar/smallGStar.png");
+                droplet = new cc.Sprite("res/Event/LuckyCard/WishStar/smallGStar.png");
                 orgScale = 1.5 + Math.random();
                 droplet.setScale(orgScale);
             }
             else if (luckyCard.isDiamond(id)) {
-                droplet = new cc.Sprite("res/EventMgr/LuckyCard/WishStar/iconDiamond.png");
+                droplet = new cc.Sprite("res/Event/LuckyCard/WishStar/iconDiamond.png");
                 orgScale = 1.5 + Math.random();
                 droplet.setScale(orgScale);
             }
             else {
-                droplet = new cc.Sprite("res/EventMgr/LuckyCard/WishStar/iconGold.png");
+                droplet = new cc.Sprite("res/Event/LuckyCard/WishStar/iconGold.png");
                 orgScale = 1.0 + Math.random();
                 droplet.setScale(orgScale);
                 //
@@ -2195,7 +2195,7 @@ var LuckyCardScene = BaseLayer.extend({
 
             //efx ngoi sao tren mieng gieng khi quay 10 lan
             var panel = this.getControl("panel", this.machine);
-            var star = cc.Sprite("res/EventMgr/LuckyCard/WishStar/star_00.png");
+            var star = cc.Sprite("res/Event/LuckyCard/WishStar/star_00.png");
             star.setPosition(this.pos[LuckyCardScene.CARD_OPEN - 1]);
             star.setTag(1999);
             panel.addChild(star);
@@ -2628,7 +2628,7 @@ var LuckyCardAlertGUI = BaseLayer.extend({
     ctor: function () {
         this.isQuickPlay = false;
         this._super(LuckyCardAlertGUI.className);
-        this.initWithBinaryFile("res/EventMgr/LuckyCard/LuckyCardAlertGUI.json");
+        this.initWithBinaryFile("res/Event/LuckyCard/LuckyCardAlertGUI.json");
     },
     initGUI: function () {
         this.imgBG = this.getControl("imgBG");
@@ -2702,7 +2702,7 @@ var LuckyCardCollectionGUI = BaseLayer.extend({
         this.lbTimeRemain = null;
 
         this._super(LuckyCardCollectionGUI.className);
-        this.initWithBinaryFile("res/EventMgr/LuckyCard/LuckyCardCollectionGUI.json");
+        this.initWithBinaryFile("res/Event/LuckyCard/LuckyCardCollectionGUI.json");
     },
 
     initGUI: function () {
@@ -2887,7 +2887,7 @@ var LuckyCardOpenResultGUI = BaseLayer.extend({
         this.cmd = null;
 
         this._super(LuckyCardOpenResultGUI.className);
-        this.initWithBinaryFile("res/EventMgr/LuckyCard/LuckyCardOpenResultGUI.json");
+        this.initWithBinaryFile("res/Event/LuckyCard/LuckyCardOpenResultGUI.json");
     },
 
     initGUI: function () {
@@ -3357,7 +3357,7 @@ var LuckyCardOpenGiftGUI = BaseLayer.extend({
         this.effectGstar = null;
 
         this._super(LuckyCardOpenGiftGUI.className);
-        this.initWithBinaryFile("res/EventMgr/LuckyCard/LuckyCardOpenGiftGUI.json");
+        this.initWithBinaryFile("res/Event/LuckyCard/LuckyCardOpenGiftGUI.json");
     },
 
     initGUI: function () {
@@ -3413,7 +3413,7 @@ var LuckyCardOpenGiftGUI = BaseLayer.extend({
         if (this.spriteBatchNode) {
             this.spriteBatchNode.removeAllChildren(true);
         } else {
-            this.spriteBatchNode = new cc.SpriteBatchNode("res/EventMgr/LuckyCard/WishStar/item_0.png");
+            this.spriteBatchNode = new cc.SpriteBatchNode("res/Event/LuckyCard/WishStar/item_0.png");
             this.addChild(this.spriteBatchNode);
         }
 
@@ -3447,11 +3447,11 @@ var LuckyCardOpenGiftGUI = BaseLayer.extend({
             var lifeTime = Math.random() + 1;
 
             if (luckyCard.isVPoint(this.info.id)) {
-                droplet = new cc.Sprite("res/EventMgr/LuckyCard/WishStar/smallGStar.png");
+                droplet = new cc.Sprite("res/Event/LuckyCard/WishStar/smallGStar.png");
                 droplet.setScale(0.75 + Math.random());
             }
             else if (luckyCard.isDiamond(this.info.id)) {
-                droplet = new cc.Sprite("res/EventMgr/LuckyCard/WishStar/iconDiamond.png");
+                droplet = new cc.Sprite("res/Event/LuckyCard/WishStar/iconDiamond.png");
                 droplet.setScale(0.75 + Math.random());
             }
             else {
@@ -3505,7 +3505,7 @@ var LuckyCardOpenGiftGUI = BaseLayer.extend({
         shape.setFriction(0.5);
         this.spaceEffect.addShape(shape);
 
-        var sprite = new cc.PhysicsSprite("res/EventMgr/LuckyCard/WishStar/smallGoldEffect.png");
+        var sprite = new cc.PhysicsSprite("res/Event/LuckyCard/WishStar/smallGoldEffect.png");
         sprite.setBody(body.handle);
         sprite.setPosition(pos);
         this.spriteBatchNode.addChild(sprite);
@@ -3524,7 +3524,7 @@ var LuckyCardOpenGiftGUI = BaseLayer.extend({
         var winSize = cc.director.getWinSize();
         var time = 0;
         for (var i = 0; i < this.effSprites.length; i++) {
-            var sp = cc.Sprite.create("res/EventMgr/LuckyCard/WishStar/smallGoldEffect.png");
+            var sp = cc.Sprite.create("res/Event/LuckyCard/WishStar/smallGoldEffect.png");
             sp.setPosition(this.effSprites[i].getPosition());
             this.spriteBatchNode.addChild(sp);
             this.effSprites[i].removeFromParent();
@@ -3658,7 +3658,7 @@ var LuckyCardOpenGiftGUI = BaseLayer.extend({
         //}
         //return;
         //this.pEffect.setVisible(true);
-        //var emitter = new cc.ParticleSystem("res/EventMgr/LuckyCard/particle_money_" + this.info.id +".plist");
+        //var emitter = new cc.ParticleSystem("res/Event/LuckyCard/particle_money_" + this.info.id +".plist");
         //this.pEffect.addChild(emitter);
         //emitter.setPosition(0,size.height);
         //
@@ -3839,7 +3839,7 @@ var LuckyCardAccumulateGUI = BaseLayer.extend({
         this.isKeyCoinChange = false;
 
         this._super(LuckyCardAccumulateGUI.className);
-        this.initWithBinaryFile("res/EventMgr/LuckyCard/LuckyCardAccumulateGUI.json");
+        this.initWithBinaryFile("res/Event/LuckyCard/LuckyCardAccumulateGUI.json");
     },
 
     initGUI: function () {
@@ -4126,7 +4126,7 @@ var LuckyCardEventNotifyGUI = BaseLayer.extend({
         this.lbTime = null;
 
         this._super(LuckyCardEventNotifyGUI.className);
-        this.initWithBinaryFile("res/EventMgr/LuckyCard/LuckyCardEventNotifyGUI.json");
+        this.initWithBinaryFile("res/Event/LuckyCard/LuckyCardEventNotifyGUI.json");
     },
 
     initGUI: function () {
@@ -4247,7 +4247,7 @@ var LuckyCardNapGNotifyGUI = BaseLayer.extend({
         this.lbTime = null;
 
         this._super(LuckyCardNapGNotifyGUI.className);
-        this.initWithBinaryFile("res/EventMgr/LuckyCard/LuckyCardNapGNotifyGUI.json");
+        this.initWithBinaryFile("res/Event/LuckyCard/LuckyCardNapGNotifyGUI.json");
     },
 
     initGUI: function () {
@@ -4309,7 +4309,7 @@ var LuckyCardHelpGUI = BaseLayer.extend({
         this.curPage = -1;
 
         this._super(LuckyCardHelpGUI.className);
-        this.initWithBinaryFile("res/EventMgr/LuckyCard/LuckyCardHelpGUI.json");
+        this.initWithBinaryFile("res/Event/LuckyCard/LuckyCardHelpGUI.json");
     },
 
     initGUI: function () {
@@ -4381,7 +4381,7 @@ var LuckyCardRegisterInformationGUI = BaseLayer.extend({
         this.btnRegister = null;
 
         this._super(LuckyCardRegisterInformationGUI.className);
-        this.initWithBinaryFile("res/EventMgr/LuckyCard/LuckyCardRegisterInformationGUI.json");
+        this.initWithBinaryFile("res/Event/LuckyCard/LuckyCardRegisterInformationGUI.json");
     },
 
     initGUI: function () {
@@ -4637,7 +4637,7 @@ var LuckyCardRegisterInformationGUI = BaseLayer.extend({
 var LuckyCardNotifyEndEventGUI = BaseLayer.extend({
     ctor: function () {
         this._super(LuckyCardNotifyEndEventGUI.className);
-        this.initWithBinaryFile("res/EventMgr/LuckyCard/LuckyCardNotifyEndEventGUI.json");
+        this.initWithBinaryFile("res/Event/LuckyCard/LuckyCardNotifyEndEventGUI.json");
     },
 
     initGUI: function () {
@@ -4666,7 +4666,7 @@ var LuckyCardNotifyBonusCoin = BaseLayer.extend({
 
     ctor: function () {
         this._super(LuckyCardNotifyEndEventGUI.className);
-        this.initWithBinaryFile("res/EventMgr/LuckyCard/LuckyCardNotifyBonusCoin.json");
+        this.initWithBinaryFile("res/Event/LuckyCard/LuckyCardNotifyBonusCoin.json");
     },
 
     initGUI: function () {
@@ -4708,7 +4708,7 @@ var LuckyCardHistoryItem = cc.TableViewCell.extend({
         this.startClickY = 0;
 
         this._super();
-        var jsonLayout = ccs.load("res/EventMgr/LuckyCard/LuckyCardHistoryItem.json");
+        var jsonLayout = ccs.load("res/Event/LuckyCard/LuckyCardHistoryItem.json");
         this._layout = jsonLayout.node;
         this._layout.setContentSize(this._layout.getContentSize().width, this._layout.getContentSize().height);
         ccui.Helper.doLayout(this._layout);
@@ -4762,14 +4762,14 @@ var LuckyCardHistoryItem = cc.TableViewCell.extend({
             var index = 0;
             if (totalGold > 0) {
                 this.gifts[index].setVisible(true);
-                this.gifts[index].loadTexture("res/EventMgr/LuckyCard/WishStar/smallGold.png");
+                this.gifts[index].loadTexture("res/Event/LuckyCard/WishStar/smallGold.png");
                 this.gifts[index].txtNum.setVisible(false);
                 this.gifts[index].txtName.setString(StringUtility.pointNumber(totalGold));
                 index++;
             }
             if (totalCoin > 0) {
                 this.gifts[index].setVisible(true);
-                this.gifts[index].loadTexture("res/EventMgr/LuckyCard/WishStar/smallKeyCoin.png");
+                this.gifts[index].loadTexture("res/Event/LuckyCard/WishStar/smallKeyCoin.png");
                 this.gifts[index].txtNum.setVisible(false);
                 this.gifts[index].txtName.setString(StringUtility.pointNumber(totalCoin));
                 index++;
@@ -4779,7 +4779,7 @@ var LuckyCardHistoryItem = cc.TableViewCell.extend({
                 //cc.log("history id", histInfo.gifts[i].id, histInfo.gifts[i].num, luckyCard.getItemValue(histInfo.gifts[i].id));
                 if (luckyCard.isItemStored(histInfo.gifts[i].id)) {
                     this.gifts[index].setVisible(true);
-                    this.gifts[index].loadTexture("res/EventMgr/LuckyCard/WishStar/smallPiece.png");
+                    this.gifts[index].loadTexture("res/Event/LuckyCard/WishStar/smallPiece.png");
                     this.gifts[index].txtNum.setVisible(true);
                     this.gifts[index].txtNum.setString(StringUtility.pointNumber(histInfo.gifts[i].num));
                     this.gifts[index].txtName.setString(StringUtility.subStringTextLength(luckyCard.getItemName(histInfo.gifts[i].id), 13));
@@ -4793,7 +4793,7 @@ var LuckyCardHistoryItem = cc.TableViewCell.extend({
 var LuckyCardHistoryGUI = BaseLayer.extend({
     ctor: function () {
         this._super(LuckyCardHistoryGUI.className);
-        this.initWithBinaryFile("res/EventMgr/LuckyCard/LuckyCardHistoryGUI.json");
+        this.initWithBinaryFile("res/Event/LuckyCard/LuckyCardHistoryGUI.json");
     },
 
     initGUI: function () {
@@ -4891,7 +4891,7 @@ LuckyCardHistoryGUI.className = "LuckyCardHistoryGUI";
 var LuckyCardLobbyButton = BaseLayer.extend({
     ctor: function () {
         this._super(LuckyCardLobbyButton.className);
-        this.initWithBinaryFile("res/EventMgr/LuckyCard/LuckyCardLobbyButton.json");
+        this.initWithBinaryFile("res/Event/LuckyCard/LuckyCardLobbyButton.json");
     },
 
     initGUI: function () {
@@ -5063,7 +5063,7 @@ var LuckyCardGoldDrop = cc.Sprite.extend({
     createAnimSpriteFrame: function () {
         var anim = cc.animationCache.getAnimation("goldS");
         if (!anim) {
-            cc.spriteFrameCache.addSpriteFrames("res/EventMgr/LuckyCard/WishStarRes/gold.plist", "res/EventMgr/LuckyCard/WishStarRes/gold.png");
+            cc.spriteFrameCache.addSpriteFrames("res/Event/LuckyCard/WishStarRes/gold.plist", "res/Event/LuckyCard/WishStarRes/gold.png");
             var anims = [];
             for (var i = 0; i < 8; i++) {
                 anims.push(cc.spriteFrameCache.getSpriteFrame("gold" + i + ".png"));
@@ -5120,7 +5120,7 @@ var LuckyCardCoinDrop = cc.Sprite.extend({
     createAnimSpriteFrame: function () {
         var anim = cc.animationCache.getAnimation("coinS");
         if (!anim) {
-            cc.spriteFrameCache.addSpriteFrames("res/EventMgr/LuckyCard/WishStarRes/coin.plist", "res/EventMgr/LuckyCard/WishStarRes/coin.png");
+            cc.spriteFrameCache.addSpriteFrames("res/Event/LuckyCard/WishStarRes/coin.plist", "res/Event/LuckyCard/WishStarRes/coin.png");
             var anims = [];
             for (var i = 0; i < 8; i++) {
                 anims.push(cc.spriteFrameCache.getSpriteFrame("coinA" + i + ".png"));
@@ -5173,7 +5173,7 @@ LuckyCardScene.createMessageBroadcast = function (message) {
     if (message == "")
         return null;
 
-    var bg = cc.Sprite("res/EventMgr/LuckyCard/WishStar/broadcast_bg.png");
+    var bg = cc.Sprite("res/Event/LuckyCard/WishStar/broadcast_bg.png");
     bg.setPosition(cc.p(bg.width / 2, bg.height / 2));
 
     //var logo = cc.Sprite("WishStar/broadcast_logo.png");

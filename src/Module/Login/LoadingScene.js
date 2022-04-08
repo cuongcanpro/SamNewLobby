@@ -28,3 +28,5 @@ var LoadingScene = BaseLayer.extend({
         }
     }
 })
+
+LoadingScene.className = "LoadingScene";

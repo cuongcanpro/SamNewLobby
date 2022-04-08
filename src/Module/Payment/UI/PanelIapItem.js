@@ -10,11 +10,15 @@ var PanelIapItem = BaseLayer.extend({
 
         this._super("");
         this.tbList = new cc.TableView(this, cc.size(cc.winSize.width, ItemIapCell.HEIGHT_ITEM));
+        this.tbList.setCascadeOpacityEnabled(true);
         this.tbList.setDirection(cc.SCROLLVIEW_DIRECTION_HORIZONTAL);
         this.tbList.setPosition(0, 0);
         this.tbList.setVerticalFillOrder(0);
         this.tbList.setDelegate(this);
         this.addChild(this.tbList);
+        this.tbList.setOpacity(50);
+        this.effectTime = 0;
+        this.setCascadeOpacityEnabled(true);
     },
 
     onEnter: function () {
@@ -45,6 +49,22 @@ var PanelIapItem = BaseLayer.extend({
         }
     },
 
+    effectTable: function () {
+        var cells = this.tbList.getContainer().getChildren();
+        for (var i = 0; i < cells.length; i++) {
+            cells[i].setCascadeOpacityEnabled(true);
+            cells[i].setOpacity(0);
+            cells[i].y = -ItemIapCell.HEIGHT_ITEM * 0.25;
+            cells[i].runAction(cc.sequence(
+                cc.delayTime(0.075 * i),
+                cc.spawn(
+                    cc.fadeIn(0.25),
+                    cc.moveTo(0.25, cells[i].x, 0).easing(cc.easeBackOut())
+                )
+            ));
+        }
+    },
+
     tableCellAtIndex: function (table, idx) {
         var cell = table.dequeueCell();
         var info = this.srcList[idx];
@@ -64,6 +84,8 @@ var PanelIapItem = BaseLayer.extend({
         }
         this.srcList[idx].itemType = this.itemType;
         cell.setInfo(info);
+        cell.setOpacity(255);
+        cell.y = 0;
 
         cc.log("table at index: " + idx);
         return cell;
@@ -80,7 +102,14 @@ var PanelIapItem = BaseLayer.extend({
     tableCellTouched: function (table, cell) {
         try {
             cc.log("##ShopIAP : " + this.itemType + " -> " + JSON.stringify(cell.info));
-            this.selectItem(cell.info, this.itemType);
+            if (cell.info.isOffer) {
+                OfferManager.buyOffer(true, cell.info.offerId);
+            }
+            else {
+                if(!cell.isTouchedBonus()) {
+                    paymentMgr.initiatePayment(cell.info, this.itemType);
+                }
+            }
         } catch (e) {
             cc.log("Touch Item error " + e.stack);
         }
@@ -89,188 +118,9 @@ var PanelIapItem = BaseLayer.extend({
     selectItem: function (info, type) {
         if (info.isOffer) {
             OfferManager.buyOffer(true, info.offerId);
-            shopData.initShopGoldData();
-            this.setItemType(type);
             return;
         }
-
-        cc.log("not buy offer");
-        this.saveGold = info.goldNew;
-        var typeBuy = Payment.NO_OFFER;
-        var typeCheat = Payment.CHEAT_PAYMENT_NORMAL;
-        if (type >= Payment.BUY_TICKET_FROM) {
-            typeBuy = Payment.BUY_TICKET;
-            typeCheat = Payment.CHEAT_PAYMENT_EVENT;
-        }
-        switch (type) {
-            case Payment.G_IAP : {
-                if (Config.ENABLE_CHEAT && CheatCenter.ENABLE_FAKE_SMS) {
-                    PaymentUtils.fakePayment(info.costConfig, Constant.G_IAP);
-                } else {
-                    iapHandler.purchaseItem(iapHandler.getProductIdIAP(info));
-                }
-                break;
-            }
-            case Payment.G_ATM : {
-                if (Config.ENABLE_CHEAT && CheatCenter.ENABLE_FAKE_SMS) {
-                    PaymentUtils.fakePayment(info.cost, Constant.G_ATM);
-                } else {
-                    var gui = sceneMgr.openGUI(GUIBank.className, GUIBank.TAG, GUIBank.TAG);
-                    gui.setInfoBuy(info.cost, false);
-                }
-                break;
-            }
-            case Payment.G_ZALO : {
-                if (Config.ENABLE_NEW_OFFER) {
-                    if (CheckLogic.checkZaloPay()) {
-                        var msg = LocalizedString.to("ZALOPAY_MSG");
-                        msg = StringUtility.replaceAll(msg, "@value", StringUtility.pointNumber(info.cost));
-                        sceneMgr.showOkCancelDialog(msg, this, function (btnId) {
-                            if (btnId == Dialog.BTN_OK) {
-                                var packageName = fr.platformWrapper.getPackageName();
-                                sceneMgr.addLoading(LocalizedString.to("WAITING")).timeout(3);
-                                var cmd = new CmdSendBuyZaloPayV2();
-                                cmd.putData(info.cost, 0, 0, -1, packageName);
-                                GameClient.getInstance().sendPacket(cmd);
-                                cmd.clean();
-                            }
-                        });
-                    }
-                }
-                else {
-                    if (Config.ENABLE_CHEAT && CheatCenter.ENABLE_FAKE_SMS) {
-                        PaymentUtils.fakePayment(info.cost, Constant.G_ZALO);
-                    }
-                    else {
-                        sceneMgr.addLoading(LocalizedString.to("WAITING")).timeout(15);
-                        var cmd = new CmdSendBuyGZalo();
-                        cmd.putData(info.cost, 0);
-                        GameClient.getInstance().sendPacket(cmd);
-                    }
-                }
-                break;
-            }
-            case Payment.GOLD_IAP:
-            case Payment.TICKET_IAP: {
-                // Khi mua IAP tu Shop, gan lai gia tri iSOffer ve mac dinh
-                offerManager.setOfferIAP(0);
-                iapHandler.typeBuy = typeBuy;
-                if (Config.ENABLE_CHEAT && CheatCenter.ENABLE_FAKE_SMS) {
-                    PaymentUtils.fakePayment(info.costConfig, Constant.GOLD_IAP, typeCheat);
-                } else {
-                    cc.log("PURCHASE IAP ***** ");
-                    iapHandler.purchaseItem(iapHandler.getProductIdIAP(info));
-                }
-                break;
-            }
-            case Payment.GOLD_G: {
-                var xu = info.cost;
-                var gold = info.goldNew;
-                if (userMgr.getCoin() < xu) {
-                    SceneMgr.getInstance().showAddGDialog(LocalizedString.to("GUI_SHOP_NOT_ENOUGHT_G"), this, function (btnID) {
-                        if (btnID == Dialog.BTN_OK) {
-                            //this.selectTabShop(ShopIapScene.BTN_G);
-                            var gui = sceneMgr.getMainLayer();
-                            if (gui instanceof ShopIapScene)
-                                gui.selectTabShop(ShopIapScene.BTN_G);
-                        }
-                    });
-                } else {
-                    var msg = LocalizedString.to("GUI_SHOP_CONFIRM");
-                    msg = StringUtility.replaceAll(msg, "%xu", StringUtility.pointNumber(xu));
-                    msg = StringUtility.replaceAll(msg, "%gold", StringUtility.pointNumber(gold));
-                    SceneMgr.getInstance().showOkCancelDialog(msg, this, function (btnID) {
-                        if (btnID == Dialog.BTN_OK) {
-                            var cmd = new CmdBuyGold();
-                            cmd.putData(info.id);
-                            GameClient.getInstance().sendPacket(cmd);
-                        }
-                    });
-                }
-                break;
-            }
-            case Payment.GOLD_SMS:
-                var configSMS = paymentMgr.getShopGoldById(type);
-                var operator = 0;
-                switch (type) {
-                    case Payment.GOLD_SMS_VIETTEL: {
-                        operator = PanelCard.BTN_VIETTEL;
-                        break;
-                    }
-                    case Payment.GOLD_SMS_MOBI: {
-                        operator = PanelCard.BTN_MOBIFONE;
-                        break;
-                    }
-                    case Payment.GOLD_SMS_VINA: {
-                        operator = PanelCard.BTN_VINAPHONE;
-                        break;
-                    }
-                }
-                if (configSMS && configSMS["isMaintained"][0]) {
-                    sceneMgr.openGUI(GUIMaintainSMS.className, GUIMaintainSMS.TAG, GUIMaintainSMS.TAG);
-                } else {
-                    sceneMgr.openGUI(SimOperatorPopup.className, SimOperatorPopup.TAG, SimOperatorPopup.TAG).setAmount(parseInt(info.cost), Payment.CHEAT_PAYMENT_NORMAL);
-                    //PaymentUtils.requestSMSSyntax(operator, parseInt(info.cost), parseInt(info.smsType), type);
-                }
-                break;
-            case Payment.GOLD_ATM:
-            case Payment.TICKET_ATM:
-                if (Config.ENABLE_CHEAT && CheatCenter.ENABLE_FAKE_SMS) {
-                    PaymentUtils.fakePayment(info.cost, Constant.GOLD_ATM, typeCheat);
-                } else {
-                    var gui = sceneMgr.openGUI(GUIBank.className, GUIBank.TAG, GUIBank.TAG);
-                    gui.setInfoBuy(info.cost, true, typeBuy);
-                }
-
-                break;
-            case Payment.GOLD_ZING:
-            case Payment.TICKET_ZING:
-                if (Config.ENABLE_CHEAT && CheatCenter.ENABLE_FAKE_SMS) {
-                    PaymentUtils.fakePayment(info.cost, Constant.GOLD_ZING, typeCheat);
-                } else {
-                    var gui = sceneMgr.openGUI(GUIInputCard.className, GUIInputCard.TAG, GUIInputCard.TAG);
-                    gui.setInfo(info.cost, typeBuy);
-                }
-                break;
-            case Payment.GOLD_ZALO:
-            case Payment.TICKET_ZALO:
-                cc.log("TYPE BUY ZALO " + typeBuy);
-                fr.tracker.logStepStart(ConfigLog.ZALO_PAY, ConfigLog.BEGIN + "BUY_ZALO");
-                fr.tracker.logStepStart(ConfigLog.ZALO_PAY, "CLICK_SHOP");
-                if (Config.ENABLE_CHEAT && CheatCenter.ENABLE_FAKE_SMS) {
-                    sceneMgr.addLoading(LocalizedString.to("WAITING")).timeout(3);
-                    PaymentUtils.fakePayment(info.cost, Constant.GOLD_ZALO, typeCheat);
-                }
-                else {
-                    if (CheckLogic.checkZaloPay()) {
-                        var msg = LocalizedString.to("ZALOPAY_MSG");
-                        msg = StringUtility.replaceAll(msg, "@value", StringUtility.pointNumber(info.cost));
-                        sceneMgr.showOkCancelDialog(msg, this, function (btnId) {
-                            if (btnId == Dialog.BTN_OK) {
-                                fr.tracker.logStepStart(ConfigLog.ZALO_PAY, "SEND_BUY");
-                                var packageName = fr.platformWrapper.getPackageName();
-                                sceneMgr.addLoading(LocalizedString.to("WAITING")).timeout(3);
-                                var cmd = new CmdSendBuyZaloPayV2();
-                                cmd.putData(info.cost, 1, typeBuy, -1, packageName);
-                                GameClient.getInstance().sendPacket(cmd);
-                                cmd.clean();
-                                this.zalopayPackValue = info.cost;
-                            }
-                        });
-                    }
-                }
-                break;
-            case Payment.TICKET_SMS: {
-                event.buySMSTicket(info);
-                break;
-            }
-        }
-        if (type == dailyPurchaseManager.getPromoChannel()){
-            if (info.id == dailyPurchaseManager.getPromoPackage())
-                fr.tracker.logStepStart(ConfigLog.DAILY_PURCHASE, "btn_promo_package");
-            else
-                fr.tracker.logStepStart(ConfigLog.DAILY_PURCHASE, "btn_promo_channel");
-        }
+        paymentMgr.initiatePayment(info, type);
     },
 
     getTableView: function () {

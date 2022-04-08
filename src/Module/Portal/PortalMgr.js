@@ -3,7 +3,7 @@ var PortalMgr = BaseMgr.extend({
         this._super();
     },
 
-    initListener: function () {
+    init: function () {
         dispatcherMgr.addListener(UserMgr.EVENT_ON_GET_USER_INFO, this, this.onGetUserInfo);
         dispatcherMgr.addListener(LobbyMgr.EVENT_ON_ENTER_FINISH, this, this.checkEventPortal);
     },

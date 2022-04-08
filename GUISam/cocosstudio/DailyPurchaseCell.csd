@@ -36,10 +36,10 @@
             <PreSize X="1.0933" Y="0.1276" />
             <FileData Type="Normal" Path="DailyPurchase/dayHighlight.png" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="title" ActionTag="-1529737402" Tag="39" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="52.3613" RightMargin="47.6387" TopMargin="21.6495" BottomMargin="376.3505" FontSize="24" LabelText="Text Label" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+          <AbstractNodeData Name="title" ActionTag="-1529737402" Tag="39" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="52.3625" RightMargin="47.6375" TopMargin="21.6495" BottomMargin="376.3505" FontSize="24" LabelText="Text Label" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
             <Size X="125.0000" Y="33.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="114.8613" Y="392.8505" />
+            <Position X="114.8625" Y="392.8505" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="138" G="33" B="64" />
             <PrePosition X="0.5105" Y="0.9115" />
@@ -218,13 +218,13 @@
             <EndColor A="255" R="255" G="255" B="255" />
             <ColorVector ScaleY="1.0000" />
           </AbstractNodeData>
-          <AbstractNodeData Name="btnBuy" ActionTag="-1997360282" Tag="41" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="20.5000" RightMargin="18.5000" TopMargin="364.0000" BottomMargin="13.0000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="156" Scale9Height="32" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="btnBuy" ActionTag="-1997360282" Tag="41" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="20.4900" RightMargin="18.5100" TopMargin="364.0000" BottomMargin="13.0000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="156" Scale9Height="32" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="186.0000" Y="54.0000" />
             <Children>
-              <AbstractNodeData Name="price" ActionTag="1392023541" UserData="subText" Tag="43" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="41.5000" RightMargin="41.5000" TopMargin="10.4976" BottomMargin="12.5024" FontSize="21" LabelText="5000 VNĐ" VerticalAlignmentType="VT_Center" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+              <AbstractNodeData Name="price" ActionTag="1392023541" UserData="subText" Tag="43" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="41.5000" RightMargin="41.5000" TopMargin="10.4956" BottomMargin="12.5044" FontSize="21" LabelText="5000 VNĐ" VerticalAlignmentType="VT_Center" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                 <Size X="103.0000" Y="31.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="93.0000" Y="28.0024" />
+                <Position X="93.0000" Y="28.0044" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.5000" Y="0.5186" />
@@ -235,7 +235,7 @@
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="113.5000" Y="40.0000" />
+            <Position X="113.4900" Y="40.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.5044" Y="0.0928" />

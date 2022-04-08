@@ -32,6 +32,7 @@ var UserInfo = cc.Class.extend({
 
     setCoin: function (coin) {
         this.coin = coin;
+        gamedata.userData.coin = coin;
     },
 
     setDiamond: function (diamond) {
@@ -52,10 +53,12 @@ var UserInfo = cc.Class.extend({
 
     setDisplayName: function (displayName) {
         this.displayName = displayName;
+        gamedata.userData.displayName = displayName;
     },
 
     setAvatar: function (avatar) {
         this.avatar = avatar;
+        gamedata.userData.avatar = avatar;
     },
 
     setWinCount: function (winCount) {
@@ -133,14 +136,7 @@ var UserInfo = cc.Class.extend({
         var strInfo = JSON.stringify(info);
         cc.log("+++setUserInfo " + strInfo.length + " : " + strInfo);
         // check payments
-        if (!Config.ENABLE_SERVICE_ENABLE_PAYMENT) {
-            paymentMgr.loadPayment(info.payments);
-        }
-        paymentMgr.loadConfig();
 
-        // check holding
-        this.isHolding = info.isHolding;
-        this.enablepayment = info.enablePayment;
 
         // read user info
         this.setAvatar(info.avatar);

@@ -48,18 +48,18 @@
                     <PreSize X="0.1114" Y="0.1461" />
                     <FileData Type="Normal" Path="InfoGUI/iconVerify.png" Plist="" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="btnClose" ActionTag="-640245092" Tag="27" IconVisible="False" HorizontalEdge="RightEdge" VerticalEdge="TopEdge" LeftMargin="586.2000" RightMargin="12.8000" TopMargin="10.2000" BottomMargin="533.8000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="8" RightEage="8" TopEage="11" BottomEage="11" Scale9OriginX="8" Scale9OriginY="11" Scale9Width="49" Scale9Height="43" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
-                    <Size X="65.0000" Y="65.0000" />
+                  <AbstractNodeData Name="btnClose" ActionTag="-640245092" Tag="27" IconVisible="False" HorizontalEdge="RightEdge" VerticalEdge="TopEdge" LeftMargin="601.2000" RightMargin="27.8000" TopMargin="25.2000" BottomMargin="548.8000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="8" RightEage="8" TopEage="11" BottomEage="11" Scale9OriginX="8" Scale9OriginY="11" Scale9Width="19" Scale9Height="13" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+                    <Size X="35.0000" Y="35.0000" />
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                     <Position X="618.7000" Y="566.3000" />
                     <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                    <CColor A="255" R="255" G="255" B="255" />
+                    <CColor A="255" R="255" G="171" B="120" />
                     <PrePosition X="0.9318" Y="0.9299" />
-                    <PreSize X="0.0979" Y="0.1067" />
+                    <PreSize X="0.0527" Y="0.0575" />
                     <TextColor A="255" R="65" G="65" B="70" />
-                    <DisabledFileData Type="Normal" Path="NewLobbyUserInfoGUI/btnClose.png" Plist="" />
-                    <PressedFileData Type="Normal" Path="NewLobbyUserInfoGUI/btnClose.png" Plist="" />
-                    <NormalFileData Type="Normal" Path="NewLobbyUserInfoGUI/btnClose.png" Plist="" />
+                    <DisabledFileData Type="Normal" Path="Common/btnClose.png" Plist="" />
+                    <PressedFileData Type="Normal" Path="Common/btnClose.png" Plist="" />
+                    <NormalFileData Type="Normal" Path="Common/btnClose.png" Plist="" />
                     <OutlineColor A="255" R="255" G="0" B="0" />
                     <ShadowColor A="255" R="110" G="110" B="110" />
                   </AbstractNodeData>
@@ -79,14 +79,14 @@
                       <AbstractNodeData Name="bgName" ActionTag="1802719973" Tag="31" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="161.3768" RightMargin="33.6232" TopMargin="-3.5000" BottomMargin="221.5000" LeftEage="15" RightEage="15" TopEage="17" BottomEage="17" Scale9OriginX="15" Scale9OriginY="17" Scale9Width="439" Scale9Height="15" ctype="ImageViewObjectData">
                         <Size X="469.0000" Y="49.0000" />
                         <Children>
-                          <AbstractNodeData Name="header" ActionTag="27923877" Tag="38" IconVisible="False" LeftMargin="-90.5526" RightMargin="492.5526" TopMargin="12.9998" BottomMargin="10.0002" FontSize="22" LabelText="Họ tên" HorizontalAlignmentType="HT_Right" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                            <Size X="67.0000" Y="26.0000" />
+                          <AbstractNodeData Name="header" ActionTag="27923877" Tag="38" IconVisible="False" LeftMargin="-99.5526" RightMargin="492.5526" TopMargin="10.9998" BottomMargin="8.0002" FontSize="22" LabelText="Họ tên" HorizontalAlignmentType="HT_Right" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                            <Size X="76.0000" Y="30.0000" />
                             <AnchorPoint ScaleX="1.0000" ScaleY="0.5000" />
                             <Position X="-23.5526" Y="23.0002" />
                             <Scale ScaleX="1.0000" ScaleY="1.0000" />
                             <CColor A="255" R="220" G="186" B="147" />
                             <PrePosition X="-0.0502" Y="0.4694" />
-                            <PreSize X="0.1429" Y="0.5306" />
+                            <PreSize X="0.1620" Y="0.6122" />
                             <FontResource Type="Normal" Path="Font/tahomabd.ttf" Plist="" />
                             <OutlineColor A="255" R="255" G="0" B="0" />
                             <ShadowColor A="255" R="110" G="110" B="110" />
@@ -113,14 +113,14 @@
                       <AbstractNodeData Name="bgIdentityCard" ActionTag="-1142082260" Tag="41" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="161.3768" RightMargin="33.6232" TopMargin="50.1133" BottomMargin="167.8867" LeftEage="49" RightEage="49" TopEage="17" BottomEage="17" Scale9OriginX="49" Scale9OriginY="17" Scale9Width="371" Scale9Height="15" ctype="ImageViewObjectData">
                         <Size X="469.0000" Y="49.0000" />
                         <Children>
-                          <AbstractNodeData Name="header" ActionTag="-1907065555" Tag="42" IconVisible="False" LeftMargin="-88.5531" RightMargin="492.5531" TopMargin="13.0000" BottomMargin="10.0000" FontSize="22" LabelText="CMND" HorizontalAlignmentType="HT_Right" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                            <Size X="65.0000" Y="26.0000" />
+                          <AbstractNodeData Name="header" ActionTag="-1907065555" Tag="42" IconVisible="False" LeftMargin="-94.5531" RightMargin="492.5531" TopMargin="11.0000" BottomMargin="8.0000" FontSize="22" LabelText="CMND" HorizontalAlignmentType="HT_Right" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                            <Size X="71.0000" Y="30.0000" />
                             <AnchorPoint ScaleX="1.0000" ScaleY="0.5000" />
                             <Position X="-23.5531" Y="23.0000" />
                             <Scale ScaleX="1.0000" ScaleY="1.0000" />
                             <CColor A="255" R="220" G="186" B="147" />
                             <PrePosition X="-0.0502" Y="0.4694" />
-                            <PreSize X="0.1386" Y="0.5306" />
+                            <PreSize X="0.1514" Y="0.6122" />
                             <FontResource Type="Normal" Path="Font/tahomabd.ttf" Plist="" />
                             <OutlineColor A="255" R="255" G="0" B="0" />
                             <ShadowColor A="255" R="110" G="110" B="110" />
@@ -147,14 +147,14 @@
                       <AbstractNodeData Name="bgEmail" ActionTag="426007689" Tag="44" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="161.3768" RightMargin="33.6232" TopMargin="103.7269" BottomMargin="114.2731" LeftEage="49" RightEage="49" TopEage="17" BottomEage="17" Scale9OriginX="49" Scale9OriginY="17" Scale9Width="371" Scale9Height="15" ctype="ImageViewObjectData">
                         <Size X="469.0000" Y="49.0000" />
                         <Children>
-                          <AbstractNodeData Name="header" ActionTag="895029577" Tag="45" IconVisible="False" LeftMargin="-80.5528" RightMargin="492.5528" TopMargin="13.0000" BottomMargin="10.0000" FontSize="22" LabelText="Email" HorizontalAlignmentType="HT_Right" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                            <Size X="57.0000" Y="26.0000" />
+                          <AbstractNodeData Name="header" ActionTag="895029577" Tag="45" IconVisible="False" LeftMargin="-86.5528" RightMargin="492.5528" TopMargin="11.0000" BottomMargin="8.0000" FontSize="22" LabelText="Email" HorizontalAlignmentType="HT_Right" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                            <Size X="63.0000" Y="30.0000" />
                             <AnchorPoint ScaleX="1.0000" ScaleY="0.5000" />
                             <Position X="-23.5528" Y="23.0000" />
                             <Scale ScaleX="1.0000" ScaleY="1.0000" />
                             <CColor A="255" R="220" G="186" B="147" />
                             <PrePosition X="-0.0502" Y="0.4694" />
-                            <PreSize X="0.1215" Y="0.5306" />
+                            <PreSize X="0.1343" Y="0.6122" />
                             <FontResource Type="Normal" Path="Font/tahomabd.ttf" Plist="" />
                             <OutlineColor A="255" R="255" G="0" B="0" />
                             <ShadowColor A="255" R="110" G="110" B="110" />
@@ -181,14 +181,14 @@
                       <AbstractNodeData Name="bgPhoneNumber" ActionTag="852421682" Tag="47" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="161.3768" RightMargin="33.6232" TopMargin="157.3402" BottomMargin="60.6598" LeftEage="49" RightEage="49" TopEage="17" BottomEage="17" Scale9OriginX="49" Scale9OriginY="17" Scale9Width="371" Scale9Height="15" ctype="ImageViewObjectData">
                         <Size X="469.0000" Y="49.0000" />
                         <Children>
-                          <AbstractNodeData Name="header" ActionTag="1713725478" Tag="48" IconVisible="False" LeftMargin="-125.5529" RightMargin="492.5529" TopMargin="13.0000" BottomMargin="10.0000" FontSize="22" LabelText="Điện thoại" HorizontalAlignmentType="HT_Right" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                            <Size X="102.0000" Y="26.0000" />
+                          <AbstractNodeData Name="header" ActionTag="1713725478" Tag="48" IconVisible="False" LeftMargin="-139.5529" RightMargin="492.5529" TopMargin="11.0000" BottomMargin="8.0000" FontSize="22" LabelText="Điện thoại" HorizontalAlignmentType="HT_Right" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                            <Size X="116.0000" Y="30.0000" />
                             <AnchorPoint ScaleX="1.0000" ScaleY="0.5000" />
                             <Position X="-23.5529" Y="23.0000" />
                             <Scale ScaleX="1.0000" ScaleY="1.0000" />
                             <CColor A="255" R="220" G="186" B="147" />
                             <PrePosition X="-0.0502" Y="0.4694" />
-                            <PreSize X="0.2175" Y="0.5306" />
+                            <PreSize X="0.2473" Y="0.6122" />
                             <FontResource Type="Normal" Path="Font/tahomabd.ttf" Plist="" />
                             <OutlineColor A="255" R="255" G="0" B="0" />
                             <ShadowColor A="255" R="110" G="110" B="110" />
@@ -215,14 +215,14 @@
                       <AbstractNodeData Name="bgAddress" ActionTag="1337120977" Tag="50" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="162.7712" RightMargin="32.2288" TopMargin="210.9536" BottomMargin="7.0464" LeftEage="49" RightEage="49" TopEage="17" BottomEage="17" Scale9OriginX="49" Scale9OriginY="17" Scale9Width="371" Scale9Height="15" ctype="ImageViewObjectData">
                         <Size X="469.0000" Y="49.0000" />
                         <Children>
-                          <AbstractNodeData Name="header" ActionTag="1868293964" Tag="51" IconVisible="False" LeftMargin="-94.5560" RightMargin="492.5560" TopMargin="13.0000" BottomMargin="10.0000" FontSize="22" LabelText="Địa chỉ" HorizontalAlignmentType="HT_Right" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                            <Size X="71.0000" Y="26.0000" />
+                          <AbstractNodeData Name="header" ActionTag="1868293964" Tag="51" IconVisible="False" LeftMargin="-100.5560" RightMargin="492.5560" TopMargin="11.0000" BottomMargin="8.0000" FontSize="22" LabelText="Địa chỉ" HorizontalAlignmentType="HT_Right" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                            <Size X="77.0000" Y="30.0000" />
                             <AnchorPoint ScaleX="1.0000" ScaleY="0.5000" />
                             <Position X="-23.5560" Y="23.0000" />
                             <Scale ScaleX="1.0000" ScaleY="1.0000" />
                             <CColor A="255" R="220" G="186" B="147" />
                             <PrePosition X="-0.0502" Y="0.4694" />
-                            <PreSize X="0.1514" Y="0.5306" />
+                            <PreSize X="0.1642" Y="0.6122" />
                             <FontResource Type="Normal" Path="Font/tahomabd.ttf" Plist="" />
                             <OutlineColor A="255" R="255" G="0" B="0" />
                             <ShadowColor A="255" R="110" G="110" B="110" />

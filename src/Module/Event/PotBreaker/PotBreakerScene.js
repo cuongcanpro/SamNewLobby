@@ -1,7 +1,10 @@
 var PotBreakerScene = BaseLayer.extend({
     ctor: function () {
         this._super(PotBreakerScene.className);
-        this.initWithBinaryFile("res/Event/PotBreaker/PotBreakerScene.json");
+        if (CheckLogic.isNewLobby())
+            this.initWithBinaryFileAndOtherSize("res/Event/PotBreaker/PotBreakerScene.json", cc.size(800, 480));
+        else
+            this.initWithBinaryFile("res/Event/PotBreaker/PotBreakerScene.json");
     },
 
     initGUI: function () {
@@ -131,6 +134,7 @@ var PotBreakerScene = BaseLayer.extend({
         this._layout.addChild(this.bubbleText);
         this.bubbleText.setPosition(this.pCenter.getPositionX() + this.pCenter.getContentSize().width * this._scale * 0.6,
             this.pCenter.getPositionY() + this.pCenter.getContentSize().height * 0.85 * this._scale);
+        this.bubbleText.setVisible(false);
 
         this.pChangeLixiLayer = new PotBreakerChangeLixiLayer();
         this.pChangeLixiLayer.setVisible(false);
@@ -155,9 +159,13 @@ var PotBreakerScene = BaseLayer.extend({
             try {
                 var eff = resourceManager.loadDragonbone("Cuoc");
                 if (eff) {
-                    this.pEffectBreak.addChild(eff);
+                    this.addChild(eff);
                     var pot = this.pMapPot.listPots[i];
                     var potPosition = pot.getParent().convertToWorldSpace(pot.getPosition());
+                    cc.log("POSITION BEFORE " + JSON.stringify(potPosition));
+                 //   potPosition = this._layout.convertToNodeSpace(potPosition);
+                    cc.log("POSITION AFTER " + JSON.stringify(potPosition));
+
                     eff.setPosition(potPosition.x + 20, potPosition.y);
                     eff.setVisible(false);
                     eff.setCompleteListener(function () {
@@ -268,7 +276,6 @@ var PotBreakerScene = BaseLayer.extend({
         }.bind(this));
 
         this.pNPC.setVisible(false);
-      //  this.pNPC.runAction(cc.sequence(cc.delayTime(1.0), actionShowNPC, cc.delayTime(0.5), cc.callFunc(this.showRandomState.bind(this))));
 
         this.countTimeCreateFlower = -1;
         this.deltaTimeCreateFlower = 0.2;
@@ -285,24 +292,6 @@ var PotBreakerScene = BaseLayer.extend({
         //this.bubbleText.runAction(cc.sequence(cc.delayTime(3.0), cc.fadeOut(0.5), this.bubbleText.showText.bind(this.bubbleText)));
 
         this.playEfxStardust();
-    },
-
-    showRandomState: function () {
-        return;
-        var random = cc.random0To1();
-        if (random < 0.5) {
-            this.npc.gotoAndPlay("idle", -1, -1, 0);
-        }
-        else if (random < 0.65) {
-            this.npc.gotoAndPlay("wave", -1, -1, 0);
-        }
-        else if (random < 0.8) {
-            this.npc.gotoAndPlay("quaytay", -1, -1, 0);
-        }
-        else {
-            this.npc.gotoAndPlay("xoclo", -1, -1, 0);
-        }
-       // this.pNPC.runAction(cc.sequence(cc.delayTime(3.0), cc.callFunc(this.showRandomState.bind(this))));
     },
 
     onExit: function(){
@@ -364,7 +353,7 @@ var PotBreakerScene = BaseLayer.extend({
         var myRank = (potBreaker.myCurRank > 0 && potBreaker.myCurRank <= PotBreaker.NUMBER_TOP_RANK) ? potBreaker.myCurRank : PotBreaker.NUMBER_TOP_RANK + "+";
         this.myRank.setString(StringUtility.replaceAll(localized("POT_MY_RANK"), "@my_rank", myRank));
         var maxWidth = 0;
-        for (i = 0; i < PotBreaker.NUMBER_TOKEN_TYPE; i++){
+        for (var i = 0; i < PotBreaker.NUMBER_TOKEN_TYPE; i++){
             var strNumToken = StringUtility.pointNumber(potBreaker.curTotalNumberToken[i]);
             this.listTokenThisWeek[i].numberToken.setString(strNumToken);
             var numTokenTextTemp = BaseLayer.createLabelText(strNumToken);
@@ -376,12 +365,12 @@ var PotBreakerScene = BaseLayer.extend({
         }
 
         // dich chuyen dan cac token dang sau theo khoang cach lon nhat
-        for (i = 1; i < PotBreaker.NUMBER_TOKEN_TYPE; i++){
+        for (var i = 1; i < PotBreaker.NUMBER_TOKEN_TYPE; i++){
             var preToken = this.listTokenThisWeek[i-1];
             this.listTokenThisWeek[i].setPositionX(preToken.getPositionX() + maxWidth + preToken.getContentSize().width + 10);
         }
 
-        for (i = PotBreaker.WEEK_START; i < maxWeek; i++) {
+        for (var i = PotBreaker.WEEK_START; i < maxWeek; i++) {
             var oldData = potBreaker.getMyRankData(i);
             if (oldData){
                 if (oldData.myRank !== 0 && oldData.myRank <= PotBreaker.NUMBER_TOP_RANK){
@@ -536,6 +525,15 @@ var PotBreakerScene = BaseLayer.extend({
                 this.enableRollButton(true);
                 this.updateEventInfo();
                 sceneMgr.showOKDialog(LocalizedString.to("POT_BREAK_RESULT_" + cmd.result));
+                break;
+            }
+            case 11:
+            {
+                // Ma loi them vao sau de tranh Dot Server
+                this.isWaitingResult = false;
+                this.enableRollButton(true);
+                this.updateEventInfo();
+                sceneMgr.showOKDialog("Cáo đang đào vàng. Vui lòng đợi một chút");
                 break;
             }
             case 3:
@@ -714,6 +712,7 @@ var PotBreakerScene = BaseLayer.extend({
         if (this.pMapPot && this.pMapPot.listPots[potId]){
             var pot = this.pMapPot.listPots[potId];
             potPos = pot.getParent().convertToWorldSpace(pot.getPosition());
+            potPos = this._layout.convertToNodeSpace(potPos);
             potPos.y = potPos.y + pot.rock.getContentSize().height * 0.3;
         }
         for (i = 0; i < giftIds.length; i++){
@@ -766,12 +765,12 @@ var PotBreakerScene = BaseLayer.extend({
                         if (gift.getTag() < PotBreaker.ITEM_STORED) { // tag cua gold
                             var randomX = 20 - Math.random() * 40;
                             var randomY = 20 - Math.random() * 40;
-                            var targetX = cc.winSize.width / 2 + randomX;
-                            var targetY = cc.winSize.height / 2 + randomY;
+                            var targetX = this.pGiftFall.getContentSize().width / 2 + randomX;
+                            var targetY = this.pGiftFall.getContentSize().height / 2 + randomY;
                             delay += (allGifts.length > 10) ? 0.0002 : delta;
                         } else {
                             targetX = gift.getPositionX();
-                            targetY = cc.winSize.height / 2;
+                            targetY = this.pGiftFall.getContentSize().height / 2;
                             delay += (allGifts.length > 10) ? delta / 10 : delta;
                         }
 
@@ -1180,7 +1179,7 @@ var PotBreakerPot = cc.Node.extend({
 
         for (var i = 0; i < 4; i++) {
             if (Math.random() > 0.7) {
-                var rock = new cc.Sprite("res/EventMgr/PotBreaker/PotBreakerUI/smallRock_" + i + ".png");
+                var rock = new cc.Sprite("res/Event/PotBreaker/PotBreakerUI/smallRock_" + i + ".png");
                 this.addChild(rock);
                 rock.setPositionY(rock.getContentSize().height * 0.3);
                 rock.setPositionX(this.rock.getContentSize().width * (-0.5 + Math.random()));
@@ -1295,12 +1294,12 @@ var PotBreakerPot = cc.Node.extend({
     },
 
     onButtonRelease: function (button, id) {
-        cc.log("touch pot: " + this.idPot);
+        cc.log("touch pot: " + this.idPot + " " + potBreaker.potBreakerScene.isWaitingResult);
         if (potBreaker.potBreakerScene && potBreaker.potBreakerScene.isWaitingResult) {
             return;
         }
         var breakSuccess = potBreaker.breakPot(PotBreaker.ID_BREAK_ONCE, this.idPot);
-        button.setTouchEnabled(!breakSuccess);
+      //  button.setTouchEnabled(!breakSuccess);
         if (potBreaker.potBreakerScene && potBreaker.potBreakerScene.pMapPot){
             potBreaker.potBreakerScene.pMapPot.saveLastTimeGuide();
             potBreaker.potBreakerScene.pMapPot.clearGuide();
@@ -1346,33 +1345,6 @@ var PotBreakerPot = cc.Node.extend({
         }.bind(this))));
     },
 
-    shakeToOpposite: function(){
-        return;
-        var curAngle = this.getRotation();
-        var minSub = 2;
-        var maxSub = 8;
-        // var deltaAngle = minSub + Math.random() * (maxSub - minSub);
-        // var newAngle = Math.abs(curAngle) - deltaAngle;
-        // if (newAngle < 0) newAngle = 0;
-        // var targetAngle = (curAngle > 0) ? -newAngle : newAngle;
-
-        var targetAngle = -curAngle * 0.8;
-        if (Math.abs(targetAngle) < 0.2)
-            targetAngle = 0;
-        var newAngle = targetAngle;
-
-        var actionShakeToOpposite = new cc.EaseInOut(cc.rotateTo(0.5, targetAngle), 1.2);
-        this.runAction(actionShakeToOpposite);
-
-        this.runAction(cc.sequence(cc.delayTime(0.5), cc.callFunc(function () {
-            if (newAngle !== 0){
-                this.isShaking = true;
-            } else {
-                this.isMoving = false;
-            }
-        }.bind(this))));
-    },
-
     generateWater: function () {
         var obj;
         for (var i = 0; i < this.arrayWater.length; i++) {
@@ -1415,10 +1387,6 @@ var PotBreakerPot = cc.Node.extend({
 
     update: function (dt) {
         return;
-        //if (this.isShaking){
-        //    this.shakeToOpposite();
-        //    this.isShaking = false;
-        //}
 
         if (this.rock.isVisible()) {
             this.timeGenWater = this.timeGenWater - dt;
@@ -1953,11 +1921,14 @@ var PotBreakerAccumulateGUI = BaseLayer.extend({
             this.exp.setString(potBreaker.getExpString());
             this.runAction(cc.sequence(cc.delayTime(2), cc.callFunc(this.onCloseGUI.bind(this))));
 
-            this.endCoin();
+            //if (this.result.keyCoinAward <= 0) {
+                this.endCoin();
+          //  }
         }
     },
 
     onCloseGUI: function () {
+        cc.log("CLOSE ACCUMULATE");
         var moveTo = cc.moveTo(PotBreakerAccumulateGUI.TIME_MOVE, cc.p(this.progress.defaultPos.x + this.progress.getContentSize().width, this.progress.defaultPos.y));
         this.tab.setTouchEnabled(true);
         this.tab.runAction(cc.fadeTo(LuckyCardAccumulateGUI.TIME_MOVE, 255));
@@ -2000,7 +1971,10 @@ var PotBreakerEventNotifyGUI = BaseLayer.extend({
         this.lbTime = null;
 
         this._super(PotBreakerEventNotifyGUI.className);
-        this.initWithBinaryFile("res/Event/PotBreaker/PotBreakerEventNotifyGUI.json");
+        if (CheckLogic.isNewLobby())
+            this.initWithBinaryFileAndOtherSize("res/Event/PotBreaker/PotBreakerEventNotifyGUI.json", cc.size(800, 480));
+        else
+            this.initWithBinaryFile("res/Event/PotBreaker/PotBreakerEventNotifyGUI.json");
     },
 
     initGUI: function () {
@@ -2052,7 +2026,10 @@ var PotBreakerHammerDialog = BaseLayer.extend({
 
     ctor: function () {
         this._super(PotBreakerHammerDialog.className);
-        this.initWithBinaryFile("res/Event/PotBreaker/PotBreakerHammerDialog.json");
+        if (CheckLogic.isNewLobby())
+            this.initWithBinaryFileAndOtherSize("res/Event/PotBreaker/PotBreakerHammerDialog.json", cc.size(800, 480));
+        else
+            this.initWithBinaryFile("res/Event/PotBreaker/PotBreakerHammerDialog.json");
     },
 
     initGUI: function () {
@@ -2109,7 +2086,7 @@ var PotBreakerHammerDialog = BaseLayer.extend({
     },
 
     onClosePlay: function () {
-        if (CheckLogic.checkQuickPlay()) {
+        if (CheckLogic.checkEnoughGold()) {
             var pk = new CmdSendQuickPlay();
             GameClient.getInstance().sendPacket(pk);
             pk.clean();
@@ -2163,7 +2140,10 @@ var PotBreakerOpenGiftGUI = BaseLayer.extend({
         this.pEffect = null;
 
         this._super(PotBreakerOpenGiftGUI.className);
-        this.initWithBinaryFile("res/Event/PotBreaker/PotBreakerOpenGiftGUI.json");
+        if (CheckLogic.isNewLobby())
+            this.initWithBinaryFileAndOtherSize("res/Event/PotBreaker/PotBreakerOpenGiftGUI.json", cc.size(800, 480));
+        else
+            this.initWithBinaryFile("res/Event/PotBreaker/PotBreakerOpenGiftGUI.json");
     },
 
     initGUI: function () {
@@ -2453,7 +2433,7 @@ var PotBreakerOpenGiftGUI = BaseLayer.extend({
                 cmd.putData(true, [this.info.idGift]);
                 GameClient.getInstance().sendPacket(cmd);
                 this.onGiftSuccess();
-                VipManager.getInstance().setWaiting(true);
+                NewVipManager.getInstance().setWaiting(true);
             }
         }
         else {
@@ -2506,8 +2486,6 @@ var PotBreakerOpenGiftGUI = BaseLayer.extend({
                     message = localized("FACEBOOK_ERROR");
                 }
                 Toast.makeToast(Toast.SHORT, message);
-
-                //this.topLayer.doneCapturePanel();
             }.bind(this);
 
             socialMgr.set(this, this.captureSuccess);
@@ -2527,7 +2505,7 @@ var PotBreakerOpenGiftGUI = BaseLayer.extend({
         this.onClose();
         popUpManager.removePopUp(PopUpManager.RECEIVE_OUT_GIFT);
         potBreaker.showAutoGift();
-        VipManager.checkShowUpLevelVip();
+        NewVipManager.checkShowUpLevelVip();
         this.isWaitResponse = false;
     },
 });
@@ -2781,7 +2759,10 @@ var PotBreakerHelpGUI = BaseLayer.extend({
         this.isGuideTab = false;
 
         this._super(PotBreakerHelpGUI.className);
-        this.initWithBinaryFile("res/Event/PotBreaker/PotBreakerHelpGUI.json");
+        if (CheckLogic.isNewLobby())
+            this.initWithBinaryFileAndOtherSize("res/Event/PotBreaker/PotBreakerHelpGUI.json", cc.size(800, 480));
+        else
+            this.initWithBinaryFile("res/Event/PotBreaker/PotBreakerHelpGUI.json");
     },
 
     initGUI: function () {
@@ -2794,7 +2775,7 @@ var PotBreakerHelpGUI = BaseLayer.extend({
         var page = this._pageHelp.getPage(0);
         var game = LocalizedString.config("GAME");
         if (game.indexOf("sam") >= 0 || game.indexOf("binh") >= 0) {
-            // page.setBackGroundImage("res/EventMgr/PotBreaker/PotBreakerUI/help1_1.png");
+            // page.setBackGroundImage("res/Event/PotBreaker/PotBreakerUI/help1_1.png");
         }
 
         // page.setVisible(false);
@@ -2949,7 +2930,10 @@ var PotBreakerRegisterInformationGUI = BaseLayer.extend({
         this.btnRegister = null;
 
         this._super(PotBreakerRegisterInformationGUI.className);
-        this.initWithBinaryFile("res/Event/PotBreaker/PotBreakerRegisterInformationGUI.json");
+        if (CheckLogic.isNewLobby())
+            this.initWithBinaryFileAndOtherSize("res/Event/PotBreaker/PotBreakerRegisterInformationGUI.json", cc.size(800, 480));
+        else
+            this.initWithBinaryFile("res/Event/PotBreaker/PotBreakerRegisterInformationGUI.json");
     },
 
     initGUI: function () {
@@ -3269,7 +3253,10 @@ var PotBreakerOpenResultGUI = BaseLayer.extend({
         this.randomSpeedX = 1000;
 
         this._super(PotBreakerOpenResultGUI.className);
-        this.initWithBinaryFile("res/Event/PotBreaker/PotBreakerOpenResultGUI.json");
+        if (CheckLogic.isNewLobby())
+            this.initWithBinaryFileAndOtherSize("res/Event/PotBreaker/PotBreakerOpenResultGUI.json", cc.size(800, 480));
+        else
+            this.initWithBinaryFile("res/Event/PotBreaker/PotBreakerOpenResultGUI.json");
     },
 
     initGUI: function () {
@@ -3562,7 +3549,7 @@ var PotBreakerOpenResultGUI = BaseLayer.extend({
         var num = potBreaker.getNumberGoldEffect(gold);
         var goldReturn = Math.floor(gold / num);
         for (var i = 0; i < num; i++) {
-            //var sp = cc.Sprite.create("EventMgr/PotBreaker/PotBreakerUI/icon_gold.png");
+            //var sp = cc.Sprite.create("Event/PotBreaker/PotBreakerUI/icon_gold.png");
             var sp = new PotBreakerCoinEffect();
             sp.start();
 
@@ -3602,7 +3589,6 @@ var PotBreakerOpenResultGUI = BaseLayer.extend({
     },
 
     finishCardMoving: function () {
-        cc.error("sua lai finishCardMoving");
         // var card = new PotBreakerImage(-1, this.scaleCard != 1);
         // card.setPosition(this.getPosition());
         // this.getParent().addChild(card);
@@ -3852,7 +3838,10 @@ var PotBreakerChangeLixiLayer = BaseLayer.extend({
     ctor: function () {
         this.tokenId = 0;
         this._super(PotBreakerChangeLixiLayer.className);
-        this.initWithBinaryFile("res/Event/PotBreaker/PotBreakerChangeLixiLayer.json");
+        // if (CheckLogic.isNewLobby())
+        //     this.initWithBinaryFileAndOtherSize("res/Event/PotBreaker/PotBreakerChangeLixiLayer.json", cc.size(800, 480));
+        // else
+            this.initWithBinaryFile("res/Event/PotBreaker/PotBreakerChangeLixiLayer.json");
     },
 
     initGUI: function () {
@@ -3910,6 +3899,7 @@ var PotBreakerChangeLixiLayer = BaseLayer.extend({
         if (potBreaker.potBreakerScene){
             var btnToken = potBreaker.potBreakerScene.listButtonToken[localId];
             var oldPos = btnToken.getParent().convertToWorldSpace(btnToken.getPosition());
+            oldPos = this._layout.convertToNodeSpace(oldPos);
             var targetX;
             if (tokenId % 100 <= 20) { // token o phia ben trai, show thong tin bi che, day toa do ra ben phai
                 targetX = oldPos.x + btnToken.getContentSize().width /2 + this.pChange.getContentSize().width;
@@ -3917,9 +3907,9 @@ var PotBreakerChangeLixiLayer = BaseLayer.extend({
             else {
                 targetX = oldPos.x - btnToken.getContentSize().width /2;
             }
-
             targetX = oldPos.x - btnToken.getContentSize().width /2;
-
+            // targetX = btnToken.getParent().getPosition().x;
+            // oldPos = btnToken.getParent().getPosition();
             var time = 0.5;
             var actionMove = new cc.EaseExponentialOut(cc.moveTo(time,targetX, oldPos.y));
             var actionScale = new cc.EaseExponentialOut(cc.scaleTo(time,1));
@@ -3993,7 +3983,10 @@ var PotBreakerRankGUI = BaseLayer.extend({
         this.myWeek = 0;
         this.dataTop = null;
         this._super(PotBreakerRankGUI.className);
-        this.initWithBinaryFile("res/Event/PotBreaker/PotBreakerRankGUI.json");
+        if (CheckLogic.isNewLobby())
+            this.initWithBinaryFileAndOtherSize("res/Event/PotBreaker/PotBreakerRankGUI.json", cc.size(800, 480));
+        else
+            this.initWithBinaryFile("res/Event/PotBreaker/PotBreakerRankGUI.json");
     },
 
     initGUI: function () {
@@ -4037,7 +4030,7 @@ var PotBreakerRankGUI = BaseLayer.extend({
         this.pRank = this.getControl("pRank", this.bg);
         this.uiTopRank = new cc.TableView(this, this.pRank.getContentSize());
         this.uiTopRank.setDirection(cc.SCROLLVIEW_DIRECTION_VERTICAL);
-        this.uiTopRank.setVerticalFillOrder(0);
+        this.uiTopRank.setVerticalFillOrder(cc.TABLEVIEW_FILL_TOPDOWN);
         this.uiTopRank.setDelegate(this);
         this.pRank.addChild(this.uiTopRank);
         this.pRank.txtNoInfo = this.getControl("txtNoInfo", this.pRank);
@@ -4451,95 +4444,6 @@ var PotBreakerRankItemMini = cc.TableViewCell.extend({
     },
 });
 
-var PotBreakerTopLayer = cc.Layer.extend({
-
-    ctor: function (size, pos) {
-        this._super();
-        this.dataTop = null;
-
-        this.loading = new cc.Sprite("common/circlewait.png");
-        this.addChild(this.loading);
-        this.loading.runAction(cc.repeatForever(cc.rotateBy(1.2, 360)));
-        this.loading.setPosition(size.width / 1.8, -size.height / 2);
-        this.loading.setVisible(false);
-
-        this._uiTable = new cc.TableView(this, size);
-        this._uiTable.setPosition(pos);
-        this._uiTable.setDirection(cc.SCROLLVIEW_DIRECTION_VERTICAL);
-        this.addChild(this._uiTable);
-        this._uiTable.setDelegate(this);
-        this._uiTable.setVerticalFillOrder(0);
-
-
-        this._capturePanel = new cc.Node();
-        this.addChild(this._capturePanel);
-
-        this._uiTable.reloadData();
-    },
-
-    loadCapturePanel: function () {
-        if (socialMgr.topServer) {
-            var nSize = socialMgr.topServer.length;
-            nSize = (nSize > 5) ? 5 : nSize;
-            for (var i = 0; i < nSize; i++) {
-                var cell = new PotBreakerRankItemMini();
-                cell.setInfoRankMini(this.dataTop, i);
-                this._capturePanel.addChild(cell);
-                cell.setPosition(0, -PotBreakerTopLayer.CELL_HEIGHT * (i + 1));
-            }
-
-            this._capturePanel.setVisible(true);
-            this._uiTable.setVisible(false);
-        }
-    },
-
-    doneCapturePanel: function () {
-        this._uiTable.setVisible(true);
-
-        this._capturePanel.setVisible(false);
-        this._capturePanel.removeAllChildren();
-    },
-
-    updateFriends : function () {
-        this.dataTop = potBreaker.getTopRankData(potBreaker.eventTime);
-        this._uiTable.reloadData();
-        this.loading.setVisible(false);
-    },
-
-    tableCellSizeForIndex: function (table, idx) {
-        return cc.size(cc.winSize.width, PotBreakerTopLayer.CELL_HEIGHT);
-    },
-
-    tableCellAtIndex: function (table, idx) {
-        var cell = table.dequeueCell();
-
-        if (!cell) {
-            cell = new PotBreakerRankItemMini();
-        }
-        cell.setInfoRankMini(this.dataTop, idx);
-
-        return cell;
-    },
-
-
-    numberOfCellsInTableView: function (table) {
-        var data = this.dataTop;
-        return (data  && data.topRanks) ? data.topRanks.length : 0;
-    },
-
-    startRequestTop: function (social) {
-
-    },
-
-    onResponseTopZing: function () {
-
-    },
-
-    onSocialCallback: function (social, dom) {
-
-    }
-});
-
 var PotBreakerReceiveTicketFree = BaseLayer.extend({
 
     ctor: function () {
@@ -4776,8 +4680,6 @@ PotBreakerFlowerEffect.RATE_SPEED_Y = 40;
 PotBreakerFlowerEffect.RATE_SPEED_X = 50;
 PotBreakerFlowerEffect.RATE_SPEED_R = 20;
 PotBreakerFlowerEffect.GRAVITY  = 80;
-
-PotBreakerTopLayer.CELL_HEIGHT = 49;
 
 PotBreakerRankGUI.BTN_CLOSE = 4;
 PotBreakerRankGUI.BTN_WEEK_1 = 0;

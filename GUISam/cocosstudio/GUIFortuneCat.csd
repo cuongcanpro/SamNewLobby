@@ -6,9 +6,21 @@
       <ObjectData Name="Scene" Tag="534" ctype="GameNodeObjectData">
         <Size X="1200.0000" Y="720.0000" />
         <Children>
-          <AbstractNodeData Name="bg" ActionTag="599753716" Tag="811" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="31.0000" RightMargin="31.0000" TopMargin="67.0000" BottomMargin="67.0000" LeftEage="251" RightEage="251" TopEage="129" BottomEage="129" Scale9OriginX="251" Scale9OriginY="129" Scale9Width="636" Scale9Height="328" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="bg" ActionTag="599753716" Tag="811" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="31.0000" RightMargin="31.0000" TopMargin="67.0000" BottomMargin="67.0000" LeftEage="251" RightEage="251" TopEage="129" BottomEage="129" Scale9OriginX="251" Scale9OriginY="129" Scale9Width="257" Scale9Height="133" ctype="ImageViewObjectData">
             <Size X="1138.0000" Y="586.0000" />
             <Children>
+              <AbstractNodeData Name="mainTooltip" ActionTag="-1687302901" Tag="102" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="218.0000" RightMargin="218.0000" TopMargin="506.2625" BottomMargin="25.7375" FontSize="20" LabelText="Chơi game và ngẫu nhiên nhận Mèo May Mắn trong bàn chơi.&#xA;Vào Popup sự kiện, chọn Mèo May Mắn mà bạn có, chờ đợi và nhận thưởng." HorizontalAlignmentType="HT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                <Size X="702.0000" Y="54.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="569.0000" Y="52.7375" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="195" G="226" B="224" />
+                <PrePosition X="0.5000" Y="0.0900" />
+                <PreSize X="0.6169" Y="0.0922" />
+                <FontResource Type="Normal" Path="Font/tahoma.ttf" Plist="" />
+                <OutlineColor A="255" R="255" G="0" B="0" />
+                <ShadowColor A="255" R="110" G="110" B="110" />
+              </AbstractNodeData>
               <AbstractNodeData Name="decoration" ActionTag="696460465" Tag="998" IconVisible="False" LeftMargin="187.9020" RightMargin="188.0980" TopMargin="16.6671" BottomMargin="176.3329" TouchEnable="True" ClipAble="False" BackColorAlpha="0" ComboBoxIndex="1" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
                 <Size X="762.0000" Y="393.0000" />
                 <Children>
@@ -143,27 +155,37 @@
               <AbstractNodeData Name="mainCat" ActionTag="-356984299" Tag="1024" IconVisible="False" LeftMargin="365.1952" RightMargin="372.8048" TopMargin="46.9502" BottomMargin="89.0498" TouchEnable="True" ClipAble="False" BackColorAlpha="119" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
                 <Size X="400.0000" Y="450.0000" />
                 <Children>
-                  <AbstractNodeData Name="silhouette" ActionTag="-1954704251" Tag="1026" IconVisible="False" LeftMargin="-30.8477" RightMargin="-20.1523" TopMargin="6.2306" BottomMargin="-3.2306" LeftEage="99" RightEage="99" TopEage="98" BottomEage="98" Scale9OriginX="99" Scale9OriginY="98" Scale9Width="253" Scale9Height="251" ctype="ImageViewObjectData">
-                    <Size X="451.0000" Y="447.0000" />
+                  <AbstractNodeData Name="silhouette" ActionTag="-1954704251" Tag="1026" IconVisible="False" LeftMargin="-30.8477" RightMargin="-20.1523" TopMargin="5.7306" BottomMargin="-3.7306" LeftEage="99" RightEage="99" TopEage="98" BottomEage="98" Scale9OriginX="99" Scale9OriginY="98" Scale9Width="253" Scale9Height="252" ctype="ImageViewObjectData">
+                    <Size X="451.0000" Y="448.0000" />
                     <Children>
-                      <AbstractNodeData Name="tooltip" ActionTag="1886666684" Tag="1027" IconVisible="False" LeftMargin="137.7783" RightMargin="108.2217" TopMargin="221.5119" BottomMargin="167.4881" LeftEage="45" RightEage="45" TopEage="12" BottomEage="12" Scale9OriginX="45" Scale9OriginY="12" Scale9Width="115" Scale9Height="34" ctype="ImageViewObjectData">
+                      <AbstractNodeData Name="tooltip" ActionTag="1886666684" Tag="1027" IconVisible="False" LeftMargin="137.7783" RightMargin="108.2217" TopMargin="222.5119" BottomMargin="167.4881" LeftEage="45" RightEage="45" TopEage="12" BottomEage="12" Scale9OriginX="45" Scale9OriginY="12" Scale9Width="115" Scale9Height="34" ctype="ImageViewObjectData">
                         <Size X="205.0000" Y="58.0000" />
                         <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                         <Position X="240.2783" Y="196.4881" />
                         <Scale ScaleX="1.0000" ScaleY="1.0000" />
                         <CColor A="255" R="255" G="255" B="255" />
-                        <PrePosition X="0.5328" Y="0.4396" />
-                        <PreSize X="0.4545" Y="0.1298" />
+                        <PrePosition X="0.5328" Y="0.4386" />
+                        <PreSize X="0.4545" Y="0.1295" />
                         <FileData Type="Normal" Path="FortuneCat/tooltip_no_cat.png" Plist="" />
                       </AbstractNodeData>
-                      <AbstractNodeData Name="btnPlay" ActionTag="1979703559" Tag="1039" IconVisible="False" LeftMargin="140.1732" RightMargin="104.8268" TopMargin="302.7561" BottomMargin="82.2439" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="176" Scale9Height="40" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+                      <AbstractNodeData Name="tooltip_find_cat" ActionTag="2094705465" Tag="103" IconVisible="False" LeftMargin="86.9227" RightMargin="55.0773" TopMargin="239.1609" BottomMargin="88.8391" LeftEage="101" RightEage="101" TopEage="39" BottomEage="39" Scale9OriginX="101" Scale9OriginY="39" Scale9Width="107" Scale9Height="42" ctype="ImageViewObjectData">
+                        <Size X="309.0000" Y="120.0000" />
+                        <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                        <Position X="241.4227" Y="148.8391" />
+                        <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                        <CColor A="255" R="255" G="255" B="255" />
+                        <PrePosition X="0.5353" Y="0.3322" />
+                        <PreSize X="0.6851" Y="0.2679" />
+                        <FileData Type="Normal" Path="FortuneCat/tooltip_find_cat.png" Plist="" />
+                      </AbstractNodeData>
+                      <AbstractNodeData Name="btnPlay" ActionTag="1979703559" Tag="1039" IconVisible="False" LeftMargin="140.1732" RightMargin="104.8268" TopMargin="303.7561" BottomMargin="82.2439" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="176" Scale9Height="41" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                         <Size X="206.0000" Y="62.0000" />
                         <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                         <Position X="243.1732" Y="113.2439" />
                         <Scale ScaleX="1.0000" ScaleY="1.0000" />
                         <CColor A="255" R="255" G="255" B="255" />
-                        <PrePosition X="0.5392" Y="0.2533" />
-                        <PreSize X="0.4568" Y="0.1387" />
+                        <PrePosition X="0.5392" Y="0.2528" />
+                        <PreSize X="0.4568" Y="0.1384" />
                         <TextColor A="255" R="65" G="65" B="70" />
                         <DisabledFileData Type="Normal" Path="FortuneCat/btn_play.png" Plist="" />
                         <PressedFileData Type="Normal" Path="FortuneCat/btn_play.png" Plist="" />
@@ -177,8 +199,8 @@
                     <Scale ScaleX="1.0000" ScaleY="1.0000" />
                     <CColor A="255" R="255" G="255" B="255" />
                     <PrePosition X="0.4866" Y="0.4895" />
-                    <PreSize X="1.1275" Y="0.9933" />
-                    <FileData Type="Normal" Path="FortuneCat/silhouette_cat_1.png" Plist="" />
+                    <PreSize X="1.1275" Y="0.9956" />
+                    <FileData Type="Normal" Path="FortuneCat/cat_cry.png" Plist="" />
                   </AbstractNodeData>
                   <AbstractNodeData Name="cat" ActionTag="-1135929537" Tag="72" IconVisible="False" LeftMargin="-30.8500" RightMargin="-20.1500" TopMargin="6.2300" BottomMargin="-3.2300" TouchEnable="True" ClipAble="False" BackColorAlpha="85" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
                     <Size X="451.0000" Y="447.0000" />
@@ -279,7 +301,44 @@
                         <OutlineColor A="255" R="255" G="0" B="0" />
                         <ShadowColor A="255" R="110" G="110" B="110" />
                       </AbstractNodeData>
-                      <AbstractNodeData Name="title" ActionTag="-658188813" Tag="1035" IconVisible="False" LeftMargin="112.6460" RightMargin="79.3540" TopMargin="367.7645" BottomMargin="4.2355" LeftEage="57" RightEage="57" TopEage="16" BottomEage="16" Scale9OriginX="57" Scale9OriginY="16" Scale9Width="145" Scale9Height="43" ctype="ImageViewObjectData">
+                      <AbstractNodeData Name="ingameTooltip" ActionTag="-809641286" Tag="104" IconVisible="False" LeftMargin="24.6108" RightMargin="226.3892" TopMargin="122.7740" BottomMargin="124.2260" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ComboBoxIndex="1" ColorAngle="90.0000" ctype="PanelObjectData">
+                        <Size X="200.0000" Y="200.0000" />
+                        <Children>
+                          <AbstractNodeData Name="bg" ActionTag="559625856" Tag="105" IconVisible="False" LeftMargin="72.9510" RightMargin="-148.9510" TopMargin="115.3430" BottomMargin="-14.3430" LeftEage="91" RightEage="91" TopEage="32" BottomEage="32" Scale9OriginX="91" Scale9OriginY="32" Scale9Width="94" Scale9Height="35" ctype="ImageViewObjectData">
+                            <Size X="276.0000" Y="99.0000" />
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position X="210.9510" Y="35.1570" />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="255" G="255" B="255" />
+                            <PrePosition X="1.0548" Y="0.1758" />
+                            <PreSize X="1.3800" Y="0.4950" />
+                            <FileData Type="Normal" Path="FortuneCat/bgIngameTooltip.png" Plist="" />
+                          </AbstractNodeData>
+                          <AbstractNodeData Name="content" ActionTag="-941748021" Tag="106" IconVisible="False" LeftMargin="118.7938" RightMargin="-107.7938" TopMargin="137.8430" BottomMargin="8.1570" FontSize="20" LabelText="Ra ngoài sảnh chơi&#xA;để nhận thưởng" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                            <Size X="189.0000" Y="54.0000" />
+                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                            <Position X="213.2938" Y="35.1570" />
+                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                            <CColor A="255" R="247" G="218" B="148" />
+                            <PrePosition X="1.0665" Y="0.1758" />
+                            <PreSize X="0.9450" Y="0.2700" />
+                            <FontResource Type="Normal" Path="Font/tahomabd.ttf" Plist="" />
+                            <OutlineColor A="255" R="255" G="0" B="0" />
+                            <ShadowColor A="255" R="110" G="110" B="110" />
+                          </AbstractNodeData>
+                        </Children>
+                        <AnchorPoint />
+                        <Position X="24.6108" Y="124.2260" />
+                        <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                        <CColor A="255" R="255" G="255" B="255" />
+                        <PrePosition X="0.0546" Y="0.2779" />
+                        <PreSize X="0.4435" Y="0.4474" />
+                        <SingleColor A="255" R="150" G="200" B="255" />
+                        <FirstColor A="255" R="150" G="200" B="255" />
+                        <EndColor A="255" R="255" G="255" B="255" />
+                        <ColorVector ScaleY="1.0000" />
+                      </AbstractNodeData>
+                      <AbstractNodeData Name="title" ActionTag="-658188813" Tag="1035" IconVisible="False" LeftMargin="112.6460" RightMargin="79.3540" TopMargin="367.7645" BottomMargin="4.2355" LeftEage="57" RightEage="57" TopEage="16" BottomEage="16" Scale9OriginX="57" Scale9OriginY="16" Scale9Width="146" Scale9Height="43" ctype="ImageViewObjectData">
                         <Size X="259.0000" Y="75.0000" />
                         <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                         <Position X="242.1460" Y="41.7355" />
@@ -523,25 +582,55 @@
               <AbstractNodeData Name="fingerTooltip" ActionTag="387321387" Tag="67" IconVisible="False" LeftMargin="658.9701" RightMargin="279.0299" TopMargin="45.1392" BottomMargin="440.8608" TouchEnable="True" ClipAble="False" BackColorAlpha="0" ComboBoxIndex="1" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
                 <Size X="200.0000" Y="100.0000" />
                 <Children>
-                  <AbstractNodeData Name="finger" ActionTag="-1827467056" Tag="69" RotationSkewX="30.0000" RotationSkewY="30.0000" IconVisible="False" LeftMargin="141.0000" RightMargin="-19.0000" TopMargin="38.5000" BottomMargin="-31.5000" LeftEage="17" RightEage="17" TopEage="20" BottomEage="20" Scale9OriginX="17" Scale9OriginY="20" Scale9Width="44" Scale9Height="53" ctype="ImageViewObjectData">
+                  <AbstractNodeData Name="finger" ActionTag="-1827467056" Tag="69" RotationSkewX="30.0000" RotationSkewY="30.0000" IconVisible="False" LeftMargin="184.1648" RightMargin="-62.1648" TopMargin="56.0619" BottomMargin="-49.0619" LeftEage="17" RightEage="17" TopEage="20" BottomEage="20" Scale9OriginX="17" Scale9OriginY="20" Scale9Width="44" Scale9Height="53" ctype="ImageViewObjectData">
                     <Size X="78.0000" Y="93.0000" />
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                    <Position X="180.0000" Y="15.0000" />
+                    <Position X="223.1648" Y="-2.5619" />
                     <Scale ScaleX="1.0000" ScaleY="1.0000" />
                     <CColor A="255" R="255" G="255" B="255" />
-                    <PrePosition X="0.9000" Y="0.1500" />
+                    <PrePosition X="1.1158" Y="-0.0256" />
                     <PreSize X="0.3900" Y="0.9300" />
                     <FileData Type="Normal" Path="FortuneCat/finger.png" Plist="" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="fingerTrait" ActionTag="-303397605" Tag="71" IconVisible="False" LeftMargin="-63.0000" RightMargin="23.0000" TopMargin="30.0000" BottomMargin="-32.0000" LeftEage="52" RightEage="52" TopEage="22" BottomEage="22" Scale9OriginX="52" Scale9OriginY="22" Scale9Width="136" Scale9Height="58" ctype="ImageViewObjectData">
+                  <AbstractNodeData Name="fingerTrait" ActionTag="-303397605" Tag="71" IconVisible="False" LeftMargin="-19.8345" RightMargin="-20.1655" TopMargin="47.5635" BottomMargin="-49.5635" LeftEage="52" RightEage="52" TopEage="22" BottomEage="22" Scale9OriginX="52" Scale9OriginY="22" Scale9Width="136" Scale9Height="58" ctype="ImageViewObjectData">
                     <Size X="240.0000" Y="102.0000" />
                     <AnchorPoint ScaleX="1.0000" ScaleY="1.0000" />
-                    <Position X="177.0000" Y="70.0000" />
+                    <Position X="220.1655" Y="52.4365" />
                     <Scale ScaleX="1.0000" ScaleY="1.0000" />
                     <CColor A="255" R="255" G="255" B="255" />
-                    <PrePosition X="0.8850" Y="0.7000" />
+                    <PrePosition X="1.1008" Y="0.5244" />
                     <PreSize X="1.2000" Y="1.0200" />
                     <FileData Type="Normal" Path="FortuneCat/finger_trait.png" Plist="" />
+                  </AbstractNodeData>
+                  <AbstractNodeData Name="wave_0" ActionTag="1038304909" Tag="107" IconVisible="False" LeftMargin="194.5278" RightMargin="-41.5278" TopMargin="24.5606" BottomMargin="28.4394" LeftEage="15" RightEage="15" TopEage="15" BottomEage="15" Scale9OriginX="15" Scale9OriginY="15" Scale9Width="17" Scale9Height="17" ctype="ImageViewObjectData">
+                    <Size X="47.0000" Y="47.0000" />
+                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                    <Position X="218.0278" Y="51.9394" />
+                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                    <CColor A="255" R="255" G="255" B="255" />
+                    <PrePosition X="1.0901" Y="0.5194" />
+                    <PreSize X="0.2350" Y="0.4700" />
+                    <FileData Type="Normal" Path="FortuneCat/wave.png" Plist="" />
+                  </AbstractNodeData>
+                  <AbstractNodeData Name="wave_1" ActionTag="1786060224" Tag="109" IconVisible="False" LeftMargin="194.7716" RightMargin="-41.7716" TopMargin="24.8096" BottomMargin="28.1904" LeftEage="15" RightEage="15" TopEage="15" BottomEage="15" Scale9OriginX="15" Scale9OriginY="15" Scale9Width="17" Scale9Height="17" ctype="ImageViewObjectData">
+                    <Size X="47.0000" Y="47.0000" />
+                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                    <Position X="218.2716" Y="51.6904" />
+                    <Scale ScaleX="1.5000" ScaleY="1.5000" />
+                    <CColor A="255" R="255" G="255" B="255" />
+                    <PrePosition X="1.0914" Y="0.5169" />
+                    <PreSize X="0.2350" Y="0.4700" />
+                    <FileData Type="Normal" Path="FortuneCat/wave.png" Plist="" />
+                  </AbstractNodeData>
+                  <AbstractNodeData Name="wave_2" ActionTag="-620004583" Tag="108" IconVisible="False" LeftMargin="194.5516" RightMargin="-41.5516" TopMargin="24.0515" BottomMargin="28.9485" LeftEage="15" RightEage="15" TopEage="15" BottomEage="15" Scale9OriginX="15" Scale9OriginY="15" Scale9Width="17" Scale9Height="17" ctype="ImageViewObjectData">
+                    <Size X="47.0000" Y="47.0000" />
+                    <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                    <Position X="218.0516" Y="52.4485" />
+                    <Scale ScaleX="2.0000" ScaleY="2.0000" />
+                    <CColor A="255" R="255" G="255" B="255" />
+                    <PrePosition X="1.0903" Y="0.5245" />
+                    <PreSize X="0.2350" Y="0.4700" />
+                    <FileData Type="Normal" Path="FortuneCat/wave.png" Plist="" />
                   </AbstractNodeData>
                 </Children>
                 <AnchorPoint />
@@ -561,14 +650,14 @@
                   <AbstractNodeData Name="bg" ActionTag="-1838116633" Tag="84" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="13.5000" RightMargin="13.5000" TopMargin="64.0000" BottomMargin="-3.0000" LeftEage="27" RightEage="27" TopEage="8" BottomEage="8" Scale9OriginX="27" Scale9OriginY="8" Scale9Width="69" Scale9Height="23" ctype="ImageViewObjectData">
                     <Size X="123.0000" Y="39.0000" />
                     <Children>
-                      <AbstractNodeData Name="progress" ActionTag="-751744232" Tag="85" IconVisible="False" LeftMargin="47.9369" RightMargin="27.0631" TopMargin="2.1609" BottomMargin="6.8391" FontSize="22" LabelText="0 / 5" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                        <Size X="48.0000" Y="30.0000" />
+                      <AbstractNodeData Name="progress" ActionTag="-751744232" Tag="85" IconVisible="False" LeftMargin="34.9369" RightMargin="14.0631" TopMargin="2.1609" BottomMargin="6.8391" FontSize="22" LabelText="0 / 555" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                        <Size X="74.0000" Y="30.0000" />
                         <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                         <Position X="71.9369" Y="21.8391" />
                         <Scale ScaleX="1.0000" ScaleY="1.0000" />
                         <CColor A="255" R="146" G="172" B="170" />
                         <PrePosition X="0.5849" Y="0.5600" />
-                        <PreSize X="0.3902" Y="0.7692" />
+                        <PreSize X="0.6016" Y="0.7692" />
                         <FontResource Type="Normal" Path="Font/tahoma.ttf" Plist="" />
                         <OutlineColor A="255" R="255" G="0" B="0" />
                         <ShadowColor A="255" R="110" G="110" B="110" />
@@ -604,7 +693,7 @@
                 <EndColor A="255" R="255" G="255" B="255" />
                 <ColorVector ScaleY="1.0000" />
               </AbstractNodeData>
-              <AbstractNodeData Name="guide" CanEdit="False" Visible="False" ActionTag="-1461368392" VisibleForFrame="False" Tag="1048" IconVisible="False" LeftMargin="367.6997" RightMargin="181.3003" TopMargin="-6.7537" BottomMargin="98.7537" TouchEnable="True" ClipAble="False" BackColorAlpha="0" ComboBoxIndex="1" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
+              <AbstractNodeData Name="guide" Visible="False" ActionTag="-1461368392" VisibleForFrame="False" Tag="1048" IconVisible="False" LeftMargin="367.6997" RightMargin="181.3003" TopMargin="-6.7537" BottomMargin="98.7537" TouchEnable="True" ClipAble="False" BackColorAlpha="0" ComboBoxIndex="1" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
                 <Size X="589.0000" Y="494.0000" />
                 <Children>
                   <AbstractNodeData Name="bg" ActionTag="2040903579" Tag="1049" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftEage="130" RightEage="130" TopEage="109" BottomEage="109" Scale9OriginX="130" Scale9OriginY="109" Scale9Width="329" Scale9Height="276" ctype="ImageViewObjectData">
@@ -644,242 +733,18 @@
                     <OutlineColor A="255" R="255" G="0" B="0" />
                     <ShadowColor A="255" R="110" G="110" B="110" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="scrollView" ActionTag="-251045478" Tag="155" IconVisible="False" LeftMargin="33.5118" RightMargin="35.4882" TopMargin="85.7122" BottomMargin="28.2878" TouchEnable="True" ClipAble="False" BackColorAlpha="0" ComboBoxIndex="1" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ScrollDirectionType="Vertical" ctype="ScrollViewObjectData">
+                  <AbstractNodeData Name="scrollView" ActionTag="-251045478" Tag="155" IconVisible="False" LeftMargin="33.5118" RightMargin="35.4882" TopMargin="85.7122" BottomMargin="28.2878" TouchEnable="True" ClipAble="True" BackColorAlpha="0" ComboBoxIndex="1" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ScrollDirectionType="Vertical" ctype="ScrollViewObjectData">
                     <Size X="520.0000" Y="380.0000" />
                     <Children>
-                      <AbstractNodeData Name="imageGuide" ActionTag="1469489005" Tag="156" IconVisible="False" LeftMargin="-1.2633" RightMargin="2.2633" TopMargin="0.9612" BottomMargin="509.0388" LeftEage="171" RightEage="171" TopEage="69" BottomEage="69" Scale9OriginX="171" Scale9OriginY="69" Scale9Width="177" Scale9Height="72" ctype="ImageViewObjectData">
-                        <Size X="519.0000" Y="210.0000" />
+                      <AbstractNodeData Name="content" ActionTag="1469489005" Tag="156" IconVisible="False" LeftMargin="0.2540" RightMargin="0.7460" TopMargin="0.3171" BottomMargin="134.6829" LeftEage="171" RightEage="171" TopEage="69" BottomEage="69" Scale9OriginX="171" Scale9OriginY="69" Scale9Width="177" Scale9Height="447" ctype="ImageViewObjectData">
+                        <Size X="519.0000" Y="585.0000" />
                         <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                        <Position X="258.2367" Y="614.0388" />
+                        <Position X="259.7540" Y="427.1829" />
                         <Scale ScaleX="1.0000" ScaleY="1.0000" />
                         <CColor A="255" R="255" G="255" B="255" />
-                        <PrePosition X="0.4966" Y="0.8528" />
-                        <PreSize X="0.9981" Y="0.2917" />
-                        <FileData Type="Normal" Path="FortuneCat/guide.png" Plist="" />
-                      </AbstractNodeData>
-                      <AbstractNodeData Name="content" ActionTag="1307342812" Tag="1052" IconVisible="False" LeftMargin="8.4246" RightMargin="1.5754" TopMargin="160.5992" BottomMargin="309.4007" TouchEnable="True" ClipAble="False" BackColorAlpha="0" ComboBoxIndex="1" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
-                        <Size X="510.0000" Y="250.0000" />
-                        <Children>
-                          <AbstractNodeData Name="title_0" ActionTag="341784030" Tag="82" IconVisible="False" LeftMargin="174.5631" RightMargin="171.4369" TopMargin="72.8144" BottomMargin="146.1856" FontSize="23" LabelText="Cách thu thập" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                            <Size X="164.0000" Y="31.0000" />
-                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                            <Position X="256.5631" Y="161.6856" />
-                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                            <CColor A="255" R="130" G="50" B="16" />
-                            <PrePosition X="0.5031" Y="0.6467" />
-                            <PreSize X="0.3216" Y="0.1240" />
-                            <FontResource Type="Normal" Path="Font/tahomabd.ttf" Plist="" />
-                            <OutlineColor A="255" R="255" G="0" B="0" />
-                            <ShadowColor A="255" R="110" G="110" B="110" />
-                          </AbstractNodeData>
-                          <AbstractNodeData Name="paragraph_1" ActionTag="-1875269886" Tag="1053" IconVisible="False" LeftMargin="5.1657" RightMargin="-5.1657" TopMargin="102.0968" BottomMargin="97.9032" TouchEnable="True" ClipAble="False" BackColorAlpha="0" ComboBoxIndex="1" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
-                            <Size X="510.0000" Y="50.0000" />
-                            <Children>
-                              <AbstractNodeData Name="bell" ActionTag="-186839833" Tag="1054" IconVisible="False" LeftMargin="-3.4998" RightMargin="486.4998" TopMargin="5.1424" BottomMargin="17.8576" LeftEage="5" RightEage="5" TopEage="5" BottomEage="5" Scale9OriginX="5" Scale9OriginY="5" Scale9Width="17" Scale9Height="17" ctype="ImageViewObjectData">
-                                <Size X="27.0000" Y="27.0000" />
-                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                <Position X="10.0002" Y="31.3576" />
-                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                <CColor A="255" R="255" G="255" B="255" />
-                                <PrePosition X="0.0196" Y="0.6272" />
-                                <PreSize X="0.0529" Y="0.5400" />
-                                <FileData Type="Normal" Path="FortuneCat/bell.png" Plist="" />
-                              </AbstractNodeData>
-                              <AbstractNodeData Name="message" ActionTag="915779546" Tag="1055" IconVisible="False" LeftMargin="19.3638" RightMargin="5.6362" TopMargin="3.9996" BottomMargin="-3.9996" FontSize="18" LabelText="Người chơi thu thập đủ 5 Lúc lắc để nhận được Mèo may&#xA; mắn ngẫu nhiên ở trong Bàn chơi từ 4 người trở lên." ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                                <Size X="485.0000" Y="50.0000" />
-                                <AnchorPoint ScaleY="1.0000" />
-                                <Position X="19.3638" Y="46.0004" />
-                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                <CColor A="255" R="130" G="50" B="16" />
-                                <PrePosition X="0.0380" Y="0.9200" />
-                                <PreSize X="0.9510" Y="1.0000" />
-                                <FontResource Type="Normal" Path="Font/tahoma.ttf" Plist="" />
-                                <OutlineColor A="255" R="0" G="0" B="0" />
-                                <ShadowColor A="255" R="110" G="110" B="110" />
-                              </AbstractNodeData>
-                            </Children>
-                            <AnchorPoint ScaleX="0.5000" ScaleY="1.0000" />
-                            <Position X="260.1657" Y="147.9032" />
-                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                            <CColor A="255" R="255" G="255" B="255" />
-                            <PrePosition X="0.5101" Y="0.5916" />
-                            <PreSize X="1.0000" Y="0.2000" />
-                            <SingleColor A="255" R="150" G="200" B="255" />
-                            <FirstColor A="255" R="150" G="200" B="255" />
-                            <EndColor A="255" R="255" G="255" B="255" />
-                            <ColorVector ScaleY="1.0000" />
-                          </AbstractNodeData>
-                          <AbstractNodeData Name="paragraph_2" ActionTag="784567714" Tag="1056" IconVisible="False" LeftMargin="0.0815" RightMargin="-0.0815" TopMargin="154.8594" BottomMargin="20.1406" TouchEnable="True" ClipAble="False" BackColorAlpha="0" ComboBoxIndex="1" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
-                            <Size X="510.0000" Y="75.0000" />
-                            <Children>
-                              <AbstractNodeData Name="bell" ActionTag="371871853" Tag="1057" IconVisible="False" LeftMargin="1.5001" RightMargin="481.4999" TopMargin="6.4999" BottomMargin="41.5001" LeftEage="5" RightEage="5" TopEage="5" BottomEage="5" Scale9OriginX="5" Scale9OriginY="5" Scale9Width="17" Scale9Height="17" ctype="ImageViewObjectData">
-                                <Size X="27.0000" Y="27.0000" />
-                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                <Position X="15.0001" Y="55.0001" />
-                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                <CColor A="255" R="255" G="255" B="255" />
-                                <PrePosition X="0.0294" Y="0.7333" />
-                                <PreSize X="0.0529" Y="0.3600" />
-                                <FileData Type="Normal" Path="FortuneCat/bell.png" Plist="" />
-                              </AbstractNodeData>
-                              <AbstractNodeData Name="message" ActionTag="1701535247" Tag="1058" IconVisible="False" LeftMargin="25.0000" TopMargin="5.0000" BottomMargin="-5.0000" FontSize="18" LabelText="Có thể chứa tối đa 3 Mèo may mắn, sau khi đã có 3 Mèo&#xA;trong kho, người chơi sẽ không thể nhận thêm Mèo may&#xA;mắn được nữa." ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                                <Size X="485.0000" Y="75.0000" />
-                                <AnchorPoint ScaleY="1.0000" />
-                                <Position X="25.0000" Y="70.0000" />
-                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                <CColor A="255" R="130" G="50" B="16" />
-                                <PrePosition X="0.0490" Y="0.9333" />
-                                <PreSize X="0.9510" Y="1.0000" />
-                                <FontResource Type="Normal" Path="Font/tahoma.ttf" Plist="" />
-                                <OutlineColor A="255" R="0" G="0" B="0" />
-                                <ShadowColor A="255" R="110" G="110" B="110" />
-                              </AbstractNodeData>
-                            </Children>
-                            <AnchorPoint ScaleX="0.5000" ScaleY="1.0000" />
-                            <Position X="255.0815" Y="95.1406" />
-                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                            <CColor A="255" R="255" G="255" B="255" />
-                            <PrePosition X="0.5002" Y="0.3806" />
-                            <PreSize X="1.0000" Y="0.3000" />
-                            <SingleColor A="255" R="150" G="200" B="255" />
-                            <FirstColor A="255" R="150" G="200" B="255" />
-                            <EndColor A="255" R="255" G="255" B="255" />
-                            <ColorVector ScaleY="1.0000" />
-                          </AbstractNodeData>
-                          <AbstractNodeData Name="title_1" ActionTag="656921537" Tag="83" IconVisible="False" LeftMargin="155.2148" RightMargin="137.7852" TopMargin="233.0761" BottomMargin="-14.0761" FontSize="23" LabelText="Thao tác thực hiện" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                            <Size X="217.0000" Y="31.0000" />
-                            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                            <Position X="263.7148" Y="1.4239" />
-                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                            <CColor A="255" R="130" G="50" B="16" />
-                            <PrePosition X="0.5171" Y="0.0057" />
-                            <PreSize X="0.4255" Y="0.1240" />
-                            <FontResource Type="Normal" Path="Font/tahomabd.ttf" Plist="" />
-                            <OutlineColor A="255" R="255" G="0" B="0" />
-                            <ShadowColor A="255" R="110" G="110" B="110" />
-                          </AbstractNodeData>
-                          <AbstractNodeData Name="paragraph_3" ActionTag="-685238844" Tag="1059" IconVisible="False" LeftMargin="3.7135" RightMargin="-3.7135" TopMargin="267.5744" BottomMargin="-92.5744" TouchEnable="True" ClipAble="False" BackColorAlpha="0" ComboBoxIndex="1" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
-                            <Size X="510.0000" Y="75.0000" />
-                            <Children>
-                              <AbstractNodeData Name="bell" ActionTag="544125713" Tag="1060" IconVisible="False" LeftMargin="1.4999" RightMargin="481.5001" TopMargin="3.5000" BottomMargin="44.5000" LeftEage="5" RightEage="5" TopEage="5" BottomEage="5" Scale9OriginX="5" Scale9OriginY="5" Scale9Width="17" Scale9Height="17" ctype="ImageViewObjectData">
-                                <Size X="27.0000" Y="27.0000" />
-                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                <Position X="14.9999" Y="58.0000" />
-                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                <CColor A="255" R="255" G="255" B="255" />
-                                <PrePosition X="0.0294" Y="0.7733" />
-                                <PreSize X="0.0529" Y="0.3600" />
-                                <FileData Type="Normal" Path="FortuneCat/bell.png" Plist="" />
-                              </AbstractNodeData>
-                              <AbstractNodeData Name="message" ActionTag="-86259422" Tag="1061" IconVisible="False" LeftMargin="27.0000" RightMargin="2.0000" TopMargin="4.0000" BottomMargin="-29.0000" FontSize="18" LabelText="Người chơi kéo Mèo may mắn từ kho vào giữa giao diện&#xA;để thực hiện quá trình mở Mèo may mắn, sau một&#xA;khoảng thời gian, người chơi sẽ nhận được lượng Gold&#xA;tương ứng." ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                                <Size X="481.0000" Y="100.0000" />
-                                <AnchorPoint ScaleY="1.0000" />
-                                <Position X="27.0000" Y="71.0000" />
-                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                <CColor A="255" R="130" G="50" B="16" />
-                                <PrePosition X="0.0529" Y="0.9467" />
-                                <PreSize X="0.9431" Y="1.3333" />
-                                <FontResource Type="Normal" Path="Font/tahoma.ttf" Plist="" />
-                                <OutlineColor A="255" R="0" G="0" B="0" />
-                                <ShadowColor A="255" R="110" G="110" B="110" />
-                              </AbstractNodeData>
-                            </Children>
-                            <AnchorPoint ScaleX="0.5000" ScaleY="1.0000" />
-                            <Position X="258.7135" Y="-17.5744" />
-                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                            <CColor A="255" R="255" G="255" B="255" />
-                            <PrePosition X="0.5073" Y="-0.0703" />
-                            <PreSize X="1.0000" Y="0.3000" />
-                            <SingleColor A="255" R="150" G="200" B="255" />
-                            <FirstColor A="255" R="150" G="200" B="255" />
-                            <EndColor A="255" R="255" G="255" B="255" />
-                            <ColorVector ScaleY="1.0000" />
-                          </AbstractNodeData>
-                          <AbstractNodeData Name="paragraph_4" ActionTag="-1154087671" Tag="1062" IconVisible="False" LeftMargin="5.7061" RightMargin="-5.7061" TopMargin="377.5742" BottomMargin="-177.5742" TouchEnable="True" ClipAble="False" BackColorAlpha="0" ComboBoxIndex="1" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
-                            <Size X="510.0000" Y="50.0000" />
-                            <Children>
-                              <AbstractNodeData Name="bell" ActionTag="800190940" Tag="1063" IconVisible="False" LeftMargin="1.4999" RightMargin="481.5001" TopMargin="4.5000" BottomMargin="18.5000" LeftEage="5" RightEage="5" TopEage="5" BottomEage="5" Scale9OriginX="5" Scale9OriginY="5" Scale9Width="17" Scale9Height="17" ctype="ImageViewObjectData">
-                                <Size X="27.0000" Y="27.0000" />
-                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                <Position X="14.9999" Y="32.0000" />
-                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                <CColor A="255" R="255" G="255" B="255" />
-                                <PrePosition X="0.0294" Y="0.6400" />
-                                <PreSize X="0.0529" Y="0.5400" />
-                                <FileData Type="Normal" Path="FortuneCat/bell.png" Plist="" />
-                              </AbstractNodeData>
-                              <AbstractNodeData Name="message" ActionTag="1508609787" Tag="1064" IconVisible="False" LeftMargin="27.0000" RightMargin="16.0000" TopMargin="4.0000" BottomMargin="-4.0000" FontSize="18" LabelText="Khi thời gian đếm ngược hoàn tất, người chơi vào giao&#xA;diện của tính năng để mở Mèo may mắn nhận quà." ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                                <Size X="467.0000" Y="50.0000" />
-                                <AnchorPoint ScaleY="1.0000" />
-                                <Position X="27.0000" Y="46.0000" />
-                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                <CColor A="255" R="130" G="50" B="16" />
-                                <PrePosition X="0.0529" Y="0.9200" />
-                                <PreSize X="0.9157" Y="1.0000" />
-                                <FontResource Type="Normal" Path="Font/tahoma.ttf" Plist="" />
-                                <OutlineColor A="255" R="0" G="0" B="0" />
-                                <ShadowColor A="255" R="110" G="110" B="110" />
-                              </AbstractNodeData>
-                            </Children>
-                            <AnchorPoint ScaleX="0.5000" ScaleY="1.0000" />
-                            <Position X="260.7061" Y="-127.5742" />
-                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                            <CColor A="255" R="255" G="255" B="255" />
-                            <PrePosition X="0.5112" Y="-0.5103" />
-                            <PreSize X="1.0000" Y="0.2000" />
-                            <SingleColor A="255" R="150" G="200" B="255" />
-                            <FirstColor A="255" R="150" G="200" B="255" />
-                            <EndColor A="255" R="255" G="255" B="255" />
-                            <ColorVector ScaleY="1.0000" />
-                          </AbstractNodeData>
-                          <AbstractNodeData Name="paragraph_5" ActionTag="-1281137773" Tag="1065" IconVisible="False" LeftMargin="4.7112" RightMargin="-4.7112" TopMargin="440.5742" BottomMargin="-265.5742" TouchEnable="True" ClipAble="False" BackColorAlpha="0" ComboBoxIndex="1" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
-                            <Size X="510.0000" Y="75.0000" />
-                            <Children>
-                              <AbstractNodeData Name="bell" ActionTag="824051921" Tag="1066" IconVisible="False" LeftMargin="1.4998" RightMargin="481.5002" TopMargin="6.5000" BottomMargin="41.5000" LeftEage="5" RightEage="5" TopEage="5" BottomEage="5" Scale9OriginX="5" Scale9OriginY="5" Scale9Width="17" Scale9Height="17" ctype="ImageViewObjectData">
-                                <Size X="27.0000" Y="27.0000" />
-                                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                                <Position X="14.9998" Y="55.0000" />
-                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                <CColor A="255" R="255" G="255" B="255" />
-                                <PrePosition X="0.0294" Y="0.7333" />
-                                <PreSize X="0.0529" Y="0.3600" />
-                                <FileData Type="Normal" Path="FortuneCat/bell.png" Plist="" />
-                              </AbstractNodeData>
-                              <AbstractNodeData Name="message" ActionTag="-185898793" Tag="1067" IconVisible="False" LeftMargin="27.0000" RightMargin="11.0000" TopMargin="4.0000" BottomMargin="-29.0000" FontSize="18" LabelText="Sau khi tính năng kết thúc, các phần thưởng có thể thu&#xA;thập được (đã hoàn thành thời gian đếm ngược nhưng&#xA;chưa nhận) sẽ được tự động nhận, các Mèo May Mắn&#xA;chưa mở sẽ tự động xóa khỏi hệ thống." ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                                <Size X="472.0000" Y="100.0000" />
-                                <AnchorPoint ScaleY="1.0000" />
-                                <Position X="27.0000" Y="71.0000" />
-                                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                                <CColor A="255" R="130" G="50" B="16" />
-                                <PrePosition X="0.0529" Y="0.9467" />
-                                <PreSize X="0.9255" Y="1.3333" />
-                                <FontResource Type="Normal" Path="Font/tahoma.ttf" Plist="" />
-                                <OutlineColor A="255" R="0" G="0" B="0" />
-                                <ShadowColor A="255" R="110" G="110" B="110" />
-                              </AbstractNodeData>
-                            </Children>
-                            <AnchorPoint ScaleX="0.5000" ScaleY="1.0000" />
-                            <Position X="259.7112" Y="-190.5742" />
-                            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                            <CColor A="255" R="255" G="255" B="255" />
-                            <PrePosition X="0.5092" Y="-0.7623" />
-                            <PreSize X="1.0000" Y="0.3000" />
-                            <SingleColor A="255" R="150" G="200" B="255" />
-                            <FirstColor A="255" R="150" G="200" B="255" />
-                            <EndColor A="255" R="255" G="255" B="255" />
-                            <ColorVector ScaleY="1.0000" />
-                          </AbstractNodeData>
-                        </Children>
-                        <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                        <Position X="263.4246" Y="434.4007" />
-                        <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                        <CColor A="255" R="255" G="255" B="255" />
-                        <PrePosition X="0.5066" Y="0.6033" />
-                        <PreSize X="0.9808" Y="0.3472" />
-                        <SingleColor A="255" R="150" G="200" B="255" />
-                        <FirstColor A="255" R="150" G="200" B="255" />
-                        <EndColor A="255" R="255" G="255" B="255" />
-                        <ColorVector ScaleY="1.0000" />
+                        <PrePosition X="0.4995" Y="0.5933" />
+                        <PreSize X="0.9981" Y="0.8125" />
+                        <FileData Type="Normal" Path="FortuneCat/fullGuide.png" Plist="" />
                       </AbstractNodeData>
                     </Children>
                     <AnchorPoint />

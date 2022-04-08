@@ -44,7 +44,7 @@ var GUIOfferRepay = BaseLayer.extend({
         this.bg.addChild(customLabel);
         customLabel.setDefaultAlignHorizontal(RichTextAlignment.CENTER);
         customLabel.setDefaultAlignVertical(RichTextAlignment.MIDDLE);
-        customLabel.setDefaultSize(14);
+        customLabel.setDefaultSize(20);
         customLabel.setDefaultColor(cc.color(249,186,156));
         customLabel.setDefaultFont(SceneMgr.FONT_BOLD);
         customLabel.setString(s1);
@@ -203,7 +203,7 @@ var GroupOfferRepayBonus = cc.Node.extend({
         this.labelDescrible.setFontName(SceneMgr.FONT_NORMAL);
         this.labelDescrible.setTextHorizontalAlignment(cc.TEXT_ALIGNMENT_CENTER);
         this.labelDescrible.setAnchorPoint(cc.p(0.5, 0.5));
-        this.labelDescrible.setFontSize(13);
+        this.labelDescrible.setFontSize(18);
         this.labelDescrible.setPosition(this.bg.getContentSize().width * 0.5, this.bg.getContentSize().height * 0.7);
         this.labelDescrible.setContentSize(cc.size(this.bg.getContentSize().width * 0.9, 80));
         this.labelDescrible.ignoreContentAdaptWithSize(false);

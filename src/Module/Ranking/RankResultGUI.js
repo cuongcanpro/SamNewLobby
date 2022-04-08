@@ -80,6 +80,7 @@ var RankResultGUI = BaseLayer.extend({
     },
 
     updateResult: function (dataLastWeek) {
+        cc.log("updateResult dataLastWeek", JSON.stringify(dataLastWeek));
         this.isTypeTruCup = false;
         var numberCup = dataLastWeek["cup"];
         var goldGift = dataLastWeek["goldGift"];
@@ -103,14 +104,19 @@ var RankResultGUI = BaseLayer.extend({
         txts.push({
             "text": localized("NEW_RANK_RECEIVE_GIFT_TXT_0"),
             "color": cc.color("#ffffff"),
-            "size": 16,
+            "size": 26,
             "font": SceneMgr.FONT_BOLD
         });
-        txts.push({"text": strRank, "color": cc.color("#FFF577"), "size": 16, "font": SceneMgr.FONT_BOLD});
+        txts.push({
+            "text": strRank,
+            "color": cc.color("#FFF577"),
+            "size": 26,
+            "font": SceneMgr.FONT_BOLD
+        });
         txts.push({
             "text": localized("NEW_RANK_RECEIVE_GIFT_TXT_1"),
             "color": cc.color("#ffffff"),
-            "size": 16,
+            "size": 26,
             "font": SceneMgr.FONT_BOLD
         });
         this.txtWin.setText(txts);
@@ -128,7 +134,7 @@ var RankResultGUI = BaseLayer.extend({
         if (isWin) {
             this.updateMedal(dataLastWeek);
             this.imgCup.setVisible(numberCup !== 0);
-            this.txtCup.setString("Cúp x" + StringUtility.pointNumber(numberCup));
+            this.txtCup.setString(StringUtility.pointNumber(numberCup) + " Cúp");
             this.imgGold.setVisible(goldGift != 0);
             this.txtGoldWin.setString(StringUtility.pointNumber(goldGift) + " Gold");
             this.imgDiamond.setVisible(diamond != 0);
@@ -230,8 +236,6 @@ var RankResultGUI = BaseLayer.extend({
         this.titleNoWin.setVisible(false);
         this.infoNoWin.setVisible(false);
         this.imgTruCup.setVisible(true);
-        this.btnUnderstood.setPositionY(this.btnUnderstood.defaultPos.y - 45); // 60 la lay vi tri tren gui cocos studio
-        this.txtLoseCup.setPositionY(this.txtLoseCup.defaultPos.y - 55);
         this.txtLoseCup.setString(StringUtility.replaceAll(localized("NEW_RANK_RECEIVE_GIFT_TXT_LOSE_CUP"),
             "@number", StringUtility.pointNumber(Math.abs(dataTruCup["cup"]))));
         this.txtLoseCup.getChildByName("iconCup").setPositionX(this.txtLoseCup.getContentSize().width + 13);
@@ -294,7 +298,7 @@ var RankResultGUI = BaseLayer.extend({
         try {
             if (guiRank) {
                 targetLosePosition = guiRank.pCurLevel.iconCup.getWorldPosition();
-                targetSpriteName = "#iconCup.png";
+                targetSpriteName = "res/Lobby/Ranking/iconCup.png";
                 callFunc = cc.callFunc(function () {
                     this.effectUpdateCup(numberCup);
                 }.bind(guiRank));
@@ -302,7 +306,7 @@ var RankResultGUI = BaseLayer.extend({
                 var lobby = sceneMgr.getRunningScene().getMainLayer();
                 if (lobby instanceof LobbyScene) {
                     targetLosePosition = lobby.btnRank.getWorldPosition();
-                    targetSpriteName = "#iconRankLobby.png";
+                    targetSpriteName = "res/Lobby/Ranking/iconRankLobby.png";
                     callFunc = cc.callFunc(function () {
                         this.onUpdateBtnRankCallFunc(numberCup);
                         var dataTruCup = RankData.getInstance().getDataTruCup();
@@ -319,22 +323,21 @@ var RankResultGUI = BaseLayer.extend({
                             ));
                         }
                     }.bind(lobby));
-                }
-                else{
+                } else{
                     targetLosePosition = cc.p(cc.winSize.width + 10, -10);
-                    targetSpriteName = "#iconCup";
+                    targetSpriteName = "res/Lobby/Ranking/iconCup";
                 }
             }
         } catch (e) {
             cc.error(e);
             targetLosePosition = cc.p(cc.winSize.width + 10, -10);
-            targetSpriteName = "#iconCup";
+            targetSpriteName = "res/Lobby/Ranking/iconCup";
         }
 
         var timeAction = 1;
         var actionMove = cc.moveTo(timeAction, targetLosePosition.x, targetLosePosition.y).easing(cc.easeExponentialInOut());
 
-        var spriteName = (isLose) ? "#iconCup.png" : "#iconCupBig.png";
+        var spriteName = (isLose) ? "res/Lobby/Ranking/iconCup.png" : "res/Lobby/Ranking/iconCupBig.png";
         var targetSprite = new cc.Sprite(targetSpriteName);
         var startPositionCup = (isLose) ? this.iconCup.getWorldPosition() : this.iconCupWin.getWorldPosition();
         var endScale = targetSprite.getContentSize().width / this.iconCupWin.getContentSize().width;
@@ -346,8 +349,16 @@ var RankResultGUI = BaseLayer.extend({
             sceneMgr.layerGUI.addChild(iconCup, RankResultGUI.TAG + 1);
             iconCup.setPosition(startPositionCup);
             var callFuncIdx = (i === 0) ? callFunc : cc.callFunc(function(){});
-            iconCup.runAction(cc.sequence(cc.delayTime(0.2 * i), cc.spawn(actionMove.clone(),
-                actionScale.clone()), callFuncIdx, cc.fadeOut(0.3), cc.removeSelf()));
+            iconCup.runAction(cc.sequence(
+                cc.delayTime(0.2 * i),
+                cc.spawn(
+                    actionMove.clone(),
+                    actionScale.clone()
+                ),
+                callFuncIdx,
+                cc.fadeOut(0.3),
+                cc.removeSelf()
+            ));
         }
 
         RankData.getInstance().setNumberCupChange(numberCup);
@@ -359,7 +370,7 @@ var RankResultGUI = BaseLayer.extend({
             return;
         }
 
-        var spriteMedalName = "#iconMedalBig" + typeMedal + ".png";
+        var spriteMedalName = "res/Lobby/Ranking/iconMedalBig" + typeMedal + ".png";
         var medal = new cc.Sprite(spriteMedalName);
         sceneMgr.layerGUI.addChild(medal, RankResultGUI.TAG + 1);
         medal.setPosition(this.medal.getWorldPosition());

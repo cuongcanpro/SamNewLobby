@@ -3,29 +3,33 @@
  */
 var Config = function () {
 };
-Config.ZALO_SECRET = "ldiEluvVsK3DDEtGE7BB";
-Config.ZALO_APPID = "3554569838779270945";
+
+Config.ZALO_SECRET = "sTV0sKYRrF72XeALUo1v";
+Config.ZALO_APPID = "783468779544570951";
 
 Config.SERVER_PRIVATE = "120.138.72.33";
-Config.PORT_PRIVATE = 10102;
+Config.PORT_PRIVATE = 10142;
 
-Config.PORT_PRIVATE_WEB = 10134;
-Config.SERVER_PRIVATE_WEB = "socket-dev.service.zingplay.com:10184";
-
-//Config.SERVER_PRIVATE = "10.198.48.179";
-//Config.PORT = 443;
-
-Config.SERVER_LIVE = "118.102.3.24";
+Config.SERVER_LIVE = "118.102.3.30";
 Config.PORT_LIVE = 443;
 
-Config.SERVER_DEV = "127.0.0.1";
-Config.PORT_DEV = 443;
+Config.SERVER_PRIVATE_WEB = "socket-dev.service.zingplay.com:10169";
+Config.PORT_WEB = 10022;
 
-Config.SERVER_LIVE_WEB = "samloc-game.service.zingplay.com:843";
+Config.SERVER_PRIVATE_WEB2 = "118.102.3.28";
+Config.PORT_WEB2 = 10025;
+
+Config.SERVER_LIVE_WEB = "tala-2-game.service.zingplay.com:843";
 Config.PORT_LIVE_WEB = 843;
 
+Config.SERVER_LIVE_WEB2 = "tala-3-game.service.zingplay.com:843";
+Config.PORT_LIVE_WEB2 = 80;
+
+Config.SERVER_DEV = "127.0.0.1";
+Config.PORT_DEV = 442;
+
 Config.ENABLE_CHEAT = true;
-Config.ENABLE_DEV = false;
+Config.DEV_LOCAL = false;
 
 Config.ENABLE_EVENT_SECRET_TOWER = false;
 
@@ -42,7 +46,7 @@ Config.ENABLE_MULTI_PORTAL = true;
 
 Config.PRELOAD_LAYER = true;
 
-Config.SECRETKEY = "Utn&6rdbn=g5Z&2G";
+Config.SECRETKEY = "dTs*2Q6Rr6^atRz2";
 Config.CHEAT_MAX_PLAYER = 5;
 Config.CHEAT_MAX_CARD = 10;
 Config.CARD_CHEAT_SCALE_DECK = 0.25;
@@ -54,7 +58,7 @@ Config.APP_VERSION_NEW_REVIEW = 42;
 
 Config.DEFAULT_PLATFORM = Constant.PLATFORM_ANDROID;
 
-Config.GOOGLE_IAP_BASE64 = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAj4Y/nt+XCQcgW3WZADCohUMyB1XW9MuL2mwTtq5KasPMzalEqPN6CaoUvtWKSfh51CeZCS9jWzvVSGwaJXYys9FihVACDK+wL7lKn2wzItqzw5idN9d0e5ZuM3uYLO3qp/9lY9eH+TZzEj8KRVueJQv4iIP4ZLfzt8tSec0c1GaPVjgqfvnCvPFWqR0YeqWsgBLb+9LKk5xzSlJVj+dscFECUSTllBncm1mfH+IVRspvbgRU+Rh/NDz3gqOXcuomTXkcDxT9vlpMoMdWZrGBwZD8/Fh+6fbAaTc2RNnam2d4A3zic78d8KWdKTLd7AdpBVabrD/HPkNATbpFLRB2MQIDAQAB";
+Config.GOOGLE_IAP_BASE64 = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwJemwKEbqAtLDuSjnyQ0JwE1JgHG54fQgrScRS7a0chW+SGQdD4FUGxZvPVWYMW8MAFx43AzpKLCv2Tcy+6ZdlKCBUYuDV+YvXnEZv4SGj8rdZHx3vc2KjQOYtpB0Q7/fSMkBFU2eu3Mox0K5PgJVv2gvZ8U2wvIfrTr3j6qhk9wRfJUZ/ZtOKBBKZQPDu8oNkj7ZGw/ZT4rlDlQxLpYsYsjGKVm1gQWdSRO7n0iCjMQD2GLLKx/hb2KtgmpinwomsPDo+Dcq/xz8xRSww4zu7u0LGKqcEXy5awTLGsRR6Amo1HHcD0207pOk2yB0HkCu4stfuwdqXaxEuzAXf9rjwIDAQAB";Config.KEY_LAST_ERROR = "key_last_error";       // key ghi lai nguyen nhan lan cuoi khong vao duoc gui game
 Config.ZALO_PAY_ID = "15";
 
 Config.OLD_VERSION = 56;
@@ -72,8 +76,6 @@ Config.ENABLE_JACKPOT = true;
 Config.ENABLE_DECORATE_ITEM = false;
 
 // config cheat
-Config.ENABLE_CHEAT = true;                // ENABLE CHEAT CENTER IN GAME
-
 Config.CHEAT_MAX_PLAYER = 4;                // NUM PLAYER IN GAME
 Config.CHEAT_MAX_CARD = 13;                 // NUM CARD OF PLAYER
 
@@ -103,7 +105,7 @@ Config.ENABLE_NEW_RANK = true;
 Config.ENABLE_TESTING_NEW_RANK = false; // trang thai chi connect den server ranking ma khong xu ly cac goi tin rank
 
 Config.ENABLE_QR_SMS_SYNTAX = false;
-
+Config.ENABLE_PAYMENT_SERVICE = false;
 Config.URL_ZALOPAY = "vn.com.vng.zalopay";
 Config.URL_ZALOPAY_SANBOX = "vn.com.vng.zalopay.sbmc";
 Config.ZALOPAY_DEEP_LINK = "zalopay://launch/app/731?view=top_up&amount=@amount&redirect_url=zps://@package";

@@ -53,8 +53,8 @@ var PotBreaker = cc.Class.extend({
 
     preloadResource : function () {
         // preload
-        db.DBCCFactory.getInstance().loadDragonBonesData("res/Lobby/EventMgr/potBreaker/Icon_daovang/skeleton.xml","Icon_daovang");
-        db.DBCCFactory.getInstance().loadTextureAtlas("res/Lobby/EventMgr/potBreaker/Icon_daovang/texture.plist", "Icon_daovang");
+        db.DBCCFactory.getInstance().loadDragonBonesData("res/Lobby/Event/potBreaker/Icon_daovang/skeleton.xml","Icon_daovang");
+        db.DBCCFactory.getInstance().loadTextureAtlas("res/Lobby/Event/potBreaker/Icon_daovang/texture.plist", "Icon_daovang");
         if (!this.isFinishDownload)
             return;
         if (Config.ENABLE_CHEAT) {
@@ -80,7 +80,7 @@ var PotBreaker = cc.Class.extend({
             PotBreakerSound.musicOn = musicOn === 1;
         }
 
-        LocalizedString.add("res/EventMgr/PotBreaker/PotBreakerRes/PotLocalized_vi");
+        LocalizedString.add("res/Event/PotBreaker/PotBreakerRes/PotLocalized_vi");
 
         cc.spriteFrameCache.addSpriteFrames("res/Event/PotBreaker/PotBreakerRes/gold.plist");
 
@@ -153,7 +153,7 @@ var PotBreaker = cc.Class.extend({
             cc.log("VAO DAY *****888 ");
             sceneMgr.addLoading(LocalizedString.to("WAITING")).timeout(5);
             var s = "Test Download Content " + "\n" + (new Error()).stack;
-            NativeBridge.logJSManual("assets/src/Lobby/EventMgr/PotBreaker/PotBreaker.js", "3333", s, NativeBridge.getVersionString());
+            NativeBridge.logJSManual("assets/src/Lobby/Event/PotBreaker/PotBreaker.js", "3333", s, NativeBridge.getVersionString());
             event.startDownloadContent();
             event.startTime = (new Date()).getTime();
             this.isFinishDownload = true;
@@ -441,19 +441,6 @@ var PotBreaker = cc.Class.extend({
 
     getItemColor: function (id) {
         return cc.color("#F7F30D");
-        if (id === 1010){
-            return cc.color("#7D56DF");
-        }
-        if (id === 1020){
-            return cc.color("#FC927B");
-        }
-        if (id === 1030){
-            return cc.color("#F38E1C");
-        }
-        if (id === 1040){
-            return cc.color("#46B246");
-        }
-        return cc.color("#fef5d7");
     },
 
     isItemStored: function (id) {
@@ -472,7 +459,7 @@ var PotBreaker = cc.Class.extend({
 
     getPieceImage : function (id) {
         if(this.isItemStored(id))
-            return "res/EventMgr/PotBreaker/PotBreakerUI/iconToken" + id + ".png";
+            return "res/Event/PotBreaker/PotBreakerUI/iconToken" + id + ".png";
         return "res/Event/PotBreaker/PotBreakerUI/icon_gold.png";
     },
 
@@ -549,7 +536,7 @@ var PotBreaker = cc.Class.extend({
         //     return rank + 1 + PotBreaker.ITEM_OUT_GAME + PotBreaker.NUMBER_TOP_RANK_VIP;
         // }
 
-        // EventMgr co 2 tuan voi 2 muc qua: 1->20 la id qua cho tuan 1, 20->40 la id qua cho tuan 2
+        // Event co 2 tuan voi 2 muc qua: 1->20 la id qua cho tuan 1, 20->40 la id qua cho tuan 2
         // if (rank <= PotBreaker.NUMBER_TOP_RANK_VIP) {
         //     if (week == PotBreaker.WEEK_START) {
         //         return rank + 1 + PotBreaker.ITEM_OUT_GAME;
@@ -617,7 +604,7 @@ var PotBreaker = cc.Class.extend({
 
     getLixiImage : function (id) {
         if (id >= 0 && id < PotBreaker.NUMBER_TOKEN_TYPE){
-            return "res/EventMgr/PotBreaker/PotBreakerUI/token" + id + ".png";
+            return "res/Event/PotBreaker/PotBreakerUI/token" + id + ".png";
         }
         return "res/Event/PotBreaker/PotBreakerUI/token0.png";
     },
@@ -727,9 +714,6 @@ var PotBreaker = cc.Class.extend({
             this.buttonLobby.setVisible(true);
             this.buttonLobby.setScale(1);
             this.effectEventButton();
-            event.reloadLayoutButton();
-            this.addTopLayer();
-            // this.addAccumulateGUI();
         }
         else {
             this.buttonLobby.setVisible(false);
@@ -738,7 +722,9 @@ var PotBreaker = cc.Class.extend({
     },
 
     effectEventButton: function () {
+        cc.log("effectEventButton 0 *******");
         if (!this.buttonLobby) return;
+        cc.log("effectEventButton 1 *******");
         this.buttonLobby.setVisible(true);
         this.buttonLobby.notify.setVisible(this.notifyEvent);
         this.buttonLobby.button.setTitleText("");
@@ -788,7 +774,7 @@ var PotBreaker = cc.Class.extend({
 
     getPosFromPlayer: function(uId){
         var scene = sceneMgr.getRunningScene().getMainLayer();
-        if (CheckLogic.checkInBoard()){
+        if (sceneMgr.checkInBoard()){
             return scene.getPosFromPlayer(uId);
         }
 
@@ -811,28 +797,8 @@ var PotBreaker = cc.Class.extend({
         cc.sys.localStorage.setItem("potBreaker_current_day_" + gamedata.userData.uID, sDay);
     },
 
-
-
-    addTopLayer: function(){
-        try {
-            var scene = sceneMgr.getRunningScene().getMainLayer();
-            if (scene instanceof LobbyScene){
-                if (scene.topLayer && scene.topLayer instanceof TopLayer){
-                    var size = scene.topLayer._uiTable.getViewSize();
-                    var pos = scene.topLayer._uiTable.getPosition();
-                    var oldParent = scene.topLayer.getParent();
-                    scene.topLayer.removeFromParent(true);
-                    scene.topLayer = new PotBreakerTopLayer(size, pos);
-                    oldParent.addChild(scene.topLayer);
-                    scene.topLayer.updateFriends();
-                }
-            }
-        } catch (e) {
-            cc.error("loi add top layer");
-        }
-    },
-
     addTooltipMini: function(){
+        return;
         var scene = sceneMgr.getRunningScene().getMainLayer();
         if (!(scene instanceof LobbyScene)){
             return;
@@ -948,7 +914,7 @@ var PotBreaker = cc.Class.extend({
             GameClient.getInstance().sendPacket(cmd);
         }
 
-        if (CheckLogic.checkInBoard() && this.isInEvent()){
+        if (sceneMgr.checkInBoard() && this.isInEvent()){
             this.addAccumulateGUI();
         }
     },
@@ -1011,7 +977,7 @@ var PotBreaker = cc.Class.extend({
             return;
         }
         if (!this.isInEvent()) return;
-        if (CommonLogic.checkInBoard()) {
+        if (sceneMgr.checkInBoard()) {
             var gui = sceneMgr.openGUI(PotBreakerAccumulateGUI.className, PotBreaker.GUI_ACCUMULATE, PotBreaker.GUI_ACCUMULATE, false);
             if (gui) {
                 gui.showAccumulate(cmd);
@@ -1080,7 +1046,6 @@ var PotBreaker = cc.Class.extend({
         this.remainedTime = cmd.remainedTime;
         var scene = sceneMgr.getRunningScene().getMainLayer();
         if (scene instanceof LobbyScene){
-            //scene.topLayer.updateFriends();
         }
 
         var gui = sceneMgr.getGUI(PotBreaker.GUI_RANK);
@@ -1179,10 +1144,7 @@ var PotBreaker = cc.Class.extend({
 
         if (isNaN(lastTime)) lastTime = 0;
 
-        if (curTime - lastTime > PotBreaker.NOTIFY_BONUS_G_COUNT_DOWN) {
-            return true;
-        }
-        return false;
+        return curTime - lastTime > PotBreaker.NOTIFY_BONUS_G_COUNT_DOWN;
     },
 
     saveNotifyBonusGPanel: function () {
@@ -1191,8 +1153,6 @@ var PotBreaker = cc.Class.extend({
 
     // LISTENER
     onReceive: function (cmd, data) {
-        if (gamedata.checkInReview()) return;
-
         switch (cmd) {
             case PotBreaker.CMD_EVENT_NOTIFY:
             {
@@ -1370,7 +1330,7 @@ var PotBreaker = cc.Class.extend({
         this.saveDay = day;
     },
 
-    // EventMgr Loop
+    // Event Loop
     updateEventLoop: function (dt) {
         if (this.eventTime <= 0)
             return;
@@ -1567,8 +1527,8 @@ PotBreaker.NUMBER_POT_IN_MAP = 9;
 PotBreaker.ID_BREAK_ONCE = 1;
 PotBreaker.ID_BREAK_MAX = 10;
 
-PotBreaker.DEFAUT_FOLDER_RES = "res/EventMgr/PotBreaker/PotBreakerRes/";
-PotBreaker.DEFAUT_FOLDER_UI = "res/EventMgr/PotBreaker/PotBreakerUI/";
+PotBreaker.DEFAUT_FOLDER_RES = "res/Event/PotBreaker/PotBreakerRes/";
+PotBreaker.DEFAUT_FOLDER_UI = "res/Event/PotBreaker/PotBreakerUI/";
 
 PotBreaker.KEY_SAVE_INFO = "PotBreaker_SAVE_INFO";
 PotBreaker.SPLIT_SYMBOL = "!@#$%^";

@@ -6,25 +6,25 @@
       <ObjectData Name="Layer" Tag="88" ctype="GameLayerObjectData">
         <Size X="1200.0000" Y="720.0000" />
         <Children>
-          <AbstractNodeData Name="btnMiniRank" ActionTag="-951828410" Tag="89" IconVisible="False" HorizontalEdge="RightEdge" VerticalEdge="TopEdge" LeftMargin="1147.0000" RightMargin="1.0000" TopMargin="7.9999" BottomMargin="658.0001" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="22" Scale9Height="32" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
-            <Size X="52.0000" Y="54.0000" />
+          <AbstractNodeData Name="btnMiniRank" ActionTag="-951828410" Tag="89" IconVisible="False" HorizontalEdge="RightEdge" VerticalEdge="TopEdge" LeftMargin="1104.0000" RightMargin="18.0000" TopMargin="18.0000" BottomMargin="621.0000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="48" Scale9Height="59" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+            <Size X="78.0000" Y="81.0000" />
             <Children>
-              <AbstractNodeData Name="txtExpChange" ActionTag="1062287758" Tag="210" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="-91.0000" RightMargin="54.0000" TopMargin="12.5000" BottomMargin="12.5000" FontSize="20" LabelText="+100 EXP" HorizontalAlignmentType="HT_Right" VerticalAlignmentType="VT_Center" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+              <AbstractNodeData Name="txtExpChange" ActionTag="1062287758" Tag="210" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="-91.0000" RightMargin="80.0000" TopMargin="26.0000" BottomMargin="26.0000" FontSize="20" LabelText="+100 EXP" HorizontalAlignmentType="HT_Right" VerticalAlignmentType="VT_Center" OutlineEnabled="True" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                 <Size X="89.0000" Y="29.0000" />
                 <AnchorPoint ScaleX="1.0000" ScaleY="0.5000" />
-                <Position X="-2.0000" Y="27.0000" />
+                <Position X="-2.0000" Y="40.5000" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="125" G="214" B="255" />
-                <PrePosition X="-0.0385" Y="0.5000" />
-                <PreSize X="1.7115" Y="0.5370" />
+                <PrePosition X="-0.0256" Y="0.5000" />
+                <PreSize X="1.1410" Y="0.3580" />
                 <FontResource Type="Normal" Path="Font/tahomabd.ttf" Plist="" />
                 <OutlineColor A="255" R="187" G="187" B="187" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
               <AbstractNodeData Name="pArrow" ActionTag="1631811687" Tag="167" IconVisible="False" PositionPercentXEnabled="True" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" ClipAble="True" BackColorAlpha="0" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
-                <Size X="52.0000" Y="54.0000" />
+                <Size X="78.0000" Y="81.0000" />
                 <AnchorPoint ScaleX="0.5000" />
-                <Position X="26.0000" />
+                <Position X="39.0000" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.5000" />
@@ -34,14 +34,14 @@
                 <EndColor A="255" R="255" G="255" B="255" />
                 <ColorVector ScaleY="1.0000" />
               </AbstractNodeData>
-              <AbstractNodeData Name="btnTest" Visible="False" ActionTag="1425431032" Tag="165" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="-103.0000" RightMargin="109.0000" TopMargin="9.0000" BottomMargin="9.0000" TouchEnable="True" FontSize="14" ButtonText="Test" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+              <AbstractNodeData Name="btnTest" Visible="False" ActionTag="1425431032" Tag="165" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="-103.0000" RightMargin="135.0000" TopMargin="22.5000" BottomMargin="22.5000" TouchEnable="True" FontSize="14" ButtonText="Test" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                 <Size X="46.0000" Y="36.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="-80.0000" Y="27.0000" />
+                <Position X="-80.0000" Y="40.5000" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="-1.5385" Y="0.5000" />
-                <PreSize X="0.8846" Y="0.6667" />
+                <PrePosition X="-1.0256" Y="0.5000" />
+                <PreSize X="0.5897" Y="0.4444" />
                 <TextColor A="255" R="65" G="65" B="70" />
                 <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
                 <PressedFileData Type="Default" Path="Default/Button_Press.png" Plist="" />
@@ -51,15 +51,15 @@
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="1173.0000" Y="685.0001" />
+            <Position X="1143.0000" Y="661.5000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.9775" Y="0.9514" />
-            <PreSize X="0.0433" Y="0.0750" />
+            <PrePosition X="0.9525" Y="0.9187" />
+            <PreSize X="0.0650" Y="0.1125" />
             <TextColor A="255" R="65" G="65" B="70" />
             <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
-            <PressedFileData Type="PlistSubImage" Path="btnMiniRank.png" Plist="Ranking/newRank.plist" />
-            <NormalFileData Type="PlistSubImage" Path="btnMiniRank.png" Plist="Ranking/newRank.plist" />
+            <PressedFileData Type="Normal" Path="Ranking/btnMiniRank.png" Plist="" />
+            <NormalFileData Type="Normal" Path="Ranking/btnMiniRank.png" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
@@ -75,10 +75,10 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="pMiniRank" ActionTag="1878709491" UserData="scale" Tag="91" IconVisible="False" HorizontalEdge="RightEdge" VerticalEdge="TopEdge" LeftMargin="451.0000" RightMargin="-4.0000" BottomMargin="220.0000" ClipAble="False" BackColorAlpha="0" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
+          <AbstractNodeData Name="pMiniRank" Visible="False" ActionTag="1878709491" UserData="scale" Tag="91" IconVisible="False" HorizontalEdge="RightEdge" VerticalEdge="TopEdge" LeftMargin="451.0000" RightMargin="-4.0000" BottomMargin="220.0000" ClipAble="False" BackColorAlpha="0" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
             <Size X="753.0000" Y="500.0000" />
             <Children>
-              <AbstractNodeData Name="pTable" ActionTag="415733106" Tag="92" IconVisible="False" LeftMargin="0.0000" TopMargin="53.0000" BottomMargin="-53.0000" TouchEnable="True" ClipAble="False" BackColorAlpha="0" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
+              <AbstractNodeData Name="pTable" ActionTag="415733106" Tag="92" IconVisible="False" TopMargin="53.0000" BottomMargin="-53.0000" TouchEnable="True" ClipAble="False" BackColorAlpha="0" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
                 <Size X="753.0000" Y="500.0000" />
                 <Children>
                   <AbstractNodeData Name="bgMiniRank" ActionTag="-1616874449" Tag="90" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-2.5000" RightMargin="-2.5000" LeftEage="198" RightEage="198" TopEage="134" BottomEage="134" Scale9OriginX="198" Scale9OriginY="134" Scale9Width="362" Scale9Height="232" ctype="ImageViewObjectData">
@@ -130,17 +130,17 @@
                   </AbstractNodeData>
                 </Children>
                 <AnchorPoint />
-                <Position X="0.0000" Y="-53.0000" />
+                <Position Y="-53.0000" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.0000" Y="-0.1060" />
+                <PrePosition Y="-0.1060" />
                 <PreSize X="1.0000" Y="1.0000" />
                 <SingleColor A="255" R="150" G="200" B="255" />
                 <FirstColor A="255" R="150" G="200" B="255" />
                 <EndColor A="255" R="255" G="255" B="255" />
                 <ColorVector ScaleY="1.0000" />
               </AbstractNodeData>
-              <AbstractNodeData Name="txtTooLate" ActionTag="-636019054" Tag="190" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="51.5028" RightMargin="51.4972" TopMargin="422.7698" BottomMargin="-12.7698" IsCustomSize="True" FontSize="24" LabelText="Đã hết thời hạn đăng ký cho Bảng Xếp Hạng tuần này. Hãy quay lại vào tuần sau nhé!" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+              <AbstractNodeData Name="txtTooLate" ActionTag="-636019054" Tag="190" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="51.5000" RightMargin="51.5000" TopMargin="422.7698" BottomMargin="-12.7698" IsCustomSize="True" FontSize="24" LabelText="Đã hết thời hạn đăng ký cho Bảng Xếp Hạng tuần này. Hãy quay lại vào tuần sau nhé!" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                 <Size X="650.0000" Y="90.0000" />
                 <Children>
                   <AbstractNodeData Name="img" ActionTag="193957170" Tag="191" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="235.0000" RightMargin="235.0000" TopMargin="-222.4783" BottomMargin="87.4783" LeftEage="39" RightEage="39" TopEage="49" BottomEage="49" Scale9OriginX="39" Scale9OriginY="49" Scale9Width="102" Scale9Height="127" ctype="ImageViewObjectData">
@@ -155,7 +155,7 @@
                   </AbstractNodeData>
                 </Children>
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="376.5028" Y="32.2302" />
+                <Position X="376.5000" Y="32.2302" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="229" G="229" B="229" />
                 <PrePosition X="0.5000" Y="0.0645" />

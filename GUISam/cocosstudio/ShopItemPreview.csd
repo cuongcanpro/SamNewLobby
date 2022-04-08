@@ -28,7 +28,7 @@
             <OutlineColor A="255" R="98" G="68" B="175" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="btnBuy" ActionTag="-1273429601" Tag="874" IconVisible="False" LeftMargin="39.1098" RightMargin="30.8902" TopMargin="385.0974" BottomMargin="3.9026" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="-15" Scale9OriginY="-11" Scale9Width="30" Scale9Height="22" DisplayState="False" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="btnBuy" ActionTag="-1273429601" Tag="874" IconVisible="False" LeftMargin="39.1098" RightMargin="30.8902" TopMargin="385.0974" BottomMargin="3.9026" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="198" Scale9Height="52" DisplayState="False" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="228.0000" Y="74.0000" />
             <Children>
               <AbstractNodeData Name="iconCondition" Visible="False" ActionTag="128049488" Tag="51" IconVisible="False" LeftMargin="46.9124" RightMargin="151.0876" TopMargin="19.7726" BottomMargin="14.2274" LeftEage="3" RightEage="3" TopEage="6" BottomEage="6" Scale9OriginX="3" Scale9OriginY="6" Scale9Width="24" Scale9Height="28" ctype="ImageViewObjectData">
@@ -87,6 +87,8 @@
             <PrePosition X="0.5138" Y="0.0883" />
             <PreSize X="0.7651" Y="0.1598" />
             <TextColor A="255" R="65" G="65" B="70" />
+            <PressedFileData Type="Normal" Path="ShopIAP/ShopItem/btnBuyEmpty.png" Plist="" />
+            <NormalFileData Type="Normal" Path="ShopIAP/ShopItem/btnBuyEmpty.png" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
@@ -270,7 +272,7 @@
                 <EndColor A="255" R="255" G="255" B="255" />
                 <ColorVector ScaleY="1.0000" />
               </AbstractNodeData>
-              <AbstractNodeData Name="pNum" Visible="False" ActionTag="854595224" Tag="929" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
+              <AbstractNodeData Name="pNum" ActionTag="854595224" Tag="929" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
                 <Size X="280.0000" Y="107.0000" />
                 <Children>
                   <AbstractNodeData Name="labelNum" ActionTag="-349818401" Tag="938" IconVisible="False" LeftMargin="98.8166" RightMargin="92.1834" TopMargin="14.8000" BottomMargin="65.2000" FontSize="20" LabelText="Số lượng:" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
@@ -335,7 +337,6 @@
                         <PrePosition X="1.8676" Y="0.4274" />
                         <PreSize X="0.7255" Y="1.2051" />
                         <TextColor A="255" R="65" G="65" B="70" />
-                        <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
                         <PressedFileData Type="Normal" Path="ShopIAP/ShopItem/btnFive.png" Plist="" />
                         <NormalFileData Type="Normal" Path="ShopIAP/ShopItem/btnFive.png" Plist="" />
                         <OutlineColor A="255" R="255" G="0" B="0" />

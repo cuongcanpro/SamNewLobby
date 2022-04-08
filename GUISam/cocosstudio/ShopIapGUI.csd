@@ -16,87 +16,91 @@
             <PreSize X="1.3000" Y="1.0000" />
             <FileData Type="Normal" Path="Common/bgChooseRoom.jpg" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="panelTop" ActionTag="-225549039" Tag="200" IconVisible="False" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" HorizontalEdge="LeftEdge" VerticalEdge="TopEdge" BottomMargin="559.0080" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
+          <AbstractNodeData Name="panelTop" ActionTag="-225549039" Tag="200" IconVisible="False" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" HorizontalEdge="LeftEdge" VerticalEdge="TopEdge" BottomMargin="559.0080" TouchEnable="True" ClipAble="True" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
             <Size X="1200.0000" Y="160.9920" />
             <Children>
-              <AbstractNodeData Name="title" ActionTag="-987782656" Tag="184" IconVisible="False" PositionPercentYEnabled="True" HorizontalEdge="LeftEdge" LeftMargin="81.0412" RightMargin="944.9588" TopMargin="22.4232" BottomMargin="100.5688" LeftEage="82" RightEage="82" TopEage="25" BottomEage="25" Scale9OriginX="82" Scale9OriginY="13" Scale9Width="10" Scale9Height="12" ctype="ImageViewObjectData">
-                <Size X="174.0000" Y="38.0000" />
-                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="168.0412" Y="119.5688" />
-                <Scale ScaleX="0.8000" ScaleY="0.8000" />
-                <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.1400" Y="0.7427" />
-                <PreSize X="0.1450" Y="0.2360" />
-                <FileData Type="Normal" Path="ShopIAP/iconShop.png" Plist="" />
-              </AbstractNodeData>
-              <AbstractNodeData Name="btnGold" ActionTag="-1027041622" Tag="185" IconVisible="False" HorizontalEdge="LeftEdge" VerticalEdge="BottomEdge" LeftMargin="-6.0063" RightMargin="938.0063" TopMargin="87.4920" BottomMargin="-0.5000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="238" Scale9Height="52" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
-                <Size X="268.0000" Y="74.0000" />
-                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="127.9937" Y="36.5000" />
-                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.1067" Y="0.2267" />
-                <PreSize X="0.2233" Y="0.4597" />
-                <TextColor A="255" R="65" G="65" B="70" />
-                <PressedFileData Type="Normal" Path="ShopIAP/BtnTab/btnTabGoldActive.png" Plist="" />
-                <NormalFileData Type="Normal" Path="ShopIAP/BtnTab/btnTabGoldActive.png" Plist="" />
-                <OutlineColor A="255" R="255" G="0" B="0" />
-                <ShadowColor A="255" R="110" G="110" B="110" />
-              </AbstractNodeData>
-              <AbstractNodeData Name="btnG" ActionTag="1633075764" Tag="186" IconVisible="False" HorizontalEdge="LeftEdge" VerticalEdge="BottomEdge" LeftMargin="201.5436" RightMargin="730.4564" TopMargin="87.4600" BottomMargin="-0.4680" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="238" Scale9Height="52" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
-                <Size X="268.0000" Y="74.0000" />
-                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="335.5436" Y="36.5320" />
-                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.2796" Y="0.2269" />
-                <PreSize X="0.2233" Y="0.4597" />
-                <TextColor A="255" R="65" G="65" B="70" />
-                <PressedFileData Type="Normal" Path="ShopIAP/BtnTab/btnTabGActive.png" Plist="" />
-                <NormalFileData Type="Normal" Path="ShopIAP/BtnTab/btnTabGActive.png" Plist="" />
-                <OutlineColor A="255" R="255" G="0" B="0" />
-                <ShadowColor A="255" R="110" G="110" B="110" />
-              </AbstractNodeData>
-              <AbstractNodeData Name="btnItem" ActionTag="36952928" Tag="727" IconVisible="False" HorizontalEdge="LeftEdge" VerticalEdge="BottomEdge" LeftMargin="410.9989" RightMargin="521.0011" TopMargin="87.4601" BottomMargin="-0.4681" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="238" Scale9Height="52" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
-                <Size X="268.0000" Y="74.0000" />
-                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="544.9989" Y="36.5319" />
-                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.4542" Y="0.2269" />
-                <PreSize X="0.2233" Y="0.4597" />
-                <TextColor A="255" R="65" G="65" B="70" />
-                <PressedFileData Type="Normal" Path="ShopIAP/BtnTab/btnTabItemActive.png" Plist="" />
-                <NormalFileData Type="Normal" Path="ShopIAP/BtnTab/btnTabItemActive.png" Plist="" />
-                <OutlineColor A="255" R="255" G="0" B="0" />
-                <ShadowColor A="255" R="110" G="110" B="110" />
-              </AbstractNodeData>
-              <AbstractNodeData Name="btnTicket" ActionTag="1906661806" Tag="187" IconVisible="False" HorizontalEdge="LeftEdge" VerticalEdge="BottomEdge" LeftMargin="619.7462" RightMargin="312.2538" TopMargin="87.4600" BottomMargin="-0.4680" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="238" Scale9Height="52" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
-                <Size X="268.0000" Y="74.0000" />
-                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="753.7462" Y="36.5320" />
-                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.6281" Y="0.2269" />
-                <PreSize X="0.2233" Y="0.4597" />
-                <TextColor A="255" R="65" G="65" B="70" />
-                <PressedFileData Type="Normal" Path="ShopIAP/BtnTab/btnTabEventActive.png" Plist="" />
-                <NormalFileData Type="Normal" Path="ShopIAP/BtnTab/btnTabEventActive.png" Plist="" />
-                <OutlineColor A="255" R="255" G="0" B="0" />
-                <ShadowColor A="255" R="110" G="110" B="110" />
-              </AbstractNodeData>
-              <AbstractNodeData Name="btnClose" ActionTag="-2018780999" UserData="scale" Tag="66" IconVisible="False" PositionPercentYEnabled="True" HorizontalEdge="LeftEdge" LeftMargin="5.0000" RightMargin="1116.0000" TopMargin="6.0050" BottomMargin="92.9870" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="49" Scale9Height="40" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+              <AbstractNodeData Name="btnClose" ActionTag="-2018780999" UserData="scale" Tag="66" IconVisible="False" HorizontalEdge="LeftEdge" VerticalEdge="TopEdge" RightMargin="1121.0000" TopMargin="10.0000" BottomMargin="88.9920" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="49" Scale9Height="40" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                 <Size X="79.0000" Y="62.0000" />
-                <AnchorPoint ScaleY="1.0000" />
-                <Position X="5.0000" Y="154.9870" />
+                <AnchorPoint ScaleY="0.5000" />
+                <Position Y="119.9920" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="0.0042" Y="0.9627" />
+                <PrePosition Y="0.7453" />
                 <PreSize X="0.0658" Y="0.3851" />
                 <TextColor A="255" R="65" G="65" B="70" />
                 <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
                 <PressedFileData Type="Normal" Path="Common/btnBack.png" Plist="" />
                 <NormalFileData Type="Normal" Path="Common/btnBack.png" Plist="" />
+                <OutlineColor A="255" R="255" G="0" B="0" />
+                <ShadowColor A="255" R="110" G="110" B="110" />
+              </AbstractNodeData>
+              <AbstractNodeData Name="title" ActionTag="-987782656" Tag="184" IconVisible="False" HorizontalEdge="LeftEdge" VerticalEdge="TopEdge" LeftMargin="100.0000" RightMargin="926.0000" TopMargin="23.0000" BottomMargin="99.9920" LeftEage="82" RightEage="82" TopEage="25" BottomEage="25" Scale9OriginX="82" Scale9OriginY="13" Scale9Width="10" Scale9Height="12" ctype="ImageViewObjectData">
+                <Size X="174.0000" Y="38.0000" />
+                <AnchorPoint ScaleY="0.5000" />
+                <Position X="100.0000" Y="118.9920" />
+                <Scale ScaleX="0.8000" ScaleY="0.8000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition X="0.0833" Y="0.7391" />
+                <PreSize X="0.1450" Y="0.2360" />
+                <FileData Type="Normal" Path="ShopIAP/iconShop.png" Plist="" />
+              </AbstractNodeData>
+              <AbstractNodeData Name="btnGold" ActionTag="-1027041622" Tag="185" IconVisible="False" HorizontalEdge="LeftEdge" VerticalEdge="BottomEdge" LeftMargin="-6.0063" RightMargin="938.0063" TopMargin="86.9920" BottomMargin="-74.0000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="238" Scale9Height="126" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+                <Size X="268.0000" Y="148.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="127.9937" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition X="0.1067" />
+                <PreSize X="0.2233" Y="0.9193" />
+                <TextColor A="255" R="65" G="65" B="70" />
+                <DisabledFileData Type="Normal" Path="ShopIAP/BtnTab/btnTabGoldActive.png" Plist="" />
+                <PressedFileData Type="Normal" Path="ShopIAP/BtnTab/btnTabGoldActive.png" Plist="" />
+                <NormalFileData Type="Normal" Path="ShopIAP/BtnTab/btnTabGoldInactive.png" Plist="" />
+                <OutlineColor A="255" R="255" G="0" B="0" />
+                <ShadowColor A="255" R="110" G="110" B="110" />
+              </AbstractNodeData>
+              <AbstractNodeData Name="btnG" ActionTag="1633075764" Tag="186" IconVisible="False" HorizontalEdge="LeftEdge" VerticalEdge="BottomEdge" LeftMargin="201.5436" RightMargin="730.4564" TopMargin="86.9920" BottomMargin="-74.0000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="238" Scale9Height="126" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+                <Size X="268.0000" Y="148.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="335.5436" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition X="0.2796" />
+                <PreSize X="0.2233" Y="0.9193" />
+                <TextColor A="255" R="65" G="65" B="70" />
+                <DisabledFileData Type="Normal" Path="ShopIAP/BtnTab/btnTabGActive.png" Plist="" />
+                <PressedFileData Type="Normal" Path="ShopIAP/BtnTab/btnTabGActive.png" Plist="" />
+                <NormalFileData Type="Normal" Path="ShopIAP/BtnTab/btnTabGInactive.png" Plist="" />
+                <OutlineColor A="255" R="255" G="0" B="0" />
+                <ShadowColor A="255" R="110" G="110" B="110" />
+              </AbstractNodeData>
+              <AbstractNodeData Name="btnItem" ActionTag="36952928" Tag="727" IconVisible="False" HorizontalEdge="LeftEdge" VerticalEdge="BottomEdge" LeftMargin="410.9989" RightMargin="521.0011" TopMargin="86.9920" BottomMargin="-74.0000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="238" Scale9Height="126" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+                <Size X="268.0000" Y="148.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="544.9989" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition X="0.4542" />
+                <PreSize X="0.2233" Y="0.9193" />
+                <TextColor A="255" R="65" G="65" B="70" />
+                <DisabledFileData Type="Normal" Path="ShopIAP/BtnTab/btnTabItemActive.png" Plist="" />
+                <PressedFileData Type="Normal" Path="ShopIAP/BtnTab/btnTabItemActive.png" Plist="" />
+                <NormalFileData Type="Normal" Path="ShopIAP/BtnTab/btnTabItemInactive.png" Plist="" />
+                <OutlineColor A="255" R="255" G="0" B="0" />
+                <ShadowColor A="255" R="110" G="110" B="110" />
+              </AbstractNodeData>
+              <AbstractNodeData Name="btnTicket" ActionTag="1906661806" Tag="187" IconVisible="False" HorizontalEdge="LeftEdge" VerticalEdge="BottomEdge" LeftMargin="619.7462" RightMargin="312.2538" TopMargin="86.9920" BottomMargin="-74.0000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="238" Scale9Height="126" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+                <Size X="268.0000" Y="148.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="753.7462" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition X="0.6281" />
+                <PreSize X="0.2233" Y="0.9193" />
+                <TextColor A="255" R="65" G="65" B="70" />
+                <DisabledFileData Type="Normal" Path="ShopIAP/BtnTab/btnTabEventActive.png" Plist="" />
+                <PressedFileData Type="Normal" Path="ShopIAP/BtnTab/btnTabEventActive.png" Plist="" />
+                <NormalFileData Type="Normal" Path="ShopIAP/BtnTab/btnTabEventInactive.png" Plist="" />
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
@@ -127,7 +131,7 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="iconTicket" ActionTag="-164709821" Tag="290" IconVisible="False" LeftMargin="1007.4859" RightMargin="162.5142" TopMargin="14.3284" BottomMargin="690.6716" LeftEage="11" RightEage="11" TopEage="4" BottomEage="4" Scale9OriginX="11" Scale9OriginY="4" Scale9Width="8" Scale9Height="7" ctype="ImageViewObjectData">
+          <AbstractNodeData Name="iconTicket" ActionTag="-164709821" Tag="290" IconVisible="False" LeftMargin="1007.4859" RightMargin="162.5142" TopMargin="14.3284" BottomMargin="690.6716" LeftEage="11" RightEage="11" TopEage="4" BottomEage="4" Scale9OriginX="11" Scale9OriginY="4" Scale9Width="24" Scale9Height="38" ctype="ImageViewObjectData">
             <Size X="30.0000" Y="15.0000" />
             <Children>
               <AbstractNodeData Name="ticket" ActionTag="-1437268901" UserData="subText" Tag="291" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="30.0000" RightMargin="-198.0000" TopMargin="-7.5000" BottomMargin="-7.5000" FontSize="22" LabelText="999.999.999.999     " VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
@@ -149,7 +153,7 @@
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.8521" Y="0.9697" />
             <PreSize X="0.0250" Y="0.0208" />
-            <FileData Type="Normal" Path="ShopIAP/iconTicket0.png" Plist="" />
+            <FileData Type="Default" Path="Default/ImageFile.png" Plist="" />
           </AbstractNodeData>
           <AbstractNodeData Name="panelMaintain" ActionTag="-162667289" UserData="scale" Tag="273" IconVisible="False" HorizontalEdge="BothEdge" VerticalEdge="BothEdge" LeftMargin="322.6800" RightMargin="277.3199" TopMargin="320.9200" BottomMargin="199.0800" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
             <Size X="600.0000" Y="200.0000" />

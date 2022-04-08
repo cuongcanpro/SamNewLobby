@@ -252,11 +252,11 @@ var BO_IMAGE_CHARACTER_SHADOW_LIGHT = "res/Event/BlueOcean/BlueOceanUI/shadow_ma
 var BO_IMAGE_BUBBLE = "res/Event/BlueOcean/BlueOceanUI/bubble.png";
 var BO_IMAGE_CELL_NORMAL = "res/Event/BlueOcean/BlueOceanUI/cell_normal.png";
 var BO_IMAGE_STONE_REMAIN = "res/Event/BlueOcean/BlueOceanUI/stone_remain_move.png";
-var BO_IMAGE_STONE = "res/EventMgr/BlueOcean/BlueOceanUI/cell_stone.png";
-var BO_IMAGE_BG_GIFT = "res/EventMgr/BlueOcean/BlueOceanUI/cell_gift.png";
-var BO_IMAGE_CELL_NORMAL_LEVEL = "res/EventMgr/BlueOcean/BlueOceanUI/cell_normal";
-var BO_IMAGE_BG_GIFT_LEVEL = "res/EventMgr/BlueOcean/BlueOceanUI/cell_gift";
-var BO_IMAGE_STONE_LEVEL = "res/EventMgr/BlueOcean/BlueOceanUI/stone";
+var BO_IMAGE_STONE = "res/Event/BlueOcean/BlueOceanUI/cell_stone.png";
+var BO_IMAGE_BG_GIFT = "res/Event/BlueOcean/BlueOceanUI/cell_gift.png";
+var BO_IMAGE_CELL_NORMAL_LEVEL = "res/Event/BlueOcean/BlueOceanUI/cell_normal";
+var BO_IMAGE_BG_GIFT_LEVEL = "res/Event/BlueOcean/BlueOceanUI/cell_gift";
+var BO_IMAGE_STONE_LEVEL = "res/Event/BlueOcean/BlueOceanUI/stone";
 var BO_IMAGE_BUTTON_IN_GAME = "res/Event/BlueOcean/BlueOceanUI/btnEventInGame.png";
 
 // Type Item

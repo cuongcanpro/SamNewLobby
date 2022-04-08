@@ -56,22 +56,22 @@ var LuckyCard = cc.Class.extend({
     },
 
     preloadResource: function () {
-        db.DBCCFactory.getInstance().loadDragonBonesData("res/Lobby/EventMgr/halloween/ButtonEvent/skeleton.xml", "ButtonEvent");
-        db.DBCCFactory.getInstance().loadTextureAtlas("res/Lobby/EventMgr/halloween/ButtonEvent/texture.plist", "ButtonEvent");
+        db.DBCCFactory.getInstance().loadDragonBonesData("res/Lobby/Event/halloween/ButtonEvent/skeleton.xml", "ButtonEvent");
+        db.DBCCFactory.getInstance().loadTextureAtlas("res/Lobby/Event/halloween/ButtonEvent/texture.plist", "ButtonEvent");
 
         if (!this.isFinishDownload)
             return;
 
         // preload
-        LocalizedString.add("res/EventMgr/LuckyCard/WishStarRes/LuckyCard_vi");
-        db.DBCCFactory.getInstance().loadDragonBonesData("res/EventMgr/LuckyCard/WishStarRes/Fox/skeleton.xml", "Fox");
-        db.DBCCFactory.getInstance().loadTextureAtlas("res/EventMgr/LuckyCard/WishStarRes/Fox/texture.plist", "Fox");
+        LocalizedString.add("res/Event/LuckyCard/WishStarRes/LuckyCard_vi");
+        db.DBCCFactory.getInstance().loadDragonBonesData("res/Event/LuckyCard/WishStarRes/Fox/skeleton.xml", "Fox");
+        db.DBCCFactory.getInstance().loadTextureAtlas("res/Event/LuckyCard/WishStarRes/Fox/texture.plist", "Fox");
 
-        db.DBCCFactory.getInstance().loadDragonBonesData("res/EventMgr/LuckyCard/WishStarRes/RutThe/skeleton.xml", "RutThe");
-        db.DBCCFactory.getInstance().loadTextureAtlas("res/EventMgr/LuckyCard/WishStarRes/RutThe/texture.plist", "RutThe");
+        db.DBCCFactory.getInstance().loadDragonBonesData("res/Event/LuckyCard/WishStarRes/RutThe/skeleton.xml", "RutThe");
+        db.DBCCFactory.getInstance().loadTextureAtlas("res/Event/LuckyCard/WishStarRes/RutThe/texture.plist", "RutThe");
 
-        db.DBCCFactory.getInstance().loadDragonBonesData("res/EventMgr/LuckyCard/WishStarRes/NoBong/skeleton.xml", "NoBong");
-        db.DBCCFactory.getInstance().loadTextureAtlas("res/EventMgr/LuckyCard/WishStarRes/NoBong/texture.plist", "NoBong");
+        db.DBCCFactory.getInstance().loadDragonBonesData("res/Event/LuckyCard/WishStarRes/NoBong/skeleton.xml", "NoBong");
+        db.DBCCFactory.getInstance().loadTextureAtlas("res/Event/LuckyCard/WishStarRes/NoBong/texture.plist", "NoBong");
 
     },
     resetData: function () {
@@ -328,11 +328,11 @@ var LuckyCard = cc.Class.extend({
     },
 
     getTicketTexture: function () {
-        return "res/EventMgr/LuckyCard/WishStar/iconKeyCoin.png";
+        return "res/Event/LuckyCard/WishStar/iconKeyCoin.png";
     },
 
     getIconEventTexture: function () {
-        return "res/EventMgr/LuckyCard/WishStar/iconEvent.png";
+        return "res/Event/LuckyCard/WishStar/iconEvent.png";
     },
 
     // utils
@@ -390,19 +390,19 @@ var LuckyCard = cc.Class.extend({
         if (isBall === undefined || isBall == null) isBall = true;
 
         if (this.isItemStored(id))
-            return "res/EventMgr/LuckyCard/WishStar/item_" + id + ".png";
+            return "res/Event/LuckyCard/WishStar/item_" + id + ".png";
 
         if (this.isItemCoin(id))
-            return "res/EventMgr/LuckyCard/WishStar/item_keyCoin.png";
+            return "res/Event/LuckyCard/WishStar/item_keyCoin.png";
 
         if (isBall)
-            return "res/EventMgr/LuckyCard/WishStar/item_0.png";
+            return "res/Event/LuckyCard/WishStar/item_0.png";
 
-        return "res/EventMgr/LuckyCard/WishStar/item_0_img.png";
+        return "res/Event/LuckyCard/WishStar/item_0_img.png";
     },
 
     getGiftImage: function (id) {
-        return "res/EventMgr/LuckyCard/WishStar/item_" + id + ".png"
+        return "res/Event/LuckyCard/WishStar/item_" + id + ".png"
     },
 
     getInfoGift: function (id) {
@@ -859,15 +859,15 @@ var LuckyCard = cc.Class.extend({
     },
 
     getImageButtonEvent: function () {
-        return "res/EventMgr/LuckyCard/WishStar/btn_sms.png";
+        return "res/Event/LuckyCard/WishStar/btn_sms.png";
     },
 
     getLogoShopEvent: function (stage) {
-        return stage ? "res/EventMgr/LuckyCard/WishStar/shopTicket.png" : "res/EventMgr/LuckyCard/WishStar/shopTicket_disable.png";
+        return stage ? "res/Event/LuckyCard/WishStar/shopTicket.png" : "res/Event/LuckyCard/WishStar/shopTicket_disable.png";
     },
 
     getIconBonusPayment: function () {
-        return "res/EventMgr/LuckyCard/WishStar/ticket_shop0.png";
+        return "res/Event/LuckyCard/WishStar/ticket_shop0.png";
     },
 
     getBonusCostEvent: function () {
@@ -886,7 +886,7 @@ var LuckyCard = cc.Class.extend({
             if (parseInt(smsEvent[s]) <= 0) continue;
 
             var obj = {};
-            obj.img = "res/EventMgr/LuckyCard/WishStar/ticket_shop" + (idx++) + ".png";
+            obj.img = "res/Event/LuckyCard/WishStar/ticket_shop" + (idx++) + ".png";
             obj.goldOld = smsEvent[s] + nameItem;
             if (this.showX2G) obj.goldNew = Math.floor(smsEvent[s] * (1 + this.getBonusCostEvent() / 100)) + nameItem;
             else obj.goldNew = obj.goldOld;
@@ -1292,16 +1292,16 @@ LuckyCardSound.preloadAllSound = function () {
 };
 
 var rLuckySound = {
-    bg: "res/EventMgr/LuckyCard/WishStarRes/sound/wishingStar.mp3",
-    roll1Star: "res/EventMgr/LuckyCard/WishStarRes/sound/1_star.mp3",
-    roll10Star: "res/EventMgr/LuckyCard/WishStarRes/sound/10_stars.mp3",
-    oneToss: "res/EventMgr/LuckyCard/WishStarRes/sound/coin_toss.mp3",
-    tentoss: "res/EventMgr/LuckyCard/WishStarRes/sound/10_coin_toss.mp3",
-    coin: "res/EventMgr/LuckyCard/WishStarRes/sound/coin_get.mp3",
-    simpleGift: "res/EventMgr/LuckyCard/WishStarRes/sound/gift.mp3",
-    specialGift: "res/EventMgr/LuckyCard/WishStarRes/sound/gifteffect.mp3",
-    starfall: "res/EventMgr/LuckyCard/WishStarRes/sound/star_fall.mp3",
-    lightwell: "res/EventMgr/LuckyCard/WishStarRes/sound/light_from_wells.mp3"
+    bg: "res/Event/LuckyCard/WishStarRes/sound/wishingStar.mp3",
+    roll1Star: "res/Event/LuckyCard/WishStarRes/sound/1_star.mp3",
+    roll10Star: "res/Event/LuckyCard/WishStarRes/sound/10_stars.mp3",
+    oneToss: "res/Event/LuckyCard/WishStarRes/sound/coin_toss.mp3",
+    tentoss: "res/Event/LuckyCard/WishStarRes/sound/10_coin_toss.mp3",
+    coin: "res/Event/LuckyCard/WishStarRes/sound/coin_get.mp3",
+    simpleGift: "res/Event/LuckyCard/WishStarRes/sound/gift.mp3",
+    specialGift: "res/Event/LuckyCard/WishStarRes/sound/gifteffect.mp3",
+    starfall: "res/Event/LuckyCard/WishStarRes/sound/star_fall.mp3",
+    lightwell: "res/Event/LuckyCard/WishStarRes/sound/light_from_wells.mp3"
 };
 
 LuckyCard._instance = null;

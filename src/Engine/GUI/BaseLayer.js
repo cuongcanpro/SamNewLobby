@@ -809,7 +809,7 @@ var NumberGroupCustom = cc.Node.extend({
     /*
        type: 0 la loai co chu, type: 1 la loai chi co so
      */
-    ctor: function(resource, pad, type) {
+    ctor: function(resource, pad, type, isSignal) {
         this._super();
         this.arrayChar = [];
         this.resource = resource;
@@ -822,7 +822,9 @@ var NumberGroupCustom = cc.Node.extend({
         this.targetNumber = 0;
         this.dNumber = 0;
         this.dTime = 0;
+        this.isSignal = isSignal;
         this.scheduleUpdate();
+        this.setCascadeOpacityEnabled(true);
     },
 
     setNumber: function(number) {
@@ -837,27 +839,36 @@ var NumberGroupCustom = cc.Node.extend({
             string = StringUtility.formatNumberSymbol(number);
         else
             string = StringUtility.pointNumber(number);
+        if (this.isSignal) {
+            string = (number >= 0 ? "+" : "-") + string;
+        }
         for (var i = 0; i < string.length; i++) {
             var image;
-            if (string.charAt(i) != '.') {
-                image = new cc.Sprite(this.resource + string.charAt(i) + ".png");
+            if (string.charAt(i) == '+') {
+                image = new cc.Sprite(this.resource + "Plus.png");
             }
-            else {
+            else  if (string.charAt(i) == '.'){
                 image = new cc.Sprite(this.resource + "Dot.png");
                 //this.pad = -image.getContentSize().width * 0.4;
+            }
+            else {
+                image = new cc.Sprite(this.resource + string.charAt(i) + ".png");
             }
             this.addChild(image);
             this.arrayChar.push(image);
         }
         var sum = 0;
+
+
+
         for (var i = 0; i < this.arrayChar.length; i++) {
             sum = sum + this.arrayChar[i].getContentSize().width + (i == 0 ? 0 : this.pad);
         }
-        this.setContentSize(cc.size(sum, this.arrayChar[0].getContentSize().height));
+        this.setContentSize(cc.size(sum, this.arrayChar[this.arrayChar.length - 1].getContentSize().height));
         var startX = -sum * 0.5;
         for (var i = 0; i < this.arrayChar.length; i++) {
             if (string.charAt(i) == '.')
-                this.arrayChar[i].setPositionY(-this.getContentSize().height * 0.5 + this.arrayChar[i].getContentSize().width * 0.5);
+                this.arrayChar[i].setPositionY(-this.getContentSize().height * 0.3);
             this.arrayChar[i].setPositionX(startX + this.arrayChar[i].getContentSize().width * 0.5);
             startX = startX + this.arrayChar[i].getContentSize().width + this.pad;
         }

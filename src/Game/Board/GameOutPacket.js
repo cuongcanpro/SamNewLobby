@@ -7,7 +7,7 @@ var CmdSendQuitRoom = CmdSendCommon.extend({
         this._super();
         this.initData(100);
         this.setControllerId(1);
-        this.setCmdId(CMD.CMD_QUIT_ROOM);
+        this.setCmdId(InGameMgr.CMD_QUIT_ROOM);
         this.putData();
     },
     putData: function () {
@@ -24,7 +24,7 @@ var CmdSendStartGame = CmdSendCommon.extend({
         this._super();
         this.initData(100);
         this.setControllerId(1);
-        this.setCmdId(CMD.CMD_STARTGAME);
+        this.setCmdId(InGameMgr.CMD_STARTGAME);
         this.putData();
     },
     putData:function(){
@@ -41,7 +41,7 @@ var CmdSendDanhBai = CmdSendCommon.extend({
         this._super();
         this.initData(100);
         this.setControllerId(1);
-        this.setCmdId(CMD.CMD_DANHBAI);
+        this.setCmdId(InGameMgr.CMD_DANHBAI);
     },
     putData:function(boluot,cards){
         //pack
@@ -70,7 +70,7 @@ var CmdSendHuyBaoSam = CmdSendCommon.extend({
         this._super();
         this.initData(100);
         this.setControllerId(1);
-        this.setCmdId(CMD.CMD_HUYBAOSAM);
+        this.setCmdId(InGameMgr.CMD_HUYBAOSAM);
         this.putData();
     },
     putData:function(){
@@ -87,7 +87,7 @@ var CmdSendBaoSam = CmdSendCommon.extend({
         this._super();
         this.initData(100);
         this.setControllerId(1);
-        this.setCmdId(CMD.CMD_BAOSAM);
+        this.setCmdId(InGameMgr.CMD_BAOSAM);
         this.putData();
     },
     putData:function(){
@@ -104,7 +104,7 @@ var CmdSendCheatBai = CmdSendCommon.extend({
         this._super();
         this.initData(200);
         this.setControllerId(1);
-        this.setCmdId(CMD.CMD_CHEATBAI);
+        this.setCmdId(InGameMgr.CMD_CHEATBAI);
     },
     putData:function(chair,cards,cheat){
         //pack
@@ -128,10 +128,26 @@ var CmdSendAddBot = CmdSendCommon.extend({
         this._super();
         this.initData(100);
         this.setControllerId(1);
-        this.setCmdId(CMD.CMD_ADD_BOT);
+        this.setCmdId(InGameMgr.CMD_ADD_BOT);
         this.putData();
     },
 
+    putData: function () {
+        //pack
+        this.packHeader();
+        //update
+        this.updateSize();
+    }
+});
+
+CmdSendHold = CmdSendCommon.extend({
+    ctor: function () {
+        this._super();
+        this.initData(100);
+        this.setControllerId(1);
+        this.setCmdId(InGameMgr.CMD_HOLD);
+        this.putData();
+    },
     putData: function () {
         //pack
         this.packHeader();

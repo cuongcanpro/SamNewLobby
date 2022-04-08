@@ -6,18 +6,18 @@
       <ObjectData Name="Scene" Tag="309" ctype="GameNodeObjectData">
         <Size X="1200.0000" Y="720.0000" />
         <Children>
-          <AbstractNodeData Name="btnVoucher" ActionTag="-766483480" Tag="315" IconVisible="False" HorizontalEdge="RightEdge" LeftMargin="736.5000" RightMargin="3.5000" TopMargin="120.0000" BottomMargin="310.0000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="5" BottomEage="5" Scale9OriginX="15" Scale9OriginY="5" Scale9Width="11" Scale9Height="6" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="btnVoucher" ActionTag="-766483480" Tag="315" IconVisible="False" HorizontalEdge="RightEdge" LeftMargin="1136.5000" RightMargin="3.5000" TopMargin="360.0000" BottomMargin="310.0000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="5" BottomEage="5" Scale9OriginX="-15" Scale9OriginY="-5" Scale9Width="30" Scale9Height="10" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="60.0000" Y="50.0000" />
             <Children>
-              <AbstractNodeData Name="img" ActionTag="-1844433880" Tag="314" IconVisible="False" HorizontalEdge="RightEdge" LeftMargin="14.0000" TopMargin="1.0000" BottomMargin="3.0000" Scale9Width="46" Scale9Height="46" ctype="ImageViewObjectData">
-                <Size X="46.0000" Y="46.0000" />
+              <AbstractNodeData Name="img" ActionTag="-1844433880" Tag="314" IconVisible="False" HorizontalEdge="RightEdge" LeftMargin="-2.0000" TopMargin="-36.0000" BottomMargin="3.0000" LeftEage="20" RightEage="20" TopEage="27" BottomEage="27" Scale9OriginX="20" Scale9OriginY="27" Scale9Width="22" Scale9Height="29" ctype="ImageViewObjectData">
+                <Size X="62.0000" Y="83.0000" />
                 <AnchorPoint ScaleX="1.0000" />
                 <Position X="60.0000" Y="3.0000" />
                 <Scale ScaleX="0.4000" ScaleY="0.4000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="1.0000" Y="0.0600" />
-                <PreSize X="0.7667" Y="0.9200" />
-                <FileData Type="Default" Path="Default/ImageFile.png" Plist="" />
+                <PreSize X="1.0333" Y="1.6600" />
+                <FileData Type="Normal" Path="Items/voucher/100.png" Plist="" />
               </AbstractNodeData>
               <AbstractNodeData Name="timeBg" ActionTag="-313926358" Alpha="178" Tag="311" IconVisible="False" HorizontalEdge="RightEdge" VerticalEdge="BottomEdge" LeftMargin="-5.0000" RightMargin="-5.0000" TopMargin="30.0000" Scale9Enable="True" LeftEage="230" RightEage="230" TopEage="14" BottomEage="14" Scale9OriginX="230" Scale9OriginY="14" Scale9Width="140" Scale9Height="4" ctype="ImageViewObjectData">
                 <Size X="70.0000" Y="20.0000" />
@@ -43,11 +43,11 @@
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="1.0000" />
-            <Position X="796.5000" Y="310.0000" />
+            <Position X="1196.5000" Y="310.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.9956" Y="0.6458" />
-            <PreSize X="0.0750" Y="0.1042" />
+            <PrePosition X="0.9971" Y="0.4306" />
+            <PreSize X="0.0500" Y="0.0694" />
             <TextColor A="255" R="65" G="65" B="70" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />

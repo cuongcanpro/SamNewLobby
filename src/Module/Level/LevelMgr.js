@@ -7,6 +7,7 @@ var LevelMgr = BaseMgr.extend({
     onReceived: function (cmd, pk) {
         switch (cmd) {
             case LevelMgr.CMD_LEVEL_CONFIG: {
+                return true;
                 var cmd = new CmdReceivedLevelConfig(pk);
                 cmd.clean();
                 this.loadConfig(cmd);

@@ -6,14 +6,13 @@
 
 var FortuneCatManager = BaseMgr.extend({
     ctor: function(){
-        ///user info
         this._super();
+        ///user info
         this.userNumBell = null;
         this.userCatIdList = null;
         this.userOpenCatId = null;
         this.userOpenRemainTime = null;
         this.unlockingCatIndex = null;
-        this.numRecentBell = 0;
         this.recentCatId = null;
         this.secondCounter = 0;
 
@@ -22,6 +21,9 @@ var FortuneCatManager = BaseMgr.extend({
 
         ///distinguish user click on fortune cat icon or just receive data from server
         this.userClickedFortuneCatIcon = false;
+
+        ///check if already check for auto pop GUI in lobby
+        this.checkedAutoPopGUI = true;
 
         ///main scene
         this.fortuneCatMainLayer = null;
@@ -35,10 +37,11 @@ var FortuneCatManager = BaseMgr.extend({
         ///icon
         this.lobbyIcon = null;
         this.ingameIcon = null;
+        this.isIngameIcon = false;
     },
 
-    initListener: function () {
-        dispatcherMgr.addListener(LobbyMgr.EVENT_ON_ENTER_FINISH, this, this.checkShowNotify);
+    init: function () {
+        dispatcherMgr.addListener(LobbyMgr.EVENT_ON_ENTER_FINISH, this, this.onEnterLobby);
     },
 
     updateUserVipInfo: function(){
@@ -48,33 +51,32 @@ var FortuneCatManager = BaseMgr.extend({
             this.userVipLevel = 0;
         }
     },
-
     ///listeners
-    onReceived: function(cmd, data) {
+    onReceived: function(cmd, data){
         switch (cmd){
             case FortuneCatManager.CMD_CONFIG:
                 var pk = new CmdFortuneCatConfig(data);
                 pk.clean();
                 this.onReceiveConfig(pk);
-                break;
+                return true;
 
             case FortuneCatManager.CMD_USER_DATA:
                 var pk = new CmdFortuneCatUserData(data);
                 pk.clean();
                 this.onReceiveUserData(pk);
-                break;
+                return true;
 
             case FortuneCatManager.CMD_UNLOCK_AUTHORIZED:
                 var pk = new CmdFortuneCatUnlockAuthorized(data);
                 pk.clean();
                 this.onReceiveUnlockAuthorized(pk);
-                break;
+                return true;
 
             case FortuneCatManager.CMD_RECEIVE_REWARD:
                 var pk = new CmdReceiveFortuneCatReward(data);
                 pk.clean();
                 this.onReceiveReward(pk);
-                break;
+                return true;
 
             case FortuneCatManager.CMD_RECEIVE_BELL:
                 var pk = new CmdReceiveFortuneCatBell(data);
@@ -82,13 +84,13 @@ var FortuneCatManager = BaseMgr.extend({
 
                 cc.log("FortuneCatManager.CMD_RECEIVE_BELL", JSON.stringify(pk));
                 this.onReceiveBell(pk);
-                break;
+                return true;
 
             case FortuneCatManager.CMD_RECEIVE_CAT:
                 var pk = new CmdReceiveFortuneCat(data);
                 pk.clean();
                 this.onReceiveCat(pk);
-                break;
+                return true;
         }
     },
 
@@ -118,9 +120,22 @@ var FortuneCatManager = BaseMgr.extend({
         }
 
         ///distinguish user receive this packet when enter lobby GUI or when click the icon
+        this.checkShowNotify();
         if (this.userClickedFortuneCatIcon){
             this.userClickedFortuneCatIcon = false;
             this.fortuneCatMainLayer = sceneMgr.openGUI(FortuneCatMainLayer.className, FortuneCatMainLayer.tag, FortuneCatMainLayer.tag);
+            if (this.isIngameIcon){
+                this.fortuneCatMainLayer.animateIngameLayoutIn();
+            }
+            else {
+                this.fortuneCatMainLayer.animateLayoutIn();
+            }
+        } else {
+            this.isIngameIcon = false;
+            if (!this.checkedAutoPopGUI){
+                this.checkAutoPopGUI();
+                this.checkedAutoPopGUI = true;
+            }
         }
     },
 
@@ -145,6 +160,17 @@ var FortuneCatManager = BaseMgr.extend({
             "🔥 Đăng nhập ngay để nhận gold từ mèo may mắn",
             true
         );
+
+
+        ///Notify user 12 hours after a cat is unlocked
+        LocalNotification.getInstance().addNotify(
+            Date.now() + this.catConfigList[pk.catId].openTime + 43200000,
+            "Rước Mèo May Mắn",
+            "🎁 Đừng bỏ lỡ cơ hội nhận " + FortuneCatUtility.formatCatGold(this.catConfigList[pk.catId].gold) + " gold miễn phí 🎁",
+            "🔥 Đăng nhập ngay",
+            true
+        );
+
         LocalNotification.getInstance().showNotify();
 
         if (this.fortuneCatMainLayer !== null){
@@ -152,29 +178,49 @@ var FortuneCatManager = BaseMgr.extend({
             this.fortuneCatMainLayer.updateCatSlotList(this.userCatIdList);
             this.fortuneCatMainLayer.updateProgressValue(this.userNumBell, this.userCatIdList.length);
         }
+
+        ///turn off ingame highlight if possible
+        if (sceneMgr.getMainLayer() instanceof BoardScene){
+            this.ingameIcon.stopHighlight();
+            this.ingameIcon.checkFullCat();
+        }
     },
 
     onReceiveReward: function(pk){
         if (this.fortuneCatMainLayer !== null){
+            this.userOpenCatId = -1;
+
             this.fortuneCatMainLayer.btnReceiveReward.setVisible(false);
+            this.fortuneCatMainLayer.mainCatClock.setVisible(true);
             this.fortuneCatMainLayer.mainCatBody.setVisible(false);
             this.fortuneCatMainLayer.mainCatSilhouette.setVisible(true);
             this.fortuneCatMainLayer.btnReceiveReward.stopAllActions();
             this.fortuneCatMainLayer.btnReceiveReward.setScale(1);
+            this.fortuneCatMainLayer.animatePlayNowButton();
 
             this.lobbyIcon.notifyFinishUnlocking(false);
+
+            // var gui = sceneMgr.openGUI(FortuneCatUnlockedReward.className, FortuneCatUnlockedReward.TAG, FortuneCatUnlockedReward.TAG);
+            // var bonusData = new BonusData(pk.gold, ShopSuccessData.TYPE_GOLD);
+            // var array = [];
+            //
+            // array.push(bonusData);
+            // gui.pushArrayBonus(array, localized("RECEIVE_GIFT"));
 
             receivedMgr.setReceivedGUIInfo(
                 [new ReceivedGUIData(ReceivedCell.TYPE_GOLD, pk.gold)],
                 "Phần thưởng rước Mèo may mắn"
             );
             receivedMgr.openGUI();
+
+            ///cancel 2nd noti
+            LocalNotification.getInstance().cancelAllNotification();
+            cc.log("Cancel noti");
         }
     },
 
     onReceiveBell: function(pk){
         this.updateBell(pk.numBell);
-        this.numRecentBell = pk.numBell;
 
         if (this.ingameIcon) this.ingameIcon.endGameFx();
     },
@@ -183,20 +229,9 @@ var FortuneCatManager = BaseMgr.extend({
         this.userCatIdList.push(pk.catId);
         this.recentCatId = pk.catId;
 
-        if (FortuneCatManager.getInstance().recentCatId !== null){
-            setTimeout(function(){
-                let gui = sceneMgr.openGUI(FortuneCatIngameRewardGUI.className, FortuneCatIngameRewardGUI.tag, FortuneCatIngameRewardGUI.tag);
-                let rewardScale = 0.8;
-                gui.loadInfo(
-                    FortuneCatImageUnlockingPathList[FortuneCatManager.getInstance().recentCatId],
-                    FortuneCatTitlePathList[FortuneCatManager.getInstance().recentCatId],
-                    rewardScale,
-                    "Chúc mừng bạn nhận được Mèo may mắn",
-                    0
-                );
-                FortuneCatManager.getInstance().recentCatId = null;
-            }, (PlayerView.TIME_RESULT_ANIMATION - 2) * 1000);
-        }
+        this.ingameIcon.addFlyCatFx(this.recentCatId, 1);
+        this.ingameIcon.checkNoCatUnlock();
+        this.recentCatId = null;
     },
     ///end - handlers
 
@@ -273,28 +308,30 @@ var FortuneCatManager = BaseMgr.extend({
     checkShowNotify: function(){
         var fortuneCatMgr = FortuneCatManager.getInstance();
 
-        this.sendGetUserData();
-        var btn = this.lobbyIcon;
-        btn.runAction(cc.sequence(
-            cc.delayTime(1),
-            cc.callFunc(function(){
-                ///check show noti or not
-                if (this.checkNotifyCondition()){
-                    btn.notifyFinishUnlocking(true);
-                }
-                else {
-                    btn.notifyFinishUnlocking(false);
-                }
+        if (!this.lobbyIcon) {
+            var gui = sceneMgr.getRunningScene().getMainLayer();
+            if (gui instanceof LobbyScene) {
+                this.lobbyIcon = new FortuneCatIcon(false);
+                gui.pRightButton.addChild(this.lobbyIcon);
+                gui.arrayTopRight.push(this.lobbyIcon);
+            }
+        }
+        if (!this.lobbyIcon) return;
 
-                ///check show remain time or not
-                if (fortuneCatMgr.userOpenRemainTime > 0){
-                    fortuneCatMgr.lobbyIcon.updateRemainTime(Math.floor(fortuneCatMgr.userOpenRemainTime / 1000));
-                }
-                else{
-                    fortuneCatMgr.lobbyIcon.showProgress();
-                }
-            }.bind(this))
-        ));
+        var btn = this.lobbyIcon;
+        ///check show noti or not
+        if (this.checkNotifyCondition()){
+            btn.notifyFinishUnlocking(true);
+        } else {
+            btn.notifyFinishUnlocking(false);
+        }
+
+        ///check show remain time or not
+        if (fortuneCatMgr.userOpenRemainTime > 0){
+            fortuneCatMgr.lobbyIcon.updateRemainTime(Math.floor(fortuneCatMgr.userOpenRemainTime / 1000));
+        } else{
+            fortuneCatMgr.lobbyIcon.showProgress();
+        }
     },
 
     ///need to show the exclamation on the icon or not?
@@ -313,8 +350,27 @@ var FortuneCatManager = BaseMgr.extend({
         else {
             return false;
         }
-    }
+    },
+
+    onEnterLobby: function () {
+        this.sendGetUserData();
+        this.checkShowNotify();
+    },
     ///end - notify logic
+    ///start - auto pop GUI logic
+    checkAutoPopGUI: function(){
+        if (
+            this.userOpenCatId !== null &&
+            this.userOpenCatId !== -1 &&
+            this.userOpenRemainTime == 0
+        ){
+            if (gamedata.getUserGold() <= 5000000){
+                this.userClickedFortuneCatIcon = true;
+                this.sendGetUserData();
+            }
+        }
+    }
+    ///end - auto pop GUI logic
 });
 
 FortuneCatManager.instance = null;
@@ -324,6 +380,8 @@ FortuneCatManager.getInstance = function(){
     }
     return FortuneCatManager.instance;
 }
+
+var fortuneCatMgr = FortuneCatManager.getInstance();
 
 ///send-packet id list
 FortuneCatManager.CMD_GET_USER_DATA = 24002;

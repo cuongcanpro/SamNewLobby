@@ -24,6 +24,7 @@ var Reel = cc.Node.extend({
         this.isAtMaxSpeed = false;
         this.hasStopped = false;
         this.hasJustSlowedDown = false;
+        this.logStop = false;
     },
 
     init: function (acceleration, slowDownDuration, minSlowDownTravelDistance, result, intenseLastRound) {
@@ -68,6 +69,7 @@ var Reel = cc.Node.extend({
     },
 
     updateSpeed: function (dt) {
+        if (this.logStop && this.isSlowingDown) cc.log("updateSpeed", Math.round(this.acceleration * dt), dt);
         this.speed += this.acceleration * dt;
     },
 
@@ -113,14 +115,15 @@ var Reel = cc.Node.extend({
                 if (!this.hasJustSlowedDown) {
                     this.hasJustSlowedDown = true;
                 } else {
-                    this.slowDownTravelDistance -= this.speed * dt + 0.5 * this.acceleration * dt * dt;
+                    this.slowDownTravelDistance += Math.abs(this.speed * dt + 0.5 * this.acceleration * dt * dt);
                 }
-                if (
-                    //threshold to catch the stopping moment
+
+                if ( //threshold to catch the stopping moment
                     this.position < ReelConfig[this.result].position + Reel.SLOT_DESTINATION_THRESHOLD &&
                     this.position > ReelConfig[this.result].position &&
                     this.slowDownTravelDistance > this.minSlowDownTravelDistance
                 ) {
+                    if (this.logStop) cc.log("ITS STOP?");
                     this.speed = 0;
                     this.acceleration = 0;
                     this.hasStopped = true;
@@ -142,6 +145,17 @@ var Reel = cc.Node.extend({
                         var sequence = cc.sequence(action1, action2);
                         this.slotList[i].runAction(sequence);
                     }
+                } else {
+                    if (this.logStop)
+                        cc.log(
+                            "WHY CANT THE REEL STOP?",
+                            Math.round(this.speed),
+                            ReelConfig[this.result].position,
+                            Math.round(this.position),
+                            ReelConfig[this.result].position + Reel.SLOT_DESTINATION_THRESHOLD,
+                            Math.round(this.slowDownTravelDistance),
+                            this.minSlowDownTravelDistance
+                        );
                 }
             }
         }
@@ -156,6 +170,7 @@ var Reel = cc.Node.extend({
         this.minSlowDownTravelDistance = distance - 100;
         //accelatarion formula
         var acceleration = -2 * (distance + this.speed * this.slowDownDuration) / Math.pow(this.slowDownDuration, 2);
+        if (this.logStop) cc.log("ACCELERATION", Math.round(acceleration));
         return acceleration;
     }
 })

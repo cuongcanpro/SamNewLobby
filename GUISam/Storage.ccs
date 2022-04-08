@@ -33,67 +33,80 @@
           <Image Name="bgBroadcast.png" />
           <Image Name="bgDialog.png" />
           <Image Name="bgLoading.jpg" />
-          <Image Name="bgSub.png" />
-          <Image Name="bgSubBot.png" />
-          <Image Name="bgSubTop.png" />
-          <Image Name="bgSubTransperance.png" />
           <Image Name="black.png" />
           <Image Name="btn_cheat.png" />
-          <Image Name="btnAddG.png" />
-          <Image Name="btnAddGold.png" />
           <Image Name="btnBack.png" />
           <Image Name="btnBlue.png" />
-          <Image Name="btnCancel.png" />
           <Image Name="btnClose.png" />
-          <Image Name="btnConfirm.png" />
-          <Image Name="btnF5.png" />
           <Image Name="btnGreen.png" />
           <Image Name="btnHelp.png" />
-          <Image Name="btnUse.png" />
           <Image Name="btnYellow.png" />
-          <Image Name="buttonOK.png" />
           <Audio Name="coin_01.mp3" />
           <Audio Name="coin_02.mp3" />
           <Audio Name="coin_03.mp3" />
           <Audio Name="coinFall.mp3" />
-          <Image Name="CommonBg.jpg" />
           <Image Name="defaultAvatar.png" />
           <Image Name="dot.png" />
-          <Image Name="gamecenter.png" />
           <Image Name="iconGold.png" />
           <Image Name="iconGoldBig.png" />
-          <Image Name="iconStar.png" />
-          <Image Name="iconStarBig.png" />
           <Image Name="iconXu.png" />
-          <Image Name="iconXuBig.png" />
           <Image Name="light.png" />
           <Image Name="loading.png" />
           <Image Name="logo_zp.png" />
           <Image Name="maskAvatar.png" />
           <Image Name="shine.png" />
-          <Image Name="text.png" />
-          <Image Name="titleGiftStartup.png" />
-          <Image Name="titleGiftSupport.png" />
           <Image Name="touchDeco.png" />
           <Image Name="touchIcon0.png" />
           <Image Name="touchIcon1.png" />
           <Image Name="touchIcon2.png" />
           <Image Name="touchIcon3.png" />
           <Image Name="touchSquare.png" />
-          <Image Name="zingplay.png" />
         </Folder>
         <Folder Name="Font">
           <Fnt Name="detail_jackpot.fnt" />
           <Fnt Name="jackpot.fnt" />
           <Image Name="jackpot.png" />
+          <TTF Name="robotoBold.ttf" />
+          <TTF Name="robotoLight.ttf" />
           <TTF Name="tahoma.ttf" />
           <TTF Name="tahomabd.ttf" />
+        </Folder>
+        <Folder Name="Items">
+          <Folder Name="avatar">
+            <Image Name="0.png" />
+            <Image Name="1.png" />
+            <Image Name="2.png" />
+            <Image Name="3.png" />
+            <Image Name="4.png" />
+            <Image Name="5.png" />
+            <Image Name="6.png" />
+            <Image Name="7.png" />
+            <Image Name="8.png" />
+          </Folder>
+          <Folder Name="emoticon">
+            <Folder Name="small">
+              <Image Name="1.png" />
+            </Folder>
+            <Image Name="0.png" />
+            <Image Name="1.png" />
+          </Folder>
+          <Folder Name="voucher">
+            <Image Name="0.png" />
+            <Image Name="1.png" />
+            <Image Name="100.png" />
+            <Image Name="2.png" />
+            <Image Name="3.png" />
+            <Image Name="4.png" />
+            <Image Name="5.png" />
+            <Image Name="50.png" />
+            <Image Name="6.png" />
+            <Image Name="7.png" />
+          </Folder>
         </Folder>
         <Folder Name="NewLobbyUserInfoGUI">
           <Image Name="avatarFrame.png" />
           <Image Name="backgroundAvatar.png" />
           <Image Name="bgAvatar.png" />
-          <Image Name="bgEnemy.png" />
           <Image Name="bgGold.png" />
           <Image Name="bgInfo.png" />
           <Image Name="bgInfoAvatar.png" />
@@ -105,7 +118,6 @@
           <Image Name="bgText.png" />
           <Image Name="bgTitle.png" />
           <Image Name="btnChangeAvatar.png" />
-          <Image Name="btnClose.png" />
           <Image Name="btnFinish.png" />
           <Image Name="btnStorage.png" />
           <Image Name="btnVerify.png" />
@@ -149,35 +161,9 @@
             <Image Name="btnTabVoucherActive.png" />
             <Image Name="btnTabVoucherInactive.png" />
           </Folder>
-          <Folder Name="popup">
-            <Image Name="bg.png" />
-            <Image Name="boxBg.png" />
-            <Image Name="boxTick.png" />
-            <Image Name="btnDone.png" />
-            <Image Name="btnLeft.png" />
-            <Image Name="btnNext.png" />
-            <Image Name="btnRight.png" />
-            <Image Name="demo_1.png" />
-            <Image Name="demo_2.png" />
-            <Image Name="demo_3.png" />
-            <Image Name="demo_animation.png" />
-            <Image Name="diamond.png" />
-            <Image Name="diamond_text.png" />
-            <Image Name="kho_do.png" />
-            <Image Name="kho_do_text.png" />
-            <Image Name="khung.png" />
-            <Image Name="khung_text.png" />
-            <Image Name="shop.png" />
-            <Image Name="shop_text.png" />
-            <Image Name="title_new_feature.png" />
-            <Image Name="title_new_item.png" />
-            <Image Name="voucher.png" />
-            <Image Name="voucher_text.png" />
-          </Folder>
           <Image Name="avatarBg.png" />
           <Image Name="barBg.png" />
           <Image Name="bg.jpg" />
-          <Image Name="bg.png" />
           <Image Name="bgLock.png" />
           <Image Name="btnBack.png" />
           <Image Name="btnTabAvatar.png" />
@@ -206,6 +192,8 @@
           <Image Name="title.png" />
           <Image Name="unlock.png" />
         </Folder>
+        <Project Name="BoardVoucher.csd" Type="Node" />
+        <Project Name="BoardVoucherGUI.csd" Type="Scene" />
         <Project Name="ItemNotifyCell.csd" Type="Layer" />
         <Project Name="ItemNotifyGUI.csd" Type="Scene" />
         <Project Name="StorageGUI.csd" Type="Layer" />

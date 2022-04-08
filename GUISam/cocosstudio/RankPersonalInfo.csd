@@ -22,10 +22,10 @@
                     <PreSize X="1.0036" Y="1.0476" />
                     <FileData Type="Normal" Path="Ranking/borderBgMe.png" Plist="" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="bgAvatar" ActionTag="-1614581136" Tag="196" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="56.0003" RightMargin="646.9997" TopMargin="-12.5000" BottomMargin="-12.5000" LeftEage="18" RightEage="18" TopEage="18" BottomEage="18" Scale9OriginX="18" Scale9OriginY="18" Scale9Width="94" Scale9Height="94" ctype="ImageViewObjectData">
+                  <AbstractNodeData Name="bgAvatar" ActionTag="-1562719378" Tag="1518" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="56.0000" RightMargin="647.0000" TopMargin="-12.5000" BottomMargin="-12.5000" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" ctype="PanelObjectData">
                     <Size X="130.0000" Y="130.0000" />
                     <Children>
-                      <AbstractNodeData Name="btnAvatar" CanEdit="False" ActionTag="-230721027" Tag="209" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="5" BottomEage="5" Scale9OriginX="-15" Scale9OriginY="-5" Scale9Width="30" Scale9Height="10" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+                      <AbstractNodeData Name="btnAvatar" ActionTag="-230721027" Tag="209" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="5" BottomEage="5" Scale9OriginX="-15" Scale9OriginY="-5" Scale9Width="30" Scale9Height="10" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
                         <Size X="130.0000" Y="130.0000" />
                         <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                         <Position X="65.0000" Y="65.0000" />
@@ -38,24 +38,27 @@
                         <OutlineColor A="255" R="255" G="0" B="0" />
                         <ShadowColor A="255" R="110" G="110" B="110" />
                       </AbstractNodeData>
-                      <AbstractNodeData Name="border" CanEdit="False" ActionTag="-286062908" Tag="197" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="37.5000" RightMargin="37.5000" TopMargin="43.5000" BottomMargin="31.5000" LeftEage="18" RightEage="18" TopEage="18" BottomEage="18" Scale9OriginX="18" Scale9OriginY="18" Scale9Width="19" Scale9Height="19" ctype="ImageViewObjectData">
-                        <Size X="55.0000" Y="55.0000" />
+                      <AbstractNodeData Name="border" ActionTag="-286062908" Tag="197" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="22.4860" RightMargin="24.5140" TopMargin="27.8940" BottomMargin="19.1060" LeftEage="18" RightEage="18" TopEage="18" BottomEage="18" Scale9OriginX="18" Scale9OriginY="18" Scale9Width="47" Scale9Height="47" ctype="ImageViewObjectData">
+                        <Size X="83.0000" Y="83.0000" />
                         <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                        <Position X="65.0000" Y="59.0000" />
-                        <Scale ScaleX="2.7500" ScaleY="2.7500" />
+                        <Position X="63.9860" Y="60.6060" />
+                        <Scale ScaleX="1.8500" ScaleY="1.8500" />
                         <CColor A="255" R="255" G="255" B="255" />
-                        <PrePosition X="0.5000" Y="0.4538" />
-                        <PreSize X="0.4231" Y="0.4231" />
-                        <FileData Type="PlistSubImage" Path="bgAvatar.png" Plist="Ranking/newRank.plist" />
+                        <PrePosition X="0.4922" Y="0.4662" />
+                        <PreSize X="0.6385" Y="0.6385" />
+                        <FileData Type="Normal" Path="Ranking/bgAvatar.png" Plist="" />
                       </AbstractNodeData>
                     </Children>
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                    <Position X="121.0003" Y="52.5000" />
+                    <Position X="121.0000" Y="52.5000" />
                     <Scale ScaleX="0.5500" ScaleY="0.5500" />
                     <CColor A="255" R="255" G="255" B="255" />
                     <PrePosition X="0.1453" Y="0.5000" />
                     <PreSize X="0.1561" Y="1.2381" />
-                    <FileData Type="Normal" Path="Storage/avatarBg.png" Plist="" />
+                    <SingleColor A="255" R="150" G="200" B="255" />
+                    <FirstColor A="255" R="150" G="200" B="255" />
+                    <EndColor A="255" R="255" G="255" B="255" />
+                    <ColorVector ScaleY="1.0000" />
                   </AbstractNodeData>
                   <AbstractNodeData Name="txtName" ActionTag="-2037264847" Tag="198" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="168.0004" RightMargin="455.9996" TopMargin="5.0000" BottomMargin="5.0000" IsCustomSize="True" FontSize="23" LabelText="Username" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                     <Size X="209.0000" Y="95.0000" />

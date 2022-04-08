@@ -76,14 +76,14 @@ BlueOcean = cc.Class.extend({
         if (!this.isFinishDownload)
             return;
         cc.log("BlueOcean::preloadResource");
-        LocalizedString.add("res/EventMgr/BlueOcean/BlueOceanRes/MDLocalized_vi");
+        LocalizedString.add("res/Event/BlueOcean/BlueOceanRes/MDLocalized_vi");
 
-        // cc.spriteFrameCache.addSpriteFrames("res/EventMgr/BlueOcean/BlueOceanUI/event.plist");
-        //  cc.spriteFrameCache.addSpriteFrames("res/EventMgr/BlueOcean/BlueOceanUI/pieceGift.plist");
-        //db.DBCCFactory.getInstance().loadDragonBonesData("res/EventMgr/BlueOceanRes/zingplaymascot/skeleton.xml","zingplaymascot");
-        //db.DBCCFactory.getInstance().loadTextureAtlas("res/EventMgr/BlueOceanRes/zingplaymascot/texture.plist", "zingplaymascot");
+        // cc.spriteFrameCache.addSpriteFrames("res/Event/BlueOcean/BlueOceanUI/event.plist");
+        //  cc.spriteFrameCache.addSpriteFrames("res/Event/BlueOcean/BlueOceanUI/pieceGift.plist");
+        //db.DBCCFactory.getInstance().loadDragonBonesData("res/Event/BlueOceanRes/zingplaymascot/skeleton.xml","zingplaymascot");
+        //db.DBCCFactory.getInstance().loadTextureAtlas("res/Event/BlueOceanRes/zingplaymascot/texture.plist", "zingplaymascot");
         // game_animations.push({
-        //     folderpath: "res/EventMgr/BlueOceanRes/cao/",
+        //     folderpath: "res/Event/BlueOceanRes/cao/",
         //     skeleton: "skeleton.xml",
         //     texture: "texture.plist",
         //     key: "cao"
@@ -265,7 +265,7 @@ BlueOcean = cc.Class.extend({
         if (!this.buttonLobby) return;
         this.buttonLobby.anim.removeAllChildren();
         this.buttonLobby.button.setContentSize(300, 300);
-        this.buttonLobby.anim.eff = new CustomSkeleton("Lobby/EventMgr/summer/IconEvent", "Icon_thosan", 1);
+        this.buttonLobby.anim.eff = new CustomSkeleton("Lobby/Event/summer/IconEvent", "Icon_thosan", 1);
         this.buttonLobby.anim.addChild(this.buttonLobby.anim.eff);
         this.buttonLobby.anim.eff.setPosition(0, 5);
         this.buttonLobby.anim.eff.setAnimation(0, "animation", -1);
@@ -626,7 +626,7 @@ BlueOcean = cc.Class.extend({
     getPieceImage: function (id) {
         cc.log("GetPiece " + id);
         if (this.isItemStored(id))
-            return "res/EventMgr/BlueOcean/BlueOceanUI/e" + id + ".png";
+            return "res/Event/BlueOcean/BlueOceanUI/e" + id + ".png";
         return "res/Event/BlueOcean/BlueOceanUI/icon_gold.png";
     },
 
@@ -673,23 +673,23 @@ BlueOcean = cc.Class.extend({
     getGiftImage: function (id) {
         id = this.convertIdNormal(id);
         if (this.isItemStored(id))
-            return "res/EventMgr/BlueOcean/BlueOceanUI/enLarge" + id + ".png";
-        return "res/EventMgr/BlueOcean/BlueOceanUI/en10.png"
+            return "res/Event/BlueOcean/BlueOceanUI/enLarge" + id + ".png";
+        return "res/Event/BlueOcean/BlueOceanUI/en10.png"
     },
 
     getGiftImageOpen: function (id) {
         //id = this.convertIdNormal(id);
         //  if(this.isItemStored(id))
-        return "res/EventMgr/BlueOcean/BlueOceanUI/enLarge" + id + ".png";
-        //  return "res/EventMgr/BlueOcean/BlueOceanUI/en10.png"
+        return "res/Event/BlueOcean/BlueOceanUI/enLarge" + id + ".png";
+        //  return "res/Event/BlueOcean/BlueOceanUI/en10.png"
     },
 
     getEggImage: function (id) {
         id = this.convertIdNormal(id);
         if (this.isItemStored(id))
-            return "res/EventMgr/BlueOcean/BlueOceanUI/s" + id + ".png";
+            return "res/Event/BlueOcean/BlueOceanUI/s" + id + ".png";
         if (id == -2) {
-            return "res/EventMgr/BlueOcean/BlueOceanUI/cell_stone.png";
+            return "res/Event/BlueOcean/BlueOceanUI/cell_stone.png";
         }
         if (id == 0) {
             return "";
@@ -700,8 +700,8 @@ BlueOcean = cc.Class.extend({
     getGiftBackgroundImage: function (id) {
         id = this.convertIdNormal(id);
         if (this.isItemStored(id))
-            return "res/EventMgr/BlueOcean/BlueOceanUI/eb" + id + ".png"
-        return "res/EventMgr/BlueOcean/BlueOceanUI/eb10.png"
+            return "res/Event/BlueOcean/BlueOceanUI/eb" + id + ".png"
+        return "res/Event/BlueOcean/BlueOceanUI/eb10.png"
     },
 
     getStageId: function () {
@@ -713,22 +713,22 @@ BlueOcean = cc.Class.extend({
         if (!this.mapInfo) stage = 0;
         if (stage === undefined || stage == null) stage = this.mapInfo.stage;
 
-        if (stage < 0 || stage > 2) return "res/EventMgr/BlueOcean/BlueOceanUI/stage0.png";
-        return "res/EventMgr/BlueOcean/BlueOceanUI/stage" + stage + ".png";
+        if (stage < 0 || stage > 2) return "res/Event/BlueOcean/BlueOceanUI/stage0.png";
+        return "res/Event/BlueOcean/BlueOceanUI/stage" + stage + ".png";
     },
 
     getStageBackgroundImage: function (stage) {
         if (!this.mapInfo) stage = 0;
         if (stage === undefined || stage == null) stage = this.mapInfo.stage;
 
-        if (stage < 0 || stage > 2) return "res/EventMgr/BlueOcean/BlueOceanUI/bg_stage0.jpg";
-        return "res/EventMgr/BlueOcean/BlueOceanUI/bg_stage" + stage + ".jpg";
+        if (stage < 0 || stage > 2) return "res/Event/BlueOcean/BlueOceanUI/bg_stage0.jpg";
+        return "res/Event/BlueOcean/BlueOceanUI/bg_stage" + stage + ".jpg";
     },
 
     getStageWaveImage: function () {
-        if (!this.mapInfo) return "res/EventMgr/BlueOcean/BlueOceanUI/wave_stage0.png";
+        if (!this.mapInfo) return "res/Event/BlueOcean/BlueOceanUI/wave_stage0.png";
         if (this.mapInfo.stage < 0 || this.mapInfo.stage > 2) return "";
-        return "res/EventMgr/BlueOcean/BlueOceanUI/wave_stage" + this.mapInfo.stage + ".png";
+        return "res/Event/BlueOcean/BlueOceanUI/wave_stage" + this.mapInfo.stage + ".png";
     },
 
     convertIdNormal: function (id) {
@@ -1745,21 +1745,21 @@ BlueOceanSound.preloadAllSound = function(){
 };
 
 resSTSound = {
-    bg : "res/EventMgr/BlueOceanRes/beach.mp3",
-    bubble_single : "res/EventMgr/BlueOceanRes/bubble_single.mp3",
-    sound_single : "res/EventMgr/BlueOceanRes/sound_single.mp3",
-    bubble_sequence : "res/EventMgr/BlueOceanRes/bubble_sequence.mp3",
-    bubble_sequence_1 : "res/EventMgr/BlueOceanRes/bubble_sequence_1.mp3",
-    bubble_sequence_2 : "res/EventMgr/BlueOceanRes/bubble_sequence_2.mp3",
-    sound_sequence : "res/EventMgr/BlueOceanRes/sound_sequence.mp3",
-    piece : "res/EventMgr/BlueOceanRes/pieces.mp3",
-    rollPlate1: "res/EventMgr/BlueOceanRes/xoc_dia_001.mp3",
-    rollPlate2: "res/EventMgr/BlueOceanRes/xoc_dia_002.mp3",
-    rollPlate3: "res/EventMgr/BlueOceanRes/xoc_dia_003.mp3",
-    rollPlate4: "res/EventMgr/BlueOceanRes/xoc_dia_004.mp3",
-    closePlate: "res/EventMgr/BlueOceanRes/dong_dia.mp3",
-    //diceFly: "res/EventMgr/BlueOceanRes/dice_fly.mp3",
-    foxJump: "res/EventMgr/BlueOceanRes/fox_jump.mp3",
+    bg : "res/Event/BlueOceanRes/beach.mp3",
+    bubble_single : "res/Event/BlueOceanRes/bubble_single.mp3",
+    sound_single : "res/Event/BlueOceanRes/sound_single.mp3",
+    bubble_sequence : "res/Event/BlueOceanRes/bubble_sequence.mp3",
+    bubble_sequence_1 : "res/Event/BlueOceanRes/bubble_sequence_1.mp3",
+    bubble_sequence_2 : "res/Event/BlueOceanRes/bubble_sequence_2.mp3",
+    sound_sequence : "res/Event/BlueOceanRes/sound_sequence.mp3",
+    piece : "res/Event/BlueOceanRes/pieces.mp3",
+    rollPlate1: "res/Event/BlueOceanRes/xoc_dia_001.mp3",
+    rollPlate2: "res/Event/BlueOceanRes/xoc_dia_002.mp3",
+    rollPlate3: "res/Event/BlueOceanRes/xoc_dia_003.mp3",
+    rollPlate4: "res/Event/BlueOceanRes/xoc_dia_004.mp3",
+    closePlate: "res/Event/BlueOceanRes/dong_dia.mp3",
+    //diceFly: "res/Event/BlueOceanRes/dice_fly.mp3",
+    foxJump: "res/Event/BlueOceanRes/fox_jump.mp3",
 };
 
 BlueOcean._instance = null;

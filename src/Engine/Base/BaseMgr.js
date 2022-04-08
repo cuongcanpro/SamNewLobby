@@ -3,6 +3,10 @@ var BaseMgr = cc.Class.extend({
         gameMgr.addToArrayMgr(this);
     },
 
+    init: function () {
+
+    },
+
     onReceived: function (cmd, pk) {
 
     },

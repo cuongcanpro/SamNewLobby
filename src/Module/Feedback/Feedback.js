@@ -60,7 +60,7 @@ FeedbackGUI.checkNewDay = function () {
     var d = new Date();
     var sDay = "" + d.getDate() + d.getMonth() + d.getFullYear();
     var cDay = cc.sys.localStorage.getItem(FeedbackGUI.KEY_LOCAL + userMgr.getUID());
-    if (sDay != cDay || Config.ENABLE_CHEAT) {
+    if (sDay != cDay) {
         return true;
     }
     Toast.makeToast(Toast.LONG, "Bạn đã gửi góp ý cho ngày hôm nay. Xin cám ơn!");

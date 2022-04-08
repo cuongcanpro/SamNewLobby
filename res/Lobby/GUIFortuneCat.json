@@ -22,8 +22,8 @@
             },
             "Scale9OriginX": 251,
             "Scale9OriginY": 129,
-            "Scale9Width": 636,
-            "Scale9Height": 328,
+            "Scale9Width": 257,
+            "Scale9Height": 133,
             "AnchorPoint": {
               "ScaleX": 0.5,
               "ScaleY": 0.5
@@ -54,6 +54,66 @@
             "BottomMargin": 67.0,
             "Tag": 811,
             "Children": [
+              {
+                "FontSize": 20,
+                "LabelText": "Chơi game và ngẫu nhiên nhận Mèo May Mắn trong bàn chơi.\nVào Popup sự kiện, chọn Mèo May Mắn mà bạn có, chờ đợi và nhận thưởng.",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahoma.ttf",
+                  "Plist": ""
+                },
+                "HorizontalAlignmentType": "HT_Center",
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 569.0,
+                  "Y": 52.7375
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "R": 195,
+                  "G": 226,
+                  "B": 224
+                },
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.09
+                },
+                "PreSize": {
+                  "X": 0.6169,
+                  "Y": 0.0922
+                },
+                "LeftMargin": 218.0,
+                "RightMargin": 218.0,
+                "TopMargin": 506.2625,
+                "BottomMargin": 25.7375,
+                "Tag": 102,
+                "ActionTag": -1687302901,
+                "Size": {
+                  "X": 702.0,
+                  "Y": 54.0
+                },
+                "Name": "mainTooltip",
+                "ctype": "TextObjectData"
+              },
               {
                 "ClipAble": false,
                 "BackColorAlpha": 0,
@@ -676,13 +736,13 @@
                   {
                     "FileData": {
                       "Type": "Normal",
-                      "Path": "FortuneCat/silhouette_cat_1.png",
+                      "Path": "FortuneCat/cat_cry.png",
                       "Plist": ""
                     },
                     "Scale9OriginX": 99,
                     "Scale9OriginY": 98,
                     "Scale9Width": 253,
-                    "Scale9Height": 251,
+                    "Scale9Height": 252,
                     "AnchorPoint": {
                       "ScaleX": 0.5,
                       "ScaleY": 0.5
@@ -703,12 +763,12 @@
                     },
                     "PreSize": {
                       "X": 1.1275,
-                      "Y": 0.9933
+                      "Y": 0.9956
                     },
                     "LeftMargin": -30.8477,
                     "RightMargin": -20.1523,
-                    "TopMargin": 6.2306,
-                    "BottomMargin": -3.2306,
+                    "TopMargin": 5.7306,
+                    "BottomMargin": -3.7306,
                     "Tag": 1026,
                     "Children": [
                       {
@@ -737,15 +797,15 @@
                         "IconVisible": false,
                         "PrePosition": {
                           "X": 0.5328,
-                          "Y": 0.4396
+                          "Y": 0.4386
                         },
                         "PreSize": {
                           "X": 0.4545,
-                          "Y": 0.1298
+                          "Y": 0.1295
                         },
                         "LeftMargin": 137.7783,
                         "RightMargin": 108.2217,
-                        "TopMargin": 221.5119,
+                        "TopMargin": 222.5119,
                         "BottomMargin": 167.4881,
                         "Tag": 1027,
                         "ActionTag": 1886666684,
@@ -754,6 +814,51 @@
                           "Y": 58.0
                         },
                         "Name": "tooltip",
+                        "ctype": "ImageViewObjectData"
+                      },
+                      {
+                        "FileData": {
+                          "Type": "Normal",
+                          "Path": "FortuneCat/tooltip_find_cat.png",
+                          "Plist": ""
+                        },
+                        "Scale9OriginX": 101,
+                        "Scale9OriginY": 39,
+                        "Scale9Width": 107,
+                        "Scale9Height": 42,
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 241.4227,
+                          "Y": 148.8391
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.5353,
+                          "Y": 0.3322
+                        },
+                        "PreSize": {
+                          "X": 0.6851,
+                          "Y": 0.2679
+                        },
+                        "LeftMargin": 86.9227,
+                        "RightMargin": 55.0773,
+                        "TopMargin": 239.1609,
+                        "BottomMargin": 88.8391,
+                        "Tag": 103,
+                        "ActionTag": 2094705465,
+                        "Size": {
+                          "X": 309.0,
+                          "Y": 120.0
+                        },
+                        "Name": "tooltip_find_cat",
                         "ctype": "ImageViewObjectData"
                       },
                       {
@@ -783,7 +888,7 @@
                         "Scale9OriginX": 15,
                         "Scale9OriginY": 11,
                         "Scale9Width": 176,
-                        "Scale9Height": 40,
+                        "Scale9Height": 41,
                         "OutlineColor": {
                           "G": 0,
                           "B": 0
@@ -812,15 +917,15 @@
                         "IconVisible": false,
                         "PrePosition": {
                           "X": 0.5392,
-                          "Y": 0.2533
+                          "Y": 0.2528
                         },
                         "PreSize": {
                           "X": 0.4568,
-                          "Y": 0.1387
+                          "Y": 0.1384
                         },
                         "LeftMargin": 140.1732,
                         "RightMargin": 104.8268,
-                        "TopMargin": 302.7561,
+                        "TopMargin": 303.7561,
                         "BottomMargin": 82.2439,
                         "Tag": 1039,
                         "ActionTag": 1979703559,
@@ -835,7 +940,7 @@
                     "ActionTag": -1954704251,
                     "Size": {
                       "X": 451.0,
-                      "Y": 447.0
+                      "Y": 448.0
                     },
                     "Name": "silhouette",
                     "ctype": "ImageViewObjectData"
@@ -1315,6 +1420,160 @@
                         "ctype": "ButtonObjectData"
                       },
                       {
+                        "ClipAble": false,
+                        "BackColorAlpha": 102,
+                        "ComboBoxIndex": 1,
+                        "SingleColor": {
+                          "R": 150,
+                          "G": 200
+                        },
+                        "FirstColor": {
+                          "R": 150,
+                          "G": 200
+                        },
+                        "EndColor": {},
+                        "ColorVector": {
+                          "ScaleY": 1.0
+                        },
+                        "TouchEnable": true,
+                        "AnchorPoint": {},
+                        "Position": {
+                          "X": 24.6108,
+                          "Y": 124.226
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.0546,
+                          "Y": 0.2779
+                        },
+                        "PreSize": {
+                          "X": 0.4435,
+                          "Y": 0.4474
+                        },
+                        "LeftMargin": 24.6108,
+                        "RightMargin": 226.3892,
+                        "TopMargin": 122.774,
+                        "BottomMargin": 124.226,
+                        "Tag": 104,
+                        "Children": [
+                          {
+                            "FileData": {
+                              "Type": "Normal",
+                              "Path": "FortuneCat/bgIngameTooltip.png",
+                              "Plist": ""
+                            },
+                            "Scale9OriginX": 91,
+                            "Scale9OriginY": 32,
+                            "Scale9Width": 94,
+                            "Scale9Height": 35,
+                            "AnchorPoint": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
+                            },
+                            "Position": {
+                              "X": 210.951,
+                              "Y": 35.157
+                            },
+                            "Scale": {
+                              "ScaleX": 1.0,
+                              "ScaleY": 1.0
+                            },
+                            "CColor": {},
+                            "IconVisible": false,
+                            "PrePosition": {
+                              "X": 1.0548,
+                              "Y": 0.1758
+                            },
+                            "PreSize": {
+                              "X": 1.38,
+                              "Y": 0.495
+                            },
+                            "LeftMargin": 72.951,
+                            "RightMargin": -148.951,
+                            "TopMargin": 115.343,
+                            "BottomMargin": -14.343,
+                            "Tag": 105,
+                            "ActionTag": 559625856,
+                            "Size": {
+                              "X": 276.0,
+                              "Y": 99.0
+                            },
+                            "Name": "bg",
+                            "ctype": "ImageViewObjectData"
+                          },
+                          {
+                            "FontSize": 20,
+                            "LabelText": "Ra ngoài sảnh chơi\nđể nhận thưởng",
+                            "FontResource": {
+                              "Type": "Normal",
+                              "Path": "Font/tahomabd.ttf",
+                              "Plist": ""
+                            },
+                            "OutlineColor": {
+                              "G": 0,
+                              "B": 0
+                            },
+                            "ShadowColor": {
+                              "R": 110,
+                              "G": 110,
+                              "B": 110
+                            },
+                            "ShadowOffsetX": 2.0,
+                            "ShadowOffsetY": -2.0,
+                            "AnchorPoint": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
+                            },
+                            "Position": {
+                              "X": 213.2938,
+                              "Y": 35.157
+                            },
+                            "Scale": {
+                              "ScaleX": 1.0,
+                              "ScaleY": 1.0
+                            },
+                            "CColor": {
+                              "R": 247,
+                              "G": 218,
+                              "B": 148
+                            },
+                            "IconVisible": false,
+                            "PrePosition": {
+                              "X": 1.0665,
+                              "Y": 0.1758
+                            },
+                            "PreSize": {
+                              "X": 0.945,
+                              "Y": 0.27
+                            },
+                            "LeftMargin": 118.7938,
+                            "RightMargin": -107.7938,
+                            "TopMargin": 137.843,
+                            "BottomMargin": 8.157,
+                            "Tag": 106,
+                            "ActionTag": -941748021,
+                            "Size": {
+                              "X": 189.0,
+                              "Y": 54.0
+                            },
+                            "Name": "content",
+                            "ctype": "TextObjectData"
+                          }
+                        ],
+                        "ActionTag": -809641286,
+                        "Size": {
+                          "X": 200.0,
+                          "Y": 200.0
+                        },
+                        "Name": "ingameTooltip",
+                        "ctype": "PanelObjectData"
+                      },
+                      {
                         "FileData": {
                           "Type": "Normal",
                           "Path": "FortuneCat/cat_title_1.png",
@@ -1322,7 +1581,7 @@
                         },
                         "Scale9OriginX": 57,
                         "Scale9OriginY": 16,
-                        "Scale9Width": 145,
+                        "Scale9Width": 146,
                         "Scale9Height": 43,
                         "AnchorPoint": {
                           "ScaleX": 0.5,
@@ -2323,8 +2582,8 @@
                       "ScaleY": 0.5
                     },
                     "Position": {
-                      "X": 180.0,
-                      "Y": 15.0
+                      "X": 223.1648,
+                      "Y": -2.5619
                     },
                     "Scale": {
                       "ScaleX": 1.0,
@@ -2335,17 +2594,17 @@
                     "CColor": {},
                     "IconVisible": false,
                     "PrePosition": {
-                      "X": 0.9,
-                      "Y": 0.15
+                      "X": 1.1158,
+                      "Y": -0.0256
                     },
                     "PreSize": {
                       "X": 0.39,
                       "Y": 0.93
                     },
-                    "LeftMargin": 141.0,
-                    "RightMargin": -19.0,
-                    "TopMargin": 38.5,
-                    "BottomMargin": -31.5,
+                    "LeftMargin": 184.1648,
+                    "RightMargin": -62.1648,
+                    "TopMargin": 56.0619,
+                    "BottomMargin": -49.0619,
                     "Tag": 69,
                     "ActionTag": -1827467056,
                     "Size": {
@@ -2370,8 +2629,8 @@
                       "ScaleY": 1.0
                     },
                     "Position": {
-                      "X": 177.0,
-                      "Y": 70.0
+                      "X": 220.1655,
+                      "Y": 52.4365
                     },
                     "Scale": {
                       "ScaleX": 1.0,
@@ -2380,17 +2639,17 @@
                     "CColor": {},
                     "IconVisible": false,
                     "PrePosition": {
-                      "X": 0.885,
-                      "Y": 0.7
+                      "X": 1.1008,
+                      "Y": 0.5244
                     },
                     "PreSize": {
                       "X": 1.2,
                       "Y": 1.02
                     },
-                    "LeftMargin": -63.0,
-                    "RightMargin": 23.0,
-                    "TopMargin": 30.0,
-                    "BottomMargin": -32.0,
+                    "LeftMargin": -19.8345,
+                    "RightMargin": -20.1655,
+                    "TopMargin": 47.5635,
+                    "BottomMargin": -49.5635,
                     "Tag": 71,
                     "ActionTag": -303397605,
                     "Size": {
@@ -2398,6 +2657,141 @@
                       "Y": 102.0
                     },
                     "Name": "fingerTrait",
+                    "ctype": "ImageViewObjectData"
+                  },
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "FortuneCat/wave.png",
+                      "Plist": ""
+                    },
+                    "Scale9OriginX": 15,
+                    "Scale9OriginY": 15,
+                    "Scale9Width": 17,
+                    "Scale9Height": 17,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 218.0278,
+                      "Y": 51.9394
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 1.0901,
+                      "Y": 0.5194
+                    },
+                    "PreSize": {
+                      "X": 0.235,
+                      "Y": 0.47
+                    },
+                    "LeftMargin": 194.5278,
+                    "RightMargin": -41.5278,
+                    "TopMargin": 24.5606,
+                    "BottomMargin": 28.4394,
+                    "Tag": 107,
+                    "ActionTag": 1038304909,
+                    "Size": {
+                      "X": 47.0,
+                      "Y": 47.0
+                    },
+                    "Name": "wave_0",
+                    "ctype": "ImageViewObjectData"
+                  },
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "FortuneCat/wave.png",
+                      "Plist": ""
+                    },
+                    "Scale9OriginX": 15,
+                    "Scale9OriginY": 15,
+                    "Scale9Width": 17,
+                    "Scale9Height": 17,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 218.2716,
+                      "Y": 51.6904
+                    },
+                    "Scale": {
+                      "ScaleX": 1.5,
+                      "ScaleY": 1.5
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 1.0914,
+                      "Y": 0.5169
+                    },
+                    "PreSize": {
+                      "X": 0.235,
+                      "Y": 0.47
+                    },
+                    "LeftMargin": 194.7716,
+                    "RightMargin": -41.7716,
+                    "TopMargin": 24.8096,
+                    "BottomMargin": 28.1904,
+                    "Tag": 109,
+                    "ActionTag": 1786060224,
+                    "Size": {
+                      "X": 47.0,
+                      "Y": 47.0
+                    },
+                    "Name": "wave_1",
+                    "ctype": "ImageViewObjectData"
+                  },
+                  {
+                    "FileData": {
+                      "Type": "Normal",
+                      "Path": "FortuneCat/wave.png",
+                      "Plist": ""
+                    },
+                    "Scale9OriginX": 15,
+                    "Scale9OriginY": 15,
+                    "Scale9Width": 17,
+                    "Scale9Height": 17,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 218.0516,
+                      "Y": 52.4485
+                    },
+                    "Scale": {
+                      "ScaleX": 2.0,
+                      "ScaleY": 2.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 1.0903,
+                      "Y": 0.5245
+                    },
+                    "PreSize": {
+                      "X": 0.235,
+                      "Y": 0.47
+                    },
+                    "LeftMargin": 194.5516,
+                    "RightMargin": -41.5516,
+                    "TopMargin": 24.0515,
+                    "BottomMargin": 28.9485,
+                    "Tag": 108,
+                    "ActionTag": -620004583,
+                    "Size": {
+                      "X": 47.0,
+                      "Y": 47.0
+                    },
+                    "Name": "wave_2",
                     "ctype": "ImageViewObjectData"
                   }
                 ],
@@ -2492,7 +2886,7 @@
                     "Children": [
                       {
                         "FontSize": 22,
-                        "LabelText": "0 / 5",
+                        "LabelText": "0 / 555",
                         "FontResource": {
                           "Type": "Normal",
                           "Path": "Font/tahoma.ttf",
@@ -2532,17 +2926,17 @@
                           "Y": 0.56
                         },
                         "PreSize": {
-                          "X": 0.3902,
+                          "X": 0.6016,
                           "Y": 0.7692
                         },
-                        "LeftMargin": 47.9369,
-                        "RightMargin": 27.0631,
+                        "LeftMargin": 34.9369,
+                        "RightMargin": 14.0631,
                         "TopMargin": 2.1609,
                         "BottomMargin": 6.8391,
                         "Tag": 85,
                         "ActionTag": -751744232,
                         "Size": {
-                          "X": 48.0,
+                          "X": 74.0,
                           "Y": 30.0
                         },
                         "Name": "progress",
@@ -2841,7 +3235,7 @@
                       "Height": 720
                     },
                     "ScrollDirectionType": "Vertical",
-                    "ClipAble": false,
+                    "ClipAble": true,
                     "BackColorAlpha": 0,
                     "ComboBoxIndex": 1,
                     "SingleColor": {
@@ -2887,20 +3281,20 @@
                       {
                         "FileData": {
                           "Type": "Normal",
-                          "Path": "FortuneCat/guide.png",
+                          "Path": "FortuneCat/fullGuide.png",
                           "Plist": ""
                         },
                         "Scale9OriginX": 171,
                         "Scale9OriginY": 69,
                         "Scale9Width": 177,
-                        "Scale9Height": 72,
+                        "Scale9Height": 447,
                         "AnchorPoint": {
                           "ScaleX": 0.5,
                           "ScaleY": 0.5
                         },
                         "Position": {
-                          "X": 258.2367,
-                          "Y": 614.0388
+                          "X": 259.754,
+                          "Y": 427.1829
                         },
                         "Scale": {
                           "ScaleX": 1.0,
@@ -2909,991 +3303,25 @@
                         "CColor": {},
                         "IconVisible": false,
                         "PrePosition": {
-                          "X": 0.4966,
-                          "Y": 0.8528
+                          "X": 0.4995,
+                          "Y": 0.5933
                         },
                         "PreSize": {
                           "X": 0.9981,
-                          "Y": 0.2917
+                          "Y": 0.8125
                         },
-                        "LeftMargin": -1.2633,
-                        "RightMargin": 2.2633,
-                        "TopMargin": 0.9612,
-                        "BottomMargin": 509.0388,
+                        "LeftMargin": 0.254,
+                        "RightMargin": 0.746,
+                        "TopMargin": 0.3171,
+                        "BottomMargin": 134.6829,
                         "Tag": 156,
                         "ActionTag": 1469489005,
                         "Size": {
                           "X": 519.0,
-                          "Y": 210.0
-                        },
-                        "Name": "imageGuide",
-                        "ctype": "ImageViewObjectData"
-                      },
-                      {
-                        "ClipAble": false,
-                        "BackColorAlpha": 0,
-                        "ComboBoxIndex": 1,
-                        "SingleColor": {
-                          "R": 150,
-                          "G": 200
-                        },
-                        "FirstColor": {
-                          "R": 150,
-                          "G": 200
-                        },
-                        "EndColor": {},
-                        "ColorVector": {
-                          "ScaleY": 1.0
-                        },
-                        "Scale9Width": 1,
-                        "Scale9Height": 1,
-                        "TouchEnable": true,
-                        "AnchorPoint": {
-                          "ScaleX": 0.5,
-                          "ScaleY": 0.5
-                        },
-                        "Position": {
-                          "X": 263.4246,
-                          "Y": 434.4007
-                        },
-                        "Scale": {
-                          "ScaleX": 1.0,
-                          "ScaleY": 1.0
-                        },
-                        "CColor": {},
-                        "IconVisible": false,
-                        "PrePosition": {
-                          "X": 0.5066,
-                          "Y": 0.6033
-                        },
-                        "PreSize": {
-                          "X": 0.9808,
-                          "Y": 0.3472
-                        },
-                        "LeftMargin": 8.4246,
-                        "RightMargin": 1.5754,
-                        "TopMargin": 160.5992,
-                        "BottomMargin": 309.4007,
-                        "Tag": 1052,
-                        "Children": [
-                          {
-                            "FontSize": 23,
-                            "LabelText": "Cách thu thập",
-                            "FontResource": {
-                              "Type": "Normal",
-                              "Path": "Font/tahomabd.ttf",
-                              "Plist": ""
-                            },
-                            "OutlineColor": {
-                              "G": 0,
-                              "B": 0
-                            },
-                            "ShadowColor": {
-                              "R": 110,
-                              "G": 110,
-                              "B": 110
-                            },
-                            "ShadowOffsetX": 2.0,
-                            "ShadowOffsetY": -2.0,
-                            "AnchorPoint": {
-                              "ScaleX": 0.5,
-                              "ScaleY": 0.5
-                            },
-                            "Position": {
-                              "X": 256.5631,
-                              "Y": 161.6856
-                            },
-                            "Scale": {
-                              "ScaleX": 1.0,
-                              "ScaleY": 1.0
-                            },
-                            "CColor": {
-                              "R": 130,
-                              "G": 50,
-                              "B": 16
-                            },
-                            "IconVisible": false,
-                            "PrePosition": {
-                              "X": 0.5031,
-                              "Y": 0.6467
-                            },
-                            "PreSize": {
-                              "X": 0.3216,
-                              "Y": 0.124
-                            },
-                            "LeftMargin": 174.5631,
-                            "RightMargin": 171.4369,
-                            "TopMargin": 72.8144,
-                            "BottomMargin": 146.1856,
-                            "Tag": 82,
-                            "ActionTag": 341784030,
-                            "Size": {
-                              "X": 164.0,
-                              "Y": 31.0
-                            },
-                            "Name": "title_0",
-                            "ctype": "TextObjectData"
-                          },
-                          {
-                            "ClipAble": false,
-                            "BackColorAlpha": 0,
-                            "ComboBoxIndex": 1,
-                            "SingleColor": {
-                              "R": 150,
-                              "G": 200
-                            },
-                            "FirstColor": {
-                              "R": 150,
-                              "G": 200
-                            },
-                            "EndColor": {},
-                            "ColorVector": {
-                              "ScaleY": 1.0
-                            },
-                            "Scale9Width": 1,
-                            "Scale9Height": 1,
-                            "TouchEnable": true,
-                            "AnchorPoint": {
-                              "ScaleX": 0.5,
-                              "ScaleY": 1.0
-                            },
-                            "Position": {
-                              "X": 260.1657,
-                              "Y": 147.9032
-                            },
-                            "Scale": {
-                              "ScaleX": 1.0,
-                              "ScaleY": 1.0
-                            },
-                            "CColor": {},
-                            "IconVisible": false,
-                            "PrePosition": {
-                              "X": 0.5101,
-                              "Y": 0.5916
-                            },
-                            "PreSize": {
-                              "X": 1.0,
-                              "Y": 0.2
-                            },
-                            "LeftMargin": 5.1657,
-                            "RightMargin": -5.1657,
-                            "TopMargin": 102.0968,
-                            "BottomMargin": 97.9032,
-                            "Tag": 1053,
-                            "Children": [
-                              {
-                                "FileData": {
-                                  "Type": "Normal",
-                                  "Path": "FortuneCat/bell.png",
-                                  "Plist": ""
-                                },
-                                "Scale9OriginX": 5,
-                                "Scale9OriginY": 5,
-                                "Scale9Width": 17,
-                                "Scale9Height": 17,
-                                "AnchorPoint": {
-                                  "ScaleX": 0.5,
-                                  "ScaleY": 0.5
-                                },
-                                "Position": {
-                                  "X": 10.0002,
-                                  "Y": 31.3576
-                                },
-                                "Scale": {
-                                  "ScaleX": 1.0,
-                                  "ScaleY": 1.0
-                                },
-                                "CColor": {},
-                                "IconVisible": false,
-                                "PrePosition": {
-                                  "X": 0.0196,
-                                  "Y": 0.6272
-                                },
-                                "PreSize": {
-                                  "X": 0.0529,
-                                  "Y": 0.54
-                                },
-                                "LeftMargin": -3.4998,
-                                "RightMargin": 486.4998,
-                                "TopMargin": 5.1424,
-                                "BottomMargin": 17.8576,
-                                "Tag": 1054,
-                                "ActionTag": -186839833,
-                                "Size": {
-                                  "X": 27.0,
-                                  "Y": 27.0
-                                },
-                                "Name": "bell",
-                                "ctype": "ImageViewObjectData"
-                              },
-                              {
-                                "FontSize": 18,
-                                "LabelText": "Người chơi thu thập đủ 5 Lúc lắc để nhận được Mèo may\n mắn ngẫu nhiên ở trong Bàn chơi từ 4 người trở lên.",
-                                "FontResource": {
-                                  "Type": "Normal",
-                                  "Path": "Font/tahoma.ttf",
-                                  "Plist": ""
-                                },
-                                "OutlineColor": {
-                                  "R": 0,
-                                  "G": 0,
-                                  "B": 0
-                                },
-                                "ShadowColor": {
-                                  "R": 110,
-                                  "G": 110,
-                                  "B": 110
-                                },
-                                "ShadowOffsetX": 2.0,
-                                "ShadowOffsetY": -2.0,
-                                "AnchorPoint": {
-                                  "ScaleY": 1.0
-                                },
-                                "Position": {
-                                  "X": 19.3638,
-                                  "Y": 46.0004
-                                },
-                                "Scale": {
-                                  "ScaleX": 1.0,
-                                  "ScaleY": 1.0
-                                },
-                                "CColor": {
-                                  "R": 130,
-                                  "G": 50,
-                                  "B": 16
-                                },
-                                "IconVisible": false,
-                                "PrePosition": {
-                                  "X": 0.038,
-                                  "Y": 0.92
-                                },
-                                "PreSize": {
-                                  "X": 0.951,
-                                  "Y": 1.0
-                                },
-                                "LeftMargin": 19.3638,
-                                "RightMargin": 5.6362,
-                                "TopMargin": 3.9996,
-                                "BottomMargin": -3.9996,
-                                "Tag": 1055,
-                                "ActionTag": 915779546,
-                                "Size": {
-                                  "X": 485.0,
-                                  "Y": 50.0
-                                },
-                                "Name": "message",
-                                "ctype": "TextObjectData"
-                              }
-                            ],
-                            "ActionTag": -1875269886,
-                            "Size": {
-                              "X": 510.0,
-                              "Y": 50.0
-                            },
-                            "Name": "paragraph_1",
-                            "ctype": "PanelObjectData"
-                          },
-                          {
-                            "ClipAble": false,
-                            "BackColorAlpha": 0,
-                            "ComboBoxIndex": 1,
-                            "SingleColor": {
-                              "R": 150,
-                              "G": 200
-                            },
-                            "FirstColor": {
-                              "R": 150,
-                              "G": 200
-                            },
-                            "EndColor": {},
-                            "ColorVector": {
-                              "ScaleY": 1.0
-                            },
-                            "Scale9Width": 1,
-                            "Scale9Height": 1,
-                            "TouchEnable": true,
-                            "AnchorPoint": {
-                              "ScaleX": 0.5,
-                              "ScaleY": 1.0
-                            },
-                            "Position": {
-                              "X": 255.0815,
-                              "Y": 95.1406
-                            },
-                            "Scale": {
-                              "ScaleX": 1.0,
-                              "ScaleY": 1.0
-                            },
-                            "CColor": {},
-                            "IconVisible": false,
-                            "PrePosition": {
-                              "X": 0.5002,
-                              "Y": 0.3806
-                            },
-                            "PreSize": {
-                              "X": 1.0,
-                              "Y": 0.3
-                            },
-                            "LeftMargin": 0.0815,
-                            "RightMargin": -0.0815,
-                            "TopMargin": 154.8594,
-                            "BottomMargin": 20.1406,
-                            "Tag": 1056,
-                            "Children": [
-                              {
-                                "FileData": {
-                                  "Type": "Normal",
-                                  "Path": "FortuneCat/bell.png",
-                                  "Plist": ""
-                                },
-                                "Scale9OriginX": 5,
-                                "Scale9OriginY": 5,
-                                "Scale9Width": 17,
-                                "Scale9Height": 17,
-                                "AnchorPoint": {
-                                  "ScaleX": 0.5,
-                                  "ScaleY": 0.5
-                                },
-                                "Position": {
-                                  "X": 15.0001,
-                                  "Y": 55.0001
-                                },
-                                "Scale": {
-                                  "ScaleX": 1.0,
-                                  "ScaleY": 1.0
-                                },
-                                "CColor": {},
-                                "IconVisible": false,
-                                "PrePosition": {
-                                  "X": 0.0294,
-                                  "Y": 0.7333
-                                },
-                                "PreSize": {
-                                  "X": 0.0529,
-                                  "Y": 0.36
-                                },
-                                "LeftMargin": 1.5001,
-                                "RightMargin": 481.4999,
-                                "TopMargin": 6.4999,
-                                "BottomMargin": 41.5001,
-                                "Tag": 1057,
-                                "ActionTag": 371871853,
-                                "Size": {
-                                  "X": 27.0,
-                                  "Y": 27.0
-                                },
-                                "Name": "bell",
-                                "ctype": "ImageViewObjectData"
-                              },
-                              {
-                                "FontSize": 18,
-                                "LabelText": "Có thể chứa tối đa 3 Mèo may mắn, sau khi đã có 3 Mèo\ntrong kho, người chơi sẽ không thể nhận thêm Mèo may\nmắn được nữa.",
-                                "FontResource": {
-                                  "Type": "Normal",
-                                  "Path": "Font/tahoma.ttf",
-                                  "Plist": ""
-                                },
-                                "OutlineColor": {
-                                  "R": 0,
-                                  "G": 0,
-                                  "B": 0
-                                },
-                                "ShadowColor": {
-                                  "R": 110,
-                                  "G": 110,
-                                  "B": 110
-                                },
-                                "ShadowOffsetX": 2.0,
-                                "ShadowOffsetY": -2.0,
-                                "AnchorPoint": {
-                                  "ScaleY": 1.0
-                                },
-                                "Position": {
-                                  "X": 25.0,
-                                  "Y": 70.0
-                                },
-                                "Scale": {
-                                  "ScaleX": 1.0,
-                                  "ScaleY": 1.0
-                                },
-                                "CColor": {
-                                  "R": 130,
-                                  "G": 50,
-                                  "B": 16
-                                },
-                                "IconVisible": false,
-                                "PrePosition": {
-                                  "X": 0.049,
-                                  "Y": 0.9333
-                                },
-                                "PreSize": {
-                                  "X": 0.951,
-                                  "Y": 1.0
-                                },
-                                "LeftMargin": 25.0,
-                                "TopMargin": 5.0,
-                                "BottomMargin": -5.0,
-                                "Tag": 1058,
-                                "ActionTag": 1701535247,
-                                "Size": {
-                                  "X": 485.0,
-                                  "Y": 75.0
-                                },
-                                "Name": "message",
-                                "ctype": "TextObjectData"
-                              }
-                            ],
-                            "ActionTag": 784567714,
-                            "Size": {
-                              "X": 510.0,
-                              "Y": 75.0
-                            },
-                            "Name": "paragraph_2",
-                            "ctype": "PanelObjectData"
-                          },
-                          {
-                            "FontSize": 23,
-                            "LabelText": "Thao tác thực hiện",
-                            "FontResource": {
-                              "Type": "Normal",
-                              "Path": "Font/tahomabd.ttf",
-                              "Plist": ""
-                            },
-                            "OutlineColor": {
-                              "G": 0,
-                              "B": 0
-                            },
-                            "ShadowColor": {
-                              "R": 110,
-                              "G": 110,
-                              "B": 110
-                            },
-                            "ShadowOffsetX": 2.0,
-                            "ShadowOffsetY": -2.0,
-                            "AnchorPoint": {
-                              "ScaleX": 0.5,
-                              "ScaleY": 0.5
-                            },
-                            "Position": {
-                              "X": 263.7148,
-                              "Y": 1.4239
-                            },
-                            "Scale": {
-                              "ScaleX": 1.0,
-                              "ScaleY": 1.0
-                            },
-                            "CColor": {
-                              "R": 130,
-                              "G": 50,
-                              "B": 16
-                            },
-                            "IconVisible": false,
-                            "PrePosition": {
-                              "X": 0.5171,
-                              "Y": 0.0057
-                            },
-                            "PreSize": {
-                              "X": 0.4255,
-                              "Y": 0.124
-                            },
-                            "LeftMargin": 155.2148,
-                            "RightMargin": 137.7852,
-                            "TopMargin": 233.0761,
-                            "BottomMargin": -14.0761,
-                            "Tag": 83,
-                            "ActionTag": 656921537,
-                            "Size": {
-                              "X": 217.0,
-                              "Y": 31.0
-                            },
-                            "Name": "title_1",
-                            "ctype": "TextObjectData"
-                          },
-                          {
-                            "ClipAble": false,
-                            "BackColorAlpha": 0,
-                            "ComboBoxIndex": 1,
-                            "SingleColor": {
-                              "R": 150,
-                              "G": 200
-                            },
-                            "FirstColor": {
-                              "R": 150,
-                              "G": 200
-                            },
-                            "EndColor": {},
-                            "ColorVector": {
-                              "ScaleY": 1.0
-                            },
-                            "Scale9Width": 1,
-                            "Scale9Height": 1,
-                            "TouchEnable": true,
-                            "AnchorPoint": {
-                              "ScaleX": 0.5,
-                              "ScaleY": 1.0
-                            },
-                            "Position": {
-                              "X": 258.7135,
-                              "Y": -17.5744
-                            },
-                            "Scale": {
-                              "ScaleX": 1.0,
-                              "ScaleY": 1.0
-                            },
-                            "CColor": {},
-                            "IconVisible": false,
-                            "PrePosition": {
-                              "X": 0.5073,
-                              "Y": -0.0703
-                            },
-                            "PreSize": {
-                              "X": 1.0,
-                              "Y": 0.3
-                            },
-                            "LeftMargin": 3.7135,
-                            "RightMargin": -3.7135,
-                            "TopMargin": 267.5744,
-                            "BottomMargin": -92.5744,
-                            "Tag": 1059,
-                            "Children": [
-                              {
-                                "FileData": {
-                                  "Type": "Normal",
-                                  "Path": "FortuneCat/bell.png",
-                                  "Plist": ""
-                                },
-                                "Scale9OriginX": 5,
-                                "Scale9OriginY": 5,
-                                "Scale9Width": 17,
-                                "Scale9Height": 17,
-                                "AnchorPoint": {
-                                  "ScaleX": 0.5,
-                                  "ScaleY": 0.5
-                                },
-                                "Position": {
-                                  "X": 14.9999,
-                                  "Y": 58.0
-                                },
-                                "Scale": {
-                                  "ScaleX": 1.0,
-                                  "ScaleY": 1.0
-                                },
-                                "CColor": {},
-                                "IconVisible": false,
-                                "PrePosition": {
-                                  "X": 0.0294,
-                                  "Y": 0.7733
-                                },
-                                "PreSize": {
-                                  "X": 0.0529,
-                                  "Y": 0.36
-                                },
-                                "LeftMargin": 1.4999,
-                                "RightMargin": 481.5001,
-                                "TopMargin": 3.5,
-                                "BottomMargin": 44.5,
-                                "Tag": 1060,
-                                "ActionTag": 544125713,
-                                "Size": {
-                                  "X": 27.0,
-                                  "Y": 27.0
-                                },
-                                "Name": "bell",
-                                "ctype": "ImageViewObjectData"
-                              },
-                              {
-                                "FontSize": 18,
-                                "LabelText": "Người chơi kéo Mèo may mắn từ kho vào giữa giao diện\nđể thực hiện quá trình mở Mèo may mắn, sau một\nkhoảng thời gian, người chơi sẽ nhận được lượng Gold\ntương ứng.",
-                                "FontResource": {
-                                  "Type": "Normal",
-                                  "Path": "Font/tahoma.ttf",
-                                  "Plist": ""
-                                },
-                                "OutlineColor": {
-                                  "R": 0,
-                                  "G": 0,
-                                  "B": 0
-                                },
-                                "ShadowColor": {
-                                  "R": 110,
-                                  "G": 110,
-                                  "B": 110
-                                },
-                                "ShadowOffsetX": 2.0,
-                                "ShadowOffsetY": -2.0,
-                                "AnchorPoint": {
-                                  "ScaleY": 1.0
-                                },
-                                "Position": {
-                                  "X": 27.0,
-                                  "Y": 71.0
-                                },
-                                "Scale": {
-                                  "ScaleX": 1.0,
-                                  "ScaleY": 1.0
-                                },
-                                "CColor": {
-                                  "R": 130,
-                                  "G": 50,
-                                  "B": 16
-                                },
-                                "IconVisible": false,
-                                "PrePosition": {
-                                  "X": 0.0529,
-                                  "Y": 0.9467
-                                },
-                                "PreSize": {
-                                  "X": 0.9431,
-                                  "Y": 1.3333
-                                },
-                                "LeftMargin": 27.0,
-                                "RightMargin": 2.0,
-                                "TopMargin": 4.0,
-                                "BottomMargin": -29.0,
-                                "Tag": 1061,
-                                "ActionTag": -86259422,
-                                "Size": {
-                                  "X": 481.0,
-                                  "Y": 100.0
-                                },
-                                "Name": "message",
-                                "ctype": "TextObjectData"
-                              }
-                            ],
-                            "ActionTag": -685238844,
-                            "Size": {
-                              "X": 510.0,
-                              "Y": 75.0
-                            },
-                            "Name": "paragraph_3",
-                            "ctype": "PanelObjectData"
-                          },
-                          {
-                            "ClipAble": false,
-                            "BackColorAlpha": 0,
-                            "ComboBoxIndex": 1,
-                            "SingleColor": {
-                              "R": 150,
-                              "G": 200
-                            },
-                            "FirstColor": {
-                              "R": 150,
-                              "G": 200
-                            },
-                            "EndColor": {},
-                            "ColorVector": {
-                              "ScaleY": 1.0
-                            },
-                            "Scale9Width": 1,
-                            "Scale9Height": 1,
-                            "TouchEnable": true,
-                            "AnchorPoint": {
-                              "ScaleX": 0.5,
-                              "ScaleY": 1.0
-                            },
-                            "Position": {
-                              "X": 260.7061,
-                              "Y": -127.5742
-                            },
-                            "Scale": {
-                              "ScaleX": 1.0,
-                              "ScaleY": 1.0
-                            },
-                            "CColor": {},
-                            "IconVisible": false,
-                            "PrePosition": {
-                              "X": 0.5112,
-                              "Y": -0.5103
-                            },
-                            "PreSize": {
-                              "X": 1.0,
-                              "Y": 0.2
-                            },
-                            "LeftMargin": 5.7061,
-                            "RightMargin": -5.7061,
-                            "TopMargin": 377.5742,
-                            "BottomMargin": -177.5742,
-                            "Tag": 1062,
-                            "Children": [
-                              {
-                                "FileData": {
-                                  "Type": "Normal",
-                                  "Path": "FortuneCat/bell.png",
-                                  "Plist": ""
-                                },
-                                "Scale9OriginX": 5,
-                                "Scale9OriginY": 5,
-                                "Scale9Width": 17,
-                                "Scale9Height": 17,
-                                "AnchorPoint": {
-                                  "ScaleX": 0.5,
-                                  "ScaleY": 0.5
-                                },
-                                "Position": {
-                                  "X": 14.9999,
-                                  "Y": 32.0
-                                },
-                                "Scale": {
-                                  "ScaleX": 1.0,
-                                  "ScaleY": 1.0
-                                },
-                                "CColor": {},
-                                "IconVisible": false,
-                                "PrePosition": {
-                                  "X": 0.0294,
-                                  "Y": 0.64
-                                },
-                                "PreSize": {
-                                  "X": 0.0529,
-                                  "Y": 0.54
-                                },
-                                "LeftMargin": 1.4999,
-                                "RightMargin": 481.5001,
-                                "TopMargin": 4.5,
-                                "BottomMargin": 18.5,
-                                "Tag": 1063,
-                                "ActionTag": 800190940,
-                                "Size": {
-                                  "X": 27.0,
-                                  "Y": 27.0
-                                },
-                                "Name": "bell",
-                                "ctype": "ImageViewObjectData"
-                              },
-                              {
-                                "FontSize": 18,
-                                "LabelText": "Khi thời gian đếm ngược hoàn tất, người chơi vào giao\ndiện của tính năng để mở Mèo may mắn nhận quà.",
-                                "FontResource": {
-                                  "Type": "Normal",
-                                  "Path": "Font/tahoma.ttf",
-                                  "Plist": ""
-                                },
-                                "OutlineColor": {
-                                  "R": 0,
-                                  "G": 0,
-                                  "B": 0
-                                },
-                                "ShadowColor": {
-                                  "R": 110,
-                                  "G": 110,
-                                  "B": 110
-                                },
-                                "ShadowOffsetX": 2.0,
-                                "ShadowOffsetY": -2.0,
-                                "AnchorPoint": {
-                                  "ScaleY": 1.0
-                                },
-                                "Position": {
-                                  "X": 27.0,
-                                  "Y": 46.0
-                                },
-                                "Scale": {
-                                  "ScaleX": 1.0,
-                                  "ScaleY": 1.0
-                                },
-                                "CColor": {
-                                  "R": 130,
-                                  "G": 50,
-                                  "B": 16
-                                },
-                                "IconVisible": false,
-                                "PrePosition": {
-                                  "X": 0.0529,
-                                  "Y": 0.92
-                                },
-                                "PreSize": {
-                                  "X": 0.9157,
-                                  "Y": 1.0
-                                },
-                                "LeftMargin": 27.0,
-                                "RightMargin": 16.0,
-                                "TopMargin": 4.0,
-                                "BottomMargin": -4.0,
-                                "Tag": 1064,
-                                "ActionTag": 1508609787,
-                                "Size": {
-                                  "X": 467.0,
-                                  "Y": 50.0
-                                },
-                                "Name": "message",
-                                "ctype": "TextObjectData"
-                              }
-                            ],
-                            "ActionTag": -1154087671,
-                            "Size": {
-                              "X": 510.0,
-                              "Y": 50.0
-                            },
-                            "Name": "paragraph_4",
-                            "ctype": "PanelObjectData"
-                          },
-                          {
-                            "ClipAble": false,
-                            "BackColorAlpha": 0,
-                            "ComboBoxIndex": 1,
-                            "SingleColor": {
-                              "R": 150,
-                              "G": 200
-                            },
-                            "FirstColor": {
-                              "R": 150,
-                              "G": 200
-                            },
-                            "EndColor": {},
-                            "ColorVector": {
-                              "ScaleY": 1.0
-                            },
-                            "Scale9Width": 1,
-                            "Scale9Height": 1,
-                            "TouchEnable": true,
-                            "AnchorPoint": {
-                              "ScaleX": 0.5,
-                              "ScaleY": 1.0
-                            },
-                            "Position": {
-                              "X": 259.7112,
-                              "Y": -190.5742
-                            },
-                            "Scale": {
-                              "ScaleX": 1.0,
-                              "ScaleY": 1.0
-                            },
-                            "CColor": {},
-                            "IconVisible": false,
-                            "PrePosition": {
-                              "X": 0.5092,
-                              "Y": -0.7623
-                            },
-                            "PreSize": {
-                              "X": 1.0,
-                              "Y": 0.3
-                            },
-                            "LeftMargin": 4.7112,
-                            "RightMargin": -4.7112,
-                            "TopMargin": 440.5742,
-                            "BottomMargin": -265.5742,
-                            "Tag": 1065,
-                            "Children": [
-                              {
-                                "FileData": {
-                                  "Type": "Normal",
-                                  "Path": "FortuneCat/bell.png",
-                                  "Plist": ""
-                                },
-                                "Scale9OriginX": 5,
-                                "Scale9OriginY": 5,
-                                "Scale9Width": 17,
-                                "Scale9Height": 17,
-                                "AnchorPoint": {
-                                  "ScaleX": 0.5,
-                                  "ScaleY": 0.5
-                                },
-                                "Position": {
-                                  "X": 14.9998,
-                                  "Y": 55.0
-                                },
-                                "Scale": {
-                                  "ScaleX": 1.0,
-                                  "ScaleY": 1.0
-                                },
-                                "CColor": {},
-                                "IconVisible": false,
-                                "PrePosition": {
-                                  "X": 0.0294,
-                                  "Y": 0.7333
-                                },
-                                "PreSize": {
-                                  "X": 0.0529,
-                                  "Y": 0.36
-                                },
-                                "LeftMargin": 1.4998,
-                                "RightMargin": 481.5002,
-                                "TopMargin": 6.5,
-                                "BottomMargin": 41.5,
-                                "Tag": 1066,
-                                "ActionTag": 824051921,
-                                "Size": {
-                                  "X": 27.0,
-                                  "Y": 27.0
-                                },
-                                "Name": "bell",
-                                "ctype": "ImageViewObjectData"
-                              },
-                              {
-                                "FontSize": 18,
-                                "LabelText": "Sau khi tính năng kết thúc, các phần thưởng có thể thu\nthập được (đã hoàn thành thời gian đếm ngược nhưng\nchưa nhận) sẽ được tự động nhận, các Mèo May Mắn\nchưa mở sẽ tự động xóa khỏi hệ thống.",
-                                "FontResource": {
-                                  "Type": "Normal",
-                                  "Path": "Font/tahoma.ttf",
-                                  "Plist": ""
-                                },
-                                "OutlineColor": {
-                                  "R": 0,
-                                  "G": 0,
-                                  "B": 0
-                                },
-                                "ShadowColor": {
-                                  "R": 110,
-                                  "G": 110,
-                                  "B": 110
-                                },
-                                "ShadowOffsetX": 2.0,
-                                "ShadowOffsetY": -2.0,
-                                "AnchorPoint": {
-                                  "ScaleY": 1.0
-                                },
-                                "Position": {
-                                  "X": 27.0,
-                                  "Y": 71.0
-                                },
-                                "Scale": {
-                                  "ScaleX": 1.0,
-                                  "ScaleY": 1.0
-                                },
-                                "CColor": {
-                                  "R": 130,
-                                  "G": 50,
-                                  "B": 16
-                                },
-                                "IconVisible": false,
-                                "PrePosition": {
-                                  "X": 0.0529,
-                                  "Y": 0.9467
-                                },
-                                "PreSize": {
-                                  "X": 0.9255,
-                                  "Y": 1.3333
-                                },
-                                "LeftMargin": 27.0,
-                                "RightMargin": 11.0,
-                                "TopMargin": 4.0,
-                                "BottomMargin": -29.0,
-                                "Tag": 1067,
-                                "ActionTag": -185898793,
-                                "Size": {
-                                  "X": 472.0,
-                                  "Y": 100.0
-                                },
-                                "Name": "message",
-                                "ctype": "TextObjectData"
-                              }
-                            ],
-                            "ActionTag": -1281137773,
-                            "Size": {
-                              "X": 510.0,
-                              "Y": 75.0
-                            },
-                            "Name": "paragraph_5",
-                            "ctype": "PanelObjectData"
-                          }
-                        ],
-                        "ActionTag": 1307342812,
-                        "Size": {
-                          "X": 510.0,
-                          "Y": 250.0
+                          "Y": 585.0
                         },
                         "Name": "content",
-                        "ctype": "PanelObjectData"
+                        "ctype": "ImageViewObjectData"
                       }
                     ],
                     "ActionTag": -251045478,
@@ -4537,37 +3965,39 @@
         "Default/Button_Press.png",
         "Font/tahoma.ttf",
         "Font/tahomabd.ttf",
-        "FortuneCat/bell.png",
         "FortuneCat/bg.png",
         "FortuneCat/bg_gold.png",
         "FortuneCat/bg_guide.png",
         "FortuneCat/bg_prize.png",
         "FortuneCat/bg_progress.png",
         "FortuneCat/bg_slot.png",
+        "FortuneCat/bgIngameTooltip.png",
         "FortuneCat/btn_close.png",
         "FortuneCat/btn_close_guide.png",
         "FortuneCat/btn_guide.png",
         "FortuneCat/btn_play.png",
         "FortuneCat/btn_receive_reward.png",
         "FortuneCat/cat_1_locked.png",
+        "FortuneCat/cat_cry.png",
         "FortuneCat/cat_title_1.png",
         "FortuneCat/clock.png",
         "FortuneCat/finger.png",
         "FortuneCat/finger_trait.png",
         "FortuneCat/firework_1.png",
         "FortuneCat/firework_2.png",
-        "FortuneCat/guide.png",
+        "FortuneCat/fullGuide.png",
         "FortuneCat/label_title.png",
         "FortuneCat/sandclock.png",
-        "FortuneCat/silhouette_cat_1.png",
         "FortuneCat/silhouette_slot_1.png",
         "FortuneCat/sun_1.png",
         "FortuneCat/sun_2.png",
         "FortuneCat/sun_3.png",
         "FortuneCat/sun_4.png",
         "FortuneCat/tooltip_countdown.png",
+        "FortuneCat/tooltip_find_cat.png",
         "FortuneCat/tooltip_no_cat.png",
-        "FortuneCat/tooltip_progress.png"
+        "FortuneCat/tooltip_progress.png",
+        "FortuneCat/wave.png"
       ],
       "ctype": "GameFileData"
     }

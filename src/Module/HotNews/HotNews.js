@@ -308,7 +308,7 @@ var HotNewItem = ccui.Layout.extend({
 
     setLargeImg: function (path) {
         this.largeImg.loadTexture(path);
-        var scale = this.largeImg.getContentSize().width/this.largeImg.getVirtualRendererSize().width;
+        var scale = this.largeImg.getContentSize().width / this.largeImg.getVirtualRendererSize().width;
         cc.log("LargeImg 1 : " + JSON.stringify(this.largeImg.getContentSize()));
         cc.log("LargeImg 2 : " + JSON.stringify(this.largeImg.getVirtualRendererSize()));
         cc.log("Scale : " + scale);
@@ -476,10 +476,10 @@ var HotNewsGUI = BaseLayer.extend({
         this.listBanner = this.getControl("listBanner",this.pHotNews);
         this.noNews = this.getControl("noNews",this.pHotNews);
         this.bg = this.getControl("bg",this.pHotNews);
-        this.bg.setContentSize(461, this.bg.getContentSize().height);
-        this.noNews.setPositionX(230);
+        // this.bg.setContentSize(680, this.bg.getContentSize().height);
+        this.noNews.setPositionX(350);
 
-        this.listBanner.itemSize = cc.size(421, 188);
+        this.listBanner.itemSize = cc.size(675, 270);
         this.listBanner.setScrollBarEnabled(false);
 
         this.listBanner.addEventListener(this.logEvent, this);
@@ -770,7 +770,7 @@ HotNews.KEY_OPEN_NEWS = "hot_new_openned_";
 // const
 HotNews.ENABLE = true;
 HotNews.URL_HOT_NEWS_LIVE = "https://news.service.zingplay.com:8456/news?gameId=";
-HotNews.URL_HOT_NEWS_PRIVATE = "http://120.138.65.103:8452/news?gameId=";
+HotNews.URL_HOT_NEWS_PRIVATE = "https://news.service.zingplay.com:8456/news?gameId=";
 
 HotNewItem.EVENT = 0;
 HotNewItem.PROMOTION = 1;

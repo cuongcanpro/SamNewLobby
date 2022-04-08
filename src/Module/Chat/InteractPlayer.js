@@ -114,7 +114,7 @@ var InteractPlayer = cc.Class.extend({
                     InteractSound.playThrow(itemItr.soundThrow);
 
                     var iteThrow = new cc.Sprite(itemItr.throwImg);
-                    iteThrow.setScale(this.currentScale * 2/3);
+                    iteThrow.setScale(this.currentScale);
                     iteThrow.setPosition(start);
                     this.currentParent.addChild(iteThrow, InteractPlayer.ITEM_TAG);
 
@@ -124,12 +124,14 @@ var InteractPlayer = cc.Class.extend({
                     var actMove = null;
 
                     if (itemItr.rotate)
-                        actMove = cc.spawn(cc.bezierTo(timeFly, [start, posCenter, des]), cc.rotateTo(timeFly, 720));
+                        actMove = cc.spawn(
+                            cc.bezierTo(timeFly, [start, posCenter, des]),
+                            cc.rotateTo(timeFly, 720)
+                        );
                     else
                         actMove = cc.bezierTo(timeFly, [start, posCenter, des]).easing(cc.easeSineIn());
                     itemItr.des = des;
 
-                    iteThrow.setScale(this.currentScale);
                     iteThrow.runAction(cc.sequence(
                         actMove,
                         cc.removeSelf(),
@@ -313,7 +315,7 @@ InteractPlayer.ITEM_TAG = 99999;
 InteractPlayer.INTERACT_KEY_NUM = 6;
 InteractPlayer.INTERACT_KEY_SEP = "#";
 InteractPlayer.INTERACT_KEY_PREFIX = "_____";
-InteractPlayer.INTERACT_SCALE_ITEM = 0.65;
+InteractPlayer.INTERACT_SCALE_ITEM = 1;
 
 InteractPlayer._inst = null;
 InteractPlayer.instance = function () {

@@ -35,13 +35,27 @@ var VipScene = BaseLayer.extend({
             nodeVip.lock = this.getControl("lock", nodeVip);
             nodeVip.name = this.getControl("name", nodeVip);
             nodeVip.vPoint = this.getControl("vPoint", nodeVip);
+            nodeVip.vPoint.setCascadeColorEnabled(false);
+            nodeVip.expired = this.getControl("expired", nodeVip);
+            nodeVip.expired.setVisible(false);
+            nodeVip.expired.setOpacity(0);
+            nodeVip.expired.setScale(0);
+            nodeVip.setLocalZOrder(10);
+            nodeVip.expired.big = this.getControl("big", nodeVip.expired);
+            nodeVip.expired.big.defaultSize = nodeVip.expired.big.getContentSize();
+            nodeVip.expired.big.setVisible(false);
+            nodeVip.expired.small = this.getControl("small", nodeVip.expired);
+            nodeVip.expired.small.defaultSize = nodeVip.expired.small.getContentSize();
+            this.customButton("btn", VipScene.BTN_EXPIRED, nodeVip.expired);
+            this.customButton("btnClose", VipScene.BTN_EXPIRED_CLOSE, nodeVip.expired);
+            // this.customButton("btnOpen", VipScene.BTN_EXPIRED_OPEN, nodeVip.expired);
             this.listImg.push(nodeVip);
         }
         this.btnClose = this.customButton("btnClose", VipScene.BTN_BACK);
 
-        var pBenefit = this.getControl("pBenefit");
         this.benefit = new VipBenefitNode();
-        pBenefit.addChild(this.benefit);
+        this.pBenefit = this.getControl("pBenefit");
+        this.pBenefit.addChild(this.benefit);
 
         var btnHelp = this.getControl("btnHelp");
         this.helpNode = new VipHelpNode(btnHelp, cc.p(btnHelp.width * 0.5, btnHelp.height * 0.5));
@@ -137,13 +151,77 @@ var VipScene = BaseLayer.extend({
     },
 
     onEnterFinish: function () {
+        shopData.initShopData();
+
         this.touched = null;
         this.helpNode.reset();
         this.normalizeAllVip();
-
         this.runDecor();
         this.setInfo();
         this.scheduleUpdate();
+        this.effectIn();
+    },
+
+    effectIn: function () {
+        var effectTime = 0.25;
+        var delayTime = 0;
+
+        for (var i = 0; i < this.listImg.length; i++) {
+            var img = this.listImg[i];
+            img.stopAllActions();
+            img.setScale(0);
+            img.runAction(cc.sequence(
+                cc.delayTime(delayTime + Math.abs(i - this.closest) * 0.15),
+                cc.scaleTo(effectTime, 1).easing(cc.easeBackOut())
+            ));
+        }
+        delayTime += 0.15 * 2;
+
+        this.btnClose.stopAllActions();
+        this.btnClose.setPosition(cc.p(this.btnClose.defaultPos.x, cc.winSize.height + this.btnClose.width * 0.5));
+        this.btnClose.setOpacity(0);
+        this.btnClose.runAction(cc.sequence(
+            cc.delayTime(delayTime),
+            cc.spawn(
+                cc.fadeIn(effectTime * 0.5).easing(cc.easeOut(2.5)),
+                cc.moveTo(effectTime, this.btnClose.defaultPos).easing(cc.easeBackOut())
+            )
+        ));
+        delayTime += 0.15;
+
+        var title = this.getControl("title", this.getControl("pTopLeft"));
+        title.stopAllActions();
+        title.setPosition(cc.p(title.defaultPos.x, cc.winSize.height + title.width * 0.5));
+        title.setOpacity(0);
+        title.runAction(cc.sequence(
+            cc.delayTime(delayTime),
+            cc.spawn(
+                cc.fadeIn(effectTime * 0.5).easing(cc.easeOut(2.5)),
+                cc.moveTo(effectTime, title.defaultPos).easing(cc.easeBackOut())
+            )
+        ));
+        delayTime += 0.15;
+
+        var pTopRight = this.getControl("pTopRight");
+        pTopRight.stopAllActions();
+        pTopRight.setPosition(cc.p(pTopRight.defaultPos.x, cc.winSize.height + pTopRight.width));
+        pTopRight.setOpacity(0);
+        pTopRight.runAction(cc.sequence(
+            cc.delayTime(delayTime),
+            cc.spawn(
+                cc.fadeIn(effectTime * 0.5).easing(cc.easeOut(2.5)),
+                cc.moveTo(effectTime, pTopRight.defaultPos).easing(cc.easeBackOut())
+            )
+        ));
+        delayTime += 0.15;
+
+        this.pBenefit.stopAllActions();
+        this.pBenefit.setScaleY(0);
+        this.pBenefit.runAction(cc.sequence(
+            cc.delayTime(delayTime),
+            cc.scaleTo(effectTime, 1).easing(cc.easeBackOut())
+        ));
+        delayTime += 0.15;
     },
 
     runDecor: function () {
@@ -208,7 +286,7 @@ var VipScene = BaseLayer.extend({
         for (var i = 0; i < this.listImg.length; i++) {
             this.listImg[i].name.setString("VIP " + (i === 0 ? "FREE" : i));
             this.listImg[i].lock.setVisible(i > vipLevel);
-            if (i === vipLevel + 1) {
+            if (i === vipLevel + 1 || (i === vipLevel && i === VipManager.NUMBER_VIP)) {
                 this.listImg[i].vPoint.setString(
                     StringUtility.pointNumber(currentVPoint) + "/" + StringUtility.pointNumber(targetVPoint)
                 );
@@ -221,10 +299,16 @@ var VipScene = BaseLayer.extend({
                 - StringUtility.getLabelWidth(this.listImg[i].vPoint) * 0.5
                 + 17.5;
             this.listImg[i].vPoint.setColor(i > vipLevel + 1 ? VipScene.TINT_COLOR : cc.WHITE);
+
+            var lbExpired = this.getControl("label", this.listImg[i].expired.small);
+            lbExpired.setString(LocalizedString.to("VIP_TIME_UP") + " VIP " + i);
+            lbExpired = this.getControl("label", this.listImg[i].expired.big);
+            lbExpired.setString(LocalizedString.to("VIP_TIME_UP") + " VIP " + i);
+
         }
         var posVPoint = this.listImg[vipLevel].defaultPos.x;
         posVPoint += this.listVip.width * 0.1 * (vipMgr.getVpoint() / vipMgr.getVpointNeed(vipLevel));
-        this.vipProgress.width = posVPoint + (VipScene.PROGRESS_BG_OFFSET - VipScene.PROGRESS_OFFSET) * 2;
+        this.vipProgress.width = Math.min(posVPoint, this.listVip.width) + (VipScene.PROGRESS_BG_OFFSET - VipScene.PROGRESS_OFFSET) * 2;
     },
 
     normalizeAllVip: function () {
@@ -245,6 +329,13 @@ var VipScene = BaseLayer.extend({
             } else {
                 // this.listImg[i].effect.setVisible(false);
             }
+
+            var expired = this.listImg[i].expired;
+            expired.stopAllActions();
+            expired.runAction(cc.spawn(
+                cc.scaleTo(effectTime, 0).easing(cc.easeBackIn(2.5)),
+                cc.fadeOut(effectTime).easing(cc.easeOut(2.5))
+            ));
         }
 
         this.movingImage();
@@ -294,6 +385,7 @@ var VipScene = BaseLayer.extend({
             cc.p(this.listVip.defaultPos.x - this.listImg[closest].defaultPos.x, this.listVip.defaultPos.y)
         ).easing(cc.easeOut(2)));
 
+        this.listImg[closest].setLocalZOrder(10);
         var effectTime = 0.25;
         var effect = this.listImg[closest].effect;
         effect.stopAllActions();
@@ -312,6 +404,13 @@ var VipScene = BaseLayer.extend({
         }
         this.listImg[closest].name.setColor(cc.WHITE);
 
+        var expired = this.listImg[closest].expired;
+        expired.stopAllActions();
+        expired.setVisible(false);
+        expired.setOpacity(0);
+        expired.setScale(0);
+
+
         for (var i = 0; i < this.listImg.length; i++) {
             if (i !== closest) {
                 this.listImg[i].stopAllActions();
@@ -322,15 +421,170 @@ var VipScene = BaseLayer.extend({
                     cc.tintTo(effectTime, VipScene.TINT_COLOR).easing(cc.easeBackOut())
                 );
                 this.listImg[i].name.setColor(VipScene.TINT_COLOR);
+                this.listImg[i].setLocalZOrder(0);
             }
         }
         if (this.closest !== closest) {
             this.benefit.setBenefit(closest);
             this.benefit.updatePosition(effectTime);
         }
-        if (closest === vipMgr.getVipLevel()) this.runLight();
+        if (closest === vipMgr.getVipLevel()) {
+            this.runLight();
+
+            var remainTime = vipMgr.getRemainTime();
+            if (remainTime <= 0) {
+                expired.setVisible(true);
+                expired.runAction(cc.sequence(
+                    cc.delayTime(1),
+                    cc.spawn(
+                        cc.scaleTo(effectTime, 1).easing(cc.easeIn(2.5)),
+                        cc.fadeIn(effectTime).easing(cc.easeIn(2.5))
+                    )
+                ));
+                this.effectExpiredShow(expired);
+            }
+        }
 
         this.closest = closest;
+    },
+
+    effectExpiredShow: function (expired, delayTime = 3) {
+        expired.big.stopAllActions();
+        expired.big.setVisible(false);
+        expired.big.setOpacity(255);
+        expired.big.setContentSize(expired.big.defaultSize);
+
+        expired.small.stopAllActions();
+        expired.small.setVisible(true);
+        expired.small.setOpacity(255);
+        expired.small.setContentSize(expired.small.defaultSize);
+
+        var delaySmallTime = 0.1;
+        var efxSizeTime = 0.25;
+        var efxSwitchTime = 0.25;
+        var delta = 2.5;
+        var times = Math.ceil(Math.max(
+            (expired.big.width - expired.small.width) / delta,
+            (expired.big.height - expired.small.height) / delta
+        ));
+
+        expired.setPosition(expired.defaultPos);
+        expired.runAction(cc.sequence(
+            cc.delayTime(delayTime),
+            cc.moveTo(efxSizeTime, expired.defaultPos.x + 50, expired.defaultPos.y)
+        ));
+
+        expired.small.runAction(cc.sequence(
+            cc.delayTime(delayTime),
+            cc.sequence(
+                cc.callFunc(function () {
+                    expired.small.width += delta;
+                    expired.small.width = Math.min(expired.small.width, expired.big.width);
+                    expired.small.height += delta;
+                    expired.small.height = Math.min(expired.small.height, expired.big.height);
+                }.bind(this)),
+                cc.delayTime(efxSizeTime / times)
+            ).repeat(times),
+            cc.callFunc(function () {
+                expired.small.width = expired.big.width;
+                expired.small.height = expired.big.height;
+            }.bind(this)),
+            cc.delayTime(delaySmallTime),
+            cc.fadeOut(efxSwitchTime),
+            cc.hide()
+        ));
+
+        expired.big.runAction(cc.sequence(
+            cc.delayTime(delayTime + efxSizeTime),
+            cc.show()
+        ));
+
+        var labelSmall = this.getControl("label", expired.small);
+        var labelBig = this.getControl("label", expired.big);
+
+        labelSmall.stopAllActions();
+        labelSmall.setPosition(labelSmall.defaultPos);
+        labelSmall.runAction(cc.sequence(
+            cc.delayTime(delayTime),
+            cc.moveTo(efxSizeTime, labelBig.defaultPos).easing(cc.easeBackOut(2.5))
+        ));
+
+        labelBig.stopAllActions();
+        labelBig.setPosition(labelBig.defaultPos);
+
+        var labelLong = this.getControl("labelLong", expired.big);
+        var btn = this.getControl("btn", expired.big);
+        var btnClose = this.getControl("btnClose", expired.big);
+
+        btn.stopAllActions();
+        btn.setOpacity(255);
+        btnClose.stopAllActions();
+        btnClose.setOpacity(255);
+        labelLong.stopAllActions();
+        labelLong.setOpacity(255);
+    },
+
+    effectExpiredHide: function (expired) {
+        expired.big.stopAllActions();
+        expired.small.stopAllActions();
+        expired.small.setVisible(false);
+        expired.small.setContentSize(expired.small.defaultSize);
+
+        var efxSizeTime = 0.25;
+        var efxSwitchTime = 0.25;
+        var delta = 2.5;
+        var times = Math.ceil(Math.max(
+            (expired.big.width - expired.small.width) / delta,
+            (expired.big.height - expired.small.height) / delta
+        ));
+
+        expired.runAction(cc.moveTo(efxSizeTime, expired.defaultPos));
+
+        expired.big.runAction(cc.sequence(
+            cc.sequence(
+                cc.callFunc(function () {
+                    expired.big.width -= delta;
+                    expired.big.width = Math.max(expired.small.width, expired.big.width);
+                    expired.big.height -= delta;
+                    expired.big.height = Math.max(expired.small.height, expired.big.height);
+                }.bind(this)),
+                cc.delayTime(efxSizeTime / times)
+            ).repeat(times),
+            cc.callFunc(function () {
+                expired.big.width = expired.small.width;
+                expired.big.height = expired.big.height;
+            }.bind(this)),
+            cc.delayTime(efxSwitchTime),
+            cc.hide()
+        ));
+
+        expired.small.runAction(cc.sequence(
+            cc.delayTime(efxSizeTime),
+            cc.show(),
+            cc.fadeIn(efxSwitchTime)
+        ));
+
+        var labelSmall = this.getControl("label", expired.small);
+        var labelBig = this.getControl("label", expired.big);
+
+        labelBig.stopAllActions();
+        labelBig.setPosition(labelBig.defaultPos);
+        labelBig.runAction(cc.moveTo(efxSizeTime, labelSmall.defaultPos).easing(cc.easeBackOut(2.5)));
+
+        labelSmall.stopAllActions();
+        labelSmall.setPosition(labelSmall.defaultPos);
+
+        var labelLong = this.getControl("labelLong", expired.big);
+        var btn = this.getControl("btn", expired.big);
+        var btnClose = this.getControl("btnClose", expired.big);
+
+        var smallTime = 0.1;
+        btn.stopAllActions();
+        btn.runAction(cc.fadeOut(smallTime));
+        btnClose.stopAllActions();
+        btnClose.runAction(cc.fadeOut(smallTime));
+        labelLong.stopAllActions();
+        labelLong.runAction(cc.fadeOut(smallTime));
     },
 
     update: function (dt) {
@@ -400,8 +654,19 @@ var VipScene = BaseLayer.extend({
             case VipScene.BTN_CHEAT_RECEIVED:
                 receivedMgr.onShopGoldSuccess(
                     "TESTING",
-                    {"shopGG":[0],"shopGoldGold":[10500000],"shopGoldVPoint":[220],"shopGoldVipHour":[21],"purchaseId":["8444a0c6-1326-4020-85a6-1308cc1ff11d"],"createdTime":[1646273936514],"paymentType":[2],"value":[22000],"missionGold":[0],"offerGold":[2000000],"offerDiamond":[1000],"offerVPoint":[0],"offerVipHour":[0],"offerItemType":["0"],"offerItemSubType":["3"],"offerItemId":["6"],"offerItemNumber":["1"],"voucherGold":[0],"voucherVPoint":[0],"vipGold":[0],"shopEventGold":[0],"eventId":["midAutumn;midAutumn"],"eventTicket":["3;3"],"eventReason":["6;3"],"eventVPoint":[0],"eventVipHour":[0],"webGold":[0]}
-                );
+                    {"shopGG":[100],"shopGoldGold":[0],"shopGoldVPoint":[0],"shopGoldVipHour":[0],"purchaseId":["9031cf90-a5cc-43bc-8673-a82569c20ccb"],"createdTime":[1648004588645],"paymentType":[1606],"value":[10000],"missionGold":[0],"offerGold":[0],"offerDiamond":[0],"offerVPoint":[0],"offerVipHour":[0],"offerItemType":[""],"offerItemSubType":[""],"offerItemId":[""],"offerItemNumber":[""],"voucherGold":[0],"voucherVPoint":[0],"vipGold":[0],"shopEventGold":[0],"eventId":[""],"eventTicket":[""],"eventReason":[""],"eventVPoint":[0],"eventVipHour":[0],"webGold":[0]}
+                    );
+                break;
+            case VipScene.BTN_EXPIRED:
+                cc.log("WHAT VipScene.BTN_EXPIRED");
+                paymentMgr.openShop(this._id, true);
+                // sceneMgr.openGUI(VipExpiredOffer.className);
+                break;
+            case VipScene.BTN_EXPIRED_CLOSE:
+                this.effectExpiredHide(this.listImg[this.closest].expired);
+                break;
+            case VipScene.BTN_EXPIRED_OPEN:
+                // this.effectExpiredShow(this.listImg[this.closest].expired, 0);
                 break;
         }
     },
@@ -419,6 +684,9 @@ VipScene.PROGRESS_OFFSET = 2.5;
 
 VipScene.BTN_BACK = 0;
 VipScene.BTN_HELP = 1;
+VipScene.BTN_EXPIRED = 2;
+VipScene.BTN_EXPIRED_CLOSE = 3;
+VipScene.BTN_EXPIRED_OPEN = 4;
 VipScene.BTN_VIP = 100;
 VipScene.BTN_CHEAT = 200;
 VipScene.BTN_CHEAT_OLD = 201;
@@ -431,6 +699,7 @@ VipScene.BTN_CHEAT_RECEIVED = 206;
 VipScene.initCheat = function (theGUI) {
     theGUI.pCheat = theGUI.getControl("pCheat");
     theGUI.btnCheat = theGUI.customButton("btnCheat", VipScene.BTN_CHEAT, theGUI.pCheat);
+    theGUI.btnCheat.setVisible(Config.ENABLE_CHEAT);
 
     theGUI.pOldCheat = theGUI.getControl("pOldCheat", theGUI.pCheat);
     theGUI.pOldCheat.level = theGUI.getControl("level", theGUI.pOldCheat);
@@ -535,8 +804,8 @@ var VipStarter = BaseLayer.extend({
         this.lbProgress = this.getControl("lbProgress", this.progressVip);
         var btnHelp = this.getControl("btnHelp", this.progressVip);
         this.helpNode = new VipHelpNode(btnHelp, cc.p(btnHelp.width * 0.5, btnHelp.height * 0.5));
-        this.helpNode.helpBg.setAnchorPoint(cc.p(0, 1));
-        this.helpNode.helpBg.setPosition(cc.p(this.helpNode.helpBg.x, this.helpNode.helpBtn.height * 0.5));
+        this.helpNode.helpBg.setAnchorPoint(cc.p(1, 0));
+        this.helpNode.helpBg.setPosition(cc.p(-this.helpNode.helpBg.x, -this.helpNode.helpBtn.height * 0.5));
         this.description = this.getControl("description", this.bg);
 
         this.list = [];
@@ -575,7 +844,7 @@ var VipStarter = BaseLayer.extend({
             }
             cell.setInfo(listBenefit[i], false, VipManager.NUMBER_VIP);
             cell.btn.setVisible(false);
-            cell.maxStamp.setVisible(true);
+            cell.maxStamp.setVisible(!vipMgr.getIsUnlocked(listBenefit[i]["index"]));
         }
 
         this.scrollView.innerWidth = listBenefit.length * VipBenefitCell.WIDTH
@@ -682,5 +951,66 @@ var VipHelpNode = cc.Class.extend({
         this.turningOff = true;
         this.helpBg.stopAllActions();
         this.helpBg.setScale(0);
+    }
+});
+
+var VipTooltipLobby = cc.Node.extend({
+    ctor: function () {
+        this._super();
+        this._layout = ccs.load("VipTooltipLobby.json").node;
+        this.addChild(this._layout);
+
+        this.panel = this._layout.getChildByName("panel");
+        this.bg = this.panel.getChildByName("bgTooltip");
+        this.txtRemain = this.panel.getChildByName("txtRemain");
+        this.txtTimeRemain = this.panel.getChildByName("txtTimeRemain");
+        this.txtTimeExpired = this.panel.getChildByName("txtTimeExpired");
+    },
+
+    onEnterLobby: function () {
+        var efxTime = 0.25;
+        this.panel.stopAllActions();
+        this.panel.setOpacity(0);
+        this.panel.setScale(0);
+        this.panel.setRotation(-90);
+        this.panel.runAction(cc.sequence(
+            cc.delayTime(5),
+            cc.spawn(
+                cc.scaleTo(efxTime, 1).easing(cc.easeBackOut()),
+                cc.fadeIn(efxTime).easing(cc.easeIn(2.5)),
+                cc.rotateTo(efxTime, 0).easing(cc.easeBackOut())
+            ),
+            cc.delayTime(5),
+            cc.spawn(
+                cc.scaleTo(efxTime, 0).easing(cc.easeBackIn()),
+                cc.fadeOut(efxTime).easing(cc.easeOut(2.5)),
+                cc.rotateTo(efxTime, -90).easing(cc.easeBackIn())
+            )
+        ).repeatForever());
+
+        if (vipMgr.getVipLevel() > 0) {
+            this.setVisible(true);
+            this.schedule(this.setInfo, 1);
+        } else {
+            this.setVisible(false);
+        }
+    },
+
+    setInfo: function () {
+        vipMgr.updateTimeVip(1);
+        var remainTime = vipMgr.getRemainTime();
+        if (remainTime <= 0) {
+            this.bg.setScale(0.68);
+            this.txtRemain.setVisible(false);
+            this.txtTimeRemain.setVisible(false);
+            this.txtTimeExpired.setVisible(true);
+        } else {
+            this.bg.setScale(1);
+            this.txtRemain.setVisible(true);
+            this.txtTimeRemain.setVisible(true);
+            this.txtTimeExpired.setVisible(false);
+
+            this.txtTimeRemain.setString(VipManager.getRemainTimeString(remainTime));
+        }
     }
 });

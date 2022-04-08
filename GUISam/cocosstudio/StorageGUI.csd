@@ -16,17 +16,17 @@
             <PreSize X="1.2315" Y="1.1416" />
             <FileData Type="Normal" Path="NewLobbyUserInfoGUI/bgInfoUser.png" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="previewBg" ActionTag="1095882361" Tag="65" IconVisible="False" LeftMargin="651.2145" RightMargin="18.7855" TopMargin="21.2122" BottomMargin="43.7878" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" ctype="PanelObjectData">
+          <AbstractNodeData Name="previewBg" ActionTag="1095882361" Tag="65" IconVisible="False" LeftMargin="651.2145" RightMargin="18.7855" TopMargin="21.2122" BottomMargin="43.7878" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
             <Size X="250.0000" Y="500.0000" />
             <Children>
-              <AbstractNodeData Name="labelNone" ActionTag="631706436" Tag="52" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="58.5065" RightMargin="45.4935" TopMargin="79.8397" BottomMargin="345.1603" FontSize="18" LabelText="Chọn 1 vật phẩm &#xA;để hiển thị &#xA;xem trước" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                <Size X="146.0000" Y="75.0000" />
+              <AbstractNodeData Name="labelNone" ActionTag="631706436" Tag="52" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="41.5065" RightMargin="28.4935" TopMargin="72.3500" BottomMargin="337.6500" FontSize="22" LabelText="Chọn 1 vật phẩm &#xA;để hiển thị &#xA;xem trước" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                <Size X="180.0000" Y="90.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="131.5065" Y="382.6603" />
+                <Position X="131.5065" Y="382.6500" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.5260" Y="0.7653" />
-                <PreSize X="0.5840" Y="0.1500" />
+                <PreSize X="0.7200" Y="0.1800" />
                 <FontResource Type="Normal" Path="Font/tahoma.ttf" Plist="" />
                 <OutlineColor A="255" R="98" G="68" B="175" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
@@ -87,22 +87,22 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="pText" ActionTag="1928906348" Tag="67" IconVisible="False" LeftMargin="-3.8942" RightMargin="-6.1058" TopMargin="227.1666" BottomMargin="72.8334" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" ctype="PanelObjectData">
+              <AbstractNodeData Name="pText" ActionTag="1928906348" Tag="67" IconVisible="False" LeftMargin="-3.8942" RightMargin="-6.1058" TopMargin="227.1666" BottomMargin="72.8334" TouchEnable="True" ClipAble="False" BackColorAlpha="102" ColorAngle="90.0000" Scale9Width="1" Scale9Height="1" ctype="PanelObjectData">
                 <Size X="260.0000" Y="200.0000" />
                 <Children>
-                  <AbstractNodeData Name="title" ActionTag="-364348877" Tag="57" IconVisible="False" LeftMargin="89.2449" RightMargin="90.7551" TopMargin="34.6655" BottomMargin="138.3345" FontSize="20" LabelText="Cà chua" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                    <Size X="80.0000" Y="27.0000" />
+                  <AbstractNodeData Name="title" ActionTag="-364348877" Tag="57" IconVisible="False" LeftMargin="85.7449" RightMargin="87.2551" TopMargin="33.1655" BottomMargin="136.8345" FontSize="22" LabelText="Cà chua" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                    <Size X="87.0000" Y="30.0000" />
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                     <Position X="129.2449" Y="151.8345" />
                     <Scale ScaleX="1.0000" ScaleY="1.0000" />
                     <CColor A="255" R="255" G="255" B="255" />
                     <PrePosition X="0.4971" Y="0.7592" />
-                    <PreSize X="0.3077" Y="0.1350" />
+                    <PreSize X="0.3346" Y="0.1500" />
                     <FontResource Type="Normal" Path="Font/tahomabd.ttf" Plist="" />
                     <OutlineColor A="255" R="255" G="0" B="0" />
                     <ShadowColor A="255" R="110" G="110" B="110" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="des" ActionTag="709982444" Tag="58" IconVisible="False" LeftMargin="6.2207" RightMargin="3.7793" TopMargin="73.3911" BottomMargin="46.6089" IsCustomSize="True" FontSize="18" LabelText="Dùng để tặng cho người chơi khác trong bàn chơi." HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                  <AbstractNodeData Name="des" ActionTag="709982444" Tag="58" IconVisible="False" LeftMargin="6.2207" RightMargin="3.7793" TopMargin="73.3911" BottomMargin="46.6089" IsCustomSize="True" FontSize="20" LabelText="Dùng để tặng cho người chơi khác trong bàn chơi." HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                     <Size X="250.0000" Y="80.0000" />
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                     <Position X="131.2207" Y="86.6089" />
@@ -114,14 +114,14 @@
                     <OutlineColor A="255" R="255" G="0" B="0" />
                     <ShadowColor A="255" R="110" G="110" B="110" />
                   </AbstractNodeData>
-                  <AbstractNodeData Name="time" ActionTag="578141227" Tag="59" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="23.5000" RightMargin="23.5000" TopMargin="166.7272" BottomMargin="8.2728" FontSize="18" LabelText="Hạn sử dụng: 31/12/2021" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
-                    <Size X="213.0000" Y="25.0000" />
+                  <AbstractNodeData Name="time" ActionTag="578141227" Tag="59" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="-3.0000" RightMargin="-3.0000" TopMargin="164.2272" BottomMargin="5.7728" FontSize="22" LabelText="Hạn sử dụng: 31/12/2021" HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                    <Size X="266.0000" Y="30.0000" />
                     <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                     <Position X="130.0000" Y="20.7728" />
                     <Scale ScaleX="1.0000" ScaleY="1.0000" />
                     <CColor A="255" R="255" G="0" B="0" />
                     <PrePosition X="0.5000" Y="0.1039" />
-                    <PreSize X="0.8192" Y="0.1250" />
+                    <PreSize X="1.0231" Y="0.1500" />
                     <FontResource Type="Normal" Path="Font/tahoma.ttf" Plist="" />
                     <OutlineColor A="255" R="255" G="0" B="0" />
                     <ShadowColor A="255" R="110" G="110" B="110" />
@@ -186,10 +186,10 @@
                 <PreSize X="0.0767" Y="0.0852" />
                 <FileData Type="Default" Path="Default/ImageFile.png" Plist="" />
               </AbstractNodeData>
-              <AbstractNodeData Name="mess" ActionTag="-1408953989" Tag="64" RotationSkewX="9.9999" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="180.7829" RightMargin="169.2171" TopMargin="337.7211" BottomMargin="169.2789" FontSize="24" LabelText="Có lỗi, vui lòng thử lại." HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" OutlineSize="2" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+              <AbstractNodeData Name="mess" ActionTag="-1408953989" Tag="64" RotationSkewX="9.9999" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="180.7600" RightMargin="169.2400" TopMargin="337.7211" BottomMargin="169.2789" FontSize="24" LabelText="Có lỗi, vui lòng thử lại." HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" OutlineSize="2" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                 <Size X="250.0000" Y="33.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="305.7829" Y="185.7789" />
+                <Position X="305.7600" Y="185.7789" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.5096" Y="0.3440" />

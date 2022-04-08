@@ -37,7 +37,7 @@ var PlayerView = cc.Node.extend({
     setPanel: function (panel) {
         this._panel = panel;
         this._panel.setAnchorPoint(cc.p(0.5, 0.5));
-        this._panel.x += this._panel.width / 2;
+        this._panel.x += (this._panel.x < cc.winSize.width * 0.5? 1 : -1) * this._panel.width / 2;
         this._panel.y += this._panel.height / 2;
         this._panel.defaultPos = this._panel.getPosition();
 
@@ -53,8 +53,26 @@ var PlayerView = cc.Node.extend({
         this._uiAvatar = avatar;
         this._gameScene.logForIOS("DONE AVATAR");
 
+        this.avatarFrame = mask.getChildByName("frame");
+        this.avatarFrame.setLocalZOrder(0);
+        this.orgFrame = mask.getChildByName("orgFrame");
+        this.orgFrame.setLocalZOrder(0);
+
+        this.view = mask.getChildByName("view");
+
+        this._bg = panel.getChildByName("bg");
+        this._bg.defaultPos = this._bg.getPosition();
+        this._uiName = ccui.Helper.seekWidgetByName(panel, "name");
+        this._uiName.defaultPos = this._uiName.getPosition();
+        this._uiGold = ccui.Helper.seekWidgetByName(panel, "gold");
+        this._uiGold.defaultPos = this._uiGold.getPosition();
+        this._uiRank = ccui.Helper.seekWidgetByName(panel, "rank");
+        this._uiRank.defaultPos = this._uiRank.getPosition();
+        this._uiRank.ignoreContentAdaptWithSize(true);
+
         var vip = panel.getChildByName("vip");
         vip.ignoreContentAdaptWithSize(true);
+        vip.y = this._uiName.y;
         this.vip = ccui.Scale9Sprite.create(VipManager.getIconVip(10));
         this.vip.setAnchorPoint(cc.p(1, 0.5));
         vip.getParent().addChild(this.vip);
@@ -67,17 +85,6 @@ var PlayerView = cc.Node.extend({
         this.vipParticle.setLocalZOrder(-1);
         this.vip.addChild(this.vipParticle);
         this._gameScene.logForIOS("DONE VIP");
-
-        this.avatarFrame = mask.getChildByName("frame");
-        this.avatarFrame.setLocalZOrder(0);
-        this.orgFrame = mask.getChildByName("orgFrame");
-        this.orgFrame.setLocalZOrder(0);
-
-        this.view = mask.getChildByName("view");
-
-        this._bg = panel.getChildByName("bg");
-        this._uiName = ccui.Helper.seekWidgetByName(panel, "name");
-        this._uiGold = ccui.Helper.seekWidgetByName(panel, "gold");
 
         this.timer = panel.getChildByName("timer");
         this.timer.orgPos = this.timer.getPosition();
@@ -119,6 +126,8 @@ var PlayerView = cc.Node.extend({
         this.auto.setVisible(false);
 
         this.vipEfx = false;
+
+        dispatcherMgr.addListener(RankData.EVENT_RECEIVED_DATA, this, this.onReceivedRankData);
     },
 
     initResult: function () {
@@ -279,7 +288,6 @@ var PlayerView = cc.Node.extend({
     },
 
     updateWithPlayer: function (player) {
-        cc.log("UPDATE WITH PLAYER", this.isLeaving, JSON.stringify(player));
         if (!player._ingame) {
             if (!this.isLeaving) this.setVisible(false);
             return;
@@ -314,7 +322,7 @@ var PlayerView = cc.Node.extend({
 
         this.uID = player._info["uID"];
         this._uiGold.setString(this.convertGoldString(player._info["bean"]) + "$");
-
+        cc.log("DU MA ** " + player._info["bean"]);
         this.vip.setVisible(player._info["vip"] > 0);
         try {
             if (player._info["vip"] > 0) {
@@ -329,12 +337,6 @@ var PlayerView = cc.Node.extend({
                 this.vipParticle.setEndColor(color);
             }
         } catch (e) {
-            cc.error("loi load vip: ", player._info["vip"]);
-            if (player._info["vip"] > 0) {
-                this.vip.setVisible(false);
-                this.vip2.setVisible(true);
-                this.vip2.loadTexture(VipManager.getIconVip(player._info["vip"]));
-            }
         }
 
         if (player._info["uID"] === userMgr.getUID()) {
@@ -343,6 +345,19 @@ var PlayerView = cc.Node.extend({
         }
         this.addVipEffect();
 
+        if (player._info["uID"] === userMgr.getUID()) {
+            if (RankData.getInstance().getCurRankInfo()) {
+                this.updateWithRank(RankData.getInstance().getCurRankInfo().rank);
+            } else {
+                this.updateWithRank();
+            }
+        } else {
+            this.updateWithRank();
+            var otherInfo = new CmdSendGetOtherRankInfo();
+            otherInfo.putData(player._info["uID"]);
+            GameClient.getInstance().sendPacket(otherInfo);
+            otherInfo.clean();
+        }
 
         if (player._status === 1)     // dang xem
         {
@@ -358,6 +373,31 @@ var PlayerView = cc.Node.extend({
         player._active = false;
     },
 
+    updateWithRank: function (rank) {
+        var offset = 0;
+        if (!isNaN(rank) && rank >= 0) {
+            this._uiRank.setVisible(true);
+            this._uiRank.loadTexture(RankData.getRankNameImg(rank));
+            this._uiRank.setScale(0.6);
+            offset = this._uiRank.height * this._uiRank.getScaleX();
+        } else {
+            this._uiRank.setVisible(false);
+            //TESTING
+            // this._uiRank.setVisible(true);
+            // this._uiRank.loadTexture(RankData.getRankNameImg(Math.floor(Math.random() * 9)));
+            // this._uiRank.setScale(0.6);
+            // offset = this._uiRank.height * this._uiRank.getScaleX() - 5;
+        }
+        this._bg.y = this._bg.defaultPos.y - offset;
+        this._uiName.y = this._uiName.defaultPos.y - offset;
+        this._uiGold.y = this._uiGold.defaultPos.y - offset;
+    },
+
+    onReceivedRankData: function (eventString, otherInfo) {
+        if (!this._panel.isVisible() || this.uID !== otherInfo.uID) return;
+        this.updateWithRank(otherInfo.rank);
+    },
+
     efxPlayerIn: function () {
         this.resetAction();
 
@@ -371,8 +411,8 @@ var PlayerView = cc.Node.extend({
         ));
         this.clearSmile();
 
-        this.vip.setScale(1.5);
-        this.vipParticle.setVisible(false);
+        // this.vip.setScale(1.5);
+        // this.vipParticle.setVisible(false);
 
         // if (this.vipEfx) this.vipEfx.removeFromParent();
         // this.vip.runAction(cc.sequence(
@@ -880,7 +920,7 @@ var PlayerView = cc.Node.extend({
         this.removeResult(timeStay + delay);
     },
 
-    addDecreaseMoney: function (gold, delay = 0) {
+    addDecreaseMoney: function (gold, delay = 0, reason = "") {
         if (!this.result) {
             this.initResult();
         }
@@ -1250,6 +1290,7 @@ var PlayerView = cc.Node.extend({
         ));
         bgEmote.addChild(emote);
         bgEmote.setTag(PlayerView.EMOTE_TAG);
+        bgEmote.setLocalZOrder(5);
         emote.setPosition(cc.p(bgEmote.width * 0.5, bgEmote. height  * 0.6));
         var emoteScale = emote.getScale();
         emote.setScale(0);
@@ -1388,17 +1429,13 @@ var MyView = PlayerView.extend({
         this.timer.addChild(this.timer.eff);
         this._gameScene.logForIOS("DONE TIME");
 
-        var myBaoPosition = cc.p(-80, 140);
+        var myBaoPosition = cc.p(-80, 120);
         this.baoPanel.bao.setPosition(myBaoPosition);
-        this.baoPanel.bao.getChildByName("lb").y += 20;
+        this.baoPanel.bao.getChildByName("lb").y += 28;
         this.baoPanel.baoCancel.setPosition(myBaoPosition);
-        this.baoPanel.baoCancel.getChildByName("lb").y += 20;
+        this.baoPanel.baoCancel.getChildByName("lb").y += 28;
         this.baoPanel.orgPos = this.baoPanel.bao.getPosition();
         this._gameScene.logForIOS("DONE BAO");
-
-        this.vip.setAnchorPoint(cc.p(0, 0.5));
-        this.swapSide(this.vip);
-        this.vip.setPositionY(this._panel.getChildByName("card").getPositionY());
 
         this._card.setVisible(false);
 
@@ -1734,10 +1771,16 @@ var MyView = PlayerView.extend({
         this.resultWin.eff.setAnimation(1, "idle", -1);
     },
 
-    addDecreaseMoney: function (gold, delay = 0) {
+    addDecreaseMoney: function (gold, delay = 0, reason = "") {
         this.addEffectResult(this.resultLose, "-" + this.convertGoldString(Math.abs(gold)), delay);
         this.resultLose.label.setVisible(false);
         this.resultWin.eff.setAnimation(1, "idle", -1);
+        if (reason !== "") {
+            this.resultLose.stamp.setVisible(true);
+            this.resultLose.lbStamp.setString(reason);
+        } else {
+            this.resultLose.stamp.setVisible(false);
+        }
     },
 
     addEffectResult: function (pResult, string, delayTime) {
@@ -1833,4 +1876,11 @@ var MyView = PlayerView.extend({
         this.baoPanel.setOpacity(255);
         this.baoPanel.runAction(cc.moveTo(0.25, this.baoPanel.pos).easing(cc.easeBackIn()));
     },
+
+    getVoucherPosition: function () {
+        return this._panel.convertToWorldSpace(cc.p(
+            this.vip.x,
+            this.mask.y + this.mask.height * 0.35
+        ));
+    }
 });

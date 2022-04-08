@@ -279,22 +279,7 @@ CmdSendPingPong = CmdSendCommon.extend({
     }
 });
 
-CmdSendGetConfig = CmdSendCommon.extend({
-    ctor: function () {
-        this._super();
-        this.initData(100);
-        this.setControllerId(1);
-        this.setCmdId(CMD.CMD_GET_CONFIG);
 
-        this.putData();
-    },
-    putData: function () {
-        //pack
-        this.packHeader();
-        //update
-        this.updateSize();
-    }
-});
 
 CmdSendSearchTable = CmdSendCommon.extend({
     ctor: function () {
@@ -308,42 +293,6 @@ CmdSendSearchTable = CmdSendCommon.extend({
         //pack
         this.packHeader();
         this.putInt(roomID);
-        //update
-        this.updateSize();
-    }
-});
-
-CmdSendGetUserInfo = CmdSendCommon.extend({
-    ctor: function () {
-        this._super();
-        this.initData(100);
-        this.setControllerId(1);
-        this.setCmdId(CMD.CMD_GET_USER_INFO);
-
-        this.putData();
-    },
-    putData: function () {
-        //pack
-        this.packHeader();
-        //update
-        this.putInt(parseInt(gamedata.appVersion));
-        this.updateSize();
-    }
-});
-
-
-CmdSendHold = CmdSendCommon.extend({
-
-    ctor: function () {
-        this._super();
-        this.initData(100);
-        this.setControllerId(1);
-        this.setCmdId(CMD.CMD_HOLD);
-        this.putData();
-    },
-    putData: function () {
-        //pack
-        this.packHeader();
         //update
         this.updateSize();
     }
@@ -367,23 +316,6 @@ CmdSendLogInvite = CmdSendCommon.extend({
 });
 
 
-// USER PACKET
-
-CmdBuyGold = CmdSendCommon.extend({
-    ctor: function () {
-        this._super();
-        this.initData(100);
-        this.setControllerId(1);
-        this.setCmdId(CMD.CMD_SHOP_GOLD);
-    },
-
-    putData: function (id) {
-        this.packHeader();
-        this.putByte(id);
-        this.updateSize();
-    }
-});
-
 CmdGetGiftCode = CmdSendCommon.extend({
     ctor: function () {
         this._super();
@@ -399,69 +331,6 @@ CmdGetGiftCode = CmdSendCommon.extend({
     }
 });
 
-CmdRefreshTopUser = CmdSendCommon.extend({
-    ctor: function () {
-        this._super();
-        this.initData(100);
-        this.setControllerId(1);
-        this.setCmdId(CMD.CMD_REFRESH_TOP_USER);
-        this.putData();
-    },
-
-    putData: function () {
-        this.packHeader();
-        this.updateSize();
-    }
-});
-
-CmdSendAcceptInvitation = CmdSendCommon.extend({
-    ctor: function () {
-        this._super();
-        this.initData(100);
-        this.setControllerId(1);
-        this.setCmdId(CMD.ACCEPT_INVITATION);
-    },
-
-    putData: function (pack) {
-        this.packHeader();
-        this.putInt(pack);
-        this.updateSize();
-    }
-});
-
-
-CmdSendGetInfoVip = CmdSendCommon.extend({
-    ctor: function () {
-        this._super();
-        this.initData(100);
-        this.setControllerId(1);
-        this.setCmdId(CMD.INFO_VIP);
-        this.putData();
-    },
-
-    putData: function () {
-        this.packHeader();
-        this.updateSize();
-    }
-});
-
-
-CmdSendInputCard = CmdSendCommon.extend({
-    ctor: function () {
-        this._super();
-        this.initData(100);
-        this.setControllerId(1);
-        this.setCmdId(CMD.NAP_CARD);
-    },
-
-    putData: function (type, num, seri) {
-        this.packHeader();
-        this.putInt(type);
-        this.putString(num);
-        this.putString(seri);
-        this.updateSize();
-    }
-});
 
 CmdSendPingpong = CmdSendCommon.extend({
     ctor: function () {
@@ -475,36 +344,6 @@ CmdSendPingpong = CmdSendCommon.extend({
     putData: function () {
         this.packHeader();
 
-        this.updateSize();
-    }
-});
-
-CmdSendRegVip = CmdSendCommon.extend({
-    ctor: function () {
-        this._super();
-        this.initData(100);
-        this.setControllerId(1);
-        this.setCmdId(CMD.REGISTER_VIP);
-    },
-
-    putData: function (index) {
-        this.packHeader();
-        this.putByte(index);
-        this.updateSize();
-    }
-});
-
-CmdSendGetCode = CmdSendCommon.extend({
-    ctor: function () {
-        this._super();
-        this.initData(100);
-        this.setControllerId(1);
-        this.setCmdId(CMD.CMD_GETCODE);
-        this.putData();
-    },
-
-    putData: function () {
-        this.packHeader();
         this.updateSize();
     }
 });
@@ -626,9 +465,6 @@ CmdSendRequestMission = CmdSendCommon.extend({
     }
 });
 
-
-
-
 var CmdSendClientInfo = CmdSendCommon.extend({
     ctor: function () {
         this._super();
@@ -647,49 +483,3 @@ var CmdSendClientInfo = CmdSendCommon.extend({
 });
 
 
-var CmdSendEventChangeAward = CmdSendCommon.extend({
-
-    ctor: function () {
-        this._super();
-        this.initData(100);
-        this.setControllerId(1);
-        this.setCmdId(CMD.CMD_SEND_EVENT_REGISTER);
-    },
-
-    putData: function (idEvent, id, name, add, cmnd, phone, email) {
-        if (name === undefined) name = "";
-        if (phone === undefined) phone = "";
-        if (cmnd === undefined) cmnd = "";
-        if (add === undefined) add = "";
-        if (email === undefined) email = "";
-
-        cc.log("#SendChangeAward : " + idEvent + "," + id + "," + name + " , " + phone + " , " + cmnd + " , " + add + " , " + email);
-
-        this.packHeader();
-        this.putString(idEvent);
-        this.putInt(id);
-
-        this.putString(name);
-        this.putString(phone);
-        this.putString(cmnd);
-        this.putString(add);
-        this.putString(email);
-        this.updateSize();
-    },
-});
-
-var CmdSendCheatBot = CmdSendCommon.extend({
-    ctor: function () {
-        this._super();
-        this.initData(100);
-        this.setControllerId(1);
-        this.setCmdId(CMD.CMD_CHEAT_BOT);
-        this.putData();
-    },
-    putData: function () {
-        //pack
-        this.packHeader();
-        //update
-        this.updateSize();
-    }
-})

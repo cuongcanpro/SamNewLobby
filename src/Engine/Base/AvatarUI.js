@@ -10,7 +10,7 @@ var AvatarUI = cc.Node.extend({
         this._downloading = AvatarUI.AVATAR_DEFAULT;
         this._asyncDownload = null;
 
-        if (cc.sys.isNative){
+        if (false){
             this.image = new fr.Avatar(defaultImg);
         } else {
             this.image = engine.UIAvatar.createWithMask(defaultImg, isNoClipping ? defaultImg : maskAvatar, "");
@@ -36,10 +36,19 @@ var AvatarUI = cc.Node.extend({
     },
 
     setDefaultImage: function () {
-        if (cc.sys.isNative){
+        if (false){
             this.image.updateAvatar(this._defaultImg);
         } else {
             this.image.setDefaultImage();
+        }
+    },
+
+    updateDefaultImg: function (defaultImg) {
+        this._defaultImg = defaultImg;
+        if (false) {
+            this.image._defaultAvatar.setTexture(this._defaultImg);
+        } else {
+            this.image.setTexture(this._defaultImg);
         }
     },
 
@@ -59,21 +68,23 @@ var AvatarUI = cc.Node.extend({
     },
 
     asyncExecuteWithUrl: function(path, url, isReload){
-        if (cc.sys.isNative){
+        cc.error("asyncExecuteWithUrl: ", url, path);
+        //Avatar default
+        var index = url.indexOf("avatar_");
+        if  (index !== -1) {
+            path = url.substring(index, url.indexOf(".png"));
+        }
+
+        if (false) {
             this.image.updateAvatar(url);
         } else {
-            // cc.error("asyncExecuteWithUrl: ", url);
             this.image.asyncExecuteWithUrl(path, url);
         }
     },
 
     getImageSize: function(){
         return this.image.getImageSize();
-    },
-
-    // setScale: function(scale, scaleY){
-    //     this._super(scale * 1.095);
-    // }
+    }
 });
 
 AvatarUI.NUM_MAX_REDOWNLOAD = 2;

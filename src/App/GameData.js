@@ -10,6 +10,14 @@ var GameData = cc.Class.extend({
 
     openShopTicket: function (waiting, callback) {
         paymentMgr.openShopTicket(waiting, callback);
+    },
+
+    updateUserInfoNow: function () {
+
+    },
+
+    checkEnablePayment: function () {
+        return paymentMgr.checkEnablePayment();
     }
 })
 

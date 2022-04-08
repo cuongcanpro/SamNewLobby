@@ -67,22 +67,28 @@
             "ctype": "PanelObjectData"
           },
           {
-            "FileData": {
-              "Type": "Normal",
-              "Path": "SupportGUI/bgStartUp.png",
-              "Plist": ""
+            "ClipAble": false,
+            "BackColorAlpha": 102,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
             },
-            "Scale9OriginX": 234,
-            "Scale9OriginY": 193,
-            "Scale9Width": 244,
-            "Scale9Height": 199,
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "TouchEnable": true,
             "AnchorPoint": {
               "ScaleX": 0.5,
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 610.44,
-              "Y": 434.88
+              "X": 600.0,
+              "Y": 360.0
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -90,23 +96,70 @@
             },
             "CColor": {},
             "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PositionPercentYEnabled": true,
             "PrePosition": {
-              "X": 0.5087,
-              "Y": 0.604
+              "X": 0.5,
+              "Y": 0.5
             },
+            "PercentWidthEnable": true,
+            "PercentHeightEnable": true,
+            "PercentWidthEnabled": true,
+            "PercentHeightEnabled": true,
             "PreSize": {
-              "X": 0.5933,
-              "Y": 0.8125
+              "X": 1.0,
+              "Y": 1.0
             },
-            "HorizontalEdge": "BothEdge",
-            "VerticalEdge": "BothEdge",
-            "LeftMargin": 254.44,
-            "RightMargin": 233.56,
-            "TopMargin": -7.38,
-            "BottomMargin": 142.38,
-            "UserData": "scale",
-            "Tag": 2,
+            "Tag": 504,
             "Children": [
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "SupportGUI/bgStartUp.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 234,
+                "Scale9OriginY": 193,
+                "Scale9Width": 244,
+                "Scale9Height": 199,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 600.0,
+                  "Y": 432.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.6
+                },
+                "PreSize": {
+                  "X": 0.5933,
+                  "Y": 0.8125
+                },
+                "LeftMargin": 244.0,
+                "RightMargin": 244.0,
+                "TopMargin": -4.5,
+                "BottomMargin": 139.5,
+                "UserData": "scale",
+                "Tag": 2,
+                "ActionTag": -2111772047,
+                "Size": {
+                  "X": 712.0,
+                  "Y": 585.0
+                },
+                "Name": "img",
+                "ctype": "ImageViewObjectData"
+              },
               {
                 "FileData": {
                   "Type": "Normal",
@@ -122,8 +175,8 @@
                   "ScaleY": 0.5
                 },
                 "Position": {
-                  "X": 356.3901,
-                  "Y": 449.81
+                  "X": 600.0,
+                  "Y": 586.0699
                 },
                 "Scale": {
                   "ScaleX": 1.0,
@@ -131,18 +184,19 @@
                 },
                 "CColor": {},
                 "IconVisible": false,
+                "PositionPercentXEnabled": true,
                 "PrePosition": {
-                  "X": 0.5005,
-                  "Y": 0.7689
+                  "X": 0.5,
+                  "Y": 0.814
                 },
                 "PreSize": {
-                  "X": 0.6152,
-                  "Y": 0.1162
+                  "X": 0.365,
+                  "Y": 0.0944
                 },
-                "LeftMargin": 137.3901,
-                "RightMargin": 136.6099,
-                "TopMargin": 101.19,
-                "BottomMargin": 415.81,
+                "LeftMargin": 381.0,
+                "RightMargin": 381.0,
+                "TopMargin": 99.9301,
+                "BottomMargin": 552.0699,
                 "Tag": 28,
                 "ActionTag": -381498291,
                 "Size": {
@@ -181,8 +235,8 @@
                   "ScaleY": 0.5
                 },
                 "Position": {
-                  "X": 360.3503,
-                  "Y": 49.1439
+                  "X": 600.0,
+                  "Y": 185.4074
                 },
                 "Scale": {
                   "ScaleX": 1.0,
@@ -194,18 +248,19 @@
                   "B": 45
                 },
                 "IconVisible": false,
+                "PositionPercentXEnabled": true,
                 "PrePosition": {
-                  "X": 0.5061,
-                  "Y": 0.084
+                  "X": 0.5,
+                  "Y": 0.2575
                 },
                 "PreSize": {
-                  "X": 0.4916,
-                  "Y": 0.1197
+                  "X": 0.2917,
+                  "Y": 0.0972
                 },
-                "LeftMargin": 185.3503,
-                "RightMargin": 176.6497,
-                "TopMargin": 500.8561,
-                "BottomMargin": 14.1439,
+                "LeftMargin": 425.0,
+                "RightMargin": 425.0,
+                "TopMargin": 499.5926,
+                "BottomMargin": 150.4074,
                 "Tag": 9,
                 "ActionTag": 1389782502,
                 "Size": {
@@ -216,13 +271,14 @@
                 "ctype": "TextObjectData"
               },
               {
-                "FontSize": 14,
+                "FontSize": 30,
                 "ButtonText": "",
-                "TextColor": {
-                  "R": 65,
-                  "G": 65,
-                  "B": 70
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/robotoBold.ttf",
+                  "Plist": ""
                 },
+                "TextColor": {},
                 "DisabledFileData": {
                   "Type": "Default",
                   "Path": "Default/Button_Disable.png",
@@ -260,8 +316,8 @@
                   "ScaleY": 0.5
                 },
                 "Position": {
-                  "X": 356.0,
-                  "Y": -30.9946
+                  "X": 600.0,
+                  "Y": 105.2695
                 },
                 "Scale": {
                   "ScaleX": 1.0,
@@ -272,17 +328,17 @@
                 "PositionPercentXEnabled": true,
                 "PrePosition": {
                   "X": 0.5,
-                  "Y": -0.053
+                  "Y": 0.1462
                 },
                 "PreSize": {
-                  "X": 0.3258,
-                  "Y": 0.1214
+                  "X": 0.1933,
+                  "Y": 0.0986
                 },
                 "VerticalEdge": "BottomEdge",
-                "LeftMargin": 240.0,
-                "RightMargin": 240.0,
-                "TopMargin": 580.4946,
-                "BottomMargin": -66.4946,
+                "LeftMargin": 484.0,
+                "RightMargin": 484.0,
+                "TopMargin": 579.2305,
+                "BottomMargin": 69.7695,
                 "Tag": 7,
                 "Children": [
                   {
@@ -378,8 +434,8 @@
                   "ScaleY": 0.5
                 },
                 "Position": {
-                  "X": 363.2624,
-                  "Y": 390.4451
+                  "X": 600.0,
+                  "Y": 526.7069
                 },
                 "Scale": {
                   "ScaleX": 1.0,
@@ -389,17 +445,17 @@
                 "IconVisible": false,
                 "PositionPercentXEnabled": true,
                 "PrePosition": {
-                  "X": 0.5102,
-                  "Y": 0.6674
+                  "X": 0.5,
+                  "Y": 0.7315
                 },
                 "PreSize": {
-                  "X": 0.8427,
-                  "Y": 0.1026
+                  "X": 0.5,
+                  "Y": 0.0833
                 },
-                "LeftMargin": 63.2624,
-                "RightMargin": 48.7375,
-                "TopMargin": 164.5549,
-                "BottomMargin": 360.4451,
+                "LeftMargin": 300.0,
+                "RightMargin": 300.0,
+                "TopMargin": 163.2931,
+                "BottomMargin": 496.7069,
                 "Tag": 30,
                 "ActionTag": -1426218964,
                 "Size": {
@@ -426,11 +482,10 @@
                 },
                 "Scale9Width": 1,
                 "Scale9Height": 1,
-                "TouchEnable": true,
                 "AnchorPoint": {},
                 "Position": {
-                  "X": 108.6323,
-                  "Y": 144.8418
+                  "X": 353.2272,
+                  "Y": 285.3957
                 },
                 "Scale": {
                   "ScaleX": 1.0,
@@ -438,18 +493,19 @@
                 },
                 "CColor": {},
                 "IconVisible": false,
+                "PositionPercentXEnabled": true,
                 "PrePosition": {
-                  "X": 0.1526,
-                  "Y": 0.2476
+                  "X": 0.2944,
+                  "Y": 0.3964
                 },
                 "PreSize": {
-                  "X": 0.5618,
-                  "Y": 0.3419
+                  "X": 0.3333,
+                  "Y": 0.2778
                 },
-                "LeftMargin": 108.6323,
-                "RightMargin": 203.3677,
-                "TopMargin": 240.1582,
-                "BottomMargin": 144.8418,
+                "LeftMargin": 353.2272,
+                "RightMargin": 446.7728,
+                "TopMargin": 234.6043,
+                "BottomMargin": 285.3957,
                 "Tag": 41,
                 "Children": [
                   {
@@ -685,62 +741,69 @@
                 },
                 "Name": "pLight",
                 "ctype": "PanelObjectData"
-              },
-              {
-                "ClipAble": false,
-                "BackColorAlpha": 102,
-                "SingleColor": {
-                  "R": 150,
-                  "G": 200
-                },
-                "FirstColor": {
-                  "R": 150,
-                  "G": 200
-                },
-                "EndColor": {},
-                "ColorVector": {
-                  "ScaleY": 1.0
-                },
-                "AnchorPoint": {},
-                "Position": {
-                  "X": 161.9904,
-                  "Y": -67.1744
-                },
-                "Scale": {
-                  "ScaleX": 1.0,
-                  "ScaleY": 1.0
-                },
-                "CColor": {},
-                "IconVisible": false,
-                "PrePosition": {
-                  "X": 0.2275,
-                  "Y": -0.1148
-                },
-                "PreSize": {
-                  "X": 0.5618,
-                  "Y": 1.0256
-                },
-                "LeftMargin": 161.9904,
-                "RightMargin": 150.0096,
-                "TopMargin": 52.1744,
-                "BottomMargin": -67.1744,
-                "Tag": 47,
-                "ActionTag": 627258519,
-                "Size": {
-                  "X": 400.0,
-                  "Y": 600.0
-                },
-                "Name": "pEff",
-                "ctype": "PanelObjectData"
               }
             ],
-            "ActionTag": -2111772047,
+            "ActionTag": 1579108672,
             "Size": {
-              "X": 712.0,
-              "Y": 585.0
+              "X": 1200.0,
+              "Y": 720.0
             },
             "Name": "bg",
-            "ctype": "ImageViewObjectData"
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 102,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 600.0,
+              "Y": 360.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PositionPercentYEnabled": true,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.5
+            },
+            "PercentWidthEnable": true,
+            "PercentHeightEnable": true,
+            "PercentWidthEnabled": true,
+            "PercentHeightEnabled": true,
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "Tag": 47,
+            "ActionTag": 627258519,
+            "Size": {
+              "X": 1200.0,
+              "Y": 720.0
+            },
+            "Name": "pEff",
+            "ctype": "PanelObjectData"
           }
         ],
         "Size": {
@@ -754,6 +817,7 @@
         "Common/btnYellow.png",
         "Common/iconLight.png",
         "Default/Button_Disable.png",
+        "Font/robotoBold.ttf",
         "Font/tahomabd.ttf",
         "SupportGUI/bgStartUp.png",
         "SupportGUI/title.png"

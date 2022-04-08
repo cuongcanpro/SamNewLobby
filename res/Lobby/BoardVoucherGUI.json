@@ -23,10 +23,10 @@
               "B": 70
             },
             "Scale9Enable": true,
-            "Scale9OriginX": 15,
-            "Scale9OriginY": 5,
-            "Scale9Width": 11,
-            "Scale9Height": 6,
+            "Scale9OriginX": -15,
+            "Scale9OriginY": -5,
+            "Scale9Width": 30,
+            "Scale9Height": 10,
             "OutlineColor": {
               "G": 0,
               "B": 0
@@ -43,7 +43,7 @@
               "ScaleX": 1.0
             },
             "Position": {
-              "X": 796.5,
+              "X": 1196.5,
               "Y": 310.0
             },
             "Scale": {
@@ -53,28 +53,30 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.9956,
-              "Y": 0.6458
+              "X": 0.9971,
+              "Y": 0.4306
             },
             "PreSize": {
-              "X": 0.075,
-              "Y": 0.1042
+              "X": 0.05,
+              "Y": 0.0694
             },
             "HorizontalEdge": "RightEdge",
-            "LeftMargin": 736.5,
+            "LeftMargin": 1136.5,
             "RightMargin": 3.5,
-            "TopMargin": 120.0,
+            "TopMargin": 360.0,
             "BottomMargin": 310.0,
             "Tag": 315,
             "Children": [
               {
                 "FileData": {
-                  "Type": "Default",
-                  "Path": "Default/ImageFile.png",
+                  "Type": "Normal",
+                  "Path": "Items/voucher/100.png",
                   "Plist": ""
                 },
-                "Scale9Width": 46,
-                "Scale9Height": 46,
+                "Scale9OriginX": 20,
+                "Scale9OriginY": 27,
+                "Scale9Width": 22,
+                "Scale9Height": 29,
                 "AnchorPoint": {
                   "ScaleX": 1.0
                 },
@@ -93,18 +95,18 @@
                   "Y": 0.06
                 },
                 "PreSize": {
-                  "X": 0.7667,
-                  "Y": 0.92
+                  "X": 1.0333,
+                  "Y": 1.66
                 },
                 "HorizontalEdge": "RightEdge",
-                "LeftMargin": 14.0,
-                "TopMargin": 1.0,
+                "LeftMargin": -2.0,
+                "TopMargin": -36.0,
                 "BottomMargin": 3.0,
                 "Tag": 314,
                 "ActionTag": -1844433880,
                 "Size": {
-                  "X": 46.0,
-                  "Y": 46.0
+                  "X": 62.0,
+                  "Y": 83.0
                 },
                 "Name": "img",
                 "ctype": "ImageViewObjectData"
@@ -224,16 +226,16 @@
           }
         ],
         "Size": {
-          "X": 800.0,
-          "Y": 480.0
+          "X": 1200.0,
+          "Y": 720.0
         },
         "Name": "Scene",
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
         "Common/bgBroadcast.png",
-        "Default/ImageFile.png",
-        "Font/tahoma.ttf"
+        "Font/tahoma.ttf",
+        "Items/voucher/100.png"
       ],
       "ctype": "GameFileData"
     }

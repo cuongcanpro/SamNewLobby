@@ -367,15 +367,17 @@ MidAutumn = cc.Class.extend({
             this.buttonLobby.button.setContentSize(300, 300);
             this.buttonLobby.anim.eff = resourceManager.loadDragonbone("EventButton");
             this.buttonLobby.anim.addChild(this.buttonLobby.anim.eff);
-            this.buttonLobby.anim.eff.setPosition(0, 20);
+            this.buttonLobby.anim.eff.setPosition(10, 20);
             this.buttonLobby.anim.eff.gotoAndPlay("1", -1, -1, 0);
             this.buttonLobby.notify.setVisible(this.notifyEvent);
-            this.buttonLobby.time.setFontSize(16);
+            this.buttonLobby.time.setFontSize(18);
             this.buttonLobby.time.setString(midAutumn.getTimeLeft());
             this.buttonLobby.time.setColor(cc.color(159, 153, 201));
             // this.buttonLobby.time.enableOutline(cc.color(162, 153, 202), 0);
-            this.buttonLobby.time.setPositionY(this.buttonLobby.time.getPositionY() - 15);
+            this.buttonLobby.time.setFontName(SceneMgr.FONT_BOLD);
+            this.buttonLobby.time.setPosition(this.buttonLobby.time.getPositionX() + 40, this.buttonLobby.time.getPositionY() - 10);
             this.buttonLobby.notify.setPosition(this.buttonLobby.notify.x + 0, this.buttonLobby.notify.y + 20);
+            this.buttonLobby.setScale(1.3);
         }
         catch (e) {
             cc.log("ERROR " + e.stack);

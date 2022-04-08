@@ -141,7 +141,7 @@ CmdReceivedRefreshTable = CmdReceivedCommon.extend({
 
         var size = this.getShort();
         for (var i = 0; i < size; i++) {
-            this.list.push({});
+            this.list.push(new Object());
         }
         for (var i = 0; i < size; i++) {
             this.list[i].tableID = this.getInt();
@@ -153,7 +153,13 @@ CmdReceivedRefreshTable = CmdReceivedCommon.extend({
 
         this.getShort();
         for (var i = 0; i < size; i++) {
-            this.list[i].tableName = this.getString();
+            this.list[i].personCount = this.getByte();
+        }
+        this.getShort();
+        for (var i = 0; i < size; i++) {
+            this.list[i].totalCount = this.getByte();
+            this.list[i].isModeSolo = (this.list[i].totalCount === 2);
+            // this.list[i].isModeSolo = Math.random() > 0.5;
         }
         this.getShort();
         for (var i = 0; i < size; i++) {
@@ -162,26 +168,23 @@ CmdReceivedRefreshTable = CmdReceivedCommon.extend({
 
         this.getShort();
         for (var i = 0; i < size; i++) {
-            this.list[i].bet = this.getByte();
+            this.list[i].tableName = this.getString();
         }
+
 
         this.getShort();
         for (var i = 0; i < size; i++) {
-            this.list[i].personCount = this.getByte();
-        }
-        this.getShort();
-        for (var i = 0; i < size; i++) {
-            this.list[i].totalCount = this.getByte();
-        }
-
-        this.getShort();
-        for (var i = 0; i < size; i++) {
-            this.list[i].bigBet = this.getBool();
+            this.list[i].bet = this.getDouble();
         }
 
         this.getShort();
         for (var i = 0; i < size; i++) {
             this.list[i].requirePass = this.getInt();
+        }
+
+        this.getShort();
+        for (var i = 0; i < size; i++) {
+            this.list[i].bigBet = this.getBool();
         }
     }
 });

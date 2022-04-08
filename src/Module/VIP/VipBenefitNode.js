@@ -47,7 +47,8 @@ var VipBenefitNode = BaseLayer.extend({
         var realTargetWidth = VipBenefitCell.WIDTH * num
             + VipBenefitNode.MARGIN_CELL * (num - 1)
             + VipBenefitNode.MARGIN_SIDE * 2;
-        bg.scroll.innerWidth = realTargetWidth;
+        bg.scroll.innerWidth = realTargetWidth - VipBenefitNode.MARGIN_SIDE * 2;
+        cc.log("INNER WIDTH START", bg.scroll.innerWidth, bg.scroll.width);
         var targetWidth = VipBenefitCell.WIDTH * Math.min(num, this.maxCell + 0.5)
             + VipBenefitNode.MARGIN_CELL * (Math.min(num, this.maxCell) - 1)
             + VipBenefitNode.MARGIN_SIDE * 2;
@@ -61,21 +62,26 @@ var VipBenefitNode = BaseLayer.extend({
                 cc.sequence(
                     cc.callFunc(function () {
                         bg.width += delta / times;
-                        bg.scroll.width = bg.width;
-                        bg.scroll.x = bg.scroll.getAnchorPoint().x * bg.width;
+                        bg.scroll.width = bg.width - VipBenefitNode.MARGIN_SIDE * 2;
+                        bg.scroll.x = bg.scroll.getAnchorPoint().x * bg.width
+                            + VipBenefitNode.MARGIN_SIDE * (1 - 2 * bg.scroll.getAnchorPoint().x);
                     }.bind(this)),
                     cc.delayTime(benefitTime / times)
                 ).repeat(times),
                 cc.callFunc(function () {
                     bg.width = targetWidth;
-                    bg.scroll.width = bg.width;
-                    bg.scroll.x = bg.scroll.getAnchorPoint().x * bg.width;
+                    bg.scroll.width = bg.width - VipBenefitNode.MARGIN_SIDE * 2;
+                    bg.scroll.innerWidth = realTargetWidth - VipBenefitNode.MARGIN_SIDE * 2;
+                    bg.scroll.x = bg.scroll.getAnchorPoint().x * bg.width
+                        + VipBenefitNode.MARGIN_SIDE * (1 - 2 * bg.scroll.getAnchorPoint().x);
                 }.bind(this))
             ));
         } else {
             bg.width = targetWidth;
-            bg.scroll.width = bg.width;
-            bg.scroll.x = bg.scroll.getAnchorPoint().x * bg.width;
+            bg.scroll.width = bg.width - VipBenefitNode.MARGIN_SIDE * 2;
+            bg.scroll.innerWidth = realTargetWidth - VipBenefitNode.MARGIN_SIDE * 2;
+            bg.scroll.x = bg.scroll.getAnchorPoint().x * bg.width
+                + VipBenefitNode.MARGIN_SIDE * (1 - 2 * bg.scroll.getAnchorPoint().x);
         }
 
         var list = isTime? this.listTime : this.list;
@@ -90,9 +96,8 @@ var VipBenefitNode = BaseLayer.extend({
             }
 
             cell.setPosition(cc.p(
-                bg.scroll.getAnchorPoint().x * targetWidth
+                bg.scroll.getAnchorPoint().x * (targetWidth - VipBenefitNode.MARGIN_SIDE * 2)
                 + (isTime? -1 : 1) * (
-                    VipBenefitNode.MARGIN_SIDE
                     + (i + 0.5) * VipBenefitCell.WIDTH
                     + i * VipBenefitNode.MARGIN_CELL
                 ),
@@ -188,7 +193,7 @@ var VipBenefitNode = BaseLayer.extend({
     },
 
     update: function (dt) {
-        var remainTime = VipManager.getInstance().getRemainTime();
+        var remainTime = vipMgr.getRemainTime();
         this.lbTime.setString(VipManager.getRemainTimeString(remainTime));
         var color = remainTime > 0 ? cc.color("#792EB2") : cc.color("#E4C9F4");
         this.lbTime.setColor(color);

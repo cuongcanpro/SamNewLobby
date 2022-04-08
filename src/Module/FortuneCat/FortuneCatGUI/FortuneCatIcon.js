@@ -6,12 +6,12 @@
 let FortuneCatIcon = cc.Node.extend({
     ctor: function(isIngameIcon){
         this._super();
+        this.setCascadeOpacityEnabled(true);
 
         this.isIngameIcon = isIngameIcon;
         this.remainDuration = null;
         this.secondCounter = 0;
-        this.showTooltipIngame = false;
-        this.currentTooltipTimeout = null;
+        this.highlightAction = null;
 
         if (isIngameIcon){
             this.tooltipPanel = new ccui.Layout();
@@ -26,7 +26,6 @@ let FortuneCatIcon = cc.Node.extend({
             this.ingameTooltip.setAnchorPoint(0, 0.5);
             this.ingameTooltip.x = 150;
             this.ingameTooltip.y = 25
-            // this.ingameTooltip.setVisible(false);
             this.tooltipPanel.addChild(this.ingameTooltip);
         }
 
@@ -74,6 +73,15 @@ let FortuneCatIcon = cc.Node.extend({
         this.progress.y = progressY;
         this.addChild(this.progress);
 
+        this.progressBg = new ccui.ImageView(fortuneCatRes.progressBg);
+        this.progressBg.y = -32;
+        this.addChild(this.progressBg);
+
+        this.progressBar = new ccui.LoadingBar(fortuneCatRes.progressBar);
+        this.progressBar.setPercent(0);
+        this.progressBar.y = -32;
+        this.addChild(this.progressBar);
+
         this.fullWarning = new ccui.Text("Đầy", GameLayer.FONT_BOLD, 17);
         this.fullWarning.y = progressY;
         this.fullWarning.setVisible(false);
@@ -82,17 +90,20 @@ let FortuneCatIcon = cc.Node.extend({
         ///lobby icon hides progress
         if (!isIngameIcon){
             this.progress.setVisible(false);
+            this.progressBg.setVisible(false);
+            this.progressBar.setVisible(false);
         }
         else {
             this.bgTime.setVisible(false);
             this.time.setVisible(false);
             this.progress.setColor(FortuneCatIcon.INGAME_COLOR);
             this.fullWarning.setColor(FortuneCatIcon.INGAME_COLOR);
+            this.progress.setVisible(false);
         }
 
         this.exclamation = new cc.Node();
-        let exclamationX = 18;
-        let exclamationY = 24;
+        let exclamationX = 40;
+        let exclamationY = 40;
         this.exclamation.setPosition(exclamationX, exclamationY);
         this.exclamation.setVisible(false);
         let anim = db.DBCCFactory.getInstance().buildArmatureNode("Notify");
@@ -108,13 +119,16 @@ let FortuneCatIcon = cc.Node.extend({
             this.setPosition(iconX, iconY);
             this.btn.addClickEventListener(function(){
                 FortuneCatManager.getInstance().userClickedFortuneCatIcon = true;
+                FortuneCatManager.getInstance().isIngameIcon = false;
                 FortuneCatManager.getInstance().sendGetUserData();
             });
         }
         else {
             this.checkIngameReposition();
             this.btn.addClickEventListener(function(){
-                this.showTooltipProgressIngame(!this.showTooltipIngame);
+                FortuneCatManager.getInstance().userClickedFortuneCatIcon = true;
+                FortuneCatManager.getInstance().isIngameIcon = true;
+                FortuneCatManager.getInstance().sendGetUserData();
             }.bind(this));
             this.exclamation.setVisible(false);
         }
@@ -135,28 +149,82 @@ let FortuneCatIcon = cc.Node.extend({
 
     ///update display of number of bells user has
     updateProgress: function(){
-        this.progress.setString(FortuneCatManager.getInstance().userNumBell + "/" + FortuneCatManager.getInstance().maxBell);
+        var progressChangeDuration = 0.5;
+        var currentPercent = this.progressBar.getPercent();
+        var targetPercent = FortuneCatManager.getInstance().userNumBell / FortuneCatManager.getInstance().maxBell * 100;
 
-        ///check userCatIdList is defined or not (in case of reconnect when the getUserData got called and delay)
-        if (FortuneCatManager.getInstance().userCatIdList && FortuneCatManager.getInstance().userCatIdList.length === 3){
-            if (this.isIngameIcon){
-                this.progress.setVisible(false);
-                this.fullWarning.setVisible(true);
+        this.progress.setString(FortuneCatManager.getInstance().userNumBell + "/" + FortuneCatManager.getInstance().maxBell);
+        if (targetPercent < currentPercent){
+            if (targetPercent === 0){
+                targetPercent = 100;
+                this.progressBar.stopAllActions();
+                this.progressBar.runAction(cc.sequence(
+                    cc.sequence(
+                        cc.callFunc(function(){
+                            this.progressBar.setPercent(this.progressBar.getPercent() + 1);
+                        }.bind(this)),
+                        cc.delayTime(progressChangeDuration / (targetPercent - currentPercent))
+                    ).repeat(targetPercent - currentPercent),
+                    cc.callFunc(function(){
+                        this.progressBar.setPercent(targetPercent)
+                    }.bind(this)),
+                    cc.delayTime(0.5),
+                    cc.callFunc(function(){
+                        this.progressBar.setPercent(0);
+                    }.bind(this))
+                ));
             }
+            else {
+                this.progressBar.stopAllActions();
+                this.progressBar.runAction(cc.sequence(
+                    cc.sequence(
+                        cc.callFunc(function(){
+                            this.progressBar.setPercent(this.progressBar.getPercent() + 1);
+                        }.bind(this)),
+                        cc.delayTime(progressChangeDuration / (100 - currentPercent))
+                    ).repeat(100 - currentPercent),
+                    cc.callFunc(function(){
+                        this.progressBar.setPercent(100)
+                    }.bind(this)),
+                    cc.delayTime(0.5),
+                    cc.callFunc(function(){
+                        this.progressBar.setPercent(0);
+                    }.bind(this)),
+                    cc.sequence(
+                        cc.callFunc(function(){
+                            this.progressBar.setPercent(this.progressBar.getPercent() + 1);
+                        }.bind(this)),
+                        cc.delayTime(progressChangeDuration / targetPercent)
+                    ).repeat(targetPercent),
+                    cc.callFunc(function(){
+                        this.progressBar.setPercent(targetPercent)
+                    }.bind(this))
+                ));
+            }
+        }
+        else if (targetPercent > currentPercent){
+            this.progressBar.stopAllActions();
+            this.progressBar.runAction(cc.sequence(
+                cc.sequence(
+                    cc.callFunc(function(){
+                        this.progressBar.setPercent(this.progressBar.getPercent() + 1);
+                    }.bind(this)),
+                    cc.delayTime(progressChangeDuration / (targetPercent - currentPercent))
+                ).repeat(targetPercent - currentPercent),
+                cc.callFunc(function(){
+                    this.progressBar.setPercent(targetPercent)
+                }.bind(this))
+            ));
         }
         else {
-            if (this.isIngameIcon){
-                this.progress.setVisible(true);
-            }
-            this.fullWarning.setVisible(false);
+            ///do nothing
         }
+
+        this.checkFullCat();
     },
 
     ///only ingame icon shows number of bells user has
     showProgress: function(){
-        if (this.isIngameIcon){
-            this.progress.setVisible(true);
-        }
         this.time.setVisible(false);
         this.bgTime.setVisible(false);
     },
@@ -167,6 +235,23 @@ let FortuneCatIcon = cc.Node.extend({
             this.progress.setVisible(false);
             this.time.setVisible(true);
             this.bgTime.setVisible(true);
+        }
+    },
+
+    checkFullCat: function(){
+        if (FortuneCatManager.getInstance().userCatIdList && FortuneCatManager.getInstance().userCatIdList.length === 3){
+            if (this.isIngameIcon){
+                this.progressBar.setVisible(false);
+                this.progressBg.setVisible(false);
+                this.fullWarning.setVisible(true);
+            }
+        }
+        else {
+            if (this.isIngameIcon){
+                this.progressBar.setVisible(true);
+                this.progressBg.setVisible(true);
+            }
+            this.fullWarning.setVisible(false);
         }
     },
 
@@ -226,7 +311,7 @@ let FortuneCatIcon = cc.Node.extend({
         let ingameIconOffsetXWithoutRank = 30;
 
         ///ingame scene has rank icon
-        if (gamedata.getUserLevel() >= RankData.MIN_LEVEL_JOIN_RANK){
+        if (userMgr.getLevel() >= RankData.MIN_LEVEL_JOIN_RANK){
             iconX = winSize.width - ingameIconOffsetXWithRank;
             iconY = winSize.height - ingameIconOffsetY;
         }
@@ -246,64 +331,57 @@ let FortuneCatIcon = cc.Node.extend({
         this.exclamation.setVisible(show);
     },
 
-    ///show/hide progress tooltip ingame
-    showTooltipProgressIngame: function(show){
-        if (show){
-            this.showTooltipIngame = true;
-            this.ingameTooltip.runAction(
-                cc.moveBy(0.3, -141, 0)
-            );
+    checkNoCatUnlock: function(){
+        if (
+            FortuneCatManager.getInstance().userCatIdList !== null &&
+            FortuneCatManager.getInstance().userCatIdList.length > 0 &&
+            FortuneCatManager.getInstance().userOpenCatId == -1
+        ) {
+            this.highlightAction = cc.sequence(
+                cc.scaleTo(0.5, 1.1),
+                cc.scaleTo(0.5, 1)
+            ).repeatForever();
+            this.btn.runAction(this.highlightAction);
         }
-        else {
-            this.showTooltipIngame = false;
-            this.ingameTooltip.runAction(
-                cc.moveBy(0.3, 141, 0)
-            );
-            if (this.currentTooltipTimeout !== null){
-                window.clearTimeout(this.currentTooltipTimeout);
-                this.currentTooltipTimeout = null;
-            }
-        }
+    },
 
-        this.ingameTooltip.retain();
-        this.currentTooltipTimeout = window.setTimeout(function(){
-            if (this.showTooltipIngame){
-                this.showTooltipIngame = false;
-                this.ingameTooltip.runAction(
-                    cc.moveBy(0.3, 141, 0)
-                );
-                this.ingameTooltip.release();
-            }
-        }.bind(this), 2000);
+    stopHighlight: function(){
+        if (this.highlightAction !== null){
+            this.btn.stopAction(this.highlightAction);
+            this.highlightAction = null;
+            this.btn.runAction(cc.scaleTo(0.001, 1));
+        }
     },
 
     ///fortune cat add bell fx
-    //Move function out from GameScene
-    addFlyBellFx: function (numBell, delay) {
+    ///Move function out from GameScene
+    addFlyCatFx: function(catType, delay){
         if (!this.isIngameIcon) return;
-        if (numBell === 0) return;
 
         this.scheduleOnce(function(){
-            this.removeChildByName("bonusBell");
+            this.removeChildByName("catReward");
 
-            let bonusBell = new cc.Node();
-            bonusBell.setPosition(-50, 0);
-            bonusBell.setName("bonusBell");
+            var catReward = new cc.Node();
+            catReward.setPosition(-60, 0);
+            catReward.setName("catReward");
 
-            let bonusValue = new ccui.Text("+1", SceneMgr.FONT_BOLD, 30);
-            bonusValue.setString("+" + numBell.toString());
-            bonusValue.setPosition(-40, 5);
-            bonusValue.setColor(cc.color(255, 165, 0));
-            let bellImg = new ccui.ImageView(fortuneCatRes.bigBell);
-            bellImg.setPosition(0, 0);
+            var bonusValue = new ccui.Text("+1", SceneMgr.FONT_BOLD, 15);
+            bonusValue.setPosition(-30, 0);
+            bonusValue.setColor(cc.color("fdec41"));
 
-            bonusBell.addChild(bonusValue);
-            bonusBell.addChild(bellImg);
-            this.addChild(bonusBell);
+            var catImg = new ccui.ImageView(FortuneCatImageSlotPathList[catType]);
+            catImg.setScale(0.6);
+            catImg.setPosition(0, 0);
 
-            bonusBell.runAction(cc.sequence(
+            bonusValue.runAction(cc.Sequence(
                 cc.delayTime(0.5),
-                cc.moveBy(1, 50, 0).easing(cc.easeBackIn()),
+                cc.moveBy(1, 90, 0).easing(cc.easeBackIn()),
+                cc.hide()
+            ));
+
+            catImg.runAction(cc.sequence(
+                cc.delayTime(0.5),
+                cc.moveBy(1, 60, 0).easing(cc.easeBackIn()),
                 cc.hide()
             ));
 
@@ -313,10 +391,14 @@ let FortuneCatIcon = cc.Node.extend({
                 cc.ScaleTo(0.2, 1)
             ));
 
-            let flyBellAnimationExpectedDuration = 2;
+            catReward.addChild(bonusValue);
+            catReward.addChild(catImg);
+            this.addChild(catReward);
+
+            let flyCatAnimationExpectedDuration = 2;
             this.scheduleOnce(function(){
                 this.updateProgress();
-            }.bind(this), flyBellAnimationExpectedDuration);
+            }.bind(this), flyCatAnimationExpectedDuration);
         }.bind(this), delay);
     },
 
@@ -325,13 +407,8 @@ let FortuneCatIcon = cc.Node.extend({
         if (!this.isIngameIcon) return;
 
         ///fortune cat flow
-        this.addFlyBellFx(FortuneCatManager.getInstance().numRecentBell, PlayerView.TIME_RESULT_ANIMATION - 4);
+        this.updateProgress();
         this.checkIngameReposition();
-
-        ///reset number of bells user recently received
-        setTimeout(function(){
-            FortuneCatManager.getInstance().numRecentBell = 0;
-        }.bind(this), PlayerView.TIME_RESULT_ANIMATION * 1000);
     },
 
     getContentSize: function () {
@@ -343,7 +420,7 @@ let FortuneCatIcon = cc.Node.extend({
 
     getAnchorPoint: function () {
         return cc.p(0.5, 0.5);
-    }
+    },
 });
 
 FortuneCatIcon.TIME_COLOR = cc.color(200, 192, 213);

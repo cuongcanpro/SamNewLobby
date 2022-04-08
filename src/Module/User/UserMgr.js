@@ -47,6 +47,9 @@ var UserMgr = BaseMgr.extend({
                 var cmd = new CmdReceivedConfig(pk);
                 cmd.clean();
                 gameConfig.loadServerConfig(cmd.jsonConfig);
+
+                var pk = new CmdSendGetUserInfo();
+                this.sendPacket(pk);
                 return true;
             }
             case UserMgr.CMD_GET_AVATAR_CONFIG: {
@@ -55,6 +58,20 @@ var UserMgr = BaseMgr.extend({
                 cc.log("CMD_GET_AVATAR_CONFIG", JSON.stringify(cmd));
                 this.listAvatars = cmd.avatarConfigs;
                 return true;
+            }
+            case UserMgr.CMD_CHANGE_AVATAR:
+            {
+                var cmd = new CmdReceivedInBoardAvatar(pk);
+                cc.log("SOME ONE CHANGE THE AVATAR", JSON.stringify(cmd));
+                if (this.getUID() === cmd.uID) {
+                    this.userInfo.setAvatar(cmd.avatar);
+                }
+                if (inGameMgr.checkInBoard()) {
+                    inGameMgr.gameLogic.changeAvatar(cmd);
+                }
+                sceneMgr.updateCurrentGUI();
+                cmd.clean();
+                break;
             }
         }
     },

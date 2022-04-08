@@ -39,6 +39,7 @@ var ChatEmoGUI = BaseLayer.extend({
         this.customizeButton("btnChat", ChatEmoGUI.BTN_CHAT).setPressedActionEnabled(false);
 
         this.bgLock = this.getControl("bgLock", this.bg);
+        this.bgLock.setLocalZOrder(5);
         this.lockText = this.getControl("text", this.bgLock);
         this.pItem = this.getControl("emoPanel", this.bg);
         this.pItem.setVisible(false);

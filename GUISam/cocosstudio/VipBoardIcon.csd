@@ -17,7 +17,7 @@
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.5000" Y="0.5000" />
                 <PreSize X="1.0000" Y="1.0000" />
-                <FileData Type="Normal" Path="GUIVipNew/imgUpLevel/imgUpVip10_w.png" Plist="" />
+                <FileData Type="Normal" Path="Vip/imgUpLevel/imgUpVip10_w.png" Plist="" />
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
@@ -26,7 +26,7 @@
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize X="0.0000" Y="0.0000" />
-            <FileData Type="Normal" Path="GUIVipNew/imgUpLevel/imgUpVip10.png" Plist="" />
+            <FileData Type="Normal" Path="Vip/imgUpLevel/imgUpVip10.png" Plist="" />
           </AbstractNodeData>
         </Children>
       </ObjectData>

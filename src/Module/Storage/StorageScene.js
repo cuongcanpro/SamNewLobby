@@ -274,7 +274,7 @@ var StorageScene = BaseLayer.extend({
             case StorageManager.TYPE_EMOTICON:
                 sceneMgr.showPlayNowDialog("Vật phẩm này được sử dụng trong bàn chơi.\nBạn có muốn vào chơi ngay?", this, function(id){
                     if (id == Dialog.BTN_OK){
-                        if (CheckLogic.checkQuickPlay()) {
+                        if (channelMgr.checkQuickPlay()) {
                             var pk = new CmdSendQuickPlay();
                             GameClient.getInstance().sendPacket(pk);
                             pk.clean();

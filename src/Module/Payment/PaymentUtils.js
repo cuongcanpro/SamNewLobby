@@ -64,7 +64,7 @@ PaymentUtils.requestSMSSyntax = function (operator, amount, event, smsType, isOf
     {
         ToastFloat.makeToast(ToastFloat.LONG, "Fake SMS " + amount);
         sceneMgr.addLoading(LocalizedString.to("WAITING")).timeout(3);
-        PaymentUtils.fakeSMS(amount, event, smsType);
+        PaymentUtils.fakeSMS(amount, event, Payment.GOLD_SMS); // gop 3 loai SMS lam mot nen truong smsType ko duoc dung nua
     }
     else {
         sceneMgr.addLoading(LocalizedString.to("WAITING")).timeout(3);
@@ -94,6 +94,10 @@ PaymentUtils.purchaseSMS = function (rPSMS) {
 PaymentUtils.fakeSMS = function (amount, event, type) {
     var smsType = type || "sms";
     switch (type) {
+        case Payment.GOLD_SMS:{
+            smsType = "sms";
+            break;
+        }
         case Payment.GOLD_SMS_VIETTEL:{
             smsType = "sms_viettel";
             break;

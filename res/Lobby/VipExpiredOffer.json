@@ -1,0 +1,299 @@
+{
+  "ID": "3d3eaf21-90e1-42de-9eb9-251ed6a5e190",
+  "Version": "2.3.4",
+  "Name": "VipExpiredOffer",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 621,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Vip/bgStarter.png",
+              "Plist": ""
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 300,
+            "Scale9OriginY": 200,
+            "Scale9Width": 312,
+            "Scale9Height": 209,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 600.0,
+              "Y": 360.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PositionPercentXEnabled": true,
+            "PositionPercentYEnabled": true,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.5
+            },
+            "PreSize": {
+              "X": 0.4167,
+              "Y": 0.9028
+            },
+            "LeftMargin": 350.0,
+            "RightMargin": 350.0,
+            "TopMargin": 35.0,
+            "BottomMargin": 35.0,
+            "Tag": 622,
+            "Children": [
+              {
+                "FontSize": 45,
+                "ButtonText": "BUY",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/robotoBold.ttf",
+                  "Plist": ""
+                },
+                "TextColor": {
+                  "R": 211,
+                  "G": 237,
+                  "B": 202
+                },
+                "DisabledFileData": {
+                  "Type": "Normal",
+                  "Path": "Common/btnGreen.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "Normal",
+                  "Path": "Common/btnGreen.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "Common/btnGreen.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 202,
+                "Scale9Height": 49,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 250.0,
+                  "Y": 54.9662
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.0846
+                },
+                "PreSize": {
+                  "X": 0.464,
+                  "Y": 0.1092
+                },
+                "LeftMargin": 134.0,
+                "RightMargin": 134.0,
+                "TopMargin": 559.5338,
+                "BottomMargin": 19.4662,
+                "Tag": 623,
+                "ActionTag": -470144125,
+                "Size": {
+                  "X": 232.0,
+                  "Y": 71.0
+                },
+                "Name": "btnBuy",
+                "ctype": "ButtonObjectData"
+              },
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Normal",
+                  "Path": "Common/btnClose.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "Normal",
+                  "Path": "Common/btnClose.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Normal",
+                  "Path": "Common/btnClose.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 11,
+                "Scale9Width": 5,
+                "Scale9Height": 13,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 457.5,
+                  "Y": 607.5
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.915,
+                  "Y": 0.9346
+                },
+                "PreSize": {
+                  "X": 0.07,
+                  "Y": 0.0538
+                },
+                "HorizontalEdge": "RightEdge",
+                "VerticalEdge": "TopEdge",
+                "LeftMargin": 440.0,
+                "RightMargin": 25.0,
+                "TopMargin": 25.0,
+                "BottomMargin": 590.0,
+                "Tag": 624,
+                "ActionTag": -1967741576,
+                "Size": {
+                  "X": 35.0,
+                  "Y": 35.0
+                },
+                "Name": "btnClose",
+                "ctype": "ButtonObjectData"
+              },
+              {
+                "ClipAble": false,
+                "BackColorAlpha": 102,
+                "ComboBoxIndex": 1,
+                "SingleColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "FirstColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "EndColor": {},
+                "ColorVector": {
+                  "ScaleY": 1.0
+                },
+                "Scale9Width": 1,
+                "Scale9Height": 1,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 250.0001,
+                  "Y": 359.6796
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PositionPercentYEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.5534
+                },
+                "PreSize": {
+                  "X": 0.64,
+                  "Y": 0.7385
+                },
+                "LeftMargin": 90.0001,
+                "RightMargin": 89.9999,
+                "TopMargin": 50.3204,
+                "BottomMargin": 119.6796,
+                "Tag": 653,
+                "ActionTag": -421319134,
+                "Size": {
+                  "X": 320.0,
+                  "Y": 480.0
+                },
+                "Name": "pOffer",
+                "ctype": "PanelObjectData"
+              }
+            ],
+            "ActionTag": -1686902191,
+            "Size": {
+              "X": 500.0,
+              "Y": 650.0
+            },
+            "Name": "bg",
+            "ctype": "ImageViewObjectData"
+          }
+        ],
+        "Size": {
+          "X": 1200.0,
+          "Y": 720.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "Common/btnClose.png",
+        "Common/btnGreen.png",
+        "Font/robotoBold.ttf",
+        "Vip/bgStarter.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}

@@ -6,7 +6,7 @@ WChallengePopup = BaseLayer.extend({
         this.DAILY_ITEM_SPACE = 75;
         this.disabledLayer = new WChallengeDisabledLayer();
         this.addChild(this.disabledLayer, 0);
-        this.initWithBinaryFile('res/EventMgr/WeeklyChallenge/WeeklyChallengeFlexMainGUI.json');
+        this.initWithBinaryFile('res/Event/WeeklyChallenge/WeeklyChallengeFlexMainGUI.json');
         this.firstRenderUnlockBtn = true;
         this.didActiveItemEffect = false;
         this.shopBtn.addTouchEventListener(function(render, eventType){
@@ -27,7 +27,7 @@ WChallengePopup = BaseLayer.extend({
         this.updateGoldInfo();
         this.updateGoldListener = cc.EventListener.create({
             event: cc.EventListener.CUSTOM,
-            eventName: GameData.UPDATE_MONEY_EVENT,
+            eventName: "fldjs",
             callback: function(){
                 this.updateGoldInfo();
             }.bind(this)
@@ -78,7 +78,7 @@ WChallengePopup = BaseLayer.extend({
             }
             if (worldOriPos != null) {
                 var worldGoldPos = this.goldBar.getParent().convertToWorldSpace(cc.p(this.goldBar.x - this.goldBar.width / 2 + 20, this.goldBar.y));
-                var worldCloverPos = this.aside.imgClover.getParent().convertToWorldSpace(this.aside.imgClover.getPosition());
+                var worldCloverPos = this.pCloverInfo.imgClover.getParent().convertToWorldSpace(this.pCloverInfo.imgClover.getPosition());
                 getRewardEffect.setOriPos(worldOriPos.x, worldOriPos.y);
                 getRewardEffect.setGoldPos(worldGoldPos.x, worldGoldPos.y);
                 getRewardEffect.setCloverPos(worldCloverPos.x, worldCloverPos.y);
@@ -124,11 +124,11 @@ WChallengePopup = BaseLayer.extend({
                 }
             }
             var effTime = effectMgr.flyCoinEffect(this, wChallenge.currClovers, 0.05,
-                cc.p(this.aside.guiNode.x, this.aside.guiNode.y), cc.p(this.goldBar.x - this.goldBar.width/2 + 20, this.goldBar.y));
+                cc.p(this.pCloverInfo.getPositionX(), this.pCloverInfo.getPositionY()), cc.p(this.goldBar.x - this.goldBar.width/2 + 20, this.goldBar.y));
             var timePerClovers = effTime/currClovers;
             doEffect();
             var bubbleGold = BaseLayer.createLabelText("+" + StringUtility.standartNumber(wChallenge.currClovers*wChallenge.goldPerClover), cc.color(255,238,89));
-            bubbleGold.setFontName("EventMgr/WeeklyChallenge/Fonts/UTM_HelveBold.ttf");
+            bubbleGold.setFontName("Event/WeeklyChallenge/Fonts/UTM_HelveBold.ttf");
             bubbleGold.setFontSize(30);
             bubbleGold.enableOutline(cc.color(108,57,27), 1);
             bubbleGold.setPosition(this.goldBar.x, this.goldBar.y);
@@ -215,7 +215,7 @@ WChallengePopup = BaseLayer.extend({
         this.bg = this._layout.getChildByName("Bg");
         this.finalDayChoice = this._layout.getChildByName('FinalDayChoice');
         this.currGold = this.getControl('GoldVal');
-        this.currGold.setFontName('res/EventMgr/WeeklyChallenge/Fonts/UTM_HelveBold.ttf');
+        this.currGold.setFontName('res/Event/WeeklyChallenge/Fonts/UTM_HelveBold.ttf');
         this.goldBar = this._layout.getChildByName("GoldBar");
         this.avatarBorder = this._layout.getChildByName('AvatarBorder');
         this.avatar = new AvatarUI("Common/defaultAvatar.png", "Common/maskAvatar.png", "");
@@ -223,15 +223,7 @@ WChallengePopup = BaseLayer.extend({
         this.avatar.setPosition(this.avatarBorder.width/2, this.avatarBorder.height/2);
         this.avatarBorder.addChild(this.avatar, -1);
         this.avatar.asyncExecuteWithUrl(gamedata.userData.uID, gamedata.userData.avatar);
-        this.lblText1 = this._layout.getChildByName("lblText1");
-        this.lblText2 = this._layout.getChildByName("lblText2");
-        this.lblText3 = this._layout.getChildByName("lblText3");
-        this.lblText4 = this._layout.getChildByName("lblText4");
-        this.lblText5 = this._layout.getChildByName("lblText5");
-        for(var i = 1; i <= 5; i++) {
-            this["lblText" + i].setFontName('res/EventMgr/WeeklyChallenge/Fonts/UTM_HelveBold.ttf');
-            this["lblText" + i].ignoreContentAdaptWithSize(true);
-        }
+
         // cheat
         this.toggleCheatBtn = ccui.Button();
         this.toggleCheatBtn.setTitleText("Cheat");
@@ -285,8 +277,6 @@ WChallengePopup = BaseLayer.extend({
         this.dailyItemsScrollView = this._layout.getChildByName('DailyItemScrollView');
         var wChallenge = WChallenge.getInstance();
 
-        var asideNode = this._layout.getChildByName('Aside');
-        this.aside = new WChallengeAsidePopup(asideNode);
         var MAX_DAY = wChallenge.nbOfBasicRewards || 7;
         this.dailyItemsViewBasicWidth = (this.DAILY_ITEM_SPACE + 0.5) * MAX_DAY;
         this.dailyItemsScrollView.innerWidth = this.dailyItemsViewBasicWidth;
@@ -331,7 +321,7 @@ WChallengePopup = BaseLayer.extend({
                     var id = this.id;
                     var worldOriPos = self.challengeItems[id].guiNode.getParent().convertToWorldSpace(self.challengeItems[id].guiNode.getPosition());
                     var worldGoldPos = self.goldBar.getParent().convertToWorldSpace(cc.p(self.goldBar.x - self.goldBar.width/2 + 20, self.goldBar.y));
-                    var worldCloverPos = self.aside.imgClover.getParent().convertToWorldSpace(self.aside.imgClover.getPosition());
+                    var worldCloverPos = self.pCloverInfo.imgClover.getParent().convertToWorldSpace(self.pCloverInfo.imgClover.getPosition());
                     getRewardEffect.setOriPos(worldOriPos.x, worldOriPos.y);
                     getRewardEffect.setGoldPos(worldGoldPos.x, worldGoldPos.y);
                     getRewardEffect.setCloverPos(worldCloverPos.x, worldCloverPos.y);
@@ -358,66 +348,36 @@ WChallengePopup = BaseLayer.extend({
         var detailInfoNode = this._layout.getChildByName('DetailInfo');
         this.detailInfo = new WChallengeDetailInfo(detailInfoNode);
 
-        //tooltip for last day
-        this.pnTooltip = this._layout.getChildByName("pnTooltip");
-        this.tooltipText = this.pnTooltip.getChildByName("lblTooltip");
-        this.tooltipText.setFontName("EventMgr/WeeklyChallenge/Fonts/UTM_Helve.ttf");
-        this.tooltipText.ignoreContentAdaptWithSize(true);
-        this.cloverText = this.pnTooltip.getChildByName("cloverText");
-        this.cloverText.setFontName("EventMgr/WeeklyChallenge/Fonts/UTM_HelveBold.ttf");
-        this.cloverText.ignoreContentAdaptWithSize(true);
-        this.goldText = this.pnTooltip.getChildByName("goldText");
-        this.goldText.setFontName("EventMgr/WeeklyChallenge/Fonts/UTM_HelveBold.ttf");
-        this.goldText.ignoreContentAdaptWithSize(true);
-        this.equalSign = this.pnTooltip.getChildByName("equalSign");
-        this.equalSign.setFontName("EventMgr/WeeklyChallenge/Fonts/UTM_HelveBold.ttf");
-        this.equalSign.ignoreContentAdaptWithSize(true);
-        this.btnShowTooltip = this._layout.getChildByName("btnTooltip");
-        this.btnShowTooltip.addTouchEventListener(function(render, eventType){
-            switch (eventType) {
-                case ccui.Widget.TOUCH_BEGAN:
-                    break;
-                case ccui.Widget.TOUCH_CANCELED:
-                    break;
-                case ccui.Widget.TOUCH_ENDED:
-                    if (this.isShowingLastDayTooltip)  this.hideLastDayTooltip();
-                    else this.showLastDayTooltip();
-                    break;
-                default: break;
-            }
-        }.bind(this));
-        this.isShowingLastDayTooltip = false;
-        this.pnTooltip.setVisible(false);
+        var pClover = this._layout.getChildByName("pCloverInfo");
+        this.pCloverInfo = new WChallengeCloverInfo();
+        pClover.addChild(this.pCloverInfo);
+
+        var pProgress = this._layout.getChildByName("pProgress");
+        this.pCloverProgress = new WChallengeCloverProgress();
+        pProgress.addChild(this.pCloverProgress);
+        this.pCloverProgress.hideProgress(0);
+
+        this.basicContainer = this._layout.getChildByName("BasicContainer");
+        this.premiumContainer = this._layout.getChildByName("PremiumContainer");
     },
-    showLastDayTooltip: function () {
-        if(this.isShowingLastDayTooltip) return;
-        this.pnTooltip.stopAllActions();
-        this.isShowingLastDayTooltip = true;
-        this.pnTooltip.setVisible(true);
-        this.pnTooltip.setScale(0.2);
-        this.pnTooltip.runAction(cc.sequence(
-            cc.scaleTo(0.2, 1).easing(cc.easeBackOut(2.0)),
-            cc.delayTime(5),
-            cc.callFunc(function () {
-                this.hideLastDayTooltip();
-            }.bind(this))
-        ));
-        if(this.showingTooltipId >= 0) {
-            this.rewardTooltips[this.showingTooltipId].hide();
-        }
+
+    showCloverProgress: function () {
+        this.pCloverProgress.showProgress(0.5);
+        this.pCloverProgress.updateInfo();
+        this.dailyItemsScrollView.setVisible(false);
+        this.basicContainer.setVisible(false);
+        this.premiumContainer.setVisible(false);
+        this.lockAnimation.setVisible(false);
     },
-    hideLastDayTooltip: function () {
-        if(!this.isShowingLastDayTooltip) return;
-        this.pnTooltip.stopAllActions();
-        this.pnTooltip.setScale(1);
-        this.pnTooltip.runAction(cc.sequence(
-            cc.scaleTo(0.2, 0.2).easing(cc.easeBackIn(2.0)),
-            cc.callFunc(function(){
-                this.pnTooltip.setVisible(false);
-                this.isShowingLastDayTooltip = false;
-            }.bind(this))
-        ));
+
+    hideCloverProgress: function () {
+        this.pCloverProgress.hideProgress(0.5);
+        this.dailyItemsScrollView.setVisible(true);
+        this.basicContainer.setVisible(true);
+        this.premiumContainer.setVisible(true);
+        this.lockAnimation.setVisible(true);
     },
+
     showTooltip: function (id) {
         if(this.showingTooltipId >= 0) {
             if(this.hideTooltipTimeoutId) {
@@ -429,7 +389,6 @@ WChallengePopup = BaseLayer.extend({
             }
             this.rewardTooltips[this.showingTooltipId].hide();
         }
-        this.hideLastDayTooltip();
         var scrollXPos = this.dailyItemsScrollView.getInnerContainerPosition().x;
         var itemOffset = -Math.round(scrollXPos / this.DAILY_ITEM_SPACE);
         this.rewardTooltips[id].show();
@@ -476,16 +435,9 @@ WChallengePopup = BaseLayer.extend({
         if(day > wChallenge.nbOfBasicRewards) {
             // highlight final day
             this.finalDayChoice.setVisible(true);
-            if(wChallenge.isExchangedCloverGold === 0) {
-                this.aside.setState(WChallengeAsidePopup.STATE.ACTIVE);
-            }
-            else {
-                this.aside.setState(WChallengeAsidePopup.STATE.ENED);
-            }
             this.choiceActiveItem(day);
         }
         else {
-            this.aside.setState(WChallengeAsidePopup.STATE.NORMAL);
             if (!isReceivedTodayReward) {
                 this.choiceActiveItem(day);
                 this.activeItemAnimation.setPosition(this.dailyItems[day - 1].x, this.dailyItems[day - 1].y);
@@ -496,7 +448,6 @@ WChallengePopup = BaseLayer.extend({
                     this.choiceActiveItem(day + 1);
                     this.doActiveItemEffect();
                 } else {
-                    this.aside.setState(WChallengeAsidePopup.STATE.SELECTED);
                     this.activeItemAnimation.setPosition(this.dailyItems[day - 1].x, this.dailyItems[day - 1].y);
                     this.choiceActiveItem(day);
                     this.doActiveItemEffect();
@@ -561,7 +512,6 @@ WChallengePopup = BaseLayer.extend({
         this.detailInfo.setEndTimeToday(wChallenge.startTime + 86400 * wChallenge.challengeDay);
         this.setChallengeDay(wChallenge.challengeDay);
 
-        this.aside.setCurrClover(wChallenge.currClovers);
         this.updateRewardStates();
         // update progress of challenge bars
         for(var i = 0; i < this.challengeBars.length; i++) {
@@ -575,6 +525,7 @@ WChallengePopup = BaseLayer.extend({
             this.rewardTooltips[i].setCloverVal(wChallenge.cloverRewards[i]);
             this.rewardTooltips[i].setDiamondVal(wChallenge.diamondRewards[i]);
         }
+        this.pCloverInfo.updateInfo();
     },
     updateGoldInfo: function () {
         var userData = GameData.getInstance().userData;
@@ -622,8 +573,8 @@ WChallengePopup = BaseLayer.extend({
                 cc.callFunc(function () {
                     var getRewardEffect = new WChallengeGetRewardEffect();
                     var worldOriPos = cc.p(cc.winSize.width/2, cc.winSize.height/2);
-                    var worldGoldPos = this.goldBar.getParent().convertToWorldSpace(cc.p(this.goldBar.x - this.goldBar.width/2 + 20, this.goldBar.y));
-                    var worldCloverPos = this.aside.imgClover.getParent().convertToWorldSpace(this.aside.imgClover.getPosition());
+                    var worldGoldPos = this.getPositionGold();
+                    var worldCloverPos = this.pCloverInfo.imgClover.getParent().convertToWorldSpace(this.pCloverInfo.imgClover.getPosition());
                     getRewardEffect.setOriPos(worldOriPos.x, worldOriPos.y);
                     getRewardEffect.setGoldPos(worldGoldPos.x, worldGoldPos.y);
                     getRewardEffect.setCloverPos(worldCloverPos.x, worldCloverPos.y);
@@ -649,7 +600,14 @@ WChallengePopup = BaseLayer.extend({
     setCurrGold: function (currGold) {
         this.currGold.setString(StringUtility.formatNumberSymbol(currGold));
     },
+
+    getPositionGold: function () {
+        var worldGoldPos = this.goldBar.getParent().convertToWorldSpace(cc.p(this.goldBar.x - this.goldBar.width/2 + 20, this.goldBar.y));
+        return worldGoldPos;
+    },
+
     close: function () {
+        
         this._layout.runAction(
             cc.sequence(
                 cc.scaleTo(0.35, 0.6*this._scaleRealX).easing(cc.easeBackIn(2.0)),
@@ -662,6 +620,12 @@ WChallengePopup = BaseLayer.extend({
                 }.bind(this))
             )
         );
+        try {
+            gamedata.updateUserInfoNow();
+        }
+        catch (e) {
+
+        }
     },
     onBack: function () {
         this.close();

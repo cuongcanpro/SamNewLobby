@@ -226,8 +226,8 @@ var FortuneCatUnlockedReward = BaseLayer.extend({
         var startGold, endGold;
         var mainLayer = sceneMgr.getMainLayer();
         var delay = 0;
-        var vipLevel = NewVipManager.getInstance().getVipLevel();
-        var newLevel = NewVipManager.getInstance().getRealVipLevel();
+        var vipLevel = vipMgr.getVipLevel();
+        var newLevel = vipMgr.getRealVipLevel();
 
         for (var i = 0; i < this.arrayBonusData.length; i++) {
             this.arrayBonusItem[i].setVisible(false);
@@ -260,9 +260,9 @@ var FortuneCatUnlockedReward = BaseLayer.extend({
             cc.log("VO DAY MA *** Reset Bonus " + JSON.stringify(this.arrayBonusData));
             this.arrayBonusData = [];
             if (newLevel > vipLevel) {
-                NewVipManager.showUpLevelVip(vipLevel, newLevel);
+                VipManager.showUpLevelVip(vipLevel, newLevel);
             }
-            NewVipManager.getInstance().setWaiting(false);
+            vipMgr.setWaiting(false);
             var mainLayer = sceneMgr.getMainLayer();
             if (mainLayer instanceof ShopIapScene) {
                 mainLayer.updateVipInfo();

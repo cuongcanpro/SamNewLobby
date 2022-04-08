@@ -34,16 +34,7 @@ var game_sounds = {
 var g_sounds = game_sounds;
 
 var game_animations = [
-    {folderpath:"res/Armatures/5doi/",skeleton:"skeleton.xml",texture:"texture.plist",key:"5Doi"},
-    {folderpath:"res/Armatures/baosamthatbai/",skeleton:"skeleton.xml",texture:"texture.plist",key:"Baosamthatbai"},
-    {folderpath:"res/Armatures/chansamthanhcong/",skeleton:"skeleton.xml",texture:"texture.plist",key:"Chansamthanhcong"},
-    {folderpath:"res/Armatures/dongmau/",skeleton:"skeleton.xml",texture:"texture.plist",key:"Dongmau"},
-    {folderpath:"res/Armatures/samdinh/",skeleton:"skeleton.xml",texture:"texture.plist",key:"Samdinh"},
-    {folderpath:"res/Armatures/sanhtoicot/",skeleton:"skeleton.xml",texture:"texture.plist",key:"Sanhtoicot"},
-    {folderpath:"res/Armatures/tuquy/",skeleton:"skeleton.xml",texture:"texture.plist",key:"Tuquy"},
-    {folderpath:"res/Armatures/tuquyheo/",skeleton:"skeleton.xml",texture:"texture.plist",key:"Tuquyheo"},
     {folderpath:"res/Armatures/light/",skeleton:"skeleton.xml",texture:"texture.plist",key:"BG_light_bai"},
-    {folderpath:"res/Armatures/doituquy/",skeleton:"skeleton.xml",texture:"texture.plist",key:"Haituquy"},
     {folderpath:"res/Armatures/jackpot/",skeleton:"skeleton.xml",texture:"texture.plist",key:"Jackpot"},
     {folderpath:"res/Armatures/bang/",skeleton:"skeleton.xml",texture:"texture.plist",key:"BangJackpot"},
     {folderpath:"res/Armatures/diamond/",skeleton:"skeleton.xml",texture:"texture.plist",key:"Diamond"},
@@ -57,4 +48,4 @@ var game_animations = [
     {folderpath:"res/Board/Animation/pointer/",skeleton:"skeleton.xml",texture:"texture.plist",key:"Pointer"}
 ];
 
-cc._headerGame = "sam";
+cc._headerGame = "tala";

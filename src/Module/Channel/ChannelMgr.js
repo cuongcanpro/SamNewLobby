@@ -5,9 +5,10 @@ var ChannelMgr = BaseMgr.extend({
         this.betTime = 3;
         this.selectedChanel = 0;
         this.roomList = [];
+        this.tag = "ChannelMgr: ";
     },
 
-    initListener: function () {
+    init: function () {
         dispatcherMgr.addListener(UserMgr.EVENT_ON_GET_USER_INFO, this, this.autoSelectChannel);
     },
 
@@ -24,6 +25,7 @@ var ChannelMgr = BaseMgr.extend({
             case ChannelMgr.CMD_SELECT_CHANEL: {
                 var selectChanel = new CmdReceivedChanlel(pk);
                 selectChanel.clean();
+                cc.log(this.tag + " " + JSON.stringify(selectChanel));
 
                 if (selectChanel.getError() == 0) {
                     this.selectedChanel = selectChanel.chanelID;
@@ -58,7 +60,7 @@ var ChannelMgr = BaseMgr.extend({
                 return true;
             }
             case ChannelMgr.CMD_LOCK_ACCOUNT: {
-                if (CheckLogic.checkInBoard())
+                if (inGameMgr.checkInBoard())
                     return;
                 sceneMgr.clearLoading();
                 sceneMgr.showOKDialog(LocalizedString.to("JOIN_ROOM_FAIL_IN_WAIT_ROOM"));
@@ -75,10 +77,10 @@ var ChannelMgr = BaseMgr.extend({
             }
 
             case ChannelMgr.JOIN_ROOM_FAIL: {
-                if (CheckLogic.checkInBoard())
-                    return;
+                if (inGameMgr.checkInBoard())
+                    return true;
                 sceneMgr.clearLoading();
-                var pkJoinRoomFail = new CmdReceivedJoinRoomFail(p);
+                var pkJoinRoomFail = new CmdReceivedJoinRoomFail(pk);
                 pkJoinRoomFail.clean();
                 GameClient.holding = false;
 
@@ -121,7 +123,7 @@ var ChannelMgr = BaseMgr.extend({
             }
             case ChannelMgr.CMD_CREATE_ROOM: {
                 sceneMgr.clearLoading();
-                var msgCmdRCreateRoom = new CmdReceiveCreateRoom(p);
+                var msgCmdRCreateRoom = new CmdReceiveCreateRoom(pk);
                 msgCmdRCreateRoom.clean();
                 switch (msgCmdRCreateRoom.getError()) {
                     case 1: {
@@ -174,7 +176,7 @@ var ChannelMgr = BaseMgr.extend({
                 jackpot: chanelObj["jackpot"],
                 jackpotLevel: chanelObj["jackpotLevel"],
                 name: chanelObj["name"],
-                bet: chanelObj["betsAdvange"],
+                bet: chanelObj["bets"],
                 betAdvance: chanelObj["betsAdvange"],
                 canPlay: chanKenh[i]
             };
@@ -182,25 +184,36 @@ var ChannelMgr = BaseMgr.extend({
         }
     },
 
+    setNewConfig: function (newConfig){
+        // newConfig = JSON.parse(newConfig);
+        this.channelGroup = [];
+        var channelGroups = newConfig["ChannelGroup"];
+        for (var i = 0; i < channelGroups["maxGroup"]; i++){
+            this.channelGroup.push(channelGroups[i + ""]);
+        }
+        cc.log("setNewConfig: ", JSON.stringify(this.channelGroup));
+
+        this.listBetConfig = [];
+        var listBet = newConfig["Channel"];
+        for (i = 0; i < listBet["maxChannel"]; i++){
+            this.listBetConfig.push(listBet[i + ""]);
+        }
+        this.soloBet = listBet["soloBet"];
+        this.minGoldSolo = listBet["minGoldSolo"];
+        cc.log("listBetConfig: ", JSON.stringify(this.listBetConfig));
+    },
+
     getCurrentChanel: function () {
         var i;
         if (userMgr.getGold() == 0)
             return -1;
 
-        for (i = 0; i < this.chanelConfig.length; i++) {
-            if (this.chanelConfig[i].maxGold >= userMgr.getGold()) {
-                if (this.chanelConfig[i].bet[0] * this.betTime <= userMgr.getGold())
-                    return i;
-                else
-                    return i - 1;
-            } else {
-                if (this.chanelConfig[i].maxGold == -1) {
-                    return i;
-                }
+        for (i = this.channelGroup.length - 1; i >= 0; i--) {
+            if (this.channelGroup[i].minGold <= userMgr.getGold()) {
+                return i;
             }
         }
-
-        return i;
+        return 0;
     },
 
     autoSelectChannel: function () {
@@ -244,18 +257,19 @@ var ChannelMgr = BaseMgr.extend({
     },
 
     checkQuickPlay: function () {
+        cc.log("ljfsd " + userMgr.getGold() + " > " + this.getMinBet() * this.betTime);
         if (userMgr.getGold() > this.getMinBet() * this.betTime)
             return true;
         return false;
     },
 
     checkCreateRoomMinGold: function () {
-        var minGold = this.chanelConfig[this.selectedChanel].minGold;
+        var minGold = this.channelGroup[this.selectedChanel].minGold;
         return (minGold > userMgr.getGold());
     },
 
     checkCreateRoomMaxGold: function () {
-        var maxGold = this.chanelConfig[this.selectedChanel].maxGold;
+        var maxGold = this.channelGroup[this.selectedChanel].maxGold;
         return (maxGold < userMgr.getGold());
     },
 
@@ -292,7 +306,7 @@ var ChannelMgr = BaseMgr.extend({
     },
 
     getMinBet: function () {
-        return this.chanelConfig[0].betAdvance[0];
+        return this.chanelConfig[0].bet[0];
     },
 
     getBet: function (id) {
@@ -300,7 +314,7 @@ var ChannelMgr = BaseMgr.extend({
     },
 
     getBetAdvance: function (id) {
-        return this.chanelConfig[this.selectedChanel].betAdvance[id];
+        return this.chanelConfig[this.selectedChanel].bet[id];
     },
 
     getMaxGoldCanPlayInChannel: function () {
@@ -327,6 +341,36 @@ var ChannelMgr = BaseMgr.extend({
 
     getSelectedChannel: function () {
         return this.selectedChanel;
+    },
+
+    getListBetByChannel: function (channel, goldUser, isSoloMode){
+        var listBets = [];
+        for (var i = 0; i < this.listBetConfig.length; i++){
+            if (this.listBetConfig[i]["channelGroup"] === channel){
+                var suitable = true;
+                if (goldUser){
+                    suitable = (this.listBetConfig[i]["minGold"] <= goldUser);
+                    if (suitable && this.listBetConfig[i]["maxGold"] > 0){
+                        suitable = (this.listBetConfig[i]["maxGold"] >= goldUser);
+                    }
+                }
+                if (isSoloMode){
+                    if (this.listBetConfig[i]["bet"] < this.soloBet){
+                        suitable = false;
+                    }
+                }
+                if (suitable) {
+                    listBets.push(this.listBetConfig[i]["bet"]);
+                }
+            }
+        }
+        return listBets;
+    },
+
+    getBetRangeInChannel: function (channel) {
+        var listBets = this.getListBetByChannel(channel);
+        var txtRange = StringUtility.formatNumberSymbol(listBets[0]) + " - " + StringUtility.formatNumberSymbol(listBets[listBets.length - 1]);
+        return txtRange;
     },
 
     /**
