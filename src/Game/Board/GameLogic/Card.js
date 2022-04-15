@@ -9,162 +9,82 @@
 var Card = cc.Class.extend({
 
     ctor: function(id){
-       this._id= 0;             // ID cua card ( 8 -> 60)
-        this._quanbai= 0;        // quan bai cua card
+        if(id instanceof  Card)
+        {
+            this.id = id.id;
+            this.cardType = id.cardType;
+            this.cardShape = id.cardShape;
+            this.isEaten = id.isEaten;
+            this.isInSuit = id.isInSuit;
+            this.isSelected = id.isSelected;
+            this.isDark = id.isDark;
+            return;
+        }
+        this.id = id;             // ID cua card
+        this.cardType= 0;        // quan bai cua card
+        this.cardShape= 0;           // chat cua card
+        this.initWithID(id);
+
+        this.isEaten = false;
+        this.isInSuit = false;
+        this.isSelected = false;
+        this.isDark = true;
+
         this.initWithID(id);
     },
     initWithID: function(id){
-        this._id = id;
-        this._quanbai = Math.floor(id / 4);
-    }
+        this.id = id;
+        this.cardType = Math.floor(id / 4);
+        this.cardShape = id % 4;
+    },
+    initWith: function(quanbai,chat){
+        this.cardType = quanbai;
+        this.cardShape = chat;
+        this.id = this.cardType * 4 + this.cardShape;
+    },
+        clone: function()
+        {
+            var ret = new Card();
+            ret.id = this.id;
+            ret.cardShape = this.cardShape;
+            ret.cardType = this.cardType;
+            ret.isEaten = this.isEaten;
+            ret.isInSuit = this.isInSuit;
+            ret.isSelected = this.isSelected;
+            ret.isDark = this.isDark;
+
+            return ret;
+        },
+        getType: function(){
+            return this.cardType;
+        },
+        getShape: function()
+        {
+            return this.cardShape;
+        }
 });
 
-Card.toString = function(id){
-    var quanbai = Math.floor(id / 4);
-    var chat = id % 4;
-
-    var _quanbai = "";
-    var _chat = "";
-    switch(quanbai)
-    {
-        case 2:
-        case 3:
-        case 4:
-        case 5:
-        case 6:
-        case 7:
-        case 8:
-        case 9:
-        case 10:
-            _quanbai = "" + quanbai;
-            break;
-        case 11:
-            _quanbai = "J";
-            break;
-        case 12:
-            _quanbai = "Q";
-            break;
-        case 13:
-            _quanbai = "K";
-            break;
-        case 14:
-            _quanbai = "A";
-            break;
-    }
-    switch (chat)
-    {
-        case 0:
-            _chat = "Bích";
-            break;
-        case 1:
-            _chat = "Chuồn";
-            break;
-        case 2:
-            _chat = "Rô";
-            break;
-        case 3:
-            _chat = "Cơ";
-            break;
-    }
-    return _quanbai+"."+_chat;
-
-};
 
 
-Card.convertCardID = function(id){                  // from server to client
-    var quanbai = Math.floor(id / 4);
-    var chat = id % 4;
-
-    var _quanbai = 0;
-
-    switch (quanbai)
-    {
-        case 0:
-        case 1:
-        case 2:
-        case 3:
-        case 4:
-        case 5:
-        case 6:
-        case 7:
-        case 8:
-        case 9:
-        case 10:
-        case 11:
-        {
-            _quanbai = quanbai + 3;
-            break;
-        }
-        case 12:
-        {
-            _quanbai = 2;
-            break;
-        }
-        case 13:
-        {
-            _quanbai = 15;
-            break;
-        }
-    }
-    return _quanbai * 4 + chat;
-};
-
-Card.convertToServerCard = function(id){            // from client to server
-    var quanbai = Math.floor(id / 4);
-    var chat = id % 4;
-
-    var _quanbai = 2;
-
-    switch (quanbai)
-    {
-        case 2:
-        {
-            _quanbai = 12;
-            break;
-        }
-        case 3:
-        case 4:
-        case 5:
-        case 6:
-        case 7:
-        case 8:
-        case 9:
-        case 10:
-        case 11:
-        case 12:
-        case 13:
-        case 14:
-        {
-            _quanbai = quanbai - 3;
-            break;
-        }
-        case 15:
-        {
-            _quanbai = 13;
-            break;
-        }
-    }
-    return _quanbai * 4 + chat;
-};
-
-
-Card.kQuanbai_2 = 2;
-Card.kQuanbai_3 = 3;
-Card.kQuanbai_4 = 4;
-Card.kQuanbai_5 = 5;
-Card.kQuanbai_6 = 6;
-Card.kQuanbai_7 = 7;
-Card.kQuanbai_8 = 8;
-Card.kQuanbai_9 = 9;
-Card.kQuanbai_10 = 10;
-Card.kQuanbai_J = 11;
-Card.kQuanbai_Q = 12;
-Card.kQuanbai_K = 13;
-Card.kQuanbai_A = 14;
-Card.kQuanbai_NONE = 15;
+Card.kQuanbai_A = 0;
+Card.kQuanbai_2 = 1;
+Card.kQuanbai_3 = 2;
+Card.kQuanbai_4 = 3;
+Card.kQuanbai_5 = 4;
+Card.kQuanbai_6 = 5;
+Card.kQuanbai_7 = 6;
+Card.kQuanbai_8 = 7;
+Card.kQuanbai_9 = 8;
+Card.kQuanbai_10 = 9;
+Card.kQuanbai_J = 10;
+Card.kQuanbai_Q = 11;
+Card.kQuanbai_K = 12;
+Card.kQuanbai_NONE = 13;
 
 Card.kChat_BICH = 0;
 Card.kChat_CHUON = 1;
 Card.kChat_RO = 2;
 Card.kChat_CO = 3;
+Card.kChat_NODE = 4;
+
 

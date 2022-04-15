@@ -307,14 +307,27 @@ var ChooseRoomScene = BaseLayer.extend({
             }
             case ChooseRoomScene.BTN_SOLO:
             {
-                var maxChannelCanJoin = paymentMgr.getCurrentChanel();
-                var channelSolo = -1;
-                if (!channelMgr.checkQuickPlay()) {
+                if (channelMgr.checkCanPlaySolo()){
+                    var channelSolo;
+                    if (!channelMgr.checkCreateRoomMinGold() && !channelMgr.checkCreateRoomMaxGold()) {
+                        channelSolo = channelMgr.selectedChanel;
+                    } else {
+                        channelSolo = channelMgr.getCurrentChannel();
+                    }
+                    pk = new CmdSendQuickPlayCustom();
+                    var typeQuickPlay = (this.isQuickPlayByRoom) ? CmdSendQuickPlayCustom.TYPE_SELECT_ROOM : CmdSendQuickPlayCustom.TYPE_QUICK_PLAY;
+                    pk.putData(channelSolo, typeQuickPlay, CmdSendQuickPlayCustom.ROOM_SOLO, CmdSendQuickPlayCustom.NORMAL_BET);
+                    GameClient.getInstance().sendPacket(pk);
+                    pk.clean();
+                    this.isQuickPlayByRoom = false;
+                }
+                else {
                     if (paymentMgr.checkEnablePayment()) {
-                        var msg = LocalizedString.to("QUESTION_CHANGE_GOLD");
+                        var text = localized("PLAY_SOLO_NOTICE");
+                        text = StringUtility.replaceAll(text, "@gold", StringUtility.formatNumberSymbol(channelMgr.minGoldSolo));
                         sceneMgr.showChangeGoldDialog(msg, this, function (buttonId) {
                             if (buttonId == Dialog.BTN_OK) {
-                                paymentMgr.openShop(this._id, true);
+                                paymentMgr.openShop();
                             }
                         });
                     }
@@ -322,83 +335,7 @@ var ChooseRoomScene = BaseLayer.extend({
                         sceneMgr.showOKDialog(LocalizedString.to("NOT_ENOUGH_GOLD"));
                     }
                 }
-                else {
-                    if (!CheckLogic.checkCreateRoomMinGold() && !CheckLogic.checkCreateRoomMaxGold()) {
-                        channelSolo = gamedata.selectedChanel;
-                    } else {
-                        channelSolo = maxChannelCanJoin;
-                    }
-                }
-                var cannotPlayNow = false;
-                if (id === ChooseRoomScene.BTN_SOLO_NOW){
-                    if (gamedata.getUserGold() < ChanelConfig.instance().minGoldSolo){
-                        cannotPlayNow = true;
-                    }
-                }
-                if (!cannotPlayNow && CheckLogic.checkQuickPlay()) {
-                    var channelSolo = -1;
-                    if (!CheckLogic.checkCreateRoomMinGold() && !CheckLogic.checkCreateRoomMaxGold()) {
-                        channelSolo = gamedata.selectedChanel;
-                    } else {
-                        if (id === ChooseRoomScene.BTN_SOLO_NOW){
-                            channelSolo = maxChannelCanJoin;
-                        }
-                    }
-
-                    cc.log("channelSolo: ", channelSolo, CheckLogic.checkCreateRoomMinGold(), CheckLogic.checkCreateRoomMaxGold());
-                    if (channelSolo < 0){
-                        if (CheckLogic.checkCreateRoomMinGold()) {
-                            message = LocalizedString.to("PLAY_NOT_ENOUGHT_GOLD_JOIN");
-                            message = StringUtility.replaceAll(message, "%gold", StringUtility.formatNumberSymbol(minGold));
-                            SceneMgr.getInstance().showChangeGoldDialog(message, this, function (btnID) {
-                                if (btnID == Dialog.BTN_OK) {
-                                    gamedata.openShop(this._id,true);
-                                }
-                            });
-                        } else {
-                            message = LocalizedString.to("PLAY_NOT_IN_RANGE_GOLD");
-                            message = StringUtility.replaceAll(message, "@min", StringUtility.formatNumberSymbol(minGold));
-                            message = StringUtility.replaceAll(message, "@max", StringUtility.formatNumberSymbol(maxGold));
-                            SceneMgr.getInstance().showOKDialog(message);
-                        }
-                        break;
-                    } else {
-                        pk = new CmdSendQuickPlayCustom();
-                        var typeQuickPlay = (this.isQuickPlayByRoom) ? 2 : 1;
-                        pk.putData(channelSolo, typeQuickPlay, (id === ChooseRoomScene.BTN_SOLO_NOW) ? 1 : 0, 2);
-                        GameClient.getInstance().sendPacket(pk);
-                        pk.clean();
-                        this.isQuickPlayByRoom = false;
-                    }
-
-                    sceneMgr.addLoading(LocalizedString.to("WAITING")).timeout(15);
-                } else {
-                    cannotPlayNow = true;
-                }
-
-                if (cannotPlayNow){
-                    if (gamedata.timeSupport > 0) {
-                        var pk = new CmdSendGetSupportBean();
-                        GameClient.getInstance().sendPacket(pk);
-                        gamedata.showSupportTime = true;
-                        pk.clean();
-                    }
-                    else {
-                        if (gamedata.checkEnablePayment()) {
-                            var text = localized("PLAY_SOLO_NOTICE");
-                            text = StringUtility.replaceAll(text, "@gold", StringUtility.formatNumberSymbol(ChanelConfig.instance().minGoldSolo));
-                            var msg = (id === ChooseRoomScene.BTN_SOLO_NOW) ? text : LocalizedString.to("QUESTION_CHANGE_GOLD");
-                            sceneMgr.showChangeGoldDialog(msg, this, function (buttonId) {
-                                if (buttonId == Dialog.BTN_OK) {
-                                    gamedata.openShop(this._id,true);
-                                }
-                            });
-                        }
-                        else {
-                            sceneMgr.showOKDialog(LocalizedString.to("NOT_ENOUGH_GOLD"));
-                        }
-                    }
-                }
+                break;
             }
             case ChooseRoomScene.BTN_CHOINGAY:
             {
@@ -424,8 +361,8 @@ var ChooseRoomScene = BaseLayer.extend({
                     }
                     else {
                         pk = new CmdSendQuickPlayCustom();
-                        var typeQuickPlay = (this.isQuickPlayByRoom) ? 2 : 1;
-                        pk.putData(channelMgr.getSelectedChannel(), typeQuickPlay, 0, 2);
+                        var typeQuickPlay = (this.isQuickPlayByRoom) ? CmdSendQuickPlayCustom.TYPE_SELECT_ROOM : CmdSendQuickPlayCustom.TYPE_QUICK_PLAY;
+                        pk.putData(channelMgr.getSelectedChannel(), typeQuickPlay, CmdSendQuickPlayCustom.ROOM_NORMAL, CmdSendQuickPlayCustom.NORMAL_BET);
                         GameClient.getInstance().sendPacket(pk);
                         pk.clean();
                         this.isQuickPlayByRoom = false;
@@ -438,7 +375,7 @@ var ChooseRoomScene = BaseLayer.extend({
                 if (channelMgr.checkCreateRoomMinGold()) {
                     if (paymentMgr.checkEnablePayment()) {
                         var message = LocalizedString.to("PLAY_NOT_ENOUGHT_GOLD");
-                        message = StringUtility.replaceAll(message, "%gold", StringUtility.pointNumber(channelMgr.getMinGoldCreateRoom()));
+                        message = StringUtility.replaceAll(message, "%gold", StringUtility.pointNumber(minGold));
 
                         SceneMgr.getInstance().showChangeGoldDialog(message, this, function (btnID) {
                             if (btnID == Dialog.BTN_OK) {
@@ -453,7 +390,7 @@ var ChooseRoomScene = BaseLayer.extend({
                 else {
                     if (channelMgr.checkCreateRoomMaxGold()) {
                         var message = LocalizedString.to("PLAY_MUCH_GOLD");
-                        message = StringUtility.replaceAll(message, "%gold", StringUtility.pointNumber(channelMgr.getMaxGoldCreateRoom()));
+                        message = StringUtility.replaceAll(message, "%gold", StringUtility.pointNumber(maxGold));
                         SceneMgr.getInstance().showOKDialog(message);
                     }
                     else {
@@ -683,37 +620,16 @@ var ChooseRoomScene = BaseLayer.extend({
     tableCellTouched: function (table, cell) {
         var idx = cell.getIdx();
         var roomInfo = this._listRoom[idx];
-
-        if (channelMgr.checkCreateRoomMinGold()) {
-            var message = LocalizedString.to("PLAY_NOT_ENOUGHT_GOLD_JOIN");
-            message = StringUtility.replaceAll(message, "%gold", StringUtility.pointNumber(channelMgr.getMinGoldCreateRoom()));
-            if (paymentMgr.checkEnablePayment()) {
-                SceneMgr.getInstance().showChangeGoldDialog(message, this, function (btnID) {
-                    if (btnID == Dialog.BTN_OK) {
-                        paymentMgr.openShop(this._id, true);
-                    }
-                });
-            }
-            else {
-                sceneMgr.showOKDialog(LocalizedString.to("NOT_ENOUGH_GOLD"));
-            }
+        if (!roomInfo)
             return;
+
+        // code moi, loai bo chon ban
+        this.isQuickPlayByRoom = true;
+        if (roomInfo.isModeSolo){
+            this.onButtonRelease(null, ChooseRoomScene.BTN_SOLO);
         } else {
-
-            if (channelMgr.checkCreateRoomMaxGold()) {
-                if (!channelMgr.checkDownLevel()) {
-                    var message = LocalizedString.to("JOIN_MUCH_GOLD");
-                    message = StringUtility.replaceAll(message, "%gold", StringUtility.pointNumber(channelMgr.getMaxGoldCreateRoom()));
-                    SceneMgr.getInstance().showOKDialog(message);
-                    return;
-                }
-            }
-
-            if (channelMgr.checkNotifyNotEnoughGold(roomInfo))
-                return;
+            this.onButtonRelease(null, ChooseRoomScene.BTN_CHOINGAY);
         }
-        channelMgr.sendQuickPlayCustom(roomInfo);
-        sceneMgr.addLoading(LocalizedString.to("WAITING")).timeout(15);
     },
 
     numberOfCellsInTableView: function (table) {

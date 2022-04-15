@@ -2,112 +2,119 @@
  * Created by HOANGNGUYEN on 7/28/2015.
  */
 
-var GroupCard = cc.Class.extend({
+var TalaGroupCard = cc.Class.extend({
 
     ctor: function(cards){
-        this._typeGroup= -1;
-        this._cards = cards;
+        this.typeGroup= -1;
+        this.cards = [];
+
+
+        for(var i=0;i<cards.length;i++)
+        {
+            this.cards.push(new Card(cards[i]));
+        }
+
         this.initCards();
     },
-    initCards: function(){
-        if(this._cards.length == 0)
-            return;
-
-        this._cards.sort(function(card1,card2){return card1._id - card2._id});      // sort tang dan`
-
-        var size = this._cards.length;
-        this._typeGroup = GroupCard.kType_BAIRAC;
-        if (size == 1)
+    clone: function(){
+        var ret = new TalaGroupCard([]);
+        ret.typeGroup = this.typeGroup;
+        ret.cards = [];
+        for(var i=0;i<this.cards.length;i++)
         {
-            this._typeGroup = GroupCard.kType_BAIRAC;
-            return;
-        }
-        else if(size == 2)
-        {
-            if ((this._cards[0]._quanbai) == (this._cards[1]._quanbai))
-            {
-                this._typeGroup = GroupCard.kType_DOI;
-                return;
-            }
-            return;
-        }
-        else if(size == 3)
-        {
-            if ((this._cards[0]._quanbai) == (this._cards[1]._quanbai) && (this._cards[2]._quanbai) == (this._cards[1]._quanbai))
-            {
-                this._typeGroup = GroupCard.kType_BALA;
-                return;
-            }
-        }
-        else if(size == 4)
-        {
-            if ((this._cards[0]._quanbai) == (this._cards[1]._quanbai) && (this._cards[2]._quanbai) == (this._cards[1]._quanbai) && (this._cards[2]._quanbai) == (this._cards[3]._quanbai))
-            {
-                this._typeGroup = GroupCard.kType_TUQUY;
-                return;
-            }
-        }
-        else if(size == 8)
-        {
-            if ((this._cards[0]._quanbai) == (this._cards[1]._quanbai) && (this._cards[2]._quanbai) == (this._cards[1]._quanbai) && (this._cards[2]._quanbai) == (this._cards[3]._quanbai)
-                && (this._cards[4]._quanbai) == (this._cards[5]._quanbai) && (this._cards[5]._quanbai) == (this._cards[6]._quanbai) && (this._cards[6]._quanbai) == (this._cards[7]._quanbai))
-            {
-                this._typeGroup = GroupCard.kType_DOITUQUY;
-                return;
-            }
+            ret.cards.push(new Card(this.cards[i]));
         }
 
-        var sanh = true;
-        var quanbai = this._cards[0]._quanbai;
-        for (var i=1;i<this._cards.length ;i++)
+        return ret;
+    },
+    initCards: function() {
+
+    },
+    putCardIn: function(card){
+        this.cards.push(card);
+    },
+    takeCardOut: function(index){
+        var card = new Card(-1);
+
+        if(index >= 0 && index < this.cards.length)
         {
-            if ((this._cards[i]._quanbai - 1) == quanbai)
+            card = new Card(this.cards[index]);
+            this.cards.splice(index,1);
+        }
+
+        return card;
+    },
+    getCard: function(index){
+        var card = new Card(-1);
+        if(index < this.cards.length)
+        {
+            card.initWithID(this.cards[index].id);
+            card.isEaten = this.cards[index].isEaten;
+        }
+        return card;
+    },
+    clearGroup: function(){
+        this.cards = [];
+    },
+    insertCard: function(card,index){
+        this.cards.splice(index,0,card);
+    },
+    getSum: function(){
+        var sum = 0;
+        for(var i=0;i<this.cards.length;i++)
+        {
+            sum += this.cards[i].cardType;
+        }
+        return sum;
+    },
+    swap2Card: function(ind1,idx2){
+        var card = this.cards[ind1];
+        this.cards[ind1] = this.cards[idx2];
+        this.cards[idx2] = card;
+    },
+    findCard :function(cardID)
+    {
+        //cc.log("fuck " + cardID)
+        var idx= -1;
+        for(var i=0;i<this.cards.length;i++)
+        {
+            if(this.cards[i].id  == cardID)
             {
-                quanbai = this._cards[i]._quanbai;
-            }
-            else
-            {
-                sanh = false;
-                break;
+                idx = i;
+                return idx;
             }
         }
-        if (sanh)
+        return -1;
+    },
+    getNumEatCard : function(){
+        var count = 0;
+        for(var i=0;i<this.cards.length;i++) {
+            if(this.cards[i].isEaten)
+                count++;
+        }
+        return count;
+    },
+    sortCardTypeDown: function()
+    {
+        var size = this.cards.length;
+        if (size <= 1)
         {
-            this._typeGroup = GroupCard.kType_SANHDOC;
             return;
         }
-        // Kiem tra truong hop sanh doc bat dau tu A
-        if ((this._cards[this._cards.length - 1]._quanbai == Card.kQuanbai_A) && (this._cards[0]._quanbai == Card.kQuanbai_2))
+        for (var i=0;i<size;i++)
         {
-            var sanhdoc = true;
-            var quan = this._cards[0]._quanbai;
-            for (var i=1;i<this._cards.length-1;i++)
+            for (var j = i+1;j<size;j++)
             {
-                if ((this._cards[i]._quanbai - 1) == quan)
+                if (this.cards[i].id < this.cards[j].id)
                 {
-                    quan = this._cards[i]._quanbai;
-                }
-                else
-                {
-                    sanhdoc = false;
-                    break;
+                    this.swap2Card(i,j);
                 }
             }
-            if (sanhdoc)
-            {
-                var a = this._cards[this._cards.length - 1];this._cards.pop();
-                this._cards.splice(0,0,a);
-                this._typeGroup = GroupCard.kType_SANHDOC;
-            }
-
         }
     }
+
 });
 
-GroupCard.kType_UNKOWN = -1;
-GroupCard.kType_BAIRAC = 0;
-GroupCard.kType_DOI = 1;
-GroupCard.kType_BALA = 2;
-GroupCard.kType_SANHDOC = 3;
-GroupCard.kType_TUQUY = 4;
-GroupCard.kType_DOITUQUY = 5;
+TalaGroupCard.kType_UNKOWN = 0;
+TalaGroupCard.kType_BOCUNGSO = 1;
+TalaGroupCard.kType_BOCUNGCHAT = 2;

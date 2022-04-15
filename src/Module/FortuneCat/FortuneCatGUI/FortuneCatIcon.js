@@ -68,7 +68,7 @@ let FortuneCatIcon = cc.Node.extend({
             this.addChild(this.time);
         }
 
-        this.progress = new ccui.Text("0/5", GameLayer.FONT_BOLD, 17);
+        this.progress = new ccui.Text("0/5", SceneMgr.FONT_BOLD, 17);
         let progressY = -30;
         this.progress.y = progressY;
         this.addChild(this.progress);
@@ -82,7 +82,7 @@ let FortuneCatIcon = cc.Node.extend({
         this.progressBar.y = -32;
         this.addChild(this.progressBar);
 
-        this.fullWarning = new ccui.Text("Đầy", GameLayer.FONT_BOLD, 17);
+        this.fullWarning = new ccui.Text("Đầy", SceneMgr.FONT_BOLD, 17);
         this.fullWarning.y = progressY;
         this.fullWarning.setVisible(false);
         this.addChild(this.fullWarning);

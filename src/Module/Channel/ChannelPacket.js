@@ -70,24 +70,36 @@ CmdSendQuickPlayChannel = CmdSendCommon.extend({
     }
 });
 
-CmdSendQuickPlayCustom = CmdSendCommon.extend({
+var CmdSendQuickPlayCustom = CmdSendCommon.extend({
     ctor: function () {
         this._super();
         this.initData(100);
         this.setControllerId(1);
         this.setCmdId(ChannelMgr.CMD_QUICK_PLAY_CUSTOM);
     },
-    putData: function (channelId, bet) {
+    putData: function (channelId, quickPlayType, roomMode, bigBet) {
+        roomMode = roomMode || 0;
+        cc.log("CmdSendQuickPlayCustom: ", JSON.stringify(arguments));
         //pack
         this.packHeader();
         this.putByte(channelId);
-        this.putByte(bet);
-        cc.log("CmdSendQuickPlayCustom: ", JSON.stringify(arguments));
+        this.putByte(quickPlayType);
+        this.putInt(roomMode);
+        cc.log("BIG BET " + bigBet);
+        this.putByte(bigBet);
 
         //update
         this.updateSize();
     }
 });
+CmdSendQuickPlayCustom.ROOM_SOLO = 1;
+CmdSendQuickPlayCustom.ROOM_NORMAL = 0;
+
+CmdSendQuickPlayCustom.BIG_BET = 1;
+CmdSendQuickPlayCustom.NORMAL_BET = 0;
+
+CmdSendQuickPlayCustom.TYPE_QUICK_PLAY = 1;
+CmdSendQuickPlayCustom.TYPE_SELECT_ROOM = 2;
 
 CmdSendCreateRoom = CmdSendCommon.extend({
     ctor: function () {

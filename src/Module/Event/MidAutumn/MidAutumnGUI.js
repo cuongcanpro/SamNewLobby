@@ -2564,7 +2564,7 @@ var MidAutumnAccumulateGUI = BaseLayer.extend({
         this.isKeyCoinChange = false;
 
         this._super(MD_ACCUMULATE_GUI_CLASS);
-        this.initWithBinaryFile("res/Event/MidAutumn/MidAutumnAccumulateGUI.json");
+        this.initWithBinaryFileAndOtherSize("res/Event/MidAutumn/MidAutumnAccumulateGUI.json", cc.size(800, 480));
     },
 
     initGUI: function () {
@@ -2580,7 +2580,14 @@ var MidAutumnAccumulateGUI = BaseLayer.extend({
         this.coin.posStart = this.coin.getPosition();
 
         this.progress = this.getControl("progress");
-        this.progress.setPositionY(cc.winSize.height - 50);
+        if (CheckLogic.isGame("sam")) {
+            this.progress.setPositionY(this._layout.getContentSize().height - 50);
+        }
+        else {
+            this.progress.setPositionY(this._layout.getContentSize().height * 0.3);
+            this.progress.setPositionY(300);
+        }
+
         this.progress.defaultPos = this.progress.getPosition();
 
         this.coin.posDes = SceneMgr.convertPosToParent(this._layout, this.getControl("ico", this.progress));
@@ -2672,10 +2679,15 @@ var MidAutumnAccumulateGUI = BaseLayer.extend({
             ));
             this.progress.setVisible(true);
         } else {
-            this.progress.setVisible(false);
-            var gui = sceneMgr.getRunningScene().getMainLayer();
-            if (gui instanceof BoardScene) {
-                gui.effectButtonEvent(cmd);
+            if (CheckLogic.isGame("sam")) {
+                var gui = sceneMgr.getRunningScene().getMainLayer();
+                if (gui instanceof BoardScene) {
+                    gui.effectButtonEvent(cmd);
+                }
+                this.progress.setVisible(false);
+            }
+            else {
+                this.progress.setVisible(true);
             }
         }
 

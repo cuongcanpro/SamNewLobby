@@ -19,7 +19,7 @@ var Dialog = BaseLayer.extend({
         this._btnId = -1;
 
         this._super(Dialog.className);
-        this.initWithBinaryFile(GUILoader.loadDialog());
+        this.initWithBinaryFile("Dialog.json");
     },
 
     customizeGUI: function () {

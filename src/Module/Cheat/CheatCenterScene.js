@@ -1931,96 +1931,112 @@ var CardCheat = cc.Node.extend({
 
  */
 
-/*
- CmdSendCheatMoney = CmdSendCommon.extend({
- ctor: function () {
- this._super();
- this.initData(100);
- this.setControllerId(1);
- this.setCmdId(CMD.CMD_CHEAT_MONEY);
- },
 
- putData: function (money, coin) {
- //pack
- this.packHeader();
- this.putLong(money);
- this.putLong(coin);
+var CmdSendCheatMoney = CmdSendCommon.extend({
+    ctor: function () {
+        this._super();
+        this.initData(100);
+        this.setControllerId(1);
+        this.setCmdId(CMD.CMD_CHEAT_MONEY);
+    },
+    putData: function (money, coin, exp) {
+        //pack
+        this.packHeader();
+        this.putLong(money);
+        this.putLong(coin);
+        this.putLong(exp);
 
- //update
- this.updateSize();
- }
- });
+        //update
+        this.updateSize();
+    }
+});
 
- CmdSendCheatJackpot = CmdSendCommon.extend({
- ctor: function () {
- this._super();
- this.initData(100);
- this.setControllerId(1);
- this.setCmdId(CMD.CMD_CHEAT_JACKPOT);
- },
+var CmdSendCheatJackpot = CmdSendCommon.extend({
+    ctor: function () {
+        this._super();
+        this.initData(100);
+        this.setControllerId(1);
+        this.setCmdId(CMD.CMD_CHEAT_JACKPOT);
+    },
 
- putData: function (jp) {
- //pack
- this.packHeader();
- this.putInt(jp);
- //update
- this.updateSize();
- }
- });
+    putData: function (jp) {
+        //pack
+        this.packHeader();
+        this.putInt(jp);
+        //update
+        this.updateSize();
+    }
+});
 
- CmdSendCheatEXP = CmdSendCommon.extend({
- ctor: function () {
- this._super();
- this.initData(100);
- this.setControllerId(1);
- this.setCmdId(CMD.CMD_CHEAT_EXP);
- },
+var CmdSendCheatEXP = CmdSendCommon.extend({
+    ctor: function () {
+        this._super();
+        this.initData(100);
+        this.setControllerId(1);
+        this.setCmdId(CMD.CMD_CHEAT_EXP);
+    },
 
- putData: function (exp) {
- //pack
- this.packHeader();
- this.putLong(exp);
+    putData: function (exp) {
+        //pack
+        this.packHeader();
+        this.putLong(exp);
 
- //update
- this.updateSize();
- }
- });
+        //update
+        this.updateSize();
+    }
+});
 
- CmdSendCheatGStar = CmdSendCommon.extend({
- ctor: function () {
- this._super();
- this.initData(100);
- this.setControllerId(1);
- this.setCmdId(CMD.CMD_CHEAT_GSTAR);
- },
+var CmdSendCheatOldExp = CmdSendCommon.extend({
+    ctor: function () {
+        this._super();
+        this.initData(100);
+        this.setControllerId(1);
+        this.setCmdId(CMD.CMD_CHEAT_OLD_EXP);
+    },
 
- putData: function (gstar) {
- //pack
- this.packHeader();
- this.putLong(gstar);
+    putData: function(oldExp) {
+        //pack
+        this.packHeader();
+        this.putLong(oldExp);
+        cc.log("Send cheat old exp: " + oldExp);
+        //update
+        this.updateSize();
+    }
+});
 
- //update
- this.updateSize();
- }
- });
+var CmdSendCheatGStar = CmdSendCommon.extend({
+    ctor: function () {
+        this._super();
+        this.initData(100);
+        this.setControllerId(1);
+        this.setCmdId(CMD.CMD_CHEAT_GSTAR);
+    },
 
- CmdSendCheatConfigCard = CmdSendCommon.extend({
- ctor: function () {
- this._super();
- this.initData(100);
- this.setControllerId(1);
- this.setCmdId(CMD.CMD_CHEAT_CARD);
- },
- putData: function (cards) {
- //pack
- this.packHeader();
- this.putShort(cards.length);
- for (var i = 0; i < cards.length; i++) {
- this.putInt(cards[i]);
- }
- //update
- this.updateSize();
- }
- });
+    putData: function (gstar) {
+        //pack
+        this.packHeader();
+        this.putLong(gstar);
 
- */
+        //update
+        this.updateSize();
+    }
+});
+
+var CmdSendCheatConfigCard = CmdSendCommon.extend({
+    ctor: function () {
+        this._super();
+        this.initData(100);
+        this.setControllerId(1);
+        this.setCmdId(CMD.CMD_CHEAT_CARD);
+    },
+    putData: function (cards) {
+        //pack
+        this.packHeader();
+        this.putShort(cards.length);
+        for (var i = 0; i < cards.length; i++) {
+            this.putInt(cards[i]);
+        }
+        //update
+        this.updateSize();
+    }
+});

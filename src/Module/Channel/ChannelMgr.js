@@ -270,6 +270,8 @@ var ChannelMgr = BaseMgr.extend({
 
     checkCreateRoomMaxGold: function () {
         var maxGold = this.channelGroup[this.selectedChanel].maxGold;
+        if (maxGold == -1)
+            return false;
         return (maxGold < userMgr.getGold());
     },
 
@@ -293,8 +295,13 @@ var ChannelMgr = BaseMgr.extend({
         return userMgr.getGold() >= this.betTime * listBet[idBet];
     },
 
+    checkCanPlaySolo: function () {
+        cc.log("MIN GOLD SOLO " + this.minGoldSolo);
+        return userMgr.getGold() >= this.minGoldSolo;
+    },
+
     getMinGoldCreateRoom: function () {
-        return this.chanelConfig[this.selectedChanel].minGold;
+        return this.channelGroup[this.selectedChanel].minGold;
     },
 
     getMaxGoldCreateRoom: function () {
@@ -328,11 +335,11 @@ var ChannelMgr = BaseMgr.extend({
     },
 
     getMinGoldInChannel: function (idChannel) {
-        return this.chanelConfig[idChannel].minGold;
+        return this.channelGroup[idChannel].minGold;
     },
 
     getMaxGoldInChannel: function (idChannel) {
-        return this.chanelConfig[idChannel].maxGold;
+        return this.channelGroup[idChannel].maxGold;
     },
 
     getListBet: function () {
@@ -341,6 +348,17 @@ var ChannelMgr = BaseMgr.extend({
 
     getSelectedChannel: function () {
         return this.selectedChanel;
+    },
+
+    getBetIndex: function (bet) {
+        var index = -1;
+        for (var i = 0; i < this.listBetConfig.length; i++){
+            if (this.listBetConfig[i].bet === bet){
+                index = i;
+                break;
+            }
+        }
+        return index;
     },
 
     getListBetByChannel: function (channel, goldUser, isSoloMode){
@@ -472,11 +490,11 @@ var channelMgr = ChannelMgr.getInstance();
 
 
 ChannelMgr.CMD_SELECT_CHANEL = 2001;
-ChannelMgr.CMD_CREATE_ROOM = 2004;
+ChannelMgr.CMD_CREATE_ROOM = 2110;
 ChannelMgr.CMD_RECEIVE_JACKPOT = 2007;
 ChannelMgr.CMD_REFRESH_TABLE = 2008;
 ChannelMgr.SEARCH_TABLE = 2013;
-ChannelMgr.CMD_QUICK_PLAY = 2103;
-ChannelMgr.CMD_QUICK_PLAY_CUSTOM = 2101;
+ChannelMgr.CMD_QUICK_PLAY = 2112;
+ChannelMgr.CMD_QUICK_PLAY_CUSTOM = 2111;
 ChannelMgr.CMD_LOCK_ACCOUNT = 68;
 ChannelMgr.JOIN_ROOM_FAIL = 3007;

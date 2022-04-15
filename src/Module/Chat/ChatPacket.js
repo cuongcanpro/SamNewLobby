@@ -15,7 +15,7 @@ var CmdReceiveChatTong = CmdReceivedCommon.extend({
         } else {
             this.sender = null;
         }
-        this.content = this.getString();
+        this.content = decodeURI(this.getString());
         this.toID = this.getInt();
     }
 });
@@ -43,7 +43,7 @@ var CmdReceiveMessage = CmdReceivedCommon.extend({
     readData: function () {
         this.playerId = this.getByte();
         this.getString();
-        this.message = this.getString();
+        this.message = decodeURI(this.getString());
     }
 });
 
@@ -61,7 +61,7 @@ var CmdSendChatString = CmdSendCommon.extend({
         this.packHeader();
         this.putString(msg);
         this.updateSize();
-    }
+    },
 });
 
 var CmdSendChatTotal = CmdSendCommon.extend({
@@ -78,5 +78,5 @@ var CmdSendChatTotal = CmdSendCommon.extend({
         this.putInt(toId);
         this.putString(msg);
         this.updateSize();
-    }
+    },
 });

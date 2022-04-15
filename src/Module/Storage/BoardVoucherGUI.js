@@ -33,12 +33,12 @@ var BoardVoucherGUI = BaseLayer.extend({
         this.defaultScale = 0.75;
         this.onUpdateGUI();
 
-        var scene = sceneMgr.getMainLayer();
-        if (scene instanceof BoardScene) {
-            var position = scene._players[0].getVoucherPosition();
-            cc.log("THE POSITION", JSON.stringify(position));
-            this.setPosition(position);
-        }
+        // var scene = sceneMgr.getMainLayer();
+        // if (scene instanceof BoardScene) {
+        //     var position = scene._players[0].getVoucherPosition();
+        //     cc.log("THE POSITION", JSON.stringify(position));
+        //     this.setPosition(position);
+        // }
     },
 
     onUpdateGUI: function () {

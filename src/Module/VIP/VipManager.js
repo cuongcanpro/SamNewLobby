@@ -46,11 +46,11 @@ var VipManager = BaseMgr.extend({
             vipData.time = vObj["" + i]["time"];
             vipData.price = vObj["" + i]["price"];
             vipData.rate = vObj["" + i]["rate"];
-
-            //vipData.support = spObj["" + i];
+            vipData.support = spObj["" + i];
 
             this.vipConfig.push(vipData);
         }
+        cc.log("VIP CONFIG ************ " + JSON.stringify(this.vipConfig));
         this.setBenefitConfig(config["VIPBenefit"]);
         this.setOldVipConfig(config["OldVIP"]);
         this.setRatioGstarToVpoint(config["VIP"]["convertGstar"]);

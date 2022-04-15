@@ -2,21 +2,6 @@
  * Created by HunterPC on 1/5/2016.
  */
 
-var CmdSendQuitRoom = CmdSendCommon.extend({
-    ctor: function () {
-        this._super();
-        this.initData(100);
-        this.setControllerId(1);
-        this.setCmdId(InGameMgr.CMD_QUIT_ROOM);
-        this.putData();
-    },
-    putData: function () {
-        //pack
-        this.packHeader();
-        //update
-        this.updateSize();
-    }
-});
 
 var CmdSendStartGame = CmdSendCommon.extend({
     ctor:function()
@@ -28,11 +13,29 @@ var CmdSendStartGame = CmdSendCommon.extend({
         this.putData();
     },
     putData:function(){
-            //pack
-            this.packHeader();
-            //update
-            this.updateSize();
-        }
+        //pack
+        this.packHeader();
+        //update
+        this.updateSize();
+    }
+});
+
+var CmdSendCard = CmdSendCommon.extend({
+    ctor:function()
+    {
+        this._super();
+        this.initData(100);
+        this.setControllerId(1);
+        this.setCmdId(InGameMgr.CMD_RECEIVEDCARD);
+    },
+    putData:function(chair){
+        //pack
+        this.packHeader();
+
+        this.putByte(chair);
+        //update
+        this.updateSize();
+    }
 });
 
 var CmdSendDanhBai = CmdSendCommon.extend({
@@ -43,95 +46,84 @@ var CmdSendDanhBai = CmdSendCommon.extend({
         this.setControllerId(1);
         this.setCmdId(InGameMgr.CMD_DANHBAI);
     },
-    putData:function(boluot,cards){
+    putData:function(cardID){
         //pack
         this.packHeader();
-        this.putByte(boluot);
-        if(boluot)
-        {
-
-        }
-        else
-        {
-            this.putShort(cards.length);
-            for(var i=0;i<cards.length;i++){
-                this.putByte(cards[i]);
-            }
-        }
+        this.putByte(cardID);
 
         //update
         this.updateSize();
     }
 });
 
-var CmdSendHuyBaoSam = CmdSendCommon.extend({
+var CmdSendNotifyShowPhom = CmdSendCommon.extend({
     ctor:function()
     {
         this._super();
         this.initData(100);
         this.setControllerId(1);
-        this.setCmdId(InGameMgr.CMD_HUYBAOSAM);
-        this.putData();
+        this.setCmdId(InGameMgr.CMD_HAPHOM);
     },
-    putData:function(){
+    putData:function(chair,cards){
         //pack
         this.packHeader();
-        //update
-        this.updateSize();
-    }
-});
-
-var CmdSendBaoSam = CmdSendCommon.extend({
-    ctor:function()
-    {
-        this._super();
-        this.initData(100);
-        this.setControllerId(1);
-        this.setCmdId(InGameMgr.CMD_BAOSAM);
-        this.putData();
-    },
-    putData:function(){
-        //pack
-        this.packHeader();
-        //update
-        this.updateSize();
-    }
-});
-
-var CmdSendCheatBai = CmdSendCommon.extend({
-    ctor:function()
-    {
-        this._super();
-        this.initData(200);
-        this.setControllerId(1);
-        this.setCmdId(InGameMgr.CMD_CHEATBAI);
-    },
-    putData:function(chair,cards,cheat){
-        //pack
-        this.packHeader();
-        this.putByte(cheat);
-
         this.putByte(chair);
-
+        this.putByte(cards.length);
         this.putShort(cards.length);
+
         for(var i=0;i<cards.length;i++)
         {
             this.putByte(cards[i]);
         }
+
         //update
         this.updateSize();
     }
 });
 
-var CmdSendAddBot = CmdSendCommon.extend({
+var CmdSendConnectRoom = CmdSendCommon.extend({
+    ctor:function()
+    {
+        this._super();
+        this.initData(100);
+        this.setControllerId(1);
+        this.setCmdId(3400);
+        this.putData();
+    },
+    putData:function(){
+        //pack
+        this.packHeader();
+        //update
+        this.updateSize();
+    }
+});
+
+var CmdSendQuitRoom = CmdSendCommon.extend({
+    ctor:function()
+    {
+        this._super();
+        this.initData(100);
+        this.setControllerId(1);
+        this.setCmdId(InGameMgr.CMD_QUIT_ROOM);
+        this.putData();
+    },
+    putData:function(){
+        //pack
+        this.packHeader();
+        //update
+        this.updateSize();
+    }
+});
+
+var CmdSendViewGame = CmdSendCommon.extend({
     ctor: function () {
         this._super();
         this.initData(100);
         this.setControllerId(1);
-        this.setCmdId(InGameMgr.CMD_ADD_BOT);
+        this.setCmdId(3100);
+
         this.putData();
     },
-
     putData: function () {
         //pack
         this.packHeader();
@@ -140,12 +132,51 @@ var CmdSendAddBot = CmdSendCommon.extend({
     }
 });
 
-CmdSendHold = CmdSendCommon.extend({
+var CmdSendGuibai = CmdSendCommon.extend({
+    ctor:function()
+    {
+        this._super();
+        this.initData(100);
+        this.setControllerId(1);
+        this.setCmdId(InGameMgr.CMD_GUIBAI);
+    },
+    putData:function(senderChair,senderCard,targetChair,targetCard){
+        //pack
+        this.packHeader();
+        this.putByte(senderChair)
+        this.putByte(senderCard)
+        this.putByte(targetChair)
+        this.putByte(targetCard)
+
+        //update
+        this.updateSize();
+    }
+});
+
+var CmdSendClientInfo = CmdSendCommon.extend({
     ctor: function () {
         this._super();
         this.initData(100);
         this.setControllerId(1);
-        this.setCmdId(InGameMgr.CMD_HOLD);
+        this.setCmdId(InGameMgr.CMD_GET_INFO_CLIENT);
+    },
+    putData: function (log, type) {
+        //pack
+        this.packHeader();
+        this.putString(log);
+        this.putByte(type);
+        //update
+        this.updateSize();
+    }
+});
+
+
+var CmdSendCheatBot = CmdSendCommon.extend({
+    ctor: function () {
+        this._super();
+        this.initData(100);
+        this.setControllerId(1);
+        this.setCmdId(InGameMgr.CMD_CHEAT_BOT);
         this.putData();
     },
     putData: function () {
@@ -154,4 +185,4 @@ CmdSendHold = CmdSendCommon.extend({
         //update
         this.updateSize();
     }
-});
+})

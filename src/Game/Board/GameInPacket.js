@@ -1,369 +1,562 @@
-/**
- * Created by HunterPC on 1/5/2016.
- */
 
 var CmdReceivedUserJoinRoom = CmdReceivedCommon.extend({
-    ctor: function (pkg) {
+    ctor :function(pkg)
+    {
         this._super(pkg);
         this.readData();
     },
-    readData: function () {
+    readData: function(){
         this.info = {};
         this.info["uID"] = this.getInt();
-        this.info["bean"] = this.getDouble();
+
         this.info["avatar"] = this.getString();
         this.info["displayname"] = this.info["uName"] = this.getString();
-
+        this.info["bean"]= this.getDouble();
         this.info["exp"] = this.getDouble();
         this.info["winCount"] = this.getInt();
         this.info["lostCount"] = this.getInt();
 
-        this.uStatus = this.getInt();
+
         this.uChair = this.getByte();
-        this.getString();
+        this.uStatus = this.getInt();
+        this.info["ip"] = this.getString();
         this.info["vip"] = this.getByte();
-
-        //new level and exp
         this.info["level"] = this.getInt();
-        this.info["levelExp"] = Number(this.getLong());
+        this.info["levelExp"] = this.getDouble();
 
-        if (Config.ENABLE_DECORATE_ITEM) {
-            cc.log("--WC::UserJoin--");
-            this.wcItem = this.getInt();
-        }
+        this.item = 0;
     }
 });
 
-var CmdReceivedRegQuitRoom = CmdReceivedCommon.extend({
-    ctor: function (pkg) {
+var CmdReceivedUserView= CmdReceivedCommon.extend({
+    ctor :function(pkg)
+    {
         this._super(pkg);
         this.readData();
     },
-    readData: function () {
-        this.reg = this.getBool();
+    readData: function(){
+        this.info = {};
+        this.uChair = this.getByte();
+        this.uStatus = this.getByte();
+        this.autoKickTime = this.getByte();
+
+
+        this.info["avatar"] = this.getString();
+        this.info["uID"] = this.getInt();
+        this.info["displayname"] = this.info["uName"] = this.getString();
+        this.info["bean"]= this.getDouble();
+        this.info["exp"] = this.getDouble();
+        this.info["winCount"] = this.getInt();
+        this.info["lostCount"] = this.getInt();
+
+        this.getInt();
+        this.info["ip"] = this.getString();
+        this.info["vip"] = this.getByte();
+        this.info["idItem"] = 0;
+    }
+});
+
+var CmdReceivedViewGameInfo= CmdReceivedCommon.extend({
+    ctor :function(pkg)
+    {
+        this._super(pkg);
+        this.readData();
+    },
+    readData: function(){
+        this.players = [];
+        this.playerCards = [];
+        this.dockCard = -1;
+        this.currentChair = -1;
+        this.turnTime = 0;
+        this.playerAction = -1;
+
+        var size  = this.getShort();
+        for(var i=0;i<size;i++)
+        {
+            this.players.push(this.getBool());
+        }
+        size = this.getShort();
+        for(var i=0;i<size;i++)
+        {
+            var obj = {};
+            obj["isShowCard"] = this.getBool();
+            obj["handOnCards"] = [];
+            obj["isEatens"] = [];
+            obj["throwCards"] = [];
+            obj["phom"] = [];
+            var hand = this.getShort();
+            for(var j=0;j<hand;j++)
+            {
+                obj["handOnCards"].push(this.getInt());
+            }
+            hand = this.getShort();
+            for(var j=0;j<hand;j++)
+            {
+                obj["isEatens"].push(this.getInt());
+            }
+            obj["handCardSize"] = this.getInt();
+            var hand = this.getShort();
+            for(var j=0;j<hand;j++)
+            {
+                obj["throwCards"].push(this.getInt());
+            }
+
+            var lengthPhom = this.getShort();
+            for(var j=0;j<lengthPhom;j++)
+            {
+                var pi = this.getShort();
+                var phomi = [];
+                for(var k=0;k<pi;k++)
+                {
+                    phomi.push(this.getInt());
+                }
+                obj["phom"].push(phomi);
+            }
+            this.playerCards.push(obj);
+        }
+
+        this.dockCard = this.getByte();
+        this.currentChair = this.getInt();
+        this.turnTime = this.getInt();
+        this.playerAction = this.getInt();
+        this.arrayItem = [0, 0, 0, 0];
     }
 });
 
 var CmdReceivedAutoStart = CmdReceivedCommon.extend({
-    ctor: function (pkg) {
+    ctor :function(pkg)
+    {
         this._super(pkg);
         this.readData();
     },
-    readData: function () {
+    readData: function(){
 
-        this.isCancel = this.getBool();
+        this.isAutoStart = this.getBool();
         this.time = this.getByte();
+        this.autoType = this.getByte();
+        this.chairStart = this.getByte();
     }
 });
 
-var CmdReceivedFirstTurn = CmdReceivedCommon.extend({
-    ctor: function (pkg) {
+var CmdReceivedNotifyStartGame = CmdReceivedCommon.extend({
+    ctor :function(pkg)
+    {
         this._super(pkg);
         this.readData();
     },
-    readData: function () {
-
-        this.isRandom = this.getBool();
-        this.chair = this.getByte();
+    readData: function(){
 
         var size = this.getShort();
-        this.cards = [];
-
-        for (var i = 0; i < size; i++) {
-            var cardServer = this.getByte();
-            var cardClient = Card.convertCardID(cardServer);
-            this.cards.push(cardClient);
+        this.isPlaying = [];
+        for(var i=0;i<size;i++)
+        {
+            this.isPlaying.push(this.getBool());
         }
+        this.firstTurn = this.getByte();
+        this.nDeckCard = this.getByte();
     }
 });
 
-var CmdReceivedChiaBai = CmdReceivedCommon.extend({
-    ctor: function (pkg) {
+var CmdReceivedUpdateMyCard = CmdReceivedCommon.extend({
+    ctor :function(pkg)
+    {
         this._super(pkg);
         this.readData();
     },
-    readData: function () {
+    readData: function(){
+        this.nCard = this.getByte();
         var size = this.getShort();
         this.cards = [];
 
-        for (var i = 0; i < size; i++) {
+        for(var i =0;i<size;i++)
+        {
             var id = this.getByte();
-            var id1 = Card.convertCardID(id);
-            this.cards.push(id1);
+            this.cards.push(id);
         }
-
-        this.toiTrang = this.getByte();
-        this.timeBaoSam = this.getByte();
     }
 });
 
-var CmdReceivedDanhBai = CmdReceivedCommon.extend({
-    ctor: function (pkg) {
+var CmdReceivedThrowCard = CmdReceivedCommon.extend({
+    ctor :function(pkg)
+    {
         this._super(pkg);
         this.readData();
     },
-    readData: function () {
+    readData: function(){
+
+        this.chair = this.getByte();
+        this.cardID = this.getByte();
+    }
+});
+
+var CmdReceivedRequestShowPhom = CmdReceivedCommon.extend({
+    ctor :function(pkg)
+    {
+        this._super(pkg);
+        this.readData();
+    },
+    readData: function(){
+        this.turnTime = this.getByte();
         this.chair = this.getByte();
         var size = this.getShort();
-        this.cards = [];
-
-        for (var i = 0; i < size; i++) {
-            var id = this.getByte();
-            var id1 = Card.convertCardID(id);
-            this.cards.push(id1);
+        this.allCard = [];
+        for(var i =0 ;i<size;i++)
+        {
+            this.allCard.push(this.getByte());
         }
 
-        this.numberCard = this.getByte();
-        this.isAuto = this.getByte();
+        this.nCard = this.getByte();
+
+        this.eatCards = [];
+        size = this.getShort();
+        for(var i =0 ;i<size;i++)
+        {
+            this.eatCards.push(this.getBool());
+        }
+
+        this.mom = this.getBool();
     }
 });
 
-var CmdReceivedChatChong = CmdReceivedCommon.extend({
-    ctor: function (pkg) {
+var CmdReceivedRequestGuibai = CmdReceivedCommon.extend({
+    ctor :function(pkg)
+    {
         this._super(pkg);
         this.readData();
     },
-    readData: function () {
-        this.winChair = this.getByte();
-        this.lostChair = this.getByte();
-        this.winGold = this.getDouble();
-        this.lostGold = this.getDouble();
+    readData: function(){
+        this.chair = this.getByte();
+        this.turnTime = this.getByte();
+    }
+});
 
-        cc.log(this.winGold + "   " + this.lostGold);
+var CmdReceivedGuibai = CmdReceivedCommon.extend({
+    ctor :function(pkg)
+    {
+        this._super(pkg);
+        this.readData();
+    },
+    readData: function(){
+        this.senderChair = this.getByte();
+        this.senderCardID = this.getByte();
+        this.targetChair = this.getByte();
+        this.targetCardID = this.getByte();
+    }
+});
+
+var CmdReceivedHaPhom = CmdReceivedCommon.extend({
+    ctor :function(pkg)
+    {
+        this._super(pkg);
+        this.readData();
+    },
+    readData: function(){
+
+        this.chair = this.getByte();
+        this.nCard = this.getByte();
+        var size = this.getShort();
+        this.cards = [];
+        for(var i =0 ;i<size;i++)
+        {
+            this.cards.push(this.getByte());
+        }
     }
 });
 
 var CmdReceivedChangeTurn = CmdReceivedCommon.extend({
-    ctor: function (pkg) {
+    ctor :function(pkg)
+    {
         this._super(pkg);
         this.readData();
     },
-    readData: function () {
+    readData: function(){
 
-        this.newRound = this.getBool();
+        this.cangetcard = this.getBool();
         this.chair = this.getByte();
         this.time = this.getByte();
 
     }
 });
 
-var CmdReceivedQuyetDinhSam = CmdReceivedCommon.extend({
-    ctor: function (pkg) {
+var CmdReceivedGetCard = CmdReceivedCommon.extend({
+    ctor :function(pkg)
+    {
         this._super(pkg);
         this.readData();
     },
-    readData: function () {
+    readData: function(){
+        this.srcCardChair = this.getByte();
+        this.targetCardChair = this.getByte();
+        this.throwCardChair = this.getByte();
+        this.cardID = this.getByte();
+        this.chotha = this.getBool();
+        this.nEaten = this.getByte();
+        this.nMoney = this.getDouble();
+        this.nDeckCard = this.getByte();
+        this.money = this.getDouble();
+    }
+});
+
+var CmdReceivedOutRoomResult= CmdReceivedCommon.extend({
+    ctor :function(pkg)
+    {
+        this._super(pkg);
+        this.readData();
+    },
+    readData: function(){
+        this.result = this.getByte();
+    }
+});
+
+var CmdReceivedTailuot = CmdReceivedCommon.extend({
+    ctor :function(pkg)
+    {
+        this._super(pkg);
+        this.readData();
+    },
+    readData: function(){
 
         this.chair = this.getByte();
-        this.baosam = this.getBool();
 
     }
 });
 
-var CmdReceivedBoluot = CmdReceivedCommon.extend({
-    ctor: function (pkg) {
+var CmdReceivedU = CmdReceivedCommon.extend({
+    ctor :function(pkg)
+    {
         this._super(pkg);
         this.readData();
     },
-    readData: function () {
-        this.chair = this.getByte();
-        this.isAuto = this.getByte();
-    }
-});
-
-var CmdReceivedBaoSam = CmdReceivedCommon.extend({
-    ctor: function (pkg) {
-        this._super(pkg);
-        this.readData();
-    },
-    readData: function () {
+    readData: function(){
 
         this.chair = this.getByte();
-    }
-});
+        this.nCard = this.getByte();
 
-var CmdReceivedHuyBaoSam = CmdReceivedCommon.extend({
-    ctor: function (pkg) {
-        this._super(pkg);
-        this.readData();
-    },
-    readData: function () {
+        var size = this.getShort();
+        this.allCard = [];
+        for(var i=0;i<size;i++)
+        {
+            this.allCard.push(this.getByte());
+        }
+        size = this.getShort();
+        this.eatCard = [];
+        for(var i=0;i<size;i++)
+        {
+            this.eatCard.push(this.getBool());
+        }
+        size = this.getShort();
+        this.playerMoney = [];
+        for(var i=0;i<size;i++)
+        {
+            this.playerMoney.push(this.getDouble());
+        }
+        size = this.getShort();
+        this.dMoney = [];
+        for(var i=0;i<size;i++)
+        {
+            this.dMoney.push(this.getDouble());
+        }
 
-        this.chair = this.getByte();
-
+        this.isDentien = this.getByte();
+        this.uTron = this.getBool();
+        this.hasJackpot = this.getBool();
     }
 });
 
 var CmdReceivedUserExitRoom = CmdReceivedCommon.extend({
-    ctor: function (pkg) {
+    ctor :function(pkg)
+    {
         this._super(pkg);
         this.readData();
     },
-    readData: function () {
+    readData: function(){
 
         this.chair = this.getByte();
-        this.uID = this.getInt();
+        this.takenChair = this.getByte();
+    }
+});
+
+var CmdReceivedGameResult = CmdReceivedCommon.extend({
+    ctor :function(pkg)
+    {
+        this._super(pkg);
+        this.readData();
+    },
+    readData: function(){
+        this.moneyGet = [];
+        this.rank = [];
+        this.money = [];
+        this.mom = [];
+        this.jackpot = false;
+
+        var size = this.getShort();
+        for(var i = 0;i<size;i++)
+        {
+            this.moneyGet.push(this.getDouble());
+        }
+        size = this.getShort();
+        for(var i = 0;i<size;i++)
+        {
+            this.rank.push(this.getByte());
+        }
+
+        size = this.getShort();
+        for(var i = 0;i<size;i++)
+        {
+            this.money.push(this.getDouble());
+        }
+
+        size = this.getShort();
+        for(var i = 0;i<size;i++)
+        {
+            this.mom.push(this.getBool());
+        }
+        this.jackpot = this.getBool();
+
     }
 });
 
 var CmdReceivedEndGame = CmdReceivedCommon.extend({
-    ctor: function (pkg) {
+    ctor :function(pkg)
+    {
         this._super(pkg);
         this.readData();
     },
-    readData: function () {
+    readData: function(){
 
-        this.winType = [];
-        this.ketquaTinhTien = [];
-        this.cards = [];
-        var size = this.getShort();
-        for (var i = 0; i < size; i++) {
-            this.winType.push(this.getByte());
-        }
-        size = this.getShort();
-        for (var i = 0; i < size; i++) {
-            this.ketquaTinhTien.push(this.getDouble());
-        }
 
-        for (var i = 0; i < 5; i++) {
-            size = this.getShort();
-            var card = [];
-            for (var j = 0; j < size; j++) {
-                card.push(Card.convertCardID(this.getByte()));
-            }
-            this.cards.push(card);
-        }
-        this.delayTime = this.getByte();
+    }
+});
 
-        this.roomJackpot = this.getDouble();
+var CmdReceivedRateBigbet = CmdReceivedCommon.extend({
+    ctor :function(pkg)
+    {
+        this._super(pkg);
+        this.readData();
+    },
+    readData: function(){
+
+        this.bigbet = this.getByte();
     }
 });
 
 var CmdReceivedJackpot = CmdReceivedCommon.extend({
-    ctor: function (pkg) {
+    ctor :function(pkg)
+    {
         this._super(pkg);
         this.readData();
     },
-    readData: function () {
+    readData: function(){
         this.gold = this.getDouble();
         this.uChair = this.getByte();
     }
 });
 
-var CmdJackpotInfo = CmdReceivedCommon.extend({
-    ctor: function (pkg) {
-        this._super(pkg);
-        this.readData();
-    },
-    readData: function () {
-        this.gold = [];
-        this.diamond = [];
-        for (var i = 0; i <= 3 ; i++) {
-            this.gold.push(parseInt(this.getLong()));
-            //cc.log("golddddddddddd", this.gold[i]);
-        }
-        for (i = 0; i <= 3; i++) {
-            this.diamond.push(this.getInt());
-        }
-    }
-});
-
-var CmdGetJackpot = CmdReceivedCommon.extend({
-    ctor: function (pkg) {
-        this._super(pkg);
-        this.readData();
-    },
-    readData: function () {
-        this.jackpot = parseInt(this.getLong());
-        this.chair = this.getInt();
-        cc.log("CHAIRRRRRRRRRRRRRR", this.chair);
-    }
-});
-
-var CmdNotifyGetGem = CmdReceivedCommon.extend({
-    ctor: function (pkg) {
-        this._super(pkg);
-        this.readData();
-    },
-    readData: function () {
-        this.username = this.getString();
-        this.channel = this.getInt();
-    }
-});
-
-var CmdNotifyGetJackpot = CmdReceivedCommon.extend({
-    ctor: function (pkg) {
-        this._super(pkg);
-        this.readData();
-    },
-    readData: function () {
-        this.username = this.getString();
-        this.jackpot = parseInt(this.getLong());
-        this.channel = this.getInt();
-    }
-});
-
 var CmdReceivedUpdateMath = CmdReceivedCommon.extend({
-    ctor: function (pkg) {
+    ctor :function(pkg)
+    {
         this._super(pkg);
         this.readData();
     },
+    readData: function(){
 
-    readData: function () {
-
+        this.roomID = this.getInt();
         this.myChair = this.getByte();
-        this.ownerChair = this.getByte();
+        this.commision = this.getByte();
+        this.commisionJackpot = this.getByte();
+        this.betType = this.getByte();
 
         var size = this.getShort();
-        this.hasInfo = [];
-        for (var i = 0; i < size; i++) {
-            this.hasInfo.push(this.getBool());
-        }
         this.infos = [];
-        for (var i = 0; i < size; i++) {
+        for(var i=0;i<size;i++){
             var info = {};
-            if (this.hasInfo[i]) {
-                info["bean"] = this.getDouble();
-                info["exp"] = this.getDouble();
-                info["winCount"] = this.getInt();
-                info["lostCount"] = this.getInt();
-                info["status"] = this.getInt();
-            }
+            info["avatar"] = this.getString();
+            info["uID"] = this.getInt();
+            info["displayname"] = info["uName"] = this.getString();
+            info["bean"] = this.getDouble();
+            info["exp"] = this.getDouble();
+            info["winCount"] = this.getInt();
+            info["lostCount"] = this.getInt();
+            info["vip"] = -1;
             this.infos.push(info);
         }
+        size = this.getShort();
+        this.playerStatus = [];
+        for(var i=0;i<size;i++)
+        {
+            this.playerStatus.push(this.getByte());
+        }
+        size = this.getShort();
+        this.willView = [];
+        for(var i=0;i<size;i++)
+        {
+            this.willView.push(this.getBool());
+        }
+        this.getLong();
 
-        //new level and exp
-        for (var i = 0; i < size; i++) {
-            if (this.hasInfo[i]) {
-                this.infos[i]["level"] = this.getInt();
-                this.infos[i]["levelExp"] = Number(this.getLong());
-            }
+        size = this.getShort();
+        for (var i=0; i<size; i++) {
+            this.infos[i]["level"] = this.getInt();
+            this.infos[i]["levelExp"] = this.getDouble();
         }
 
-        if(Config.ENABLE_DECORATE_ITEM) {
-            cc.log("--WC::UpdateMatch--");
-            this.wcItems = this.getInts();
-        }
+        this.arrayItem = [0, 0, 0, 0];
+    }
+});
+
+var CmdReceivedUserTakeChair = CmdReceivedCommon.extend({
+    ctor :function(pkg)
+    {
+        this._super(pkg);
+        this.readData();
+    },
+    readData: function(){
+
+        this.error = this.getByte();
+        this.uChair = this.getByte();
+    }
+});
+
+var CmdReceivedUpdateCoin = CmdReceivedCommon.extend({
+    ctor :function(pkg)
+    {
+        this._super(pkg);
+        this.readData();
+    },
+    readData: function(){
+        this.coin = this.getDouble();
+    }
+});
+
+var CmdUpdateJackpot  = CmdReceivedCommon.extend({
+    ctor: function (pkg) {
+        this._super(pkg);
+        this.readData();
+    },
+    readData: function () {
+        this.jackpot = this.getDouble();
     }
 });
 
 var CmdReceivedQuitroomReason = CmdReceivedCommon.extend({
-    ctor: function (pkg) {
+    ctor :function(pkg)
+    {
         this._super(pkg);
         this.readData();
     },
-    readData: function () {
+    readData: function(){
+        this.chair = this.getByte();
         this.reason = this.getByte();
     }
 });
 
 var CmdReceivedJoinRoomSuccess = CmdReceivedCommon.extend({
-    ctor: function (pkg) {
+    ctor :function(pkg)
+    {
         this._super(pkg);
         this.readData();
     },
-
-    readData: function () {
+    readData: function(){
         this.uChair = this.getByte();
         this.getByte();
         this.getByte();
@@ -372,18 +565,20 @@ var CmdReceivedJoinRoomSuccess = CmdReceivedCommon.extend({
         this.roomOwner = this.getByte();
         this.roomIndex = this.getInt();
         this.roomID = this.getInt();
-        this.getByte();
-        this.getByte();
-        this.getByte();
+        this.getByte();                 // room type
 
         this.playerStatus = [];
         var length = this.getShort();
-        for (var i = 0; i < length; i++) {
+        for(var i=0;i<length;i++)
+        {
             this.playerStatus.push(this.getByte());
         }
+
+
         this.playerInfo = [];
         length = this.getShort();
-        for (var i = 0; i < length; i++) {
+        for(var i=0;i<length;i++)
+        {
             var info = {};
             info["avatar"] = this.getString();
             info["uID"] = this.getInt();
@@ -393,161 +588,162 @@ var CmdReceivedJoinRoomSuccess = CmdReceivedCommon.extend({
             info["winCount"] = this.getInt();
             info["lostCount"] = this.getInt();
             info["usingItem"] = this.getInt();
-            this.getString();
+            info["ip"] = this.getString();
+            // cc.log("IP " + info["ip"]);
             this.playerInfo.push(info);
         }
 
         this.roomOwnerID = this.getInt();
         this.roomLock = this.getBool();
-        this.roomJackpot = this.getDouble();
+
+        this.bigBet = this.getByte();
 
         length = this.getShort();
-        for (var i = 0; i < length; i++) {
+        for(var i=0;i<length;i++)
+        {
             this.vips = this.getByte();
             this.playerInfo[i]["vip"] = this.vips;
         }
-
-        // Game info
-        this.gameAction = this.getByte();
-        length = this.getShort();
-        this.cards = [];
-        for (var i = 0; i < length; i++) {
-            this.cards.push(this.getByte());
-        }
-        this.currentChair = this.getByte();
-        this.remainTime = this.getByte();
+        this.arrayItem = [0, 0, 0, 0];
+        this.arrayItem = this.getInts();
+        cc.log("ARRAY ITEM " + JSON.stringify(this.arrayItem));
+        this.isModeSolo = this.getByte();
 
         length = this.getShort();
         for (var i = 0; i < length; i++){
             this.playerInfo[i]["level"] = this.getInt();
-            this.playerInfo[i]["levelExp"] = Number(this.getLong());
-        }
-
-        if(Config.ENABLE_DECORATE_ITEM) {
-            cc.log("--WC::JoinRoomSuccess--");
-            this.wcItems = this.getInts();
+            this.playerInfo[i]["levelExp"] = this.getDouble();
         }
     }
 });
 
 var CmdReceivedGameInfo = CmdReceivedCommon.extend({
-    ctor: function (pkg) {
+    ctor :function(pkg)
+    {
         this._super(pkg);
         this.readData();
     },
-
-    readData: function () {
-        this.uChair = this.getByte();
-        this.myCard = [];
-        this.recentCadrs = [];
-        var size = this.getShort();
-        for (var i = 0; i < size; i++) {
-            this.myCard.push(Card.convertCardID(this.getByte()));
-        }
-
-        // game state
-        this.baosam = this.getByte();
-        this.boluot = this.getByte();
-        this.typeToiTrang = this.getInt();
-        this.newRound = this.getByte();
-
-        this.gamestate = this.getByte();
-        this.gameaction = this.getByte();
-        this.remaintime = this.getByte();
-        this.currentchair = this.getByte();
-
-        var size = this.getShort();
-        for (var i = 0; i < size; i++) {
-            this.recentCadrs.push(Card.convertCardID(this.getByte()));
-        }
-
-        // room info
-        this.getByte();
-        this.getByte();
-        this.getByte();
+    readData: function(){
+        this.myChair = this.getByte();
         this.roomBet = this.getDouble();
         this.roomOwner = this.getByte();
+        this.roomOwnerID = this.getInt();
+
         this.roomIndex = this.getInt();
         this.roomID = this.getInt();
-        this.getByte();
-        this.getByte();
-        this.getByte();
-        this.roomOwnerID = this.getInt();
-        this.roomLock = this.getBool();
+        this.isCuocLon = this.getBool();
+        this.rateCuoclon = this.getByte();
+        this.turnTime = this.getInt();
+        this.currentChair = this.getInt();
+        this.deckCard = this.getByte();
+        this.playerAction = this.getInt();
+        var size = this.getShort();
+        this.playerStatus=[];
+        this.playerList = [];
+        for(var i=0;i<size;i++)
+        {
+            this.playerStatus.push(this.getByte());
+        }
+        size = this.getShort();
+        for(var i=0;i<size;i++)
+        {
+            var obj = {};
+            obj["avatar"] = this.getString();
+            obj["uID"] = this.getInt();
+            obj["displayName"] = obj["uName"] = this.getString();
+            obj["bean"] = this.getDouble();
+            obj["exp"] = this.getDouble();
+            obj["winCount"] = this.getInt();
+            obj["lostCount"] = this.getInt();
 
+            this.getInt();
+            obj["ip"] = this.getString();
 
-        // user in game info
-        this.playerStatus = [];
-        this.playerInfo = [];
+            this.playerList.push(obj);
+        }
+        size = this.getShort();
+        for(var i=0;i<size;i++)
+        {
+            this.playerList[i]["vip"] = this.getByte();
+        }
+
+        this.playerCards =[];
+        size = this.getShort();
+        for(var i=0;i<size;i++)
+        {
+            var obj = {};
+            obj["isShowCard"] = this.getBool();
+            obj["handOnCards"] = [];
+            obj["isEatens"] = [];
+            obj["throwCards"] = [];
+            obj["phom"] = [];
+            var hand = this.getShort();
+            for(var j=0;j<hand;j++)
+            {
+                obj["handOnCards"].push(this.getInt());
+            }
+            hand = this.getShort();
+            for(var j=0;j<hand;j++)
+            {
+                obj["isEatens"].push(this.getInt());
+            }
+            obj["handCardSize"] = this.getInt();
+            var hand = this.getShort();
+            for(var j=0;j<hand;j++)
+            {
+                obj["throwCards"].push(this.getInt());
+            }
+
+            var lengthPhom = this.getShort();
+            for(var j=0;j<lengthPhom;j++)
+            {
+                var pi = this.getShort();
+                var phomi = [];
+                for(var k=0;k<pi;k++)
+                {
+                    phomi.push(this.getInt());
+                }
+                obj["phom"].push(phomi);
+            }
+            this.playerCards.push(obj);
+        }
+        this.getByte();
+        this.getByte();
+        this.getBytes();
+        this.arrayItem = [0, 0, 0, 0];
+        this.arrayItem = this.getInts();
+        cc.log("ARRAY ITEM ******** " + JSON.stringify(this.arrayItem));
+
+        this.isModeSolo = this.getByte();
 
         size = this.getShort();
-        var hasInfo = [];
-        for (var i = 0; i < size; i++) {
-            hasInfo.push(this.getByte());
-            //cc.log("has" + hasInfo[hasInfo.length-1])
+        for (var i = 0; i < size; i++){
+            this.playerList[i]["level"] = this.getInt();
+            this.playerList[i]["levelExp"] = this.getDouble();
         }
-        for (var i = 0; i < hasInfo.length; i++) {
-            var info = {};
+    }
+});
 
-            if (!hasInfo[i]) {
-                this.playerStatus.push(0);
-            }
-            else {
-                info["cards"] = this.getByte();
+var CmdReceivedJoinRoomFail = CmdReceivedCommon.extend({
+    ctor :function(pkg)
+    {
+        this._super(pkg);
+        this.readData();
+    },
+    readData: function(){
 
-                info["baosam"] = this.getByte();
-                info["huybaosam"] = this.getByte();
-                this.playerStatus.push(this.getByte());
-                info["avatar"] = this.getString();
-                info["uID"] = this.getInt();
-                info["uName"] = this.getString();
-                //cc.log(info["uName"])
-                info["bean"] = this.getDouble();
-                info["exp"] = this.getDouble();
-                info["winCount"] = this.getInt();
-                info["lostCount"] = this.getInt();
-                info["usingItem"] = this.getInt();
-                this.getString();
-                info["vip"] = this.getInt();
-            }
-            this.playerInfo.push(info);
-        }
-        this.roomJackpot = this.getDouble();
-
-        for (var i = 0; i < hasInfo.length; i++){
-            if (hasInfo[i]){
-                this.playerInfo[i]["level"] = this.getInt();
-                this.playerInfo[i]["levelExp"] = Number(this.getLong());
-            }
-        }
-
-        if(Config.ENABLE_DECORATE_ITEM) {
-            cc.log("--WC::GameInfo--");
-            this.wcItems = this.getInts();
-        }
+        this.reason = this.getByte();
     }
 });
 
 var CmdReceivedUpdateOwnerRoom = CmdReceivedCommon.extend({
-    ctor: function (pkg) {
+    ctor :function(pkg)
+    {
         this._super(pkg);
         this.readData();
     },
-    readData: function () {
+    readData: function(){
 
         this.chair = this.getByte();
     }
 });
-
-var CmdReceivedInBoardAvatar = CmdReceivedCommon.extend({
-    ctor: function (pkg) {
-        this._super(pkg);
-        this.readData();
-    },
-    readData: function () {
-        this.uID = this.getInt();
-        this.chair = this.getByte();
-        this.avatar = this.getString();
-    }
-});
-

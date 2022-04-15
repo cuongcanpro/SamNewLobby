@@ -1,0 +1,1295 @@
+{
+  "ID": "76740667-21fc-4cc5-9635-294df3be149d",
+  "Version": "2.3.4",
+  "Name": "TalaRoomItemCell",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 820,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ChooseRoomGUI/roombg.png",
+              "Plist": ""
+            },
+            "Scale9Width": 800,
+            "Scale9Height": 43,
+            "StretchWidthEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5
+            },
+            "Position": {
+              "X": 400.0002,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "HorizontalEdge": "BothEdge",
+            "VerticalEdge": "BottomEdge",
+            "LeftMargin": 0.0003,
+            "RightMargin": -0.0002,
+            "Tag": 840,
+            "ActionTag": -1347519454,
+            "Size": {
+              "X": 799.9999,
+              "Y": 43.0
+            },
+            "Name": "bg",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ChooseRoomGUI/roomBgSolo.png",
+              "Plist": ""
+            },
+            "Scale9OriginX": 264,
+            "Scale9OriginY": 12,
+            "Scale9Width": 272,
+            "Scale9Height": 15,
+            "StretchWidthEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5
+            },
+            "Position": {
+              "X": 400.0,
+              "Y": 2.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.0465
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 0.907
+            },
+            "HorizontalEdge": "BothEdge",
+            "VerticalEdge": "BottomEdge",
+            "TopMargin": 2.0,
+            "BottomMargin": 2.0,
+            "Tag": 281,
+            "Children": [
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "ChooseRoomGUI/iconSolo.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 13,
+                "Scale9OriginY": 5,
+                "Scale9Width": 15,
+                "Scale9Height": 6,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 665.4858,
+                  "Y": 20.1855
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.8319,
+                  "Y": 0.5176
+                },
+                "PreSize": {
+                  "X": 0.0512,
+                  "Y": 0.4103
+                },
+                "HorizontalEdge": "RightEdge",
+                "LeftMargin": 644.9858,
+                "RightMargin": 114.0142,
+                "TopMargin": 10.8145,
+                "BottomMargin": 12.1855,
+                "Tag": 282,
+                "ActionTag": -1484597636,
+                "Size": {
+                  "X": 41.0,
+                  "Y": 16.0
+                },
+                "Name": "imgSolo",
+                "ctype": "ImageViewObjectData"
+              }
+            ],
+            "ActionTag": 805111536,
+            "Size": {
+              "X": 800.0,
+              "Y": 39.0
+            },
+            "Name": "bgSolo",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ChooseRoomGUI/room_split.png",
+              "Plist": ""
+            },
+            "Scale9Width": 2,
+            "Scale9Height": 30,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 608.652,
+              "Y": 21.2434
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7608,
+              "Y": 0.494
+            },
+            "PreSize": {
+              "X": 0.0025,
+              "Y": 0.6977
+            },
+            "HorizontalEdge": "BothEdge",
+            "VerticalEdge": "BottomEdge",
+            "LeftMargin": 607.652,
+            "RightMargin": 190.348,
+            "TopMargin": 6.7566,
+            "BottomMargin": 6.2434,
+            "Tag": 837,
+            "ActionTag": -787124902,
+            "Size": {
+              "X": 2.0,
+              "Y": 30.0
+            },
+            "Name": "sp2",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ChooseRoomGUI/room_split.png",
+              "Plist": ""
+            },
+            "Scale9Width": 2,
+            "Scale9Height": 30,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 421.6123,
+              "Y": 21.2434
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.527,
+              "Y": 0.494
+            },
+            "PreSize": {
+              "X": 0.0025,
+              "Y": 0.6977
+            },
+            "HorizontalEdge": "BothEdge",
+            "VerticalEdge": "BottomEdge",
+            "LeftMargin": 420.6123,
+            "RightMargin": 377.3877,
+            "TopMargin": 6.7566,
+            "BottomMargin": 6.2434,
+            "Tag": 838,
+            "ActionTag": -1447036207,
+            "Size": {
+              "X": 2.0,
+              "Y": 30.0
+            },
+            "Name": "sp1",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ChooseRoomGUI/room_split.png",
+              "Plist": ""
+            },
+            "Scale9Width": 2,
+            "Scale9Height": 30,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 84.2519,
+              "Y": 21.2434
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1053,
+              "Y": 0.494
+            },
+            "PreSize": {
+              "X": 0.0025,
+              "Y": 0.6977
+            },
+            "HorizontalEdge": "BothEdge",
+            "VerticalEdge": "BottomEdge",
+            "LeftMargin": 83.2519,
+            "RightMargin": 714.7482,
+            "TopMargin": 6.7566,
+            "BottomMargin": 6.2434,
+            "Tag": 839,
+            "ActionTag": -241525579,
+            "Size": {
+              "X": 2.0,
+              "Y": 30.0
+            },
+            "Name": "sp0",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "IsCustomSize": true,
+            "FontSize": 17,
+            "LabelText": "9999999",
+            "FontResource": {
+              "Type": "Normal",
+              "Path": "Font/tahoma.ttf",
+              "Plist": ""
+            },
+            "HorizontalAlignmentType": "HT_Center",
+            "VerticalAlignmentType": "VT_Center",
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 40.0118,
+              "Y": 21.537
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 203,
+              "G": 204,
+              "B": 206
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.05,
+              "Y": 0.5009
+            },
+            "PreSize": {
+              "X": 0.0812,
+              "Y": 0.5349
+            },
+            "HorizontalEdge": "BothEdge",
+            "LeftMargin": 7.5118,
+            "RightMargin": 727.4882,
+            "TopMargin": 9.963,
+            "BottomMargin": 10.037,
+            "UserData": "scale",
+            "Tag": 835,
+            "ActionTag": 1709124246,
+            "Size": {
+              "X": 65.0,
+              "Y": 23.0
+            },
+            "Name": "id",
+            "ctype": "TextObjectData"
+          },
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 102,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 252.6519,
+              "Y": 21.7437
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3158,
+              "Y": 0.5057
+            },
+            "PreSize": {
+              "X": 0.4187,
+              "Y": 1.0
+            },
+            "HorizontalEdge": "BothEdge",
+            "LeftMargin": 85.1519,
+            "RightMargin": 379.8481,
+            "TopMargin": -0.2437,
+            "BottomMargin": 0.2437,
+            "UserData": "scale",
+            "Tag": 846,
+            "Children": [
+              {
+                "FileData": {
+                  "Type": "Default",
+                  "Path": "Default/ImageFile.png",
+                  "Plist": ""
+                },
+                "Scale9Width": 46,
+                "Scale9Height": 46,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 45.2585,
+                  "Y": 23.2577
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.1351,
+                  "Y": 0.5409
+                },
+                "PreSize": {
+                  "X": 0.0657,
+                  "Y": 0.5814
+                },
+                "HorizontalEdge": "BothEdge",
+                "LeftMargin": 34.2585,
+                "RightMargin": 278.7415,
+                "TopMargin": 7.2423,
+                "BottomMargin": 10.7577,
+                "Tag": 836,
+                "ActionTag": -1835789216,
+                "Size": {
+                  "X": 22.0,
+                  "Y": 25.0
+                },
+                "Name": "lock",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "IsCustomSize": true,
+                "FontSize": 17,
+                "LabelText": "aaaaaaaaaaaaaaaaaaaaaaaaeeeeee",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahoma.ttf",
+                  "Plist": ""
+                },
+                "VerticalAlignmentType": "VT_Center",
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 210.8825,
+                  "Y": 22.2934
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.6295,
+                  "Y": 0.5185
+                },
+                "PreSize": {
+                  "X": 0.9045,
+                  "Y": 0.5349
+                },
+                "HorizontalEdge": "BothEdge",
+                "VerticalEdge": "BottomEdge",
+                "LeftMargin": 59.3825,
+                "RightMargin": -27.3825,
+                "TopMargin": 9.2066,
+                "BottomMargin": 10.7934,
+                "UserData": "scale",
+                "Tag": 834,
+                "ActionTag": 348791867,
+                "Size": {
+                  "X": 303.0,
+                  "Y": 23.0
+                },
+                "Name": "name",
+                "ctype": "TextObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "ChooseRoomGUI/violet.png",
+                  "Plist": ""
+                },
+                "Scale9Width": 20,
+                "Scale9Height": 19,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 20.703,
+                  "Y": 21.2576
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0618,
+                  "Y": 0.4944
+                },
+                "PreSize": {
+                  "X": 0.0597,
+                  "Y": 0.4419
+                },
+                "HorizontalEdge": "BothEdge",
+                "LeftMargin": 10.703,
+                "RightMargin": 304.297,
+                "TopMargin": 12.2424,
+                "BottomMargin": 11.7576,
+                "UserData": "scale",
+                "Tag": 832,
+                "ActionTag": -260482013,
+                "Size": {
+                  "X": 20.0,
+                  "Y": 19.0
+                },
+                "Name": "type2",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "ChooseRoomGUI/blue.png",
+                  "Plist": ""
+                },
+                "Scale9Width": 22,
+                "Scale9Height": 22,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 20.703,
+                  "Y": 21.2576
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0618,
+                  "Y": 0.4944
+                },
+                "PreSize": {
+                  "X": 0.0657,
+                  "Y": 0.5116
+                },
+                "HorizontalEdge": "BothEdge",
+                "LeftMargin": 9.703,
+                "RightMargin": 303.297,
+                "TopMargin": 10.7424,
+                "BottomMargin": 10.2576,
+                "UserData": "scale",
+                "Tag": 831,
+                "ActionTag": 1513007791,
+                "Size": {
+                  "X": 22.0,
+                  "Y": 22.0
+                },
+                "Name": "type0",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "ChooseRoomGUI/green.png",
+                  "Plist": ""
+                },
+                "Scale9Width": 18,
+                "Scale9Height": 17,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 20.703,
+                  "Y": 21.2576
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0618,
+                  "Y": 0.4944
+                },
+                "PreSize": {
+                  "X": 0.0537,
+                  "Y": 0.3953
+                },
+                "HorizontalEdge": "BothEdge",
+                "LeftMargin": 11.703,
+                "RightMargin": 305.297,
+                "TopMargin": 13.2424,
+                "BottomMargin": 12.7576,
+                "UserData": "scale",
+                "Tag": 830,
+                "ActionTag": -1306077222,
+                "Size": {
+                  "X": 18.0,
+                  "Y": 17.0
+                },
+                "Name": "type1",
+                "ctype": "ImageViewObjectData"
+              }
+            ],
+            "ActionTag": 1497934739,
+            "Size": {
+              "X": 335.0,
+              "Y": 43.0
+            },
+            "Name": "pInfo",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 102,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 515.132,
+              "Y": 21.7437
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6439,
+              "Y": 0.5057
+            },
+            "PreSize": {
+              "X": 0.23,
+              "Y": 1.0
+            },
+            "HorizontalEdge": "BothEdge",
+            "LeftMargin": 423.132,
+            "RightMargin": 192.868,
+            "TopMargin": -0.2437,
+            "BottomMargin": 0.2437,
+            "UserData": "scale",
+            "Tag": 848,
+            "Children": [
+              {
+                "IsCustomSize": true,
+                "FontSize": 17,
+                "LabelText": "999 M",
+                "FontResource": {
+                  "Type": "Normal",
+                  "Path": "Font/tahoma.ttf",
+                  "Plist": ""
+                },
+                "HorizontalAlignmentType": "HT_Center",
+                "VerticalAlignmentType": "VT_Center",
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 98.6608,
+                  "Y": 21.2934
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "R": 251,
+                  "G": 212,
+                  "B": 93
+                },
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.5362,
+                  "Y": 0.4952
+                },
+                "PreSize": {
+                  "X": 0.7554,
+                  "Y": 0.5349
+                },
+                "HorizontalEdge": "BothEdge",
+                "VerticalEdge": "BottomEdge",
+                "LeftMargin": 29.1608,
+                "RightMargin": 15.8392,
+                "TopMargin": 10.2066,
+                "BottomMargin": 9.7934,
+                "UserData": "scale",
+                "Tag": 833,
+                "ActionTag": -120844457,
+                "Size": {
+                  "X": 139.0,
+                  "Y": 23.0
+                },
+                "Name": "bet",
+                "ctype": "TextObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "ChooseRoomGUI/bigbet.png",
+                  "Plist": ""
+                },
+                "Scale9Width": 26,
+                "Scale9Height": 25,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 27.0296,
+                  "Y": 21.3293
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.1469,
+                  "Y": 0.496
+                },
+                "PreSize": {
+                  "X": 0.1413,
+                  "Y": 0.5814
+                },
+                "HorizontalEdge": "BothEdge",
+                "LeftMargin": 14.0296,
+                "RightMargin": 143.9704,
+                "TopMargin": 9.1707,
+                "BottomMargin": 8.8293,
+                "Tag": 821,
+                "ActionTag": -207741684,
+                "Size": {
+                  "X": 26.0,
+                  "Y": 25.0
+                },
+                "Name": "star",
+                "ctype": "ImageViewObjectData"
+              }
+            ],
+            "ActionTag": 1500662779,
+            "Size": {
+              "X": 184.0,
+              "Y": 43.0
+            },
+            "Name": "pBet",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 102,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 703.692,
+              "Y": 21.7437
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8796,
+              "Y": 0.5057
+            },
+            "PreSize": {
+              "X": 0.23,
+              "Y": 1.0
+            },
+            "HorizontalEdge": "BothEdge",
+            "LeftMargin": 611.692,
+            "RightMargin": 4.308,
+            "TopMargin": -0.2437,
+            "BottomMargin": 0.2437,
+            "Tag": 849,
+            "Children": [
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "ChooseRoomGUI/person_unavaiable.png",
+                  "Plist": ""
+                },
+                "Scale9Width": 23,
+                "Scale9Height": 24,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 36.0272,
+                  "Y": 21.147
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.1958,
+                  "Y": 0.4918
+                },
+                "PreSize": {
+                  "X": 0.125,
+                  "Y": 0.5581
+                },
+                "HorizontalEdge": "BothEdge",
+                "LeftMargin": 24.5272,
+                "RightMargin": 136.4728,
+                "TopMargin": 9.853,
+                "BottomMargin": 9.147,
+                "UserData": "scale",
+                "Tag": 829,
+                "ActionTag": 1115883657,
+                "Size": {
+                  "X": 23.0,
+                  "Y": 24.0
+                },
+                "Name": "num0",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "ChooseRoomGUI/person_unavaiable.png",
+                  "Plist": ""
+                },
+                "Scale9Width": 23,
+                "Scale9Height": 24,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 73.8944,
+                  "Y": 21.147
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.4016,
+                  "Y": 0.4918
+                },
+                "PreSize": {
+                  "X": 0.125,
+                  "Y": 0.5581
+                },
+                "HorizontalEdge": "BothEdge",
+                "LeftMargin": 62.3944,
+                "RightMargin": 98.6056,
+                "TopMargin": 9.853,
+                "BottomMargin": 9.147,
+                "UserData": "scale",
+                "Tag": 828,
+                "ActionTag": -241890087,
+                "Size": {
+                  "X": 23.0,
+                  "Y": 24.0
+                },
+                "Name": "num1",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "ChooseRoomGUI/person_unavaiable.png",
+                  "Plist": ""
+                },
+                "Scale9Width": 23,
+                "Scale9Height": 24,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 111.7616,
+                  "Y": 21.147
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.6074,
+                  "Y": 0.4918
+                },
+                "PreSize": {
+                  "X": 0.125,
+                  "Y": 0.5581
+                },
+                "HorizontalEdge": "BothEdge",
+                "LeftMargin": 100.2616,
+                "RightMargin": 60.7384,
+                "TopMargin": 9.853,
+                "BottomMargin": 9.147,
+                "UserData": "scale",
+                "Tag": 827,
+                "ActionTag": 53314126,
+                "Size": {
+                  "X": 23.0,
+                  "Y": 24.0
+                },
+                "Name": "num2",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "ChooseRoomGUI/person_unavaiable.png",
+                  "Plist": ""
+                },
+                "Scale9Width": 23,
+                "Scale9Height": 24,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 149.6288,
+                  "Y": 21.147
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.8132,
+                  "Y": 0.4918
+                },
+                "PreSize": {
+                  "X": 0.125,
+                  "Y": 0.5581
+                },
+                "HorizontalEdge": "BothEdge",
+                "LeftMargin": 138.1288,
+                "RightMargin": 22.8712,
+                "TopMargin": 9.853,
+                "BottomMargin": 9.147,
+                "UserData": "scale",
+                "Tag": 826,
+                "ActionTag": 1095156845,
+                "Size": {
+                  "X": 23.0,
+                  "Y": 24.0
+                },
+                "Name": "num3",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "ChooseRoomGUI/person_avaiable.png",
+                  "Plist": ""
+                },
+                "Scale9Width": 23,
+                "Scale9Height": 24,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 36.248,
+                  "Y": 21.1468
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.197,
+                  "Y": 0.4918
+                },
+                "PreSize": {
+                  "X": 0.125,
+                  "Y": 0.5581
+                },
+                "HorizontalEdge": "BothEdge",
+                "LeftMargin": 24.748,
+                "RightMargin": 136.252,
+                "TopMargin": 9.8532,
+                "BottomMargin": 9.1468,
+                "UserData": "scale",
+                "Tag": 825,
+                "ActionTag": -728706398,
+                "Size": {
+                  "X": 23.0,
+                  "Y": 24.0
+                },
+                "Name": "numA0",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "ChooseRoomGUI/person_avaiable.png",
+                  "Plist": ""
+                },
+                "Scale9Width": 23,
+                "Scale9Height": 24,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 74.1152,
+                  "Y": 21.1468
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.4028,
+                  "Y": 0.4918
+                },
+                "PreSize": {
+                  "X": 0.125,
+                  "Y": 0.5581
+                },
+                "HorizontalEdge": "BothEdge",
+                "LeftMargin": 62.6152,
+                "RightMargin": 98.3848,
+                "TopMargin": 9.8532,
+                "BottomMargin": 9.1468,
+                "UserData": "scale",
+                "Tag": 824,
+                "ActionTag": -1142047591,
+                "Size": {
+                  "X": 23.0,
+                  "Y": 24.0
+                },
+                "Name": "numA1",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "ChooseRoomGUI/person_avaiable.png",
+                  "Plist": ""
+                },
+                "Scale9Width": 23,
+                "Scale9Height": 24,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 111.9824,
+                  "Y": 21.1468
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.6086,
+                  "Y": 0.4918
+                },
+                "PreSize": {
+                  "X": 0.125,
+                  "Y": 0.5581
+                },
+                "HorizontalEdge": "BothEdge",
+                "LeftMargin": 100.4824,
+                "RightMargin": 60.5176,
+                "TopMargin": 9.8532,
+                "BottomMargin": 9.1468,
+                "UserData": "scale",
+                "Tag": 823,
+                "ActionTag": -449504095,
+                "Size": {
+                  "X": 23.0,
+                  "Y": 24.0
+                },
+                "Name": "numA2",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "ChooseRoomGUI/person_avaiable.png",
+                  "Plist": ""
+                },
+                "Scale9Width": 23,
+                "Scale9Height": 24,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 149.868,
+                  "Y": 21.1468
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.8145,
+                  "Y": 0.4918
+                },
+                "PreSize": {
+                  "X": 0.125,
+                  "Y": 0.5581
+                },
+                "HorizontalEdge": "BothEdge",
+                "LeftMargin": 138.368,
+                "RightMargin": 22.632,
+                "TopMargin": 9.8532,
+                "BottomMargin": 9.1468,
+                "Tag": 822,
+                "ActionTag": 1692297609,
+                "Size": {
+                  "X": 23.0,
+                  "Y": 24.0
+                },
+                "Name": "numA3",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "ChooseRoomGUI/iconBlackList.png",
+                  "Plist": ""
+                },
+                "Scale9OriginX": 6,
+                "Scale9OriginY": 6,
+                "Scale9Width": 1,
+                "Scale9Height": 1,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 42.9792,
+                  "Y": 14.584
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.2336,
+                  "Y": 0.3392
+                },
+                "PreSize": {
+                  "X": 0.0652,
+                  "Y": 0.2791
+                },
+                "LeftMargin": 36.9792,
+                "RightMargin": 135.0208,
+                "TopMargin": 22.416,
+                "BottomMargin": 8.584,
+                "Tag": 126,
+                "ActionTag": 525909570,
+                "Size": {
+                  "X": 12.0,
+                  "Y": 12.0
+                },
+                "Name": "iconBlackList",
+                "ctype": "ImageViewObjectData"
+              }
+            ],
+            "ActionTag": -189950382,
+            "Size": {
+              "X": 184.0,
+              "Y": 43.0
+            },
+            "Name": "pNum",
+            "ctype": "PanelObjectData"
+          }
+        ],
+        "Size": {
+          "X": 800.0,
+          "Y": 43.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "ChooseRoomGUI/bigbet.png",
+        "ChooseRoomGUI/blue.png",
+        "ChooseRoomGUI/green.png",
+        "ChooseRoomGUI/iconBlackList.png",
+        "ChooseRoomGUI/iconSolo.png",
+        "ChooseRoomGUI/person_avaiable.png",
+        "ChooseRoomGUI/person_unavaiable.png",
+        "ChooseRoomGUI/room_split.png",
+        "ChooseRoomGUI/roombg.png",
+        "ChooseRoomGUI/roomBgSolo.png",
+        "ChooseRoomGUI/violet.png",
+        "Default/ImageFile.png",
+        "Font/tahoma.ttf"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}

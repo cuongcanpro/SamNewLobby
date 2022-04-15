@@ -36,17 +36,20 @@ var LobbyMgr = BaseMgr.extend({
         db.DBCCFactory.getInstance().loadDragonBonesData("res/Armatures/Notify/skeleton.xml","Notify");
         db.DBCCFactory.getInstance().loadTextureAtlas("res/Armatures/Notify/texture.plist", "Notify");
 
-        db.DBCCFactory.getInstance().loadDragonBonesData("res/Board/Interact/item_anim/skeleton.xml", "item_anim");
-        db.DBCCFactory.getInstance().loadTextureAtlas("res/Board/Interact/item_anim/texture.plist", "item_anim");
-
-        db.DBCCFactory.getInstance().loadDragonBonesData("res/Board/Interact/interact_covid/skeleton.xml", "Covid");
-        db.DBCCFactory.getInstance().loadTextureAtlas("res/Board/Interact/interact_covid/texture.plist", "Covid");
+        db.DBCCFactory.getInstance().loadDragonBonesData("res/Armatures/Highlight/skeleton.xml","Highlight");
+        db.DBCCFactory.getInstance().loadTextureAtlas("res/Armatures/Highlight/texture.plist", "Highlight");
 
         db.DBCCFactory.getInstance().loadDragonBonesData("res/Armatures/iconBottom/skeleton.xml", "iconBottom");
         db.DBCCFactory.getInstance().loadTextureAtlas("res/Armatures/iconBottom/texture.plist", "iconBottom");
 
         db.DBCCFactory.getInstance().loadDragonBonesData("res/Armatures/iconTop/skeleton.xml", "iconTop");
         db.DBCCFactory.getInstance().loadTextureAtlas("res/Armatures/iconTop/texture.plist", "iconTop");
+
+        db.DBCCFactory.getInstance().loadDragonBonesData("Interact/item_anim/skeleton.xml", "item_anim");
+        db.DBCCFactory.getInstance().loadTextureAtlas("Interact/item_anim/texture.plist", "item_anim");
+
+        db.DBCCFactory.getInstance().loadDragonBonesData("Interact/interact_covid/skeleton.xml", "Covid");
+        db.DBCCFactory.getInstance().loadTextureAtlas("Interact/interact_covid/texture.plist", "Covid");
     },
 
     initListener: function () {
